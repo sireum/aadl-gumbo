@@ -25,6 +25,7 @@ import org.osate.aadl2.Classifier
 import org.osate.aadl2.ComponentImplementation
 
 import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
+import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
 /**
  * This class contains custom scoping description.
@@ -61,6 +62,11 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	
 	//'scope_IdExpr_id'
 	def scope_IdExpr_id(IdExpr context, EReference reference) {
+		genericContext(context, reference)
+	}
+	
+	//scope_HyperperiodComputationalModel_constraints
+	def scope_HyperperiodComputationalModel_constraints(HyperperiodComputationalModel context, EReference reference) {
 		genericContext(context, reference)
 	}
 }

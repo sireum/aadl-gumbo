@@ -31,6 +31,7 @@ import org.osate.aadl2.NamedElement;
 import org.osate.xtext.aadl2.properties.scoping.PropertiesScopeProvider;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
+import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel;
 import org.sireum.aadl.gumbo.gumbo.IdExpr;
 import org.sireum.aadl.gumbo.scoping.AbstractGumboScopeProvider;
 
@@ -74,6 +75,10 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
   }
   
   public SimpleScope scope_IdExpr_id(final IdExpr context, final EReference reference) {
+    return this.genericContext(context, reference);
+  }
+  
+  public SimpleScope scope_HyperperiodComputationalModel_constraints(final HyperperiodComputationalModel context, final EReference reference) {
     return this.genericContext(context, reference);
   }
 }
