@@ -13,6 +13,23 @@
  */
 package org.sireum.aadl.gumbo.scoping;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
+import java.lang.reflect.Method;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.impl.SimpleScope;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.osate.aadl2.Classifier;
+import org.osate.aadl2.ComponentImplementation;
+import org.osate.aadl2.Feature;
+import org.osate.aadl2.NamedElement;
+import org.osate.xtext.aadl2.properties.scoping.PropertiesScopeProvider;
+import org.sireum.aadl.gumbo.gumbo.FeatureElement;
 import org.sireum.aadl.gumbo.scoping.AbstractGumboScopeProvider;
 
 /**
@@ -23,4 +40,26 @@ import org.sireum.aadl.gumbo.scoping.AbstractGumboScopeProvider;
  */
 @SuppressWarnings("all")
 public class GumboScopeProvider extends AbstractGumboScopeProvider {
+  @Override
+  protected Predicate<Method> getPredicate(final EObject context, final EReference reference) {
+    final Predicate<Method> method = super.getPredicate(context, reference);
+    InputOutput.<Predicate<Method>>println(method);
+    return method;
+  }
+  
+  public SimpleScope scope_FeatureElement_feature(final FeatureElement context, final EReference reference) {
+    SimpleScope _xblockexpression = null;
+    {
+      final Classifier classifier = EcoreUtil2.<Classifier>getContainerOfType(context, Classifier.class);
+      EList<Feature> _allFeatures = classifier.getAllFeatures();
+      List<? extends NamedElement> _xifexpression = null;
+      if ((classifier instanceof ComponentImplementation)) {
+        _xifexpression = ((ComponentImplementation)classifier).getAllInternalFeatures();
+      } else {
+        _xifexpression = CollectionLiterals.<Feature>emptyList();
+      }
+      _xblockexpression = PropertiesScopeProvider.scopeFor(Iterables.<NamedElement>concat(_allFeatures, _xifexpression));
+    }
+    return _xblockexpression;
+  }
 }

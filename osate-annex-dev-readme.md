@@ -1,9 +1,13 @@
 # OSATE Annex Development Instructions
 
-## The Basics
-1. In an OSATE Dev environment ``File >> New >> Project >> Xtext Project ``
+This guide is based on observations/examanations of the 
+[EMV2](https://github.com/osate/osate2/tree/master/emv2) and 
+[SecMF](https://github.com/sireum/aadl-security) projects.
 
-1. Set fields ``Project name``, ``Language name``, ``Language Extensions``
+## The Basics
+1. Setup an OSATE Dev environment and then ``File >> New >> Project >> Xtext Project ``
+
+1. Set fields ``Project name``, ``Language name``, ``Language Extensions`` as appropriate for your annex
 
 1. ``Execution environment`` must be java 1.8
 
@@ -11,7 +15,7 @@
 
 1. This will generate the mwe2 and xtext files 
 
-1. Modify the xtext grammar to use OSATE artifcates similar to what's in [org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/Gumbo.xtext](org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/Gumbo.xtext)
+1. Modify the xtext grammar to use OSATE artifacts similar to what's in [org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/Gumbo.xtext](org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/Gumbo.xtext)
 
 1. Modify the mwe2 to resemble [org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/GenerateGumbo.mwe2](org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/GenerateGumbo.mwe2)
 
@@ -30,3 +34,43 @@
     [org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/parsing](org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/parsing)
 
 1. Add the parsing package artifacts as extensions as seen in [org.sireum.aadl.gumbo/plugin.xml](org.sireum.aadl.gumbo/plugin.xml)
+
+## Scoping / Symbol Resolution
+
+Scopes need to be added for rules like the following:
+
+```
+FeatureElement returns FeatureElement:
+	feature=[aadl2::NamedElement|ID];
+ ```
+
+The scopes are added via reflected calls to [org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/scoping/GumboScopeProvider.xtend](org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/scoping/GumboScopeProvider.xtend)
+
+Assuming the above rule is processed while visiting an OSATE thread, the following will get the classifier for the thread, and add a scope for all its features.  These will then be used when OSATE needs to resolve 
+the referenced sybmol.
+
+```
+	def SimpleScope scope_FeatureElement_feature(FeatureElement context, EReference reference) {
+		val classifier = context.getContainerOfType(Classifier)
+						
+		(classifier.getAllFeatures +
+					if (classifier instanceof ComponentImplementation) {
+						classifier.allInternalFeatures
+					} else {
+						emptyList
+					}).scopeFor
+	}
+```
+
+NOTE: OSATE might not resolve the reference until the corresponding field is actually accessed.  So for example, navigating to the container holding a 'FeatureElement' using the debugger starting at the top level GumboSubclause might show the container pointing to a PropertyImpl.  However, the PropertyImpl will be
+replaced with, for example, a DataPortImpl when the '.feature' field is accessed via a visitor/formatter/serializer/etc.
+
+Adding something like the following can help determine what the method names are that will be called via reflection:
+
+```
+	override protected Predicate<Method> getPredicate(EObject context, EReference reference) {
+		val method = super.getPredicate(context, reference)
+		println(method)  
+		return method
+	}
+```

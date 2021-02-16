@@ -13,6 +13,16 @@
  */
 package org.sireum.aadl.gumbo.scoping
 
+import com.google.common.base.Predicate
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import java.lang.reflect.Method
+import org.eclipse.xtext.scoping.impl.SimpleScope
+import org.sireum.aadl.gumbo.gumbo.FeatureElement
+import org.osate.aadl2.Classifier
+import org.osate.aadl2.ComponentImplementation
+
+import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
 
 /**
  * This class contains custom scoping description.
@@ -21,5 +31,20 @@ package org.sireum.aadl.gumbo.scoping
  * on how and when to use it.
  */
 class GumboScopeProvider extends AbstractGumboScopeProvider {
-
+	override protected Predicate<Method> getPredicate(EObject context, EReference reference) {
+		val method = super.getPredicate(context, reference)
+		println(method)  
+		return method
+	}
+	
+	def SimpleScope scope_FeatureElement_feature(FeatureElement context, EReference reference) {
+		val classifier = context.getContainerOfType(Classifier)
+						
+		(classifier.getAllFeatures +
+					if (classifier instanceof ComponentImplementation) {
+						classifier.allInternalFeatures
+					} else {
+						emptyList
+					}).scopeFor
+	}
 }
