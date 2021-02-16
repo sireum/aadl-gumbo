@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.sireum.org/aadl/gumbo/Gumbo"
+			class = "org.sireum.aadl.gumbo.gumbo.GumboPackage"
+			genModel = "model/generated/Gumbo.genmodel" />
+	</extension>
+	
+   <extension 
+   		id="GumboParser"
+   		name="GumboP"
+   		point="org.osate.annexsupport.parser">
+         <parser 	
+         	annexName="Gumbo"
+         	annexNSURI="http://www.aadl.info/Gumbo"
+         	class="org.sireum.aadl.gumbo.parsing.GumboAnnexParser"
+         	name="Gumbo Annex Parser"
+         	id="org.sireum.aadl.gumbo.parser"/>
+   </extension>
+   <extension
+         id="GumboLinkingService"
+         name="GumboL"
+         point="org.osate.annexsupport.linkingservice">
+      <linkingservice
+            annexName="Gumbo"
+            class="org.sireum.aadl.gumbo.parsing.GumboAnnexLinkingService"
+            name="Gumbo Annex Linking Service"
+            id="org.sireum.aadl.gumbo.linkingservice"/>
+   </extension>
+   <extension
+         id="GumboUnparser"
+         name="GumboU"
+         point="org.osate.annexsupport.unparser">
+      <unparser
+            annexName="Gumbo"
+            class="org.sireum.aadl.gumbo.parsing.GumboAnnexUnparser"
+            name="Gumbo Annex Unparser"
+            id="org.sireum.aadl.gumbo.unparser"/>
+   </extension>	
+</plugin>

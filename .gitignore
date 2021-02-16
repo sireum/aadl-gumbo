@@ -1,0 +1,6 @@
+**/bin/
+**/test-bin/
+**/.cache
+**_trace
+**xtextbin
+**xtendbin

@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.sireum.aadl.gumbo.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: org.sireum.aadl.gumbo.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.sireum.aadl.gumbo.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.sireum.aadl.gumbo,
+ org.sireum.aadl.gumbo.ide,
+ org.eclipse.xtext.ui;bundle-version="[2.20.0,3.0.0)",
+ org.eclipse.ui.editors;bundle-version="[3.7.0,4.0.0)",
+ org.eclipse.ui.ide;bundle-version="[3.7.0,4.0.0)",
+ org.eclipse.xtext.ui.shared;bundle-version="[2.20.0,3.0.0)",
+ org.eclipse.ui;bundle-version="[3.115.0,4.0.0)",
+ org.eclipse.xtext.builder;bundle-version="[2.20.0,3.0.0)",
+ org.antlr.runtime;bundle-version="[3.2.0,4.0.0)",
+ org.eclipse.xtext.common.types.ui;bundle-version="[2.20.0,3.0.0)",
+ org.osate.xtext.aadl2.properties.ui;bundle-version="[4.0.0,5.0.0)",
+ org.osate.aadl2;bundle-version="[4.0.0,5.0.0)",
+ org.osate.aadl2.modelsupport;bundle-version="[6.0.0,7.0.0)",
+ org.osate.annexsupport;bundle-version="[3.1.0,4.0.0)",
+ org.eclipse.emf.transaction;bundle-version="[1.9.0,2.0.0)",
+ org.eclipse.xtext.xbase.lib;bundle-version="[2.20.0,3.0.0)",
+ org.osate.xtext.aadl2.ui;bundle-version="[6.0.0,7.0.0)",
+ org.eclipse.xtend.lib;bundle-version="[2.20.0,3.0.0)";resolution:=optional
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.sireum.aadl.gumbo.ide.contentassist.antlr.internal,
+ org.sireum.aadl.gumbo.ide.contentassist.antlr,
+ org.sireum.aadl.gumbo.ui.contentassist,
+ org.sireum.aadl.gumbo.ui.quickfix,
+ org.sireum.aadl.gumbo.ide.contentassist.antlr.lexer
+Bundle-Activator: org.sireum.aadl.gumbo.ui.internal.GumboActivator
