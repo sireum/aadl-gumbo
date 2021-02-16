@@ -328,6 +328,100 @@ public interface GumboPackage extends EPackage
   int FLOW_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ContractImpl <em>Contract</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ContractImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getContract()
+   * @generated
+   */
+  int CONTRACT = 6;
+
+  /**
+   * The feature id for the '<em><b>Specs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTRACT__SPECS = SPEC_SECTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Contract</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTRACT_FEATURE_COUNT = SPEC_SECTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl <em>Spec Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSpecStatement()
+   * @generated
+   */
+  int SPEC_STATEMENT = 7;
+
+  /**
+   * The number of structural features of the '<em>Spec Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPEC_STATEMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ExprImpl <em>Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getExpr()
+   * @generated
+   */
+  int EXPR = 8;
+
+  /**
+   * The number of structural features of the '<em>Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SubcomponentElementImpl <em>Subcomponent Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SubcomponentElementImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSubcomponentElement()
+   * @generated
+   */
+  int SUBCOMPONENT_ELEMENT = 9;
+
+  /**
+   * The feature id for the '<em><b>Subcomponent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBCOMPONENT_ELEMENT__SUBCOMPONENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Subcomponent Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBCOMPONENT_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl <em>Feature Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -335,7 +429,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFeatureElement()
    * @generated
    */
-  int FEATURE_ELEMENT = 6;
+  int FEATURE_ELEMENT = 10;
 
   /**
    * The feature id for the '<em><b>Feature</b></em>' reference.
@@ -363,7 +457,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPeriodicComputationalModel()
    * @generated
    */
-  int PERIODIC_COMPUTATIONAL_MODEL = 7;
+  int PERIODIC_COMPUTATIONAL_MODEL = 11;
 
   /**
    * The number of structural features of the '<em>Periodic Computational Model</em>' class.
@@ -382,7 +476,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHyperperiodComputationalModel()
    * @generated
    */
-  int HYPERPERIOD_COMPUTATIONAL_MODEL = 8;
+  int HYPERPERIOD_COMPUTATIONAL_MODEL = 12;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' reference list.
@@ -401,6 +495,209 @@ public interface GumboPackage extends EPackage
    * @ordered
    */
   int HYPERPERIOD_COMPUTATIONAL_MODEL_FEATURE_COUNT = COMPUTATIONAL_MODEL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.AssumeStatementImpl <em>Assume Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.AssumeStatementImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAssumeStatement()
+   * @generated
+   */
+  int ASSUME_STATEMENT = 13;
+
+  /**
+   * The feature id for the '<em><b>For Port</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__FOR_PORT = SPEC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Assume Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__ASSUME_TITLE = SPEC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Pred</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__PRED = SPEC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Traces To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__TRACES_TO = SPEC_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Assume Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT_FEATURE_COUNT = SPEC_STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.GuaranteeStatementImpl <em>Guarantee Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GuaranteeStatementImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getGuaranteeStatement()
+   * @generated
+   */
+  int GUARANTEE_STATEMENT = 14;
+
+  /**
+   * The feature id for the '<em><b>Guarantee Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARANTEE_STATEMENT__GUARANTEE_TITLE = SPEC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARANTEE_STATEMENT__EXPR = SPEC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Guarantee Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARANTEE_STATEMENT_FEATURE_COUNT = SPEC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryExprImpl <em>Binary Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryExpr()
+   * @generated
+   */
+  int BINARY_EXPR = 15;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR__LEFT = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR__RIGHT = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR__OP = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Binary Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryExpr()
+   * @generated
+   */
+  int UNARY_EXPR = 16;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR__OP = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR__EXPR = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Unary Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.IdExprImpl <em>Id Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.IdExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIdExpr()
+   * @generated
+   */
+  int ID_EXPR = 17;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_EXPR__ID = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Id Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
 
 
   /**
@@ -519,6 +816,68 @@ public interface GumboPackage extends EPackage
   EReference getFlow_DstPorts();
 
   /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.Contract <em>Contract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Contract</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Contract
+   * @generated
+   */
+  EClass getContract();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.Contract#getSpecs <em>Specs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Specs</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Contract#getSpecs()
+   * @see #getContract()
+   * @generated
+   */
+  EReference getContract_Specs();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SpecStatement <em>Spec Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Spec Statement</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SpecStatement
+   * @generated
+   */
+  EClass getSpecStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.Expr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Expr
+   * @generated
+   */
+  EClass getExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement <em>Subcomponent Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Subcomponent Element</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SubcomponentElement
+   * @generated
+   */
+  EClass getSubcomponentElement();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement#getSubcomponent <em>Subcomponent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Subcomponent</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SubcomponentElement#getSubcomponent()
+   * @see #getSubcomponentElement()
+   * @generated
+   */
+  EReference getSubcomponentElement_Subcomponent();
+
+  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.FeatureElement <em>Feature Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -569,6 +928,188 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getHyperperiodComputationalModel_Constraints();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement <em>Assume Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Assume Statement</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.AssumeStatement
+   * @generated
+   */
+  EClass getAssumeStatement();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getForPort <em>For Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>For Port</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.AssumeStatement#getForPort()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EReference getAssumeStatement_ForPort();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getAssumeTitle <em>Assume Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Assume Title</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.AssumeStatement#getAssumeTitle()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EAttribute getAssumeStatement_AssumeTitle();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getPred <em>Pred</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pred</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.AssumeStatement#getPred()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EAttribute getAssumeStatement_Pred();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getTracesTo <em>Traces To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Traces To</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.AssumeStatement#getTracesTo()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EAttribute getAssumeStatement_TracesTo();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement <em>Guarantee Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Guarantee Statement</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
+   * @generated
+   */
+  EClass getGuaranteeStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getGuaranteeTitle <em>Guarantee Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Guarantee Title</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getGuaranteeTitle()
+   * @see #getGuaranteeStatement()
+   * @generated
+   */
+  EAttribute getGuaranteeStatement_GuaranteeTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getExpr()
+   * @see #getGuaranteeStatement()
+   * @generated
+   */
+  EReference getGuaranteeStatement_Expr();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr <em>Binary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Binary Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryExpr
+   * @generated
+   */
+  EClass getBinaryExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryExpr#getLeft()
+   * @see #getBinaryExpr()
+   * @generated
+   */
+  EReference getBinaryExpr_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryExpr#getRight()
+   * @see #getBinaryExpr()
+   * @generated
+   */
+  EReference getBinaryExpr_Right();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryExpr#getOp()
+   * @see #getBinaryExpr()
+   * @generated
+   */
+  EAttribute getBinaryExpr_Op();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.UnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unary Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryExpr
+   * @generated
+   */
+  EClass getUnaryExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.UnaryExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryExpr#getOp()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EAttribute getUnaryExpr_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.UnaryExpr#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryExpr#getExpr()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EReference getUnaryExpr_Expr();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.IdExpr <em>Id Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Id Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.IdExpr
+   * @generated
+   */
+  EClass getIdExpr();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.IdExpr#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Id</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.IdExpr#getId()
+   * @see #getIdExpr()
+   * @generated
+   */
+  EReference getIdExpr_Id();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -694,6 +1235,62 @@ public interface GumboPackage extends EPackage
     EReference FLOW__DST_PORTS = eINSTANCE.getFlow_DstPorts();
 
     /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ContractImpl <em>Contract</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ContractImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getContract()
+     * @generated
+     */
+    EClass CONTRACT = eINSTANCE.getContract();
+
+    /**
+     * The meta object literal for the '<em><b>Specs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTRACT__SPECS = eINSTANCE.getContract_Specs();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl <em>Spec Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSpecStatement()
+     * @generated
+     */
+    EClass SPEC_STATEMENT = eINSTANCE.getSpecStatement();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ExprImpl <em>Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ExprImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getExpr()
+     * @generated
+     */
+    EClass EXPR = eINSTANCE.getExpr();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SubcomponentElementImpl <em>Subcomponent Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SubcomponentElementImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSubcomponentElement()
+     * @generated
+     */
+    EClass SUBCOMPONENT_ELEMENT = eINSTANCE.getSubcomponentElement();
+
+    /**
+     * The meta object literal for the '<em><b>Subcomponent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUBCOMPONENT_ELEMENT__SUBCOMPONENT = eINSTANCE.getSubcomponentElement_Subcomponent();
+
+    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl <em>Feature Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -738,6 +1335,152 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS = eINSTANCE.getHyperperiodComputationalModel_Constraints();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.AssumeStatementImpl <em>Assume Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.AssumeStatementImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAssumeStatement()
+     * @generated
+     */
+    EClass ASSUME_STATEMENT = eINSTANCE.getAssumeStatement();
+
+    /**
+     * The meta object literal for the '<em><b>For Port</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSUME_STATEMENT__FOR_PORT = eINSTANCE.getAssumeStatement_ForPort();
+
+    /**
+     * The meta object literal for the '<em><b>Assume Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSUME_STATEMENT__ASSUME_TITLE = eINSTANCE.getAssumeStatement_AssumeTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Pred</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSUME_STATEMENT__PRED = eINSTANCE.getAssumeStatement_Pred();
+
+    /**
+     * The meta object literal for the '<em><b>Traces To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSUME_STATEMENT__TRACES_TO = eINSTANCE.getAssumeStatement_TracesTo();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.GuaranteeStatementImpl <em>Guarantee Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GuaranteeStatementImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getGuaranteeStatement()
+     * @generated
+     */
+    EClass GUARANTEE_STATEMENT = eINSTANCE.getGuaranteeStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Guarantee Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GUARANTEE_STATEMENT__GUARANTEE_TITLE = eINSTANCE.getGuaranteeStatement_GuaranteeTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GUARANTEE_STATEMENT__EXPR = eINSTANCE.getGuaranteeStatement_Expr();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryExprImpl <em>Binary Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryExprImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryExpr()
+     * @generated
+     */
+    EClass BINARY_EXPR = eINSTANCE.getBinaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_EXPR__LEFT = eINSTANCE.getBinaryExpr_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_EXPR__RIGHT = eINSTANCE.getBinaryExpr_Right();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_EXPR__OP = eINSTANCE.getBinaryExpr_Op();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryExpr()
+     * @generated
+     */
+    EClass UNARY_EXPR = eINSTANCE.getUnaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPR__OP = eINSTANCE.getUnaryExpr_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPR__EXPR = eINSTANCE.getUnaryExpr_Expr();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.IdExprImpl <em>Id Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.IdExprImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIdExpr()
+     * @generated
+     */
+    EClass ID_EXPR = eINSTANCE.getIdExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ID_EXPR__ID = eINSTANCE.getIdExpr_Id();
 
   }
 

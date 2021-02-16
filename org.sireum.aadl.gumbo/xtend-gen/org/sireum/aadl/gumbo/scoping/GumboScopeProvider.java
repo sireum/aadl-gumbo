@@ -29,7 +29,9 @@ import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.Feature;
 import org.osate.aadl2.NamedElement;
 import org.osate.xtext.aadl2.properties.scoping.PropertiesScopeProvider;
+import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
+import org.sireum.aadl.gumbo.gumbo.IdExpr;
 import org.sireum.aadl.gumbo.scoping.AbstractGumboScopeProvider;
 
 /**
@@ -47,7 +49,7 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
     return method;
   }
   
-  public SimpleScope scope_FeatureElement_feature(final FeatureElement context, final EReference reference) {
+  public SimpleScope genericContext(final EObject context, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
       final Classifier classifier = EcoreUtil2.<Classifier>getContainerOfType(context, Classifier.class);
@@ -61,5 +63,17 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
       _xblockexpression = PropertiesScopeProvider.scopeFor(Iterables.<NamedElement>concat(_allFeatures, _xifexpression));
     }
     return _xblockexpression;
+  }
+  
+  public SimpleScope scope_FeatureElement_feature(final FeatureElement context, final EReference reference) {
+    return this.genericContext(context, reference);
+  }
+  
+  public SimpleScope scope_AssumeStatement_forPort(final AssumeStatement context, final EReference reference) {
+    return this.genericContext(context, reference);
+  }
+  
+  public SimpleScope scope_IdExpr_id(final IdExpr context, final EReference reference) {
+    return this.genericContext(context, reference);
   }
 }

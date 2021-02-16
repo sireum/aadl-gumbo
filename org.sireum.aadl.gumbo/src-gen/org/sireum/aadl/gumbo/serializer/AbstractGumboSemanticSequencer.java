@@ -43,14 +43,21 @@ import org.osate.aadl2.RecordValue;
 import org.osate.aadl2.ReferenceValue;
 import org.osate.aadl2.StringLiteral;
 import org.osate.xtext.aadl2.properties.serializer.PropertiesSemanticSequencer;
+import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
+import org.sireum.aadl.gumbo.gumbo.BinaryExpr;
+import org.sireum.aadl.gumbo.gumbo.Contract;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
 import org.sireum.aadl.gumbo.gumbo.Flow;
 import org.sireum.aadl.gumbo.gumbo.Flows;
+import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.IdExpr;
 import org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
+import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
 import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 
 @SuppressWarnings("all")
@@ -164,6 +171,50 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			}
 		else if (epackage == GumboPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case GumboPackage.ASSUME_STATEMENT:
+				sequence_SpecStatement(context, (AssumeStatement) semanticObject); 
+				return; 
+			case GumboPackage.BINARY_EXPR:
+				if (rule == grammarAccess.getExprRule()
+						|| rule == grammarAccess.getImpliesExprRule()) {
+					sequence_AndExpr_ExpExpr_ImpliesExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else if (action == grammarAccess.getImpliesExprAccess().getBinaryExprLeftAction_1_0_0_0()
+						|| rule == grammarAccess.getOrExprRule()
+						|| action == grammarAccess.getOrExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
+					sequence_AndExpr_ExpExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getAndExprRule()
+						|| action == grammarAccess.getAndExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
+					sequence_AndExpr_ExpExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getExpExprRule()
+						|| action == grammarAccess.getExpExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
+					sequence_ExpExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getRelationalExprRule()) {
+					sequence_ExpExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else if (action == grammarAccess.getRelationalExprAccess().getBinaryExprLeftAction_1_0_0_0()
+						|| rule == grammarAccess.getPlusExprRule()
+						|| action == grammarAccess.getPlusExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
+					sequence_ExpExpr_PlusExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTimesExprRule()
+						|| action == grammarAccess.getTimesExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
+					sequence_ExpExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else break;
+			case GumboPackage.CONTRACT:
+				sequence_Contract(context, (Contract) semanticObject); 
+				return; 
 			case GumboPackage.FEATURE_ELEMENT:
 				sequence_FeatureElement(context, (FeatureElement) semanticObject); 
 				return; 
@@ -172,6 +223,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.FLOWS:
 				sequence_Flows(context, (Flows) semanticObject); 
+				return; 
+			case GumboPackage.GUARANTEE_STATEMENT:
+				sequence_SpecStatement(context, (GuaranteeStatement) semanticObject); 
 				return; 
 			case GumboPackage.GUMBO_LIBRARY:
 				sequence_GumboLibrary(context, (GumboLibrary) semanticObject); 
@@ -182,13 +236,117 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.HYPERPERIOD_COMPUTATIONAL_MODEL:
 				sequence_ComputationalModel(context, (HyperperiodComputationalModel) semanticObject); 
 				return; 
+			case GumboPackage.ID_EXPR:
+				sequence_AtomicExpr(context, (IdExpr) semanticObject); 
+				return; 
 			case GumboPackage.PERIODIC_COMPUTATIONAL_MODEL:
 				sequence_ComputationalModel(context, (PeriodicComputationalModel) semanticObject); 
+				return; 
+			case GumboPackage.SUBCOMPONENT_ELEMENT:
+				sequence_SubcomponentElement(context, (SubcomponentElement) semanticObject); 
+				return; 
+			case GumboPackage.UNARY_EXPR:
+				sequence_PrefixExpr(context, (UnaryExpr) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Expr returns BinaryExpr
+	 *     ImpliesExpr returns BinaryExpr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=ImpliesExpr_BinaryExpr_1_0_0_0 right=ImpliesExpr) | 
+	 *         (left=OrExpr_BinaryExpr_1_0_0_0 (op='or' | op='orelse') right=AndExpr) | 
+	 *         (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=RelationalExpr) | 
+	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
+	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=ExpExpr) | 
+	 *         (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr)
+	 *     )
+	 */
+	protected void sequence_AndExpr_ExpExpr_ImpliesExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(ISerializationContext context, BinaryExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
+	 *     OrExpr returns BinaryExpr
+	 *     OrExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=OrExpr_BinaryExpr_1_0_0_0 (op='or' | op='orelse') right=AndExpr) | 
+	 *         (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=RelationalExpr) | 
+	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
+	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=ExpExpr) | 
+	 *         (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr)
+	 *     )
+	 */
+	protected void sequence_AndExpr_ExpExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(ISerializationContext context, BinaryExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AndExpr returns BinaryExpr
+	 *     AndExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=RelationalExpr) | 
+	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
+	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=ExpExpr) | 
+	 *         (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr)
+	 *     )
+	 */
+	protected void sequence_AndExpr_ExpExpr_PlusExpr_RelationalExpr_TimesExpr(ISerializationContext context, BinaryExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expr returns IdExpr
+	 *     ImpliesExpr returns IdExpr
+	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns IdExpr
+	 *     OrExpr returns IdExpr
+	 *     OrExpr.BinaryExpr_1_0_0_0 returns IdExpr
+	 *     AndExpr returns IdExpr
+	 *     AndExpr.BinaryExpr_1_0_0_0 returns IdExpr
+	 *     RelationalExpr returns IdExpr
+	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns IdExpr
+	 *     PlusExpr returns IdExpr
+	 *     PlusExpr.BinaryExpr_1_0_0_0 returns IdExpr
+	 *     TimesExpr returns IdExpr
+	 *     TimesExpr.BinaryExpr_1_0_0_0 returns IdExpr
+	 *     ExpExpr returns IdExpr
+	 *     ExpExpr.BinaryExpr_1_0_0_0 returns IdExpr
+	 *     PrefixExpr returns IdExpr
+	 *     AtomicExpr returns IdExpr
+	 *
+	 * Constraint:
+	 *     id=[NamedElement|QCREF]
+	 */
+	protected void sequence_AtomicExpr(ISerializationContext context, IdExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.ID_EXPR__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ID_EXPR__ID));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicExprAccess().getIdNamedElementQCREFParserRuleCall_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ID_EXPR__ID, false));
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -212,6 +370,92 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     {PeriodicComputationalModel}
 	 */
 	protected void sequence_ComputationalModel(ISerializationContext context, PeriodicComputationalModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SpecSection returns Contract
+	 *     Contract returns Contract
+	 *
+	 * Constraint:
+	 *     specs+=SpecStatement+
+	 */
+	protected void sequence_Contract(ISerializationContext context, Contract semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExpExpr returns BinaryExpr
+	 *     ExpExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
+	 *
+	 * Constraint:
+	 *     (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr)
+	 */
+	protected void sequence_ExpExpr(ISerializationContext context, BinaryExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.BINARY_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.BINARY_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.BINARY_EXPR__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.BINARY_EXPR__OP));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.BINARY_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.BINARY_EXPR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpExprAccess().getBinaryExprLeftAction_1_0_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpExprAccess().getOpCircumflexAccentKeyword_1_0_0_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getExpExprAccess().getRightPrefixExprParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RelationalExpr returns BinaryExpr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
+	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=ExpExpr) | 
+	 *         (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr)
+	 *     )
+	 */
+	protected void sequence_ExpExpr_PlusExpr_RelationalExpr_TimesExpr(ISerializationContext context, BinaryExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
+	 *     PlusExpr returns BinaryExpr
+	 *     PlusExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
+	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=ExpExpr) | 
+	 *         (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr)
+	 *     )
+	 */
+	protected void sequence_ExpExpr_PlusExpr_TimesExpr(ISerializationContext context, BinaryExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TimesExpr returns BinaryExpr
+	 *     TimesExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
+	 *
+	 * Constraint:
+	 *     ((left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=ExpExpr) | (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr))
+	 */
+	protected void sequence_ExpExpr_TimesExpr(ISerializationContext context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -282,6 +526,84 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 */
 	protected void sequence_GumboSubclause(ISerializationContext context, GumboSubclause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expr returns UnaryExpr
+	 *     ImpliesExpr returns UnaryExpr
+	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
+	 *     OrExpr returns UnaryExpr
+	 *     OrExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
+	 *     AndExpr returns UnaryExpr
+	 *     AndExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
+	 *     RelationalExpr returns UnaryExpr
+	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
+	 *     PlusExpr returns UnaryExpr
+	 *     PlusExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
+	 *     TimesExpr returns UnaryExpr
+	 *     TimesExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
+	 *     ExpExpr returns UnaryExpr
+	 *     ExpExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
+	 *     PrefixExpr returns UnaryExpr
+	 *
+	 * Constraint:
+	 *     ((op='-' | op='not') expr=PrefixExpr)
+	 */
+	protected void sequence_PrefixExpr(ISerializationContext context, UnaryExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SpecStatement returns AssumeStatement
+	 *
+	 * Constraint:
+	 *     (forPort=[NamedElement|ID]? assumeTitle=STRING pred=PREDICATE tracesTo=ID?)
+	 */
+	protected void sequence_SpecStatement(ISerializationContext context, AssumeStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SpecStatement returns GuaranteeStatement
+	 *
+	 * Constraint:
+	 *     (guaranteeTitle=STRING expr=Expr)
+	 */
+	protected void sequence_SpecStatement(ISerializationContext context, GuaranteeStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.GUARANTEE_STATEMENT__GUARANTEE_TITLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.GUARANTEE_STATEMENT__GUARANTEE_TITLE));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.GUARANTEE_STATEMENT__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.GUARANTEE_STATEMENT__EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSpecStatementAccess().getGuaranteeTitleSTRINGTerminalRuleCall_1_2_0(), semanticObject.getGuaranteeTitle());
+		feeder.accept(grammarAccess.getSpecStatementAccess().getExprExprParserRuleCall_1_4_0(), semanticObject.getExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SubcomponentElement returns SubcomponentElement
+	 *
+	 * Constraint:
+	 *     subcomponent=[Subcomponent|ID]
+	 */
+	protected void sequence_SubcomponentElement(ISerializationContext context, SubcomponentElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SUBCOMPONENT_ELEMENT__SUBCOMPONENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SUBCOMPONENT_ELEMENT__SUBCOMPONENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSubcomponentElementAccess().getSubcomponentSubcomponentIDTerminalRuleCall_0_1(), semanticObject.eGet(GumboPackage.Literals.SUBCOMPONENT_ELEMENT__SUBCOMPONENT, false));
+		feeder.finish();
 	}
 	
 	

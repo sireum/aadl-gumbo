@@ -20,6 +20,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
@@ -28,10 +31,12 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
+		match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getImpliesExprAccess().getEqualsSignGreaterThanSignKeyword_1_0_0_1_0()), new TokenAlias(false, false, grammarAccess.getImpliesExprAccess().getImpliesKeyword_1_0_0_1_1()));
 	}
 	
 	@Override
@@ -84,8 +89,21 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1.equals(syntax))
+				emit_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     '=>' | 'implies'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     {BinaryExpr.left=} (ambiguity) right=ImpliesExpr
+	 */
+	protected void emit_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

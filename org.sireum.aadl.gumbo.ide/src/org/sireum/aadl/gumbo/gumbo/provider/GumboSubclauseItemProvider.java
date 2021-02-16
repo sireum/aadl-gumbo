@@ -181,6 +181,11 @@ public class GumboSubclauseItemProvider extends AnnexSubclauseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.GUMBO_SUBCLAUSE__SPECS,
+         GumboFactory.eINSTANCE.createContract()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.GUMBO_SUBCLAUSE__SPECS,
          GumboFactory.eINSTANCE.createPeriodicComputationalModel()));
 
     newChildDescriptors.add

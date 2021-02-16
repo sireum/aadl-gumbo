@@ -235,6 +235,106 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Contract} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ContractItemProvider contractItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Contract}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createContractAdapter()
+  {
+    if (contractItemProvider == null)
+    {
+      contractItemProvider = new ContractItemProvider(this);
+    }
+
+    return contractItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SpecStatement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SpecStatementItemProvider specStatementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SpecStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSpecStatementAdapter()
+  {
+    if (specStatementItemProvider == null)
+    {
+      specStatementItemProvider = new SpecStatementItemProvider(this);
+    }
+
+    return specStatementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Expr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ExprItemProvider exprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Expr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createExprAdapter()
+  {
+    if (exprItemProvider == null)
+    {
+      exprItemProvider = new ExprItemProvider(this);
+    }
+
+    return exprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SubcomponentElementItemProvider subcomponentElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSubcomponentElementAdapter()
+  {
+    if (subcomponentElementItemProvider == null)
+    {
+      subcomponentElementItemProvider = new SubcomponentElementItemProvider(this);
+    }
+
+    return subcomponentElementItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.FeatureElement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -307,6 +407,131 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return hyperperiodComputationalModelItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.AssumeStatement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected AssumeStatementItemProvider assumeStatementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.AssumeStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createAssumeStatementAdapter()
+  {
+    if (assumeStatementItemProvider == null)
+    {
+      assumeStatementItemProvider = new AssumeStatementItemProvider(this);
+    }
+
+    return assumeStatementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected GuaranteeStatementItemProvider guaranteeStatementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createGuaranteeStatementAdapter()
+  {
+    if (guaranteeStatementItemProvider == null)
+    {
+      guaranteeStatementItemProvider = new GuaranteeStatementItemProvider(this);
+    }
+
+    return guaranteeStatementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BinaryExprItemProvider binaryExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinaryExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBinaryExprAdapter()
+  {
+    if (binaryExprItemProvider == null)
+    {
+      binaryExprItemProvider = new BinaryExprItemProvider(this);
+    }
+
+    return binaryExprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.UnaryExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UnaryExprItemProvider unaryExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.UnaryExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUnaryExprAdapter()
+  {
+    if (unaryExprItemProvider == null)
+    {
+      unaryExprItemProvider = new UnaryExprItemProvider(this);
+    }
+
+    return unaryExprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IdExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected IdExprItemProvider idExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.IdExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createIdExprAdapter()
+  {
+    if (idExprItemProvider == null)
+    {
+      idExprItemProvider = new IdExprItemProvider(this);
+    }
+
+    return idExprItemProvider;
   }
 
   /**
@@ -432,9 +657,18 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (computationalModelItemProvider != null) computationalModelItemProvider.dispose();
     if (flowsItemProvider != null) flowsItemProvider.dispose();
     if (flowItemProvider != null) flowItemProvider.dispose();
+    if (contractItemProvider != null) contractItemProvider.dispose();
+    if (specStatementItemProvider != null) specStatementItemProvider.dispose();
+    if (exprItemProvider != null) exprItemProvider.dispose();
+    if (subcomponentElementItemProvider != null) subcomponentElementItemProvider.dispose();
     if (featureElementItemProvider != null) featureElementItemProvider.dispose();
     if (periodicComputationalModelItemProvider != null) periodicComputationalModelItemProvider.dispose();
     if (hyperperiodComputationalModelItemProvider != null) hyperperiodComputationalModelItemProvider.dispose();
+    if (assumeStatementItemProvider != null) assumeStatementItemProvider.dispose();
+    if (guaranteeStatementItemProvider != null) guaranteeStatementItemProvider.dispose();
+    if (binaryExprItemProvider != null) binaryExprItemProvider.dispose();
+    if (unaryExprItemProvider != null) unaryExprItemProvider.dispose();
+    if (idExprItemProvider != null) idExprItemProvider.dispose();
   }
 
 }

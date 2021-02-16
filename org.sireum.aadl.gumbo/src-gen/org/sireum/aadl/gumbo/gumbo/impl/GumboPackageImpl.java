@@ -23,17 +23,26 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.osate.aadl2.Aadl2Package;
 
+import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
+import org.sireum.aadl.gumbo.gumbo.BinaryExpr;
 import org.sireum.aadl.gumbo.gumbo.ComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.Contract;
+import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
 import org.sireum.aadl.gumbo.gumbo.Flow;
 import org.sireum.aadl.gumbo.gumbo.Flows;
+import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.IdExpr;
 import org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
+import org.sireum.aadl.gumbo.gumbo.SpecStatement;
+import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
+import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,6 +99,34 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass contractEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass specStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass subcomponentElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass featureElementEClass = null;
 
   /**
@@ -105,6 +142,41 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass hyperperiodComputationalModelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass assumeStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass guaranteeStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass binaryExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass idExprEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -300,6 +372,72 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getContract()
+  {
+    return contractEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContract_Specs()
+  {
+    return (EReference)contractEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSpecStatement()
+  {
+    return specStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExpr()
+  {
+    return exprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSubcomponentElement()
+  {
+    return subcomponentElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubcomponentElement_Subcomponent()
+  {
+    return (EReference)subcomponentElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFeatureElement()
   {
     return featureElementEClass;
@@ -355,6 +493,193 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getAssumeStatement()
+  {
+    return assumeStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAssumeStatement_ForPort()
+  {
+    return (EReference)assumeStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAssumeStatement_AssumeTitle()
+  {
+    return (EAttribute)assumeStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAssumeStatement_Pred()
+  {
+    return (EAttribute)assumeStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAssumeStatement_TracesTo()
+  {
+    return (EAttribute)assumeStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGuaranteeStatement()
+  {
+    return guaranteeStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGuaranteeStatement_GuaranteeTitle()
+  {
+    return (EAttribute)guaranteeStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGuaranteeStatement_Expr()
+  {
+    return (EReference)guaranteeStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBinaryExpr()
+  {
+    return binaryExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpr_Left()
+  {
+    return (EReference)binaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpr_Right()
+  {
+    return (EReference)binaryExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryExpr_Op()
+  {
+    return (EAttribute)binaryExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUnaryExpr()
+  {
+    return unaryExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUnaryExpr_Op()
+  {
+    return (EAttribute)unaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUnaryExpr_Expr()
+  {
+    return (EReference)unaryExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIdExpr()
+  {
+    return idExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIdExpr_Id()
+  {
+    return (EReference)idExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public GumboFactory getGumboFactory()
   {
     return (GumboFactory)getEFactoryInstance();
@@ -397,6 +722,16 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(flowEClass, FLOW__SRC_PORTS);
     createEReference(flowEClass, FLOW__DST_PORTS);
 
+    contractEClass = createEClass(CONTRACT);
+    createEReference(contractEClass, CONTRACT__SPECS);
+
+    specStatementEClass = createEClass(SPEC_STATEMENT);
+
+    exprEClass = createEClass(EXPR);
+
+    subcomponentElementEClass = createEClass(SUBCOMPONENT_ELEMENT);
+    createEReference(subcomponentElementEClass, SUBCOMPONENT_ELEMENT__SUBCOMPONENT);
+
     featureElementEClass = createEClass(FEATURE_ELEMENT);
     createEReference(featureElementEClass, FEATURE_ELEMENT__FEATURE);
 
@@ -404,6 +739,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     hyperperiodComputationalModelEClass = createEClass(HYPERPERIOD_COMPUTATIONAL_MODEL);
     createEReference(hyperperiodComputationalModelEClass, HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS);
+
+    assumeStatementEClass = createEClass(ASSUME_STATEMENT);
+    createEReference(assumeStatementEClass, ASSUME_STATEMENT__FOR_PORT);
+    createEAttribute(assumeStatementEClass, ASSUME_STATEMENT__ASSUME_TITLE);
+    createEAttribute(assumeStatementEClass, ASSUME_STATEMENT__PRED);
+    createEAttribute(assumeStatementEClass, ASSUME_STATEMENT__TRACES_TO);
+
+    guaranteeStatementEClass = createEClass(GUARANTEE_STATEMENT);
+    createEAttribute(guaranteeStatementEClass, GUARANTEE_STATEMENT__GUARANTEE_TITLE);
+    createEReference(guaranteeStatementEClass, GUARANTEE_STATEMENT__EXPR);
+
+    binaryExprEClass = createEClass(BINARY_EXPR);
+    createEReference(binaryExprEClass, BINARY_EXPR__LEFT);
+    createEReference(binaryExprEClass, BINARY_EXPR__RIGHT);
+    createEAttribute(binaryExprEClass, BINARY_EXPR__OP);
+
+    unaryExprEClass = createEClass(UNARY_EXPR);
+    createEAttribute(unaryExprEClass, UNARY_EXPR__OP);
+    createEReference(unaryExprEClass, UNARY_EXPR__EXPR);
+
+    idExprEClass = createEClass(ID_EXPR);
+    createEReference(idExprEClass, ID_EXPR__ID);
   }
 
   /**
@@ -443,8 +800,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     gumboSubclauseEClass.getESuperTypes().add(theAadl2Package.getAnnexSubclause());
     computationalModelEClass.getESuperTypes().add(this.getSpecSection());
     flowsEClass.getESuperTypes().add(this.getSpecSection());
+    contractEClass.getESuperTypes().add(this.getSpecSection());
     periodicComputationalModelEClass.getESuperTypes().add(this.getComputationalModel());
     hyperperiodComputationalModelEClass.getESuperTypes().add(this.getComputationalModel());
+    assumeStatementEClass.getESuperTypes().add(this.getSpecStatement());
+    guaranteeStatementEClass.getESuperTypes().add(this.getSpecStatement());
+    binaryExprEClass.getESuperTypes().add(this.getExpr());
+    unaryExprEClass.getESuperTypes().add(this.getExpr());
+    idExprEClass.getESuperTypes().add(this.getExpr());
 
     // Initialize classes and features; add operations and parameters
     initEClass(gumboLibraryEClass, GumboLibrary.class, "GumboLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -464,6 +827,16 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getFlow_SrcPorts(), this.getFeatureElement(), null, "srcPorts", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFlow_DstPorts(), this.getFeatureElement(), null, "dstPorts", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(contractEClass, Contract.class, "Contract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContract_Specs(), this.getSpecStatement(), null, "specs", null, 0, -1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(specStatementEClass, SpecStatement.class, "SpecStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(subcomponentElementEClass, SubcomponentElement.class, "SubcomponentElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubcomponentElement_Subcomponent(), theAadl2Package.getSubcomponent(), null, "subcomponent", null, 0, 1, SubcomponentElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(featureElementEClass, FeatureElement.class, "FeatureElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFeatureElement_Feature(), theAadl2Package.getNamedElement(), null, "feature", null, 0, 1, FeatureElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -471,6 +844,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(hyperperiodComputationalModelEClass, HyperperiodComputationalModel.class, "HyperperiodComputationalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getHyperperiodComputationalModel_Constraints(), theAadl2Package.getNamedElement(), null, "constraints", null, 0, -1, HyperperiodComputationalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(assumeStatementEClass, AssumeStatement.class, "AssumeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssumeStatement_ForPort(), theAadl2Package.getNamedElement(), null, "forPort", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssumeStatement_AssumeTitle(), theEcorePackage.getEString(), "assumeTitle", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssumeStatement_Pred(), theEcorePackage.getEString(), "pred", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssumeStatement_TracesTo(), theEcorePackage.getEString(), "tracesTo", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(guaranteeStatementEClass, GuaranteeStatement.class, "GuaranteeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGuaranteeStatement_GuaranteeTitle(), theEcorePackage.getEString(), "guaranteeTitle", null, 0, 1, GuaranteeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGuaranteeStatement_Expr(), this.getExpr(), null, "expr", null, 0, 1, GuaranteeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(binaryExprEClass, BinaryExpr.class, "BinaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBinaryExpr_Left(), this.getExpr(), null, "left", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryExpr_Right(), this.getExpr(), null, "right", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryExprEClass, UnaryExpr.class, "UnaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnaryExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpr_Expr(), this.getExpr(), null, "expr", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(idExprEClass, IdExpr.class, "IdExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIdExpr_Id(), theAadl2Package.getNamedElement(), null, "id", null, 0, 1, IdExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -28,6 +28,7 @@ GumboSubclause returns GumboSubclause:
 SpecSection:
 	ComputationalModel
 |	Flows
+|	Contract
 ;
 
 ComputationalModel:
@@ -46,6 +47,71 @@ Flow returns Flow:
 	=>	flowId=ID ':' 
 		srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
 		dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)* 
+;
+
+
+Contract:
+	'contracts' (specs+=SpecStatement)+
+;
+
+SpecStatement:
+	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? 
+		assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?  
+|	{GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+;
+
+PREDICATE: // TODO 
+	ID
+;
+
+Expr:
+	ImpliesExpr
+;
+
+ImpliesExpr returns Expr:
+	OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+;
+
+OrExpr returns Expr:
+	AndExpr (=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
+;
+
+AndExpr returns Expr:
+	RelationalExpr (=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=RelationalExpr)*
+;
+
+
+RelationalOp:
+	'<' | '<=' | '>' | '>=' | '=' | '<>'
+;
+ 
+RelationalExpr returns Expr:
+	PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+;
+
+PlusExpr returns Expr:
+	TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+;
+
+TimesExpr returns Expr:
+	ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*	
+;
+
+ExpExpr returns Expr:
+	PrefixExpr (=>({BinaryExpr.left=current} op=('^')) right=PrefixExpr)*
+;
+
+PrefixExpr returns Expr:
+	{UnaryExpr} op=('-' | 'not') expr=PrefixExpr
+|	AtomicExpr
+;
+
+AtomicExpr returns Expr:
+	{IdExpr} id=[aadl2::NamedElement | QCREF]
+;
+
+SubcomponentElement returns SubcomponentElement:
+	subcomponent = [aadl2::Subcomponent|ID]
 ;
 
 FeatureElement returns FeatureElement:

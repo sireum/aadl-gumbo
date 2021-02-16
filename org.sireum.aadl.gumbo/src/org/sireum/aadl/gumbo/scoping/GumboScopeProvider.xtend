@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EReference
 import java.lang.reflect.Method
 import org.eclipse.xtext.scoping.impl.SimpleScope
 import org.sireum.aadl.gumbo.gumbo.FeatureElement
+import org.sireum.aadl.gumbo.gumbo.AssumeStatement
+import org.sireum.aadl.gumbo.gumbo.IdExpr
 import org.osate.aadl2.Classifier
 import org.osate.aadl2.ComponentImplementation
 
@@ -37,7 +39,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		return method
 	}
 	
-	def SimpleScope scope_FeatureElement_feature(FeatureElement context, EReference reference) {
+	def SimpleScope genericContext(EObject context, EReference reference) {
 		val classifier = context.getContainerOfType(Classifier)
 						
 		(classifier.getAllFeatures +
@@ -45,6 +47,20 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 						classifier.allInternalFeatures
 					} else {
 						emptyList
-					}).scopeFor
+					}).scopeFor		
+	}
+	
+	def SimpleScope scope_FeatureElement_feature(FeatureElement context, EReference reference) {
+		genericContext(context, reference)
+	}
+	
+	//'scope_AssumeStatement_forPort'
+	def SimpleScope scope_AssumeStatement_forPort(AssumeStatement context, EReference reference) {
+		genericContext(context, reference)
+	}
+	
+	//'scope_IdExpr_id'
+	def scope_IdExpr_id(IdExpr context, EReference reference) {
+		genericContext(context, reference)
 	}
 }
