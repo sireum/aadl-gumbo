@@ -35,6 +35,10 @@ This guide is based on observations/examanations of the
 
 1. Add the parsing package artifacts as extensions as seen in [org.sireum.aadl.gumbo/plugin.xml](org.sireum.aadl.gumbo/plugin.xml)
 
+## Language Development
+
+Regenerate via the [launcher](org.sireum.aadl.gumbo/.launch/Generate%20Gumbo%20(gumbo)%20Language%20Infrastructure.launch) after making changes to the grammar
+
 ## Scoping / Symbol Resolution
 
 Scopes need to be added for rules like the following:
