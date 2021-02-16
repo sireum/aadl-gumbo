@@ -17,6 +17,9 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Alternatives;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -85,29 +88,252 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.GumboSubclause");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cGumboSubclauseAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSubclauseKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cForKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cGumboKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSpecsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSpecsSpecSectionParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
 		
 		//GumboSubclause:
-		//	{GumboSubclause}
-		//	'subclause' 'for' 'gumbo';
+		//	{GumboSubclause} specs+=SpecSection*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{GumboSubclause} 'subclause' 'for' 'gumbo'
+		//{GumboSubclause} specs+=SpecSection*
 		public Group getGroup() { return cGroup; }
 		
 		//{GumboSubclause}
 		public Action getGumboSubclauseAction_0() { return cGumboSubclauseAction_0; }
 		
-		//'subclause'
-		public Keyword getSubclauseKeyword_1() { return cSubclauseKeyword_1; }
+		//specs+=SpecSection*
+		public Assignment getSpecsAssignment_1() { return cSpecsAssignment_1; }
 		
-		//'for'
-		public Keyword getForKeyword_2() { return cForKeyword_2; }
+		//SpecSection
+		public RuleCall getSpecsSpecSectionParserRuleCall_1_0() { return cSpecsSpecSectionParserRuleCall_1_0; }
+	}
+	public class SpecSectionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SpecSection");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cComputationalModelParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFlowsParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//'gumbo'
-		public Keyword getGumboKeyword_3() { return cGumboKeyword_3; }
+		//SpecSection:
+		//	ComputationalModel
+		//	| Flows;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ComputationalModel | Flows
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ComputationalModel
+		public RuleCall getComputationalModelParserRuleCall_0() { return cComputationalModelParserRuleCall_0; }
+		
+		//Flows
+		public RuleCall getFlowsParserRuleCall_1() { return cFlowsParserRuleCall_1; }
+	}
+	public class ComputationalModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ComputationalModel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cComputational_modelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Action cPeriodicComputationalModelAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Keyword cPeriodicKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Action cHyperperiodComputationalModelAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
+		private final Keyword cHyperperiodKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Keyword cWithKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
+		private final Group cGroup_1_1_3 = (Group)cGroup_1_1.eContents().get(3);
+		private final Assignment cConstraintsAssignment_1_1_3_0 = (Assignment)cGroup_1_1_3.eContents().get(0);
+		private final CrossReference cConstraintsNamedElementCrossReference_1_1_3_0_0 = (CrossReference)cConstraintsAssignment_1_1_3_0.eContents().get(0);
+		private final RuleCall cConstraintsNamedElementIDTerminalRuleCall_1_1_3_0_0_1 = (RuleCall)cConstraintsNamedElementCrossReference_1_1_3_0_0.eContents().get(1);
+		private final Group cGroup_1_1_3_1 = (Group)cGroup_1_1_3.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_1_1_3_1_0 = (Keyword)cGroup_1_1_3_1.eContents().get(0);
+		private final Assignment cConstraintsAssignment_1_1_3_1_1 = (Assignment)cGroup_1_1_3_1.eContents().get(1);
+		private final CrossReference cConstraintsNamedElementCrossReference_1_1_3_1_1_0 = (CrossReference)cConstraintsAssignment_1_1_3_1_1.eContents().get(0);
+		private final RuleCall cConstraintsNamedElementIDTerminalRuleCall_1_1_3_1_1_0_1 = (RuleCall)cConstraintsNamedElementCrossReference_1_1_3_1_1_0.eContents().get(1);
+		
+		//ComputationalModel:
+		//	'computational_model' ({PeriodicComputationalModel} 'periodic'
+		//	| {HyperperiodComputationalModel} 'hyperperiod' 'with' (constraints+=[aadl2::NamedElement] ('<'
+		//	constraints+=[aadl2::NamedElement])*));
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'computational_model' ({PeriodicComputationalModel} 'periodic' | {HyperperiodComputationalModel} 'hyperperiod' 'with'
+		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])*))
+		public Group getGroup() { return cGroup; }
+		
+		//'computational_model'
+		public Keyword getComputational_modelKeyword_0() { return cComputational_modelKeyword_0; }
+		
+		//({PeriodicComputationalModel} 'periodic' | {HyperperiodComputationalModel} 'hyperperiod' 'with'
+		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])*))
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//{PeriodicComputationalModel} 'periodic'
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{PeriodicComputationalModel}
+		public Action getPeriodicComputationalModelAction_1_0_0() { return cPeriodicComputationalModelAction_1_0_0; }
+		
+		//'periodic'
+		public Keyword getPeriodicKeyword_1_0_1() { return cPeriodicKeyword_1_0_1; }
+		
+		//{HyperperiodComputationalModel} 'hyperperiod' 'with' (constraints+=[aadl2::NamedElement] ('<'
+		//constraints+=[aadl2::NamedElement])*)
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//{HyperperiodComputationalModel}
+		public Action getHyperperiodComputationalModelAction_1_1_0() { return cHyperperiodComputationalModelAction_1_1_0; }
+		
+		//'hyperperiod'
+		public Keyword getHyperperiodKeyword_1_1_1() { return cHyperperiodKeyword_1_1_1; }
+		
+		//'with'
+		public Keyword getWithKeyword_1_1_2() { return cWithKeyword_1_1_2; }
+		
+		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])*)
+		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
+		
+		//constraints+=[aadl2::NamedElement]
+		public Assignment getConstraintsAssignment_1_1_3_0() { return cConstraintsAssignment_1_1_3_0; }
+		
+		//[aadl2::NamedElement]
+		public CrossReference getConstraintsNamedElementCrossReference_1_1_3_0_0() { return cConstraintsNamedElementCrossReference_1_1_3_0_0; }
+		
+		//ID
+		public RuleCall getConstraintsNamedElementIDTerminalRuleCall_1_1_3_0_0_1() { return cConstraintsNamedElementIDTerminalRuleCall_1_1_3_0_0_1; }
+		
+		//('<' constraints+=[aadl2::NamedElement])*
+		public Group getGroup_1_1_3_1() { return cGroup_1_1_3_1; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_1_1_3_1_0() { return cLessThanSignKeyword_1_1_3_1_0; }
+		
+		//constraints+=[aadl2::NamedElement]
+		public Assignment getConstraintsAssignment_1_1_3_1_1() { return cConstraintsAssignment_1_1_3_1_1; }
+		
+		//[aadl2::NamedElement]
+		public CrossReference getConstraintsNamedElementCrossReference_1_1_3_1_1_0() { return cConstraintsNamedElementCrossReference_1_1_3_1_1_0; }
+		
+		//ID
+		public RuleCall getConstraintsNamedElementIDTerminalRuleCall_1_1_3_1_1_0_1() { return cConstraintsNamedElementIDTerminalRuleCall_1_1_3_1_1_0_1; }
+	}
+	public class FlowsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Flows");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFlowsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFlowsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFlowsFlowParserRuleCall_1_0 = (RuleCall)cFlowsAssignment_1.eContents().get(0);
+		
+		//Flows:
+		//	'flows' flows+=Flow+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'flows' flows+=Flow+
+		public Group getGroup() { return cGroup; }
+		
+		//'flows'
+		public Keyword getFlowsKeyword_0() { return cFlowsKeyword_0; }
+		
+		//flows+=Flow+
+		public Assignment getFlowsAssignment_1() { return cFlowsAssignment_1; }
+		
+		//Flow
+		public RuleCall getFlowsFlowParserRuleCall_1_0() { return cFlowsFlowParserRuleCall_1_0; }
+	}
+	public class FlowElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Flow");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cFlowIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cFlowIdIDTerminalRuleCall_0_0 = (RuleCall)cFlowIdAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cSrcPortsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSrcPortsFeatureElementParserRuleCall_2_0 = (RuleCall)cSrcPortsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cSrcPortsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cSrcPortsFeatureElementParserRuleCall_3_1_0 = (RuleCall)cSrcPortsAssignment_3_1.eContents().get(0);
+		private final Keyword cFunKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDstPortsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDstPortsFeatureElementParserRuleCall_5_0 = (RuleCall)cDstPortsAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cDstPortsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cDstPortsFeatureElementParserRuleCall_6_1_0 = (RuleCall)cDstPortsAssignment_6_1.eContents().get(0);
+		
+		//Flow:
+		//	=> flowId=ID ':'
+		//	srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+		//	dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//=> flowId=ID ':' srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->' dstPorts+=FeatureElement (','
+		//dstPorts+=FeatureElement)*
+		public Group getGroup() { return cGroup; }
+		
+		//=> flowId=ID
+		public Assignment getFlowIdAssignment_0() { return cFlowIdAssignment_0; }
+		
+		//ID
+		public RuleCall getFlowIdIDTerminalRuleCall_0_0() { return cFlowIdIDTerminalRuleCall_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//srcPorts+=FeatureElement
+		public Assignment getSrcPortsAssignment_2() { return cSrcPortsAssignment_2; }
+		
+		//FeatureElement
+		public RuleCall getSrcPortsFeatureElementParserRuleCall_2_0() { return cSrcPortsFeatureElementParserRuleCall_2_0; }
+		
+		//(',' srcPorts+=FeatureElement)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//','
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		
+		//srcPorts+=FeatureElement
+		public Assignment getSrcPortsAssignment_3_1() { return cSrcPortsAssignment_3_1; }
+		
+		//FeatureElement
+		public RuleCall getSrcPortsFeatureElementParserRuleCall_3_1_0() { return cSrcPortsFeatureElementParserRuleCall_3_1_0; }
+		
+		//'-fun->'
+		public Keyword getFunKeyword_4() { return cFunKeyword_4; }
+		
+		//dstPorts+=FeatureElement
+		public Assignment getDstPortsAssignment_5() { return cDstPortsAssignment_5; }
+		
+		//FeatureElement
+		public RuleCall getDstPortsFeatureElementParserRuleCall_5_0() { return cDstPortsFeatureElementParserRuleCall_5_0; }
+		
+		//(',' dstPorts+=FeatureElement)*
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//','
+		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+		
+		//dstPorts+=FeatureElement
+		public Assignment getDstPortsAssignment_6_1() { return cDstPortsAssignment_6_1; }
+		
+		//FeatureElement
+		public RuleCall getDstPortsFeatureElementParserRuleCall_6_1_0() { return cDstPortsFeatureElementParserRuleCall_6_1_0; }
+	}
+	public class FeatureElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.FeatureElement");
+		private final Assignment cFeatureAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cFeatureNamedElementCrossReference_0 = (CrossReference)cFeatureAssignment.eContents().get(0);
+		private final RuleCall cFeatureNamedElementIDTerminalRuleCall_0_1 = (RuleCall)cFeatureNamedElementCrossReference_0.eContents().get(1);
+		
+		//FeatureElement:
+		//	feature=[aadl2::NamedElement];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//feature=[aadl2::NamedElement]
+		public Assignment getFeatureAssignment() { return cFeatureAssignment; }
+		
+		//[aadl2::NamedElement]
+		public CrossReference getFeatureNamedElementCrossReference_0() { return cFeatureNamedElementCrossReference_0; }
+		
+		//ID
+		public RuleCall getFeatureNamedElementIDTerminalRuleCall_0_1() { return cFeatureNamedElementIDTerminalRuleCall_0_1; }
 	}
 	
 	
@@ -115,6 +341,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	private final AnnexSubclauseElements pAnnexSubclause;
 	private final GumboLibraryElements pGumboLibrary;
 	private final GumboSubclauseElements pGumboSubclause;
+	private final SpecSectionElements pSpecSection;
+	private final ComputationalModelElements pComputationalModel;
+	private final FlowsElements pFlows;
+	private final FlowElements pFlow;
+	private final FeatureElementElements pFeatureElement;
 	
 	private final Grammar grammar;
 	
@@ -129,6 +360,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAnnexSubclause = new AnnexSubclauseElements();
 		this.pGumboLibrary = new GumboLibraryElements();
 		this.pGumboSubclause = new GumboSubclauseElements();
+		this.pSpecSection = new SpecSectionElements();
+		this.pComputationalModel = new ComputationalModelElements();
+		this.pFlows = new FlowsElements();
+		this.pFlow = new FlowElements();
+		this.pFeatureElement = new FeatureElementElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -190,14 +426,68 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GumboSubclause:
-	//	{GumboSubclause}
-	//	'subclause' 'for' 'gumbo';
+	//	{GumboSubclause} specs+=SpecSection*;
 	public GumboSubclauseElements getGumboSubclauseAccess() {
 		return pGumboSubclause;
 	}
 	
 	public ParserRule getGumboSubclauseRule() {
 		return getGumboSubclauseAccess().getRule();
+	}
+	
+	//SpecSection:
+	//	ComputationalModel
+	//	| Flows;
+	public SpecSectionElements getSpecSectionAccess() {
+		return pSpecSection;
+	}
+	
+	public ParserRule getSpecSectionRule() {
+		return getSpecSectionAccess().getRule();
+	}
+	
+	//ComputationalModel:
+	//	'computational_model' ({PeriodicComputationalModel} 'periodic'
+	//	| {HyperperiodComputationalModel} 'hyperperiod' 'with' (constraints+=[aadl2::NamedElement] ('<'
+	//	constraints+=[aadl2::NamedElement])*));
+	public ComputationalModelElements getComputationalModelAccess() {
+		return pComputationalModel;
+	}
+	
+	public ParserRule getComputationalModelRule() {
+		return getComputationalModelAccess().getRule();
+	}
+	
+	//Flows:
+	//	'flows' flows+=Flow+;
+	public FlowsElements getFlowsAccess() {
+		return pFlows;
+	}
+	
+	public ParserRule getFlowsRule() {
+		return getFlowsAccess().getRule();
+	}
+	
+	//Flow:
+	//	=> flowId=ID ':'
+	//	srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+	//	dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*;
+	public FlowElements getFlowAccess() {
+		return pFlow;
+	}
+	
+	public ParserRule getFlowRule() {
+		return getFlowAccess().getRule();
+	}
+	
+	//FeatureElement:
+	//	feature=[aadl2::NamedElement];
+	public FeatureElementElements getFeatureElementAccess() {
+		return pFeatureElement;
+	}
+	
+	public ParserRule getFeatureElementRule() {
+		return getFeatureElementAccess().getRule();
 	}
 	
 	//PModel aadl2::Element:

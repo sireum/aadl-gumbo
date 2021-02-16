@@ -52,6 +52,69 @@ public interface GumboFactory extends EFactory
   GumboSubclause createGumboSubclause();
 
   /**
+   * Returns a new object of class '<em>Spec Section</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Spec Section</em>'.
+   * @generated
+   */
+  SpecSection createSpecSection();
+
+  /**
+   * Returns a new object of class '<em>Computational Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Computational Model</em>'.
+   * @generated
+   */
+  ComputationalModel createComputationalModel();
+
+  /**
+   * Returns a new object of class '<em>Flows</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Flows</em>'.
+   * @generated
+   */
+  Flows createFlows();
+
+  /**
+   * Returns a new object of class '<em>Flow</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Flow</em>'.
+   * @generated
+   */
+  Flow createFlow();
+
+  /**
+   * Returns a new object of class '<em>Feature Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Feature Element</em>'.
+   * @generated
+   */
+  FeatureElement createFeatureElement();
+
+  /**
+   * Returns a new object of class '<em>Periodic Computational Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Periodic Computational Model</em>'.
+   * @generated
+   */
+  PeriodicComputationalModel createPeriodicComputationalModel();
+
+  /**
+   * Returns a new object of class '<em>Hyperperiod Computational Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hyperperiod Computational Model</em>'.
+   * @generated
+   */
+  HyperperiodComputationalModel createHyperperiodComputationalModel();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

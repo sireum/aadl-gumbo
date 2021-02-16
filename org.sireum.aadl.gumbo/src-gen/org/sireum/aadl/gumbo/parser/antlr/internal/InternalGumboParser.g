@@ -149,18 +149,364 @@ ruleGumboSubclause returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1=Subclause
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGumboSubclauseAccess().getSpecsSpecSectionParserRuleCall_1_0());
+				}
+				lv_specs_1_0=ruleSpecSection
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGumboSubclauseRule());
+					}
+					add(
+						$current,
+						"specs",
+						lv_specs_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.SpecSection");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleSpecSection
+entryRuleSpecSection returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSpecSectionRule()); }
+	iv_ruleSpecSection=ruleSpecSection
+	{ $current=$iv_ruleSpecSection.current; }
+	EOF;
+
+// Rule SpecSection
+ruleSpecSection returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		{
-			newLeafNode(otherlv_1, grammarAccess.getGumboSubclauseAccess().getSubclauseKeyword_1());
+			newCompositeNode(grammarAccess.getSpecSectionAccess().getComputationalModelParserRuleCall_0());
 		}
-		otherlv_2=For
+		this_ComputationalModel_0=ruleComputationalModel
 		{
-			newLeafNode(otherlv_2, grammarAccess.getGumboSubclauseAccess().getForKeyword_2());
+			$current = $this_ComputationalModel_0.current;
+			afterParserOrEnumRuleCall();
 		}
-		otherlv_3=Gumbo
+		    |
 		{
-			newLeafNode(otherlv_3, grammarAccess.getGumboSubclauseAccess().getGumboKeyword_3());
+			newCompositeNode(grammarAccess.getSpecSectionAccess().getFlowsParserRuleCall_1());
 		}
+		this_Flows_1=ruleFlows
+		{
+			$current = $this_Flows_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleComputationalModel
+entryRuleComputationalModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getComputationalModelRule()); }
+	iv_ruleComputationalModel=ruleComputationalModel
+	{ $current=$iv_ruleComputationalModel.current; }
+	EOF;
+
+// Rule ComputationalModel
+ruleComputationalModel returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Computational_model
+		{
+			newLeafNode(otherlv_0, grammarAccess.getComputationalModelAccess().getComputational_modelKeyword_0());
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElement(
+							grammarAccess.getComputationalModelAccess().getPeriodicComputationalModelAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2=Periodic
+				{
+					newLeafNode(otherlv_2, grammarAccess.getComputationalModelAccess().getPeriodicKeyword_1_0_1());
+				}
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElement(
+							grammarAccess.getComputationalModelAccess().getHyperperiodComputationalModelAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_4=Hyperperiod
+				{
+					newLeafNode(otherlv_4, grammarAccess.getComputationalModelAccess().getHyperperiodKeyword_1_1_1());
+				}
+				otherlv_5=With
+				{
+					newLeafNode(otherlv_5, grammarAccess.getComputationalModelAccess().getWithKeyword_1_1_2());
+				}
+				(
+					(
+						(
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getComputationalModelRule());
+								}
+							}
+							otherlv_6=RULE_ID
+							{
+								newLeafNode(otherlv_6, grammarAccess.getComputationalModelAccess().getConstraintsNamedElementCrossReference_1_1_3_0_0());
+							}
+						)
+					)
+					(
+						otherlv_7=LessThanSign
+						{
+							newLeafNode(otherlv_7, grammarAccess.getComputationalModelAccess().getLessThanSignKeyword_1_1_3_1_0());
+						}
+						(
+							(
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getComputationalModelRule());
+									}
+								}
+								otherlv_8=RULE_ID
+								{
+									newLeafNode(otherlv_8, grammarAccess.getComputationalModelAccess().getConstraintsNamedElementCrossReference_1_1_3_1_1_0());
+								}
+							)
+						)
+					)*
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleFlows
+entryRuleFlows returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFlowsRule()); }
+	iv_ruleFlows=ruleFlows
+	{ $current=$iv_ruleFlows.current; }
+	EOF;
+
+// Rule Flows
+ruleFlows returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Flows
+		{
+			newLeafNode(otherlv_0, grammarAccess.getFlowsAccess().getFlowsKeyword_0());
+		}
+		(
+			((
+				RULE_ID
+			)
+			)=>
+			(
+				{
+					newCompositeNode(grammarAccess.getFlowsAccess().getFlowsFlowParserRuleCall_1_0());
+				}
+				lv_flows_1_0=ruleFlow
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFlowsRule());
+					}
+					add(
+						$current,
+						"flows",
+						lv_flows_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.Flow");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+	)
+;
+
+// Entry rule entryRuleFlow
+entryRuleFlow returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFlowRule()); }
+	iv_ruleFlow=ruleFlow
+	{ $current=$iv_ruleFlow.current; }
+	EOF;
+
+// Rule Flow
+ruleFlow returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			((
+				RULE_ID
+			)
+			)=>
+			(
+				lv_flowId_0_0=RULE_ID
+				{
+					newLeafNode(lv_flowId_0_0, grammarAccess.getFlowAccess().getFlowIdIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFlowRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"flowId",
+						lv_flowId_0_0,
+						"org.osate.xtext.aadl2.properties.Properties.ID");
+				}
+			)
+		)
+		otherlv_1=Colon
+		{
+			newLeafNode(otherlv_1, grammarAccess.getFlowAccess().getColonKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFlowAccess().getSrcPortsFeatureElementParserRuleCall_2_0());
+				}
+				lv_srcPorts_2_0=ruleFeatureElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFlowRule());
+					}
+					add(
+						$current,
+						"srcPorts",
+						lv_srcPorts_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3=Comma
+			{
+				newLeafNode(otherlv_3, grammarAccess.getFlowAccess().getCommaKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFlowAccess().getSrcPortsFeatureElementParserRuleCall_3_1_0());
+					}
+					lv_srcPorts_4_0=ruleFeatureElement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFlowRule());
+						}
+						add(
+							$current,
+							"srcPorts",
+							lv_srcPorts_4_0,
+							"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_5=Fun
+		{
+			newLeafNode(otherlv_5, grammarAccess.getFlowAccess().getFunKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFlowAccess().getDstPortsFeatureElementParserRuleCall_5_0());
+				}
+				lv_dstPorts_6_0=ruleFeatureElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFlowRule());
+					}
+					add(
+						$current,
+						"dstPorts",
+						lv_dstPorts_6_0,
+						"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7=Comma
+			{
+				newLeafNode(otherlv_7, grammarAccess.getFlowAccess().getCommaKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFlowAccess().getDstPortsFeatureElementParserRuleCall_6_1_0());
+					}
+					lv_dstPorts_8_0=ruleFeatureElement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFlowRule());
+						}
+						add(
+							$current,
+							"dstPorts",
+							lv_dstPorts_8_0,
+							"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleFeatureElement
+entryRuleFeatureElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFeatureElementRule()); }
+	iv_ruleFeatureElement=ruleFeatureElement
+	{ $current=$iv_ruleFeatureElement.current; }
+	EOF;
+
+// Rule FeatureElement
+ruleFeatureElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getFeatureElementRule());
+				}
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getFeatureElementAccess().getFeatureNamedElementCrossReference_0());
+			}
+		)
 	)
 ;
 

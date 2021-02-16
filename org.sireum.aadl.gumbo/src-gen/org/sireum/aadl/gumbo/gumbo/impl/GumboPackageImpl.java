@@ -13,17 +13,27 @@
  */
 package org.sireum.aadl.gumbo.gumbo.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.osate.aadl2.Aadl2Package;
 
+import org.sireum.aadl.gumbo.gumbo.ComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.FeatureElement;
+import org.sireum.aadl.gumbo.gumbo.Flow;
+import org.sireum.aadl.gumbo.gumbo.Flows;
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.SpecSection;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +56,55 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass gumboSubclauseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass specSectionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass computationalModelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass flowsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass flowEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass featureElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass periodicComputationalModelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass hyperperiodComputationalModelEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -97,6 +156,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     isInited = true;
 
     // Initialize simple dependencies
+    EcorePackage.eINSTANCE.eClass();
     Aadl2Package.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -141,6 +201,160 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EReference getGumboSubclause_Specs()
+  {
+    return (EReference)gumboSubclauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSpecSection()
+  {
+    return specSectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getComputationalModel()
+  {
+    return computationalModelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFlows()
+  {
+    return flowsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFlows_Flows()
+  {
+    return (EReference)flowsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFlow()
+  {
+    return flowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFlow_FlowId()
+  {
+    return (EAttribute)flowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFlow_SrcPorts()
+  {
+    return (EReference)flowEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFlow_DstPorts()
+  {
+    return (EReference)flowEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFeatureElement()
+  {
+    return featureElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFeatureElement_Feature()
+  {
+    return (EReference)featureElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPeriodicComputationalModel()
+  {
+    return periodicComputationalModelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getHyperperiodComputationalModel()
+  {
+    return hyperperiodComputationalModelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getHyperperiodComputationalModel_Constraints()
+  {
+    return (EReference)hyperperiodComputationalModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public GumboFactory getGumboFactory()
   {
     return (GumboFactory)getEFactoryInstance();
@@ -169,6 +383,27 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     gumboLibraryEClass = createEClass(GUMBO_LIBRARY);
 
     gumboSubclauseEClass = createEClass(GUMBO_SUBCLAUSE);
+    createEReference(gumboSubclauseEClass, GUMBO_SUBCLAUSE__SPECS);
+
+    specSectionEClass = createEClass(SPEC_SECTION);
+
+    computationalModelEClass = createEClass(COMPUTATIONAL_MODEL);
+
+    flowsEClass = createEClass(FLOWS);
+    createEReference(flowsEClass, FLOWS__FLOWS);
+
+    flowEClass = createEClass(FLOW);
+    createEAttribute(flowEClass, FLOW__FLOW_ID);
+    createEReference(flowEClass, FLOW__SRC_PORTS);
+    createEReference(flowEClass, FLOW__DST_PORTS);
+
+    featureElementEClass = createEClass(FEATURE_ELEMENT);
+    createEReference(featureElementEClass, FEATURE_ELEMENT__FEATURE);
+
+    periodicComputationalModelEClass = createEClass(PERIODIC_COMPUTATIONAL_MODEL);
+
+    hyperperiodComputationalModelEClass = createEClass(HYPERPERIOD_COMPUTATIONAL_MODEL);
+    createEReference(hyperperiodComputationalModelEClass, HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS);
   }
 
   /**
@@ -197,6 +432,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     // Obtain other dependent packages
     Aadl2Package theAadl2Package = (Aadl2Package)EPackage.Registry.INSTANCE.getEPackage(Aadl2Package.eNS_URI);
+    EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
     // Create type parameters
 
@@ -205,11 +441,36 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     // Add supertypes to classes
     gumboLibraryEClass.getESuperTypes().add(theAadl2Package.getAnnexLibrary());
     gumboSubclauseEClass.getESuperTypes().add(theAadl2Package.getAnnexSubclause());
+    computationalModelEClass.getESuperTypes().add(this.getSpecSection());
+    flowsEClass.getESuperTypes().add(this.getSpecSection());
+    periodicComputationalModelEClass.getESuperTypes().add(this.getComputationalModel());
+    hyperperiodComputationalModelEClass.getESuperTypes().add(this.getComputationalModel());
 
     // Initialize classes and features; add operations and parameters
     initEClass(gumboLibraryEClass, GumboLibrary.class, "GumboLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(gumboSubclauseEClass, GumboSubclause.class, "GumboSubclause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGumboSubclause_Specs(), this.getSpecSection(), null, "specs", null, 0, -1, GumboSubclause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(specSectionEClass, SpecSection.class, "SpecSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(computationalModelEClass, ComputationalModel.class, "ComputationalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(flowsEClass, Flows.class, "Flows", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFlows_Flows(), this.getFlow(), null, "flows", null, 0, -1, Flows.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(flowEClass, Flow.class, "Flow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFlow_FlowId(), theEcorePackage.getEString(), "flowId", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFlow_SrcPorts(), this.getFeatureElement(), null, "srcPorts", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFlow_DstPorts(), this.getFeatureElement(), null, "dstPorts", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(featureElementEClass, FeatureElement.class, "FeatureElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFeatureElement_Feature(), theAadl2Package.getNamedElement(), null, "feature", null, 0, 1, FeatureElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(periodicComputationalModelEClass, PeriodicComputationalModel.class, "PeriodicComputationalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(hyperperiodComputationalModelEClass, HyperperiodComputationalModel.class, "HyperperiodComputationalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getHyperperiodComputationalModel_Constraints(), theAadl2Package.getNamedElement(), null, "constraints", null, 0, -1, HyperperiodComputationalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

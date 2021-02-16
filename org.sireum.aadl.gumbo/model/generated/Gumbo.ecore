@@ -2,5 +2,29 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gumbo" nsURI="http://www.sireum.org/aadl/gumbo/Gumbo" nsPrefix="gumbo">
   <eClassifiers xsi:type="ecore:EClass" name="GumboLibrary" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexLibrary"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GumboSubclause" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GumboSubclause" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specs" upperBound="-1"
+        eType="#//SpecSection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecSection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComputationalModel" eSuperTypes="#//SpecSection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Flows" eSuperTypes="#//SpecSection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
+        eType="#//Flow" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowId" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="srcPorts" upperBound="-1"
+        eType="#//FeatureElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dstPorts" upperBound="-1"
+        eType="#//FeatureElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PeriodicComputationalModel" eSuperTypes="#//ComputationalModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HyperperiodComputationalModel" eSuperTypes="#//ComputationalModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" unique="false"
+        upperBound="-1" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
+  </eClassifiers>
 </ecore:EPackage>

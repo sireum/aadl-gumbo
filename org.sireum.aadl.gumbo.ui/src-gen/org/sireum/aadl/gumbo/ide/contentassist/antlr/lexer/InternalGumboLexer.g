@@ -21,13 +21,17 @@ package org.sireum.aadl.gumbo.ide.contentassist.antlr.lexer;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 }
 
+Computational_model : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n')('A'|'a')('L'|'l')'_'('M'|'m')('O'|'o')('D'|'d')('E'|'e')('L'|'l');
+
+Hyperperiod : ('H'|'h')('Y'|'y')('P'|'p')('E'|'e')('R'|'r')('P'|'p')('E'|'e')('R'|'r')('I'|'i')('O'|'o')('D'|'d');
+
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
 
 Reference : ('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('E'|'e')('N'|'n')('C'|'c')('E'|'e');
 
-Subclause : ('S'|'s')('U'|'u')('B'|'b')('C'|'c')('L'|'l')('A'|'a')('U'|'u')('S'|'s')('E'|'e');
-
 Constant : ('C'|'c')('O'|'o')('N'|'n')('S'|'s')('T'|'t')('A'|'a')('N'|'n')('T'|'t');
+
+Periodic : ('P'|'p')('E'|'e')('R'|'r')('I'|'i')('O'|'o')('D'|'d')('I'|'i')('C'|'c');
 
 Applies : ('A'|'a')('P'|'p')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
@@ -37,15 +41,21 @@ Compute : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e');
 
 Library : ('L'|'l')('I'|'i')('B'|'b')('R'|'r')('A'|'a')('R'|'r')('Y'|'y');
 
+Fun : '-'('F'|'f')('U'|'u')('N'|'n')'-''>';
+
 Delta : ('D'|'d')('E'|'e')('L'|'l')('T'|'t')('A'|'a');
 
 False : ('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e');
+
+Flows : ('F'|'f')('L'|'l')('O'|'o')('W'|'w')('S'|'s');
 
 Gumbo : ('G'|'g')('U'|'u')('M'|'m')('B'|'b')('O'|'o');
 
 Modes : ('M'|'m')('O'|'o')('D'|'d')('E'|'e')('S'|'s');
 
 True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
+
+With : ('W'|'w')('I'|'i')('T'|'t')('H'|'h');
 
 PlusSignEqualsSignGreaterThanSign : '+''=''>';
 
@@ -75,7 +85,11 @@ HyphenMinus : '-';
 
 FullStop : '.';
 
+Colon : ':';
+
 Semicolon : ';';
+
+LessThanSign : '<';
 
 LeftSquareBracket : '[';
 

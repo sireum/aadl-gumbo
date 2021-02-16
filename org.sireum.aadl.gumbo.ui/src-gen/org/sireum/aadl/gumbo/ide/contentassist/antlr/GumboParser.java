@@ -41,6 +41,8 @@ public class GumboParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GumboGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getSpecSectionAccess().getAlternatives(), "rule__SpecSection__Alternatives");
+			builder.put(grammarAccess.getComputationalModelAccess().getAlternatives_1(), "rule__ComputationalModel__Alternatives_1");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getAlternatives_1(), "rule__ContainedPropertyAssociation__Alternatives_1");
 			builder.put(grammarAccess.getPropertyAssociationAccess().getAlternatives_1(), "rule__PropertyAssociation__Alternatives_1");
 			builder.put(grammarAccess.getPropertyExpressionAccess().getAlternatives(), "rule__PropertyExpression__Alternatives");
@@ -51,6 +53,15 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNumAltAccess().getAlternatives(), "rule__NumAlt__Alternatives");
 			builder.put(grammarAccess.getGumboLibraryAccess().getGroup(), "rule__GumboLibrary__Group__0");
 			builder.put(grammarAccess.getGumboSubclauseAccess().getGroup(), "rule__GumboSubclause__Group__0");
+			builder.put(grammarAccess.getComputationalModelAccess().getGroup(), "rule__ComputationalModel__Group__0");
+			builder.put(grammarAccess.getComputationalModelAccess().getGroup_1_0(), "rule__ComputationalModel__Group_1_0__0");
+			builder.put(grammarAccess.getComputationalModelAccess().getGroup_1_1(), "rule__ComputationalModel__Group_1_1__0");
+			builder.put(grammarAccess.getComputationalModelAccess().getGroup_1_1_3(), "rule__ComputationalModel__Group_1_1_3__0");
+			builder.put(grammarAccess.getComputationalModelAccess().getGroup_1_1_3_1(), "rule__ComputationalModel__Group_1_1_3_1__0");
+			builder.put(grammarAccess.getFlowsAccess().getGroup(), "rule__Flows__Group__0");
+			builder.put(grammarAccess.getFlowAccess().getGroup(), "rule__Flow__Group__0");
+			builder.put(grammarAccess.getFlowAccess().getGroup_3(), "rule__Flow__Group_3__0");
+			builder.put(grammarAccess.getFlowAccess().getGroup_6(), "rule__Flow__Group_6__0");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getGroup(), "rule__ContainedPropertyAssociation__Group__0");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getGroup_3(), "rule__ContainedPropertyAssociation__Group_3__0");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getGroup_3_1(), "rule__ContainedPropertyAssociation__Group_3_1__0");
@@ -99,6 +110,16 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQCREFAccess().getGroup(), "rule__QCREF__Group__0");
 			builder.put(grammarAccess.getQCREFAccess().getGroup_0(), "rule__QCREF__Group_0__0");
 			builder.put(grammarAccess.getQCREFAccess().getGroup_2(), "rule__QCREF__Group_2__0");
+			builder.put(grammarAccess.getGumboSubclauseAccess().getSpecsAssignment_1(), "rule__GumboSubclause__SpecsAssignment_1");
+			builder.put(grammarAccess.getComputationalModelAccess().getConstraintsAssignment_1_1_3_0(), "rule__ComputationalModel__ConstraintsAssignment_1_1_3_0");
+			builder.put(grammarAccess.getComputationalModelAccess().getConstraintsAssignment_1_1_3_1_1(), "rule__ComputationalModel__ConstraintsAssignment_1_1_3_1_1");
+			builder.put(grammarAccess.getFlowsAccess().getFlowsAssignment_1(), "rule__Flows__FlowsAssignment_1");
+			builder.put(grammarAccess.getFlowAccess().getFlowIdAssignment_0(), "rule__Flow__FlowIdAssignment_0");
+			builder.put(grammarAccess.getFlowAccess().getSrcPortsAssignment_2(), "rule__Flow__SrcPortsAssignment_2");
+			builder.put(grammarAccess.getFlowAccess().getSrcPortsAssignment_3_1(), "rule__Flow__SrcPortsAssignment_3_1");
+			builder.put(grammarAccess.getFlowAccess().getDstPortsAssignment_5(), "rule__Flow__DstPortsAssignment_5");
+			builder.put(grammarAccess.getFlowAccess().getDstPortsAssignment_6_1(), "rule__Flow__DstPortsAssignment_6_1");
+			builder.put(grammarAccess.getFeatureElementAccess().getFeatureAssignment(), "rule__FeatureElement__FeatureAssignment");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getPropertyAssignment_0(), "rule__ContainedPropertyAssociation__PropertyAssignment_0");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getAppendAssignment_1_1(), "rule__ContainedPropertyAssociation__AppendAssignment_1_1");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getConstantAssignment_2(), "rule__ContainedPropertyAssociation__ConstantAssignment_2");

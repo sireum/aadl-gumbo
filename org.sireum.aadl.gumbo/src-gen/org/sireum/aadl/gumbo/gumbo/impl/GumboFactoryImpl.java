@@ -77,6 +77,13 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
     {
       case GumboPackage.GUMBO_LIBRARY: return createGumboLibrary();
       case GumboPackage.GUMBO_SUBCLAUSE: return createGumboSubclause();
+      case GumboPackage.SPEC_SECTION: return createSpecSection();
+      case GumboPackage.COMPUTATIONAL_MODEL: return createComputationalModel();
+      case GumboPackage.FLOWS: return createFlows();
+      case GumboPackage.FLOW: return createFlow();
+      case GumboPackage.FEATURE_ELEMENT: return createFeatureElement();
+      case GumboPackage.PERIODIC_COMPUTATIONAL_MODEL: return createPeriodicComputationalModel();
+      case GumboPackage.HYPERPERIOD_COMPUTATIONAL_MODEL: return createHyperperiodComputationalModel();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -104,6 +111,90 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     GumboSubclauseImpl gumboSubclause = new GumboSubclauseImpl();
     return gumboSubclause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SpecSection createSpecSection()
+  {
+    SpecSectionImpl specSection = new SpecSectionImpl();
+    return specSection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ComputationalModel createComputationalModel()
+  {
+    ComputationalModelImpl computationalModel = new ComputationalModelImpl();
+    return computationalModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Flows createFlows()
+  {
+    FlowsImpl flows = new FlowsImpl();
+    return flows;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Flow createFlow()
+  {
+    FlowImpl flow = new FlowImpl();
+    return flow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FeatureElement createFeatureElement()
+  {
+    FeatureElementImpl featureElement = new FeatureElementImpl();
+    return featureElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PeriodicComputationalModel createPeriodicComputationalModel()
+  {
+    PeriodicComputationalModelImpl periodicComputationalModel = new PeriodicComputationalModelImpl();
+    return periodicComputationalModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HyperperiodComputationalModel createHyperperiodComputationalModel()
+  {
+    HyperperiodComputationalModelImpl hyperperiodComputationalModel = new HyperperiodComputationalModelImpl();
+    return hyperperiodComputationalModel;
   }
 
   /**

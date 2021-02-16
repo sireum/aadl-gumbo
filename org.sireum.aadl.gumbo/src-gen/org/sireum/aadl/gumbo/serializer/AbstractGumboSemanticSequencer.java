@@ -21,6 +21,8 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.osate.aadl2.Aadl2Package;
 import org.osate.aadl2.ArrayRange;
 import org.osate.aadl2.BasicPropertyAssociation;
@@ -41,9 +43,14 @@ import org.osate.aadl2.RecordValue;
 import org.osate.aadl2.ReferenceValue;
 import org.osate.aadl2.StringLiteral;
 import org.osate.xtext.aadl2.properties.serializer.PropertiesSemanticSequencer;
+import org.sireum.aadl.gumbo.gumbo.FeatureElement;
+import org.sireum.aadl.gumbo.gumbo.Flow;
+import org.sireum.aadl.gumbo.gumbo.Flows;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel;
+import org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel;
 import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 
 @SuppressWarnings("all")
@@ -157,16 +164,100 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			}
 		else if (epackage == GumboPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case GumboPackage.FEATURE_ELEMENT:
+				sequence_FeatureElement(context, (FeatureElement) semanticObject); 
+				return; 
+			case GumboPackage.FLOW:
+				sequence_Flow(context, (Flow) semanticObject); 
+				return; 
+			case GumboPackage.FLOWS:
+				sequence_Flows(context, (Flows) semanticObject); 
+				return; 
 			case GumboPackage.GUMBO_LIBRARY:
 				sequence_GumboLibrary(context, (GumboLibrary) semanticObject); 
 				return; 
 			case GumboPackage.GUMBO_SUBCLAUSE:
 				sequence_GumboSubclause(context, (GumboSubclause) semanticObject); 
 				return; 
+			case GumboPackage.HYPERPERIOD_COMPUTATIONAL_MODEL:
+				sequence_ComputationalModel(context, (HyperperiodComputationalModel) semanticObject); 
+				return; 
+			case GumboPackage.PERIODIC_COMPUTATIONAL_MODEL:
+				sequence_ComputationalModel(context, (PeriodicComputationalModel) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     SpecSection returns HyperperiodComputationalModel
+	 *     ComputationalModel returns HyperperiodComputationalModel
+	 *
+	 * Constraint:
+	 *     (constraints+=[NamedElement|ID] constraints+=[NamedElement|ID]*)
+	 */
+	protected void sequence_ComputationalModel(ISerializationContext context, HyperperiodComputationalModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SpecSection returns PeriodicComputationalModel
+	 *     ComputationalModel returns PeriodicComputationalModel
+	 *
+	 * Constraint:
+	 *     {PeriodicComputationalModel}
+	 */
+	protected void sequence_ComputationalModel(ISerializationContext context, PeriodicComputationalModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FeatureElement returns FeatureElement
+	 *
+	 * Constraint:
+	 *     feature=[NamedElement|ID]
+	 */
+	protected void sequence_FeatureElement(ISerializationContext context, FeatureElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.FEATURE_ELEMENT__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.FEATURE_ELEMENT__FEATURE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFeatureElementAccess().getFeatureNamedElementIDTerminalRuleCall_0_1(), semanticObject.eGet(GumboPackage.Literals.FEATURE_ELEMENT__FEATURE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Flow returns Flow
+	 *
+	 * Constraint:
+	 *     (flowId=ID srcPorts+=FeatureElement srcPorts+=FeatureElement* dstPorts+=FeatureElement dstPorts+=FeatureElement*)
+	 */
+	protected void sequence_Flow(ISerializationContext context, Flow semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SpecSection returns Flows
+	 *     Flows returns Flows
+	 *
+	 * Constraint:
+	 *     flows+=Flow+
+	 */
+	protected void sequence_Flows(ISerializationContext context, Flows semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -187,7 +278,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     GumboSubclause returns GumboSubclause
 	 *
 	 * Constraint:
-	 *     {GumboSubclause}
+	 *     specs+=SpecSection*
 	 */
 	protected void sequence_GumboSubclause(ISerializationContext context, GumboSubclause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

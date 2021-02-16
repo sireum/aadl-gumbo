@@ -102,6 +102,41 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createGumboSubclauseAdapter();
       }
       @Override
+      public Adapter caseSpecSection(SpecSection object)
+      {
+        return createSpecSectionAdapter();
+      }
+      @Override
+      public Adapter caseComputationalModel(ComputationalModel object)
+      {
+        return createComputationalModelAdapter();
+      }
+      @Override
+      public Adapter caseFlows(Flows object)
+      {
+        return createFlowsAdapter();
+      }
+      @Override
+      public Adapter caseFlow(Flow object)
+      {
+        return createFlowAdapter();
+      }
+      @Override
+      public Adapter caseFeatureElement(FeatureElement object)
+      {
+        return createFeatureElementAdapter();
+      }
+      @Override
+      public Adapter casePeriodicComputationalModel(PeriodicComputationalModel object)
+      {
+        return createPeriodicComputationalModelAdapter();
+      }
+      @Override
+      public Adapter caseHyperperiodComputationalModel(HyperperiodComputationalModel object)
+      {
+        return createHyperperiodComputationalModelAdapter();
+      }
+      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
@@ -174,6 +209,111 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGumboSubclauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SpecSection <em>Spec Section</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SpecSection
+   * @generated
+   */
+  public Adapter createSpecSectionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ComputationalModel <em>Computational Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ComputationalModel
+   * @generated
+   */
+  public Adapter createComputationalModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Flows <em>Flows</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Flows
+   * @generated
+   */
+  public Adapter createFlowsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Flow <em>Flow</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Flow
+   * @generated
+   */
+  public Adapter createFlowAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.FeatureElement <em>Feature Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.FeatureElement
+   * @generated
+   */
+  public Adapter createFeatureElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel <em>Periodic Computational Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel
+   * @generated
+   */
+  public Adapter createPeriodicComputationalModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel <em>Hyperperiod Computational Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
+   * @generated
+   */
+  public Adapter createHyperperiodComputationalModelAdapter()
   {
     return null;
   }

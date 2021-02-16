@@ -22,5 +22,33 @@ GumboLibrary returns GumboLibrary:
 
 GumboSubclause returns GumboSubclause:
 	{GumboSubclause}
-	'subclause' 'for' 'gumbo'
+	specs+=SpecSection*
 ;
+
+SpecSection:
+	ComputationalModel
+|	Flows
+;
+
+ComputationalModel:
+	'computational_model' (
+		{PeriodicComputationalModel} 'periodic'
+	|	{HyperperiodComputationalModel} 'hyperperiod' 'with' 
+		(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+	)
+;
+
+Flows:
+	'flows' (flows+=Flow)+
+;
+
+Flow returns Flow:
+	=>	flowId=ID ':' 
+		srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+		dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)* 
+;
+
+FeatureElement returns FeatureElement:
+	feature=[aadl2::NamedElement|ID]
+;
+		

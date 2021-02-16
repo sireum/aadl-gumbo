@@ -110,6 +110,61 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.SPEC_SECTION:
+      {
+        SpecSection specSection = (SpecSection)theEObject;
+        T result = caseSpecSection(specSection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.COMPUTATIONAL_MODEL:
+      {
+        ComputationalModel computationalModel = (ComputationalModel)theEObject;
+        T result = caseComputationalModel(computationalModel);
+        if (result == null) result = caseSpecSection(computationalModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.FLOWS:
+      {
+        Flows flows = (Flows)theEObject;
+        T result = caseFlows(flows);
+        if (result == null) result = caseSpecSection(flows);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.FLOW:
+      {
+        Flow flow = (Flow)theEObject;
+        T result = caseFlow(flow);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.FEATURE_ELEMENT:
+      {
+        FeatureElement featureElement = (FeatureElement)theEObject;
+        T result = caseFeatureElement(featureElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.PERIODIC_COMPUTATIONAL_MODEL:
+      {
+        PeriodicComputationalModel periodicComputationalModel = (PeriodicComputationalModel)theEObject;
+        T result = casePeriodicComputationalModel(periodicComputationalModel);
+        if (result == null) result = caseComputationalModel(periodicComputationalModel);
+        if (result == null) result = caseSpecSection(periodicComputationalModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.HYPERPERIOD_COMPUTATIONAL_MODEL:
+      {
+        HyperperiodComputationalModel hyperperiodComputationalModel = (HyperperiodComputationalModel)theEObject;
+        T result = caseHyperperiodComputationalModel(hyperperiodComputationalModel);
+        if (result == null) result = caseComputationalModel(hyperperiodComputationalModel);
+        if (result == null) result = caseSpecSection(hyperperiodComputationalModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -142,6 +197,118 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGumboSubclause(GumboSubclause object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Spec Section</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Spec Section</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSpecSection(SpecSection object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Computational Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Computational Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComputationalModel(ComputationalModel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Flows</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Flows</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFlows(Flows object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFlow(Flow object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Feature Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Feature Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFeatureElement(FeatureElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Periodic Computational Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Periodic Computational Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePeriodicComputationalModel(PeriodicComputationalModel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Hyperperiod Computational Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hyperperiod Computational Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHyperperiodComputationalModel(HyperperiodComputationalModel object)
   {
     return null;
   }

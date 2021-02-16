@@ -13,8 +13,10 @@
  */
 package org.sireum.aadl.gumbo.gumbo;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 import org.osate.aadl2.Aadl2Package;
 
@@ -196,13 +198,209 @@ public interface GumboPackage extends EPackage
   int GUMBO_SUBCLAUSE__IN_MODE = Aadl2Package.ANNEX_SUBCLAUSE__IN_MODE;
 
   /**
+   * The feature id for the '<em><b>Specs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUMBO_SUBCLAUSE__SPECS = Aadl2Package.ANNEX_SUBCLAUSE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Subclause</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GUMBO_SUBCLAUSE_FEATURE_COUNT = Aadl2Package.ANNEX_SUBCLAUSE_FEATURE_COUNT + 0;
+  int GUMBO_SUBCLAUSE_FEATURE_COUNT = Aadl2Package.ANNEX_SUBCLAUSE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl <em>Spec Section</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSpecSection()
+   * @generated
+   */
+  int SPEC_SECTION = 2;
+
+  /**
+   * The number of structural features of the '<em>Spec Section</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPEC_SECTION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ComputationalModelImpl <em>Computational Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ComputationalModelImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getComputationalModel()
+   * @generated
+   */
+  int COMPUTATIONAL_MODEL = 3;
+
+  /**
+   * The number of structural features of the '<em>Computational Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPUTATIONAL_MODEL_FEATURE_COUNT = SPEC_SECTION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FlowsImpl <em>Flows</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.FlowsImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFlows()
+   * @generated
+   */
+  int FLOWS = 4;
+
+  /**
+   * The feature id for the '<em><b>Flows</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOWS__FLOWS = SPEC_SECTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Flows</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOWS_FEATURE_COUNT = SPEC_SECTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FlowImpl <em>Flow</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.FlowImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFlow()
+   * @generated
+   */
+  int FLOW = 5;
+
+  /**
+   * The feature id for the '<em><b>Flow Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOW__FLOW_ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Src Ports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOW__SRC_PORTS = 1;
+
+  /**
+   * The feature id for the '<em><b>Dst Ports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOW__DST_PORTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Flow</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOW_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl <em>Feature Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFeatureElement()
+   * @generated
+   */
+  int FEATURE_ELEMENT = 6;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE_ELEMENT__FEATURE = 0;
+
+  /**
+   * The number of structural features of the '<em>Feature Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.PeriodicComputationalModelImpl <em>Periodic Computational Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.PeriodicComputationalModelImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPeriodicComputationalModel()
+   * @generated
+   */
+  int PERIODIC_COMPUTATIONAL_MODEL = 7;
+
+  /**
+   * The number of structural features of the '<em>Periodic Computational Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERIODIC_COMPUTATIONAL_MODEL_FEATURE_COUNT = COMPUTATIONAL_MODEL_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.HyperperiodComputationalModelImpl <em>Hyperperiod Computational Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.HyperperiodComputationalModelImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHyperperiodComputationalModel()
+   * @generated
+   */
+  int HYPERPERIOD_COMPUTATIONAL_MODEL = 8;
+
+  /**
+   * The feature id for the '<em><b>Constraints</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS = COMPUTATIONAL_MODEL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Hyperperiod Computational Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HYPERPERIOD_COMPUTATIONAL_MODEL_FEATURE_COUNT = COMPUTATIONAL_MODEL_FEATURE_COUNT + 1;
 
 
   /**
@@ -224,6 +422,153 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EClass getGumboSubclause();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.GumboSubclause#getSpecs <em>Specs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Specs</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboSubclause#getSpecs()
+   * @see #getGumboSubclause()
+   * @generated
+   */
+  EReference getGumboSubclause_Specs();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SpecSection <em>Spec Section</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Spec Section</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SpecSection
+   * @generated
+   */
+  EClass getSpecSection();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ComputationalModel <em>Computational Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Computational Model</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ComputationalModel
+   * @generated
+   */
+  EClass getComputationalModel();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.Flows <em>Flows</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Flows</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Flows
+   * @generated
+   */
+  EClass getFlows();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.Flows#getFlows <em>Flows</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Flows</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Flows#getFlows()
+   * @see #getFlows()
+   * @generated
+   */
+  EReference getFlows_Flows();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.Flow <em>Flow</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Flow</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Flow
+   * @generated
+   */
+  EClass getFlow();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.Flow#getFlowId <em>Flow Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Flow Id</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Flow#getFlowId()
+   * @see #getFlow()
+   * @generated
+   */
+  EAttribute getFlow_FlowId();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.Flow#getSrcPorts <em>Src Ports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Src Ports</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Flow#getSrcPorts()
+   * @see #getFlow()
+   * @generated
+   */
+  EReference getFlow_SrcPorts();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.Flow#getDstPorts <em>Dst Ports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Dst Ports</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Flow#getDstPorts()
+   * @see #getFlow()
+   * @generated
+   */
+  EReference getFlow_DstPorts();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.FeatureElement <em>Feature Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Feature Element</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.FeatureElement
+   * @generated
+   */
+  EClass getFeatureElement();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.FeatureElement#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Feature</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.FeatureElement#getFeature()
+   * @see #getFeatureElement()
+   * @generated
+   */
+  EReference getFeatureElement_Feature();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel <em>Periodic Computational Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Periodic Computational Model</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel
+   * @generated
+   */
+  EClass getPeriodicComputationalModel();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel <em>Hyperperiod Computational Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Hyperperiod Computational Model</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
+   * @generated
+   */
+  EClass getHyperperiodComputationalModel();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel#getConstraints <em>Constraints</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Constraints</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel#getConstraints()
+   * @see #getHyperperiodComputationalModel()
+   * @generated
+   */
+  EReference getHyperperiodComputationalModel_Constraints();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -267,6 +612,132 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EClass GUMBO_SUBCLAUSE = eINSTANCE.getGumboSubclause();
+
+    /**
+     * The meta object literal for the '<em><b>Specs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GUMBO_SUBCLAUSE__SPECS = eINSTANCE.getGumboSubclause_Specs();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl <em>Spec Section</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSpecSection()
+     * @generated
+     */
+    EClass SPEC_SECTION = eINSTANCE.getSpecSection();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ComputationalModelImpl <em>Computational Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ComputationalModelImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getComputationalModel()
+     * @generated
+     */
+    EClass COMPUTATIONAL_MODEL = eINSTANCE.getComputationalModel();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FlowsImpl <em>Flows</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.FlowsImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFlows()
+     * @generated
+     */
+    EClass FLOWS = eINSTANCE.getFlows();
+
+    /**
+     * The meta object literal for the '<em><b>Flows</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FLOWS__FLOWS = eINSTANCE.getFlows_Flows();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FlowImpl <em>Flow</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.FlowImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFlow()
+     * @generated
+     */
+    EClass FLOW = eINSTANCE.getFlow();
+
+    /**
+     * The meta object literal for the '<em><b>Flow Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FLOW__FLOW_ID = eINSTANCE.getFlow_FlowId();
+
+    /**
+     * The meta object literal for the '<em><b>Src Ports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FLOW__SRC_PORTS = eINSTANCE.getFlow_SrcPorts();
+
+    /**
+     * The meta object literal for the '<em><b>Dst Ports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FLOW__DST_PORTS = eINSTANCE.getFlow_DstPorts();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl <em>Feature Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFeatureElement()
+     * @generated
+     */
+    EClass FEATURE_ELEMENT = eINSTANCE.getFeatureElement();
+
+    /**
+     * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FEATURE_ELEMENT__FEATURE = eINSTANCE.getFeatureElement_Feature();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.PeriodicComputationalModelImpl <em>Periodic Computational Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.PeriodicComputationalModelImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPeriodicComputationalModel()
+     * @generated
+     */
+    EClass PERIODIC_COMPUTATIONAL_MODEL = eINSTANCE.getPeriodicComputationalModel();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.HyperperiodComputationalModelImpl <em>Hyperperiod Computational Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.HyperperiodComputationalModelImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHyperperiodComputationalModel()
+     * @generated
+     */
+    EClass HYPERPERIOD_COMPUTATIONAL_MODEL = eINSTANCE.getHyperperiodComputationalModel();
+
+    /**
+     * The meta object literal for the '<em><b>Constraints</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS = eINSTANCE.getHyperperiodComputationalModel_Constraints();
 
   }
 

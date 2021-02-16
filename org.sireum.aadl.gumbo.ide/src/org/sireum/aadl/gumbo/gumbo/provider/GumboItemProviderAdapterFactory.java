@@ -135,6 +135,181 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SpecSection} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SpecSectionItemProvider specSectionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SpecSection}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSpecSectionAdapter()
+  {
+    if (specSectionItemProvider == null)
+    {
+      specSectionItemProvider = new SpecSectionItemProvider(this);
+    }
+
+    return specSectionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ComputationalModel} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ComputationalModelItemProvider computationalModelItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ComputationalModel}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createComputationalModelAdapter()
+  {
+    if (computationalModelItemProvider == null)
+    {
+      computationalModelItemProvider = new ComputationalModelItemProvider(this);
+    }
+
+    return computationalModelItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Flows} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FlowsItemProvider flowsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Flows}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFlowsAdapter()
+  {
+    if (flowsItemProvider == null)
+    {
+      flowsItemProvider = new FlowsItemProvider(this);
+    }
+
+    return flowsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Flow} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FlowItemProvider flowItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Flow}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFlowAdapter()
+  {
+    if (flowItemProvider == null)
+    {
+      flowItemProvider = new FlowItemProvider(this);
+    }
+
+    return flowItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.FeatureElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FeatureElementItemProvider featureElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.FeatureElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFeatureElementAdapter()
+  {
+    if (featureElementItemProvider == null)
+    {
+      featureElementItemProvider = new FeatureElementItemProvider(this);
+    }
+
+    return featureElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PeriodicComputationalModelItemProvider periodicComputationalModelItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPeriodicComputationalModelAdapter()
+  {
+    if (periodicComputationalModelItemProvider == null)
+    {
+      periodicComputationalModelItemProvider = new PeriodicComputationalModelItemProvider(this);
+    }
+
+    return periodicComputationalModelItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HyperperiodComputationalModelItemProvider hyperperiodComputationalModelItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createHyperperiodComputationalModelAdapter()
+  {
+    if (hyperperiodComputationalModelItemProvider == null)
+    {
+      hyperperiodComputationalModelItemProvider = new HyperperiodComputationalModelItemProvider(this);
+    }
+
+    return hyperperiodComputationalModelItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -253,6 +428,13 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   {
     if (gumboLibraryItemProvider != null) gumboLibraryItemProvider.dispose();
     if (gumboSubclauseItemProvider != null) gumboSubclauseItemProvider.dispose();
+    if (specSectionItemProvider != null) specSectionItemProvider.dispose();
+    if (computationalModelItemProvider != null) computationalModelItemProvider.dispose();
+    if (flowsItemProvider != null) flowsItemProvider.dispose();
+    if (flowItemProvider != null) flowItemProvider.dispose();
+    if (featureElementItemProvider != null) featureElementItemProvider.dispose();
+    if (periodicComputationalModelItemProvider != null) periodicComputationalModelItemProvider.dispose();
+    if (hyperperiodComputationalModelItemProvider != null) hyperperiodComputationalModelItemProvider.dispose();
   }
 
 }
