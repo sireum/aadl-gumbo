@@ -23,7 +23,10 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.osate.aadl2.Classifier;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.Feature;
@@ -46,7 +49,22 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
   @Override
   protected Predicate<Method> getPredicate(final EObject context, final EReference reference) {
     final Predicate<Method> method = super.getPredicate(context, reference);
-    InputOutput.<Predicate<Method>>println(method);
+    String _string = method.toString();
+    int _length = method.toString().length();
+    int _minus = (_length - 1);
+    final String sname = _string.substring(1, _minus);
+    final Function1<Method, String> _function = (Method it) -> {
+      return it.getName();
+    };
+    boolean _contains = ListExtensions.<Method, String>map(((List<Method>)Conversions.doWrapArray(this.getClass().getMethods())), _function).contains(sname);
+    boolean _not = (!_contains);
+    if (_not) {
+      String _name = this.getClass().getName();
+      String _plus = ("Missing: " + _name);
+      String _plus_1 = (_plus + ".");
+      String _plus_2 = (_plus_1 + sname);
+      InputOutput.<String>println(_plus_2);
+    }
     return method;
   }
   
@@ -61,7 +79,8 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
       } else {
         _xifexpression = CollectionLiterals.<Feature>emptyList();
       }
-      _xblockexpression = PropertiesScopeProvider.scopeFor(Iterables.<NamedElement>concat(_allFeatures, _xifexpression));
+      final SimpleScope scope = PropertiesScopeProvider.scopeFor(Iterables.<NamedElement>concat(_allFeatures, _xifexpression));
+      _xblockexpression = scope;
     }
     return _xblockexpression;
   }
