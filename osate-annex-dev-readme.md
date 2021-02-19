@@ -52,8 +52,7 @@ FeatureElement returns FeatureElement:
 
 The scopes are added via reflected calls to [org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/scoping/GumboScopeProvider.xtend](org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/scoping/GumboScopeProvider.xtend)
 
-Assuming the above rule is processed while visiting an OSATE thread, the following will get the classifier for the thread, and add a scope for all its features.  These will then be used when OSATE needs to resolve 
-the referenced sybmol.
+Assuming the above rule is processed while visiting an OSATE thread, the following will get the classifier for the thread, and add a scope for all its features.  These will then be used when OSATE needs to resolve the referenced symbol.
 
 ```
 	def SimpleScope scope_FeatureElement_feature(FeatureElement context, EReference reference) {
@@ -68,7 +67,7 @@ the referenced sybmol.
 	}
 ```
 
-NOTE: OSATE might not resolve the reference until the corresponding field is actually accessed.  So for example, navigating to the container holding a 'FeatureElement' using the debugger starting at the top level GumboSubclause might show the container pointing to a PropertyImpl.  However, the PropertyImpl will be
+NOTE: OSATE will lazily resolve symbols.  So for example, navigating to the container holding a 'FeatureElement' using the debugger starting at the top level GumboSubclause might show the container pointing to a PropertyImpl.  However, the PropertyImpl will be
 replaced with, for example, a DataPortImpl when the '.feature' field is accessed via a visitor/formatter/serializer/etc.
 
 Adding something like the following can help determine what the method names are that will be called via reflection:
