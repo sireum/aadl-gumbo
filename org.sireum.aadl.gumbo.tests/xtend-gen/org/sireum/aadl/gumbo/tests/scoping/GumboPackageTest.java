@@ -1,4 +1,4 @@
-package org.sireum.aadl.gumbo.tests;
+package org.sireum.aadl.gumbo.tests.scoping;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;

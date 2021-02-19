@@ -1,4 +1,4 @@
-package org.sireum.aadl.gumbo.tests
+package org.sireum.aadl.gumbo.tests.scoping
 
 import com.itemis.xtext.testing.XtextTest
 import org.eclipse.xtext.testing.InjectWith
@@ -19,7 +19,7 @@ import org.osate.aadl2.DirectionType
 import org.osate.testsupport.AssertHelper
 import org.eclipse.xtext.resource.IResourceServiceProvider
 import org.eclipse.emf.common.util.URI
-import org.sireum.aadl.gumbo.gumbo.GumboPackage
+import org.sireum.aadl.gumbo.tests.GumboInjectorProvider
 
 @RunWith(XtextRunner)
 @InjectWith(GumboInjectorProvider)
@@ -54,7 +54,7 @@ class GumboPackageTest extends XtextTest {
 
 		pkg => [
 			"SimplePackage".assertEquals(name)
-			
+
 			(((publicSection.ownedClassifiers.head.ownedAnnexSubclauses.head as DefaultAnnexSubclause).
 				parsedAnnexSubclause as GumboSubclause).specs.head as Flows).flows.head => [
 
@@ -66,8 +66,8 @@ class GumboPackageTest extends XtextTest {
 						EventDataPort: {
 							val name = '''SimplePackage::A.port«i+1»'''
 							assertTrue(src.getQualifiedName == name && src.direction == DirectionType.IN)
-							
-							//assertScope(GumboPackage.eINSTANCE.featureElement_Feature, #["port" + (i + 1)])
+
+						// assertScope(GumboPackage.eINSTANCE.featureElement_Feature, #["port" + (i + 1)])
 						}
 						default:
 							assertTrue("Unexpected feature: " + src, false)
