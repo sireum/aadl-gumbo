@@ -39,7 +39,7 @@ This guide is based on observations/examanations of the
 
 1. Regenerate via the [launcher](org.sireum.aadl.gumbo/.launch/Generate%20Gumbo%20(gumbo)%20Language%20Infrastructure.launch) after making changes to the grammar
 
-1. Rerun your regression tests.  E.g. right click [org.sireum.aadl.gumbo.tests/src/org/sireum/aadl/gumbo/tests/GumboPackageTest.xtend](org.sireum.aadl.gumbo.tests/src/org/sireum/aadl/gumbo/tests/GumboPackageTest.xtend) and choose ``Run as 'JUnit Plug-in Test'``
+1. Rerun your regression tests.  E.g. right click the project [org.sireum.aadl.gumbo.tests](org.sireum.aadl.gumbo.tests) and choose ``Run as 'JUnit Plug-in Test'``
   
 ## Scoping / Symbol Resolution
 
