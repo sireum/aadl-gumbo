@@ -48,7 +48,7 @@ public class FormatterTest {
       _builder.append("\t\t");
       _builder.append("annex gumbo {**");
       _builder.newLine();
-      _builder.append("\t\t\t                                                                                                                                                                                                    ");
+      _builder.append("\t\t\t");
       _builder.append("flows   flow1   :    port1  ,   port2   -fun->   port3\t");
       _builder.newLine();
       _builder.append("\t\t");

@@ -28,7 +28,7 @@ class FormatterTest {
 							port2: in event data port;
 							port3: out event data port;
 						annex gumbo {**
-							                                                                                                                                                                                                    flows   flow1   :    port1  ,   port2   -fun->   port3	
+							flows   flow1   :    port1  ,   port2   -fun->   port3	
 						**};
 					end A;
 				end SimplePackage;'''

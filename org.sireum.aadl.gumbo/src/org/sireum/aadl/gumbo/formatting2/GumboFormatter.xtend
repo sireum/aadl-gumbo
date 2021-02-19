@@ -14,12 +14,25 @@
 package org.sireum.aadl.gumbo.formatting2
 
 import com.google.inject.Inject
+import org.eclipse.xtext.formatting2.IFormattableDocument
+import org.eclipse.xtext.formatting2.IHiddenRegionFormatter
+import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion
 import org.osate.xtext.aadl2.properties.formatting2.PropertiesFormatter
 import org.sireum.aadl.gumbo.services.GumboGrammarAccess
+import org.sireum.aadl.gumbo.gumbo.GumboSubclause
 
 class GumboFormatter extends PropertiesFormatter {
 	
 	@Inject extension GumboGrammarAccess
 	
-	// TODO: implement for 
+	def dispatch void format(GumboSubclause gumboSubclause, extension IFormattableDocument document) {
+		if(gumboSubclause.regionForEObject === null) {
+			return 
+		}	
+		
+		// Before subclause
+		if(gumboSubclause.regionForEObject.previousSemanticRegion === null) {
+			gumboSubclause.prepend[noSpace]
+		}
+	}
 }
