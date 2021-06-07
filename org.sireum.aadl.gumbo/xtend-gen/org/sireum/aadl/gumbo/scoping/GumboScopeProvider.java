@@ -36,7 +36,6 @@ import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
 import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel;
 import org.sireum.aadl.gumbo.gumbo.IdExpr;
-import org.sireum.aadl.gumbo.scoping.AbstractGumboScopeProvider;
 
 /**
  * This class contains custom scoping description.

@@ -13,8 +13,6 @@
  */
 package org.sireum.aadl.gumbo.ui.contentassist;
 
-import org.sireum.aadl.gumbo.ui.contentassist.AbstractGumboProposalProvider;
-
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
  * on how to customize the content assistant.
