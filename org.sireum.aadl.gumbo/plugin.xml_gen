@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
-		<package 
+		<package
 			uri = "http://www.sireum.org/aadl/gumbo/Gumbo"
 			class = "org.sireum.aadl.gumbo.gumbo.GumboPackage"
 			genModel = "model/generated/Gumbo.genmodel" />

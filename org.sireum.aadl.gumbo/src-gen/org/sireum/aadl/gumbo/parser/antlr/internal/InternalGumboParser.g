@@ -1696,7 +1696,7 @@ ruleContainedPropertyAssociation returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getContainedPropertyAssociationRule());
 						}
-						setWithLastConsumed($current, "append", true, "+=>");
+						setWithLastConsumed($current, "append", lv_append_2_0 != null, "+=>");
 					}
 				)
 			)
@@ -1711,7 +1711,7 @@ ruleContainedPropertyAssociation returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getContainedPropertyAssociationRule());
 					}
-					setWithLastConsumed($current, "constant", true, "constant");
+					setWithLastConsumed($current, "constant", lv_constant_3_0 != null, "constant");
 				}
 			)
 		)?
@@ -2197,7 +2197,7 @@ ruleBooleanLiteral returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getBooleanLiteralRule());
 						}
-						setWithLastConsumed($current, "value", true, "true");
+						setWithLastConsumed($current, "value", lv_value_1_0 != null, "true");
 					}
 				)
 			)

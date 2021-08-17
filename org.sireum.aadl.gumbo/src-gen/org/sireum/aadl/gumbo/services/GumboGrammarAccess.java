@@ -27,19 +27,20 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
+import org.eclipse.xtext.service.AbstractElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.osate.xtext.aadl2.properties.services.PropertiesGrammarAccess;
 
 @Singleton
-public class GumboGrammarAccess extends AbstractGrammarElementFinder {
+public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarElementFinder {
 	
 	public class AnnexLibraryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AnnexLibrary");
 		private final RuleCall cGumboLibraryParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//AnnexLibrary aadl2::AnnexLibrary:
-		//	GumboLibrary;
+		//AnnexLibrary returns aadl2::AnnexLibrary:
+		//    GumboLibrary
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//GumboLibrary
@@ -49,8 +50,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AnnexSubclause");
 		private final RuleCall cGumboSubclauseParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//AnnexSubclause aadl2::AnnexSubclause:
-		//	GumboSubclause;
+		//AnnexSubclause returns aadl2::AnnexSubclause:
+		//    GumboSubclause
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//GumboSubclause
@@ -64,12 +66,14 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cForKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cGumboKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//GumboLibrary:
-		//	{GumboLibrary}
-		//	'library' 'for' 'gumbo';
+		//GumboLibrary returns GumboLibrary:
+		//    {GumboLibrary}
+		//    'library' 'for' 'gumbo'
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{GumboLibrary} 'library' 'for' 'gumbo'
+		//{GumboLibrary}
+		//'library' 'for' 'gumbo'
 		public Group getGroup() { return cGroup; }
 		
 		//{GumboLibrary}
@@ -91,11 +95,14 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSpecsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSpecsSpecSectionParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
 		
-		//GumboSubclause:
-		//	{GumboSubclause} specs+=SpecSection*;
+		//GumboSubclause returns GumboSubclause:
+		//    {GumboSubclause}
+		//    specs+=SpecSection*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{GumboSubclause} specs+=SpecSection*
+		//{GumboSubclause}
+		//specs+=SpecSection*
 		public Group getGroup() { return cGroup; }
 		
 		//{GumboSubclause}
@@ -115,12 +122,15 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cContractParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//SpecSection:
-		//	ComputationalModel
-		//	| Flows
-		//	| Contract;
+		//    ComputationalModel
+		//|    Flows
+		//|    Contract
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ComputationalModel | Flows | Contract
+		//    ComputationalModel
+		//|    Flows
+		//|    Contract
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ComputationalModel
@@ -155,20 +165,29 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstraintsNamedElementIDTerminalRuleCall_1_1_3_1_1_0_1 = (RuleCall)cConstraintsNamedElementCrossReference_1_1_3_1_1_0.eContents().get(1);
 		
 		//ComputationalModel:
-		//	'computational_model' ({PeriodicComputationalModel} 'periodic'
-		//	| {HyperperiodComputationalModel} 'hyperperiod' 'with' (constraints+=[aadl2::NamedElement] ('<'
-		//	constraints+=[aadl2::NamedElement])*));
+		//    'computational_model' (
+		//        {PeriodicComputationalModel} 'periodic'
+		//    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
+		//        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+		//    )
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'computational_model' ({PeriodicComputationalModel} 'periodic' | {HyperperiodComputationalModel} 'hyperperiod' 'with'
-		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])*))
+		//'computational_model' (
+		//    {PeriodicComputationalModel} 'periodic'
+		//|    {HyperperiodComputationalModel} 'hyperperiod' 'with'
+		//    (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+		//)
 		public Group getGroup() { return cGroup; }
 		
 		//'computational_model'
 		public Keyword getComputational_modelKeyword_0() { return cComputational_modelKeyword_0; }
 		
-		//({PeriodicComputationalModel} 'periodic' | {HyperperiodComputationalModel} 'hyperperiod' 'with'
-		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])*))
+		//(
+		//       {PeriodicComputationalModel} 'periodic'
+		//   |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
+		//       (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+		//   )
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//{PeriodicComputationalModel} 'periodic'
@@ -180,8 +199,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		//'periodic'
 		public Keyword getPeriodicKeyword_1_0_1() { return cPeriodicKeyword_1_0_1; }
 		
-		//{HyperperiodComputationalModel} 'hyperperiod' 'with' (constraints+=[aadl2::NamedElement] ('<'
-		//constraints+=[aadl2::NamedElement])*)
+		//{HyperperiodComputationalModel} 'hyperperiod' 'with'
+		//    (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//{HyperperiodComputationalModel}
@@ -193,7 +212,7 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		//'with'
 		public Keyword getWithKeyword_1_1_2() { return cWithKeyword_1_1_2; }
 		
-		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])*)
+		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
 		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
 		
 		//constraints+=[aadl2::NamedElement]
@@ -228,16 +247,17 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFlowsFlowParserRuleCall_1_0 = (RuleCall)cFlowsAssignment_1.eContents().get(0);
 		
 		//Flows:
-		//	'flows' flows+=Flow+;
+		//    'flows' (flows+=Flow)+
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'flows' flows+=Flow+
+		//'flows' (flows+=Flow)+
 		public Group getGroup() { return cGroup; }
 		
 		//'flows'
 		public Keyword getFlowsKeyword_0() { return cFlowsKeyword_0; }
 		
-		//flows+=Flow+
+		//(flows+=Flow)+
 		public Assignment getFlowsAssignment_1() { return cFlowsAssignment_1; }
 		
 		//Flow
@@ -263,17 +283,19 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDstPortsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cDstPortsFeatureElementParserRuleCall_6_1_0 = (RuleCall)cDstPortsAssignment_6_1.eContents().get(0);
 		
-		//Flow:
-		//	=> flowId=ID ':'
-		//	srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-		//	dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*;
+		//Flow returns Flow:
+		//    =>    flowId=ID ':'
+		//        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+		//        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//=> flowId=ID ':' srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->' dstPorts+=FeatureElement (','
-		//dstPorts+=FeatureElement)*
+		//=>    flowId=ID ':'
+		//    srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+		//    dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
 		public Group getGroup() { return cGroup; }
 		
-		//=> flowId=ID
+		//=>	flowId=ID
 		public Assignment getFlowIdAssignment_0() { return cFlowIdAssignment_0; }
 		
 		//ID
@@ -329,16 +351,17 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSpecsSpecStatementParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
 		
 		//Contract:
-		//	'contracts' specs+=SpecStatement+;
+		//    'contracts' (specs+=SpecStatement)+
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'contracts' specs+=SpecStatement+
+		//'contracts' (specs+=SpecStatement)+
 		public Group getGroup() { return cGroup; }
 		
 		//'contracts'
 		public Keyword getContractsKeyword_0() { return cContractsKeyword_0; }
 		
-		//specs+=SpecStatement+
+		//(specs+=SpecStatement)+
 		public Assignment getSpecsAssignment_1() { return cSpecsAssignment_1; }
 		
 		//SpecStatement
@@ -376,17 +399,19 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprExprParserRuleCall_1_4_0 = (RuleCall)cExprAssignment_1_4.eContents().get(0);
 		
 		//SpecStatement:
-		//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-		//	assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-		//	| {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr;
+		//    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+		//        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
+		//|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<'
-		//tracesTo=ID '>')? | {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+		//    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+		//        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
+		//|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<'
-		//tracesTo=ID '>')?
+		//{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+		//    assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{AssumeStatement}
@@ -471,12 +496,13 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.PREDICATE");
 		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//PREDICATE:
-		//	ID;
+		//PREDICATE: // TODO
+		//    ID
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//// TODO 
-		//ID
+		//// TODO
+		//   ID
 		public RuleCall getIDTerminalRuleCall() { return cIDTerminalRuleCall; }
 	}
 	public class ExprElements extends AbstractParserRuleElementFinder {
@@ -484,7 +510,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImpliesExprParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//Expr:
-		//	ImpliesExpr;
+		//    ImpliesExpr
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//ImpliesExpr
@@ -504,29 +531,30 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightImpliesExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//ImpliesExpr Expr:
-		//	OrExpr (=> ({BinaryExpr.left=current} ('=>' | 'implies')) right=ImpliesExpr)?;
+		//ImpliesExpr returns Expr:
+		//    OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//OrExpr (=> ({BinaryExpr.left=current} ('=>' | 'implies')) right=ImpliesExpr)?
+		//OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
 		public Group getGroup() { return cGroup; }
 		
 		//OrExpr
 		public RuleCall getOrExprParserRuleCall_0() { return cOrExprParserRuleCall_0; }
 		
-		//(=> ({BinaryExpr.left=current} ('=>' | 'implies')) right=ImpliesExpr)?
+		//(=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//=> ({BinaryExpr.left=current} ('=>' | 'implies'))
+		//=>({BinaryExpr.left=current} ('=>'|'implies'))
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//({BinaryExpr.left=current} ('=>' | 'implies'))
+		//{BinaryExpr.left=current} ('=>'|'implies')
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{BinaryExpr.left=current}
 		public Action getBinaryExprLeftAction_1_0_0_0() { return cBinaryExprLeftAction_1_0_0_0; }
 		
-		//('=>' | 'implies')
+		//('=>'|'implies')
 		public Alternatives getAlternatives_1_0_0_1() { return cAlternatives_1_0_0_1; }
 		
 		//'=>'
@@ -557,29 +585,30 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightAndExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//OrExpr Expr:
-		//	AndExpr (=> ({BinaryExpr.left=current} (op='or' | op='orelse')) right=AndExpr)*;
+		//OrExpr returns Expr:
+		//    AndExpr (=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AndExpr (=> ({BinaryExpr.left=current} (op='or' | op='orelse')) right=AndExpr)*
+		//AndExpr (=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
 		public Group getGroup() { return cGroup; }
 		
 		//AndExpr
 		public RuleCall getAndExprParserRuleCall_0() { return cAndExprParserRuleCall_0; }
 		
-		//(=> ({BinaryExpr.left=current} (op='or' | op='orelse')) right=AndExpr)*
+		//(=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//=> ({BinaryExpr.left=current} (op='or' | op='orelse'))
+		//=>({BinaryExpr.left=current} (op='or'|op='orelse'))
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//({BinaryExpr.left=current} (op='or' | op='orelse'))
+		//{BinaryExpr.left=current} (op='or'|op='orelse')
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{BinaryExpr.left=current}
 		public Action getBinaryExprLeftAction_1_0_0_0() { return cBinaryExprLeftAction_1_0_0_0; }
 		
-		//(op='or' | op='orelse')
+		//(op='or'|op='orelse')
 		public Alternatives getAlternatives_1_0_0_1() { return cAlternatives_1_0_0_1; }
 		
 		//op='or'
@@ -616,29 +645,30 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightRelationalExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//AndExpr Expr:
-		//	RelationalExpr (=> ({BinaryExpr.left=current} (op='and' | op='andthen')) right=RelationalExpr)*;
+		//AndExpr returns Expr:
+		//    RelationalExpr (=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=RelationalExpr)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//RelationalExpr (=> ({BinaryExpr.left=current} (op='and' | op='andthen')) right=RelationalExpr)*
+		//RelationalExpr (=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=RelationalExpr)*
 		public Group getGroup() { return cGroup; }
 		
 		//RelationalExpr
 		public RuleCall getRelationalExprParserRuleCall_0() { return cRelationalExprParserRuleCall_0; }
 		
-		//(=> ({BinaryExpr.left=current} (op='and' | op='andthen')) right=RelationalExpr)*
+		//(=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=RelationalExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//=> ({BinaryExpr.left=current} (op='and' | op='andthen'))
+		//=>({BinaryExpr.left=current} (op='and'|op='andthen'))
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//({BinaryExpr.left=current} (op='and' | op='andthen'))
+		//{BinaryExpr.left=current} (op='and'|op='andthen')
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{BinaryExpr.left=current}
 		public Action getBinaryExprLeftAction_1_0_0_0() { return cBinaryExprLeftAction_1_0_0_0; }
 		
-		//(op='and' | op='andthen')
+		//(op='and'|op='andthen')
 		public Alternatives getAlternatives_1_0_0_1() { return cAlternatives_1_0_0_1; }
 		
 		//op='and'
@@ -670,7 +700,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLessThanSignGreaterThanSignKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		
 		//RelationalOp:
-		//	'<' | '<=' | '>' | '>=' | '=' | '<>';
+		//    '<' | '<=' | '>' | '>=' | '=' | '<>'
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'<' | '<=' | '>' | '>=' | '=' | '<>'
@@ -707,23 +738,24 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightPlusExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//RelationalExpr Expr:
-		//	PlusExpr (=> ({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?;
+		//RelationalExpr returns Expr:
+		//    PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PlusExpr (=> ({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+		//PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
 		public Group getGroup() { return cGroup; }
 		
 		//PlusExpr
 		public RuleCall getPlusExprParserRuleCall_0() { return cPlusExprParserRuleCall_0; }
 		
-		//(=> ({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+		//(=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//=> ({BinaryExpr.left=current} op=RelationalOp)
+		//=>({BinaryExpr.left=current} op=RelationalOp)
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//({BinaryExpr.left=current} op=RelationalOp)
+		//{BinaryExpr.left=current} op=RelationalOp
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{BinaryExpr.left=current}
@@ -756,23 +788,24 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightTimesExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//PlusExpr Expr:
-		//	TimesExpr (=> ({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*;
+		//PlusExpr returns Expr:
+		//    TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TimesExpr (=> ({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+		//TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
 		public Group getGroup() { return cGroup; }
 		
 		//TimesExpr
 		public RuleCall getTimesExprParserRuleCall_0() { return cTimesExprParserRuleCall_0; }
 		
-		//(=> ({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+		//(=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//=> ({BinaryExpr.left=current} op=('+' | '-'))
+		//=>({BinaryExpr.left=current} op=('+' | '-'))
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//({BinaryExpr.left=current} op=('+' | '-'))
+		//{BinaryExpr.left=current} op=('+' | '-')
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{BinaryExpr.left=current}
@@ -812,23 +845,24 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightExpExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//TimesExpr Expr:
-		//	ExpExpr (=> ({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*;
+		//TimesExpr returns Expr:
+		//    ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ExpExpr (=> ({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
+		//ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
 		public Group getGroup() { return cGroup; }
 		
 		//ExpExpr
 		public RuleCall getExpExprParserRuleCall_0() { return cExpExprParserRuleCall_0; }
 		
-		//(=> ({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
+		//(=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//=> ({BinaryExpr.left=current} op=('*' | '/' | '%'))
+		//=>({BinaryExpr.left=current} op=('*' | '/' | '%'))
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//({BinaryExpr.left=current} op=('*' | '/' | '%'))
+		//{BinaryExpr.left=current} op=('*' | '/' | '%')
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{BinaryExpr.left=current}
@@ -868,32 +902,33 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightPrefixExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//ExpExpr Expr:
-		//	PrefixExpr (=> ({BinaryExpr.left=current} op='^') right=PrefixExpr)*;
+		//ExpExpr returns Expr:
+		//    PrefixExpr (=>({BinaryExpr.left=current} op=('^')) right=PrefixExpr)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PrefixExpr (=> ({BinaryExpr.left=current} op='^') right=PrefixExpr)*
+		//PrefixExpr (=>({BinaryExpr.left=current} op=('^')) right=PrefixExpr)*
 		public Group getGroup() { return cGroup; }
 		
 		//PrefixExpr
 		public RuleCall getPrefixExprParserRuleCall_0() { return cPrefixExprParserRuleCall_0; }
 		
-		//(=> ({BinaryExpr.left=current} op='^') right=PrefixExpr)*
+		//(=>({BinaryExpr.left=current} op=('^')) right=PrefixExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//=> ({BinaryExpr.left=current} op='^')
+		//=>({BinaryExpr.left=current} op=('^'))
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//({BinaryExpr.left=current} op='^')
+		//{BinaryExpr.left=current} op=('^')
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{BinaryExpr.left=current}
 		public Action getBinaryExprLeftAction_1_0_0_0() { return cBinaryExprLeftAction_1_0_0_0; }
 		
-		//op='^'
+		//op=('^')
 		public Assignment getOpAssignment_1_0_0_1() { return cOpAssignment_1_0_0_1; }
 		
-		//'^'
+		//('^')
 		public Keyword getOpCircumflexAccentKeyword_1_0_0_1_0() { return cOpCircumflexAccentKeyword_1_0_0_1_0; }
 		
 		//right=PrefixExpr
@@ -915,12 +950,14 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprPrefixExprParserRuleCall_0_2_0 = (RuleCall)cExprAssignment_0_2.eContents().get(0);
 		private final RuleCall cAtomicExprParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//PrefixExpr Expr:
-		//	{UnaryExpr} op=('-' | 'not') expr=PrefixExpr
-		//	| AtomicExpr;
+		//PrefixExpr returns Expr:
+		//    {UnaryExpr} op=('-' | 'not') expr=PrefixExpr
+		//|    AtomicExpr
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UnaryExpr} op=('-' | 'not') expr=PrefixExpr | AtomicExpr
+		//    {UnaryExpr} op=('-' | 'not') expr=PrefixExpr
+		//|    AtomicExpr
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{UnaryExpr} op=('-' | 'not') expr=PrefixExpr
@@ -958,20 +995,21 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cIdNamedElementCrossReference_1_0 = (CrossReference)cIdAssignment_1.eContents().get(0);
 		private final RuleCall cIdNamedElementQCREFParserRuleCall_1_0_1 = (RuleCall)cIdNamedElementCrossReference_1_0.eContents().get(1);
 		
-		//AtomicExpr Expr:
-		//	{IdExpr} id=[aadl2::NamedElement|QCREF];
+		//AtomicExpr returns Expr:
+		//    {IdExpr} id=[aadl2::NamedElement | QCREF]
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IdExpr} id=[aadl2::NamedElement|QCREF]
+		//{IdExpr} id=[aadl2::NamedElement | QCREF]
 		public Group getGroup() { return cGroup; }
 		
 		//{IdExpr}
 		public Action getIdExprAction_0() { return cIdExprAction_0; }
 		
-		//id=[aadl2::NamedElement|QCREF]
+		//id=[aadl2::NamedElement | QCREF]
 		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
 		
-		//[aadl2::NamedElement|QCREF]
+		//[aadl2::NamedElement | QCREF]
 		public CrossReference getIdNamedElementCrossReference_1_0() { return cIdNamedElementCrossReference_1_0; }
 		
 		//QCREF
@@ -983,14 +1021,15 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cSubcomponentSubcomponentCrossReference_0 = (CrossReference)cSubcomponentAssignment.eContents().get(0);
 		private final RuleCall cSubcomponentSubcomponentIDTerminalRuleCall_0_1 = (RuleCall)cSubcomponentSubcomponentCrossReference_0.eContents().get(1);
 		
-		//SubcomponentElement:
-		//	subcomponent=[aadl2::Subcomponent];
+		//SubcomponentElement returns SubcomponentElement:
+		//    subcomponent = [aadl2::Subcomponent|ID]
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//subcomponent=[aadl2::Subcomponent]
+		//subcomponent = [aadl2::Subcomponent|ID]
 		public Assignment getSubcomponentAssignment() { return cSubcomponentAssignment; }
 		
-		//[aadl2::Subcomponent]
+		//[aadl2::Subcomponent|ID]
 		public CrossReference getSubcomponentSubcomponentCrossReference_0() { return cSubcomponentSubcomponentCrossReference_0; }
 		
 		//ID
@@ -1002,14 +1041,15 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cFeatureNamedElementCrossReference_0 = (CrossReference)cFeatureAssignment.eContents().get(0);
 		private final RuleCall cFeatureNamedElementIDTerminalRuleCall_0_1 = (RuleCall)cFeatureNamedElementCrossReference_0.eContents().get(1);
 		
-		//FeatureElement:
-		//	feature=[aadl2::NamedElement];
+		//FeatureElement returns FeatureElement:
+		//    feature=[aadl2::NamedElement|ID]
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//feature=[aadl2::NamedElement]
+		//feature=[aadl2::NamedElement|ID]
 		public Assignment getFeatureAssignment() { return cFeatureAssignment; }
 		
-		//[aadl2::NamedElement]
+		//[aadl2::NamedElement|ID]
 		public CrossReference getFeatureNamedElementCrossReference_0() { return cFeatureNamedElementCrossReference_0; }
 		
 		//ID
@@ -1104,8 +1144,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//AnnexLibrary aadl2::AnnexLibrary:
-	//	GumboLibrary;
+	//AnnexLibrary returns aadl2::AnnexLibrary:
+	//    GumboLibrary
+	//;
 	public AnnexLibraryElements getAnnexLibraryAccess() {
 		return pAnnexLibrary;
 	}
@@ -1114,8 +1155,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnexLibraryAccess().getRule();
 	}
 	
-	//AnnexSubclause aadl2::AnnexSubclause:
-	//	GumboSubclause;
+	//AnnexSubclause returns aadl2::AnnexSubclause:
+	//    GumboSubclause
+	//;
 	public AnnexSubclauseElements getAnnexSubclauseAccess() {
 		return pAnnexSubclause;
 	}
@@ -1124,9 +1166,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnexSubclauseAccess().getRule();
 	}
 	
-	//GumboLibrary:
-	//	{GumboLibrary}
-	//	'library' 'for' 'gumbo';
+	//GumboLibrary returns GumboLibrary:
+	//    {GumboLibrary}
+	//    'library' 'for' 'gumbo'
+	//;
 	public GumboLibraryElements getGumboLibraryAccess() {
 		return pGumboLibrary;
 	}
@@ -1135,8 +1178,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getGumboLibraryAccess().getRule();
 	}
 	
-	//GumboSubclause:
-	//	{GumboSubclause} specs+=SpecSection*;
+	//GumboSubclause returns GumboSubclause:
+	//    {GumboSubclause}
+	//    specs+=SpecSection*
+	//;
 	public GumboSubclauseElements getGumboSubclauseAccess() {
 		return pGumboSubclause;
 	}
@@ -1146,9 +1191,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SpecSection:
-	//	ComputationalModel
-	//	| Flows
-	//	| Contract;
+	//    ComputationalModel
+	//|    Flows
+	//|    Contract
+	//;
 	public SpecSectionElements getSpecSectionAccess() {
 		return pSpecSection;
 	}
@@ -1158,9 +1204,12 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ComputationalModel:
-	//	'computational_model' ({PeriodicComputationalModel} 'periodic'
-	//	| {HyperperiodComputationalModel} 'hyperperiod' 'with' (constraints+=[aadl2::NamedElement] ('<'
-	//	constraints+=[aadl2::NamedElement])*));
+	//    'computational_model' (
+	//        {PeriodicComputationalModel} 'periodic'
+	//    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
+	//        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+	//    )
+	//;
 	public ComputationalModelElements getComputationalModelAccess() {
 		return pComputationalModel;
 	}
@@ -1170,7 +1219,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Flows:
-	//	'flows' flows+=Flow+;
+	//    'flows' (flows+=Flow)+
+	//;
 	public FlowsElements getFlowsAccess() {
 		return pFlows;
 	}
@@ -1179,10 +1229,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getFlowsAccess().getRule();
 	}
 	
-	//Flow:
-	//	=> flowId=ID ':'
-	//	srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-	//	dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*;
+	//Flow returns Flow:
+	//    =>    flowId=ID ':'
+	//        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+	//        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
+	//;
 	public FlowElements getFlowAccess() {
 		return pFlow;
 	}
@@ -1192,7 +1243,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Contract:
-	//	'contracts' specs+=SpecStatement+;
+	//    'contracts' (specs+=SpecStatement)+
+	//;
 	public ContractElements getContractAccess() {
 		return pContract;
 	}
@@ -1202,9 +1254,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SpecStatement:
-	//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-	//	assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-	//	| {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr;
+	//    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+	//        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
+	//|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+	//;
 	public SpecStatementElements getSpecStatementAccess() {
 		return pSpecStatement;
 	}
@@ -1213,8 +1266,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getSpecStatementAccess().getRule();
 	}
 	
-	//PREDICATE:
-	//	ID;
+	//PREDICATE: // TODO
+	//    ID
+	//;
 	public PREDICATEElements getPREDICATEAccess() {
 		return pPREDICATE;
 	}
@@ -1224,7 +1278,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expr:
-	//	ImpliesExpr;
+	//    ImpliesExpr
+	//;
 	public ExprElements getExprAccess() {
 		return pExpr;
 	}
@@ -1233,8 +1288,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getExprAccess().getRule();
 	}
 	
-	//ImpliesExpr Expr:
-	//	OrExpr (=> ({BinaryExpr.left=current} ('=>' | 'implies')) right=ImpliesExpr)?;
+	//ImpliesExpr returns Expr:
+	//    OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+	//;
 	public ImpliesExprElements getImpliesExprAccess() {
 		return pImpliesExpr;
 	}
@@ -1243,8 +1299,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getImpliesExprAccess().getRule();
 	}
 	
-	//OrExpr Expr:
-	//	AndExpr (=> ({BinaryExpr.left=current} (op='or' | op='orelse')) right=AndExpr)*;
+	//OrExpr returns Expr:
+	//    AndExpr (=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
+	//;
 	public OrExprElements getOrExprAccess() {
 		return pOrExpr;
 	}
@@ -1253,8 +1310,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getOrExprAccess().getRule();
 	}
 	
-	//AndExpr Expr:
-	//	RelationalExpr (=> ({BinaryExpr.left=current} (op='and' | op='andthen')) right=RelationalExpr)*;
+	//AndExpr returns Expr:
+	//    RelationalExpr (=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=RelationalExpr)*
+	//;
 	public AndExprElements getAndExprAccess() {
 		return pAndExpr;
 	}
@@ -1264,7 +1322,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RelationalOp:
-	//	'<' | '<=' | '>' | '>=' | '=' | '<>';
+	//    '<' | '<=' | '>' | '>=' | '=' | '<>'
+	//;
 	public RelationalOpElements getRelationalOpAccess() {
 		return pRelationalOp;
 	}
@@ -1273,8 +1332,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getRelationalOpAccess().getRule();
 	}
 	
-	//RelationalExpr Expr:
-	//	PlusExpr (=> ({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?;
+	//RelationalExpr returns Expr:
+	//    PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+	//;
 	public RelationalExprElements getRelationalExprAccess() {
 		return pRelationalExpr;
 	}
@@ -1283,8 +1343,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getRelationalExprAccess().getRule();
 	}
 	
-	//PlusExpr Expr:
-	//	TimesExpr (=> ({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*;
+	//PlusExpr returns Expr:
+	//    TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+	//;
 	public PlusExprElements getPlusExprAccess() {
 		return pPlusExpr;
 	}
@@ -1293,8 +1354,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getPlusExprAccess().getRule();
 	}
 	
-	//TimesExpr Expr:
-	//	ExpExpr (=> ({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*;
+	//TimesExpr returns Expr:
+	//    ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
+	//;
 	public TimesExprElements getTimesExprAccess() {
 		return pTimesExpr;
 	}
@@ -1303,8 +1365,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getTimesExprAccess().getRule();
 	}
 	
-	//ExpExpr Expr:
-	//	PrefixExpr (=> ({BinaryExpr.left=current} op='^') right=PrefixExpr)*;
+	//ExpExpr returns Expr:
+	//    PrefixExpr (=>({BinaryExpr.left=current} op=('^')) right=PrefixExpr)*
+	//;
 	public ExpExprElements getExpExprAccess() {
 		return pExpExpr;
 	}
@@ -1313,9 +1376,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpExprAccess().getRule();
 	}
 	
-	//PrefixExpr Expr:
-	//	{UnaryExpr} op=('-' | 'not') expr=PrefixExpr
-	//	| AtomicExpr;
+	//PrefixExpr returns Expr:
+	//    {UnaryExpr} op=('-' | 'not') expr=PrefixExpr
+	//|    AtomicExpr
+	//;
 	public PrefixExprElements getPrefixExprAccess() {
 		return pPrefixExpr;
 	}
@@ -1324,8 +1388,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getPrefixExprAccess().getRule();
 	}
 	
-	//AtomicExpr Expr:
-	//	{IdExpr} id=[aadl2::NamedElement|QCREF];
+	//AtomicExpr returns Expr:
+	//    {IdExpr} id=[aadl2::NamedElement | QCREF]
+	//;
 	public AtomicExprElements getAtomicExprAccess() {
 		return pAtomicExpr;
 	}
@@ -1334,8 +1399,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getAtomicExprAccess().getRule();
 	}
 	
-	//SubcomponentElement:
-	//	subcomponent=[aadl2::Subcomponent];
+	//SubcomponentElement returns SubcomponentElement:
+	//    subcomponent = [aadl2::Subcomponent|ID]
+	//;
 	public SubcomponentElementElements getSubcomponentElementAccess() {
 		return pSubcomponentElement;
 	}
@@ -1344,8 +1410,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getSubcomponentElementAccess().getRule();
 	}
 	
-	//FeatureElement:
-	//	feature=[aadl2::NamedElement];
+	//FeatureElement returns FeatureElement:
+	//    feature=[aadl2::NamedElement|ID]
+	//;
 	public FeatureElementElements getFeatureElementAccess() {
 		return pFeatureElement;
 	}
@@ -1354,9 +1421,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getFeatureElementAccess().getRule();
 	}
 	
-	//PModel aadl2::Element:
-	//	ContainedPropertyAssociation //| BasicPropertyAssociation | PropertyAssociation
-	//;
+	//PModel returns aadl2::Element:
+	//    ContainedPropertyAssociation //| BasicPropertyAssociation | PropertyAssociation
+	//    ;
 	public PropertiesGrammarAccess.PModelElements getPModelAccess() {
 		return gaProperties.getPModelAccess();
 	}
@@ -1366,11 +1433,18 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// Properties
-	//ContainedPropertyAssociation aadl2::PropertyAssociation:
-	//	property=[aadl2::Property|QPREF] ('=>' | append?='+=>') constant?='constant'? (ownedValue+=OptionalModalPropertyValue
-	//	(',' ownedValue+=OptionalModalPropertyValue)*) (AppliesToKeywords appliesTo+=ContainmentPath (','
-	//	appliesTo+=ContainmentPath)*)? (InBindingKeywords '(' inBinding+=[aadl2::Classifier|QCREF] ')')?
-	//	';';
+	//ContainedPropertyAssociation returns aadl2::PropertyAssociation:
+	//    property=[aadl2::Property|QPREF]
+	//    ('=>' | append?='+=>') (constant?='constant')?
+	//    (
+	//     ownedValue+=OptionalModalPropertyValue
+	//    ( ',' ownedValue+=OptionalModalPropertyValue )*
+	//    )
+	//    (AppliesToKeywords appliesTo+=ContainmentPath
+	//        (',' appliesTo+=ContainmentPath)*
+	//    )?
+	//    (InBindingKeywords '(' inBinding+=[aadl2::Classifier|QCREF]')')?
+	//    ';';
 	public PropertiesGrammarAccess.ContainedPropertyAssociationElements getContainedPropertyAssociationAccess() {
 		return gaProperties.getContainedPropertyAssociationAccess();
 	}
@@ -1379,10 +1453,16 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getContainedPropertyAssociationAccess().getRule();
 	}
 	
-	//PropertyAssociation aadl2::PropertyAssociation:
-	//	property=[aadl2::Property|QPREF] ('=>' | append?='+=>') constant?='constant'? (ownedValue+=OptionalModalPropertyValue
-	//	(',' ownedValue+=OptionalModalPropertyValue)*) (InBindingKeywords '(' inBinding+=[aadl2::Classifier|QCREF] ')')?
-	//	';';
+	//PropertyAssociation returns aadl2::PropertyAssociation:
+	//    property=[aadl2::Property|QPREF]
+	//    ('=>' | append?='+=>') (constant?='constant')?
+	//    (
+	//     ownedValue+=OptionalModalPropertyValue
+	//    ( ',' ownedValue+=OptionalModalPropertyValue )*
+	//    )
+	//    (InBindingKeywords '(' inBinding+=[aadl2::Classifier|QCREF]')')?
+	//    ';'
+	//    ;
 	public PropertiesGrammarAccess.PropertyAssociationElements getPropertyAssociationAccess() {
 		return gaProperties.getPropertyAssociationAccess();
 	}
@@ -1391,9 +1471,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyAssociationAccess().getRule();
 	}
 	
-	//BasicPropertyAssociation aadl2::PropertyAssociation:
-	//	property=[aadl2::Property|QPREF]
-	//	'=>' ownedValue+=PropertyValue ';';
+	//BasicPropertyAssociation returns aadl2::PropertyAssociation:
+	//    property=[aadl2::Property|QPREF]
+	//    '=>' ownedValue+=PropertyValue ';'
+	//    ;
 	public PropertiesGrammarAccess.BasicPropertyAssociationElements getBasicPropertyAssociationAccess() {
 		return gaProperties.getBasicPropertyAssociationAccess();
 	}
@@ -1402,9 +1483,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getBasicPropertyAssociationAccess().getRule();
 	}
 	
-	//ContainmentPath aadl2::ContainedNamedElement:
-	//	path=ContainmentPathElement
-	//	//	( 'annex' containmentPathElement+=AnnexPath )?
+	//ContainmentPath returns aadl2::ContainedNamedElement:
+	//    path=ContainmentPathElement
+	////    ( 'annex' containmentPathElement+=AnnexPath )?
 	//;
 	public PropertiesGrammarAccess.ContainmentPathElements getContainmentPathAccess() {
 		return gaProperties.getContainmentPathAccess();
@@ -1415,12 +1496,13 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	////AnnexPath returns aadl2::ContainmentPathElement:
-	////	 namedElement=[aadl2::NamedElement|IDANNEXTEXT];
-	//ModalPropertyValue aadl2::ModalPropertyValue:
-	//	ownedValue=PropertyExpression
-	//	InModesKeywords '('
-	//	inMode+=[aadl2::Mode] (',' inMode+=[aadl2::Mode])*
-	//	')';
+	////     namedElement=[aadl2::NamedElement|IDANNEXTEXT];
+	//ModalPropertyValue returns aadl2::ModalPropertyValue:
+	//    ownedValue=PropertyExpression
+	//    InModesKeywords '('
+	//    inMode+=[aadl2::Mode|ID] (',' inMode+=[aadl2::Mode|ID])*
+	//    ')'
+	//    ;
 	public PropertiesGrammarAccess.ModalPropertyValueElements getModalPropertyValueAccess() {
 		return gaProperties.getModalPropertyValueAccess();
 	}
@@ -1429,10 +1511,13 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getModalPropertyValueAccess().getRule();
 	}
 	
-	//OptionalModalPropertyValue aadl2::ModalPropertyValue:
-	//	ownedValue=PropertyExpression (InModesKeywords '('
-	//	inMode+=[aadl2::Mode] (',' inMode+=[aadl2::Mode])*
-	//	')')?;
+	//OptionalModalPropertyValue returns aadl2::ModalPropertyValue:
+	//    ownedValue=PropertyExpression
+	//    // phf made this optional: need to check separately that only the last one is optional
+	//    ( InModesKeywords '('
+	//    inMode+=[aadl2::Mode|ID] (',' inMode+=[aadl2::Mode|ID])*
+	//    ')')?
+	//    ;
 	public PropertiesGrammarAccess.OptionalModalPropertyValueElements getOptionalModalPropertyValueAccess() {
 		return gaProperties.getOptionalModalPropertyValueAccess();
 	}
@@ -1441,9 +1526,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getOptionalModalPropertyValueAccess().getRule();
 	}
 	
-	//// &&&&&&&&&& handling of in binding
-	//PropertyValue aadl2::ModalPropertyValue:
-	//	ownedValue=PropertyExpression;
+	//    // &&&&&&&&&& handling of in binding
+	//PropertyValue returns aadl2::ModalPropertyValue:
+	//    ownedValue=PropertyExpression
+	//    ;
 	public PropertiesGrammarAccess.PropertyValueElements getPropertyValueAccess() {
 		return gaProperties.getPropertyValueAccess();
 	}
@@ -1452,12 +1538,14 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyValueAccess().getRule();
 	}
 	
-	//PropertyExpression aadl2::PropertyExpression:
-	//	RecordTerm | ReferenceTerm | ComponentClassifierTerm
-	//	| ComputedTerm | StringTerm | NumericRangeTerm
-	//	| RealTerm | IntegerTerm
-	//	| ListTerm
-	//	| BooleanLiteral | LiteralorReferenceTerm;
+	//PropertyExpression returns aadl2::PropertyExpression:
+	////    OldRecordTerm |
+	//      RecordTerm | ReferenceTerm | ComponentClassifierTerm
+	//     | ComputedTerm | StringTerm |  NumericRangeTerm
+	//    | RealTerm | IntegerTerm
+	//          | ListTerm
+	//          | BooleanLiteral | LiteralorReferenceTerm
+	//    ;
 	public PropertiesGrammarAccess.PropertyExpressionElements getPropertyExpressionAccess() {
 		return gaProperties.getPropertyExpressionAccess();
 	}
@@ -1466,8 +1554,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyExpressionAccess().getRule();
 	}
 	
-	//LiteralorReferenceTerm aadl2::NamedValue:
-	//	namedValue=[aadl2::AbstractNamedValue|QPREF];
+	//LiteralorReferenceTerm returns aadl2::NamedValue:
+	//  namedValue=[aadl2::AbstractNamedValue|QPREF]
+	//;
 	public PropertiesGrammarAccess.LiteralorReferenceTermElements getLiteralorReferenceTermAccess() {
 		return gaProperties.getLiteralorReferenceTermAccess();
 	}
@@ -1476,8 +1565,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getLiteralorReferenceTermAccess().getRule();
 	}
 	
-	//BooleanLiteral aadl2::BooleanLiteral:
-	//	{aadl2::BooleanLiteral} (value?='true' | 'false');
+	//BooleanLiteral returns aadl2::BooleanLiteral:
+	//  {aadl2::BooleanLiteral}(value?='true'|'false')
+	//  ;
 	public PropertiesGrammarAccess.BooleanLiteralElements getBooleanLiteralAccess() {
 		return gaProperties.getBooleanLiteralAccess();
 	}
@@ -1486,8 +1576,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getBooleanLiteralAccess().getRule();
 	}
 	
-	//ConstantValue aadl2::NamedValue:
-	//	namedValue=[aadl2::PropertyConstant|QPREF];
+	//ConstantValue returns aadl2::NamedValue:
+	//  namedValue=[aadl2::PropertyConstant|QPREF]
+	//  ;
 	public PropertiesGrammarAccess.ConstantValueElements getConstantValueAccess() {
 		return gaProperties.getConstantValueAccess();
 	}
@@ -1496,14 +1587,15 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getConstantValueAccess().getRule();
 	}
 	
-	//ReferenceTerm aadl2::ReferenceValue:
-	//	'reference' '('
-	//	path=ContainmentPathElement
-	//	//	( 'annex' ID '{**' 
-	//	//	containmentPathElement+=ContainmentPathElement
-	//	//	( '.' containmentPathElement+=ContainmentPathElement)*
-	//	//	'**}')?
-	//	')';
+	//ReferenceTerm returns aadl2::ReferenceValue:
+	//  'reference' '('
+	//  path=ContainmentPathElement
+	////    ( 'annex' ID '{**'
+	////    containmentPathElement+=ContainmentPathElement
+	////    ( '.' containmentPathElement+=ContainmentPathElement)*
+	////    '**}')?
+	//  ')'
+	//  ;
 	public PropertiesGrammarAccess.ReferenceTermElements getReferenceTermAccess() {
 		return gaProperties.getReferenceTermAccess();
 	}
@@ -1512,10 +1604,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getReferenceTermAccess().getRule();
 	}
 	
-	//RecordTerm aadl2::RecordValue:
-	//	'['
-	//	ownedFieldValue+=FieldPropertyAssociation+
-	//	']';
+	//RecordTerm returns aadl2::RecordValue:
+	//   '['
+	//   (ownedFieldValue+=FieldPropertyAssociation)+
+	//  ']'
+	//  ;
 	public PropertiesGrammarAccess.RecordTermElements getRecordTermAccess() {
 		return gaProperties.getRecordTermAccess();
 	}
@@ -1524,10 +1617,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getRecordTermAccess().getRule();
 	}
 	
-	//OldRecordTerm aadl2::RecordValue:
-	//	'('
-	//	ownedFieldValue+=FieldPropertyAssociation+
-	//	')';
+	//OldRecordTerm returns aadl2::RecordValue:
+	//   '('
+	//   (ownedFieldValue+=FieldPropertyAssociation)+
+	//  ')'
+	//  ;
 	public PropertiesGrammarAccess.OldRecordTermElements getOldRecordTermAccess() {
 		return gaProperties.getOldRecordTermAccess();
 	}
@@ -1536,10 +1630,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getOldRecordTermAccess().getRule();
 	}
 	
-	//ComputedTerm aadl2::ComputedValue:
-	//	'compute' '('
-	//	function=ID
-	//	')';
+	//ComputedTerm returns aadl2::ComputedValue:
+	//   'compute' '('
+	//   function=ID
+	//  ')'
+	//  ;
 	public PropertiesGrammarAccess.ComputedTermElements getComputedTermAccess() {
 		return gaProperties.getComputedTermAccess();
 	}
@@ -1548,10 +1643,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getComputedTermAccess().getRule();
 	}
 	
-	//ComponentClassifierTerm aadl2::ClassifierValue:
-	//	'classifier' '('
-	//	classifier=[aadl2::ComponentClassifier|QCREF]
-	//	')';
+	//ComponentClassifierTerm returns aadl2::ClassifierValue:
+	//   'classifier' '('
+	//   classifier=[aadl2::ComponentClassifier|QCREF]
+	//  ')'
+	//  ;
 	public PropertiesGrammarAccess.ComponentClassifierTermElements getComponentClassifierTermAccess() {
 		return gaProperties.getComponentClassifierTermAccess();
 	}
@@ -1560,10 +1656,13 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getComponentClassifierTermAccess().getRule();
 	}
 	
-	//ListTerm aadl2::ListValue:
-	//	{aadl2::ListValue}
-	//	'(' (ownedListElement+=PropertyExpression (',' ownedListElement+=PropertyExpression)*)?
-	//	')';
+	//ListTerm returns aadl2::ListValue:
+	//    {aadl2::ListValue}
+	//   '('
+	//   (ownedListElement+=(PropertyExpression)
+	//   (',' ownedListElement+=(PropertyExpression))*)?
+	//  ')'
+	//  ;
 	public PropertiesGrammarAccess.ListTermElements getListTermAccess() {
 		return gaProperties.getListTermAccess();
 	}
@@ -1572,11 +1671,11 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getListTermAccess().getRule();
 	}
 	
-	//FieldPropertyAssociation aadl2::BasicPropertyAssociation:
-	//	property=[aadl2::BasicProperty]
-	//	'=>'
-	//	ownedValue=PropertyExpression
-	//	';';
+	//FieldPropertyAssociation returns aadl2::BasicPropertyAssociation:
+	//    property=[aadl2::BasicProperty|ID]
+	//    '=>'
+	//    ownedValue=PropertyExpression
+	//    ';';
 	public PropertiesGrammarAccess.FieldPropertyAssociationElements getFieldPropertyAssociationAccess() {
 		return gaProperties.getFieldPropertyAssociationAccess();
 	}
@@ -1587,9 +1686,15 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// from AADL2
 	//// need to add annex path element
-	//ContainmentPathElement aadl2::ContainmentPathElement:
-	//	(namedElement=[aadl2::NamedElement] arrayRange+=ArrayRange*) ('.' path=ContainmentPathElement)?
-	//	//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
+	//ContainmentPathElement returns aadl2::ContainmentPathElement:
+	//    (
+	//        (
+	//            namedElement=[aadl2::NamedElement|ID]
+	//             (arrayRange+=ArrayRange)*
+	//        )
+	//        ('.' path=ContainmentPathElement)?
+	////     |      'annex' namedElement=[aadl2::NamedElement|ID]
+	//    )
 	//;
 	public PropertiesGrammarAccess.ContainmentPathElementElements getContainmentPathElementAccess() {
 		return gaProperties.getContainmentPathElementAccess();
@@ -1599,8 +1704,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getContainmentPathElementAccess().getRule();
 	}
 	
-	//ANNEXREF: // check what values are ok inside ** **
-	//	'{' STAR STAR ID STAR STAR '}';
+	//ANNEXREF :
+	//    // check what values are ok inside ** **
+	//    '{' STAR STAR ID STAR STAR '}';
 	public PropertiesGrammarAccess.ANNEXREFElements getANNEXREFAccess() {
 		return gaProperties.getANNEXREFAccess();
 	}
@@ -1609,8 +1715,7 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getANNEXREFAccess().getRule();
 	}
 	
-	//PlusMinus aadl2::OperationKind:
-	//	'+' | '-';
+	//PlusMinus returns aadl2::OperationKind: '+' | '-';
 	public PropertiesGrammarAccess.PlusMinusElements getPlusMinusAccess() {
 		return gaProperties.getPlusMinusAccess();
 	}
@@ -1619,8 +1724,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getPlusMinusAccess().getRule();
 	}
 	
-	//StringTerm aadl2::StringLiteral:
-	//	value=NoQuoteString;
+	//StringTerm returns aadl2::StringLiteral:
+	//    value=NoQuoteString ;
 	public PropertiesGrammarAccess.StringTermElements getStringTermAccess() {
 		return gaProperties.getStringTermAccess();
 	}
@@ -1629,8 +1734,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getStringTermAccess().getRule();
 	}
 	
-	//NoQuoteString:
-	//	STRING;
+	//NoQuoteString :
+	//    // remove quotes from string in ValueConverter
+	//    STRING
+	//;
 	public PropertiesGrammarAccess.NoQuoteStringElements getNoQuoteStringAccess() {
 		return gaProperties.getNoQuoteStringAccess();
 	}
@@ -1639,10 +1746,10 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getNoQuoteStringAccess().getRule();
 	}
 	
-	//ArrayRange aadl2::ArrayRange:
-	//	{aadl2::ArrayRange}
-	//	'[' lowerBound=INTVALUE ('..' upperBound=INTVALUE)?
-	//	']';
+	//ArrayRange returns aadl2::ArrayRange: {aadl2::ArrayRange}
+	//    '[' lowerBound=INTVALUE ('..' upperBound=INTVALUE)?
+	//    ']'
+	//;
 	public PropertiesGrammarAccess.ArrayRangeElements getArrayRangeAccess() {
 		return gaProperties.getArrayRangeAccess();
 	}
@@ -1651,8 +1758,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getArrayRangeAccess().getRule();
 	}
 	
-	//SignedConstant aadl2::Operation:
-	//	op=PlusMinus ownedPropertyExpression+=ConstantValue;
+	//SignedConstant returns aadl2::Operation:
+	//    op=PlusMinus ownedPropertyExpression+=ConstantValue
+	//    ;
 	public PropertiesGrammarAccess.SignedConstantElements getSignedConstantAccess() {
 		return gaProperties.getSignedConstantAccess();
 	}
@@ -1661,8 +1769,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getSignedConstantAccess().getRule();
 	}
 	
-	//IntegerTerm aadl2::IntegerLiteral:
-	//	value=SignedInt unit=[aadl2::UnitLiteral]?;
+	//IntegerTerm returns aadl2::IntegerLiteral:
+	//    value=SignedInt (unit=[aadl2::UnitLiteral|ID])?
+	//    ;
 	public PropertiesGrammarAccess.IntegerTermElements getIntegerTermAccess() {
 		return gaProperties.getIntegerTermAccess();
 	}
@@ -1671,8 +1780,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getIntegerTermAccess().getRule();
 	}
 	
-	//SignedInt aadl2::Integer:
-	//	('+' | '-')? INTEGER_LIT;
+	//SignedInt returns aadl2::Integer:
+	//    ('+'|'-')?INTEGER_LIT ;
 	public PropertiesGrammarAccess.SignedIntElements getSignedIntAccess() {
 		return gaProperties.getSignedIntAccess();
 	}
@@ -1681,8 +1790,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getSignedIntAccess().getRule();
 	}
 	
-	//RealTerm aadl2::RealLiteral:
-	//	value=SignedReal unit=[aadl2::UnitLiteral]?;
+	//RealTerm returns aadl2::RealLiteral:
+	//    value=SignedReal (unit=[aadl2::UnitLiteral|ID])?
+	//    ;
 	public PropertiesGrammarAccess.RealTermElements getRealTermAccess() {
 		return gaProperties.getRealTermAccess();
 	}
@@ -1691,8 +1801,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getRealTermAccess().getRule();
 	}
 	
-	//SignedReal aadl2::Real:
-	//	('+' | '-')? REAL_LIT;
+	//SignedReal returns aadl2::Real:
+	//    ('+'|'-')?REAL_LIT ;
 	public PropertiesGrammarAccess.SignedRealElements getSignedRealAccess() {
 		return gaProperties.getSignedRealAccess();
 	}
@@ -1701,10 +1811,12 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getSignedRealAccess().getRule();
 	}
 	
-	//NumericRangeTerm aadl2::RangeValue:
-	//	minimum=NumAlt //(RealTerm|IntegerTerm| SignedConstant | ConstantValue)  
-	//	'..' maximum=NumAlt ('delta' delta=NumAlt //(RealTerm|IntegerTerm| SignedConstant | ConstantValue)
-	//)?;
+	//NumericRangeTerm returns aadl2::RangeValue:
+	//    minimum=NumAlt //(RealTerm|IntegerTerm| SignedConstant | ConstantValue)
+	//        '..' maximum=NumAlt//(RealTerm|IntegerTerm| SignedConstant | ConstantValue)
+	//    ( 'delta' delta=NumAlt//(RealTerm|IntegerTerm| SignedConstant | ConstantValue)
+	//    )?
+	//    ;
 	public PropertiesGrammarAccess.NumericRangeTermElements getNumericRangeTermAccess() {
 		return gaProperties.getNumericRangeTermAccess();
 	}
@@ -1713,8 +1825,9 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumericRangeTermAccess().getRule();
 	}
 	
-	//NumAlt aadl2::PropertyExpression:
-	//	RealTerm | IntegerTerm | SignedConstant | ConstantValue;
+	//NumAlt  returns aadl2::PropertyExpression:
+	//    RealTerm|IntegerTerm| SignedConstant | ConstantValue
+	//;
 	public PropertiesGrammarAccess.NumAltElements getNumAltAccess() {
 		return gaProperties.getNumAltAccess();
 	}
@@ -1724,7 +1837,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AppliesToKeywords:
-	//	'applies' 'to';
+	//    'applies' 'to'
+	//;
 	public PropertiesGrammarAccess.AppliesToKeywordsElements getAppliesToKeywordsAccess() {
 		return gaProperties.getAppliesToKeywordsAccess();
 	}
@@ -1734,7 +1848,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//InBindingKeywords:
-	//	'in' 'binding';
+	//    'in' 'binding'
+	//;
 	public PropertiesGrammarAccess.InBindingKeywordsElements getInBindingKeywordsAccess() {
 		return gaProperties.getInBindingKeywordsAccess();
 	}
@@ -1744,7 +1859,8 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//InModesKeywords:
-	//	'in' 'modes';
+	//    'in' 'modes'
+	//;
 	public PropertiesGrammarAccess.InModesKeywordsElements getInModesKeywordsAccess() {
 		return gaProperties.getInModesKeywordsAccess();
 	}
@@ -1754,13 +1870,13 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal SL_COMMENT:
-	//	'--' !('\n' | '\r')* ('\r'? '\n')?;
+	//    '--' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaProperties.getSL_COMMENTRule();
 	}
 	
-	//INTVALUE aadl2::Integer:
-	//	INTEGER_LIT //NUMERAL 	
+	//INTVALUE returns aadl2::Integer:
+	//    INTEGER_LIT //NUMERAL
 	//;
 	public PropertiesGrammarAccess.INTVALUEElements getINTVALUEAccess() {
 		return gaProperties.getINTVALUEAccess();
@@ -1770,50 +1886,59 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getINTVALUEAccess().getRule();
 	}
 	
-	//terminal fragment EXPONENT:
-	//	('e' | 'E') ('+' | '-')? DIGIT+;
+	////terminal NUMERAL:
+	////    (DIGIT)+('_' (DIGIT)+)*
+	////;
+	////terminal INT returns ecore::EInt: (DIGIT)+('_' (DIGIT)+)*;
+	//terminal fragment
+	//EXPONENT  :  ('e'|'E') ('+'|'-')? ( DIGIT )+  ;
 	public TerminalRule getEXPONENTRule() {
 		return gaProperties.getEXPONENTRule();
 	}
 	
-	//terminal fragment INT_EXPONENT:
-	//	('e' | 'E') '+'? DIGIT+;
+	//terminal fragment
+	//INT_EXPONENT :  ('e'|'E') ('+')? ( DIGIT )+ ;
 	public TerminalRule getINT_EXPONENTRule() {
 		return gaProperties.getINT_EXPONENTRule();
 	}
 	
-	//terminal REAL_LIT:
-	//	DIGIT+ ('_' DIGIT+)* ('.' DIGIT+ ('_' DIGIT+)* EXPONENT?);
+	//terminal REAL_LIT :
+	//    (DIGIT)+('_' (DIGIT)+)* ( '.' (DIGIT)+('_' (DIGIT)+)* ( EXPONENT )?)
+	//  ;
 	public TerminalRule getREAL_LITRule() {
 		return gaProperties.getREAL_LITRule();
 	}
 	
-	//terminal INTEGER_LIT:
-	//	DIGIT+ ('_' DIGIT+)* ('#' BASED_INTEGER '#' INT_EXPONENT? | INT_EXPONENT?);
+	//terminal INTEGER_LIT :
+	//        (DIGIT)+('_' (DIGIT)+)*
+	//        (( '#' BASED_INTEGER  '#' ( INT_EXPONENT )? )
+	//            | (INT_EXPONENT)?
+	//        )
+	//  ;
 	public TerminalRule getINTEGER_LITRule() {
 		return gaProperties.getINTEGER_LITRule();
 	}
 	
-	//terminal fragment DIGIT:
-	//	'0'..'9';
+	//terminal fragment
+	//DIGIT     :  ( '0'..'9' ) ;
 	public TerminalRule getDIGITRule() {
 		return gaProperties.getDIGITRule();
 	}
 	
-	//terminal fragment EXTENDED_DIGIT:
-	//	'0'..'9' | 'a'..'f' | 'A'..'F';
+	//terminal fragment
+	//EXTENDED_DIGIT     :  ( '0'..'9' | 'a'..'f' | 'A'..'F') ;
 	public TerminalRule getEXTENDED_DIGITRule() {
 		return gaProperties.getEXTENDED_DIGITRule();
 	}
 	
-	//terminal fragment BASED_INTEGER:
-	//	EXTENDED_DIGIT ('_'? EXTENDED_DIGIT)*;
+	//terminal fragment
+	//BASED_INTEGER      :  ( EXTENDED_DIGIT ) ( ('_')? EXTENDED_DIGIT )* ;
 	public TerminalRule getBASED_INTEGERRule() {
 		return gaProperties.getBASED_INTEGERRule();
 	}
 	
 	//QCLREF:
-	//	ID '::' ID;
+	//    ID '::' ID;
 	public PropertiesGrammarAccess.QCLREFElements getQCLREFAccess() {
 		return gaProperties.getQCLREFAccess();
 	}
@@ -1823,7 +1948,7 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//QPREF:
-	//	ID ('::' ID)?;
+	//    ID ('::' ID)?;
 	public PropertiesGrammarAccess.QPREFElements getQPREFAccess() {
 		return gaProperties.getQPREFAccess();
 	}
@@ -1833,7 +1958,7 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//QCREF:
-	//	(ID '::')* ID ('.' ID)?;
+	//    (ID '::')* ID ('.' ID)?;
 	public PropertiesGrammarAccess.QCREFElements getQCREFAccess() {
 		return gaProperties.getQCREFAccess();
 	}
@@ -1842,8 +1967,7 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getQCREFAccess().getRule();
 	}
 	
-	//STAR:
-	//	'*';
+	//STAR : '*';
 	public PropertiesGrammarAccess.STARElements getSTARAccess() {
 		return gaProperties.getSTARAccess();
 	}
@@ -1852,24 +1976,25 @@ public class GumboGrammarAccess extends AbstractGrammarElementFinder {
 		return getSTARAccess().getRule();
 	}
 	
-	//terminal STRING:
-	//	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | '"'))* '"' |
-	//	"'" ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | "'"))* "'";
+	//terminal STRING    :
+	//            '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+	//            "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
+	//        ;
 	public TerminalRule getSTRINGRule() {
 		return gaProperties.getSTRINGRule();
 	}
 	
-	//terminal ID:
-	//	('a'..'z'
-	//	| 'A'..'Z') ('_'? ('a'..'z'
-	//	| 'A'..'Z'
-	//	| '0'..'9'))*;
+	////terminal ID          : '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+	//terminal ID:    ('a'..'z'
+	//        |'A'..'Z'
+	//        ) ( ('_')? ('a'..'z'
+	//        |'A'..'Z'
+	//        |'0'..'9'))*;
 	public TerminalRule getIDRule() {
 		return gaProperties.getIDRule();
 	}
 	
-	//terminal WS:
-	//	' ' | '\t' | '\r' | '\n'+;
+	//terminal WS			: (' '|'\t'|'\r'|'\n')+;
 	public TerminalRule getWSRule() {
 		return gaProperties.getWSRule();
 	}

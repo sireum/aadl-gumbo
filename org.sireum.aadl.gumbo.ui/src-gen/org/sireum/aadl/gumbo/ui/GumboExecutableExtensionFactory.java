@@ -14,9 +14,9 @@
 package org.sireum.aadl.gumbo.ui;
 
 import com.google.inject.Injector;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 import org.sireum.aadl.gumbo.ui.internal.GumboActivator;
 
 /**
@@ -27,7 +27,7 @@ public class GumboExecutableExtensionFactory extends AbstractGuiceAwareExecutabl
 
 	@Override
 	protected Bundle getBundle() {
-		return Platform.getBundle(GumboActivator.PLUGIN_ID);
+		return FrameworkUtil.getBundle(GumboActivator.class);
 	}
 	
 	@Override
