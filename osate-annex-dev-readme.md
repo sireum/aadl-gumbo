@@ -1,15 +1,13 @@
 # OSATE Annex Development Instructions
 
-This guide is based on observations/examanations of the 
+This guide is based on observations/examinations of the 
 [EMV2](https://github.com/osate/osate2/tree/master/emv2) and 
 [SecMF](https://github.com/sireum/aadl-security) projects.
 
-## The Basics
-1. Setup an OSATE Dev environment and then ``File >> New >> Project >> Xtext Project ``
+## General Steps for Creating a New Xtext Project for OSATE
+1. Setup an OSATE Dev environment and then *__File >> New >> Project >> Xtext Project__*
 
 1. Set fields ``Project name``, ``Language name``, ``Language Extensions`` as appropriate for your annex
-
-1. ``Execution environment`` must be java 1.8
 
 1. Click next.  Check ``Create Feature``, ``Create Update Site``
 
@@ -21,9 +19,7 @@ This guide is based on observations/examanations of the
 
 1. Add the missing ``Require-Bundle`` projects (as appropriate) to the manifest similar to [org.sireum.aadl.gumbo/META-INF/MANIFEST.MF](org.sireum.aadl.gumbo/META-INF/MANIFEST.MF)
 
-1. Modify the launcher to use Oracle Java 8 [org.sireum.aadl.gumbo/.launch/Generate Gumbo (gumbo) Language Infrastructure.launch](org.sireum.aadl.gumbo/.launch/Generate%20Gumbo%20(gumbo)%20Language%20Infrastructure.launch)
-
-1. Launch the launcher
+1. Launch the launcher.  E.g for GUMBO, click the down arrow next to the play/run button in the toolbar and select *__Generate Gumbo (gumbo) Language Infrastructure__*
 
 1. After generation you'll need to add missing required bundles to the other projects (e.g. [ui](org.sireum.aadl.gumbo.ui/META-INF/MANIFEST.MF))
 
@@ -35,11 +31,14 @@ This guide is based on observations/examanations of the
 
 1. Add the parsing package artifacts as extensions as seen in [org.sireum.aadl.gumbo/plugin.xml](org.sireum.aadl.gumbo/plugin.xml)
 
-## Language Development
+## Language Development for GUMBO
 
-1. Regenerate via the [launcher](org.sireum.aadl.gumbo/.launch/Generate%20Gumbo%20(gumbo)%20Language%20Infrastructure.launch) after making changes to the grammar
+1. If you've made changes to the grammar then regenerate via the 
+   [launcher](org.sireum.aadl.gumbo/.launch/Generate%20Gumbo%20(gumbo)%20Language%20Infrastructure.launch)
+   by clicking the down arrow next to the play/run button in the toolbar and select *__Generate Gumbo (gumbo) Language__* 
 
-1. Rerun your regression tests.  E.g. right click the project [org.sireum.aadl.gumbo.tests](org.sireum.aadl.gumbo.tests) and choose ``Run as 'JUnit Plug-in Test'``
+1. Rerun your regression tests after changes.  E.g. right click the project 
+   [org.sireum.aadl.gumbo.tests](org.sireum.aadl.gumbo.tests) and choose ``Run as 'JUnit Plug-in Test'``
   
 ## Scoping / Symbol Resolution
 
