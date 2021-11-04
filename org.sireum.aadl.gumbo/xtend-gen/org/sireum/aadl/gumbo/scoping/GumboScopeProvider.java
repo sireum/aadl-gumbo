@@ -21,21 +21,29 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.osate.aadl2.AadlPackage;
 import org.osate.aadl2.Classifier;
 import org.osate.aadl2.ComponentImplementation;
+import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Feature;
 import org.osate.aadl2.NamedElement;
+import org.osate.aadl2.PackageSection;
 import org.osate.xtext.aadl2.properties.scoping.PropertiesScopeProvider;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
-import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel;
-import org.sireum.aadl.gumbo.gumbo.IdExpr;
+import org.sireum.aadl.gumbo.gumbo.PortRef;
+import org.sireum.aadl.gumbo.gumbo.SpecSection;
+import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
+import org.sireum.aadl.gumbo.gumbo.StateVarRef;
 
 /**
  * This class contains custom scoping description.
@@ -62,7 +70,10 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
       String _plus = ("Missing: " + _name);
       String _plus_1 = (_plus + ".");
       String _plus_2 = (_plus_1 + sname);
-      InputOutput.<String>println(_plus_2);
+      String _plus_3 = (_plus_2 + " : ");
+      String _simpleName = context.getClass().getSimpleName();
+      String _plus_4 = (_plus_3 + _simpleName);
+      InputOutput.<String>println(_plus_4);
     }
     return method;
   }
@@ -79,6 +90,7 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
         _xifexpression = CollectionLiterals.<Feature>emptyList();
       }
       final SimpleScope scope = PropertiesScopeProvider.scopeFor(Iterables.<NamedElement>concat(_allFeatures, _xifexpression));
+      InputOutput.<SimpleScope>println(scope);
       _xblockexpression = scope;
     }
     return _xblockexpression;
@@ -92,11 +104,42 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
     return this.genericContext(context, reference);
   }
   
-  public SimpleScope scope_IdExpr_id(final IdExpr context, final EReference reference) {
-    return this.genericContext(context, reference);
+  public SimpleScope scope_StateVarDecl_typeName(final StateVarDecl context, final EReference reference) {
+    SimpleScope _xblockexpression = null;
+    {
+      final AadlPackage pkg = EcoreUtil2.<AadlPackage>getContainerOfType(context, AadlPackage.class);
+      Iterable<DataSubcomponentType> _filter = Iterables.<DataSubcomponentType>filter(EcoreUtil2.<PackageSection>getContainerOfType(context, PackageSection.class).getOwnedMembers(), DataSubcomponentType.class);
+      final Function1<AadlPackage, Iterable<DataSubcomponentType>> _function = (AadlPackage x) -> {
+        return Iterables.<DataSubcomponentType>filter(x.getOwnedPublicSection().getOwnedMembers(), DataSubcomponentType.class);
+      };
+      Iterable<DataSubcomponentType> _flatten = Iterables.<DataSubcomponentType>concat(IterableExtensions.<AadlPackage, Iterable<DataSubcomponentType>>map(Iterables.<AadlPackage>filter(EcoreUtil2.<PackageSection>getContainerOfType(context, PackageSection.class).getImportedUnits(), AadlPackage.class), _function));
+      final Iterable<DataSubcomponentType> elem = Iterables.<DataSubcomponentType>concat(_filter, _flatten);
+      final Function1<DataSubcomponentType, QualifiedName> _function_1 = (DataSubcomponentType it) -> {
+        String _xifexpression = null;
+        AadlPackage _containerOfType = EcoreUtil2.<AadlPackage>getContainerOfType(it, AadlPackage.class);
+        boolean _tripleNotEquals = (_containerOfType != pkg);
+        if (_tripleNotEquals) {
+          String _name = EcoreUtil2.<AadlPackage>getContainerOfType(it, AadlPackage.class).getName();
+          _xifexpression = (_name + "::");
+        } else {
+          _xifexpression = "";
+        }
+        String _name_1 = it.getName();
+        String _plus = (_xifexpression + _name_1);
+        return QualifiedName.create(_plus);
+      };
+      final SimpleScope scope = PropertiesScopeProvider.<DataSubcomponentType>scopeFor(elem, _function_1, 
+        IScope.NULLSCOPE);
+      _xblockexpression = scope;
+    }
+    return _xblockexpression;
   }
   
-  public SimpleScope scope_HyperperiodComputationalModel_constraints(final HyperperiodComputationalModel context, final EReference reference) {
+  public SimpleScope scope_StateVarRef_stateVar(final StateVarRef context, final EReference reference) {
+    return PropertiesScopeProvider.scopeFor(EcoreUtil2.<SpecSection>getContainerOfType(context, SpecSection.class).getState().getDecls());
+  }
+  
+  public SimpleScope scope_PortRef_portName(final PortRef context, final EReference reference) {
     return this.genericContext(context, reference);
   }
 }

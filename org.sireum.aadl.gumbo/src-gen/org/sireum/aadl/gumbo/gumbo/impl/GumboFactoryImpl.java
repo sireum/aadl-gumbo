@@ -78,21 +78,28 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.GUMBO_LIBRARY: return createGumboLibrary();
       case GumboPackage.GUMBO_SUBCLAUSE: return createGumboSubclause();
       case GumboPackage.SPEC_SECTION: return createSpecSection();
-      case GumboPackage.COMPUTATIONAL_MODEL: return createComputationalModel();
-      case GumboPackage.FLOWS: return createFlows();
-      case GumboPackage.FLOW: return createFlow();
-      case GumboPackage.CONTRACT: return createContract();
+      case GumboPackage.STATE: return createState();
+      case GumboPackage.STATE_VAR_DECL: return createStateVarDecl();
+      case GumboPackage.INVARIANTS: return createInvariants();
+      case GumboPackage.INV_SPEC: return createInvSpec();
+      case GumboPackage.INTEGRATION: return createIntegration();
+      case GumboPackage.INITIALIZE: return createInitialize();
+      case GumboPackage.INITIALIZE_SPEC_STATEMENT: return createInitializeSpecStatement();
+      case GumboPackage.COMPUTE: return createCompute();
+      case GumboPackage.CASE_STATEMENT_CLAUSE: return createCaseStatementClause();
       case GumboPackage.SPEC_STATEMENT: return createSpecStatement();
+      case GumboPackage.ASSUME_STATEMENT: return createAssumeStatement();
+      case GumboPackage.ANON_ASSUME_STATEMENT: return createAnonAssumeStatement();
+      case GumboPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
+      case GumboPackage.ANON_GUARANTEE_STATEMENT: return createAnonGuaranteeStatement();
       case GumboPackage.EXPR: return createExpr();
       case GumboPackage.SUBCOMPONENT_ELEMENT: return createSubcomponentElement();
       case GumboPackage.FEATURE_ELEMENT: return createFeatureElement();
-      case GumboPackage.PERIODIC_COMPUTATIONAL_MODEL: return createPeriodicComputationalModel();
-      case GumboPackage.HYPERPERIOD_COMPUTATIONAL_MODEL: return createHyperperiodComputationalModel();
-      case GumboPackage.ASSUME_STATEMENT: return createAssumeStatement();
-      case GumboPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
       case GumboPackage.BINARY_EXPR: return createBinaryExpr();
       case GumboPackage.UNARY_EXPR: return createUnaryExpr();
-      case GumboPackage.ID_EXPR: return createIdExpr();
+      case GumboPackage.STATE_VAR_REF: return createStateVarRef();
+      case GumboPackage.PORT_REF: return createPortRef();
+      case GumboPackage.INT_LIT: return createIntLit();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -140,10 +147,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public ComputationalModel createComputationalModel()
+  public State createState()
   {
-    ComputationalModelImpl computationalModel = new ComputationalModelImpl();
-    return computationalModel;
+    StateImpl state = new StateImpl();
+    return state;
   }
 
   /**
@@ -152,10 +159,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Flows createFlows()
+  public StateVarDecl createStateVarDecl()
   {
-    FlowsImpl flows = new FlowsImpl();
-    return flows;
+    StateVarDeclImpl stateVarDecl = new StateVarDeclImpl();
+    return stateVarDecl;
   }
 
   /**
@@ -164,10 +171,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Flow createFlow()
+  public Invariants createInvariants()
   {
-    FlowImpl flow = new FlowImpl();
-    return flow;
+    InvariantsImpl invariants = new InvariantsImpl();
+    return invariants;
   }
 
   /**
@@ -176,10 +183,70 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Contract createContract()
+  public InvSpec createInvSpec()
   {
-    ContractImpl contract = new ContractImpl();
-    return contract;
+    InvSpecImpl invSpec = new InvSpecImpl();
+    return invSpec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Integration createIntegration()
+  {
+    IntegrationImpl integration = new IntegrationImpl();
+    return integration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Initialize createInitialize()
+  {
+    InitializeImpl initialize = new InitializeImpl();
+    return initialize;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InitializeSpecStatement createInitializeSpecStatement()
+  {
+    InitializeSpecStatementImpl initializeSpecStatement = new InitializeSpecStatementImpl();
+    return initializeSpecStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Compute createCompute()
+  {
+    ComputeImpl compute = new ComputeImpl();
+    return compute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CaseStatementClause createCaseStatementClause()
+  {
+    CaseStatementClauseImpl caseStatementClause = new CaseStatementClauseImpl();
+    return caseStatementClause;
   }
 
   /**
@@ -192,6 +259,54 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SpecStatementImpl specStatement = new SpecStatementImpl();
     return specStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AssumeStatement createAssumeStatement()
+  {
+    AssumeStatementImpl assumeStatement = new AssumeStatementImpl();
+    return assumeStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AnonAssumeStatement createAnonAssumeStatement()
+  {
+    AnonAssumeStatementImpl anonAssumeStatement = new AnonAssumeStatementImpl();
+    return anonAssumeStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GuaranteeStatement createGuaranteeStatement()
+  {
+    GuaranteeStatementImpl guaranteeStatement = new GuaranteeStatementImpl();
+    return guaranteeStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AnonGuaranteeStatement createAnonGuaranteeStatement()
+  {
+    AnonGuaranteeStatementImpl anonGuaranteeStatement = new AnonGuaranteeStatementImpl();
+    return anonGuaranteeStatement;
   }
 
   /**
@@ -236,54 +351,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public PeriodicComputationalModel createPeriodicComputationalModel()
-  {
-    PeriodicComputationalModelImpl periodicComputationalModel = new PeriodicComputationalModelImpl();
-    return periodicComputationalModel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public HyperperiodComputationalModel createHyperperiodComputationalModel()
-  {
-    HyperperiodComputationalModelImpl hyperperiodComputationalModel = new HyperperiodComputationalModelImpl();
-    return hyperperiodComputationalModel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public AssumeStatement createAssumeStatement()
-  {
-    AssumeStatementImpl assumeStatement = new AssumeStatementImpl();
-    return assumeStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public GuaranteeStatement createGuaranteeStatement()
-  {
-    GuaranteeStatementImpl guaranteeStatement = new GuaranteeStatementImpl();
-    return guaranteeStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public BinaryExpr createBinaryExpr()
   {
     BinaryExprImpl binaryExpr = new BinaryExprImpl();
@@ -308,10 +375,34 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public IdExpr createIdExpr()
+  public StateVarRef createStateVarRef()
   {
-    IdExprImpl idExpr = new IdExprImpl();
-    return idExpr;
+    StateVarRefImpl stateVarRef = new StateVarRefImpl();
+    return stateVarRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PortRef createPortRef()
+  {
+    PortRefImpl portRef = new PortRefImpl();
+    return portRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntLit createIntLit()
+  {
+    IntLitImpl intLit = new IntLitImpl();
+    return intLit;
   }
 
   /**

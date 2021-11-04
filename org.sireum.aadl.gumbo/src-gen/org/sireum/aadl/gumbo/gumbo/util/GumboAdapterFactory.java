@@ -107,29 +107,74 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSpecSectionAdapter();
       }
       @Override
-      public Adapter caseComputationalModel(ComputationalModel object)
+      public Adapter caseState(State object)
       {
-        return createComputationalModelAdapter();
+        return createStateAdapter();
       }
       @Override
-      public Adapter caseFlows(Flows object)
+      public Adapter caseStateVarDecl(StateVarDecl object)
       {
-        return createFlowsAdapter();
+        return createStateVarDeclAdapter();
       }
       @Override
-      public Adapter caseFlow(Flow object)
+      public Adapter caseInvariants(Invariants object)
       {
-        return createFlowAdapter();
+        return createInvariantsAdapter();
       }
       @Override
-      public Adapter caseContract(Contract object)
+      public Adapter caseInvSpec(InvSpec object)
       {
-        return createContractAdapter();
+        return createInvSpecAdapter();
+      }
+      @Override
+      public Adapter caseIntegration(Integration object)
+      {
+        return createIntegrationAdapter();
+      }
+      @Override
+      public Adapter caseInitialize(Initialize object)
+      {
+        return createInitializeAdapter();
+      }
+      @Override
+      public Adapter caseInitializeSpecStatement(InitializeSpecStatement object)
+      {
+        return createInitializeSpecStatementAdapter();
+      }
+      @Override
+      public Adapter caseCompute(Compute object)
+      {
+        return createComputeAdapter();
+      }
+      @Override
+      public Adapter caseCaseStatementClause(CaseStatementClause object)
+      {
+        return createCaseStatementClauseAdapter();
       }
       @Override
       public Adapter caseSpecStatement(SpecStatement object)
       {
         return createSpecStatementAdapter();
+      }
+      @Override
+      public Adapter caseAssumeStatement(AssumeStatement object)
+      {
+        return createAssumeStatementAdapter();
+      }
+      @Override
+      public Adapter caseAnonAssumeStatement(AnonAssumeStatement object)
+      {
+        return createAnonAssumeStatementAdapter();
+      }
+      @Override
+      public Adapter caseGuaranteeStatement(GuaranteeStatement object)
+      {
+        return createGuaranteeStatementAdapter();
+      }
+      @Override
+      public Adapter caseAnonGuaranteeStatement(AnonGuaranteeStatement object)
+      {
+        return createAnonGuaranteeStatementAdapter();
       }
       @Override
       public Adapter caseExpr(Expr object)
@@ -147,26 +192,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createFeatureElementAdapter();
       }
       @Override
-      public Adapter casePeriodicComputationalModel(PeriodicComputationalModel object)
-      {
-        return createPeriodicComputationalModelAdapter();
-      }
-      @Override
-      public Adapter caseHyperperiodComputationalModel(HyperperiodComputationalModel object)
-      {
-        return createHyperperiodComputationalModelAdapter();
-      }
-      @Override
-      public Adapter caseAssumeStatement(AssumeStatement object)
-      {
-        return createAssumeStatementAdapter();
-      }
-      @Override
-      public Adapter caseGuaranteeStatement(GuaranteeStatement object)
-      {
-        return createGuaranteeStatementAdapter();
-      }
-      @Override
       public Adapter caseBinaryExpr(BinaryExpr object)
       {
         return createBinaryExprAdapter();
@@ -177,9 +202,19 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createUnaryExprAdapter();
       }
       @Override
-      public Adapter caseIdExpr(IdExpr object)
+      public Adapter caseStateVarRef(StateVarRef object)
       {
-        return createIdExprAdapter();
+        return createStateVarRefAdapter();
+      }
+      @Override
+      public Adapter casePortRef(PortRef object)
+      {
+        return createPortRefAdapter();
+      }
+      @Override
+      public Adapter caseIntLit(IntLit object)
+      {
+        return createIntLitAdapter();
       }
       @Override
       public Adapter caseElement(Element object)
@@ -274,61 +309,136 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ComputationalModel <em>Computational Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.State <em>State</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.ComputationalModel
+   * @see org.sireum.aadl.gumbo.gumbo.State
    * @generated
    */
-  public Adapter createComputationalModelAdapter()
+  public Adapter createStateAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Flows <em>Flows</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.StateVarDecl <em>State Var Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Flows
+   * @see org.sireum.aadl.gumbo.gumbo.StateVarDecl
    * @generated
    */
-  public Adapter createFlowsAdapter()
+  public Adapter createStateVarDeclAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Flow <em>Flow</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Invariants <em>Invariants</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Flow
+   * @see org.sireum.aadl.gumbo.gumbo.Invariants
    * @generated
    */
-  public Adapter createFlowAdapter()
+  public Adapter createInvariantsAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Contract <em>Contract</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.InvSpec <em>Inv Spec</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Contract
+   * @see org.sireum.aadl.gumbo.gumbo.InvSpec
    * @generated
    */
-  public Adapter createContractAdapter()
+  public Adapter createInvSpecAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Integration <em>Integration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Integration
+   * @generated
+   */
+  public Adapter createIntegrationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Initialize <em>Initialize</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Initialize
+   * @generated
+   */
+  public Adapter createInitializeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement <em>Initialize Spec Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement
+   * @generated
+   */
+  public Adapter createInitializeSpecStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Compute <em>Compute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Compute
+   * @generated
+   */
+  public Adapter createComputeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.CaseStatementClause <em>Case Statement Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.CaseStatementClause
+   * @generated
+   */
+  public Adapter createCaseStatementClauseAdapter()
   {
     return null;
   }
@@ -344,6 +454,66 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSpecStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement <em>Assume Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.AssumeStatement
+   * @generated
+   */
+  public Adapter createAssumeStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement <em>Anon Assume Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement
+   * @generated
+   */
+  public Adapter createAnonAssumeStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement <em>Guarantee Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
+   * @generated
+   */
+  public Adapter createGuaranteeStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement <em>Anon Guarantee Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement
+   * @generated
+   */
+  public Adapter createAnonGuaranteeStatementAdapter()
   {
     return null;
   }
@@ -394,66 +564,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel <em>Periodic Computational Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.PeriodicComputationalModel
-   * @generated
-   */
-  public Adapter createPeriodicComputationalModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel <em>Hyperperiod Computational Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
-   * @generated
-   */
-  public Adapter createHyperperiodComputationalModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement <em>Assume Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.AssumeStatement
-   * @generated
-   */
-  public Adapter createAssumeStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement <em>Guarantee Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
-   * @generated
-   */
-  public Adapter createGuaranteeStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr <em>Binary Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -484,16 +594,46 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IdExpr <em>Id Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.StateVarRef <em>State Var Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.IdExpr
+   * @see org.sireum.aadl.gumbo.gumbo.StateVarRef
    * @generated
    */
-  public Adapter createIdExprAdapter()
+  public Adapter createStateVarRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PortRef <em>Port Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.PortRef
+   * @generated
+   */
+  public Adapter createPortRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IntLit <em>Int Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.IntLit
+   * @generated
+   */
+  public Adapter createIntLitAdapter()
   {
     return null;
   }

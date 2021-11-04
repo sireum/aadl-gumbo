@@ -13,22 +13,12 @@
  */
 package org.sireum.aadl.gumbo.gumbo;
 
-import org.osate.aadl2.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Assume Statement</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getForPort <em>For Port</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getAssumeTitle <em>Assume Title</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getPred <em>Pred</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getTracesTo <em>Traces To</em>}</li>
- * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getAssumeStatement()
  * @model
@@ -36,92 +26,4 @@ import org.osate.aadl2.NamedElement;
  */
 public interface AssumeStatement extends SpecStatement
 {
-  /**
-   * Returns the value of the '<em><b>For Port</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>For Port</em>' reference.
-   * @see #setForPort(NamedElement)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getAssumeStatement_ForPort()
-   * @model
-   * @generated
-   */
-  NamedElement getForPort();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getForPort <em>For Port</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>For Port</em>' reference.
-   * @see #getForPort()
-   * @generated
-   */
-  void setForPort(NamedElement value);
-
-  /**
-   * Returns the value of the '<em><b>Assume Title</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Assume Title</em>' attribute.
-   * @see #setAssumeTitle(String)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getAssumeStatement_AssumeTitle()
-   * @model
-   * @generated
-   */
-  String getAssumeTitle();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getAssumeTitle <em>Assume Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Assume Title</em>' attribute.
-   * @see #getAssumeTitle()
-   * @generated
-   */
-  void setAssumeTitle(String value);
-
-  /**
-   * Returns the value of the '<em><b>Pred</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Pred</em>' attribute.
-   * @see #setPred(String)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getAssumeStatement_Pred()
-   * @model
-   * @generated
-   */
-  String getPred();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getPred <em>Pred</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pred</em>' attribute.
-   * @see #getPred()
-   * @generated
-   */
-  void setPred(String value);
-
-  /**
-   * Returns the value of the '<em><b>Traces To</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Traces To</em>' attribute.
-   * @see #setTracesTo(String)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getAssumeStatement_TracesTo()
-   * @model
-   * @generated
-   */
-  String getTracesTo();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.AssumeStatement#getTracesTo <em>Traces To</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Traces To</em>' attribute.
-   * @see #getTracesTo()
-   * @generated
-   */
-  void setTracesTo(String value);
-
 } // AssumeStatement

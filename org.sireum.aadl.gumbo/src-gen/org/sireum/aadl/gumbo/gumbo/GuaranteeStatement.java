@@ -19,62 +19,11 @@ package org.sireum.aadl.gumbo.gumbo;
  * A representation of the model object '<em><b>Guarantee Statement</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getGuaranteeTitle <em>Guarantee Title</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getExpr <em>Expr</em>}</li>
- * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getGuaranteeStatement()
  * @model
  * @generated
  */
-public interface GuaranteeStatement extends SpecStatement
+public interface GuaranteeStatement extends InitializeSpecStatement, SpecStatement
 {
-  /**
-   * Returns the value of the '<em><b>Guarantee Title</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Guarantee Title</em>' attribute.
-   * @see #setGuaranteeTitle(String)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getGuaranteeStatement_GuaranteeTitle()
-   * @model
-   * @generated
-   */
-  String getGuaranteeTitle();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getGuaranteeTitle <em>Guarantee Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Guarantee Title</em>' attribute.
-   * @see #getGuaranteeTitle()
-   * @generated
-   */
-  void setGuaranteeTitle(String value);
-
-  /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expr)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getGuaranteeStatement_Expr()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getExpr();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement#getExpr <em>Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr</em>' containment reference.
-   * @see #getExpr()
-   * @generated
-   */
-  void setExpr(Expr value);
-
 } // GuaranteeStatement

@@ -117,34 +117,66 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.COMPUTATIONAL_MODEL:
+      case GumboPackage.STATE:
       {
-        ComputationalModel computationalModel = (ComputationalModel)theEObject;
-        T result = caseComputationalModel(computationalModel);
-        if (result == null) result = caseSpecSection(computationalModel);
+        State state = (State)theEObject;
+        T result = caseState(state);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.FLOWS:
+      case GumboPackage.STATE_VAR_DECL:
       {
-        Flows flows = (Flows)theEObject;
-        T result = caseFlows(flows);
-        if (result == null) result = caseSpecSection(flows);
+        StateVarDecl stateVarDecl = (StateVarDecl)theEObject;
+        T result = caseStateVarDecl(stateVarDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.FLOW:
+      case GumboPackage.INVARIANTS:
       {
-        Flow flow = (Flow)theEObject;
-        T result = caseFlow(flow);
+        Invariants invariants = (Invariants)theEObject;
+        T result = caseInvariants(invariants);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.CONTRACT:
+      case GumboPackage.INV_SPEC:
       {
-        Contract contract = (Contract)theEObject;
-        T result = caseContract(contract);
-        if (result == null) result = caseSpecSection(contract);
+        InvSpec invSpec = (InvSpec)theEObject;
+        T result = caseInvSpec(invSpec);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.INTEGRATION:
+      {
+        Integration integration = (Integration)theEObject;
+        T result = caseIntegration(integration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.INITIALIZE:
+      {
+        Initialize initialize = (Initialize)theEObject;
+        T result = caseInitialize(initialize);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.INITIALIZE_SPEC_STATEMENT:
+      {
+        InitializeSpecStatement initializeSpecStatement = (InitializeSpecStatement)theEObject;
+        T result = caseInitializeSpecStatement(initializeSpecStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.COMPUTE:
+      {
+        Compute compute = (Compute)theEObject;
+        T result = caseCompute(compute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.CASE_STATEMENT_CLAUSE:
+      {
+        CaseStatementClause caseStatementClause = (CaseStatementClause)theEObject;
+        T result = caseCaseStatementClause(caseStatementClause);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -152,6 +184,37 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SpecStatement specStatement = (SpecStatement)theEObject;
         T result = caseSpecStatement(specStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.ASSUME_STATEMENT:
+      {
+        AssumeStatement assumeStatement = (AssumeStatement)theEObject;
+        T result = caseAssumeStatement(assumeStatement);
+        if (result == null) result = caseSpecStatement(assumeStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.ANON_ASSUME_STATEMENT:
+      {
+        AnonAssumeStatement anonAssumeStatement = (AnonAssumeStatement)theEObject;
+        T result = caseAnonAssumeStatement(anonAssumeStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.GUARANTEE_STATEMENT:
+      {
+        GuaranteeStatement guaranteeStatement = (GuaranteeStatement)theEObject;
+        T result = caseGuaranteeStatement(guaranteeStatement);
+        if (result == null) result = caseInitializeSpecStatement(guaranteeStatement);
+        if (result == null) result = caseSpecStatement(guaranteeStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.ANON_GUARANTEE_STATEMENT:
+      {
+        AnonGuaranteeStatement anonGuaranteeStatement = (AnonGuaranteeStatement)theEObject;
+        T result = caseAnonGuaranteeStatement(anonGuaranteeStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,40 +239,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.PERIODIC_COMPUTATIONAL_MODEL:
-      {
-        PeriodicComputationalModel periodicComputationalModel = (PeriodicComputationalModel)theEObject;
-        T result = casePeriodicComputationalModel(periodicComputationalModel);
-        if (result == null) result = caseComputationalModel(periodicComputationalModel);
-        if (result == null) result = caseSpecSection(periodicComputationalModel);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.HYPERPERIOD_COMPUTATIONAL_MODEL:
-      {
-        HyperperiodComputationalModel hyperperiodComputationalModel = (HyperperiodComputationalModel)theEObject;
-        T result = caseHyperperiodComputationalModel(hyperperiodComputationalModel);
-        if (result == null) result = caseComputationalModel(hyperperiodComputationalModel);
-        if (result == null) result = caseSpecSection(hyperperiodComputationalModel);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.ASSUME_STATEMENT:
-      {
-        AssumeStatement assumeStatement = (AssumeStatement)theEObject;
-        T result = caseAssumeStatement(assumeStatement);
-        if (result == null) result = caseSpecStatement(assumeStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.GUARANTEE_STATEMENT:
-      {
-        GuaranteeStatement guaranteeStatement = (GuaranteeStatement)theEObject;
-        T result = caseGuaranteeStatement(guaranteeStatement);
-        if (result == null) result = caseSpecStatement(guaranteeStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.BINARY_EXPR:
       {
         BinaryExpr binaryExpr = (BinaryExpr)theEObject;
@@ -226,11 +255,27 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.ID_EXPR:
+      case GumboPackage.STATE_VAR_REF:
       {
-        IdExpr idExpr = (IdExpr)theEObject;
-        T result = caseIdExpr(idExpr);
-        if (result == null) result = caseExpr(idExpr);
+        StateVarRef stateVarRef = (StateVarRef)theEObject;
+        T result = caseStateVarRef(stateVarRef);
+        if (result == null) result = caseExpr(stateVarRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.PORT_REF:
+      {
+        PortRef portRef = (PortRef)theEObject;
+        T result = casePortRef(portRef);
+        if (result == null) result = caseExpr(portRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.INT_LIT:
+      {
+        IntLit intLit = (IntLit)theEObject;
+        T result = caseIntLit(intLit);
+        if (result == null) result = caseExpr(intLit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -287,65 +332,145 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Computational Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Computational Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseComputationalModel(ComputationalModel object)
+  public T caseState(State object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Flows</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>State Var Decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Flows</em>'.
+   * @return the result of interpreting the object as an instance of '<em>State Var Decl</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFlows(Flows object)
+  public T caseStateVarDecl(StateVarDecl object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Invariants</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Invariants</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFlow(Flow object)
+  public T caseInvariants(Invariants object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Contract</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Inv Spec</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Contract</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Inv Spec</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseContract(Contract object)
+  public T caseInvSpec(InvSpec object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Integration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Integration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntegration(Integration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Initialize</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Initialize</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInitialize(Initialize object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Initialize Spec Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Initialize Spec Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInitializeSpecStatement(InitializeSpecStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Compute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompute(Compute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Case Statement Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Case Statement Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCaseStatementClause(CaseStatementClause object)
   {
     return null;
   }
@@ -362,6 +487,70 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSpecStatement(SpecStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Assume Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assume Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAssumeStatement(AssumeStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Anon Assume Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Anon Assume Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnonAssumeStatement(AnonAssumeStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Guarantee Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Guarantee Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGuaranteeStatement(GuaranteeStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Anon Guarantee Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Anon Guarantee Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnonGuaranteeStatement(AnonGuaranteeStatement object)
   {
     return null;
   }
@@ -415,70 +604,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Periodic Computational Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Periodic Computational Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePeriodicComputationalModel(PeriodicComputationalModel object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Hyperperiod Computational Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Hyperperiod Computational Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHyperperiodComputationalModel(HyperperiodComputationalModel object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Assume Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assume Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssumeStatement(AssumeStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Guarantee Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Guarantee Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseGuaranteeStatement(GuaranteeStatement object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Binary Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -511,17 +636,49 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Id Expr</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>State Var Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Id Expr</em>'.
+   * @return the result of interpreting the object as an instance of '<em>State Var Ref</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIdExpr(IdExpr object)
+  public T caseStateVarRef(StateVarRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Port Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Port Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePortRef(PortRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Int Lit</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Int Lit</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntLit(IntLit object)
   {
     return null;
   }

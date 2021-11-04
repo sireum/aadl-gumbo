@@ -21,23 +21,19 @@ package org.sireum.aadl.gumbo.parser.antlr.lexer;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
-Computational_model : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n')('A'|'a')('L'|'l')'_'('M'|'m')('O'|'o')('D'|'d')('E'|'e')('L'|'l');
-
-Hyperperiod : ('H'|'h')('Y'|'y')('P'|'p')('E'|'e')('R'|'r')('P'|'p')('E'|'e')('R'|'r')('I'|'i')('O'|'o')('D'|'d');
+Integration : ('I'|'i')('N'|'n')('T'|'t')('E'|'e')('G'|'g')('R'|'r')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
 
-Contracts : ('C'|'c')('O'|'o')('N'|'n')('T'|'t')('R'|'r')('A'|'a')('C'|'c')('T'|'t')('S'|'s');
+Initialize : ('I'|'i')('N'|'n')('I'|'i')('T'|'t')('I'|'i')('A'|'a')('L'|'l')('I'|'i')('Z'|'z')('E'|'e');
+
+Invariants : ('I'|'i')('N'|'n')('V'|'v')('A'|'a')('R'|'r')('I'|'i')('A'|'a')('N'|'n')('T'|'t')('S'|'s');
 
 Guarantee : ('G'|'g')('U'|'u')('A'|'a')('R'|'r')('A'|'a')('N'|'n')('T'|'t')('E'|'e')('E'|'e');
 
 Reference : ('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('E'|'e')('N'|'n')('C'|'c')('E'|'e');
 
 Constant : ('C'|'c')('O'|'o')('N'|'n')('S'|'s')('T'|'t')('A'|'a')('N'|'n')('T'|'t');
-
-Periodic : ('P'|'p')('E'|'e')('R'|'r')('I'|'i')('O'|'o')('D'|'d')('I'|'i')('C'|'c');
-
-TracesTo : ('T'|'t')('R'|'r')('A'|'a')('C'|'c')('E'|'e')('S'|'s')('T'|'t')('O'|'o');
 
 Andthen : ('A'|'a')('N'|'n')('D'|'d')('T'|'t')('H'|'h')('E'|'e')('N'|'n');
 
@@ -51,8 +47,6 @@ Implies : ('I'|'i')('M'|'m')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
 Library : ('L'|'l')('I'|'i')('B'|'b')('R'|'r')('A'|'a')('R'|'r')('Y'|'y');
 
-Fun : '-'('F'|'f')('U'|'u')('N'|'n')'-''>';
-
 Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
 
 Orelse : ('O'|'o')('R'|'r')('E'|'e')('L'|'l')('S'|'s')('E'|'e');
@@ -61,15 +55,17 @@ Delta : ('D'|'d')('E'|'e')('L'|'l')('T'|'t')('A'|'a');
 
 False : ('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e');
 
-Flows : ('F'|'f')('L'|'l')('O'|'o')('W'|'w')('S'|'s');
-
 Gumbo : ('G'|'g')('U'|'u')('M'|'m')('B'|'b')('O'|'o');
 
 Modes : ('M'|'m')('O'|'o')('D'|'d')('E'|'e')('S'|'s');
 
-True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
+State : ('S'|'s')('T'|'t')('A'|'a')('T'|'t')('E'|'e');
 
-With : ('W'|'w')('I'|'i')('T'|'t')('H'|'h');
+Case : ('C'|'c')('A'|'a')('S'|'s')('E'|'e');
+
+Port : ('P'|'p')('O'|'o')('R'|'r')('T'|'t');
+
+True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
 
 PlusSignEqualsSignGreaterThanSign : '+''=''>';
 
@@ -77,7 +73,11 @@ And : ('A'|'a')('N'|'n')('D'|'d');
 
 For : ('F'|'f')('O'|'o')('R'|'r');
 
+Inv : ('I'|'i')('N'|'n')('V'|'v');
+
 Not : ('N'|'n')('O'|'o')('T'|'t');
+
+Var : ('V'|'v')('A'|'a')('R'|'r');
 
 FullStopFullStop : '.''.';
 

@@ -61,40 +61,85 @@ public interface GumboFactory extends EFactory
   SpecSection createSpecSection();
 
   /**
-   * Returns a new object of class '<em>Computational Model</em>'.
+   * Returns a new object of class '<em>State</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Computational Model</em>'.
+   * @return a new object of class '<em>State</em>'.
    * @generated
    */
-  ComputationalModel createComputationalModel();
+  State createState();
 
   /**
-   * Returns a new object of class '<em>Flows</em>'.
+   * Returns a new object of class '<em>State Var Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Flows</em>'.
+   * @return a new object of class '<em>State Var Decl</em>'.
    * @generated
    */
-  Flows createFlows();
+  StateVarDecl createStateVarDecl();
 
   /**
-   * Returns a new object of class '<em>Flow</em>'.
+   * Returns a new object of class '<em>Invariants</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Flow</em>'.
+   * @return a new object of class '<em>Invariants</em>'.
    * @generated
    */
-  Flow createFlow();
+  Invariants createInvariants();
 
   /**
-   * Returns a new object of class '<em>Contract</em>'.
+   * Returns a new object of class '<em>Inv Spec</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contract</em>'.
+   * @return a new object of class '<em>Inv Spec</em>'.
    * @generated
    */
-  Contract createContract();
+  InvSpec createInvSpec();
+
+  /**
+   * Returns a new object of class '<em>Integration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Integration</em>'.
+   * @generated
+   */
+  Integration createIntegration();
+
+  /**
+   * Returns a new object of class '<em>Initialize</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Initialize</em>'.
+   * @generated
+   */
+  Initialize createInitialize();
+
+  /**
+   * Returns a new object of class '<em>Initialize Spec Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Initialize Spec Statement</em>'.
+   * @generated
+   */
+  InitializeSpecStatement createInitializeSpecStatement();
+
+  /**
+   * Returns a new object of class '<em>Compute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compute</em>'.
+   * @generated
+   */
+  Compute createCompute();
+
+  /**
+   * Returns a new object of class '<em>Case Statement Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Case Statement Clause</em>'.
+   * @generated
+   */
+  CaseStatementClause createCaseStatementClause();
 
   /**
    * Returns a new object of class '<em>Spec Statement</em>'.
@@ -104,6 +149,42 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SpecStatement createSpecStatement();
+
+  /**
+   * Returns a new object of class '<em>Assume Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assume Statement</em>'.
+   * @generated
+   */
+  AssumeStatement createAssumeStatement();
+
+  /**
+   * Returns a new object of class '<em>Anon Assume Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Anon Assume Statement</em>'.
+   * @generated
+   */
+  AnonAssumeStatement createAnonAssumeStatement();
+
+  /**
+   * Returns a new object of class '<em>Guarantee Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Guarantee Statement</em>'.
+   * @generated
+   */
+  GuaranteeStatement createGuaranteeStatement();
+
+  /**
+   * Returns a new object of class '<em>Anon Guarantee Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Anon Guarantee Statement</em>'.
+   * @generated
+   */
+  AnonGuaranteeStatement createAnonGuaranteeStatement();
 
   /**
    * Returns a new object of class '<em>Expr</em>'.
@@ -133,42 +214,6 @@ public interface GumboFactory extends EFactory
   FeatureElement createFeatureElement();
 
   /**
-   * Returns a new object of class '<em>Periodic Computational Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Periodic Computational Model</em>'.
-   * @generated
-   */
-  PeriodicComputationalModel createPeriodicComputationalModel();
-
-  /**
-   * Returns a new object of class '<em>Hyperperiod Computational Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Hyperperiod Computational Model</em>'.
-   * @generated
-   */
-  HyperperiodComputationalModel createHyperperiodComputationalModel();
-
-  /**
-   * Returns a new object of class '<em>Assume Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assume Statement</em>'.
-   * @generated
-   */
-  AssumeStatement createAssumeStatement();
-
-  /**
-   * Returns a new object of class '<em>Guarantee Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Guarantee Statement</em>'.
-   * @generated
-   */
-  GuaranteeStatement createGuaranteeStatement();
-
-  /**
    * Returns a new object of class '<em>Binary Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -187,13 +232,31 @@ public interface GumboFactory extends EFactory
   UnaryExpr createUnaryExpr();
 
   /**
-   * Returns a new object of class '<em>Id Expr</em>'.
+   * Returns a new object of class '<em>State Var Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Id Expr</em>'.
+   * @return a new object of class '<em>State Var Ref</em>'.
    * @generated
    */
-  IdExpr createIdExpr();
+  StateVarRef createStateVarRef();
+
+  /**
+   * Returns a new object of class '<em>Port Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Port Ref</em>'.
+   * @generated
+   */
+  PortRef createPortRef();
+
+  /**
+   * Returns a new object of class '<em>Int Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Lit</em>'.
+   * @generated
+   */
+  IntLit createIntLit();
 
   /**
    * Returns the package supported by this factory.

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,33 +34,33 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.GuaranteeStatementImpl#getGuaranteeTitle <em>Guarantee Title</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.GuaranteeStatementImpl#getDisplayName <em>Display Name</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.GuaranteeStatementImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GuaranteeStatementImpl extends SpecStatementImpl implements GuaranteeStatement
+public class GuaranteeStatementImpl extends InitializeSpecStatementImpl implements GuaranteeStatement
 {
   /**
-   * The default value of the '{@link #getGuaranteeTitle() <em>Guarantee Title</em>}' attribute.
+   * The default value of the '{@link #getDisplayName() <em>Display Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGuaranteeTitle()
+   * @see #getDisplayName()
    * @generated
    * @ordered
    */
-  protected static final String GUARANTEE_TITLE_EDEFAULT = null;
+  protected static final String DISPLAY_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getGuaranteeTitle() <em>Guarantee Title</em>}' attribute.
+   * The cached value of the '{@link #getDisplayName() <em>Display Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGuaranteeTitle()
+   * @see #getDisplayName()
    * @generated
    * @ordered
    */
-  protected String guaranteeTitle = GUARANTEE_TITLE_EDEFAULT;
+  protected String displayName = DISPLAY_NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -98,9 +99,9 @@ public class GuaranteeStatementImpl extends SpecStatementImpl implements Guarant
    * @generated
    */
   @Override
-  public String getGuaranteeTitle()
+  public String getDisplayName()
   {
-    return guaranteeTitle;
+    return displayName;
   }
 
   /**
@@ -109,12 +110,12 @@ public class GuaranteeStatementImpl extends SpecStatementImpl implements Guarant
    * @generated
    */
   @Override
-  public void setGuaranteeTitle(String newGuaranteeTitle)
+  public void setDisplayName(String newDisplayName)
   {
-    String oldGuaranteeTitle = guaranteeTitle;
-    guaranteeTitle = newGuaranteeTitle;
+    String oldDisplayName = displayName;
+    displayName = newDisplayName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.GUARANTEE_STATEMENT__GUARANTEE_TITLE, oldGuaranteeTitle, guaranteeTitle));
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME, oldDisplayName, displayName));
   }
 
   /**
@@ -193,8 +194,8 @@ public class GuaranteeStatementImpl extends SpecStatementImpl implements Guarant
   {
     switch (featureID)
     {
-      case GumboPackage.GUARANTEE_STATEMENT__GUARANTEE_TITLE:
-        return getGuaranteeTitle();
+      case GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME:
+        return getDisplayName();
       case GumboPackage.GUARANTEE_STATEMENT__EXPR:
         return getExpr();
     }
@@ -211,8 +212,8 @@ public class GuaranteeStatementImpl extends SpecStatementImpl implements Guarant
   {
     switch (featureID)
     {
-      case GumboPackage.GUARANTEE_STATEMENT__GUARANTEE_TITLE:
-        setGuaranteeTitle((String)newValue);
+      case GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME:
+        setDisplayName((String)newValue);
         return;
       case GumboPackage.GUARANTEE_STATEMENT__EXPR:
         setExpr((Expr)newValue);
@@ -231,8 +232,8 @@ public class GuaranteeStatementImpl extends SpecStatementImpl implements Guarant
   {
     switch (featureID)
     {
-      case GumboPackage.GUARANTEE_STATEMENT__GUARANTEE_TITLE:
-        setGuaranteeTitle(GUARANTEE_TITLE_EDEFAULT);
+      case GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME:
+        setDisplayName(DISPLAY_NAME_EDEFAULT);
         return;
       case GumboPackage.GUARANTEE_STATEMENT__EXPR:
         setExpr((Expr)null);
@@ -251,12 +252,52 @@ public class GuaranteeStatementImpl extends SpecStatementImpl implements Guarant
   {
     switch (featureID)
     {
-      case GumboPackage.GUARANTEE_STATEMENT__GUARANTEE_TITLE:
-        return GUARANTEE_TITLE_EDEFAULT == null ? guaranteeTitle != null : !GUARANTEE_TITLE_EDEFAULT.equals(guaranteeTitle);
+      case GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME:
+        return DISPLAY_NAME_EDEFAULT == null ? displayName != null : !DISPLAY_NAME_EDEFAULT.equals(displayName);
       case GumboPackage.GUARANTEE_STATEMENT__EXPR:
         return expr != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == SpecStatement.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME: return GumboPackage.SPEC_STATEMENT__DISPLAY_NAME;
+        case GumboPackage.GUARANTEE_STATEMENT__EXPR: return GumboPackage.SPEC_STATEMENT__EXPR;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == SpecStatement.class)
+    {
+      switch (baseFeatureID)
+      {
+        case GumboPackage.SPEC_STATEMENT__DISPLAY_NAME: return GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME;
+        case GumboPackage.SPEC_STATEMENT__EXPR: return GumboPackage.GUARANTEE_STATEMENT__EXPR;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -270,8 +311,8 @@ public class GuaranteeStatementImpl extends SpecStatementImpl implements Guarant
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (guaranteeTitle: ");
-    result.append(guaranteeTitle);
+    result.append(" (displayName: ");
+    result.append(displayName);
     result.append(')');
     return result.toString();
   }

@@ -13,17 +13,13 @@
  */
 package org.sireum.aadl.gumbo.gumbo.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.osate.aadl2.impl.AnnexSubclauseImpl;
 
@@ -47,14 +43,14 @@ import org.sireum.aadl.gumbo.gumbo.SpecSection;
 public class GumboSubclauseImpl extends AnnexSubclauseImpl implements GumboSubclause
 {
   /**
-   * The cached value of the '{@link #getSpecs() <em>Specs</em>}' containment reference list.
+   * The cached value of the '{@link #getSpecs() <em>Specs</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSpecs()
    * @generated
    * @ordered
    */
-  protected EList<SpecSection> specs;
+  protected SpecSection specs;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,13 +79,48 @@ public class GumboSubclauseImpl extends AnnexSubclauseImpl implements GumboSubcl
    * @generated
    */
   @Override
-  public EList<SpecSection> getSpecs()
+  public SpecSection getSpecs()
   {
-    if (specs == null)
-    {
-      specs = new EObjectContainmentEList<SpecSection>(SpecSection.class, this, GumboPackage.GUMBO_SUBCLAUSE__SPECS);
-    }
     return specs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSpecs(SpecSection newSpecs, NotificationChain msgs)
+  {
+    SpecSection oldSpecs = specs;
+    specs = newSpecs;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.GUMBO_SUBCLAUSE__SPECS, oldSpecs, newSpecs);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSpecs(SpecSection newSpecs)
+  {
+    if (newSpecs != specs)
+    {
+      NotificationChain msgs = null;
+      if (specs != null)
+        msgs = ((InternalEObject)specs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.GUMBO_SUBCLAUSE__SPECS, null, msgs);
+      if (newSpecs != null)
+        msgs = ((InternalEObject)newSpecs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.GUMBO_SUBCLAUSE__SPECS, null, msgs);
+      msgs = basicSetSpecs(newSpecs, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.GUMBO_SUBCLAUSE__SPECS, newSpecs, newSpecs));
   }
 
   /**
@@ -103,7 +134,7 @@ public class GumboSubclauseImpl extends AnnexSubclauseImpl implements GumboSubcl
     switch (featureID)
     {
       case GumboPackage.GUMBO_SUBCLAUSE__SPECS:
-        return ((InternalEList<?>)getSpecs()).basicRemove(otherEnd, msgs);
+        return basicSetSpecs(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -129,15 +160,13 @@ public class GumboSubclauseImpl extends AnnexSubclauseImpl implements GumboSubcl
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case GumboPackage.GUMBO_SUBCLAUSE__SPECS:
-        getSpecs().clear();
-        getSpecs().addAll((Collection<? extends SpecSection>)newValue);
+        setSpecs((SpecSection)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -154,7 +183,7 @@ public class GumboSubclauseImpl extends AnnexSubclauseImpl implements GumboSubcl
     switch (featureID)
     {
       case GumboPackage.GUMBO_SUBCLAUSE__SPECS:
-        getSpecs().clear();
+        setSpecs((SpecSection)null);
         return;
     }
     super.eUnset(featureID);
@@ -171,7 +200,7 @@ public class GumboSubclauseImpl extends AnnexSubclauseImpl implements GumboSubcl
     switch (featureID)
     {
       case GumboPackage.GUMBO_SUBCLAUSE__SPECS:
-        return specs != null && !specs.isEmpty();
+        return specs != null;
     }
     return super.eIsSet(featureID);
   }

@@ -12,40 +12,60 @@
     <genClasses ecoreClass="Gumbo.ecore#//GumboSubclause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboSubclause/specs"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SpecSection"/>
-    <genClasses ecoreClass="Gumbo.ecore#//ComputationalModel"/>
-    <genClasses ecoreClass="Gumbo.ecore#//Flows">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Flows/flows"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SpecSection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/state"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/invariants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/integration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/initialize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/compute"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Flow">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//Flow/flowId"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Flow/srcPorts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Flow/dstPorts"/>
+    <genClasses ecoreClass="Gumbo.ecore#//State">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//State/decls"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Contract">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Contract/specs"/>
+    <genClasses ecoreClass="Gumbo.ecore#//StateVarDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//StateVarDecl/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//StateVarDecl/typeName"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SpecStatement"/>
+    <genClasses ecoreClass="Gumbo.ecore#//Invariants">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Invariants/specs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//InvSpec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//InvSpec/displayName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//InvSpec/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//Integration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Integration/specs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//Initialize">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/specs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//InitializeSpecStatement"/>
+    <genClasses ecoreClass="Gumbo.ecore#//Compute">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/cases"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//CaseStatementClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CaseStatementClause/displayName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CaseStatementClause/assumeStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CaseStatementClause/guaranteeStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SpecStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SpecStatement/displayName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecStatement/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//AssumeStatement"/>
+    <genClasses ecoreClass="Gumbo.ecore#//AnonAssumeStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AnonAssumeStatement/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//GuaranteeStatement"/>
+    <genClasses ecoreClass="Gumbo.ecore#//AnonGuaranteeStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AnonGuaranteeStatement/expr"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Expr"/>
     <genClasses ecoreClass="Gumbo.ecore#//SubcomponentElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SubcomponentElement/subcomponent"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//FeatureElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//FeatureElement/feature"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//PeriodicComputationalModel"/>
-    <genClasses ecoreClass="Gumbo.ecore#//HyperperiodComputationalModel">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//HyperperiodComputationalModel/constraints"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//AssumeStatement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AssumeStatement/forPort"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//AssumeStatement/assumeTitle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//AssumeStatement/pred"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//AssumeStatement/tracesTo"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//GuaranteeStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//GuaranteeStatement/guaranteeTitle"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GuaranteeStatement/expr"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//BinaryExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryExpr/left"/>
@@ -56,8 +76,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//UnaryExpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//UnaryExpr/expr"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//IdExpr">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//IdExpr/id"/>
+    <genClasses ecoreClass="Gumbo.ecore#//StateVarRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//StateVarRef/stateVar"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//PortRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//PortRef/portName"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//IntLit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//IntLit/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

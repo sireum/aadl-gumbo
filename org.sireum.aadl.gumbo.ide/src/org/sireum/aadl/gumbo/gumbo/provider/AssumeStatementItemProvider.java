@@ -20,13 +20,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
-import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 
 /**
  * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.AssumeStatement} object.
@@ -60,104 +56,8 @@ public class AssumeStatementItemProvider extends SpecStatementItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addForPortPropertyDescriptor(object);
-      addAssumeTitlePropertyDescriptor(object);
-      addPredPropertyDescriptor(object);
-      addTracesToPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the For Port feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addForPortPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_AssumeStatement_forPort_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_AssumeStatement_forPort_feature", "_UI_AssumeStatement_type"),
-         GumboPackage.Literals.ASSUME_STATEMENT__FOR_PORT,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Assume Title feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addAssumeTitlePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_AssumeStatement_assumeTitle_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_AssumeStatement_assumeTitle_feature", "_UI_AssumeStatement_type"),
-         GumboPackage.Literals.ASSUME_STATEMENT__ASSUME_TITLE,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Pred feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addPredPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_AssumeStatement_pred_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_AssumeStatement_pred_feature", "_UI_AssumeStatement_type"),
-         GumboPackage.Literals.ASSUME_STATEMENT__PRED,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Traces To feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addTracesToPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_AssumeStatement_tracesTo_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_AssumeStatement_tracesTo_feature", "_UI_AssumeStatement_type"),
-         GumboPackage.Literals.ASSUME_STATEMENT__TRACES_TO,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -181,7 +81,7 @@ public class AssumeStatementItemProvider extends SpecStatementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((AssumeStatement)object).getAssumeTitle();
+    String label = ((AssumeStatement)object).getDisplayName();
     return label == null || label.length() == 0 ?
       getString("_UI_AssumeStatement_type") :
       getString("_UI_AssumeStatement_type") + " " + label;
@@ -199,15 +99,6 @@ public class AssumeStatementItemProvider extends SpecStatementItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(AssumeStatement.class))
-    {
-      case GumboPackage.ASSUME_STATEMENT__ASSUME_TITLE:
-      case GumboPackage.ASSUME_STATEMENT__PRED:
-      case GumboPackage.ASSUME_STATEMENT__TRACES_TO:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-    }
     super.notifyChanged(notification);
   }
 

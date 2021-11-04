@@ -37,7 +37,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GuaranteeStatementItemProvider extends SpecStatementItemProvider
+public class GuaranteeStatementItemProvider extends InitializeSpecStatementItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -63,26 +63,26 @@ public class GuaranteeStatementItemProvider extends SpecStatementItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addGuaranteeTitlePropertyDescriptor(object);
+      addDisplayNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Guarantee Title feature.
+   * This adds a property descriptor for the Display Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addGuaranteeTitlePropertyDescriptor(Object object)
+  protected void addDisplayNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_GuaranteeStatement_guaranteeTitle_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_GuaranteeStatement_guaranteeTitle_feature", "_UI_GuaranteeStatement_type"),
-         GumboPackage.Literals.GUARANTEE_STATEMENT__GUARANTEE_TITLE,
+         getString("_UI_SpecStatement_displayName_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SpecStatement_displayName_feature", "_UI_SpecStatement_type"),
+         GumboPackage.Literals.SPEC_STATEMENT__DISPLAY_NAME,
          true,
          false,
          false,
@@ -105,7 +105,7 @@ public class GuaranteeStatementItemProvider extends SpecStatementItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.GUARANTEE_STATEMENT__EXPR);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_STATEMENT__EXPR);
     }
     return childrenFeatures;
   }
@@ -145,7 +145,7 @@ public class GuaranteeStatementItemProvider extends SpecStatementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((GuaranteeStatement)object).getGuaranteeTitle();
+    String label = ((GuaranteeStatement)object).getDisplayName();
     return label == null || label.length() == 0 ?
       getString("_UI_GuaranteeStatement_type") :
       getString("_UI_GuaranteeStatement_type") + " " + label;
@@ -166,7 +166,7 @@ public class GuaranteeStatementItemProvider extends SpecStatementItemProvider
 
     switch (notification.getFeatureID(GuaranteeStatement.class))
     {
-      case GumboPackage.GUARANTEE_STATEMENT__GUARANTEE_TITLE:
+      case GumboPackage.GUARANTEE_STATEMENT__DISPLAY_NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case GumboPackage.GUARANTEE_STATEMENT__EXPR:
@@ -190,23 +190,33 @@ public class GuaranteeStatementItemProvider extends SpecStatementItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.GUARANTEE_STATEMENT__EXPR,
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.GUARANTEE_STATEMENT__EXPR,
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createBinaryExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.GUARANTEE_STATEMENT__EXPR,
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createUnaryExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createIdExpr()));
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createStateVarRef()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createPortRef()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createIntLit()));
   }
 
 }

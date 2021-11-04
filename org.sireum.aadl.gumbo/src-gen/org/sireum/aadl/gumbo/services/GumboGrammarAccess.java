@@ -97,18 +97,21 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//GumboSubclause returns GumboSubclause:
 		//    {GumboSubclause}
-		//    specs+=SpecSection*
+		////    specs+=SpecSection*
+		//    specs=SpecSection
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{GumboSubclause}
-		//specs+=SpecSection*
+		//    {GumboSubclause}
+		////    specs+=SpecSection*
+		//    specs=SpecSection
 		public Group getGroup() { return cGroup; }
 		
 		//{GumboSubclause}
 		public Action getGumboSubclauseAction_0() { return cGumboSubclauseAction_0; }
 		
-		//specs+=SpecSection*
+		////    specs+=SpecSection*
+		//    specs=SpecSection
 		public Assignment getSpecsAssignment_1() { return cSpecsAssignment_1; }
 		
 		//SpecSection
@@ -116,250 +119,249 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	public class SpecSectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SpecSection");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cComputationalModelParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cFlowsParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cContractParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cStateAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cStateStateParserRuleCall_0_0 = (RuleCall)cStateAssignment_0.eContents().get(0);
+		private final Assignment cInvariantsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cInvariantsInvariantsParserRuleCall_1_0 = (RuleCall)cInvariantsAssignment_1.eContents().get(0);
+		private final Assignment cIntegrationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIntegrationIntegrationParserRuleCall_2_0 = (RuleCall)cIntegrationAssignment_2.eContents().get(0);
+		private final Assignment cInitializeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cInitializeInitializeParserRuleCall_3_0 = (RuleCall)cInitializeAssignment_3.eContents().get(0);
+		private final Assignment cComputeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cComputeComputeParserRuleCall_4_0 = (RuleCall)cComputeAssignment_4.eContents().get(0);
 		
 		//SpecSection:
-		//    ComputationalModel
-		//|    Flows
-		//|    Contract
+		////    ComputationalModel
+		////|    Flows
+		//    (state = State)?
+		//    (invariants = Invariants)?
+		//    (integration = Integration)?
+		//    (initialize = Initialize)?
+		//    (compute = Compute)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//    ComputationalModel
-		//|    Flows
-		//|    Contract
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//ComputationalModel
-		public RuleCall getComputationalModelParserRuleCall_0() { return cComputationalModelParserRuleCall_0; }
-		
-		//Flows
-		public RuleCall getFlowsParserRuleCall_1() { return cFlowsParserRuleCall_1; }
-		
-		//Contract
-		public RuleCall getContractParserRuleCall_2() { return cContractParserRuleCall_2; }
-	}
-	public class ComputationalModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ComputationalModel");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cComputational_modelKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
-		private final Action cPeriodicComputationalModelAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
-		private final Keyword cPeriodicKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Action cHyperperiodComputationalModelAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
-		private final Keyword cHyperperiodKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Keyword cWithKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
-		private final Group cGroup_1_1_3 = (Group)cGroup_1_1.eContents().get(3);
-		private final Assignment cConstraintsAssignment_1_1_3_0 = (Assignment)cGroup_1_1_3.eContents().get(0);
-		private final CrossReference cConstraintsNamedElementCrossReference_1_1_3_0_0 = (CrossReference)cConstraintsAssignment_1_1_3_0.eContents().get(0);
-		private final RuleCall cConstraintsNamedElementIDTerminalRuleCall_1_1_3_0_0_1 = (RuleCall)cConstraintsNamedElementCrossReference_1_1_3_0_0.eContents().get(1);
-		private final Group cGroup_1_1_3_1 = (Group)cGroup_1_1_3.eContents().get(1);
-		private final Keyword cLessThanSignKeyword_1_1_3_1_0 = (Keyword)cGroup_1_1_3_1.eContents().get(0);
-		private final Assignment cConstraintsAssignment_1_1_3_1_1 = (Assignment)cGroup_1_1_3_1.eContents().get(1);
-		private final CrossReference cConstraintsNamedElementCrossReference_1_1_3_1_1_0 = (CrossReference)cConstraintsAssignment_1_1_3_1_1.eContents().get(0);
-		private final RuleCall cConstraintsNamedElementIDTerminalRuleCall_1_1_3_1_1_0_1 = (RuleCall)cConstraintsNamedElementCrossReference_1_1_3_1_1_0.eContents().get(1);
-		
-		//ComputationalModel:
-		//    'computational_model' (
-		//        {PeriodicComputationalModel} 'periodic'
-		//    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
-		//        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-		//    )
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'computational_model' (
-		//    {PeriodicComputationalModel} 'periodic'
-		//|    {HyperperiodComputationalModel} 'hyperperiod' 'with'
-		//    (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-		//)
+		////    ComputationalModel
+		////|    Flows
+		//    (state = State)?
+		//    (invariants = Invariants)?
+		//    (integration = Integration)?
+		//    (initialize = Initialize)?
+		//    (compute = Compute)?
 		public Group getGroup() { return cGroup; }
 		
-		//'computational_model'
-		public Keyword getComputational_modelKeyword_0() { return cComputational_modelKeyword_0; }
+		////    ComputationalModel
+		////|    Flows
+		//    (state = State)?
+		public Assignment getStateAssignment_0() { return cStateAssignment_0; }
 		
-		//(
-		//       {PeriodicComputationalModel} 'periodic'
-		//   |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
-		//       (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-		//   )
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		//State
+		public RuleCall getStateStateParserRuleCall_0_0() { return cStateStateParserRuleCall_0_0; }
 		
-		//{PeriodicComputationalModel} 'periodic'
-		public Group getGroup_1_0() { return cGroup_1_0; }
+		//(invariants = Invariants)?
+		public Assignment getInvariantsAssignment_1() { return cInvariantsAssignment_1; }
 		
-		//{PeriodicComputationalModel}
-		public Action getPeriodicComputationalModelAction_1_0_0() { return cPeriodicComputationalModelAction_1_0_0; }
+		//Invariants
+		public RuleCall getInvariantsInvariantsParserRuleCall_1_0() { return cInvariantsInvariantsParserRuleCall_1_0; }
 		
-		//'periodic'
-		public Keyword getPeriodicKeyword_1_0_1() { return cPeriodicKeyword_1_0_1; }
+		//(integration = Integration)?
+		public Assignment getIntegrationAssignment_2() { return cIntegrationAssignment_2; }
 		
-		//{HyperperiodComputationalModel} 'hyperperiod' 'with'
-		//    (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		//Integration
+		public RuleCall getIntegrationIntegrationParserRuleCall_2_0() { return cIntegrationIntegrationParserRuleCall_2_0; }
 		
-		//{HyperperiodComputationalModel}
-		public Action getHyperperiodComputationalModelAction_1_1_0() { return cHyperperiodComputationalModelAction_1_1_0; }
+		//(initialize = Initialize)?
+		public Assignment getInitializeAssignment_3() { return cInitializeAssignment_3; }
 		
-		//'hyperperiod'
-		public Keyword getHyperperiodKeyword_1_1_1() { return cHyperperiodKeyword_1_1_1; }
+		//Initialize
+		public RuleCall getInitializeInitializeParserRuleCall_3_0() { return cInitializeInitializeParserRuleCall_3_0; }
 		
-		//'with'
-		public Keyword getWithKeyword_1_1_2() { return cWithKeyword_1_1_2; }
+		//(compute = Compute)?
+		public Assignment getComputeAssignment_4() { return cComputeAssignment_4; }
 		
-		//(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
-		
-		//constraints+=[aadl2::NamedElement]
-		public Assignment getConstraintsAssignment_1_1_3_0() { return cConstraintsAssignment_1_1_3_0; }
-		
-		//[aadl2::NamedElement]
-		public CrossReference getConstraintsNamedElementCrossReference_1_1_3_0_0() { return cConstraintsNamedElementCrossReference_1_1_3_0_0; }
-		
-		//ID
-		public RuleCall getConstraintsNamedElementIDTerminalRuleCall_1_1_3_0_0_1() { return cConstraintsNamedElementIDTerminalRuleCall_1_1_3_0_0_1; }
-		
-		//('<' constraints+=[aadl2::NamedElement])*
-		public Group getGroup_1_1_3_1() { return cGroup_1_1_3_1; }
-		
-		//'<'
-		public Keyword getLessThanSignKeyword_1_1_3_1_0() { return cLessThanSignKeyword_1_1_3_1_0; }
-		
-		//constraints+=[aadl2::NamedElement]
-		public Assignment getConstraintsAssignment_1_1_3_1_1() { return cConstraintsAssignment_1_1_3_1_1; }
-		
-		//[aadl2::NamedElement]
-		public CrossReference getConstraintsNamedElementCrossReference_1_1_3_1_1_0() { return cConstraintsNamedElementCrossReference_1_1_3_1_1_0; }
-		
-		//ID
-		public RuleCall getConstraintsNamedElementIDTerminalRuleCall_1_1_3_1_1_0_1() { return cConstraintsNamedElementIDTerminalRuleCall_1_1_3_1_1_0_1; }
+		//Compute
+		public RuleCall getComputeComputeParserRuleCall_4_0() { return cComputeComputeParserRuleCall_4_0; }
 	}
-	public class FlowsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Flows");
+	public class StateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFlowsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFlowsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFlowsFlowParserRuleCall_1_0 = (RuleCall)cFlowsAssignment_1.eContents().get(0);
+		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDeclsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDeclsStateVarDeclParserRuleCall_1_0 = (RuleCall)cDeclsAssignment_1.eContents().get(0);
 		
-		//Flows:
-		//    'flows' (flows+=Flow)+
+		////ComputationalModel:
+		////    'computational_model' (
+		////        {PeriodicComputationalModel} 'periodic'
+		////    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
+		////        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+		////    )
+		////;
+		////Flows:
+		////    'flows' (flows+=Flow)+
+		////;
+		////
+		////Flow returns Flow:
+		////    =>    flowId=ID ':'
+		////        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+		////        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
+		////;
+		////Contract:
+		////    'contracts' (specs+=SpecStatement)+
+		////;
+		//State:
+		//    'state' (decls += StateVarDecl)+
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'flows' (flows+=Flow)+
+		//'state' (decls += StateVarDecl)+
 		public Group getGroup() { return cGroup; }
 		
-		//'flows'
-		public Keyword getFlowsKeyword_0() { return cFlowsKeyword_0; }
+		//'state'
+		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
 		
-		//(flows+=Flow)+
-		public Assignment getFlowsAssignment_1() { return cFlowsAssignment_1; }
+		//(decls += StateVarDecl)+
+		public Assignment getDeclsAssignment_1() { return cDeclsAssignment_1; }
 		
-		//Flow
-		public RuleCall getFlowsFlowParserRuleCall_1_0() { return cFlowsFlowParserRuleCall_1_0; }
+		//StateVarDecl
+		public RuleCall getDeclsStateVarDeclParserRuleCall_1_0() { return cDeclsStateVarDeclParserRuleCall_1_0; }
 	}
-	public class FlowElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Flow");
+	public class StateVarDeclElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.StateVarDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cFlowIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cFlowIdIDTerminalRuleCall_0_0 = (RuleCall)cFlowIdAssignment_0.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cSrcPortsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSrcPortsFeatureElementParserRuleCall_2_0 = (RuleCall)cSrcPortsAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSrcPortsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSrcPortsFeatureElementParserRuleCall_3_1_0 = (RuleCall)cSrcPortsAssignment_3_1.eContents().get(0);
-		private final Keyword cFunKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cDstPortsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDstPortsFeatureElementParserRuleCall_5_0 = (RuleCall)cDstPortsAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cDstPortsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDstPortsFeatureElementParserRuleCall_6_1_0 = (RuleCall)cDstPortsAssignment_6_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
+		private final Keyword cColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cTypeNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cTypeNameDataSubcomponentTypeCrossReference_1_0 = (CrossReference)cTypeNameAssignment_1.eContents().get(0);
+		private final RuleCall cTypeNameDataSubcomponentTypeQCREFParserRuleCall_1_0_1 = (RuleCall)cTypeNameDataSubcomponentTypeCrossReference_1_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//Flow returns Flow:
-		//    =>    flowId=ID ':'
-		//        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-		//        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
+		//StateVarDecl:
+		// // ...plain declaration without cross referencing is given below
+		// // id1 = ID ':' typeName = ID
+		// // ...single id per type
+		// (name = ID ':') typeName=[aadl2::DataSubcomponentType|QCREF] ';'
+		// // ...multiple ids per type -- leave this out for now until I figure out how to get cross-referencing right for an id list
+		// // ids+=ID (',' ids+=ID)* ':' typeName=[aadl2::DataSubcomponentType|QCREF] ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//=>    flowId=ID ':'
-		//    srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-		//    dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
+		//// ...plain declaration without cross referencing is given below
+		//// id1 = ID ':' typeName = ID
+		//// ...single id per type
+		//(name = ID ':') typeName=[aadl2::DataSubcomponentType|QCREF] ';'
 		public Group getGroup() { return cGroup; }
 		
-		//=>	flowId=ID
-		public Assignment getFlowIdAssignment_0() { return cFlowIdAssignment_0; }
+		//// ...plain declaration without cross referencing is given below
+		//// id1 = ID ':' typeName = ID
+		//// ...single id per type
+		//(name = ID ':')
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//name = ID
+		public Assignment getNameAssignment_0_0() { return cNameAssignment_0_0; }
 		
 		//ID
-		public RuleCall getFlowIdIDTerminalRuleCall_0_0() { return cFlowIdIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_0_0_0() { return cNameIDTerminalRuleCall_0_0_0; }
 		
 		//':'
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
 		
-		//srcPorts+=FeatureElement
-		public Assignment getSrcPortsAssignment_2() { return cSrcPortsAssignment_2; }
+		//typeName=[aadl2::DataSubcomponentType|QCREF]
+		public Assignment getTypeNameAssignment_1() { return cTypeNameAssignment_1; }
 		
-		//FeatureElement
-		public RuleCall getSrcPortsFeatureElementParserRuleCall_2_0() { return cSrcPortsFeatureElementParserRuleCall_2_0; }
+		//[aadl2::DataSubcomponentType|QCREF]
+		public CrossReference getTypeNameDataSubcomponentTypeCrossReference_1_0() { return cTypeNameDataSubcomponentTypeCrossReference_1_0; }
 		
-		//(',' srcPorts+=FeatureElement)*
-		public Group getGroup_3() { return cGroup_3; }
+		//QCREF
+		public RuleCall getTypeNameDataSubcomponentTypeQCREFParserRuleCall_1_0_1() { return cTypeNameDataSubcomponentTypeQCREFParserRuleCall_1_0_1; }
 		
-		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
-		
-		//srcPorts+=FeatureElement
-		public Assignment getSrcPortsAssignment_3_1() { return cSrcPortsAssignment_3_1; }
-		
-		//FeatureElement
-		public RuleCall getSrcPortsFeatureElementParserRuleCall_3_1_0() { return cSrcPortsFeatureElementParserRuleCall_3_1_0; }
-		
-		//'-fun->'
-		public Keyword getFunKeyword_4() { return cFunKeyword_4; }
-		
-		//dstPorts+=FeatureElement
-		public Assignment getDstPortsAssignment_5() { return cDstPortsAssignment_5; }
-		
-		//FeatureElement
-		public RuleCall getDstPortsFeatureElementParserRuleCall_5_0() { return cDstPortsFeatureElementParserRuleCall_5_0; }
-		
-		//(',' dstPorts+=FeatureElement)*
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//','
-		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
-		
-		//dstPorts+=FeatureElement
-		public Assignment getDstPortsAssignment_6_1() { return cDstPortsAssignment_6_1; }
-		
-		//FeatureElement
-		public RuleCall getDstPortsFeatureElementParserRuleCall_6_1_0() { return cDstPortsFeatureElementParserRuleCall_6_1_0; }
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
-	public class ContractElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Contract");
+	public class InvariantsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Invariants");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cContractsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cInvariantsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSpecsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSpecsInvSpecParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
+		
+		//Invariants:
+		//    'invariants' (specs+=InvSpec)+
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'invariants' (specs+=InvSpec)+
+		public Group getGroup() { return cGroup; }
+		
+		//'invariants'
+		public Keyword getInvariantsKeyword_0() { return cInvariantsKeyword_0; }
+		
+		//(specs+=InvSpec)+
+		public Assignment getSpecsAssignment_1() { return cSpecsAssignment_1; }
+		
+		//InvSpec
+		public RuleCall getSpecsInvSpecParserRuleCall_1_0() { return cSpecsInvSpecParserRuleCall_1_0; }
+	}
+	public class InvSpecElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InvSpec");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInvKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExprExprParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//InvSpec:
+		//    'inv' displayName=STRING ':' expr=Expr ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'inv' displayName=STRING ':' expr=Expr ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'inv'
+		public Keyword getInvKeyword_0() { return cInvKeyword_0; }
+		
+		//displayName=STRING
+		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_3_0() { return cExprExprParserRuleCall_3_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+	public class IntegrationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Integration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIntegrationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cSpecsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSpecsSpecStatementParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
 		
-		//Contract:
-		//    'contracts' (specs+=SpecStatement)+
+		//Integration:
+		//    'integration' (specs+=SpecStatement)+
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'contracts' (specs+=SpecStatement)+
+		//'integration' (specs+=SpecStatement)+
 		public Group getGroup() { return cGroup; }
 		
-		//'contracts'
-		public Keyword getContractsKeyword_0() { return cContractsKeyword_0; }
+		//'integration'
+		public Keyword getIntegrationKeyword_0() { return cIntegrationKeyword_0; }
 		
 		//(specs+=SpecStatement)+
 		public Assignment getSpecsAssignment_1() { return cSpecsAssignment_1; }
@@ -367,135 +369,295 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//SpecStatement
 		public RuleCall getSpecsSpecStatementParserRuleCall_1_0() { return cSpecsSpecStatementParserRuleCall_1_0; }
 	}
-	public class SpecStatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SpecStatement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cAssumeStatementAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Keyword cAssumeKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
-		private final Keyword cForKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
-		private final Assignment cForPortAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
-		private final CrossReference cForPortNamedElementCrossReference_0_2_1_0 = (CrossReference)cForPortAssignment_0_2_1.eContents().get(0);
-		private final RuleCall cForPortNamedElementIDTerminalRuleCall_0_2_1_0_1 = (RuleCall)cForPortNamedElementCrossReference_0_2_1_0.eContents().get(1);
-		private final Assignment cAssumeTitleAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final RuleCall cAssumeTitleSTRINGTerminalRuleCall_0_3_0 = (RuleCall)cAssumeTitleAssignment_0_3.eContents().get(0);
-		private final Keyword cColonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Assignment cPredAssignment_0_5 = (Assignment)cGroup_0.eContents().get(5);
-		private final RuleCall cPredPREDICATEParserRuleCall_0_5_0 = (RuleCall)cPredAssignment_0_5.eContents().get(0);
-		private final Group cGroup_0_6 = (Group)cGroup_0.eContents().get(6);
-		private final Keyword cTracesToKeyword_0_6_0 = (Keyword)cGroup_0_6.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_0_6_1 = (Keyword)cGroup_0_6.eContents().get(1);
-		private final Assignment cTracesToAssignment_0_6_2 = (Assignment)cGroup_0_6.eContents().get(2);
-		private final RuleCall cTracesToIDTerminalRuleCall_0_6_2_0 = (RuleCall)cTracesToAssignment_0_6_2.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_0_6_3 = (Keyword)cGroup_0_6.eContents().get(3);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cGuaranteeStatementAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cGuaranteeKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cGuaranteeTitleAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cGuaranteeTitleSTRINGTerminalRuleCall_1_2_0 = (RuleCall)cGuaranteeTitleAssignment_1_2.eContents().get(0);
-		private final Keyword cColonKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cExprAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cExprExprParserRuleCall_1_4_0 = (RuleCall)cExprAssignment_1_4.eContents().get(0);
+	public class InitializeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Initialize");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInitializeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSpecsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSpecsInitializeSpecStatementParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
 		
-		//SpecStatement:
-		//    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-		//        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-		//|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+		//Initialize:
+		//    'initialize' (specs+=InitializeSpecStatement)+
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-		//        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-		//|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+		//'initialize' (specs+=InitializeSpecStatement)+
+		public Group getGroup() { return cGroup; }
+		
+		//'initialize'
+		public Keyword getInitializeKeyword_0() { return cInitializeKeyword_0; }
+		
+		//(specs+=InitializeSpecStatement)+
+		public Assignment getSpecsAssignment_1() { return cSpecsAssignment_1; }
+		
+		//InitializeSpecStatement
+		public RuleCall getSpecsInitializeSpecStatementParserRuleCall_1_0() { return cSpecsInitializeSpecStatementParserRuleCall_1_0; }
+	}
+	public class InitializeSpecStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InitializeSpecStatement");
+		private final RuleCall cGuaranteeStatementParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//InitializeSpecStatement:
+		//  GuaranteeStatement
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//GuaranteeStatement
+		public RuleCall getGuaranteeStatementParserRuleCall() { return cGuaranteeStatementParserRuleCall; }
+	}
+	public class ComputeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Compute");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cComputeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cCasesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCasesCaseStatementClauseParserRuleCall_1_0 = (RuleCall)cCasesAssignment_1.eContents().get(0);
+		
+		//Compute:
+		//    'compute'
+		//      // for now, just set the grammar to have a collection of case statements.
+		//      // Eventually allow arbitrary assume/guarantees around an aggregated case statement
+		//       (cases+=CaseStatementClause)+
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'compute'
+		//  // for now, just set the grammar to have a collection of case statements.
+		//  // Eventually allow arbitrary assume/guarantees around an aggregated case statement
+		//   (cases+=CaseStatementClause)+
+		public Group getGroup() { return cGroup; }
+		
+		//'compute'
+		public Keyword getComputeKeyword_0() { return cComputeKeyword_0; }
+		
+		//// for now, just set the grammar to have a collection of case statements.
+		//// Eventually allow arbitrary assume/guarantees around an aggregated case statement
+		// (cases+=CaseStatementClause)+
+		public Assignment getCasesAssignment_1() { return cCasesAssignment_1; }
+		
+		//CaseStatementClause
+		public RuleCall getCasesCaseStatementClauseParserRuleCall_1_0() { return cCasesCaseStatementClauseParserRuleCall_1_0; }
+	}
+	public class CaseStatementClauseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCaseKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cAssumeStatementAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cAssumeStatementAnonAssumeStatementParserRuleCall_3_0 = (RuleCall)cAssumeStatementAssignment_3.eContents().get(0);
+		private final Assignment cGuaranteeStatementAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cGuaranteeStatementAnonGuaranteeStatementParserRuleCall_4_0 = (RuleCall)cGuaranteeStatementAssignment_4.eContents().get(0);
+		
+		//CaseStatementClause:
+		//    'case' displayName=STRING ':'
+		//           // in case clauses, we must have both an assume clause and a guarantee clause
+		//           // but they don't have a display name (they will "inherit" the name from the case name).
+		//           assumeStatement = AnonAssumeStatement
+		//           guaranteeStatement = AnonGuaranteeStatement
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'case' displayName=STRING ':'
+		//       // in case clauses, we must have both an assume clause and a guarantee clause
+		//       // but they don't have a display name (they will "inherit" the name from the case name).
+		//       assumeStatement = AnonAssumeStatement
+		//       guaranteeStatement = AnonGuaranteeStatement
+		public Group getGroup() { return cGroup; }
+		
+		//'case'
+		public Keyword getCaseKeyword_0() { return cCaseKeyword_0; }
+		
+		//displayName=STRING
+		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		
+		//// in case clauses, we must have both an assume clause and a guarantee clause
+		//// but they don't have a display name (they will "inherit" the name from the case name).
+		//assumeStatement = AnonAssumeStatement
+		public Assignment getAssumeStatementAssignment_3() { return cAssumeStatementAssignment_3; }
+		
+		//AnonAssumeStatement
+		public RuleCall getAssumeStatementAnonAssumeStatementParserRuleCall_3_0() { return cAssumeStatementAnonAssumeStatementParserRuleCall_3_0; }
+		
+		//guaranteeStatement = AnonGuaranteeStatement
+		public Assignment getGuaranteeStatementAssignment_4() { return cGuaranteeStatementAssignment_4; }
+		
+		//AnonGuaranteeStatement
+		public RuleCall getGuaranteeStatementAnonGuaranteeStatementParserRuleCall_4_0() { return cGuaranteeStatementAnonGuaranteeStatementParserRuleCall_4_0; }
+	}
+	public class SpecStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SpecStatement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAssumeStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cGuaranteeStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//SpecStatement:
+		//    AssumeStatement
+		//  | GuaranteeStatement
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//  AssumeStatement
+		//| GuaranteeStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-		//    assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-		public Group getGroup_0() { return cGroup_0; }
+		//AssumeStatement
+		public RuleCall getAssumeStatementParserRuleCall_0() { return cAssumeStatementParserRuleCall_0; }
 		
-		//{AssumeStatement}
-		public Action getAssumeStatementAction_0_0() { return cAssumeStatementAction_0_0; }
+		//GuaranteeStatement
+		public RuleCall getGuaranteeStatementParserRuleCall_1() { return cGuaranteeStatementParserRuleCall_1; }
+	}
+	public class AssumeStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AssumeStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAssumeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExprExprParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//AssumeStatement:
+		//    'assume' displayName=STRING ':' expr=Expr ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'assume' displayName=STRING ':' expr=Expr ';'
+		public Group getGroup() { return cGroup; }
 		
 		//'assume'
-		public Keyword getAssumeKeyword_0_1() { return cAssumeKeyword_0_1; }
+		public Keyword getAssumeKeyword_0() { return cAssumeKeyword_0; }
 		
-		//('for' forPort=[aadl2::NamedElement])?
-		public Group getGroup_0_2() { return cGroup_0_2; }
-		
-		//'for'
-		public Keyword getForKeyword_0_2_0() { return cForKeyword_0_2_0; }
-		
-		//forPort=[aadl2::NamedElement]
-		public Assignment getForPortAssignment_0_2_1() { return cForPortAssignment_0_2_1; }
-		
-		//[aadl2::NamedElement]
-		public CrossReference getForPortNamedElementCrossReference_0_2_1_0() { return cForPortNamedElementCrossReference_0_2_1_0; }
-		
-		//ID
-		public RuleCall getForPortNamedElementIDTerminalRuleCall_0_2_1_0_1() { return cForPortNamedElementIDTerminalRuleCall_0_2_1_0_1; }
-		
-		//assumeTitle=STRING
-		public Assignment getAssumeTitleAssignment_0_3() { return cAssumeTitleAssignment_0_3; }
+		//displayName=STRING
+		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
 		
 		//STRING
-		public RuleCall getAssumeTitleSTRINGTerminalRuleCall_0_3_0() { return cAssumeTitleSTRINGTerminalRuleCall_0_3_0; }
+		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
 		
 		//':'
-		public Keyword getColonKeyword_0_4() { return cColonKeyword_0_4; }
-		
-		//pred=PREDICATE
-		public Assignment getPredAssignment_0_5() { return cPredAssignment_0_5; }
-		
-		//PREDICATE
-		public RuleCall getPredPREDICATEParserRuleCall_0_5_0() { return cPredPREDICATEParserRuleCall_0_5_0; }
-		
-		//('tracesTo' '<' tracesTo=ID '>')?
-		public Group getGroup_0_6() { return cGroup_0_6; }
-		
-		//'tracesTo'
-		public Keyword getTracesToKeyword_0_6_0() { return cTracesToKeyword_0_6_0; }
-		
-		//'<'
-		public Keyword getLessThanSignKeyword_0_6_1() { return cLessThanSignKeyword_0_6_1; }
-		
-		//tracesTo=ID
-		public Assignment getTracesToAssignment_0_6_2() { return cTracesToAssignment_0_6_2; }
-		
-		//ID
-		public RuleCall getTracesToIDTerminalRuleCall_0_6_2_0() { return cTracesToIDTerminalRuleCall_0_6_2_0; }
-		
-		//'>'
-		public Keyword getGreaterThanSignKeyword_0_6_3() { return cGreaterThanSignKeyword_0_6_3; }
-		
-		//{GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{GuaranteeStatement}
-		public Action getGuaranteeStatementAction_1_0() { return cGuaranteeStatementAction_1_0; }
-		
-		//'guarantee'
-		public Keyword getGuaranteeKeyword_1_1() { return cGuaranteeKeyword_1_1; }
-		
-		//guaranteeTitle=STRING
-		public Assignment getGuaranteeTitleAssignment_1_2() { return cGuaranteeTitleAssignment_1_2; }
-		
-		//STRING
-		public RuleCall getGuaranteeTitleSTRINGTerminalRuleCall_1_2_0() { return cGuaranteeTitleSTRINGTerminalRuleCall_1_2_0; }
-		
-		//':'
-		public Keyword getColonKeyword_1_3() { return cColonKeyword_1_3; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
 		//expr=Expr
-		public Assignment getExprAssignment_1_4() { return cExprAssignment_1_4; }
+		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
 		
 		//Expr
-		public RuleCall getExprExprParserRuleCall_1_4_0() { return cExprExprParserRuleCall_1_4_0; }
+		public RuleCall getExprExprParserRuleCall_3_0() { return cExprExprParserRuleCall_3_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+	public class AnonAssumeStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AnonAssumeStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAssumeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExprExprParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//AnonAssumeStatement:
+		//    'assume' expr=Expr ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'assume' expr=Expr ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'assume'
+		public Keyword getAssumeKeyword_0() { return cAssumeKeyword_0; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_1_0() { return cExprExprParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+	}
+	public class GuaranteeStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.GuaranteeStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGuaranteeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExprExprParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//GuaranteeStatement:
+		//    'guarantee' displayName=STRING ':' expr=Expr ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'guarantee' displayName=STRING ':' expr=Expr ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'guarantee'
+		public Keyword getGuaranteeKeyword_0() { return cGuaranteeKeyword_0; }
+		
+		//displayName=STRING
+		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_3_0() { return cExprExprParserRuleCall_3_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+	public class AnonGuaranteeStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AnonGuaranteeStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGuaranteeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExprExprParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//AnonGuaranteeStatement:
+		//    'guarantee' expr=Expr ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'guarantee' expr=Expr ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'guarantee'
+		public Keyword getGuaranteeKeyword_0() { return cGuaranteeKeyword_0; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_1_0() { return cExprExprParserRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class PREDICATEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.PREDICATE");
 		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
+		////SpecStatement:
+		////    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+		////        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
+		////|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+		////;
 		//PREDICATE: // TODO
 		//    ID
 		//;
@@ -989,31 +1151,99 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	public class AtomicExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AtomicExpr");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cIdExprAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cIdNamedElementCrossReference_1_0 = (CrossReference)cIdAssignment_1.eContents().get(0);
-		private final RuleCall cIdNamedElementQCREFParserRuleCall_1_0_1 = (RuleCall)cIdNamedElementCrossReference_1_0.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cStateVarRefAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cVarKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cStateVarAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final CrossReference cStateVarStateVarDeclCrossReference_0_2_0 = (CrossReference)cStateVarAssignment_0_2.eContents().get(0);
+		private final RuleCall cStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1 = (RuleCall)cStateVarStateVarDeclCrossReference_0_2_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cPortRefAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cPortKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cPortNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cPortNameIDTerminalRuleCall_1_2_0 = (RuleCall)cPortNameAssignment_1_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cIntLitAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cValueINTEGER_LITTerminalRuleCall_2_1_0 = (RuleCall)cValueAssignment_2_1.eContents().get(0);
 		
 		//AtomicExpr returns Expr:
-		//    {IdExpr} id=[aadl2::NamedElement | QCREF]
+		////  Need to figure out how to reference difference types of IDs, including cross references
+		////  to port names, state variables, etc.
+		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
+		////  For example, invariants should only reference state variables.
+		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
+		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
+		//|   {PortRef} 'port' portName=ID
+		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IdExpr} id=[aadl2::NamedElement | QCREF]
-		public Group getGroup() { return cGroup; }
+		////  Need to figure out how to reference difference types of IDs, including cross references
+		////  to port names, state variables, etc.
+		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
+		////  For example, invariants should only reference state variables.
+		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
+		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
+		//|   {PortRef} 'port' portName=ID
+		//|    {IntLit} value=INTEGER_LIT
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{IdExpr}
-		public Action getIdExprAction_0() { return cIdExprAction_0; }
+		////  Need to figure out how to reference difference types of IDs, including cross references
+		////  to port names, state variables, etc.
+		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
+		////  For example, invariants should only reference state variables.
+		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
+		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
+		public Group getGroup_0() { return cGroup_0; }
 		
-		//id=[aadl2::NamedElement | QCREF]
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		////  Need to figure out how to reference difference types of IDs, including cross references
+		////  to port names, state variables, etc.
+		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
+		////  For example, invariants should only reference state variables.
+		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
+		//    {StateVarRef}
+		public Action getStateVarRefAction_0_0() { return cStateVarRefAction_0_0; }
 		
-		//[aadl2::NamedElement | QCREF]
-		public CrossReference getIdNamedElementCrossReference_1_0() { return cIdNamedElementCrossReference_1_0; }
+		//'var'
+		public Keyword getVarKeyword_0_1() { return cVarKeyword_0_1; }
 		
-		//QCREF
-		public RuleCall getIdNamedElementQCREFParserRuleCall_1_0_1() { return cIdNamedElementQCREFParserRuleCall_1_0_1; }
+		//stateVar=[StateVarDecl|ID]
+		public Assignment getStateVarAssignment_0_2() { return cStateVarAssignment_0_2; }
+		
+		//[StateVarDecl|ID]
+		public CrossReference getStateVarStateVarDeclCrossReference_0_2_0() { return cStateVarStateVarDeclCrossReference_0_2_0; }
+		
+		//ID
+		public RuleCall getStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1() { return cStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1; }
+		
+		//{PortRef} 'port' portName=ID
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{PortRef}
+		public Action getPortRefAction_1_0() { return cPortRefAction_1_0; }
+		
+		//'port'
+		public Keyword getPortKeyword_1_1() { return cPortKeyword_1_1; }
+		
+		//portName=ID
+		public Assignment getPortNameAssignment_1_2() { return cPortNameAssignment_1_2; }
+		
+		//ID
+		public RuleCall getPortNameIDTerminalRuleCall_1_2_0() { return cPortNameIDTerminalRuleCall_1_2_0; }
+		
+		//{IntLit} value=INTEGER_LIT
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{IntLit}
+		public Action getIntLitAction_2_0() { return cIntLitAction_2_0; }
+		
+		//value=INTEGER_LIT
+		public Assignment getValueAssignment_2_1() { return cValueAssignment_2_1; }
+		
+		//INTEGER_LIT
+		public RuleCall getValueINTEGER_LITTerminalRuleCall_2_1_0() { return cValueINTEGER_LITTerminalRuleCall_2_1_0; }
 	}
 	public class SubcomponentElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SubcomponentElement");
@@ -1062,11 +1292,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final GumboLibraryElements pGumboLibrary;
 	private final GumboSubclauseElements pGumboSubclause;
 	private final SpecSectionElements pSpecSection;
-	private final ComputationalModelElements pComputationalModel;
-	private final FlowsElements pFlows;
-	private final FlowElements pFlow;
-	private final ContractElements pContract;
+	private final StateElements pState;
+	private final StateVarDeclElements pStateVarDecl;
+	private final InvariantsElements pInvariants;
+	private final InvSpecElements pInvSpec;
+	private final IntegrationElements pIntegration;
+	private final InitializeElements pInitialize;
+	private final InitializeSpecStatementElements pInitializeSpecStatement;
+	private final ComputeElements pCompute;
+	private final CaseStatementClauseElements pCaseStatementClause;
 	private final SpecStatementElements pSpecStatement;
+	private final AssumeStatementElements pAssumeStatement;
+	private final AnonAssumeStatementElements pAnonAssumeStatement;
+	private final GuaranteeStatementElements pGuaranteeStatement;
+	private final AnonGuaranteeStatementElements pAnonGuaranteeStatement;
 	private final PREDICATEElements pPREDICATE;
 	private final ExprElements pExpr;
 	private final ImpliesExprElements pImpliesExpr;
@@ -1096,11 +1335,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pGumboLibrary = new GumboLibraryElements();
 		this.pGumboSubclause = new GumboSubclauseElements();
 		this.pSpecSection = new SpecSectionElements();
-		this.pComputationalModel = new ComputationalModelElements();
-		this.pFlows = new FlowsElements();
-		this.pFlow = new FlowElements();
-		this.pContract = new ContractElements();
+		this.pState = new StateElements();
+		this.pStateVarDecl = new StateVarDeclElements();
+		this.pInvariants = new InvariantsElements();
+		this.pInvSpec = new InvSpecElements();
+		this.pIntegration = new IntegrationElements();
+		this.pInitialize = new InitializeElements();
+		this.pInitializeSpecStatement = new InitializeSpecStatementElements();
+		this.pCompute = new ComputeElements();
+		this.pCaseStatementClause = new CaseStatementClauseElements();
 		this.pSpecStatement = new SpecStatementElements();
+		this.pAssumeStatement = new AssumeStatementElements();
+		this.pAnonAssumeStatement = new AnonAssumeStatementElements();
+		this.pGuaranteeStatement = new GuaranteeStatementElements();
+		this.pAnonGuaranteeStatement = new AnonGuaranteeStatementElements();
 		this.pPREDICATE = new PREDICATEElements();
 		this.pExpr = new ExprElements();
 		this.pImpliesExpr = new ImpliesExprElements();
@@ -1180,7 +1428,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//GumboSubclause returns GumboSubclause:
 	//    {GumboSubclause}
-	//    specs+=SpecSection*
+	////    specs+=SpecSection*
+	//    specs=SpecSection
 	//;
 	public GumboSubclauseElements getGumboSubclauseAccess() {
 		return pGumboSubclause;
@@ -1191,9 +1440,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//SpecSection:
-	//    ComputationalModel
-	//|    Flows
-	//|    Contract
+	////    ComputationalModel
+	////|    Flows
+	//    (state = State)?
+	//    (invariants = Invariants)?
+	//    (integration = Integration)?
+	//    (initialize = Initialize)?
+	//    (compute = Compute)?
 	//;
 	public SpecSectionElements getSpecSectionAccess() {
 		return pSpecSection;
@@ -1203,60 +1456,139 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSpecSectionAccess().getRule();
 	}
 	
-	//ComputationalModel:
-	//    'computational_model' (
-	//        {PeriodicComputationalModel} 'periodic'
-	//    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
-	//        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-	//    )
+	////ComputationalModel:
+	////    'computational_model' (
+	////        {PeriodicComputationalModel} 'periodic'
+	////    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
+	////        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+	////    )
+	////;
+	////Flows:
+	////    'flows' (flows+=Flow)+
+	////;
+	////
+	////Flow returns Flow:
+	////    =>    flowId=ID ':'
+	////        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+	////        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
+	////;
+	////Contract:
+	////    'contracts' (specs+=SpecStatement)+
+	////;
+	//State:
+	//    'state' (decls += StateVarDecl)+
 	//;
-	public ComputationalModelElements getComputationalModelAccess() {
-		return pComputationalModel;
+	public StateElements getStateAccess() {
+		return pState;
 	}
 	
-	public ParserRule getComputationalModelRule() {
-		return getComputationalModelAccess().getRule();
+	public ParserRule getStateRule() {
+		return getStateAccess().getRule();
 	}
 	
-	//Flows:
-	//    'flows' (flows+=Flow)+
+	//StateVarDecl:
+	// // ...plain declaration without cross referencing is given below
+	// // id1 = ID ':' typeName = ID
+	// // ...single id per type
+	// (name = ID ':') typeName=[aadl2::DataSubcomponentType|QCREF] ';'
+	// // ...multiple ids per type -- leave this out for now until I figure out how to get cross-referencing right for an id list
+	// // ids+=ID (',' ids+=ID)* ':' typeName=[aadl2::DataSubcomponentType|QCREF] ';'
 	//;
-	public FlowsElements getFlowsAccess() {
-		return pFlows;
+	public StateVarDeclElements getStateVarDeclAccess() {
+		return pStateVarDecl;
 	}
 	
-	public ParserRule getFlowsRule() {
-		return getFlowsAccess().getRule();
+	public ParserRule getStateVarDeclRule() {
+		return getStateVarDeclAccess().getRule();
 	}
 	
-	//Flow returns Flow:
-	//    =>    flowId=ID ':'
-	//        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-	//        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
+	//Invariants:
+	//    'invariants' (specs+=InvSpec)+
 	//;
-	public FlowElements getFlowAccess() {
-		return pFlow;
+	public InvariantsElements getInvariantsAccess() {
+		return pInvariants;
 	}
 	
-	public ParserRule getFlowRule() {
-		return getFlowAccess().getRule();
+	public ParserRule getInvariantsRule() {
+		return getInvariantsAccess().getRule();
 	}
 	
-	//Contract:
-	//    'contracts' (specs+=SpecStatement)+
+	//InvSpec:
+	//    'inv' displayName=STRING ':' expr=Expr ';'
 	//;
-	public ContractElements getContractAccess() {
-		return pContract;
+	public InvSpecElements getInvSpecAccess() {
+		return pInvSpec;
 	}
 	
-	public ParserRule getContractRule() {
-		return getContractAccess().getRule();
+	public ParserRule getInvSpecRule() {
+		return getInvSpecAccess().getRule();
+	}
+	
+	//Integration:
+	//    'integration' (specs+=SpecStatement)+
+	//;
+	public IntegrationElements getIntegrationAccess() {
+		return pIntegration;
+	}
+	
+	public ParserRule getIntegrationRule() {
+		return getIntegrationAccess().getRule();
+	}
+	
+	//Initialize:
+	//    'initialize' (specs+=InitializeSpecStatement)+
+	//;
+	public InitializeElements getInitializeAccess() {
+		return pInitialize;
+	}
+	
+	public ParserRule getInitializeRule() {
+		return getInitializeAccess().getRule();
+	}
+	
+	//InitializeSpecStatement:
+	//  GuaranteeStatement
+	//;
+	public InitializeSpecStatementElements getInitializeSpecStatementAccess() {
+		return pInitializeSpecStatement;
+	}
+	
+	public ParserRule getInitializeSpecStatementRule() {
+		return getInitializeSpecStatementAccess().getRule();
+	}
+	
+	//Compute:
+	//    'compute'
+	//      // for now, just set the grammar to have a collection of case statements.
+	//      // Eventually allow arbitrary assume/guarantees around an aggregated case statement
+	//       (cases+=CaseStatementClause)+
+	//;
+	public ComputeElements getComputeAccess() {
+		return pCompute;
+	}
+	
+	public ParserRule getComputeRule() {
+		return getComputeAccess().getRule();
+	}
+	
+	//CaseStatementClause:
+	//    'case' displayName=STRING ':'
+	//           // in case clauses, we must have both an assume clause and a guarantee clause
+	//           // but they don't have a display name (they will "inherit" the name from the case name).
+	//           assumeStatement = AnonAssumeStatement
+	//           guaranteeStatement = AnonGuaranteeStatement
+	//;
+	public CaseStatementClauseElements getCaseStatementClauseAccess() {
+		return pCaseStatementClause;
+	}
+	
+	public ParserRule getCaseStatementClauseRule() {
+		return getCaseStatementClauseAccess().getRule();
 	}
 	
 	//SpecStatement:
-	//    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-	//        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-	//|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+	//    AssumeStatement
+	//  | GuaranteeStatement
 	//;
 	public SpecStatementElements getSpecStatementAccess() {
 		return pSpecStatement;
@@ -1266,6 +1598,55 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSpecStatementAccess().getRule();
 	}
 	
+	//AssumeStatement:
+	//    'assume' displayName=STRING ':' expr=Expr ';'
+	//;
+	public AssumeStatementElements getAssumeStatementAccess() {
+		return pAssumeStatement;
+	}
+	
+	public ParserRule getAssumeStatementRule() {
+		return getAssumeStatementAccess().getRule();
+	}
+	
+	//AnonAssumeStatement:
+	//    'assume' expr=Expr ';'
+	//;
+	public AnonAssumeStatementElements getAnonAssumeStatementAccess() {
+		return pAnonAssumeStatement;
+	}
+	
+	public ParserRule getAnonAssumeStatementRule() {
+		return getAnonAssumeStatementAccess().getRule();
+	}
+	
+	//GuaranteeStatement:
+	//    'guarantee' displayName=STRING ':' expr=Expr ';'
+	//;
+	public GuaranteeStatementElements getGuaranteeStatementAccess() {
+		return pGuaranteeStatement;
+	}
+	
+	public ParserRule getGuaranteeStatementRule() {
+		return getGuaranteeStatementAccess().getRule();
+	}
+	
+	//AnonGuaranteeStatement:
+	//    'guarantee' expr=Expr ';'
+	//;
+	public AnonGuaranteeStatementElements getAnonGuaranteeStatementAccess() {
+		return pAnonGuaranteeStatement;
+	}
+	
+	public ParserRule getAnonGuaranteeStatementRule() {
+		return getAnonGuaranteeStatementAccess().getRule();
+	}
+	
+	////SpecStatement:
+	////    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+	////        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
+	////|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+	////;
 	//PREDICATE: // TODO
 	//    ID
 	//;
@@ -1389,7 +1770,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//AtomicExpr returns Expr:
-	//    {IdExpr} id=[aadl2::NamedElement | QCREF]
+	////  Need to figure out how to reference difference types of IDs, including cross references
+	////  to port names, state variables, etc.
+	////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
+	////  For example, invariants should only reference state variables.
+	////    {IdExpr} id=[aadl2::NamedElement | QCREF]
+	//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
+	//|   {PortRef} 'port' portName=ID
+	//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 	//;
 	public AtomicExprElements getAtomicExprAccess() {
 		return pAtomicExpr;

@@ -22,6 +22,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -29,6 +31,11 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.sireum.aadl.gumbo.gumbo.GumboFactory;
+import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.SpecSection;
 
 /**
  * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SpecSection} object.
@@ -74,6 +81,43 @@ public class SpecSectionItemProvider
   }
 
   /**
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  {
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__STATE);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INVARIANTS);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INTEGRATION);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INITIALIZE);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__COMPUTE);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
+  }
+
+  /**
    * This returns SpecSection.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -109,6 +153,17 @@ public class SpecSectionItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(SpecSection.class))
+    {
+      case GumboPackage.SPEC_SECTION__STATE:
+      case GumboPackage.SPEC_SECTION__INVARIANTS:
+      case GumboPackage.SPEC_SECTION__INTEGRATION:
+      case GumboPackage.SPEC_SECTION__INITIALIZE:
+      case GumboPackage.SPEC_SECTION__COMPUTE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+        return;
+    }
     super.notifyChanged(notification);
   }
 
@@ -123,6 +178,31 @@ public class SpecSectionItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_SECTION__STATE,
+         GumboFactory.eINSTANCE.createState()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_SECTION__INVARIANTS,
+         GumboFactory.eINSTANCE.createInvariants()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_SECTION__INTEGRATION,
+         GumboFactory.eINSTANCE.createIntegration()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_SECTION__INITIALIZE,
+         GumboFactory.eINSTANCE.createInitialize()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_SECTION__COMPUTE,
+         GumboFactory.eINSTANCE.createCompute()));
   }
 
   /**

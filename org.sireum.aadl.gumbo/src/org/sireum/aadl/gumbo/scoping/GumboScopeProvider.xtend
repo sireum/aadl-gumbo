@@ -19,12 +19,21 @@ import java.lang.reflect.Method
 import org.eclipse.xtext.scoping.impl.SimpleScope
 import org.sireum.aadl.gumbo.gumbo.FeatureElement
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement
-import org.sireum.aadl.gumbo.gumbo.IdExpr
+import org.sireum.aadl.gumbo.gumbo.StateVarRef
+import org.sireum.aadl.gumbo.gumbo.PortRef
 import org.osate.aadl2.Classifier
 import org.osate.aadl2.ComponentImplementation
 
 import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
-import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
+import org.sireum.aadl.gumbo.gumbo.SpecSection
+import org.osate.aadl2.AadlPackage
+import org.sireum.aadl.gumbo.gumbo.StateVarDecl
+import org.osate.aadl2.DataSubcomponentType
+import org.eclipse.xtext.naming.QualifiedName
+import org.eclipse.xtext.scoping.IScope
+import org.osate.aadl2.PackageSection
+
+// import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
 /**
  * This class contains custom scoping description.
@@ -37,7 +46,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		val method = super.getPredicate(context, reference)
 		val sname = method.toString.substring(1, method.toString.length - 1)
 		if (!class.methods.map[name].contains(sname)) {
-			println("Missing: " + class.name + '.' + sname)
+			println("Missing: " + class.name + '.' + sname + " : " + context.class.simpleName)
 		}
 		return method
 	}
@@ -51,7 +60,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 			emptyList
 		}).scopeFor
 		
-		//println(scope)
+		println(scope)
 		
 		scope
 	}
@@ -63,12 +72,32 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	def scope_AssumeStatement_forPort(AssumeStatement context, EReference reference) {
 		genericContext(context, reference)
 	}
+	
+    def scope_StateVarDecl_typeName(StateVarDecl context, EReference reference) {
+    	val pkg = context.getContainerOfType(AadlPackage)
+    	val elem = context.getContainerOfType(PackageSection).ownedMembers.filter(DataSubcomponentType) +
+    	           context.getContainerOfType(PackageSection).
+    	           importedUnits.
+    	           filter(AadlPackage).
+    	           map([x | x.ownedPublicSection.ownedMembers.filter(DataSubcomponentType)]).
+    	           flatten
+    	val scope = elem.scopeFor(
+    		[QualifiedName::create((if(getContainerOfType(AadlPackage) !== pkg) { getContainerOfType(AadlPackage).name + "::" } else { "" }) + name)],
+    		IScope::NULLSCOPE
+    	)
+    	scope
+    	//context.delegateGetScope(reference)
+   	}
 
-	def scope_IdExpr_id(IdExpr context, EReference reference) {
+    def scope_StateVarRef_stateVar(StateVarRef context, EReference reference) {
+    	context.getContainerOfType(SpecSection).state.decls.scopeFor
+	}
+	
+	def scope_PortRef_portName(PortRef context, EReference reference) {
 		genericContext(context, reference)
 	}
 
-	def scope_HyperperiodComputationalModel_constraints(HyperperiodComputationalModel context, EReference reference) {
-		genericContext(context, reference)
-	}
+//	def scope_HyperperiodComputationalModel_constraints(HyperperiodComputationalModel context, EReference reference) {
+//		genericContext(context, reference)
+//	}
 }

@@ -159,7 +159,7 @@ ruleGumboSubclause returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGumboSubclauseRule());
 					}
-					add(
+					set(
 						$current,
 						"specs",
 						lv_specs_1_0,
@@ -167,7 +167,7 @@ ruleGumboSubclause returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 	)
 ;
 
@@ -187,164 +187,139 @@ ruleSpecSection returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getSpecSectionAccess().getComputationalModelParserRuleCall_0());
-		}
-		this_ComputationalModel_0=ruleComputationalModel
-		{
-			$current = $this_ComputationalModel_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getSpecSectionAccess().getFlowsParserRuleCall_1());
-		}
-		this_Flows_1=ruleFlows
-		{
-			$current = $this_Flows_1.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getSpecSectionAccess().getContractParserRuleCall_2());
-		}
-		this_Contract_2=ruleContract
-		{
-			$current = $this_Contract_2.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleComputationalModel
-entryRuleComputationalModel returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getComputationalModelRule()); }
-	iv_ruleComputationalModel=ruleComputationalModel
-	{ $current=$iv_ruleComputationalModel.current; }
-	EOF;
-
-// Rule ComputationalModel
-ruleComputationalModel returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0=Computational_model
-		{
-			newLeafNode(otherlv_0, grammarAccess.getComputationalModelAccess().getComputational_modelKeyword_0());
-		}
 		(
 			(
-				(
-					{
-						$current = forceCreateModelElement(
-							grammarAccess.getComputationalModelAccess().getPeriodicComputationalModelAction_1_0_0(),
-							$current);
-					}
-				)
-				otherlv_2=Periodic
 				{
-					newLeafNode(otherlv_2, grammarAccess.getComputationalModelAccess().getPeriodicKeyword_1_0_1());
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getStateStateParserRuleCall_0_0());
 				}
-			)
-			    |
-			(
-				(
-					{
-						$current = forceCreateModelElement(
-							grammarAccess.getComputationalModelAccess().getHyperperiodComputationalModelAction_1_1_0(),
-							$current);
-					}
-				)
-				otherlv_4=Hyperperiod
-				{
-					newLeafNode(otherlv_4, grammarAccess.getComputationalModelAccess().getHyperperiodKeyword_1_1_1());
-				}
-				otherlv_5=With
-				{
-					newLeafNode(otherlv_5, grammarAccess.getComputationalModelAccess().getWithKeyword_1_1_2());
-				}
-				(
-					(
-						(
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getComputationalModelRule());
-								}
-							}
-							otherlv_6=RULE_ID
-							{
-								newLeafNode(otherlv_6, grammarAccess.getComputationalModelAccess().getConstraintsNamedElementCrossReference_1_1_3_0_0());
-							}
-						)
-					)
-					(
-						otherlv_7=LessThanSign
-						{
-							newLeafNode(otherlv_7, grammarAccess.getComputationalModelAccess().getLessThanSignKeyword_1_1_3_1_0());
-						}
-						(
-							(
-								{
-									if ($current==null) {
-										$current = createModelElement(grammarAccess.getComputationalModelRule());
-									}
-								}
-								otherlv_8=RULE_ID
-								{
-									newLeafNode(otherlv_8, grammarAccess.getComputationalModelAccess().getConstraintsNamedElementCrossReference_1_1_3_1_1_0());
-								}
-							)
-						)
-					)*
-				)
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleFlows
-entryRuleFlows returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFlowsRule()); }
-	iv_ruleFlows=ruleFlows
-	{ $current=$iv_ruleFlows.current; }
-	EOF;
-
-// Rule Flows
-ruleFlows returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0=Flows
-		{
-			newLeafNode(otherlv_0, grammarAccess.getFlowsAccess().getFlowsKeyword_0());
-		}
-		(
-			((
-				RULE_ID
-			)
-			)=>
-			(
-				{
-					newCompositeNode(grammarAccess.getFlowsAccess().getFlowsFlowParserRuleCall_1_0());
-				}
-				lv_flows_1_0=ruleFlow
+				lv_state_0_0=ruleState
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFlowsRule());
+						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
+					}
+					set(
+						$current,
+						"state",
+						lv_state_0_0,
+						"org.sireum.aadl.gumbo.Gumbo.State");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getInvariantsInvariantsParserRuleCall_1_0());
+				}
+				lv_invariants_1_0=ruleInvariants
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
+					}
+					set(
+						$current,
+						"invariants",
+						lv_invariants_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.Invariants");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getIntegrationIntegrationParserRuleCall_2_0());
+				}
+				lv_integration_2_0=ruleIntegration
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
+					}
+					set(
+						$current,
+						"integration",
+						lv_integration_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.Integration");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getInitializeInitializeParserRuleCall_3_0());
+				}
+				lv_initialize_3_0=ruleInitialize
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
+					}
+					set(
+						$current,
+						"initialize",
+						lv_initialize_3_0,
+						"org.sireum.aadl.gumbo.Gumbo.Initialize");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getComputeComputeParserRuleCall_4_0());
+				}
+				lv_compute_4_0=ruleCompute
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
+					}
+					set(
+						$current,
+						"compute",
+						lv_compute_4_0,
+						"org.sireum.aadl.gumbo.Gumbo.Compute");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleState
+entryRuleState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStateRule()); }
+	iv_ruleState=ruleState
+	{ $current=$iv_ruleState.current; }
+	EOF;
+
+// Rule State
+ruleState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=State
+		{
+			newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getStateAccess().getDeclsStateVarDeclParserRuleCall_1_0());
+				}
+				lv_decls_1_0=ruleStateVarDecl
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStateRule());
 					}
 					add(
 						$current,
-						"flows",
-						lv_flows_1_0,
-						"org.sireum.aadl.gumbo.Gumbo.Flow");
+						"decls",
+						lv_decls_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.StateVarDecl");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -352,15 +327,15 @@ ruleFlows returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleFlow
-entryRuleFlow returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFlowRule()); }
-	iv_ruleFlow=ruleFlow
-	{ $current=$iv_ruleFlow.current; }
+// Entry rule entryRuleStateVarDecl
+entryRuleStateVarDecl returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStateVarDeclRule()); }
+	iv_ruleStateVarDecl=ruleStateVarDecl
+	{ $current=$iv_ruleStateVarDecl.current; }
 	EOF;
 
-// Rule Flow
-ruleFlow returns [EObject current=null]
+// Rule StateVarDecl
+ruleStateVarDecl returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -369,135 +344,61 @@ ruleFlow returns [EObject current=null]
 }:
 	(
 		(
-			((
-				RULE_ID
-			)
-			)=>
 			(
-				lv_flowId_0_0=RULE_ID
-				{
-					newLeafNode(lv_flowId_0_0, grammarAccess.getFlowAccess().getFlowIdIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFlowRule());
+				(
+					lv_name_0_0=RULE_ID
+					{
+						newLeafNode(lv_name_0_0, grammarAccess.getStateVarDeclAccess().getNameIDTerminalRuleCall_0_0_0());
 					}
-					setWithLastConsumed(
-						$current,
-						"flowId",
-						lv_flowId_0_0,
-						"org.osate.xtext.aadl2.properties.Properties.ID");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getStateVarDeclRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_0_0,
+							"org.osate.xtext.aadl2.properties.Properties.ID");
+					}
+				)
 			)
+			otherlv_1=Colon
+			{
+				newLeafNode(otherlv_1, grammarAccess.getStateVarDeclAccess().getColonKeyword_0_1());
+			}
 		)
-		otherlv_1=Colon
-		{
-			newLeafNode(otherlv_1, grammarAccess.getFlowAccess().getColonKeyword_1());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFlowAccess().getSrcPortsFeatureElementParserRuleCall_2_0());
-				}
-				lv_srcPorts_2_0=ruleFeatureElement
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFlowRule());
+						$current = createModelElement(grammarAccess.getStateVarDeclRule());
 					}
-					add(
-						$current,
-						"srcPorts",
-						lv_srcPorts_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
+				}
+				{
+					newCompositeNode(grammarAccess.getStateVarDeclAccess().getTypeNameDataSubcomponentTypeCrossReference_1_0());
+				}
+				ruleQCREF
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		(
-			otherlv_3=Comma
-			{
-				newLeafNode(otherlv_3, grammarAccess.getFlowAccess().getCommaKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFlowAccess().getSrcPortsFeatureElementParserRuleCall_3_1_0());
-					}
-					lv_srcPorts_4_0=ruleFeatureElement
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFlowRule());
-						}
-						add(
-							$current,
-							"srcPorts",
-							lv_srcPorts_4_0,
-							"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-		otherlv_5=Fun
+		otherlv_3=Semicolon
 		{
-			newLeafNode(otherlv_5, grammarAccess.getFlowAccess().getFunKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getStateVarDeclAccess().getSemicolonKeyword_2());
 		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getFlowAccess().getDstPortsFeatureElementParserRuleCall_5_0());
-				}
-				lv_dstPorts_6_0=ruleFeatureElement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFlowRule());
-					}
-					add(
-						$current,
-						"dstPorts",
-						lv_dstPorts_6_0,
-						"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_7=Comma
-			{
-				newLeafNode(otherlv_7, grammarAccess.getFlowAccess().getCommaKeyword_6_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFlowAccess().getDstPortsFeatureElementParserRuleCall_6_1_0());
-					}
-					lv_dstPorts_8_0=ruleFeatureElement
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFlowRule());
-						}
-						add(
-							$current,
-							"dstPorts",
-							lv_dstPorts_8_0,
-							"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
 	)
 ;
 
-// Entry rule entryRuleContract
-entryRuleContract returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getContractRule()); }
-	iv_ruleContract=ruleContract
-	{ $current=$iv_ruleContract.current; }
+// Entry rule entryRuleInvariants
+entryRuleInvariants returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInvariantsRule()); }
+	iv_ruleInvariants=ruleInvariants
+	{ $current=$iv_ruleInvariants.current; }
 	EOF;
 
-// Rule Contract
-ruleContract returns [EObject current=null]
+// Rule Invariants
+ruleInvariants returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -505,19 +406,129 @@ ruleContract returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=Contracts
+		otherlv_0=Invariants
 		{
-			newLeafNode(otherlv_0, grammarAccess.getContractAccess().getContractsKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getInvariantsAccess().getInvariantsKeyword_0());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getContractAccess().getSpecsSpecStatementParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getInvariantsAccess().getSpecsInvSpecParserRuleCall_1_0());
+				}
+				lv_specs_1_0=ruleInvSpec
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInvariantsRule());
+					}
+					add(
+						$current,
+						"specs",
+						lv_specs_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.InvSpec");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+	)
+;
+
+// Entry rule entryRuleInvSpec
+entryRuleInvSpec returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInvSpecRule()); }
+	iv_ruleInvSpec=ruleInvSpec
+	{ $current=$iv_ruleInvSpec.current; }
+	EOF;
+
+// Rule InvSpec
+ruleInvSpec returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Inv
+		{
+			newLeafNode(otherlv_0, grammarAccess.getInvSpecAccess().getInvKeyword_0());
+		}
+		(
+			(
+				lv_displayName_1_0=RULE_STRING
+				{
+					newLeafNode(lv_displayName_1_0, grammarAccess.getInvSpecAccess().getDisplayNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getInvSpecRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"displayName",
+						lv_displayName_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.STRING");
+				}
+			)
+		)
+		otherlv_2=Colon
+		{
+			newLeafNode(otherlv_2, grammarAccess.getInvSpecAccess().getColonKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInvSpecAccess().getExprExprParserRuleCall_3_0());
+				}
+				lv_expr_3_0=ruleExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInvSpecRule());
+					}
+					set(
+						$current,
+						"expr",
+						lv_expr_3_0,
+						"org.sireum.aadl.gumbo.Gumbo.Expr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=Semicolon
+		{
+			newLeafNode(otherlv_4, grammarAccess.getInvSpecAccess().getSemicolonKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleIntegration
+entryRuleIntegration returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIntegrationRule()); }
+	iv_ruleIntegration=ruleIntegration
+	{ $current=$iv_ruleIntegration.current; }
+	EOF;
+
+// Rule Integration
+ruleIntegration returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Integration
+		{
+			newLeafNode(otherlv_0, grammarAccess.getIntegrationAccess().getIntegrationKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIntegrationAccess().getSpecsSpecStatementParserRuleCall_1_0());
 				}
 				lv_specs_1_0=ruleSpecStatement
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getContractRule());
+						$current = createModelElementForParent(grammarAccess.getIntegrationRule());
 					}
 					add(
 						$current,
@@ -528,6 +539,198 @@ ruleContract returns [EObject current=null]
 				}
 			)
 		)+
+	)
+;
+
+// Entry rule entryRuleInitialize
+entryRuleInitialize returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInitializeRule()); }
+	iv_ruleInitialize=ruleInitialize
+	{ $current=$iv_ruleInitialize.current; }
+	EOF;
+
+// Rule Initialize
+ruleInitialize returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Initialize
+		{
+			newLeafNode(otherlv_0, grammarAccess.getInitializeAccess().getInitializeKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInitializeAccess().getSpecsInitializeSpecStatementParserRuleCall_1_0());
+				}
+				lv_specs_1_0=ruleInitializeSpecStatement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInitializeRule());
+					}
+					add(
+						$current,
+						"specs",
+						lv_specs_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.InitializeSpecStatement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+	)
+;
+
+// Entry rule entryRuleInitializeSpecStatement
+entryRuleInitializeSpecStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInitializeSpecStatementRule()); }
+	iv_ruleInitializeSpecStatement=ruleInitializeSpecStatement
+	{ $current=$iv_ruleInitializeSpecStatement.current; }
+	EOF;
+
+// Rule InitializeSpecStatement
+ruleInitializeSpecStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	{
+		newCompositeNode(grammarAccess.getInitializeSpecStatementAccess().getGuaranteeStatementParserRuleCall());
+	}
+	this_GuaranteeStatement_0=ruleGuaranteeStatement
+	{
+		$current = $this_GuaranteeStatement_0.current;
+		afterParserOrEnumRuleCall();
+	}
+;
+
+// Entry rule entryRuleCompute
+entryRuleCompute returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getComputeRule()); }
+	iv_ruleCompute=ruleCompute
+	{ $current=$iv_ruleCompute.current; }
+	EOF;
+
+// Rule Compute
+ruleCompute returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Compute
+		{
+			newLeafNode(otherlv_0, grammarAccess.getComputeAccess().getComputeKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComputeAccess().getCasesCaseStatementClauseParserRuleCall_1_0());
+				}
+				lv_cases_1_0=ruleCaseStatementClause
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComputeRule());
+					}
+					add(
+						$current,
+						"cases",
+						lv_cases_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+	)
+;
+
+// Entry rule entryRuleCaseStatementClause
+entryRuleCaseStatementClause returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCaseStatementClauseRule()); }
+	iv_ruleCaseStatementClause=ruleCaseStatementClause
+	{ $current=$iv_ruleCaseStatementClause.current; }
+	EOF;
+
+// Rule CaseStatementClause
+ruleCaseStatementClause returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Case
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCaseStatementClauseAccess().getCaseKeyword_0());
+		}
+		(
+			(
+				lv_displayName_1_0=RULE_STRING
+				{
+					newLeafNode(lv_displayName_1_0, grammarAccess.getCaseStatementClauseAccess().getDisplayNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCaseStatementClauseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"displayName",
+						lv_displayName_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.STRING");
+				}
+			)
+		)
+		otherlv_2=Colon
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCaseStatementClauseAccess().getColonKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCaseStatementClauseAccess().getAssumeStatementAnonAssumeStatementParserRuleCall_3_0());
+				}
+				lv_assumeStatement_3_0=ruleAnonAssumeStatement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCaseStatementClauseRule());
+					}
+					set(
+						$current,
+						"assumeStatement",
+						lv_assumeStatement_3_0,
+						"org.sireum.aadl.gumbo.Gumbo.AnonAssumeStatement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCaseStatementClauseAccess().getGuaranteeStatementAnonGuaranteeStatementParserRuleCall_4_0());
+				}
+				lv_guaranteeStatement_4_0=ruleAnonGuaranteeStatement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCaseStatementClauseRule());
+					}
+					set(
+						$current,
+						"guaranteeStatement",
+						lv_guaranteeStatement_4_0,
+						"org.sireum.aadl.gumbo.Gumbo.AnonGuaranteeStatement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -547,191 +750,252 @@ ruleSpecStatement returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getSpecStatementAccess().getAssumeStatementAction_0_0(),
-						$current);
-				}
-			)
-			otherlv_1=Assume
-			{
-				newLeafNode(otherlv_1, grammarAccess.getSpecStatementAccess().getAssumeKeyword_0_1());
-			}
-			(
-				otherlv_2=For
-				{
-					newLeafNode(otherlv_2, grammarAccess.getSpecStatementAccess().getForKeyword_0_2_0());
-				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSpecStatementRule());
-							}
-						}
-						otherlv_3=RULE_ID
-						{
-							newLeafNode(otherlv_3, grammarAccess.getSpecStatementAccess().getForPortNamedElementCrossReference_0_2_1_0());
-						}
-					)
-				)
-			)?
-			(
-				(
-					lv_assumeTitle_4_0=RULE_STRING
-					{
-						newLeafNode(lv_assumeTitle_4_0, grammarAccess.getSpecStatementAccess().getAssumeTitleSTRINGTerminalRuleCall_0_3_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSpecStatementRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"assumeTitle",
-							lv_assumeTitle_4_0,
-							"org.osate.xtext.aadl2.properties.Properties.STRING");
-					}
-				)
-			)
-			otherlv_5=Colon
-			{
-				newLeafNode(otherlv_5, grammarAccess.getSpecStatementAccess().getColonKeyword_0_4());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSpecStatementAccess().getPredPREDICATEParserRuleCall_0_5_0());
-					}
-					lv_pred_6_0=rulePREDICATE
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSpecStatementRule());
-						}
-						set(
-							$current,
-							"pred",
-							lv_pred_6_0,
-							"org.sireum.aadl.gumbo.Gumbo.PREDICATE");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_7=TracesTo
-				{
-					newLeafNode(otherlv_7, grammarAccess.getSpecStatementAccess().getTracesToKeyword_0_6_0());
-				}
-				otherlv_8=LessThanSign
-				{
-					newLeafNode(otherlv_8, grammarAccess.getSpecStatementAccess().getLessThanSignKeyword_0_6_1());
-				}
-				(
-					(
-						lv_tracesTo_9_0=RULE_ID
-						{
-							newLeafNode(lv_tracesTo_9_0, grammarAccess.getSpecStatementAccess().getTracesToIDTerminalRuleCall_0_6_2_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSpecStatementRule());
-							}
-							setWithLastConsumed(
-								$current,
-								"tracesTo",
-								lv_tracesTo_9_0,
-								"org.osate.xtext.aadl2.properties.Properties.ID");
-						}
-					)
-				)
-				otherlv_10=GreaterThanSign
-				{
-					newLeafNode(otherlv_10, grammarAccess.getSpecStatementAccess().getGreaterThanSignKeyword_0_6_3());
-				}
-			)?
-		)
+		{
+			newCompositeNode(grammarAccess.getSpecStatementAccess().getAssumeStatementParserRuleCall_0());
+		}
+		this_AssumeStatement_0=ruleAssumeStatement
+		{
+			$current = $this_AssumeStatement_0.current;
+			afterParserOrEnumRuleCall();
+		}
 		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getSpecStatementAccess().getGuaranteeStatementAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_12=Guarantee
-			{
-				newLeafNode(otherlv_12, grammarAccess.getSpecStatementAccess().getGuaranteeKeyword_1_1());
-			}
-			(
-				(
-					lv_guaranteeTitle_13_0=RULE_STRING
-					{
-						newLeafNode(lv_guaranteeTitle_13_0, grammarAccess.getSpecStatementAccess().getGuaranteeTitleSTRINGTerminalRuleCall_1_2_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSpecStatementRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"guaranteeTitle",
-							lv_guaranteeTitle_13_0,
-							"org.osate.xtext.aadl2.properties.Properties.STRING");
-					}
-				)
-			)
-			otherlv_14=Colon
-			{
-				newLeafNode(otherlv_14, grammarAccess.getSpecStatementAccess().getColonKeyword_1_3());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSpecStatementAccess().getExprExprParserRuleCall_1_4_0());
-					}
-					lv_expr_15_0=ruleExpr
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSpecStatementRule());
-						}
-						set(
-							$current,
-							"expr",
-							lv_expr_15_0,
-							"org.sireum.aadl.gumbo.Gumbo.Expr");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
+		{
+			newCompositeNode(grammarAccess.getSpecStatementAccess().getGuaranteeStatementParserRuleCall_1());
+		}
+		this_GuaranteeStatement_1=ruleGuaranteeStatement
+		{
+			$current = $this_GuaranteeStatement_1.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
-// Entry rule entryRulePREDICATE
-entryRulePREDICATE returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getPREDICATERule()); }
-	iv_rulePREDICATE=rulePREDICATE
-	{ $current=$iv_rulePREDICATE.current.getText(); }
+// Entry rule entryRuleAssumeStatement
+entryRuleAssumeStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAssumeStatementRule()); }
+	iv_ruleAssumeStatement=ruleAssumeStatement
+	{ $current=$iv_ruleAssumeStatement.current; }
 	EOF;
 
-// Rule PREDICATE
-rulePREDICATE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule AssumeStatement
+ruleAssumeStatement returns [EObject current=null]
 @init {
 	enterRule();
 }
 @after {
 	leaveRule();
 }:
-	this_ID_0=RULE_ID
-	{
-		$current.merge(this_ID_0);
-	}
-	{
-		newLeafNode(this_ID_0, grammarAccess.getPREDICATEAccess().getIDTerminalRuleCall());
-	}
+	(
+		otherlv_0=Assume
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAssumeStatementAccess().getAssumeKeyword_0());
+		}
+		(
+			(
+				lv_displayName_1_0=RULE_STRING
+				{
+					newLeafNode(lv_displayName_1_0, grammarAccess.getAssumeStatementAccess().getDisplayNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAssumeStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"displayName",
+						lv_displayName_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.STRING");
+				}
+			)
+		)
+		otherlv_2=Colon
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAssumeStatementAccess().getColonKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAssumeStatementAccess().getExprExprParserRuleCall_3_0());
+				}
+				lv_expr_3_0=ruleExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAssumeStatementRule());
+					}
+					set(
+						$current,
+						"expr",
+						lv_expr_3_0,
+						"org.sireum.aadl.gumbo.Gumbo.Expr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=Semicolon
+		{
+			newLeafNode(otherlv_4, grammarAccess.getAssumeStatementAccess().getSemicolonKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleAnonAssumeStatement
+entryRuleAnonAssumeStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAnonAssumeStatementRule()); }
+	iv_ruleAnonAssumeStatement=ruleAnonAssumeStatement
+	{ $current=$iv_ruleAnonAssumeStatement.current; }
+	EOF;
+
+// Rule AnonAssumeStatement
+ruleAnonAssumeStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Assume
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAnonAssumeStatementAccess().getAssumeKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAnonAssumeStatementAccess().getExprExprParserRuleCall_1_0());
+				}
+				lv_expr_1_0=ruleExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAnonAssumeStatementRule());
+					}
+					set(
+						$current,
+						"expr",
+						lv_expr_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.Expr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=Semicolon
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAnonAssumeStatementAccess().getSemicolonKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleGuaranteeStatement
+entryRuleGuaranteeStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGuaranteeStatementRule()); }
+	iv_ruleGuaranteeStatement=ruleGuaranteeStatement
+	{ $current=$iv_ruleGuaranteeStatement.current; }
+	EOF;
+
+// Rule GuaranteeStatement
+ruleGuaranteeStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Guarantee
+		{
+			newLeafNode(otherlv_0, grammarAccess.getGuaranteeStatementAccess().getGuaranteeKeyword_0());
+		}
+		(
+			(
+				lv_displayName_1_0=RULE_STRING
+				{
+					newLeafNode(lv_displayName_1_0, grammarAccess.getGuaranteeStatementAccess().getDisplayNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getGuaranteeStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"displayName",
+						lv_displayName_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.STRING");
+				}
+			)
+		)
+		otherlv_2=Colon
+		{
+			newLeafNode(otherlv_2, grammarAccess.getGuaranteeStatementAccess().getColonKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGuaranteeStatementAccess().getExprExprParserRuleCall_3_0());
+				}
+				lv_expr_3_0=ruleExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGuaranteeStatementRule());
+					}
+					set(
+						$current,
+						"expr",
+						lv_expr_3_0,
+						"org.sireum.aadl.gumbo.Gumbo.Expr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=Semicolon
+		{
+			newLeafNode(otherlv_4, grammarAccess.getGuaranteeStatementAccess().getSemicolonKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleAnonGuaranteeStatement
+entryRuleAnonGuaranteeStatement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAnonGuaranteeStatementRule()); }
+	iv_ruleAnonGuaranteeStatement=ruleAnonGuaranteeStatement
+	{ $current=$iv_ruleAnonGuaranteeStatement.current; }
+	EOF;
+
+// Rule AnonGuaranteeStatement
+ruleAnonGuaranteeStatement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Guarantee
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAnonGuaranteeStatementAccess().getGuaranteeKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAnonGuaranteeStatementAccess().getExprExprParserRuleCall_1_0());
+				}
+				lv_expr_1_0=ruleExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAnonGuaranteeStatementRule());
+					}
+					set(
+						$current,
+						"expr",
+						lv_expr_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.Expr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=Semicolon
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAnonGuaranteeStatementAccess().getSemicolonKeyword_2());
+		}
+	)
 ;
 
 // Entry rule entryRuleExpr
@@ -1593,57 +1857,90 @@ ruleAtomicExpr returns [EObject current=null]
 }:
 	(
 		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getAtomicExprAccess().getStateVarRefAction_0_0(),
+						$current);
+				}
+			)
+			otherlv_1=Var
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getAtomicExprAccess().getIdExprAction_0(),
-					$current);
+				newLeafNode(otherlv_1, grammarAccess.getAtomicExprAccess().getVarKeyword_0_1());
 			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAtomicExprRule());
+						}
+					}
+					otherlv_2=RULE_ID
+					{
+						newLeafNode(otherlv_2, grammarAccess.getAtomicExprAccess().getStateVarStateVarDeclCrossReference_0_2_0());
+					}
+				)
+			)
 		)
+		    |
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAtomicExprRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getAtomicExprAccess().getIdNamedElementCrossReference_1_0());
-				}
-				ruleQCREF
-				{
-					afterParserOrEnumRuleCall();
+					$current = forceCreateModelElement(
+						grammarAccess.getAtomicExprAccess().getPortRefAction_1_0(),
+						$current);
 				}
 			)
+			otherlv_4=Port
+			{
+				newLeafNode(otherlv_4, grammarAccess.getAtomicExprAccess().getPortKeyword_1_1());
+			}
+			(
+				(
+					lv_portName_5_0=RULE_ID
+					{
+						newLeafNode(lv_portName_5_0, grammarAccess.getAtomicExprAccess().getPortNameIDTerminalRuleCall_1_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAtomicExprRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"portName",
+							lv_portName_5_0,
+							"org.osate.xtext.aadl2.properties.Properties.ID");
+					}
+				)
+			)
 		)
-	)
-;
-
-// Entry rule entryRuleFeatureElement
-entryRuleFeatureElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFeatureElementRule()); }
-	iv_ruleFeatureElement=ruleFeatureElement
-	{ $current=$iv_ruleFeatureElement.current; }
-	EOF;
-
-// Rule FeatureElement
-ruleFeatureElement returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
+		    |
 		(
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getFeatureElementRule());
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getAtomicExprAccess().getIntLitAction_2_0(),
+						$current);
 				}
-			}
-			otherlv_0=RULE_ID
-			{
-				newLeafNode(otherlv_0, grammarAccess.getFeatureElementAccess().getFeatureNamedElementCrossReference_0());
-			}
+			)
+			(
+				(
+					lv_value_7_0=RULE_INTEGER_LIT
+					{
+						newLeafNode(lv_value_7_0, grammarAccess.getAtomicExprAccess().getValueINTEGER_LITTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAtomicExprRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_7_0,
+							"org.osate.xtext.aadl2.properties.Properties.INTEGER_LIT");
+					}
+				)
+			)
 		)
 	)
 ;

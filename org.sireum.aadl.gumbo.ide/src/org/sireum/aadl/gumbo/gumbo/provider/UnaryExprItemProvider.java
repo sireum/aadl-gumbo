@@ -206,7 +206,17 @@ public class UnaryExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_EXPR__EXPR,
-         GumboFactory.eINSTANCE.createIdExpr()));
+         GumboFactory.eINSTANCE.createStateVarRef()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXPR__EXPR,
+         GumboFactory.eINSTANCE.createPortRef()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXPR__EXPR,
+         GumboFactory.eINSTANCE.createIntLit()));
   }
 
 }

@@ -20,6 +20,16 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Spec Section</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getState <em>State</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getInvariants <em>Invariants</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getIntegration <em>Integration</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getInitialize <em>Initialize</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompute <em>Compute</em>}</li>
+ * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection()
  * @model
@@ -27,4 +37,114 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SpecSection extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>State</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>State</em>' containment reference.
+   * @see #setState(State)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_State()
+   * @model containment="true"
+   * @generated
+   */
+  State getState();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getState <em>State</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>State</em>' containment reference.
+   * @see #getState()
+   * @generated
+   */
+  void setState(State value);
+
+  /**
+   * Returns the value of the '<em><b>Invariants</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Invariants</em>' containment reference.
+   * @see #setInvariants(Invariants)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Invariants()
+   * @model containment="true"
+   * @generated
+   */
+  Invariants getInvariants();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getInvariants <em>Invariants</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Invariants</em>' containment reference.
+   * @see #getInvariants()
+   * @generated
+   */
+  void setInvariants(Invariants value);
+
+  /**
+   * Returns the value of the '<em><b>Integration</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Integration</em>' containment reference.
+   * @see #setIntegration(Integration)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Integration()
+   * @model containment="true"
+   * @generated
+   */
+  Integration getIntegration();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getIntegration <em>Integration</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Integration</em>' containment reference.
+   * @see #getIntegration()
+   * @generated
+   */
+  void setIntegration(Integration value);
+
+  /**
+   * Returns the value of the '<em><b>Initialize</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Initialize</em>' containment reference.
+   * @see #setInitialize(Initialize)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Initialize()
+   * @model containment="true"
+   * @generated
+   */
+  Initialize getInitialize();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getInitialize <em>Initialize</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Initialize</em>' containment reference.
+   * @see #getInitialize()
+   * @generated
+   */
+  void setInitialize(Initialize value);
+
+  /**
+   * Returns the value of the '<em><b>Compute</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Compute</em>' containment reference.
+   * @see #setCompute(Compute)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Compute()
+   * @model containment="true"
+   * @generated
+   */
+  Compute getCompute();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompute <em>Compute</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Compute</em>' containment reference.
+   * @see #getCompute()
+   * @generated
+   */
+  void setCompute(Compute value);
+
 } // SpecSection

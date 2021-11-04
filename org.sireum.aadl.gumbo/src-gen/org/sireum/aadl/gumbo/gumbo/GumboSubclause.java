@@ -13,8 +13,6 @@
  */
 package org.sireum.aadl.gumbo.gumbo;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 import org.osate.aadl2.AnnexSubclause;
@@ -38,15 +36,25 @@ import org.osate.aadl2.AnnexSubclause;
 public interface GumboSubclause extends EObject, AnnexSubclause
 {
   /**
-   * Returns the value of the '<em><b>Specs</b></em>' containment reference list.
-   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.SpecSection}.
+   * Returns the value of the '<em><b>Specs</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Specs</em>' containment reference list.
+   * @return the value of the '<em>Specs</em>' containment reference.
+   * @see #setSpecs(SpecSection)
    * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getGumboSubclause_Specs()
    * @model containment="true"
    * @generated
    */
-  EList<SpecSection> getSpecs();
+  SpecSection getSpecs();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.GumboSubclause#getSpecs <em>Specs</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Specs</em>' containment reference.
+   * @see #getSpecs()
+   * @generated
+   */
+  void setSpecs(SpecSection value);
 
 } // GumboSubclause

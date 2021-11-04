@@ -22,43 +22,119 @@ GumboLibrary returns GumboLibrary:
 
 GumboSubclause returns GumboSubclause:
 	{GumboSubclause}
-	specs+=SpecSection*
+//	specs+=SpecSection*
+    specs=SpecSection
 ;
 
 SpecSection:
-	ComputationalModel
-|	Flows
-|	Contract
+//	ComputationalModel
+//|	Flows
+	(state = State)?
+	(invariants = Invariants)?
+	(integration = Integration)?
+	(initialize = Initialize)?
+	(compute = Compute)?
 ;
 
-ComputationalModel:
-	'computational_model' (
-		{PeriodicComputationalModel} 'periodic'
-	|	{HyperperiodComputationalModel} 'hyperperiod' 'with' 
-		(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-	)
+//ComputationalModel:
+//	'computational_model' (
+//		{PeriodicComputationalModel} 'periodic'
+//	|	{HyperperiodComputationalModel} 'hyperperiod' 'with' 
+//		(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
+//	)
+//;
+
+//Flows:
+//	'flows' (flows+=Flow)+
+//;
+//
+//Flow returns Flow:
+//	=>	flowId=ID ':' 
+//		srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
+//		dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)* 
+//;
+
+
+//Contract:
+//	'contracts' (specs+=SpecStatement)+
+//;
+
+State:
+	'state' (decls += StateVarDecl)+
 ;
 
-Flows:
-	'flows' (flows+=Flow)+
+StateVarDecl:
+ // ...plain declaration without cross referencing is given below	
+ // id1 = ID ':' typeName = ID
+ // ...single id per type
+ (name = ID ':') typeName=[aadl2::DataSubcomponentType|QCREF] ';'
+ // ...multiple ids per type -- leave this out for now until I figure out how to get cross-referencing right for an id list
+ // ids+=ID (',' ids+=ID)* ':' typeName=[aadl2::DataSubcomponentType|QCREF] ';'
 ;
 
-Flow returns Flow:
-	=>	flowId=ID ':' 
-		srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-		dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)* 
+Invariants:
+	'invariants' (specs+=InvSpec)+
 ;
 
+InvSpec:
+	'inv' displayName=STRING ':' expr=Expr ';'
+;
 
-Contract:
-	'contracts' (specs+=SpecStatement)+
+Integration:
+	'integration' (specs+=SpecStatement)+
+;
+
+Initialize:
+	'initialize' (specs+=InitializeSpecStatement)+
+;
+
+InitializeSpecStatement:
+  GuaranteeStatement   	
+;
+
+Compute:
+	'compute' 
+	  // for now, just set the grammar to have a collection of case statements.  
+	  // Eventually allow arbitrary assume/guarantees around an aggregated case statement
+	   (cases+=CaseStatementClause)+
+;
+
+CaseStatementClause:
+	'case' displayName=STRING ':' 
+	       // in case clauses, we must have both an assume clause and a guarantee clause
+	       // but they don't have a display name (they will "inherit" the name from the case name).
+	       assumeStatement = AnonAssumeStatement
+	       guaranteeStatement = AnonGuaranteeStatement
 ;
 
 SpecStatement:
-	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? 
-		assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?  
-|	{GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+    AssumeStatement
+  | GuaranteeStatement   	
 ;
+
+
+AssumeStatement: 
+	'assume' displayName=STRING ':' expr=Expr ';'
+;
+
+AnonAssumeStatement:  
+	'assume' expr=Expr ';'
+;
+
+GuaranteeStatement: 
+	'guarantee' displayName=STRING ':' expr=Expr ';'
+;
+
+AnonGuaranteeStatement: 
+	'guarantee' expr=Expr ';'
+;
+
+
+//SpecStatement:
+//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? 
+//		assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?  
+//|	{GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+//;
 
 PREDICATE: // TODO 
 	ID
@@ -107,7 +183,14 @@ PrefixExpr returns Expr:
 ;
 
 AtomicExpr returns Expr:
-	{IdExpr} id=[aadl2::NamedElement | QCREF]
+//  Need to figure out how to reference difference types of IDs, including cross references
+//  to port names, state variables, etc.
+//  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
+//  For example, invariants should only reference state variables.	
+//	{IdExpr} id=[aadl2::NamedElement | QCREF]
+    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
+|   {PortRef} 'port' portName=ID    
+|	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 ;
 
 SubcomponentElement returns SubcomponentElement:
