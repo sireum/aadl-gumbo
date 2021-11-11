@@ -535,6 +535,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DoubleDotRef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DoubleDotRefItemProvider doubleDotRefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DoubleDotRef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDoubleDotRefAdapter()
+  {
+    if (doubleDotRefItemProvider == null)
+    {
+      doubleDotRefItemProvider = new DoubleDotRefItemProvider(this);
+    }
+
+    return doubleDotRefItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -685,6 +710,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EnumLitExprItemProvider enumLitExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createEnumLitExprAdapter()
+  {
+    if (enumLitExprItemProvider == null)
+    {
+      enumLitExprItemProvider = new EnumLitExprItemProvider(this);
+    }
+
+    return enumLitExprItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IntLit} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -707,6 +757,106 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return intLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealLitExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RealLitExprItemProvider realLitExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealLitExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRealLitExprAdapter()
+  {
+    if (realLitExprItemProvider == null)
+    {
+      realLitExprItemProvider = new RealLitExprItemProvider(this);
+    }
+
+    return realLitExprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BoolLitExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BoolLitExprItemProvider boolLitExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BoolLitExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBoolLitExprAdapter()
+  {
+    if (boolLitExprItemProvider == null)
+    {
+      boolLitExprItemProvider = new BoolLitExprItemProvider(this);
+    }
+
+    return boolLitExprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.FloorCast} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FloorCastItemProvider floorCastItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.FloorCast}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFloorCastAdapter()
+  {
+    if (floorCastItemProvider == null)
+    {
+      floorCastItemProvider = new FloorCastItemProvider(this);
+    }
+
+    return floorCastItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealCast} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RealCastItemProvider realCastItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealCast}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRealCastAdapter()
+  {
+    if (realCastItemProvider == null)
+    {
+      realCastItemProvider = new RealCastItemProvider(this);
+    }
+
+    return realCastItemProvider;
   }
 
   /**
@@ -844,13 +994,19 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (guaranteeStatementItemProvider != null) guaranteeStatementItemProvider.dispose();
     if (anonGuaranteeStatementItemProvider != null) anonGuaranteeStatementItemProvider.dispose();
     if (exprItemProvider != null) exprItemProvider.dispose();
+    if (doubleDotRefItemProvider != null) doubleDotRefItemProvider.dispose();
     if (subcomponentElementItemProvider != null) subcomponentElementItemProvider.dispose();
     if (featureElementItemProvider != null) featureElementItemProvider.dispose();
     if (binaryExprItemProvider != null) binaryExprItemProvider.dispose();
     if (unaryExprItemProvider != null) unaryExprItemProvider.dispose();
     if (stateVarRefItemProvider != null) stateVarRefItemProvider.dispose();
     if (portRefItemProvider != null) portRefItemProvider.dispose();
+    if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
     if (intLitItemProvider != null) intLitItemProvider.dispose();
+    if (realLitExprItemProvider != null) realLitExprItemProvider.dispose();
+    if (boolLitExprItemProvider != null) boolLitExprItemProvider.dispose();
+    if (floorCastItemProvider != null) floorCastItemProvider.dispose();
+    if (realCastItemProvider != null) realCastItemProvider.dispose();
   }
 
 }

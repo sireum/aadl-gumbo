@@ -32,6 +32,9 @@ import org.osate.aadl2.DataSubcomponentType
 import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.scoping.IScope
 import org.osate.aadl2.PackageSection
+import org.sireum.aadl.gumbo.gumbo.EnumLitExpr
+import org.sireum.aadl.gumbo.gumbo.DoubleDotRef
+import org.osate.aadl2.EnumerationType
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -95,6 +98,20 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	
 	def scope_PortRef_portName(PortRef context, EReference reference) {
 		genericContext(context, reference)
+	}
+	
+	def scope_EnumLitExpr_enumType(EnumLitExpr context, EReference reference) {
+		genericContext(context, reference)
+	}
+
+	def scope_EnumLitExpr_value(EnumLitExpr context, EReference reference) {
+		val prop = context.enumType.propertyType
+		val scope = (prop as EnumerationType)?.ownedLiterals.scopeFor
+		scope
+	}
+	
+	def scope_DoubleDotRef_elm(DoubleDotRef context, EReference reference) {
+		return genericContext(context, reference)
 	}
 
 //	def scope_HyperperiodComputationalModel_constraints(HyperperiodComputationalModel context, EReference reference) {

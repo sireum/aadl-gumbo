@@ -218,7 +218,32 @@ public class BinaryExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BINARY_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__LEFT,
          GumboFactory.eINSTANCE.createIntLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createRealLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createBoolLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createFloorCast()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createRealCast()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -248,7 +273,32 @@ public class BinaryExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BINARY_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createIntLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createRealLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createBoolLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createFloorCast()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createRealCast()));
   }
 
   /**

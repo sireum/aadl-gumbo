@@ -196,6 +196,15 @@ public interface GumboFactory extends EFactory
   Expr createExpr();
 
   /**
+   * Returns a new object of class '<em>Double Dot Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Double Dot Ref</em>'.
+   * @generated
+   */
+  DoubleDotRef createDoubleDotRef();
+
+  /**
    * Returns a new object of class '<em>Subcomponent Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -250,6 +259,15 @@ public interface GumboFactory extends EFactory
   PortRef createPortRef();
 
   /**
+   * Returns a new object of class '<em>Enum Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Lit Expr</em>'.
+   * @generated
+   */
+  EnumLitExpr createEnumLitExpr();
+
+  /**
    * Returns a new object of class '<em>Int Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -257,6 +275,42 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   IntLit createIntLit();
+
+  /**
+   * Returns a new object of class '<em>Real Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Real Lit Expr</em>'.
+   * @generated
+   */
+  RealLitExpr createRealLitExpr();
+
+  /**
+   * Returns a new object of class '<em>Bool Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bool Lit Expr</em>'.
+   * @generated
+   */
+  BoolLitExpr createBoolLitExpr();
+
+  /**
+   * Returns a new object of class '<em>Floor Cast</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Floor Cast</em>'.
+   * @generated
+   */
+  FloorCast createFloorCast();
+
+  /**
+   * Returns a new object of class '<em>Real Cast</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Real Cast</em>'.
+   * @generated
+   */
+  RealCast createRealCast();
 
   /**
    * Returns the package supported by this factory.

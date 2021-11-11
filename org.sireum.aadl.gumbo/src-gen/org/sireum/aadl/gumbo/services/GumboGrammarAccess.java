@@ -682,7 +682,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class ImpliesExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ImpliesExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cOrExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEquivExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
 		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
@@ -694,15 +694,15 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cRightImpliesExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//ImpliesExpr returns Expr:
-		//    OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+		//    EquivExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+		//EquivExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
 		public Group getGroup() { return cGroup; }
 		
-		//OrExpr
-		public RuleCall getOrExprParserRuleCall_0() { return cOrExprParserRuleCall_0; }
+		//EquivExpr
+		public RuleCall getEquivExprParserRuleCall_0() { return cEquivExprParserRuleCall_0; }
 		
 		//(=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
 		public Group getGroup_1() { return cGroup_1; }
@@ -730,6 +730,53 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//ImpliesExpr
 		public RuleCall getRightImpliesExprParserRuleCall_1_1_0() { return cRightImpliesExprParserRuleCall_1_1_0; }
+	}
+	public class EquivExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.EquivExpr");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cOrExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cBinaryExprLeftAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cOpAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final Keyword cOpLessThanSignEqualsSignGreaterThanSignKeyword_1_0_0_1_0 = (Keyword)cOpAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightOrExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
+		
+		//EquivExpr returns Expr:
+		//    OrExpr (=> ({BinaryExpr.left=current} op='<=>') right=OrExpr)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//OrExpr (=> ({BinaryExpr.left=current} op='<=>') right=OrExpr)?
+		public Group getGroup() { return cGroup; }
+		
+		//OrExpr
+		public RuleCall getOrExprParserRuleCall_0() { return cOrExprParserRuleCall_0; }
+		
+		//(=> ({BinaryExpr.left=current} op='<=>') right=OrExpr)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=> ({BinaryExpr.left=current} op='<=>')
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{BinaryExpr.left=current} op='<=>'
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{BinaryExpr.left=current}
+		public Action getBinaryExprLeftAction_1_0_0_0() { return cBinaryExprLeftAction_1_0_0_0; }
+		
+		//op='<=>'
+		public Assignment getOpAssignment_1_0_0_1() { return cOpAssignment_1_0_0_1; }
+		
+		//'<=>'
+		public Keyword getOpLessThanSignEqualsSignGreaterThanSignKeyword_1_0_0_1_0() { return cOpLessThanSignEqualsSignGreaterThanSignKeyword_1_0_0_1_0; }
+		
+		//right=OrExpr
+		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
+		
+		//OrExpr
+		public RuleCall getRightOrExprParserRuleCall_1_1_0() { return cRightOrExprParserRuleCall_1_1_0; }
 	}
 	public class OrExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.OrExpr");
@@ -890,7 +937,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class RelationalExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.RelationalExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPlusExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cAddSubExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
 		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
@@ -898,20 +945,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cOpAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
 		private final RuleCall cOpRelationalOpParserRuleCall_1_0_0_1_0 = (RuleCall)cOpAssignment_1_0_0_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRightPlusExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
+		private final RuleCall cRightAddSubExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//RelationalExpr returns Expr:
-		//    PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+		//    AddSubExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=AddSubExpr)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+		//AddSubExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=AddSubExpr)?
 		public Group getGroup() { return cGroup; }
 		
-		//PlusExpr
-		public RuleCall getPlusExprParserRuleCall_0() { return cPlusExprParserRuleCall_0; }
+		//AddSubExpr
+		public RuleCall getAddSubExprParserRuleCall_0() { return cAddSubExprParserRuleCall_0; }
 		
-		//(=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+		//(=>({BinaryExpr.left=current} op=RelationalOp) right=AddSubExpr)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//=>({BinaryExpr.left=current} op=RelationalOp)
@@ -929,16 +976,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//RelationalOp
 		public RuleCall getOpRelationalOpParserRuleCall_1_0_0_1_0() { return cOpRelationalOpParserRuleCall_1_0_0_1_0; }
 		
-		//right=PlusExpr
+		//right=AddSubExpr
 		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
 		
-		//PlusExpr
-		public RuleCall getRightPlusExprParserRuleCall_1_1_0() { return cRightPlusExprParserRuleCall_1_1_0; }
+		//AddSubExpr
+		public RuleCall getRightAddSubExprParserRuleCall_1_1_0() { return cRightAddSubExprParserRuleCall_1_1_0; }
 	}
-	public class PlusExprElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.PlusExpr");
+	public class AddSubExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AddSubExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cTimesExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cMultDivModExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
 		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
@@ -948,20 +995,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cOpPlusSignKeyword_1_0_0_1_0_0 = (Keyword)cOpAlternatives_1_0_0_1_0.eContents().get(0);
 		private final Keyword cOpHyphenMinusKeyword_1_0_0_1_0_1 = (Keyword)cOpAlternatives_1_0_0_1_0.eContents().get(1);
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRightTimesExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
+		private final RuleCall cRightMultDivModExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//PlusExpr returns Expr:
-		//    TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+		//AddSubExpr returns Expr:
+		//    MultDivModExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=MultDivModExpr)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+		//MultDivModExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=MultDivModExpr)*
 		public Group getGroup() { return cGroup; }
 		
-		//TimesExpr
-		public RuleCall getTimesExprParserRuleCall_0() { return cTimesExprParserRuleCall_0; }
+		//MultDivModExpr
+		public RuleCall getMultDivModExprParserRuleCall_0() { return cMultDivModExprParserRuleCall_0; }
 		
-		//(=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+		//(=>({BinaryExpr.left=current} op=('+' | '-')) right=MultDivModExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//=>({BinaryExpr.left=current} op=('+' | '-'))
@@ -985,14 +1032,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'-'
 		public Keyword getOpHyphenMinusKeyword_1_0_0_1_0_1() { return cOpHyphenMinusKeyword_1_0_0_1_0_1; }
 		
-		//right=TimesExpr
+		//right=MultDivModExpr
 		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
 		
-		//TimesExpr
-		public RuleCall getRightTimesExprParserRuleCall_1_1_0() { return cRightTimesExprParserRuleCall_1_1_0; }
+		//MultDivModExpr
+		public RuleCall getRightMultDivModExprParserRuleCall_1_1_0() { return cRightMultDivModExprParserRuleCall_1_1_0; }
 	}
-	public class TimesExprElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.TimesExpr");
+	public class MultDivModExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MultDivModExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cExpExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1007,7 +1054,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightExpExprParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
-		//TimesExpr returns Expr:
+		//MultDivModExpr returns Expr:
 		//    ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -1164,9 +1211,49 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cPortNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cPortNameIDTerminalRuleCall_1_2_0 = (RuleCall)cPortNameAssignment_1_2.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cIntLitAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cValueINTEGER_LITTerminalRuleCall_2_1_0 = (RuleCall)cValueAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_0 = (Group)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_0_0 = (Group)cGroup_2_0.eContents().get(0);
+		private final Action cEnumLitExprAction_2_0_0_0 = (Action)cGroup_2_0_0.eContents().get(0);
+		private final Keyword cEnumKeyword_2_0_0_1 = (Keyword)cGroup_2_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2_0_0_2 = (Keyword)cGroup_2_0_0.eContents().get(2);
+		private final Assignment cEnumTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cEnumTypePropertyCrossReference_2_1_0 = (CrossReference)cEnumTypeAssignment_2_1.eContents().get(0);
+		private final RuleCall cEnumTypePropertyQCREFParserRuleCall_2_1_0_1 = (RuleCall)cEnumTypePropertyCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cCommaKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cValueAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final CrossReference cValueEnumerationLiteralCrossReference_2_3_0 = (CrossReference)cValueAssignment_2_3.eContents().get(0);
+		private final RuleCall cValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1 = (RuleCall)cValueEnumerationLiteralCrossReference_2_3_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cIntLitAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValueINTEGER_LITTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cRealLitExprAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Assignment cValAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cValREAL_LITTerminalRuleCall_4_1_0 = (RuleCall)cValAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Action cBoolLitExprAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Assignment cValAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cValBooleanLiteralParserRuleCall_5_1_0 = (RuleCall)cValAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Action cFloorCastAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Keyword cFloorKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Assignment cExprAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
+		private final RuleCall cExprExprParserRuleCall_6_3_0 = (RuleCall)cExprAssignment_6_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final Action cRealCastAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Keyword cRealKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Assignment cExprAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cExprExprParserRuleCall_7_3_0 = (RuleCall)cExprAssignment_7_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
+		private final Keyword cLeftParenthesisKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final RuleCall cExprParserRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
 		
 		//AtomicExpr returns Expr:
 		////  Need to figure out how to reference difference types of IDs, including cross references
@@ -1176,7 +1263,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 		//|   {PortRef} 'port' portName=ID
+		//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
+		//|   {RealLitExpr} val=REAL_LIT
+		//|   {BoolLitExpr} val=BooleanLiteral
+		//|   {FloorCast} 'floor' '(' expr=Expr ')'
+		//|   {RealCast}  'real' '(' expr=Expr ')'
+		//|   '(' Expr ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1187,7 +1280,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 		//|   {PortRef} 'port' portName=ID
-		//|    {IntLit} value=INTEGER_LIT
+		//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
+		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
+		//|   {RealLitExpr} val=REAL_LIT
+		//|   {BoolLitExpr} val=BooleanLiteral
+		//|   {FloorCast} 'floor' '(' expr=Expr ')'
+		//|   {RealCast}  'real' '(' expr=Expr ')'
+		//|   '(' Expr ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		////  Need to figure out how to reference difference types of IDs, including cross references
@@ -1233,17 +1332,157 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getPortNameIDTerminalRuleCall_1_2_0() { return cPortNameIDTerminalRuleCall_1_2_0; }
 		
-		//{IntLit} value=INTEGER_LIT
+		//=> ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 		public Group getGroup_2() { return cGroup_2; }
 		
+		//=> ({EnumLitExpr} 'enum' '(')
+		public Group getGroup_2_0() { return cGroup_2_0; }
+		
+		//{EnumLitExpr} 'enum' '('
+		public Group getGroup_2_0_0() { return cGroup_2_0_0; }
+		
+		//{EnumLitExpr}
+		public Action getEnumLitExprAction_2_0_0_0() { return cEnumLitExprAction_2_0_0_0; }
+		
+		//'enum'
+		public Keyword getEnumKeyword_2_0_0_1() { return cEnumKeyword_2_0_0_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0_0_2() { return cLeftParenthesisKeyword_2_0_0_2; }
+		
+		//enumType=[aadl2::Property|QCREF]
+		public Assignment getEnumTypeAssignment_2_1() { return cEnumTypeAssignment_2_1; }
+		
+		//[aadl2::Property|QCREF]
+		public CrossReference getEnumTypePropertyCrossReference_2_1_0() { return cEnumTypePropertyCrossReference_2_1_0; }
+		
+		//QCREF
+		public RuleCall getEnumTypePropertyQCREFParserRuleCall_2_1_0_1() { return cEnumTypePropertyQCREFParserRuleCall_2_1_0_1; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2() { return cCommaKeyword_2_2; }
+		
+		//value=[aadl2::EnumerationLiteral|ID]
+		public Assignment getValueAssignment_2_3() { return cValueAssignment_2_3; }
+		
+		//[aadl2::EnumerationLiteral|ID]
+		public CrossReference getValueEnumerationLiteralCrossReference_2_3_0() { return cValueEnumerationLiteralCrossReference_2_3_0; }
+		
+		//ID
+		public RuleCall getValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1() { return cValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
+		
+		//{IntLit} value=INTEGER_LIT
+		public Group getGroup_3() { return cGroup_3; }
+		
 		//{IntLit}
-		public Action getIntLitAction_2_0() { return cIntLitAction_2_0; }
+		public Action getIntLitAction_3_0() { return cIntLitAction_3_0; }
 		
 		//value=INTEGER_LIT
-		public Assignment getValueAssignment_2_1() { return cValueAssignment_2_1; }
+		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 		
 		//INTEGER_LIT
-		public RuleCall getValueINTEGER_LITTerminalRuleCall_2_1_0() { return cValueINTEGER_LITTerminalRuleCall_2_1_0; }
+		public RuleCall getValueINTEGER_LITTerminalRuleCall_3_1_0() { return cValueINTEGER_LITTerminalRuleCall_3_1_0; }
+		
+		//{RealLitExpr} val=REAL_LIT
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{RealLitExpr}
+		public Action getRealLitExprAction_4_0() { return cRealLitExprAction_4_0; }
+		
+		//val=REAL_LIT
+		public Assignment getValAssignment_4_1() { return cValAssignment_4_1; }
+		
+		//REAL_LIT
+		public RuleCall getValREAL_LITTerminalRuleCall_4_1_0() { return cValREAL_LITTerminalRuleCall_4_1_0; }
+		
+		//{BoolLitExpr} val=BooleanLiteral
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//{BoolLitExpr}
+		public Action getBoolLitExprAction_5_0() { return cBoolLitExprAction_5_0; }
+		
+		//val=BooleanLiteral
+		public Assignment getValAssignment_5_1() { return cValAssignment_5_1; }
+		
+		//BooleanLiteral
+		public RuleCall getValBooleanLiteralParserRuleCall_5_1_0() { return cValBooleanLiteralParserRuleCall_5_1_0; }
+		
+		//{FloorCast} 'floor' '(' expr=Expr ')'
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//{FloorCast}
+		public Action getFloorCastAction_6_0() { return cFloorCastAction_6_0; }
+		
+		//'floor'
+		public Keyword getFloorKeyword_6_1() { return cFloorKeyword_6_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_6_2() { return cLeftParenthesisKeyword_6_2; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_6_3() { return cExprAssignment_6_3; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_6_3_0() { return cExprExprParserRuleCall_6_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
+		
+		//{RealCast}  'real' '(' expr=Expr ')'
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//{RealCast}
+		public Action getRealCastAction_7_0() { return cRealCastAction_7_0; }
+		
+		//'real'
+		public Keyword getRealKeyword_7_1() { return cRealKeyword_7_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_7_2() { return cLeftParenthesisKeyword_7_2; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_7_3() { return cExprAssignment_7_3; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_7_3_0() { return cExprExprParserRuleCall_7_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
+		
+		//'(' Expr ')'
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_8_0() { return cLeftParenthesisKeyword_8_0; }
+		
+		//Expr
+		public RuleCall getExprParserRuleCall_8_1() { return cExprParserRuleCall_8_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_8_2() { return cRightParenthesisKeyword_8_2; }
+	}
+	public class DoubleDotRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.DoubleDotRef");
+		private final Assignment cElmAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cElmNamedElementCrossReference_0 = (CrossReference)cElmAssignment.eContents().get(0);
+		private final RuleCall cElmNamedElementQCREFParserRuleCall_0_1 = (RuleCall)cElmNamedElementCrossReference_0.eContents().get(1);
+		
+		//DoubleDotRef:
+		//    elm=[aadl2::NamedElement|QCREF]
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//elm=[aadl2::NamedElement|QCREF]
+		public Assignment getElmAssignment() { return cElmAssignment; }
+		
+		//[aadl2::NamedElement|QCREF]
+		public CrossReference getElmNamedElementCrossReference_0() { return cElmNamedElementCrossReference_0; }
+		
+		//QCREF
+		public RuleCall getElmNamedElementQCREFParserRuleCall_0_1() { return cElmNamedElementQCREFParserRuleCall_0_1; }
 	}
 	public class SubcomponentElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SubcomponentElement");
@@ -1309,15 +1548,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final PREDICATEElements pPREDICATE;
 	private final ExprElements pExpr;
 	private final ImpliesExprElements pImpliesExpr;
+	private final EquivExprElements pEquivExpr;
 	private final OrExprElements pOrExpr;
 	private final AndExprElements pAndExpr;
 	private final RelationalOpElements pRelationalOp;
 	private final RelationalExprElements pRelationalExpr;
-	private final PlusExprElements pPlusExpr;
-	private final TimesExprElements pTimesExpr;
+	private final AddSubExprElements pAddSubExpr;
+	private final MultDivModExprElements pMultDivModExpr;
 	private final ExpExprElements pExpExpr;
 	private final PrefixExprElements pPrefixExpr;
 	private final AtomicExprElements pAtomicExpr;
+	private final DoubleDotRefElements pDoubleDotRef;
 	private final SubcomponentElementElements pSubcomponentElement;
 	private final FeatureElementElements pFeatureElement;
 	
@@ -1352,15 +1593,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pPREDICATE = new PREDICATEElements();
 		this.pExpr = new ExprElements();
 		this.pImpliesExpr = new ImpliesExprElements();
+		this.pEquivExpr = new EquivExprElements();
 		this.pOrExpr = new OrExprElements();
 		this.pAndExpr = new AndExprElements();
 		this.pRelationalOp = new RelationalOpElements();
 		this.pRelationalExpr = new RelationalExprElements();
-		this.pPlusExpr = new PlusExprElements();
-		this.pTimesExpr = new TimesExprElements();
+		this.pAddSubExpr = new AddSubExprElements();
+		this.pMultDivModExpr = new MultDivModExprElements();
 		this.pExpExpr = new ExpExprElements();
 		this.pPrefixExpr = new PrefixExprElements();
 		this.pAtomicExpr = new AtomicExprElements();
+		this.pDoubleDotRef = new DoubleDotRefElements();
 		this.pSubcomponentElement = new SubcomponentElementElements();
 		this.pFeatureElement = new FeatureElementElements();
 	}
@@ -1670,7 +1913,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//ImpliesExpr returns Expr:
-	//    OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+	//    EquivExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
 	//;
 	public ImpliesExprElements getImpliesExprAccess() {
 		return pImpliesExpr;
@@ -1678,6 +1921,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getImpliesExprRule() {
 		return getImpliesExprAccess().getRule();
+	}
+	
+	//EquivExpr returns Expr:
+	//    OrExpr (=> ({BinaryExpr.left=current} op='<=>') right=OrExpr)?;
+	public EquivExprElements getEquivExprAccess() {
+		return pEquivExpr;
+	}
+	
+	public ParserRule getEquivExprRule() {
+		return getEquivExprAccess().getRule();
 	}
 	
 	//OrExpr returns Expr:
@@ -1714,7 +1967,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//RelationalExpr returns Expr:
-	//    PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+	//    AddSubExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=AddSubExpr)?
 	//;
 	public RelationalExprElements getRelationalExprAccess() {
 		return pRelationalExpr;
@@ -1724,26 +1977,26 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getRelationalExprAccess().getRule();
 	}
 	
-	//PlusExpr returns Expr:
-	//    TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+	//AddSubExpr returns Expr:
+	//    MultDivModExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=MultDivModExpr)*
 	//;
-	public PlusExprElements getPlusExprAccess() {
-		return pPlusExpr;
+	public AddSubExprElements getAddSubExprAccess() {
+		return pAddSubExpr;
 	}
 	
-	public ParserRule getPlusExprRule() {
-		return getPlusExprAccess().getRule();
+	public ParserRule getAddSubExprRule() {
+		return getAddSubExprAccess().getRule();
 	}
 	
-	//TimesExpr returns Expr:
+	//MultDivModExpr returns Expr:
 	//    ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*
 	//;
-	public TimesExprElements getTimesExprAccess() {
-		return pTimesExpr;
+	public MultDivModExprElements getMultDivModExprAccess() {
+		return pMultDivModExpr;
 	}
 	
-	public ParserRule getTimesExprRule() {
-		return getTimesExprAccess().getRule();
+	public ParserRule getMultDivModExprRule() {
+		return getMultDivModExprAccess().getRule();
 	}
 	
 	//ExpExpr returns Expr:
@@ -1777,7 +2030,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 	//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 	//|   {PortRef} 'port' portName=ID
+	//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 	//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
+	//|   {RealLitExpr} val=REAL_LIT
+	//|   {BoolLitExpr} val=BooleanLiteral
+	//|   {FloorCast} 'floor' '(' expr=Expr ')'
+	//|   {RealCast}  'real' '(' expr=Expr ')'
+	//|   '(' Expr ')'
 	//;
 	public AtomicExprElements getAtomicExprAccess() {
 		return pAtomicExpr;
@@ -1785,6 +2044,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getAtomicExprRule() {
 		return getAtomicExprAccess().getRule();
+	}
+	
+	//DoubleDotRef:
+	//    elm=[aadl2::NamedElement|QCREF]
+	//;
+	public DoubleDotRefElements getDoubleDotRefAccess() {
+		return pDoubleDotRef;
+	}
+	
+	public ParserRule getDoubleDotRefRule() {
+		return getDoubleDotRefAccess().getRule();
 	}
 	
 	//SubcomponentElement returns SubcomponentElement:

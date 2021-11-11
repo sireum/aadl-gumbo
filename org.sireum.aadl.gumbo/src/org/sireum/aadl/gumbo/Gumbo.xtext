@@ -145,8 +145,11 @@ Expr:
 ;
 
 ImpliesExpr returns Expr:
-	OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+	EquivExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
 ;
+
+EquivExpr returns Expr:
+	OrExpr (=> ({BinaryExpr.left=current} op='<=>') right=OrExpr)?;
 
 OrExpr returns Expr:
 	AndExpr (=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
@@ -162,14 +165,14 @@ RelationalOp:
 ;
  
 RelationalExpr returns Expr:
-	PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+	AddSubExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=AddSubExpr)?
 ;
 
-PlusExpr returns Expr:
-	TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+AddSubExpr returns Expr:
+	MultDivModExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=MultDivModExpr)*
 ;
 
-TimesExpr returns Expr:
+MultDivModExpr returns Expr:
 	ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*	
 ;
 
@@ -190,7 +193,17 @@ AtomicExpr returns Expr:
 //	{IdExpr} id=[aadl2::NamedElement | QCREF]
     {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 |   {PortRef} 'port' portName=ID    
+| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 |	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
+|   {RealLitExpr} val=REAL_LIT
+|   {BoolLitExpr} val=BooleanLiteral
+|   {FloorCast} 'floor' '(' expr=Expr ')'
+|   {RealCast}  'real' '(' expr=Expr ')'
+|   '(' Expr ')'
+;
+
+DoubleDotRef:
+	elm=[aadl2::NamedElement|QCREF]
 ;
 
 SubcomponentElement returns SubcomponentElement:

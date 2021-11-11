@@ -27,10 +27,14 @@ import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinaryExpr;
+import org.sireum.aadl.gumbo.gumbo.BoolLitExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
+import org.sireum.aadl.gumbo.gumbo.DoubleDotRef;
+import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
+import org.sireum.aadl.gumbo.gumbo.FloorCast;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
@@ -43,6 +47,8 @@ import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.Invariants;
 import org.sireum.aadl.gumbo.gumbo.PortRef;
+import org.sireum.aadl.gumbo.gumbo.RealCast;
+import org.sireum.aadl.gumbo.gumbo.RealLitExpr;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 import org.sireum.aadl.gumbo.gumbo.State;
@@ -190,6 +196,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass doubleDotRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass subcomponentElementEClass = null;
 
   /**
@@ -232,7 +245,42 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass enumLitExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass intLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass realLitExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass boolLitExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass floorCastEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass realCastEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -747,6 +795,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getDoubleDotRef()
+  {
+    return doubleDotRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDoubleDotRef_Elm()
+  {
+    return (EReference)doubleDotRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSubcomponentElement()
   {
     return subcomponentElementEClass;
@@ -912,6 +982,39 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getEnumLitExpr()
+  {
+    return enumLitExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEnumLitExpr_EnumType()
+  {
+    return (EReference)enumLitExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEnumLitExpr_Value()
+  {
+    return (EReference)enumLitExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getIntLit()
   {
     return intLitEClass;
@@ -926,6 +1029,94 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EAttribute getIntLit_Value()
   {
     return (EAttribute)intLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRealLitExpr()
+  {
+    return realLitExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRealLitExpr_Val()
+  {
+    return (EAttribute)realLitExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBoolLitExpr()
+  {
+    return boolLitExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBoolLitExpr_Val()
+  {
+    return (EReference)boolLitExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFloorCast()
+  {
+    return floorCastEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFloorCast_Expr()
+  {
+    return (EReference)floorCastEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRealCast()
+  {
+    return realCastEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRealCast_Expr()
+  {
+    return (EReference)realCastEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1017,6 +1208,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     exprEClass = createEClass(EXPR);
 
+    doubleDotRefEClass = createEClass(DOUBLE_DOT_REF);
+    createEReference(doubleDotRefEClass, DOUBLE_DOT_REF__ELM);
+
     subcomponentElementEClass = createEClass(SUBCOMPONENT_ELEMENT);
     createEReference(subcomponentElementEClass, SUBCOMPONENT_ELEMENT__SUBCOMPONENT);
 
@@ -1038,8 +1232,24 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     portRefEClass = createEClass(PORT_REF);
     createEAttribute(portRefEClass, PORT_REF__PORT_NAME);
 
+    enumLitExprEClass = createEClass(ENUM_LIT_EXPR);
+    createEReference(enumLitExprEClass, ENUM_LIT_EXPR__ENUM_TYPE);
+    createEReference(enumLitExprEClass, ENUM_LIT_EXPR__VALUE);
+
     intLitEClass = createEClass(INT_LIT);
     createEAttribute(intLitEClass, INT_LIT__VALUE);
+
+    realLitExprEClass = createEClass(REAL_LIT_EXPR);
+    createEAttribute(realLitExprEClass, REAL_LIT_EXPR__VAL);
+
+    boolLitExprEClass = createEClass(BOOL_LIT_EXPR);
+    createEReference(boolLitExprEClass, BOOL_LIT_EXPR__VAL);
+
+    floorCastEClass = createEClass(FLOOR_CAST);
+    createEReference(floorCastEClass, FLOOR_CAST__EXPR);
+
+    realCastEClass = createEClass(REAL_CAST);
+    createEReference(realCastEClass, REAL_CAST__EXPR);
   }
 
   /**
@@ -1084,7 +1294,12 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     unaryExprEClass.getESuperTypes().add(this.getExpr());
     stateVarRefEClass.getESuperTypes().add(this.getExpr());
     portRefEClass.getESuperTypes().add(this.getExpr());
+    enumLitExprEClass.getESuperTypes().add(this.getExpr());
     intLitEClass.getESuperTypes().add(this.getExpr());
+    realLitExprEClass.getESuperTypes().add(this.getExpr());
+    boolLitExprEClass.getESuperTypes().add(this.getExpr());
+    floorCastEClass.getESuperTypes().add(this.getExpr());
+    realCastEClass.getESuperTypes().add(this.getExpr());
 
     // Initialize classes and features; add operations and parameters
     initEClass(gumboLibraryEClass, GumboLibrary.class, "GumboLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1145,6 +1360,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(doubleDotRefEClass, DoubleDotRef.class, "DoubleDotRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDoubleDotRef_Elm(), theAadl2Package.getNamedElement(), null, "elm", null, 0, 1, DoubleDotRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(subcomponentElementEClass, SubcomponentElement.class, "SubcomponentElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSubcomponentElement_Subcomponent(), theAadl2Package.getSubcomponent(), null, "subcomponent", null, 0, 1, SubcomponentElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1166,8 +1384,24 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(portRefEClass, PortRef.class, "PortRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPortRef_PortName(), theEcorePackage.getEString(), "portName", null, 0, 1, PortRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(enumLitExprEClass, EnumLitExpr.class, "EnumLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnumLitExpr_EnumType(), theAadl2Package.getProperty(), null, "enumType", null, 0, 1, EnumLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnumLitExpr_Value(), theAadl2Package.getEnumerationLiteral(), null, "value", null, 0, 1, EnumLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(intLitEClass, IntLit.class, "IntLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, IntLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(realLitExprEClass, RealLitExpr.class, "RealLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRealLitExpr_Val(), theEcorePackage.getEString(), "val", null, 0, 1, RealLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(boolLitExprEClass, BoolLitExpr.class, "BoolLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBoolLitExpr_Val(), theAadl2Package.getBooleanLiteral(), null, "val", null, 0, 1, BoolLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(floorCastEClass, FloorCast.class, "FloorCast", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFloorCast_Expr(), this.getExpr(), null, "expr", null, 0, 1, FloorCast.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(realCastEClass, RealCast.class, "RealCast", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRealCast_Expr(), this.getExpr(), null, "expr", null, 0, 1, RealCast.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -225,6 +225,13 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.DOUBLE_DOT_REF:
+      {
+        DoubleDotRef doubleDotRef = (DoubleDotRef)theEObject;
+        T result = caseDoubleDotRef(doubleDotRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.SUBCOMPONENT_ELEMENT:
       {
         SubcomponentElement subcomponentElement = (SubcomponentElement)theEObject;
@@ -271,11 +278,51 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.ENUM_LIT_EXPR:
+      {
+        EnumLitExpr enumLitExpr = (EnumLitExpr)theEObject;
+        T result = caseEnumLitExpr(enumLitExpr);
+        if (result == null) result = caseExpr(enumLitExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.INT_LIT:
       {
         IntLit intLit = (IntLit)theEObject;
         T result = caseIntLit(intLit);
         if (result == null) result = caseExpr(intLit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.REAL_LIT_EXPR:
+      {
+        RealLitExpr realLitExpr = (RealLitExpr)theEObject;
+        T result = caseRealLitExpr(realLitExpr);
+        if (result == null) result = caseExpr(realLitExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.BOOL_LIT_EXPR:
+      {
+        BoolLitExpr boolLitExpr = (BoolLitExpr)theEObject;
+        T result = caseBoolLitExpr(boolLitExpr);
+        if (result == null) result = caseExpr(boolLitExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.FLOOR_CAST:
+      {
+        FloorCast floorCast = (FloorCast)theEObject;
+        T result = caseFloorCast(floorCast);
+        if (result == null) result = caseExpr(floorCast);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.REAL_CAST:
+      {
+        RealCast realCast = (RealCast)theEObject;
+        T result = caseRealCast(realCast);
+        if (result == null) result = caseExpr(realCast);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -572,6 +619,22 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Double Dot Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Double Dot Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDoubleDotRef(DoubleDotRef object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Subcomponent Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -668,6 +731,22 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Enum Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enum Lit Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumLitExpr(EnumLitExpr object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Int Lit</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -679,6 +758,70 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIntLit(IntLit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Real Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Real Lit Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRealLitExpr(RealLitExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bool Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bool Lit Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolLitExpr(BoolLitExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Floor Cast</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Floor Cast</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFloorCast(FloorCast object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Real Cast</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Real Cast</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRealCast(RealCast object)
   {
     return null;
   }

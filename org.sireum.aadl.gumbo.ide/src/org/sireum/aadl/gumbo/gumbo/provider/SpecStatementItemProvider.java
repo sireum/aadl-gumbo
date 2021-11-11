@@ -231,7 +231,32 @@ public class SpecStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createIntLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createRealLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createBoolLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createFloorCast()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createRealCast()));
   }
 
   /**

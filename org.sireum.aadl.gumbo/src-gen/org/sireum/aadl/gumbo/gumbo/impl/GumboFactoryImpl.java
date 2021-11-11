@@ -93,13 +93,19 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
       case GumboPackage.ANON_GUARANTEE_STATEMENT: return createAnonGuaranteeStatement();
       case GumboPackage.EXPR: return createExpr();
+      case GumboPackage.DOUBLE_DOT_REF: return createDoubleDotRef();
       case GumboPackage.SUBCOMPONENT_ELEMENT: return createSubcomponentElement();
       case GumboPackage.FEATURE_ELEMENT: return createFeatureElement();
       case GumboPackage.BINARY_EXPR: return createBinaryExpr();
       case GumboPackage.UNARY_EXPR: return createUnaryExpr();
       case GumboPackage.STATE_VAR_REF: return createStateVarRef();
       case GumboPackage.PORT_REF: return createPortRef();
+      case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.INT_LIT: return createIntLit();
+      case GumboPackage.REAL_LIT_EXPR: return createRealLitExpr();
+      case GumboPackage.BOOL_LIT_EXPR: return createBoolLitExpr();
+      case GumboPackage.FLOOR_CAST: return createFloorCast();
+      case GumboPackage.REAL_CAST: return createRealCast();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -327,6 +333,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public DoubleDotRef createDoubleDotRef()
+  {
+    DoubleDotRefImpl doubleDotRef = new DoubleDotRefImpl();
+    return doubleDotRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SubcomponentElement createSubcomponentElement()
   {
     SubcomponentElementImpl subcomponentElement = new SubcomponentElementImpl();
@@ -399,10 +417,70 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public EnumLitExpr createEnumLitExpr()
+  {
+    EnumLitExprImpl enumLitExpr = new EnumLitExprImpl();
+    return enumLitExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public IntLit createIntLit()
   {
     IntLitImpl intLit = new IntLitImpl();
     return intLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RealLitExpr createRealLitExpr()
+  {
+    RealLitExprImpl realLitExpr = new RealLitExprImpl();
+    return realLitExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BoolLitExpr createBoolLitExpr()
+  {
+    BoolLitExprImpl boolLitExpr = new BoolLitExprImpl();
+    return boolLitExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FloorCast createFloorCast()
+  {
+    FloorCastImpl floorCast = new FloorCastImpl();
+    return floorCast;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RealCast createRealCast()
+  {
+    RealCastImpl realCast = new RealCastImpl();
+    return realCast;
   }
 
   /**

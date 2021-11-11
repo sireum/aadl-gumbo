@@ -182,6 +182,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createExprAdapter();
       }
       @Override
+      public Adapter caseDoubleDotRef(DoubleDotRef object)
+      {
+        return createDoubleDotRefAdapter();
+      }
+      @Override
       public Adapter caseSubcomponentElement(SubcomponentElement object)
       {
         return createSubcomponentElementAdapter();
@@ -212,9 +217,34 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createPortRefAdapter();
       }
       @Override
+      public Adapter caseEnumLitExpr(EnumLitExpr object)
+      {
+        return createEnumLitExprAdapter();
+      }
+      @Override
       public Adapter caseIntLit(IntLit object)
       {
         return createIntLitAdapter();
+      }
+      @Override
+      public Adapter caseRealLitExpr(RealLitExpr object)
+      {
+        return createRealLitExprAdapter();
+      }
+      @Override
+      public Adapter caseBoolLitExpr(BoolLitExpr object)
+      {
+        return createBoolLitExprAdapter();
+      }
+      @Override
+      public Adapter caseFloorCast(FloorCast object)
+      {
+        return createFloorCastAdapter();
+      }
+      @Override
+      public Adapter caseRealCast(RealCast object)
+      {
+        return createRealCastAdapter();
       }
       @Override
       public Adapter caseElement(Element object)
@@ -534,6 +564,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DoubleDotRef <em>Double Dot Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.DoubleDotRef
+   * @generated
+   */
+  public Adapter createDoubleDotRefAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement <em>Subcomponent Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -624,6 +669,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr <em>Enum Lit Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.EnumLitExpr
+   * @generated
+   */
+  public Adapter createEnumLitExprAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IntLit <em>Int Lit</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -634,6 +694,66 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIntLitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.RealLitExpr <em>Real Lit Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.RealLitExpr
+   * @generated
+   */
+  public Adapter createRealLitExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BoolLitExpr <em>Bool Lit Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.BoolLitExpr
+   * @generated
+   */
+  public Adapter createBoolLitExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.FloorCast <em>Floor Cast</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.FloorCast
+   * @generated
+   */
+  public Adapter createFloorCastAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.RealCast <em>Real Cast</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.RealCast
+   * @generated
+   */
+  public Adapter createRealCastAdapter()
   {
     return null;
   }

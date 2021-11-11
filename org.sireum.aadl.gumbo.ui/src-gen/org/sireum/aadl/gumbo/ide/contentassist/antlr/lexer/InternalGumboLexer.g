@@ -55,6 +55,8 @@ Delta : ('D'|'d')('E'|'e')('L'|'l')('T'|'t')('A'|'a');
 
 False : ('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e');
 
+Floor : ('F'|'f')('L'|'l')('O'|'o')('O'|'o')('R'|'r');
+
 Gumbo : ('G'|'g')('U'|'u')('M'|'m')('B'|'b')('O'|'o');
 
 Modes : ('M'|'m')('O'|'o')('D'|'d')('E'|'e')('S'|'s');
@@ -63,11 +65,17 @@ State : ('S'|'s')('T'|'t')('A'|'a')('T'|'t')('E'|'e');
 
 Case : ('C'|'c')('A'|'a')('S'|'s')('E'|'e');
 
+Enum : ('E'|'e')('N'|'n')('U'|'u')('M'|'m');
+
 Port : ('P'|'p')('O'|'o')('R'|'r')('T'|'t');
+
+Real : ('R'|'r')('E'|'e')('A'|'a')('L'|'l');
 
 True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
 
 PlusSignEqualsSignGreaterThanSign : '+''=''>';
+
+LessThanSignEqualsSignGreaterThanSign : '<''=''>';
 
 And : ('A'|'a')('N'|'n')('D'|'d');
 
