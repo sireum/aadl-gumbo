@@ -1980,19 +1980,20 @@ ruleAtomicExpr returns [EObject current=null]
 			}
 			(
 				(
-					lv_portName_5_0=RULE_ID
 					{
-						newLeafNode(lv_portName_5_0, grammarAccess.getAtomicExprAccess().getPortNameIDTerminalRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getAtomicExprAccess().getPortFeatureElementParserRuleCall_1_2_0());
 					}
+					lv_port_5_0=ruleFeatureElement
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAtomicExprRule());
+							$current = createModelElementForParent(grammarAccess.getAtomicExprRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
-							"portName",
-							lv_portName_5_0,
-							"org.osate.xtext.aadl2.properties.Properties.ID");
+							"port",
+							lv_port_5_0,
+							"org.sireum.aadl.gumbo.Gumbo.FeatureElement");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -2247,6 +2248,36 @@ ruleAtomicExpr returns [EObject current=null]
 			otherlv_31=RightParenthesis
 			{
 				newLeafNode(otherlv_31, grammarAccess.getAtomicExprAccess().getRightParenthesisKeyword_8_2());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleFeatureElement
+entryRuleFeatureElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFeatureElementRule()); }
+	iv_ruleFeatureElement=ruleFeatureElement
+	{ $current=$iv_ruleFeatureElement.current; }
+	EOF;
+
+// Rule FeatureElement
+ruleFeatureElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getFeatureElementRule());
+				}
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getFeatureElementAccess().getFeatureNamedElementCrossReference_0());
 			}
 		)
 	)

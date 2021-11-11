@@ -950,13 +950,13 @@ public interface GumboPackage extends EPackage
   int PORT_REF = 24;
 
   /**
-   * The feature id for the '<em><b>Port Name</b></em>' attribute.
+   * The feature id for the '<em><b>Port</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PORT_REF__PORT_NAME = EXPR_FEATURE_COUNT + 0;
+  int PORT_REF__PORT = EXPR_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Port Ref</em>' class.
@@ -1737,15 +1737,15 @@ public interface GumboPackage extends EPackage
   EClass getPortRef();
 
   /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.PortRef#getPortName <em>Port Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.PortRef#getPort <em>Port</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Port Name</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.PortRef#getPortName()
+   * @return the meta object for the containment reference '<em>Port</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.PortRef#getPort()
    * @see #getPortRef()
    * @generated
    */
-  EAttribute getPortRef_PortName();
+  EReference getPortRef_Port();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr <em>Enum Lit Expr</em>}'.
@@ -2406,12 +2406,12 @@ public interface GumboPackage extends EPackage
     EClass PORT_REF = eINSTANCE.getPortRef();
 
     /**
-     * The meta object literal for the '<em><b>Port Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Port</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PORT_REF__PORT_NAME = eINSTANCE.getPortRef_PortName();
+    EReference PORT_REF__PORT = eINSTANCE.getPortRef_Port();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EnumLitExprImpl <em>Enum Lit Expr</em>}' class.

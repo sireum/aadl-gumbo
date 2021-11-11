@@ -83,7 +83,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//StateVarRef/stateVar"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//PortRef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//PortRef/portName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//PortRef/port"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//EnumLitExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//EnumLitExpr/enumType"/>

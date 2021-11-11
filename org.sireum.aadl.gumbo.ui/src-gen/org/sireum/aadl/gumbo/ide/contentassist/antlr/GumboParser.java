@@ -211,7 +211,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrefixExprAccess().getOpAssignment_0_1(), "rule__PrefixExpr__OpAssignment_0_1");
 			builder.put(grammarAccess.getPrefixExprAccess().getExprAssignment_0_2(), "rule__PrefixExpr__ExprAssignment_0_2");
 			builder.put(grammarAccess.getAtomicExprAccess().getStateVarAssignment_0_2(), "rule__AtomicExpr__StateVarAssignment_0_2");
-			builder.put(grammarAccess.getAtomicExprAccess().getPortNameAssignment_1_2(), "rule__AtomicExpr__PortNameAssignment_1_2");
+			builder.put(grammarAccess.getAtomicExprAccess().getPortAssignment_1_2(), "rule__AtomicExpr__PortAssignment_1_2");
 			builder.put(grammarAccess.getAtomicExprAccess().getEnumTypeAssignment_2_1(), "rule__AtomicExpr__EnumTypeAssignment_2_1");
 			builder.put(grammarAccess.getAtomicExprAccess().getValueAssignment_2_3(), "rule__AtomicExpr__ValueAssignment_2_3");
 			builder.put(grammarAccess.getAtomicExprAccess().getValueAssignment_3_1(), "rule__AtomicExpr__ValueAssignment_3_1");

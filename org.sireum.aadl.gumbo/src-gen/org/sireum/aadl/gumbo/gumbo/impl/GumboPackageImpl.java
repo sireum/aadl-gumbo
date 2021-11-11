@@ -971,9 +971,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getPortRef_PortName()
+  public EReference getPortRef_Port()
   {
-    return (EAttribute)portRefEClass.getEStructuralFeatures().get(0);
+    return (EReference)portRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1230,7 +1230,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(stateVarRefEClass, STATE_VAR_REF__STATE_VAR);
 
     portRefEClass = createEClass(PORT_REF);
-    createEAttribute(portRefEClass, PORT_REF__PORT_NAME);
+    createEReference(portRefEClass, PORT_REF__PORT);
 
     enumLitExprEClass = createEClass(ENUM_LIT_EXPR);
     createEReference(enumLitExprEClass, ENUM_LIT_EXPR__ENUM_TYPE);
@@ -1382,7 +1382,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getStateVarRef_StateVar(), this.getStateVarDecl(), null, "stateVar", null, 0, 1, StateVarRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(portRefEClass, PortRef.class, "PortRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPortRef_PortName(), theEcorePackage.getEString(), "portName", null, 0, 1, PortRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPortRef_Port(), this.getFeatureElement(), null, "port", null, 0, 1, PortRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLitExprEClass, EnumLitExpr.class, "EnumLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumLitExpr_EnumType(), theAadl2Package.getProperty(), null, "enumType", null, 0, 1, EnumLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

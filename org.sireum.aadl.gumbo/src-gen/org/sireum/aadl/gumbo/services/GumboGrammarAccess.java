@@ -1208,8 +1208,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cPortRefAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Keyword cPortKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cPortNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cPortNameIDTerminalRuleCall_1_2_0 = (RuleCall)cPortNameAssignment_1_2.eContents().get(0);
+		private final Assignment cPortAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cPortFeatureElementParserRuleCall_1_2_0 = (RuleCall)cPortAssignment_1_2.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Group cGroup_2_0 = (Group)cGroup_2.eContents().get(0);
 		private final Group cGroup_2_0_0 = (Group)cGroup_2_0.eContents().get(0);
@@ -1262,7 +1262,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////  For example, invariants should only reference state variables.
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-		//|   {PortRef} 'port' portName=ID
+		//|   {PortRef} 'port' port=FeatureElement
 		//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 		//|   {RealLitExpr} val=REAL_LIT
@@ -1279,7 +1279,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////  For example, invariants should only reference state variables.
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-		//|   {PortRef} 'port' portName=ID
+		//|   {PortRef} 'port' port=FeatureElement
 		//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 		//|   {RealLitExpr} val=REAL_LIT
@@ -1317,7 +1317,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1() { return cStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1; }
 		
-		//{PortRef} 'port' portName=ID
+		//{PortRef} 'port' port=FeatureElement
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{PortRef}
@@ -1326,11 +1326,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'port'
 		public Keyword getPortKeyword_1_1() { return cPortKeyword_1_1; }
 		
-		//portName=ID
-		public Assignment getPortNameAssignment_1_2() { return cPortNameAssignment_1_2; }
+		//port=FeatureElement
+		public Assignment getPortAssignment_1_2() { return cPortAssignment_1_2; }
 		
-		//ID
-		public RuleCall getPortNameIDTerminalRuleCall_1_2_0() { return cPortNameIDTerminalRuleCall_1_2_0; }
+		//FeatureElement
+		public RuleCall getPortFeatureElementParserRuleCall_1_2_0() { return cPortFeatureElementParserRuleCall_1_2_0; }
 		
 		//=> ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 		public Group getGroup_2() { return cGroup_2; }
@@ -2029,7 +2029,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////  For example, invariants should only reference state variables.
 	////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 	//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-	//|   {PortRef} 'port' portName=ID
+	//|   {PortRef} 'port' port=FeatureElement
 	//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 	//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 	//|   {RealLitExpr} val=REAL_LIT

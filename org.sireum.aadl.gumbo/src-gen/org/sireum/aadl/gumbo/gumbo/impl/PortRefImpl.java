@@ -14,11 +14,14 @@
 package org.sireum.aadl.gumbo.gumbo.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.sireum.aadl.gumbo.gumbo.FeatureElement;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.PortRef;
 
@@ -30,7 +33,7 @@ import org.sireum.aadl.gumbo.gumbo.PortRef;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.PortRefImpl#getPortName <em>Port Name</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.PortRefImpl#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,24 +41,14 @@ import org.sireum.aadl.gumbo.gumbo.PortRef;
 public class PortRefImpl extends ExprImpl implements PortRef
 {
   /**
-   * The default value of the '{@link #getPortName() <em>Port Name</em>}' attribute.
+   * The cached value of the '{@link #getPort() <em>Port</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPortName()
+   * @see #getPort()
    * @generated
    * @ordered
    */
-  protected static final String PORT_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPortName() <em>Port Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPortName()
-   * @generated
-   * @ordered
-   */
-  protected String portName = PORT_NAME_EDEFAULT;
+  protected FeatureElement port;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,9 +77,26 @@ public class PortRefImpl extends ExprImpl implements PortRef
    * @generated
    */
   @Override
-  public String getPortName()
+  public FeatureElement getPort()
   {
-    return portName;
+    return port;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPort(FeatureElement newPort, NotificationChain msgs)
+  {
+    FeatureElement oldPort = port;
+    port = newPort;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.PORT_REF__PORT, oldPort, newPort);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -95,12 +105,36 @@ public class PortRefImpl extends ExprImpl implements PortRef
    * @generated
    */
   @Override
-  public void setPortName(String newPortName)
+  public void setPort(FeatureElement newPort)
   {
-    String oldPortName = portName;
-    portName = newPortName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.PORT_REF__PORT_NAME, oldPortName, portName));
+    if (newPort != port)
+    {
+      NotificationChain msgs = null;
+      if (port != null)
+        msgs = ((InternalEObject)port).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.PORT_REF__PORT, null, msgs);
+      if (newPort != null)
+        msgs = ((InternalEObject)newPort).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.PORT_REF__PORT, null, msgs);
+      msgs = basicSetPort(newPort, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.PORT_REF__PORT, newPort, newPort));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.PORT_REF__PORT:
+        return basicSetPort(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -113,8 +147,8 @@ public class PortRefImpl extends ExprImpl implements PortRef
   {
     switch (featureID)
     {
-      case GumboPackage.PORT_REF__PORT_NAME:
-        return getPortName();
+      case GumboPackage.PORT_REF__PORT:
+        return getPort();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,8 +163,8 @@ public class PortRefImpl extends ExprImpl implements PortRef
   {
     switch (featureID)
     {
-      case GumboPackage.PORT_REF__PORT_NAME:
-        setPortName((String)newValue);
+      case GumboPackage.PORT_REF__PORT:
+        setPort((FeatureElement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +180,8 @@ public class PortRefImpl extends ExprImpl implements PortRef
   {
     switch (featureID)
     {
-      case GumboPackage.PORT_REF__PORT_NAME:
-        setPortName(PORT_NAME_EDEFAULT);
+      case GumboPackage.PORT_REF__PORT:
+        setPort((FeatureElement)null);
         return;
     }
     super.eUnset(featureID);
@@ -163,27 +197,10 @@ public class PortRefImpl extends ExprImpl implements PortRef
   {
     switch (featureID)
     {
-      case GumboPackage.PORT_REF__PORT_NAME:
-        return PORT_NAME_EDEFAULT == null ? portName != null : !PORT_NAME_EDEFAULT.equals(portName);
+      case GumboPackage.PORT_REF__PORT:
+        return port != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (portName: ");
-    result.append(portName);
-    result.append(')');
-    return result.toString();
   }
 
 } //PortRefImpl

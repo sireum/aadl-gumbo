@@ -19,6 +19,9 @@ import org.osate.testsupport.AssertHelper
 import org.eclipse.xtext.resource.IResourceServiceProvider
 import org.eclipse.emf.common.util.URI
 import org.sireum.aadl.gumbo.tests.GumboInjectorProvider
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
+import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
+import org.sireum.aadl.gumbo.gumbo.PortRef
 
 @RunWith(XtextRunner)
 @InjectWith(GumboInjectorProvider)
@@ -27,11 +30,13 @@ class GumboPackageTest extends XtextTest {
 	@Inject
 	TestHelper<AadlPackage> testHelper
 
+	@Inject extension ValidationTestHelper
+
 	extension AssertHelper assertHelper = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(
 		URI.createFileURI("dummy.gumbo")).get(AssertHelper)
 
 	@Test
-	def void testFlows() {
+	def void testInitialize() {
 		val aadlText = '''
 			package SimplePackage
 			public
@@ -41,49 +46,43 @@ class GumboPackageTest extends XtextTest {
 						port2: in event data port;
 						port3: out event data port;
 					annex gumbo {**
-						flows
-							flow1: port1, port2 -fun-> port3
+						initialize
+						  guarantee "can just be a portRef" : port port3;
 					**};
 				end systemA;
 				
 			end SimplePackage;
 		'''
 
-//		val pkg = testHelper.parseString(aadlText)
-//
-//		pkg => [
-//			"SimplePackage".assertEquals(name)
-//
-//			(((publicSection.ownedClassifiers.head.ownedAnnexSubclauses.head as DefaultAnnexSubclause).
-//				parsedAnnexSubclause as GumboSubclause).specs.head as Flows).flows.head => [
-//
-//				flowId.assertEquals("flow1")
-//
-//				for (i : 0 ..< srcPorts.size) {
-//					val src = srcPorts.get(i).feature
-//					switch src {
-//						EventDataPort: {
-//							val name = '''SimplePackage::A.port«i+1»'''
-//							assertTrue(src.getQualifiedName == name && src.direction == DirectionType.IN)
-//
-//						// assertScope(GumboPackage.eINSTANCE.featureElement_Feature, #["port" + (i + 1)])
-//						}
-//						default:
-//							assertTrue("Unexpected feature: " + src, false)
-//					}
-//				}
-//
-//				val dst = dstPorts.head.feature
-//
-//				switch dst {
-//					EventDataPort: {
-//						assertTrue(dst.getQualifiedName == "SimplePackage::A.port3")
-//						assertTrue(dst.direction == DirectionType.OUT)
-//					}
-//					default:
-//						assertTrue(false)
-//				}
-//			]
-//		]
+		val pkg = testHelper.parseString(aadlText)
+		pkg.assertNoErrors
+
+		assertAllCrossReferencesResolvable(pkg)
+
+		pkg => [
+			"SimplePackage".assertEquals(name)
+
+			(((publicSection.ownedClassifiers.head.ownedAnnexSubclauses.head as DefaultAnnexSubclause).
+				parsedAnnexSubclause as GumboSubclause).specs.initialize.specs.head as GuaranteeStatement) => [
+
+				val exp = expr // can't switch directly on expr's type
+				switch exp {
+					PortRef: {
+						val feature = exp.port.feature
+						switch feature {
+							EventDataPort: {
+								val name = "SimplePackage::A.port3"
+								assertEquals(name, feature.getQualifiedName)
+								assertEquals(DirectionType.OUT, feature.direction)
+							}
+							default:
+								assertTrue("Unexpected feature: " + feature, false)
+						}
+					}
+					default:
+						assertTrue("Unexpected expression: " + expr, false)
+				}
+			]
+		]
 	}
 }

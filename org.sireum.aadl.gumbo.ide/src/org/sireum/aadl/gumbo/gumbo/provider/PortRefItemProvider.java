@@ -20,11 +20,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.PortRef;
 
@@ -60,32 +61,41 @@ public class PortRefItemProvider extends ExprItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addPortNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Port Name feature.
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addPortNamePropertyDescriptor(Object object)
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
   {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_PortRef_portName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_PortRef_portName_feature", "_UI_PortRef_type"),
-         GumboPackage.Literals.PORT_REF__PORT_NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.PORT_REF__PORT);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
   }
 
   /**
@@ -109,10 +119,7 @@ public class PortRefItemProvider extends ExprItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((PortRef)object).getPortName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_PortRef_type") :
-      getString("_UI_PortRef_type") + " " + label;
+    return getString("_UI_PortRef_type");
   }
 
 
@@ -130,8 +137,8 @@ public class PortRefItemProvider extends ExprItemProvider
 
     switch (notification.getFeatureID(PortRef.class))
     {
-      case GumboPackage.PORT_REF__PORT_NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+      case GumboPackage.PORT_REF__PORT:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -148,6 +155,11 @@ public class PortRefItemProvider extends ExprItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PORT_REF__PORT,
+         GumboFactory.eINSTANCE.createFeatureElement()));
   }
 
 }

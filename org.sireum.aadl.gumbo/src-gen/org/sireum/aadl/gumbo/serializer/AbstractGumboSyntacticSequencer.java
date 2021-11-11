@@ -110,7 +110,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) 'enum' '(' enumType=[Property|QCREF]
 	 *     (rule start) (ambiguity) 'floor' '(' expr=Expr
-	 *     (rule start) (ambiguity) 'port' portName=ID
+	 *     (rule start) (ambiguity) 'port' port=FeatureElement
 	 *     (rule start) (ambiguity) 'real' '(' expr=Expr
 	 *     (rule start) (ambiguity) 'var' stateVar=[StateVarDecl|ID]
 	 *     (rule start) (ambiguity) op='-'

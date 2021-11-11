@@ -541,15 +541,15 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     AtomicExpr returns PortRef
 	 *
 	 * Constraint:
-	 *     portName=ID
+	 *     port=FeatureElement
 	 */
 	protected void sequence_AtomicExpr(ISerializationContext context, PortRef semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.PORT_REF__PORT_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.PORT_REF__PORT_NAME));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.PORT_REF__PORT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.PORT_REF__PORT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getPortNameIDTerminalRuleCall_1_2_0(), semanticObject.getPortName());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getPortFeatureElementParserRuleCall_1_2_0(), semanticObject.getPort());
 		feeder.finish();
 	}
 	

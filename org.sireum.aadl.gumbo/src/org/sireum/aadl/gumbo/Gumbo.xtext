@@ -192,7 +192,7 @@ AtomicExpr returns Expr:
 //  For example, invariants should only reference state variables.	
 //	{IdExpr} id=[aadl2::NamedElement | QCREF]
     {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-|   {PortRef} 'port' portName=ID    
+|   {PortRef} 'port' port=FeatureElement
 | => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
 |	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 |   {RealLitExpr} val=REAL_LIT

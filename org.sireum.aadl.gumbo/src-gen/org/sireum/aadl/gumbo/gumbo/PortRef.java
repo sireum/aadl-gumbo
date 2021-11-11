@@ -23,7 +23,7 @@ package org.sireum.aadl.gumbo.gumbo;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.PortRef#getPortName <em>Port Name</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.PortRef#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getPortRef()
@@ -33,25 +33,25 @@ package org.sireum.aadl.gumbo.gumbo;
 public interface PortRef extends Expr
 {
   /**
-   * Returns the value of the '<em><b>Port Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Port</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Port Name</em>' attribute.
-   * @see #setPortName(String)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getPortRef_PortName()
-   * @model
+   * @return the value of the '<em>Port</em>' containment reference.
+   * @see #setPort(FeatureElement)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getPortRef_Port()
+   * @model containment="true"
    * @generated
    */
-  String getPortName();
+  FeatureElement getPort();
 
   /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.PortRef#getPortName <em>Port Name</em>}' attribute.
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.PortRef#getPort <em>Port</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Port Name</em>' attribute.
-   * @see #getPortName()
+   * @param value the new value of the '<em>Port</em>' containment reference.
+   * @see #getPort()
    * @generated
    */
-  void setPortName(String value);
+  void setPort(FeatureElement value);
 
 } // PortRef
