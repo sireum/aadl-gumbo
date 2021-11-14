@@ -223,6 +223,11 @@ public class BinaryExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BINARY_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__LEFT,
          GumboFactory.eINSTANCE.createIntLit()));
 
     newChildDescriptors.add
@@ -274,6 +279,11 @@ public class BinaryExprItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.BINARY_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter

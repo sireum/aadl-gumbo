@@ -50,6 +50,7 @@ import org.sireum.aadl.gumbo.gumbo.BinaryExpr;
 import org.sireum.aadl.gumbo.gumbo.BoolLitExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
+import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DoubleDotRef;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.FeatureElement;
@@ -66,6 +67,7 @@ import org.sireum.aadl.gumbo.gumbo.Invariants;
 import org.sireum.aadl.gumbo.gumbo.PortRef;
 import org.sireum.aadl.gumbo.gumbo.RealCast;
 import org.sireum.aadl.gumbo.gumbo.RealLitExpr;
+import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
@@ -206,6 +208,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.COMPUTE:
 				sequence_Compute(context, (Compute) semanticObject); 
 				return; 
+			case GumboPackage.DATA_ELEMENT:
+				sequence_DataElement(context, (DataElement) semanticObject); 
+				return; 
 			case GumboPackage.DOUBLE_DOT_REF:
 				sequence_DoubleDotRef(context, (DoubleDotRef) semanticObject); 
 				return; 
@@ -250,6 +255,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.REAL_LIT_EXPR:
 				sequence_AtomicExpr(context, (RealLitExpr) semanticObject); 
+				return; 
+			case GumboPackage.RECORD_LIT_EXPR:
+				sequence_AtomicExpr(context, (RecordLitExpr) semanticObject); 
 				return; 
 			case GumboPackage.SPEC_SECTION:
 				sequence_SpecSection(context, (SpecSection) semanticObject); 
@@ -402,7 +410,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.BOOL_LIT_EXPR__VAL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValBooleanLiteralParserRuleCall_5_1_0(), semanticObject.getVal());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValBooleanLiteralParserRuleCall_6_1_0(), semanticObject.getVal());
 		feeder.finish();
 	}
 	
@@ -477,7 +485,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.FLOOR_CAST__EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_6_3_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_7_3_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 	
@@ -513,7 +521,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.INT_LIT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValueINTEGER_LITTerminalRuleCall_3_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValueINTEGER_LITTerminalRuleCall_4_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -585,7 +593,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.REAL_CAST__EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_7_3_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_8_3_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 	
@@ -621,8 +629,38 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.REAL_LIT_EXPR__VAL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValREAL_LITTerminalRuleCall_4_1_0(), semanticObject.getVal());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValREAL_LITTerminalRuleCall_5_1_0(), semanticObject.getVal());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expr returns RecordLitExpr
+	 *     ImpliesExpr returns RecordLitExpr
+	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     EquivExpr returns RecordLitExpr
+	 *     EquivExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     OrExpr returns RecordLitExpr
+	 *     OrExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     AndExpr returns RecordLitExpr
+	 *     AndExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     RelationalExpr returns RecordLitExpr
+	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     AddSubExpr returns RecordLitExpr
+	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     MultDivModExpr returns RecordLitExpr
+	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     ExpExpr returns RecordLitExpr
+	 *     ExpExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
+	 *     PrefixExpr returns RecordLitExpr
+	 *     AtomicExpr returns RecordLitExpr
+	 *
+	 * Constraint:
+	 *     (recordType=DataElement args+=[NamedElement|ID] argExpr+=Expr (args+=[NamedElement|ID] argExpr+=Expr)*)
+	 */
+	protected void sequence_AtomicExpr(ISerializationContext context, RecordLitExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -695,6 +733,24 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 */
 	protected void sequence_Compute(ISerializationContext context, Compute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DataElement returns DataElement
+	 *
+	 * Constraint:
+	 *     dataElement=[DataSubcomponentType|QCREF]
+	 */
+	protected void sequence_DataElement(ISerializationContext context, DataElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.DATA_ELEMENT__DATA_ELEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.DATA_ELEMENT__DATA_ELEMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDataElementAccess().getDataElementDataSubcomponentTypeQCREFParserRuleCall_0_1(), semanticObject.eGet(GumboPackage.Literals.DATA_ELEMENT__DATA_ELEMENT, false));
+		feeder.finish();
 	}
 	
 	

@@ -94,6 +94,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.ANON_GUARANTEE_STATEMENT: return createAnonGuaranteeStatement();
       case GumboPackage.EXPR: return createExpr();
       case GumboPackage.DOUBLE_DOT_REF: return createDoubleDotRef();
+      case GumboPackage.DATA_ELEMENT: return createDataElement();
       case GumboPackage.SUBCOMPONENT_ELEMENT: return createSubcomponentElement();
       case GumboPackage.FEATURE_ELEMENT: return createFeatureElement();
       case GumboPackage.BINARY_EXPR: return createBinaryExpr();
@@ -101,6 +102,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.STATE_VAR_REF: return createStateVarRef();
       case GumboPackage.PORT_REF: return createPortRef();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
+      case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
       case GumboPackage.INT_LIT: return createIntLit();
       case GumboPackage.REAL_LIT_EXPR: return createRealLitExpr();
       case GumboPackage.BOOL_LIT_EXPR: return createBoolLitExpr();
@@ -345,6 +347,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public DataElement createDataElement()
+  {
+    DataElementImpl dataElement = new DataElementImpl();
+    return dataElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SubcomponentElement createSubcomponentElement()
   {
     SubcomponentElementImpl subcomponentElement = new SubcomponentElementImpl();
@@ -421,6 +435,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     EnumLitExprImpl enumLitExpr = new EnumLitExprImpl();
     return enumLitExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RecordLitExpr createRecordLitExpr()
+  {
+    RecordLitExprImpl recordLitExpr = new RecordLitExprImpl();
+    return recordLitExpr;
   }
 
   /**

@@ -33,8 +33,12 @@ import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.scoping.IScope
 import org.osate.aadl2.PackageSection
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr
-import org.sireum.aadl.gumbo.gumbo.DoubleDotRef
 import org.osate.aadl2.EnumerationType
+import org.sireum.aadl.gumbo.gumbo.RecordLitExpr
+import org.osate.aadl2.DataImplementation
+import org.sireum.aadl.gumbo.gumbo.DataElement
+import org.osate.aadl2.DataType
+import org.osate.aadl2.modelsupport.util.AadlUtil
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -63,7 +67,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 			emptyList
 		}).scopeFor
 		
-		println(scope)
+		//println(scope)
 		
 		scope
 	}
@@ -85,7 +89,13 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
     	           map([x | x.ownedPublicSection.ownedMembers.filter(DataSubcomponentType)]).
     	           flatten
     	val scope = elem.scopeFor(
-    		[QualifiedName::create((if(getContainerOfType(AadlPackage) !== pkg) { getContainerOfType(AadlPackage).name + "::" } else { "" }) + name)],
+    		[{ 
+    			val String[] splitName = name.split("\\.")
+    			if(getContainerOfType(AadlPackage) !== pkg) {
+    				splitName.set(0, getContainerOfType(AadlPackage).name + "::" + splitName.get(0))
+    			}
+    			QualifiedName::create(splitName)
+    		}],
     		IScope::NULLSCOPE
     	)
     	scope
@@ -109,9 +119,36 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		val scope = (prop as EnumerationType)?.ownedLiterals.scopeFor
 		scope
 	}
+		
+	def scope_DataElement_dataElement(DataElement context, EReference reference) {
+    	val pkg = context.getContainerOfType(AadlPackage)
+    	val elem = context.getContainerOfType(PackageSection).ownedMembers.filter([x | x instanceof DataImplementation]) +
+    	           context.getContainerOfType(PackageSection).
+    	           importedUnits.
+    	           filter(AadlPackage).
+    	           map([x | x.ownedPublicSection.ownedMembers.filter([y | y instanceof DataImplementation])]).
+    	           flatten
+    	val scope = elem.scopeFor(
+    		[{ 
+    			val String[] splitName = name.split("\\.")
+    			if(getContainerOfType(AadlPackage) !== pkg) {
+    				splitName.set(0, getContainerOfType(AadlPackage).name + "::" + splitName.get(0))
+    			}
+    			QualifiedName::create(splitName)
+    		}],
+    		IScope::NULLSCOPE
+    	)
+    	scope		
+	}
 	
-	def scope_DoubleDotRef_elm(DoubleDotRef context, EReference reference) {
-		return genericContext(context, reference)
+	def scope_RecordLitExpr_args(RecordLitExpr context, EReference reference) {
+		val elm = context.recordType.dataElement
+		if (elm instanceof DataImplementation) {
+			val scope = elm.ownedSubcomponents.scopeFor
+			return scope
+		} else {
+			return IScope::NULLSCOPE
+		}
 	}
 
 //	def scope_HyperperiodComputationalModel_constraints(HyperperiodComputationalModel context, EReference reference) {

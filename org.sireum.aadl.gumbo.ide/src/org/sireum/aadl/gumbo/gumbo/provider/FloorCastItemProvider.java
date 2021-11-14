@@ -189,6 +189,11 @@ public class FloorCastItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.FLOOR_CAST__EXPR,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.FLOOR_CAST__EXPR,
          GumboFactory.eINSTANCE.createIntLit()));
 
     newChildDescriptors.add

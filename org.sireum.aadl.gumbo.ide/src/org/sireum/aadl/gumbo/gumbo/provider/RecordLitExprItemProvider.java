@@ -20,37 +20,23 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.RecordLitExpr} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnonAssumeStatementItemProvider 
-  extends ItemProviderAdapter
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
+public class RecordLitExprItemProvider extends ExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -58,7 +44,7 @@ public class AnonAssumeStatementItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public AnonAssumeStatementItemProvider(AdapterFactory adapterFactory)
+  public RecordLitExprItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -76,8 +62,32 @@ public class AnonAssumeStatementItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addArgsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Args feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addArgsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_RecordLitExpr_args_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_RecordLitExpr_args_feature", "_UI_RecordLitExpr_type"),
+         GumboPackage.Literals.RECORD_LIT_EXPR__ARGS,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
@@ -94,7 +104,8 @@ public class AnonAssumeStatementItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR);
+      childrenFeatures.add(GumboPackage.Literals.RECORD_LIT_EXPR__RECORD_TYPE);
+      childrenFeatures.add(GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR);
     }
     return childrenFeatures;
   }
@@ -114,7 +125,7 @@ public class AnonAssumeStatementItemProvider
   }
 
   /**
-   * This returns AnonAssumeStatement.gif.
+   * This returns RecordLitExpr.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -122,7 +133,7 @@ public class AnonAssumeStatementItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/AnonAssumeStatement"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/RecordLitExpr"));
   }
 
   /**
@@ -134,7 +145,7 @@ public class AnonAssumeStatementItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_AnonAssumeStatement_type");
+    return getString("_UI_RecordLitExpr_type");
   }
 
 
@@ -150,9 +161,10 @@ public class AnonAssumeStatementItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(AnonAssumeStatement.class))
+    switch (notification.getFeatureID(RecordLitExpr.class))
     {
-      case GumboPackage.ANON_ASSUME_STATEMENT__EXPR:
+      case GumboPackage.RECORD_LIT_EXPR__RECORD_TYPE:
+      case GumboPackage.RECORD_LIT_EXPR__ARG_EXPR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -173,75 +185,68 @@ public class AnonAssumeStatementItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__RECORD_TYPE,
+         GumboFactory.eINSTANCE.createDataElement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createBinaryExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createUnaryExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createStateVarRef()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createPortRef()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createRecordLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createIntLit()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createRealLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createBoolLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createFloorCast()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createRealCast()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return GumboEditPlugin.INSTANCE;
   }
 
 }

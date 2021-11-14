@@ -31,15 +31,15 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_AtomicExpr_LeftParenthesisKeyword_8_0_a;
-	protected AbstractElementAlias match_AtomicExpr_LeftParenthesisKeyword_8_0_p;
+	protected AbstractElementAlias match_AtomicExpr_LeftParenthesisKeyword_9_0_a;
+	protected AbstractElementAlias match_AtomicExpr_LeftParenthesisKeyword_9_0_p;
 	protected AbstractElementAlias match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
-		match_AtomicExpr_LeftParenthesisKeyword_8_0_a = new TokenAlias(true, true, grammarAccess.getAtomicExprAccess().getLeftParenthesisKeyword_8_0());
-		match_AtomicExpr_LeftParenthesisKeyword_8_0_p = new TokenAlias(true, false, grammarAccess.getAtomicExprAccess().getLeftParenthesisKeyword_8_0());
+		match_AtomicExpr_LeftParenthesisKeyword_9_0_a = new TokenAlias(true, true, grammarAccess.getAtomicExprAccess().getLeftParenthesisKeyword_9_0());
+		match_AtomicExpr_LeftParenthesisKeyword_9_0_p = new TokenAlias(true, false, grammarAccess.getAtomicExprAccess().getLeftParenthesisKeyword_9_0());
 		match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getImpliesExprAccess().getEqualsSignGreaterThanSignKeyword_1_0_0_1_0()), new TokenAlias(false, false, grammarAccess.getImpliesExprAccess().getImpliesKeyword_1_0_0_1_1()));
 	}
 	
@@ -93,10 +93,10 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_AtomicExpr_LeftParenthesisKeyword_8_0_a.equals(syntax))
-				emit_AtomicExpr_LeftParenthesisKeyword_8_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_AtomicExpr_LeftParenthesisKeyword_8_0_p.equals(syntax))
-				emit_AtomicExpr_LeftParenthesisKeyword_8_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_AtomicExpr_LeftParenthesisKeyword_9_0_a.equals(syntax))
+				emit_AtomicExpr_LeftParenthesisKeyword_9_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_AtomicExpr_LeftParenthesisKeyword_9_0_p.equals(syntax))
+				emit_AtomicExpr_LeftParenthesisKeyword_9_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1.equals(syntax))
 				emit_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -115,12 +115,13 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     (rule start) (ambiguity) 'var' stateVar=[StateVarDecl|ID]
 	 *     (rule start) (ambiguity) op='-'
 	 *     (rule start) (ambiguity) op='not'
+	 *     (rule start) (ambiguity) recordType=DataElement
 	 *     (rule start) (ambiguity) val=BooleanLiteral
 	 *     (rule start) (ambiguity) val=REAL_LIT
 	 *     (rule start) (ambiguity) value=INTEGER_LIT
 	 *     (rule start) (ambiguity) {BinaryExpr.left=}
 	 */
-	protected void emit_AtomicExpr_LeftParenthesisKeyword_8_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_AtomicExpr_LeftParenthesisKeyword_9_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -133,7 +134,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     (rule start) (ambiguity) op='not'
 	 *     (rule start) (ambiguity) {BinaryExpr.left=}
 	 */
-	protected void emit_AtomicExpr_LeftParenthesisKeyword_8_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_AtomicExpr_LeftParenthesisKeyword_9_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

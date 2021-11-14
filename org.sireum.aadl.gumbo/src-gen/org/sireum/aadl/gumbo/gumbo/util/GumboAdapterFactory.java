@@ -187,6 +187,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createDoubleDotRefAdapter();
       }
       @Override
+      public Adapter caseDataElement(DataElement object)
+      {
+        return createDataElementAdapter();
+      }
+      @Override
       public Adapter caseSubcomponentElement(SubcomponentElement object)
       {
         return createSubcomponentElementAdapter();
@@ -220,6 +225,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEnumLitExpr(EnumLitExpr object)
       {
         return createEnumLitExprAdapter();
+      }
+      @Override
+      public Adapter caseRecordLitExpr(RecordLitExpr object)
+      {
+        return createRecordLitExprAdapter();
       }
       @Override
       public Adapter caseIntLit(IntLit object)
@@ -579,6 +589,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DataElement <em>Data Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.DataElement
+   * @generated
+   */
+  public Adapter createDataElementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement <em>Subcomponent Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -679,6 +704,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnumLitExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.RecordLitExpr <em>Record Lit Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.RecordLitExpr
+   * @generated
+   */
+  public Adapter createRecordLitExprAdapter()
   {
     return null;
   }

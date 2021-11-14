@@ -205,6 +205,15 @@ public interface GumboFactory extends EFactory
   DoubleDotRef createDoubleDotRef();
 
   /**
+   * Returns a new object of class '<em>Data Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Element</em>'.
+   * @generated
+   */
+  DataElement createDataElement();
+
+  /**
    * Returns a new object of class '<em>Subcomponent Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -266,6 +275,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   EnumLitExpr createEnumLitExpr();
+
+  /**
+   * Returns a new object of class '<em>Record Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Record Lit Expr</em>'.
+   * @generated
+   */
+  RecordLitExpr createRecordLitExpr();
 
   /**
    * Returns a new object of class '<em>Int Lit</em>'.

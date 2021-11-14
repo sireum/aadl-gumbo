@@ -22,8 +22,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -31,19 +30,16 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
-import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.DataElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnonAssumeStatementItemProvider 
+public class DataElementItemProvider 
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -58,7 +54,7 @@ public class AnonAssumeStatementItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public AnonAssumeStatementItemProvider(AdapterFactory adapterFactory)
+  public DataElementItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -76,45 +72,36 @@ public class AnonAssumeStatementItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addDataElementPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Data Element feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addDataElementPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DataElement_dataElement_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DataElement_dataElement_feature", "_UI_DataElement_type"),
+         GumboPackage.Literals.DATA_ELEMENT__DATA_ELEMENT,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
-  }
-
-  /**
-   * This returns AnonAssumeStatement.gif.
+   * This returns DataElement.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -122,7 +109,7 @@ public class AnonAssumeStatementItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/AnonAssumeStatement"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/DataElement"));
   }
 
   /**
@@ -134,7 +121,7 @@ public class AnonAssumeStatementItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_AnonAssumeStatement_type");
+    return getString("_UI_DataElement_type");
   }
 
 
@@ -149,13 +136,6 @@ public class AnonAssumeStatementItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(AnonAssumeStatement.class))
-    {
-      case GumboPackage.ANON_ASSUME_STATEMENT__EXPR:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-        return;
-    }
     super.notifyChanged(notification);
   }
 
@@ -170,66 +150,6 @@ public class AnonAssumeStatementItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createBinaryExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createUnaryExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createStateVarRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createPortRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createIntLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createRealLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createBoolLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createFloorCast()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createRealCast()));
   }
 
   /**

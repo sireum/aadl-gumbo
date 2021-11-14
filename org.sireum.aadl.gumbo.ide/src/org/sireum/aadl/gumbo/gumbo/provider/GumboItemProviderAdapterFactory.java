@@ -560,6 +560,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DataElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DataElementItemProvider dataElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DataElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDataElementAdapter()
+  {
+    if (dataElementItemProvider == null)
+    {
+      dataElementItemProvider = new DataElementItemProvider(this);
+    }
+
+    return dataElementItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SubcomponentElement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -732,6 +757,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return enumLitExprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RecordLitExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RecordLitExprItemProvider recordLitExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RecordLitExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRecordLitExprAdapter()
+  {
+    if (recordLitExprItemProvider == null)
+    {
+      recordLitExprItemProvider = new RecordLitExprItemProvider(this);
+    }
+
+    return recordLitExprItemProvider;
   }
 
   /**
@@ -995,6 +1045,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (anonGuaranteeStatementItemProvider != null) anonGuaranteeStatementItemProvider.dispose();
     if (exprItemProvider != null) exprItemProvider.dispose();
     if (doubleDotRefItemProvider != null) doubleDotRefItemProvider.dispose();
+    if (dataElementItemProvider != null) dataElementItemProvider.dispose();
     if (subcomponentElementItemProvider != null) subcomponentElementItemProvider.dispose();
     if (featureElementItemProvider != null) featureElementItemProvider.dispose();
     if (binaryExprItemProvider != null) binaryExprItemProvider.dispose();
@@ -1002,6 +1053,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (stateVarRefItemProvider != null) stateVarRefItemProvider.dispose();
     if (portRefItemProvider != null) portRefItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
+    if (recordLitExprItemProvider != null) recordLitExprItemProvider.dispose();
     if (intLitItemProvider != null) intLitItemProvider.dispose();
     if (realLitExprItemProvider != null) realLitExprItemProvider.dispose();
     if (boolLitExprItemProvider != null) boolLitExprItemProvider.dispose();

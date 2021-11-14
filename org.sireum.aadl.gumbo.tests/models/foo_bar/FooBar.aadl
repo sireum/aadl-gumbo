@@ -7,94 +7,99 @@ public
   	-- Indicate that the set point info will be a struct (record)
     -- For structs, use of the type must refer to the data component implementation (SetPoint.i),
     --  which defines the fields and associated types of the struct.
-    properties
-      Data_Model::Data_Representation => Struct;
-  end SetPoint;
+      properties
+        Data_Model::Data_Representation => Struct;
+    end SetPoint;
 
-  data implementation SetPoint.i
-    subcomponents
-      low: data Base_Types::Integer;
-      high: data Base_Types::Integer;
+    data implementation SetPoint.i
+      subcomponents
+        low: data Base_Types::Integer;
+        high: data Base_Types::Integer;
 --      annex GUMBO {**       
 --      invariants:
 --        inv setPointinv "SetPoint Data Invariant":
 --          low.degrees <= high.degrees;
 --      **};
-  end SetPoint.i;
+    end SetPoint.i;
   
 	thread C1
 	  features
-	  -- ==== INPUTS ====	
-	  inC1: in data port Base_Types::Integer; 
-	  -- ==== OUTPUTS ====	
-	  outC1: out data port Base_Types::Integer;
-	   annex gumbo {** 
+	    -- ==== INPUTS ====	
+	    inC1: in data port Base_Types::Integer; 
+	    -- ==== OUTPUTS ====	
+	    outC1: out data port Base_Types::Integer;
+	  annex gumbo {** 
 	   	state 
-	   	  myInt1: Base_Types::Integer;
-	   	  myInt2: Base_Types::Integer;
-	   	  myInt3: Base_Types::Integer;
-	   	  -- BUG: cross references to types (Data Components, e.g., from Base_Types) are not working correctly.
-	   	  -- References to base types only seem to resolve correctly when refering to types that
-	   	  -- are already used on ports within this file.  This suggests that the auto-cross-referencing
-	   	  -- is only linking to things in this file, not in other files. 
-	   	  -- myFloat: Base_Types::Float;
-	   	-- invariants   -- TRYING TO GET THIS TO WORK.  Need identifiers to resolve to state variables
-	   	  -- inv "inv1 title": var myInt1 > var myInt2;
-	   	  -- inv "inv2 title": var myInt3 = 1;
+	   	   myInt1: Base_Types::Integer;
+	   	   myInt2: Base_Types::Integer;
+	   	   myInt3: Base_Types::Integer;
+	   	   myFloat1: Base_Types::Float;
+	   	   myFloat2: Base_Types::Float;
+	   	   myFloat3: Base_Types::Float;
+	   	   
+	   	   myRec1: SetPoint;
+	   	 invariants
+	   	   inv "inv1 title": var myInt1 > var myInt2;
+	   	   inv "inv2 title": var myInt3 = 1;
 	   	integration
 	   	  -- test comment
-	   	  -- assume "integration assume": var myInt1 > port inC1;  -- Need var identifiers to resolve to state vars
-	   	  guarantee "guarantee title": port outC1;
+	   	   assume "integration assume": var myInt1 > port inC1;
+	   	   assume "test floor()": floor(var myFloat1) < port inC1;
+	   	   assume "test floor() and +": (floor(var myFloat2 + 3.0) = port inC1) <=> false; 
+	   	   assume "test real() and ^": real(port inC1) ^ 2.0 > var myFloat3;
+	   	   assume "test enum literal": var myFloat1 = enum(Data_Model::Data_Representation, Integer);
+	   	   assume "test record literal": var myRec1 = SetPoint.i { low = 1; high = 2 }; 
+	   	   guarantee "guarantee title": port outC1;
 	   	initialize
-	   	 guarantee "guarantee title": port outC1 = 1;
+	   	   guarantee "guarantee title": port outC1 = 1;
 	   	compute
-	   	 case "case1 title": 
-	   	   assume port inC1 = 100;
-	   	   guarantee port outC1 = 3;
-	   	 case "case2 title": 
-	   	   assume port inC1 <> 100;
-	   	   guarantee port outC1 = 4;
+	   	   case "case1 title": 
+	   	     assume port inC1 = 100;
+	   	     guarantee port outC1 = 3;
+	   	   case "case2 title": 
+	   	     assume port inC1 <> 100;
+	   	     guarantee port outC1 = 4;
       **};
 	end C1;
 	
 	thread implementation C1.i
 	end C1.i;
 
-  thread C2
-    features
-    -- ==== INPUTS ==== 
-    inC2: in data port Base_Types::Integer; 
-    -- ==== OUTPUTS ====  
-    outC2: out data port Base_Types::Integer;
-    annex gumbo {**
-      compute
-       case "case1 title": 
-	   	 assume port inC2 > 5;
-	   	 guarantee port outC2 = 1;
-	   case "case2 title": 
-	     assume port inC2 <= 5;
-	     guarantee port outC2 = 2;
+    thread C2
+      features
+        -- ==== INPUTS ==== 
+        inC2: in data port Base_Types::Integer; 
+        -- ==== OUTPUTS ====  
+        outC2: out data port Base_Types::Integer;
+      annex gumbo {**
+        compute
+          case "case1 title": 
+	   	    assume port inC2 > 5;
+	   	    guarantee port outC2 = 1;
+	      case "case2 title": 
+	        assume port inC2 <= 5;
+	        guarantee port outC2 = 2;
       **};
-  end C2;
+    end C2;
   
-  thread implementation C2.i
-  end C2.i;
+    thread implementation C2.i
+    end C2.i;
 
-process ProdCons
-  features
-    none;
-  flows
-     none;
-  properties
-     none;
-end ProdCons;
+    process ProdCons
+      features
+        none;
+      flows
+        none;
+      properties
+        none;
+    end ProdCons;
 
-process implementation ProdCons.i
-   subcomponents
-      c1: thread C1;
-      c2: thread C2;
-   connections
-      conn1: port c1.outC1 -> c2.inC2;
-end ProdCons.i;	
+   process implementation ProdCons.i
+      subcomponents
+         c1: thread C1;
+         c2: thread C2;
+      connections
+         conn1: port c1.outC1 -> c2.inC2;
+   end ProdCons.i;	
 	
 end FooBar;
