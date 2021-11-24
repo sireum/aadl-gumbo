@@ -1217,12 +1217,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cEnumKeyword_2_0_0_1 = (Keyword)cGroup_2_0_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_2_0_0_2 = (Keyword)cGroup_2_0_0.eContents().get(2);
 		private final Assignment cEnumTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cEnumTypePropertyCrossReference_2_1_0 = (CrossReference)cEnumTypeAssignment_2_1.eContents().get(0);
-		private final RuleCall cEnumTypePropertyQCREFParserRuleCall_2_1_0_1 = (RuleCall)cEnumTypePropertyCrossReference_2_1_0.eContents().get(1);
+		private final RuleCall cEnumTypeDataElementParserRuleCall_2_1_0 = (RuleCall)cEnumTypeAssignment_2_1.eContents().get(0);
 		private final Keyword cCommaKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Assignment cValueAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
-		private final CrossReference cValueEnumerationLiteralCrossReference_2_3_0 = (CrossReference)cValueAssignment_2_3.eContents().get(0);
-		private final RuleCall cValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1 = (RuleCall)cValueEnumerationLiteralCrossReference_2_3_0.eContents().get(1);
+		private final CrossReference cValueStringLiteralCrossReference_2_3_0 = (CrossReference)cValueAssignment_2_3.eContents().get(0);
+		private final RuleCall cValueStringLiteralIDTerminalRuleCall_2_3_0_1 = (RuleCall)cValueStringLiteralCrossReference_2_3_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Group cGroup_3_0 = (Group)cGroup_3.eContents().get(0);
@@ -1285,7 +1284,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 		//|   {PortRef} 'port' port=FeatureElement
-		//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
+		//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 		//|   {RealLitExpr} val=REAL_LIT
@@ -1303,7 +1302,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 		//|   {PortRef} 'port' port=FeatureElement
-		//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
+		//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 		//|   {RealLitExpr} val=REAL_LIT
@@ -1356,7 +1355,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//FeatureElement
 		public RuleCall getPortFeatureElementParserRuleCall_1_2_0() { return cPortFeatureElementParserRuleCall_1_2_0; }
 		
-		//=> ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
+		//=> ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//=> ({EnumLitExpr} 'enum' '(')
@@ -1374,26 +1373,23 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'('
 		public Keyword getLeftParenthesisKeyword_2_0_0_2() { return cLeftParenthesisKeyword_2_0_0_2; }
 		
-		//enumType=[aadl2::Property|QCREF]
+		//enumType=DataElement
 		public Assignment getEnumTypeAssignment_2_1() { return cEnumTypeAssignment_2_1; }
 		
-		//[aadl2::Property|QCREF]
-		public CrossReference getEnumTypePropertyCrossReference_2_1_0() { return cEnumTypePropertyCrossReference_2_1_0; }
-		
-		//QCREF
-		public RuleCall getEnumTypePropertyQCREFParserRuleCall_2_1_0_1() { return cEnumTypePropertyQCREFParserRuleCall_2_1_0_1; }
+		//DataElement
+		public RuleCall getEnumTypeDataElementParserRuleCall_2_1_0() { return cEnumTypeDataElementParserRuleCall_2_1_0; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2() { return cCommaKeyword_2_2; }
 		
-		//value=[aadl2::EnumerationLiteral|ID]
+		//value=[aadl2::StringLiteral|ID]
 		public Assignment getValueAssignment_2_3() { return cValueAssignment_2_3; }
 		
-		//[aadl2::EnumerationLiteral|ID]
-		public CrossReference getValueEnumerationLiteralCrossReference_2_3_0() { return cValueEnumerationLiteralCrossReference_2_3_0; }
+		//[aadl2::StringLiteral|ID]
+		public CrossReference getValueStringLiteralCrossReference_2_3_0() { return cValueStringLiteralCrossReference_2_3_0; }
 		
 		//ID
-		public RuleCall getValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1() { return cValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1; }
+		public RuleCall getValueStringLiteralIDTerminalRuleCall_2_3_0_1() { return cValueStringLiteralIDTerminalRuleCall_2_3_0_1; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
@@ -2142,7 +2138,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////    {IdExpr} id=[aadl2::NamedElement | QCREF]
 	//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 	//|   {PortRef} 'port' port=FeatureElement
-	//| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
+	//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 	//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 	//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 	//|   {RealLitExpr} val=REAL_LIT

@@ -1006,7 +1006,7 @@ public interface GumboPackage extends EPackage
   int ENUM_LIT_EXPR = 26;
 
   /**
-   * The feature id for the '<em><b>Enum Type</b></em>' reference.
+   * The feature id for the '<em><b>Enum Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1853,10 +1853,10 @@ public interface GumboPackage extends EPackage
   EClass getEnumLitExpr();
 
   /**
-   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr#getEnumType <em>Enum Type</em>}'.
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr#getEnumType <em>Enum Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Enum Type</em>'.
+   * @return the meta object for the containment reference '<em>Enum Type</em>'.
    * @see org.sireum.aadl.gumbo.gumbo.EnumLitExpr#getEnumType()
    * @see #getEnumLitExpr()
    * @generated
@@ -2580,7 +2580,7 @@ public interface GumboPackage extends EPackage
     EClass ENUM_LIT_EXPR = eINSTANCE.getEnumLitExpr();
 
     /**
-     * The meta object literal for the '<em><b>Enum Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Enum Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

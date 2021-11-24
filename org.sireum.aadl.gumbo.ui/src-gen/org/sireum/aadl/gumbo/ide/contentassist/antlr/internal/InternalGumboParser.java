@@ -7722,6 +7722,11 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             case HyphenMinus:
                 {
                 switch ( input.LA(2) ) {
+                case RULE_ID:
+                    {
+                    alt17=3;
+                    }
+                    break;
                 case RULE_INTEGER_LIT:
                     {
                     alt17=2;
@@ -7730,11 +7735,6 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 case RULE_REAL_LIT:
                     {
                     alt17=1;
-                    }
-                    break;
-                case RULE_ID:
-                    {
-                    alt17=3;
                     }
                     break;
                 default:
@@ -32417,40 +32417,28 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__EnumTypeAssignment_2_1"
-    // InternalGumboParser.g:10102:1: rule__AtomicExpr__EnumTypeAssignment_2_1 : ( ( ruleQCREF ) ) ;
+    // InternalGumboParser.g:10102:1: rule__AtomicExpr__EnumTypeAssignment_2_1 : ( ruleDataElement ) ;
     public final void rule__AtomicExpr__EnumTypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10106:1: ( ( ( ruleQCREF ) ) )
-            // InternalGumboParser.g:10107:2: ( ( ruleQCREF ) )
+            // InternalGumboParser.g:10106:1: ( ( ruleDataElement ) )
+            // InternalGumboParser.g:10107:2: ( ruleDataElement )
             {
-            // InternalGumboParser.g:10107:2: ( ( ruleQCREF ) )
-            // InternalGumboParser.g:10108:3: ( ruleQCREF )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getAtomicExprAccess().getEnumTypePropertyCrossReference_2_1_0()); 
-            }
-            // InternalGumboParser.g:10109:3: ( ruleQCREF )
-            // InternalGumboParser.g:10110:4: ruleQCREF
+            // InternalGumboParser.g:10107:2: ( ruleDataElement )
+            // InternalGumboParser.g:10108:3: ruleDataElement
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAtomicExprAccess().getEnumTypePropertyQCREFParserRuleCall_2_1_0_1()); 
+               before(grammarAccess.getAtomicExprAccess().getEnumTypeDataElementParserRuleCall_2_1_0()); 
             }
             pushFollow(FollowSets000.FOLLOW_2);
-            ruleQCREF();
+            ruleDataElement();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAtomicExprAccess().getEnumTypePropertyQCREFParserRuleCall_2_1_0_1()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getAtomicExprAccess().getEnumTypePropertyCrossReference_2_1_0()); 
+               after(grammarAccess.getAtomicExprAccess().getEnumTypeDataElementParserRuleCall_2_1_0()); 
             }
 
             }
@@ -32474,36 +32462,36 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ValueAssignment_2_3"
-    // InternalGumboParser.g:10121:1: rule__AtomicExpr__ValueAssignment_2_3 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10117:1: rule__AtomicExpr__ValueAssignment_2_3 : ( ( RULE_ID ) ) ;
     public final void rule__AtomicExpr__ValueAssignment_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10125:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10126:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10121:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10122:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10126:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10127:3: ( RULE_ID )
+            // InternalGumboParser.g:10122:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10123:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralCrossReference_2_3_0()); 
+               before(grammarAccess.getAtomicExprAccess().getValueStringLiteralCrossReference_2_3_0()); 
             }
-            // InternalGumboParser.g:10128:3: ( RULE_ID )
-            // InternalGumboParser.g:10129:4: RULE_ID
+            // InternalGumboParser.g:10124:3: ( RULE_ID )
+            // InternalGumboParser.g:10125:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1()); 
+               before(grammarAccess.getAtomicExprAccess().getValueStringLiteralIDTerminalRuleCall_2_3_0_1()); 
             }
             match(input,RULE_ID,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1()); 
+               after(grammarAccess.getAtomicExprAccess().getValueStringLiteralIDTerminalRuleCall_2_3_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralCrossReference_2_3_0()); 
+               after(grammarAccess.getAtomicExprAccess().getValueStringLiteralCrossReference_2_3_0()); 
             }
 
             }
@@ -32527,17 +32515,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__RecordTypeAssignment_3_0_0_1"
-    // InternalGumboParser.g:10140:1: rule__AtomicExpr__RecordTypeAssignment_3_0_0_1 : ( ruleDataElement ) ;
+    // InternalGumboParser.g:10136:1: rule__AtomicExpr__RecordTypeAssignment_3_0_0_1 : ( ruleDataElement ) ;
     public final void rule__AtomicExpr__RecordTypeAssignment_3_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10144:1: ( ( ruleDataElement ) )
-            // InternalGumboParser.g:10145:2: ( ruleDataElement )
+            // InternalGumboParser.g:10140:1: ( ( ruleDataElement ) )
+            // InternalGumboParser.g:10141:2: ( ruleDataElement )
             {
-            // InternalGumboParser.g:10145:2: ( ruleDataElement )
-            // InternalGumboParser.g:10146:3: ruleDataElement
+            // InternalGumboParser.g:10141:2: ( ruleDataElement )
+            // InternalGumboParser.g:10142:3: ruleDataElement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getRecordTypeDataElementParserRuleCall_3_0_0_1_0()); 
@@ -32572,23 +32560,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ArgsAssignment_3_0_0_3"
-    // InternalGumboParser.g:10155:1: rule__AtomicExpr__ArgsAssignment_3_0_0_3 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10151:1: rule__AtomicExpr__ArgsAssignment_3_0_0_3 : ( ( RULE_ID ) ) ;
     public final void rule__AtomicExpr__ArgsAssignment_3_0_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10159:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10160:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10155:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10156:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10160:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10161:3: ( RULE_ID )
+            // InternalGumboParser.g:10156:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10157:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getArgsNamedElementCrossReference_3_0_0_3_0()); 
             }
-            // InternalGumboParser.g:10162:3: ( RULE_ID )
-            // InternalGumboParser.g:10163:4: RULE_ID
+            // InternalGumboParser.g:10158:3: ( RULE_ID )
+            // InternalGumboParser.g:10159:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getArgsNamedElementIDTerminalRuleCall_3_0_0_3_0_1()); 
@@ -32625,17 +32613,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ArgExprAssignment_3_1"
-    // InternalGumboParser.g:10174:1: rule__AtomicExpr__ArgExprAssignment_3_1 : ( ruleExpr ) ;
+    // InternalGumboParser.g:10170:1: rule__AtomicExpr__ArgExprAssignment_3_1 : ( ruleExpr ) ;
     public final void rule__AtomicExpr__ArgExprAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10178:1: ( ( ruleExpr ) )
-            // InternalGumboParser.g:10179:2: ( ruleExpr )
+            // InternalGumboParser.g:10174:1: ( ( ruleExpr ) )
+            // InternalGumboParser.g:10175:2: ( ruleExpr )
             {
-            // InternalGumboParser.g:10179:2: ( ruleExpr )
-            // InternalGumboParser.g:10180:3: ruleExpr
+            // InternalGumboParser.g:10175:2: ( ruleExpr )
+            // InternalGumboParser.g:10176:3: ruleExpr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getArgExprExprParserRuleCall_3_1_0()); 
@@ -32670,23 +32658,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ArgsAssignment_3_2_1"
-    // InternalGumboParser.g:10189:1: rule__AtomicExpr__ArgsAssignment_3_2_1 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10185:1: rule__AtomicExpr__ArgsAssignment_3_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__AtomicExpr__ArgsAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10193:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10194:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10189:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10190:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10194:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10195:3: ( RULE_ID )
+            // InternalGumboParser.g:10190:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10191:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getArgsNamedElementCrossReference_3_2_1_0()); 
             }
-            // InternalGumboParser.g:10196:3: ( RULE_ID )
-            // InternalGumboParser.g:10197:4: RULE_ID
+            // InternalGumboParser.g:10192:3: ( RULE_ID )
+            // InternalGumboParser.g:10193:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getArgsNamedElementIDTerminalRuleCall_3_2_1_0_1()); 
@@ -32723,17 +32711,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ArgExprAssignment_3_2_3"
-    // InternalGumboParser.g:10208:1: rule__AtomicExpr__ArgExprAssignment_3_2_3 : ( ruleExpr ) ;
+    // InternalGumboParser.g:10204:1: rule__AtomicExpr__ArgExprAssignment_3_2_3 : ( ruleExpr ) ;
     public final void rule__AtomicExpr__ArgExprAssignment_3_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10212:1: ( ( ruleExpr ) )
-            // InternalGumboParser.g:10213:2: ( ruleExpr )
+            // InternalGumboParser.g:10208:1: ( ( ruleExpr ) )
+            // InternalGumboParser.g:10209:2: ( ruleExpr )
             {
-            // InternalGumboParser.g:10213:2: ( ruleExpr )
-            // InternalGumboParser.g:10214:3: ruleExpr
+            // InternalGumboParser.g:10209:2: ( ruleExpr )
+            // InternalGumboParser.g:10210:3: ruleExpr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getArgExprExprParserRuleCall_3_2_3_0()); 
@@ -32768,17 +32756,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ValueAssignment_4_1"
-    // InternalGumboParser.g:10223:1: rule__AtomicExpr__ValueAssignment_4_1 : ( RULE_INTEGER_LIT ) ;
+    // InternalGumboParser.g:10219:1: rule__AtomicExpr__ValueAssignment_4_1 : ( RULE_INTEGER_LIT ) ;
     public final void rule__AtomicExpr__ValueAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10227:1: ( ( RULE_INTEGER_LIT ) )
-            // InternalGumboParser.g:10228:2: ( RULE_INTEGER_LIT )
+            // InternalGumboParser.g:10223:1: ( ( RULE_INTEGER_LIT ) )
+            // InternalGumboParser.g:10224:2: ( RULE_INTEGER_LIT )
             {
-            // InternalGumboParser.g:10228:2: ( RULE_INTEGER_LIT )
-            // InternalGumboParser.g:10229:3: RULE_INTEGER_LIT
+            // InternalGumboParser.g:10224:2: ( RULE_INTEGER_LIT )
+            // InternalGumboParser.g:10225:3: RULE_INTEGER_LIT
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getValueINTEGER_LITTerminalRuleCall_4_1_0()); 
@@ -32809,17 +32797,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ValAssignment_5_1"
-    // InternalGumboParser.g:10238:1: rule__AtomicExpr__ValAssignment_5_1 : ( RULE_REAL_LIT ) ;
+    // InternalGumboParser.g:10234:1: rule__AtomicExpr__ValAssignment_5_1 : ( RULE_REAL_LIT ) ;
     public final void rule__AtomicExpr__ValAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10242:1: ( ( RULE_REAL_LIT ) )
-            // InternalGumboParser.g:10243:2: ( RULE_REAL_LIT )
+            // InternalGumboParser.g:10238:1: ( ( RULE_REAL_LIT ) )
+            // InternalGumboParser.g:10239:2: ( RULE_REAL_LIT )
             {
-            // InternalGumboParser.g:10243:2: ( RULE_REAL_LIT )
-            // InternalGumboParser.g:10244:3: RULE_REAL_LIT
+            // InternalGumboParser.g:10239:2: ( RULE_REAL_LIT )
+            // InternalGumboParser.g:10240:3: RULE_REAL_LIT
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getValREAL_LITTerminalRuleCall_5_1_0()); 
@@ -32850,17 +32838,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ValAssignment_6_1"
-    // InternalGumboParser.g:10253:1: rule__AtomicExpr__ValAssignment_6_1 : ( ruleBooleanLiteral ) ;
+    // InternalGumboParser.g:10249:1: rule__AtomicExpr__ValAssignment_6_1 : ( ruleBooleanLiteral ) ;
     public final void rule__AtomicExpr__ValAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10257:1: ( ( ruleBooleanLiteral ) )
-            // InternalGumboParser.g:10258:2: ( ruleBooleanLiteral )
+            // InternalGumboParser.g:10253:1: ( ( ruleBooleanLiteral ) )
+            // InternalGumboParser.g:10254:2: ( ruleBooleanLiteral )
             {
-            // InternalGumboParser.g:10258:2: ( ruleBooleanLiteral )
-            // InternalGumboParser.g:10259:3: ruleBooleanLiteral
+            // InternalGumboParser.g:10254:2: ( ruleBooleanLiteral )
+            // InternalGumboParser.g:10255:3: ruleBooleanLiteral
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getValBooleanLiteralParserRuleCall_6_1_0()); 
@@ -32895,17 +32883,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ExprAssignment_7_3"
-    // InternalGumboParser.g:10268:1: rule__AtomicExpr__ExprAssignment_7_3 : ( ruleExpr ) ;
+    // InternalGumboParser.g:10264:1: rule__AtomicExpr__ExprAssignment_7_3 : ( ruleExpr ) ;
     public final void rule__AtomicExpr__ExprAssignment_7_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10272:1: ( ( ruleExpr ) )
-            // InternalGumboParser.g:10273:2: ( ruleExpr )
+            // InternalGumboParser.g:10268:1: ( ( ruleExpr ) )
+            // InternalGumboParser.g:10269:2: ( ruleExpr )
             {
-            // InternalGumboParser.g:10273:2: ( ruleExpr )
-            // InternalGumboParser.g:10274:3: ruleExpr
+            // InternalGumboParser.g:10269:2: ( ruleExpr )
+            // InternalGumboParser.g:10270:3: ruleExpr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_7_3_0()); 
@@ -32940,17 +32928,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AtomicExpr__ExprAssignment_8_3"
-    // InternalGumboParser.g:10283:1: rule__AtomicExpr__ExprAssignment_8_3 : ( ruleExpr ) ;
+    // InternalGumboParser.g:10279:1: rule__AtomicExpr__ExprAssignment_8_3 : ( ruleExpr ) ;
     public final void rule__AtomicExpr__ExprAssignment_8_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10287:1: ( ( ruleExpr ) )
-            // InternalGumboParser.g:10288:2: ( ruleExpr )
+            // InternalGumboParser.g:10283:1: ( ( ruleExpr ) )
+            // InternalGumboParser.g:10284:2: ( ruleExpr )
             {
-            // InternalGumboParser.g:10288:2: ( ruleExpr )
-            // InternalGumboParser.g:10289:3: ruleExpr
+            // InternalGumboParser.g:10284:2: ( ruleExpr )
+            // InternalGumboParser.g:10285:3: ruleExpr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_8_3_0()); 
@@ -32985,23 +32973,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataElement__DataElementAssignment"
-    // InternalGumboParser.g:10298:1: rule__DataElement__DataElementAssignment : ( ( ruleQCREF ) ) ;
+    // InternalGumboParser.g:10294:1: rule__DataElement__DataElementAssignment : ( ( ruleQCREF ) ) ;
     public final void rule__DataElement__DataElementAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10302:1: ( ( ( ruleQCREF ) ) )
-            // InternalGumboParser.g:10303:2: ( ( ruleQCREF ) )
+            // InternalGumboParser.g:10298:1: ( ( ( ruleQCREF ) ) )
+            // InternalGumboParser.g:10299:2: ( ( ruleQCREF ) )
             {
-            // InternalGumboParser.g:10303:2: ( ( ruleQCREF ) )
-            // InternalGumboParser.g:10304:3: ( ruleQCREF )
+            // InternalGumboParser.g:10299:2: ( ( ruleQCREF ) )
+            // InternalGumboParser.g:10300:3: ( ruleQCREF )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDataElementAccess().getDataElementDataSubcomponentTypeCrossReference_0()); 
             }
-            // InternalGumboParser.g:10305:3: ( ruleQCREF )
-            // InternalGumboParser.g:10306:4: ruleQCREF
+            // InternalGumboParser.g:10301:3: ( ruleQCREF )
+            // InternalGumboParser.g:10302:4: ruleQCREF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDataElementAccess().getDataElementDataSubcomponentTypeQCREFParserRuleCall_0_1()); 
@@ -33042,23 +33030,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FeatureElement__FeatureAssignment"
-    // InternalGumboParser.g:10317:1: rule__FeatureElement__FeatureAssignment : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10313:1: rule__FeatureElement__FeatureAssignment : ( ( RULE_ID ) ) ;
     public final void rule__FeatureElement__FeatureAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10321:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10322:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10317:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10318:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10322:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10323:3: ( RULE_ID )
+            // InternalGumboParser.g:10318:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10319:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFeatureElementAccess().getFeatureNamedElementCrossReference_0()); 
             }
-            // InternalGumboParser.g:10324:3: ( RULE_ID )
-            // InternalGumboParser.g:10325:4: RULE_ID
+            // InternalGumboParser.g:10320:3: ( RULE_ID )
+            // InternalGumboParser.g:10321:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFeatureElementAccess().getFeatureNamedElementIDTerminalRuleCall_0_1()); 
@@ -33095,23 +33083,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__PropertyAssignment_0"
-    // InternalGumboParser.g:10336:1: rule__ContainedPropertyAssociation__PropertyAssignment_0 : ( ( ruleQPREF ) ) ;
+    // InternalGumboParser.g:10332:1: rule__ContainedPropertyAssociation__PropertyAssignment_0 : ( ( ruleQPREF ) ) ;
     public final void rule__ContainedPropertyAssociation__PropertyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10340:1: ( ( ( ruleQPREF ) ) )
-            // InternalGumboParser.g:10341:2: ( ( ruleQPREF ) )
+            // InternalGumboParser.g:10336:1: ( ( ( ruleQPREF ) ) )
+            // InternalGumboParser.g:10337:2: ( ( ruleQPREF ) )
             {
-            // InternalGumboParser.g:10341:2: ( ( ruleQPREF ) )
-            // InternalGumboParser.g:10342:3: ( ruleQPREF )
+            // InternalGumboParser.g:10337:2: ( ( ruleQPREF ) )
+            // InternalGumboParser.g:10338:3: ( ruleQPREF )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getPropertyPropertyCrossReference_0_0()); 
             }
-            // InternalGumboParser.g:10343:3: ( ruleQPREF )
-            // InternalGumboParser.g:10344:4: ruleQPREF
+            // InternalGumboParser.g:10339:3: ( ruleQPREF )
+            // InternalGumboParser.g:10340:4: ruleQPREF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getPropertyPropertyQPREFParserRuleCall_0_0_1()); 
@@ -33152,23 +33140,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__AppendAssignment_1_1"
-    // InternalGumboParser.g:10355:1: rule__ContainedPropertyAssociation__AppendAssignment_1_1 : ( ( PlusSignEqualsSignGreaterThanSign ) ) ;
+    // InternalGumboParser.g:10351:1: rule__ContainedPropertyAssociation__AppendAssignment_1_1 : ( ( PlusSignEqualsSignGreaterThanSign ) ) ;
     public final void rule__ContainedPropertyAssociation__AppendAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10359:1: ( ( ( PlusSignEqualsSignGreaterThanSign ) ) )
-            // InternalGumboParser.g:10360:2: ( ( PlusSignEqualsSignGreaterThanSign ) )
+            // InternalGumboParser.g:10355:1: ( ( ( PlusSignEqualsSignGreaterThanSign ) ) )
+            // InternalGumboParser.g:10356:2: ( ( PlusSignEqualsSignGreaterThanSign ) )
             {
-            // InternalGumboParser.g:10360:2: ( ( PlusSignEqualsSignGreaterThanSign ) )
-            // InternalGumboParser.g:10361:3: ( PlusSignEqualsSignGreaterThanSign )
+            // InternalGumboParser.g:10356:2: ( ( PlusSignEqualsSignGreaterThanSign ) )
+            // InternalGumboParser.g:10357:3: ( PlusSignEqualsSignGreaterThanSign )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getAppendPlusSignEqualsSignGreaterThanSignKeyword_1_1_0()); 
             }
-            // InternalGumboParser.g:10362:3: ( PlusSignEqualsSignGreaterThanSign )
-            // InternalGumboParser.g:10363:4: PlusSignEqualsSignGreaterThanSign
+            // InternalGumboParser.g:10358:3: ( PlusSignEqualsSignGreaterThanSign )
+            // InternalGumboParser.g:10359:4: PlusSignEqualsSignGreaterThanSign
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getAppendPlusSignEqualsSignGreaterThanSignKeyword_1_1_0()); 
@@ -33205,23 +33193,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__ConstantAssignment_2"
-    // InternalGumboParser.g:10374:1: rule__ContainedPropertyAssociation__ConstantAssignment_2 : ( ( Constant ) ) ;
+    // InternalGumboParser.g:10370:1: rule__ContainedPropertyAssociation__ConstantAssignment_2 : ( ( Constant ) ) ;
     public final void rule__ContainedPropertyAssociation__ConstantAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10378:1: ( ( ( Constant ) ) )
-            // InternalGumboParser.g:10379:2: ( ( Constant ) )
+            // InternalGumboParser.g:10374:1: ( ( ( Constant ) ) )
+            // InternalGumboParser.g:10375:2: ( ( Constant ) )
             {
-            // InternalGumboParser.g:10379:2: ( ( Constant ) )
-            // InternalGumboParser.g:10380:3: ( Constant )
+            // InternalGumboParser.g:10375:2: ( ( Constant ) )
+            // InternalGumboParser.g:10376:3: ( Constant )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getConstantConstantKeyword_2_0()); 
             }
-            // InternalGumboParser.g:10381:3: ( Constant )
-            // InternalGumboParser.g:10382:4: Constant
+            // InternalGumboParser.g:10377:3: ( Constant )
+            // InternalGumboParser.g:10378:4: Constant
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getConstantConstantKeyword_2_0()); 
@@ -33258,17 +33246,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__OwnedValueAssignment_3_0"
-    // InternalGumboParser.g:10393:1: rule__ContainedPropertyAssociation__OwnedValueAssignment_3_0 : ( ruleOptionalModalPropertyValue ) ;
+    // InternalGumboParser.g:10389:1: rule__ContainedPropertyAssociation__OwnedValueAssignment_3_0 : ( ruleOptionalModalPropertyValue ) ;
     public final void rule__ContainedPropertyAssociation__OwnedValueAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10397:1: ( ( ruleOptionalModalPropertyValue ) )
-            // InternalGumboParser.g:10398:2: ( ruleOptionalModalPropertyValue )
+            // InternalGumboParser.g:10393:1: ( ( ruleOptionalModalPropertyValue ) )
+            // InternalGumboParser.g:10394:2: ( ruleOptionalModalPropertyValue )
             {
-            // InternalGumboParser.g:10398:2: ( ruleOptionalModalPropertyValue )
-            // InternalGumboParser.g:10399:3: ruleOptionalModalPropertyValue
+            // InternalGumboParser.g:10394:2: ( ruleOptionalModalPropertyValue )
+            // InternalGumboParser.g:10395:3: ruleOptionalModalPropertyValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getOwnedValueOptionalModalPropertyValueParserRuleCall_3_0_0()); 
@@ -33303,17 +33291,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__OwnedValueAssignment_3_1_1"
-    // InternalGumboParser.g:10408:1: rule__ContainedPropertyAssociation__OwnedValueAssignment_3_1_1 : ( ruleOptionalModalPropertyValue ) ;
+    // InternalGumboParser.g:10404:1: rule__ContainedPropertyAssociation__OwnedValueAssignment_3_1_1 : ( ruleOptionalModalPropertyValue ) ;
     public final void rule__ContainedPropertyAssociation__OwnedValueAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10412:1: ( ( ruleOptionalModalPropertyValue ) )
-            // InternalGumboParser.g:10413:2: ( ruleOptionalModalPropertyValue )
+            // InternalGumboParser.g:10408:1: ( ( ruleOptionalModalPropertyValue ) )
+            // InternalGumboParser.g:10409:2: ( ruleOptionalModalPropertyValue )
             {
-            // InternalGumboParser.g:10413:2: ( ruleOptionalModalPropertyValue )
-            // InternalGumboParser.g:10414:3: ruleOptionalModalPropertyValue
+            // InternalGumboParser.g:10409:2: ( ruleOptionalModalPropertyValue )
+            // InternalGumboParser.g:10410:3: ruleOptionalModalPropertyValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getOwnedValueOptionalModalPropertyValueParserRuleCall_3_1_1_0()); 
@@ -33348,17 +33336,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__AppliesToAssignment_4_1"
-    // InternalGumboParser.g:10423:1: rule__ContainedPropertyAssociation__AppliesToAssignment_4_1 : ( ruleContainmentPath ) ;
+    // InternalGumboParser.g:10419:1: rule__ContainedPropertyAssociation__AppliesToAssignment_4_1 : ( ruleContainmentPath ) ;
     public final void rule__ContainedPropertyAssociation__AppliesToAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10427:1: ( ( ruleContainmentPath ) )
-            // InternalGumboParser.g:10428:2: ( ruleContainmentPath )
+            // InternalGumboParser.g:10423:1: ( ( ruleContainmentPath ) )
+            // InternalGumboParser.g:10424:2: ( ruleContainmentPath )
             {
-            // InternalGumboParser.g:10428:2: ( ruleContainmentPath )
-            // InternalGumboParser.g:10429:3: ruleContainmentPath
+            // InternalGumboParser.g:10424:2: ( ruleContainmentPath )
+            // InternalGumboParser.g:10425:3: ruleContainmentPath
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getAppliesToContainmentPathParserRuleCall_4_1_0()); 
@@ -33393,17 +33381,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__AppliesToAssignment_4_2_1"
-    // InternalGumboParser.g:10438:1: rule__ContainedPropertyAssociation__AppliesToAssignment_4_2_1 : ( ruleContainmentPath ) ;
+    // InternalGumboParser.g:10434:1: rule__ContainedPropertyAssociation__AppliesToAssignment_4_2_1 : ( ruleContainmentPath ) ;
     public final void rule__ContainedPropertyAssociation__AppliesToAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10442:1: ( ( ruleContainmentPath ) )
-            // InternalGumboParser.g:10443:2: ( ruleContainmentPath )
+            // InternalGumboParser.g:10438:1: ( ( ruleContainmentPath ) )
+            // InternalGumboParser.g:10439:2: ( ruleContainmentPath )
             {
-            // InternalGumboParser.g:10443:2: ( ruleContainmentPath )
-            // InternalGumboParser.g:10444:3: ruleContainmentPath
+            // InternalGumboParser.g:10439:2: ( ruleContainmentPath )
+            // InternalGumboParser.g:10440:3: ruleContainmentPath
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getAppliesToContainmentPathParserRuleCall_4_2_1_0()); 
@@ -33438,23 +33426,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainedPropertyAssociation__InBindingAssignment_5_2"
-    // InternalGumboParser.g:10453:1: rule__ContainedPropertyAssociation__InBindingAssignment_5_2 : ( ( ruleQCREF ) ) ;
+    // InternalGumboParser.g:10449:1: rule__ContainedPropertyAssociation__InBindingAssignment_5_2 : ( ( ruleQCREF ) ) ;
     public final void rule__ContainedPropertyAssociation__InBindingAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10457:1: ( ( ( ruleQCREF ) ) )
-            // InternalGumboParser.g:10458:2: ( ( ruleQCREF ) )
+            // InternalGumboParser.g:10453:1: ( ( ( ruleQCREF ) ) )
+            // InternalGumboParser.g:10454:2: ( ( ruleQCREF ) )
             {
-            // InternalGumboParser.g:10458:2: ( ( ruleQCREF ) )
-            // InternalGumboParser.g:10459:3: ( ruleQCREF )
+            // InternalGumboParser.g:10454:2: ( ( ruleQCREF ) )
+            // InternalGumboParser.g:10455:3: ( ruleQCREF )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getInBindingClassifierCrossReference_5_2_0()); 
             }
-            // InternalGumboParser.g:10460:3: ( ruleQCREF )
-            // InternalGumboParser.g:10461:4: ruleQCREF
+            // InternalGumboParser.g:10456:3: ( ruleQCREF )
+            // InternalGumboParser.g:10457:4: ruleQCREF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getInBindingClassifierQCREFParserRuleCall_5_2_0_1()); 
@@ -33495,17 +33483,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainmentPath__PathAssignment"
-    // InternalGumboParser.g:10472:1: rule__ContainmentPath__PathAssignment : ( ruleContainmentPathElement ) ;
+    // InternalGumboParser.g:10468:1: rule__ContainmentPath__PathAssignment : ( ruleContainmentPathElement ) ;
     public final void rule__ContainmentPath__PathAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10476:1: ( ( ruleContainmentPathElement ) )
-            // InternalGumboParser.g:10477:2: ( ruleContainmentPathElement )
+            // InternalGumboParser.g:10472:1: ( ( ruleContainmentPathElement ) )
+            // InternalGumboParser.g:10473:2: ( ruleContainmentPathElement )
             {
-            // InternalGumboParser.g:10477:2: ( ruleContainmentPathElement )
-            // InternalGumboParser.g:10478:3: ruleContainmentPathElement
+            // InternalGumboParser.g:10473:2: ( ruleContainmentPathElement )
+            // InternalGumboParser.g:10474:3: ruleContainmentPathElement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainmentPathAccess().getPathContainmentPathElementParserRuleCall_0()); 
@@ -33540,17 +33528,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OptionalModalPropertyValue__OwnedValueAssignment_0"
-    // InternalGumboParser.g:10487:1: rule__OptionalModalPropertyValue__OwnedValueAssignment_0 : ( rulePropertyExpression ) ;
+    // InternalGumboParser.g:10483:1: rule__OptionalModalPropertyValue__OwnedValueAssignment_0 : ( rulePropertyExpression ) ;
     public final void rule__OptionalModalPropertyValue__OwnedValueAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10491:1: ( ( rulePropertyExpression ) )
-            // InternalGumboParser.g:10492:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10487:1: ( ( rulePropertyExpression ) )
+            // InternalGumboParser.g:10488:2: ( rulePropertyExpression )
             {
-            // InternalGumboParser.g:10492:2: ( rulePropertyExpression )
-            // InternalGumboParser.g:10493:3: rulePropertyExpression
+            // InternalGumboParser.g:10488:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10489:3: rulePropertyExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getOwnedValuePropertyExpressionParserRuleCall_0_0()); 
@@ -33585,23 +33573,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OptionalModalPropertyValue__InModeAssignment_1_2"
-    // InternalGumboParser.g:10502:1: rule__OptionalModalPropertyValue__InModeAssignment_1_2 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10498:1: rule__OptionalModalPropertyValue__InModeAssignment_1_2 : ( ( RULE_ID ) ) ;
     public final void rule__OptionalModalPropertyValue__InModeAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10506:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10507:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10502:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10503:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10507:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10508:3: ( RULE_ID )
+            // InternalGumboParser.g:10503:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10504:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getInModeModeCrossReference_1_2_0()); 
             }
-            // InternalGumboParser.g:10509:3: ( RULE_ID )
-            // InternalGumboParser.g:10510:4: RULE_ID
+            // InternalGumboParser.g:10505:3: ( RULE_ID )
+            // InternalGumboParser.g:10506:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getInModeModeIDTerminalRuleCall_1_2_0_1()); 
@@ -33638,23 +33626,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OptionalModalPropertyValue__InModeAssignment_1_3_1"
-    // InternalGumboParser.g:10521:1: rule__OptionalModalPropertyValue__InModeAssignment_1_3_1 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10517:1: rule__OptionalModalPropertyValue__InModeAssignment_1_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__OptionalModalPropertyValue__InModeAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10525:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10526:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10521:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10522:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10526:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10527:3: ( RULE_ID )
+            // InternalGumboParser.g:10522:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10523:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getInModeModeCrossReference_1_3_1_0()); 
             }
-            // InternalGumboParser.g:10528:3: ( RULE_ID )
-            // InternalGumboParser.g:10529:4: RULE_ID
+            // InternalGumboParser.g:10524:3: ( RULE_ID )
+            // InternalGumboParser.g:10525:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getInModeModeIDTerminalRuleCall_1_3_1_0_1()); 
@@ -33691,17 +33679,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValue__OwnedValueAssignment"
-    // InternalGumboParser.g:10540:1: rule__PropertyValue__OwnedValueAssignment : ( rulePropertyExpression ) ;
+    // InternalGumboParser.g:10536:1: rule__PropertyValue__OwnedValueAssignment : ( rulePropertyExpression ) ;
     public final void rule__PropertyValue__OwnedValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10544:1: ( ( rulePropertyExpression ) )
-            // InternalGumboParser.g:10545:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10540:1: ( ( rulePropertyExpression ) )
+            // InternalGumboParser.g:10541:2: ( rulePropertyExpression )
             {
-            // InternalGumboParser.g:10545:2: ( rulePropertyExpression )
-            // InternalGumboParser.g:10546:3: rulePropertyExpression
+            // InternalGumboParser.g:10541:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10542:3: rulePropertyExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyValueAccess().getOwnedValuePropertyExpressionParserRuleCall_0()); 
@@ -33736,23 +33724,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LiteralorReferenceTerm__NamedValueAssignment"
-    // InternalGumboParser.g:10555:1: rule__LiteralorReferenceTerm__NamedValueAssignment : ( ( ruleQPREF ) ) ;
+    // InternalGumboParser.g:10551:1: rule__LiteralorReferenceTerm__NamedValueAssignment : ( ( ruleQPREF ) ) ;
     public final void rule__LiteralorReferenceTerm__NamedValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10559:1: ( ( ( ruleQPREF ) ) )
-            // InternalGumboParser.g:10560:2: ( ( ruleQPREF ) )
+            // InternalGumboParser.g:10555:1: ( ( ( ruleQPREF ) ) )
+            // InternalGumboParser.g:10556:2: ( ( ruleQPREF ) )
             {
-            // InternalGumboParser.g:10560:2: ( ( ruleQPREF ) )
-            // InternalGumboParser.g:10561:3: ( ruleQPREF )
+            // InternalGumboParser.g:10556:2: ( ( ruleQPREF ) )
+            // InternalGumboParser.g:10557:3: ( ruleQPREF )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLiteralorReferenceTermAccess().getNamedValueAbstractNamedValueCrossReference_0()); 
             }
-            // InternalGumboParser.g:10562:3: ( ruleQPREF )
-            // InternalGumboParser.g:10563:4: ruleQPREF
+            // InternalGumboParser.g:10558:3: ( ruleQPREF )
+            // InternalGumboParser.g:10559:4: ruleQPREF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLiteralorReferenceTermAccess().getNamedValueAbstractNamedValueQPREFParserRuleCall_0_1()); 
@@ -33793,23 +33781,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanLiteral__ValueAssignment_1_0"
-    // InternalGumboParser.g:10574:1: rule__BooleanLiteral__ValueAssignment_1_0 : ( ( True ) ) ;
+    // InternalGumboParser.g:10570:1: rule__BooleanLiteral__ValueAssignment_1_0 : ( ( True ) ) ;
     public final void rule__BooleanLiteral__ValueAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10578:1: ( ( ( True ) ) )
-            // InternalGumboParser.g:10579:2: ( ( True ) )
+            // InternalGumboParser.g:10574:1: ( ( ( True ) ) )
+            // InternalGumboParser.g:10575:2: ( ( True ) )
             {
-            // InternalGumboParser.g:10579:2: ( ( True ) )
-            // InternalGumboParser.g:10580:3: ( True )
+            // InternalGumboParser.g:10575:2: ( ( True ) )
+            // InternalGumboParser.g:10576:3: ( True )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralAccess().getValueTrueKeyword_1_0_0()); 
             }
-            // InternalGumboParser.g:10581:3: ( True )
-            // InternalGumboParser.g:10582:4: True
+            // InternalGumboParser.g:10577:3: ( True )
+            // InternalGumboParser.g:10578:4: True
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralAccess().getValueTrueKeyword_1_0_0()); 
@@ -33846,23 +33834,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConstantValue__NamedValueAssignment"
-    // InternalGumboParser.g:10593:1: rule__ConstantValue__NamedValueAssignment : ( ( ruleQPREF ) ) ;
+    // InternalGumboParser.g:10589:1: rule__ConstantValue__NamedValueAssignment : ( ( ruleQPREF ) ) ;
     public final void rule__ConstantValue__NamedValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10597:1: ( ( ( ruleQPREF ) ) )
-            // InternalGumboParser.g:10598:2: ( ( ruleQPREF ) )
+            // InternalGumboParser.g:10593:1: ( ( ( ruleQPREF ) ) )
+            // InternalGumboParser.g:10594:2: ( ( ruleQPREF ) )
             {
-            // InternalGumboParser.g:10598:2: ( ( ruleQPREF ) )
-            // InternalGumboParser.g:10599:3: ( ruleQPREF )
+            // InternalGumboParser.g:10594:2: ( ( ruleQPREF ) )
+            // InternalGumboParser.g:10595:3: ( ruleQPREF )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConstantValueAccess().getNamedValuePropertyConstantCrossReference_0()); 
             }
-            // InternalGumboParser.g:10600:3: ( ruleQPREF )
-            // InternalGumboParser.g:10601:4: ruleQPREF
+            // InternalGumboParser.g:10596:3: ( ruleQPREF )
+            // InternalGumboParser.g:10597:4: ruleQPREF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConstantValueAccess().getNamedValuePropertyConstantQPREFParserRuleCall_0_1()); 
@@ -33903,17 +33891,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferenceTerm__PathAssignment_2"
-    // InternalGumboParser.g:10612:1: rule__ReferenceTerm__PathAssignment_2 : ( ruleContainmentPathElement ) ;
+    // InternalGumboParser.g:10608:1: rule__ReferenceTerm__PathAssignment_2 : ( ruleContainmentPathElement ) ;
     public final void rule__ReferenceTerm__PathAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10616:1: ( ( ruleContainmentPathElement ) )
-            // InternalGumboParser.g:10617:2: ( ruleContainmentPathElement )
+            // InternalGumboParser.g:10612:1: ( ( ruleContainmentPathElement ) )
+            // InternalGumboParser.g:10613:2: ( ruleContainmentPathElement )
             {
-            // InternalGumboParser.g:10617:2: ( ruleContainmentPathElement )
-            // InternalGumboParser.g:10618:3: ruleContainmentPathElement
+            // InternalGumboParser.g:10613:2: ( ruleContainmentPathElement )
+            // InternalGumboParser.g:10614:3: ruleContainmentPathElement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getReferenceTermAccess().getPathContainmentPathElementParserRuleCall_2_0()); 
@@ -33948,17 +33936,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordTerm__OwnedFieldValueAssignment_1"
-    // InternalGumboParser.g:10627:1: rule__RecordTerm__OwnedFieldValueAssignment_1 : ( ruleFieldPropertyAssociation ) ;
+    // InternalGumboParser.g:10623:1: rule__RecordTerm__OwnedFieldValueAssignment_1 : ( ruleFieldPropertyAssociation ) ;
     public final void rule__RecordTerm__OwnedFieldValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10631:1: ( ( ruleFieldPropertyAssociation ) )
-            // InternalGumboParser.g:10632:2: ( ruleFieldPropertyAssociation )
+            // InternalGumboParser.g:10627:1: ( ( ruleFieldPropertyAssociation ) )
+            // InternalGumboParser.g:10628:2: ( ruleFieldPropertyAssociation )
             {
-            // InternalGumboParser.g:10632:2: ( ruleFieldPropertyAssociation )
-            // InternalGumboParser.g:10633:3: ruleFieldPropertyAssociation
+            // InternalGumboParser.g:10628:2: ( ruleFieldPropertyAssociation )
+            // InternalGumboParser.g:10629:3: ruleFieldPropertyAssociation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRecordTermAccess().getOwnedFieldValueFieldPropertyAssociationParserRuleCall_1_0()); 
@@ -33993,17 +33981,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ComputedTerm__FunctionAssignment_2"
-    // InternalGumboParser.g:10642:1: rule__ComputedTerm__FunctionAssignment_2 : ( RULE_ID ) ;
+    // InternalGumboParser.g:10638:1: rule__ComputedTerm__FunctionAssignment_2 : ( RULE_ID ) ;
     public final void rule__ComputedTerm__FunctionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10646:1: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10647:2: ( RULE_ID )
+            // InternalGumboParser.g:10642:1: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10643:2: ( RULE_ID )
             {
-            // InternalGumboParser.g:10647:2: ( RULE_ID )
-            // InternalGumboParser.g:10648:3: RULE_ID
+            // InternalGumboParser.g:10643:2: ( RULE_ID )
+            // InternalGumboParser.g:10644:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComputedTermAccess().getFunctionIDTerminalRuleCall_2_0()); 
@@ -34034,23 +34022,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ComponentClassifierTerm__ClassifierAssignment_2"
-    // InternalGumboParser.g:10657:1: rule__ComponentClassifierTerm__ClassifierAssignment_2 : ( ( ruleQCREF ) ) ;
+    // InternalGumboParser.g:10653:1: rule__ComponentClassifierTerm__ClassifierAssignment_2 : ( ( ruleQCREF ) ) ;
     public final void rule__ComponentClassifierTerm__ClassifierAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10661:1: ( ( ( ruleQCREF ) ) )
-            // InternalGumboParser.g:10662:2: ( ( ruleQCREF ) )
+            // InternalGumboParser.g:10657:1: ( ( ( ruleQCREF ) ) )
+            // InternalGumboParser.g:10658:2: ( ( ruleQCREF ) )
             {
-            // InternalGumboParser.g:10662:2: ( ( ruleQCREF ) )
-            // InternalGumboParser.g:10663:3: ( ruleQCREF )
+            // InternalGumboParser.g:10658:2: ( ( ruleQCREF ) )
+            // InternalGumboParser.g:10659:3: ( ruleQCREF )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComponentClassifierTermAccess().getClassifierComponentClassifierCrossReference_2_0()); 
             }
-            // InternalGumboParser.g:10664:3: ( ruleQCREF )
-            // InternalGumboParser.g:10665:4: ruleQCREF
+            // InternalGumboParser.g:10660:3: ( ruleQCREF )
+            // InternalGumboParser.g:10661:4: ruleQCREF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComponentClassifierTermAccess().getClassifierComponentClassifierQCREFParserRuleCall_2_0_1()); 
@@ -34091,17 +34079,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ListTerm__OwnedListElementAssignment_2_0"
-    // InternalGumboParser.g:10676:1: rule__ListTerm__OwnedListElementAssignment_2_0 : ( rulePropertyExpression ) ;
+    // InternalGumboParser.g:10672:1: rule__ListTerm__OwnedListElementAssignment_2_0 : ( rulePropertyExpression ) ;
     public final void rule__ListTerm__OwnedListElementAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10680:1: ( ( rulePropertyExpression ) )
-            // InternalGumboParser.g:10681:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10676:1: ( ( rulePropertyExpression ) )
+            // InternalGumboParser.g:10677:2: ( rulePropertyExpression )
             {
-            // InternalGumboParser.g:10681:2: ( rulePropertyExpression )
-            // InternalGumboParser.g:10682:3: rulePropertyExpression
+            // InternalGumboParser.g:10677:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10678:3: rulePropertyExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getListTermAccess().getOwnedListElementPropertyExpressionParserRuleCall_2_0_0()); 
@@ -34136,17 +34124,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ListTerm__OwnedListElementAssignment_2_1_1"
-    // InternalGumboParser.g:10691:1: rule__ListTerm__OwnedListElementAssignment_2_1_1 : ( rulePropertyExpression ) ;
+    // InternalGumboParser.g:10687:1: rule__ListTerm__OwnedListElementAssignment_2_1_1 : ( rulePropertyExpression ) ;
     public final void rule__ListTerm__OwnedListElementAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10695:1: ( ( rulePropertyExpression ) )
-            // InternalGumboParser.g:10696:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10691:1: ( ( rulePropertyExpression ) )
+            // InternalGumboParser.g:10692:2: ( rulePropertyExpression )
             {
-            // InternalGumboParser.g:10696:2: ( rulePropertyExpression )
-            // InternalGumboParser.g:10697:3: rulePropertyExpression
+            // InternalGumboParser.g:10692:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10693:3: rulePropertyExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getListTermAccess().getOwnedListElementPropertyExpressionParserRuleCall_2_1_1_0()); 
@@ -34181,23 +34169,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FieldPropertyAssociation__PropertyAssignment_0"
-    // InternalGumboParser.g:10706:1: rule__FieldPropertyAssociation__PropertyAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10702:1: rule__FieldPropertyAssociation__PropertyAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__FieldPropertyAssociation__PropertyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10710:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10711:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10706:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10707:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10711:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10712:3: ( RULE_ID )
+            // InternalGumboParser.g:10707:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10708:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldPropertyAssociationAccess().getPropertyBasicPropertyCrossReference_0_0()); 
             }
-            // InternalGumboParser.g:10713:3: ( RULE_ID )
-            // InternalGumboParser.g:10714:4: RULE_ID
+            // InternalGumboParser.g:10709:3: ( RULE_ID )
+            // InternalGumboParser.g:10710:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldPropertyAssociationAccess().getPropertyBasicPropertyIDTerminalRuleCall_0_0_1()); 
@@ -34234,17 +34222,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FieldPropertyAssociation__OwnedValueAssignment_2"
-    // InternalGumboParser.g:10725:1: rule__FieldPropertyAssociation__OwnedValueAssignment_2 : ( rulePropertyExpression ) ;
+    // InternalGumboParser.g:10721:1: rule__FieldPropertyAssociation__OwnedValueAssignment_2 : ( rulePropertyExpression ) ;
     public final void rule__FieldPropertyAssociation__OwnedValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10729:1: ( ( rulePropertyExpression ) )
-            // InternalGumboParser.g:10730:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10725:1: ( ( rulePropertyExpression ) )
+            // InternalGumboParser.g:10726:2: ( rulePropertyExpression )
             {
-            // InternalGumboParser.g:10730:2: ( rulePropertyExpression )
-            // InternalGumboParser.g:10731:3: rulePropertyExpression
+            // InternalGumboParser.g:10726:2: ( rulePropertyExpression )
+            // InternalGumboParser.g:10727:3: rulePropertyExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldPropertyAssociationAccess().getOwnedValuePropertyExpressionParserRuleCall_2_0()); 
@@ -34279,23 +34267,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainmentPathElement__NamedElementAssignment_0_0"
-    // InternalGumboParser.g:10740:1: rule__ContainmentPathElement__NamedElementAssignment_0_0 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10736:1: rule__ContainmentPathElement__NamedElementAssignment_0_0 : ( ( RULE_ID ) ) ;
     public final void rule__ContainmentPathElement__NamedElementAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10744:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10745:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10740:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10741:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10745:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10746:3: ( RULE_ID )
+            // InternalGumboParser.g:10741:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10742:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainmentPathElementAccess().getNamedElementNamedElementCrossReference_0_0_0()); 
             }
-            // InternalGumboParser.g:10747:3: ( RULE_ID )
-            // InternalGumboParser.g:10748:4: RULE_ID
+            // InternalGumboParser.g:10743:3: ( RULE_ID )
+            // InternalGumboParser.g:10744:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainmentPathElementAccess().getNamedElementNamedElementIDTerminalRuleCall_0_0_0_1()); 
@@ -34332,17 +34320,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainmentPathElement__ArrayRangeAssignment_0_1"
-    // InternalGumboParser.g:10759:1: rule__ContainmentPathElement__ArrayRangeAssignment_0_1 : ( ruleArrayRange ) ;
+    // InternalGumboParser.g:10755:1: rule__ContainmentPathElement__ArrayRangeAssignment_0_1 : ( ruleArrayRange ) ;
     public final void rule__ContainmentPathElement__ArrayRangeAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10763:1: ( ( ruleArrayRange ) )
-            // InternalGumboParser.g:10764:2: ( ruleArrayRange )
+            // InternalGumboParser.g:10759:1: ( ( ruleArrayRange ) )
+            // InternalGumboParser.g:10760:2: ( ruleArrayRange )
             {
-            // InternalGumboParser.g:10764:2: ( ruleArrayRange )
-            // InternalGumboParser.g:10765:3: ruleArrayRange
+            // InternalGumboParser.g:10760:2: ( ruleArrayRange )
+            // InternalGumboParser.g:10761:3: ruleArrayRange
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainmentPathElementAccess().getArrayRangeArrayRangeParserRuleCall_0_1_0()); 
@@ -34377,17 +34365,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContainmentPathElement__PathAssignment_1_1"
-    // InternalGumboParser.g:10774:1: rule__ContainmentPathElement__PathAssignment_1_1 : ( ruleContainmentPathElement ) ;
+    // InternalGumboParser.g:10770:1: rule__ContainmentPathElement__PathAssignment_1_1 : ( ruleContainmentPathElement ) ;
     public final void rule__ContainmentPathElement__PathAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10778:1: ( ( ruleContainmentPathElement ) )
-            // InternalGumboParser.g:10779:2: ( ruleContainmentPathElement )
+            // InternalGumboParser.g:10774:1: ( ( ruleContainmentPathElement ) )
+            // InternalGumboParser.g:10775:2: ( ruleContainmentPathElement )
             {
-            // InternalGumboParser.g:10779:2: ( ruleContainmentPathElement )
-            // InternalGumboParser.g:10780:3: ruleContainmentPathElement
+            // InternalGumboParser.g:10775:2: ( ruleContainmentPathElement )
+            // InternalGumboParser.g:10776:3: ruleContainmentPathElement
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainmentPathElementAccess().getPathContainmentPathElementParserRuleCall_1_1_0()); 
@@ -34422,17 +34410,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringTerm__ValueAssignment"
-    // InternalGumboParser.g:10789:1: rule__StringTerm__ValueAssignment : ( ruleNoQuoteString ) ;
+    // InternalGumboParser.g:10785:1: rule__StringTerm__ValueAssignment : ( ruleNoQuoteString ) ;
     public final void rule__StringTerm__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10793:1: ( ( ruleNoQuoteString ) )
-            // InternalGumboParser.g:10794:2: ( ruleNoQuoteString )
+            // InternalGumboParser.g:10789:1: ( ( ruleNoQuoteString ) )
+            // InternalGumboParser.g:10790:2: ( ruleNoQuoteString )
             {
-            // InternalGumboParser.g:10794:2: ( ruleNoQuoteString )
-            // InternalGumboParser.g:10795:3: ruleNoQuoteString
+            // InternalGumboParser.g:10790:2: ( ruleNoQuoteString )
+            // InternalGumboParser.g:10791:3: ruleNoQuoteString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStringTermAccess().getValueNoQuoteStringParserRuleCall_0()); 
@@ -34467,17 +34455,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRange__LowerBoundAssignment_2"
-    // InternalGumboParser.g:10804:1: rule__ArrayRange__LowerBoundAssignment_2 : ( ruleINTVALUE ) ;
+    // InternalGumboParser.g:10800:1: rule__ArrayRange__LowerBoundAssignment_2 : ( ruleINTVALUE ) ;
     public final void rule__ArrayRange__LowerBoundAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10808:1: ( ( ruleINTVALUE ) )
-            // InternalGumboParser.g:10809:2: ( ruleINTVALUE )
+            // InternalGumboParser.g:10804:1: ( ( ruleINTVALUE ) )
+            // InternalGumboParser.g:10805:2: ( ruleINTVALUE )
             {
-            // InternalGumboParser.g:10809:2: ( ruleINTVALUE )
-            // InternalGumboParser.g:10810:3: ruleINTVALUE
+            // InternalGumboParser.g:10805:2: ( ruleINTVALUE )
+            // InternalGumboParser.g:10806:3: ruleINTVALUE
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayRangeAccess().getLowerBoundINTVALUEParserRuleCall_2_0()); 
@@ -34512,17 +34500,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRange__UpperBoundAssignment_3_1"
-    // InternalGumboParser.g:10819:1: rule__ArrayRange__UpperBoundAssignment_3_1 : ( ruleINTVALUE ) ;
+    // InternalGumboParser.g:10815:1: rule__ArrayRange__UpperBoundAssignment_3_1 : ( ruleINTVALUE ) ;
     public final void rule__ArrayRange__UpperBoundAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10823:1: ( ( ruleINTVALUE ) )
-            // InternalGumboParser.g:10824:2: ( ruleINTVALUE )
+            // InternalGumboParser.g:10819:1: ( ( ruleINTVALUE ) )
+            // InternalGumboParser.g:10820:2: ( ruleINTVALUE )
             {
-            // InternalGumboParser.g:10824:2: ( ruleINTVALUE )
-            // InternalGumboParser.g:10825:3: ruleINTVALUE
+            // InternalGumboParser.g:10820:2: ( ruleINTVALUE )
+            // InternalGumboParser.g:10821:3: ruleINTVALUE
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayRangeAccess().getUpperBoundINTVALUEParserRuleCall_3_1_0()); 
@@ -34557,17 +34545,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SignedConstant__OpAssignment_0"
-    // InternalGumboParser.g:10834:1: rule__SignedConstant__OpAssignment_0 : ( rulePlusMinus ) ;
+    // InternalGumboParser.g:10830:1: rule__SignedConstant__OpAssignment_0 : ( rulePlusMinus ) ;
     public final void rule__SignedConstant__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10838:1: ( ( rulePlusMinus ) )
-            // InternalGumboParser.g:10839:2: ( rulePlusMinus )
+            // InternalGumboParser.g:10834:1: ( ( rulePlusMinus ) )
+            // InternalGumboParser.g:10835:2: ( rulePlusMinus )
             {
-            // InternalGumboParser.g:10839:2: ( rulePlusMinus )
-            // InternalGumboParser.g:10840:3: rulePlusMinus
+            // InternalGumboParser.g:10835:2: ( rulePlusMinus )
+            // InternalGumboParser.g:10836:3: rulePlusMinus
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSignedConstantAccess().getOpPlusMinusParserRuleCall_0_0()); 
@@ -34602,17 +34590,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SignedConstant__OwnedPropertyExpressionAssignment_1"
-    // InternalGumboParser.g:10849:1: rule__SignedConstant__OwnedPropertyExpressionAssignment_1 : ( ruleConstantValue ) ;
+    // InternalGumboParser.g:10845:1: rule__SignedConstant__OwnedPropertyExpressionAssignment_1 : ( ruleConstantValue ) ;
     public final void rule__SignedConstant__OwnedPropertyExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10853:1: ( ( ruleConstantValue ) )
-            // InternalGumboParser.g:10854:2: ( ruleConstantValue )
+            // InternalGumboParser.g:10849:1: ( ( ruleConstantValue ) )
+            // InternalGumboParser.g:10850:2: ( ruleConstantValue )
             {
-            // InternalGumboParser.g:10854:2: ( ruleConstantValue )
-            // InternalGumboParser.g:10855:3: ruleConstantValue
+            // InternalGumboParser.g:10850:2: ( ruleConstantValue )
+            // InternalGumboParser.g:10851:3: ruleConstantValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSignedConstantAccess().getOwnedPropertyExpressionConstantValueParserRuleCall_1_0()); 
@@ -34647,17 +34635,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerTerm__ValueAssignment_0"
-    // InternalGumboParser.g:10864:1: rule__IntegerTerm__ValueAssignment_0 : ( ruleSignedInt ) ;
+    // InternalGumboParser.g:10860:1: rule__IntegerTerm__ValueAssignment_0 : ( ruleSignedInt ) ;
     public final void rule__IntegerTerm__ValueAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10868:1: ( ( ruleSignedInt ) )
-            // InternalGumboParser.g:10869:2: ( ruleSignedInt )
+            // InternalGumboParser.g:10864:1: ( ( ruleSignedInt ) )
+            // InternalGumboParser.g:10865:2: ( ruleSignedInt )
             {
-            // InternalGumboParser.g:10869:2: ( ruleSignedInt )
-            // InternalGumboParser.g:10870:3: ruleSignedInt
+            // InternalGumboParser.g:10865:2: ( ruleSignedInt )
+            // InternalGumboParser.g:10866:3: ruleSignedInt
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegerTermAccess().getValueSignedIntParserRuleCall_0_0()); 
@@ -34692,23 +34680,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerTerm__UnitAssignment_1"
-    // InternalGumboParser.g:10879:1: rule__IntegerTerm__UnitAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10875:1: rule__IntegerTerm__UnitAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__IntegerTerm__UnitAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10883:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10884:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10879:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10880:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10884:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10885:3: ( RULE_ID )
+            // InternalGumboParser.g:10880:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10881:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegerTermAccess().getUnitUnitLiteralCrossReference_1_0()); 
             }
-            // InternalGumboParser.g:10886:3: ( RULE_ID )
-            // InternalGumboParser.g:10887:4: RULE_ID
+            // InternalGumboParser.g:10882:3: ( RULE_ID )
+            // InternalGumboParser.g:10883:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegerTermAccess().getUnitUnitLiteralIDTerminalRuleCall_1_0_1()); 
@@ -34745,17 +34733,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RealTerm__ValueAssignment_0"
-    // InternalGumboParser.g:10898:1: rule__RealTerm__ValueAssignment_0 : ( ruleSignedReal ) ;
+    // InternalGumboParser.g:10894:1: rule__RealTerm__ValueAssignment_0 : ( ruleSignedReal ) ;
     public final void rule__RealTerm__ValueAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10902:1: ( ( ruleSignedReal ) )
-            // InternalGumboParser.g:10903:2: ( ruleSignedReal )
+            // InternalGumboParser.g:10898:1: ( ( ruleSignedReal ) )
+            // InternalGumboParser.g:10899:2: ( ruleSignedReal )
             {
-            // InternalGumboParser.g:10903:2: ( ruleSignedReal )
-            // InternalGumboParser.g:10904:3: ruleSignedReal
+            // InternalGumboParser.g:10899:2: ( ruleSignedReal )
+            // InternalGumboParser.g:10900:3: ruleSignedReal
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRealTermAccess().getValueSignedRealParserRuleCall_0_0()); 
@@ -34790,23 +34778,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RealTerm__UnitAssignment_1"
-    // InternalGumboParser.g:10913:1: rule__RealTerm__UnitAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalGumboParser.g:10909:1: rule__RealTerm__UnitAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__RealTerm__UnitAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10917:1: ( ( ( RULE_ID ) ) )
-            // InternalGumboParser.g:10918:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10913:1: ( ( ( RULE_ID ) ) )
+            // InternalGumboParser.g:10914:2: ( ( RULE_ID ) )
             {
-            // InternalGumboParser.g:10918:2: ( ( RULE_ID ) )
-            // InternalGumboParser.g:10919:3: ( RULE_ID )
+            // InternalGumboParser.g:10914:2: ( ( RULE_ID ) )
+            // InternalGumboParser.g:10915:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRealTermAccess().getUnitUnitLiteralCrossReference_1_0()); 
             }
-            // InternalGumboParser.g:10920:3: ( RULE_ID )
-            // InternalGumboParser.g:10921:4: RULE_ID
+            // InternalGumboParser.g:10916:3: ( RULE_ID )
+            // InternalGumboParser.g:10917:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRealTermAccess().getUnitUnitLiteralIDTerminalRuleCall_1_0_1()); 
@@ -34843,17 +34831,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NumericRangeTerm__MinimumAssignment_0"
-    // InternalGumboParser.g:10932:1: rule__NumericRangeTerm__MinimumAssignment_0 : ( ruleNumAlt ) ;
+    // InternalGumboParser.g:10928:1: rule__NumericRangeTerm__MinimumAssignment_0 : ( ruleNumAlt ) ;
     public final void rule__NumericRangeTerm__MinimumAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10936:1: ( ( ruleNumAlt ) )
-            // InternalGumboParser.g:10937:2: ( ruleNumAlt )
+            // InternalGumboParser.g:10932:1: ( ( ruleNumAlt ) )
+            // InternalGumboParser.g:10933:2: ( ruleNumAlt )
             {
-            // InternalGumboParser.g:10937:2: ( ruleNumAlt )
-            // InternalGumboParser.g:10938:3: ruleNumAlt
+            // InternalGumboParser.g:10933:2: ( ruleNumAlt )
+            // InternalGumboParser.g:10934:3: ruleNumAlt
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumericRangeTermAccess().getMinimumNumAltParserRuleCall_0_0()); 
@@ -34888,17 +34876,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NumericRangeTerm__MaximumAssignment_2"
-    // InternalGumboParser.g:10947:1: rule__NumericRangeTerm__MaximumAssignment_2 : ( ruleNumAlt ) ;
+    // InternalGumboParser.g:10943:1: rule__NumericRangeTerm__MaximumAssignment_2 : ( ruleNumAlt ) ;
     public final void rule__NumericRangeTerm__MaximumAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10951:1: ( ( ruleNumAlt ) )
-            // InternalGumboParser.g:10952:2: ( ruleNumAlt )
+            // InternalGumboParser.g:10947:1: ( ( ruleNumAlt ) )
+            // InternalGumboParser.g:10948:2: ( ruleNumAlt )
             {
-            // InternalGumboParser.g:10952:2: ( ruleNumAlt )
-            // InternalGumboParser.g:10953:3: ruleNumAlt
+            // InternalGumboParser.g:10948:2: ( ruleNumAlt )
+            // InternalGumboParser.g:10949:3: ruleNumAlt
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumericRangeTermAccess().getMaximumNumAltParserRuleCall_2_0()); 
@@ -34933,17 +34921,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NumericRangeTerm__DeltaAssignment_3_1"
-    // InternalGumboParser.g:10962:1: rule__NumericRangeTerm__DeltaAssignment_3_1 : ( ruleNumAlt ) ;
+    // InternalGumboParser.g:10958:1: rule__NumericRangeTerm__DeltaAssignment_3_1 : ( ruleNumAlt ) ;
     public final void rule__NumericRangeTerm__DeltaAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumboParser.g:10966:1: ( ( ruleNumAlt ) )
-            // InternalGumboParser.g:10967:2: ( ruleNumAlt )
+            // InternalGumboParser.g:10962:1: ( ( ruleNumAlt ) )
+            // InternalGumboParser.g:10963:2: ( ruleNumAlt )
             {
-            // InternalGumboParser.g:10967:2: ( ruleNumAlt )
-            // InternalGumboParser.g:10968:3: ruleNumAlt
+            // InternalGumboParser.g:10963:2: ( ruleNumAlt )
+            // InternalGumboParser.g:10964:3: ruleNumAlt
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumericRangeTermAccess().getDeltaNumAltParserRuleCall_3_1_0()); 

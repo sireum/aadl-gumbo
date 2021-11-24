@@ -2029,15 +2029,18 @@ ruleAtomicExpr returns [EObject current=null]
 			(
 				(
 					{
+						newCompositeNode(grammarAccess.getAtomicExprAccess().getEnumTypeDataElementParserRuleCall_2_1_0());
+					}
+					lv_enumType_9_0=ruleDataElement
+					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAtomicExprRule());
+							$current = createModelElementForParent(grammarAccess.getAtomicExprRule());
 						}
-					}
-					{
-						newCompositeNode(grammarAccess.getAtomicExprAccess().getEnumTypePropertyCrossReference_2_1_0());
-					}
-					ruleQCREF
-					{
+						set(
+							$current,
+							"enumType",
+							lv_enumType_9_0,
+							"org.sireum.aadl.gumbo.Gumbo.DataElement");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2055,7 +2058,7 @@ ruleAtomicExpr returns [EObject current=null]
 					}
 					otherlv_11=RULE_ID
 					{
-						newLeafNode(otherlv_11, grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralCrossReference_2_3_0());
+						newLeafNode(otherlv_11, grammarAccess.getAtomicExprAccess().getValueStringLiteralCrossReference_2_3_0());
 					}
 				)
 			)

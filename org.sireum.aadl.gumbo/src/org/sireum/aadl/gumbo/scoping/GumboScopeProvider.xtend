@@ -39,6 +39,12 @@ import org.osate.aadl2.DataImplementation
 import org.sireum.aadl.gumbo.gumbo.DataElement
 import org.osate.aadl2.DataType
 import org.osate.aadl2.modelsupport.util.AadlUtil
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.osate.aadl2.ListValue
+import org.osate.aadl2.DataClassifier
+import org.osate.aadl2.EnumerationLiteral
+import org.osate.aadl2.NamedValue
+import org.osate.aadl2.StringLiteral
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -111,22 +117,67 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 	
 	def scope_EnumLitExpr_enumType(EnumLitExpr context, EReference reference) {
-		genericContext(context, reference)
-	}
-
-	def scope_EnumLitExpr_value(EnumLitExpr context, EReference reference) {
-		val prop = context.enumType.propertyType
-		val scope = (prop as EnumerationType)?.ownedLiterals.scopeFor
-		scope
-	}
-		
-	def scope_DataElement_dataElement(DataElement context, EReference reference) {
     	val pkg = context.getContainerOfType(AadlPackage)
     	val elem = context.getContainerOfType(PackageSection).ownedMembers.filter([x | x instanceof DataImplementation]) +
     	           context.getContainerOfType(PackageSection).
     	           importedUnits.
     	           filter(AadlPackage).
     	           map([x | x.ownedPublicSection.ownedMembers.filter([y | y instanceof DataImplementation])]).
+    	           flatten
+    	val scope = elem.scopeFor(
+    		[{ 
+    			val String[] splitName = name.split("\\.")
+    			if(getContainerOfType(AadlPackage) !== pkg) {
+    				splitName.set(0, getContainerOfType(AadlPackage).name + "::" + splitName.get(0))
+    			}
+    			QualifiedName::create(splitName)
+    		}],
+    		IScope::NULLSCOPE
+    	)
+    	scope		
+	}
+
+	def scope_EnumLitExpr_value(EnumLitExpr context, EReference reference) {
+		val elm = context.enumType.dataElement
+		if (elm instanceof DataType) {
+			val propAssocs = elm.ownedPropertyAssociations
+			val dataRepProperty = propAssocs.
+			             filter([pa | pa.property.getQualifiedName == "Data_Model::Data_Representation" &&
+			             	          !pa.ownedValues.empty ]).
+			             map([pa | pa.ownedValues.head.ownedValue ]).
+			             filter(NamedValue).
+			             map([pa | pa.namedValue]).
+			             filter(EnumerationLiteral).
+			             findFirst([ x | true ])
+			if (dataRepProperty !== null && dataRepProperty.name == "Enum") {
+				val dataEnumProperty = propAssocs.
+				         filter([pa | pa.property.getQualifiedName == "Data_Model::Enumerators" &&
+			             	          !pa.ownedValues.empty]).
+				         map([pa | pa.ownedValues.head.ownedValue ]).
+				         filter(ListValue).
+				  		 findFirst([x | true])
+				if (dataEnumProperty !== null) {
+					val scope = dataEnumProperty.ownedListElements.filter(StringLiteral).scopeFor(
+			    		[{ 
+			    			QualifiedName::create(value)
+			    		}],
+			    		IScope::NULLSCOPE
+			    	)
+					println(scope)
+					return scope
+				}
+		    }
+		}
+		return IScope::NULLSCOPE
+	}
+		
+	def scope_DataElement_dataElement(DataElement context, EReference reference) {
+    	val pkg = context.getContainerOfType(AadlPackage)
+    	val elem = context.getContainerOfType(PackageSection).ownedMembers.filter([x | x instanceof DataClassifier]) +
+    	           context.getContainerOfType(PackageSection).
+    	           importedUnits.
+    	           filter(AadlPackage).
+    	           map([x | x.ownedPublicSection.ownedMembers.filter([y | y instanceof DataClassifier])]).
     	           flatten
     	val scope = elem.scopeFor(
     		[{ 

@@ -193,7 +193,7 @@ AtomicExpr returns Expr:
 //	{IdExpr} id=[aadl2::NamedElement | QCREF]
     {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
 |   {PortRef} 'port' port=FeatureElement
-| => ({EnumLitExpr} 'enum' '(') enumType=[aadl2::Property|QCREF] ',' value=[aadl2::EnumerationLiteral|ID] ')'
+| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 |	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
 |   {RealLitExpr} val=REAL_LIT

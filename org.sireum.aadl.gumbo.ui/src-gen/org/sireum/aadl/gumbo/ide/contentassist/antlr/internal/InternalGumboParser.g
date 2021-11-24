@@ -10105,13 +10105,9 @@ rule__AtomicExpr__EnumTypeAssignment_2_1
 	}
 :
 	(
-		{ before(grammarAccess.getAtomicExprAccess().getEnumTypePropertyCrossReference_2_1_0()); }
-		(
-			{ before(grammarAccess.getAtomicExprAccess().getEnumTypePropertyQCREFParserRuleCall_2_1_0_1()); }
-			ruleQCREF
-			{ after(grammarAccess.getAtomicExprAccess().getEnumTypePropertyQCREFParserRuleCall_2_1_0_1()); }
-		)
-		{ after(grammarAccess.getAtomicExprAccess().getEnumTypePropertyCrossReference_2_1_0()); }
+		{ before(grammarAccess.getAtomicExprAccess().getEnumTypeDataElementParserRuleCall_2_1_0()); }
+		ruleDataElement
+		{ after(grammarAccess.getAtomicExprAccess().getEnumTypeDataElementParserRuleCall_2_1_0()); }
 	)
 ;
 finally {
@@ -10124,13 +10120,13 @@ rule__AtomicExpr__ValueAssignment_2_3
 	}
 :
 	(
-		{ before(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralCrossReference_2_3_0()); }
+		{ before(grammarAccess.getAtomicExprAccess().getValueStringLiteralCrossReference_2_3_0()); }
 		(
-			{ before(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1()); }
+			{ before(grammarAccess.getAtomicExprAccess().getValueStringLiteralIDTerminalRuleCall_2_3_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralIDTerminalRuleCall_2_3_0_1()); }
+			{ after(grammarAccess.getAtomicExprAccess().getValueStringLiteralIDTerminalRuleCall_2_3_0_1()); }
 		)
-		{ after(grammarAccess.getAtomicExprAccess().getValueEnumerationLiteralCrossReference_2_3_0()); }
+		{ after(grammarAccess.getAtomicExprAccess().getValueStringLiteralCrossReference_2_3_0()); }
 	)
 ;
 finally {
