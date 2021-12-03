@@ -141,24 +141,24 @@ public
       -- the minimal separation between incoming events is 1 sec
       Period => 1 sec;
 
-    annex contracts {**       
-      state:
+    annex gumbo {**       
+      state
         currentSetPoint: SetPoint.i;
         currentFanState: CoolingFan::FanCmd;
                  
-      integration:   
-        assume currentTempRange [Traceability TBD]:
-           currentTemp.degrees >= -70.0F & currentTemp.degrees <= 180.0F;
+      integration   
+        assume "currentTemp Range":
+           currentTemp.degrees >= -70.0 and currentTemp.degrees <= 180.0;
 
-      initialization:
-        modifies currentSetPoint, currentFanState;
-        guarantee defaultSetPoint:
-          currentSetPoint.low.degrees == 70.0F and currentSetPoint.high.degrees == 80.0F;
-        guarantee defaultFanState:
-          currentFanState == FanCmd.Off;
+      initialize
+        -- modifies currentSetPoint, currentFanState;
+        guarantee "Default set point":
+          currentSetPoint.low.degrees = 70.0 and currentSetPoint.high.degrees = 80.0F;
+        guarantee "Default fan state":
+          currentFanState = FanCmd.Off;
           
-      compute:  // behaviors for COMPUTE Entrypoint
-        modifies currentSetPoint, currentFanState;
+      compute  // behaviors for COMPUTE Entrypoint
+        -- modifies currentSetPoint, currentFanState;
         
         -- REQ: If current temperature is less than
         --  the current low set point, then the fan state shall be Off
