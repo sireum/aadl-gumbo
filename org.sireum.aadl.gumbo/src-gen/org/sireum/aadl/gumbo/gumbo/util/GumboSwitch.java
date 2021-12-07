@@ -225,6 +225,13 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.OTHER_DATA_REF:
+      {
+        OtherDataRef otherDataRef = (OtherDataRef)theEObject;
+        T result = caseOtherDataRef(otherDataRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.DOUBLE_DOT_REF:
       {
         DoubleDotRef doubleDotRef = (DoubleDotRef)theEObject;
@@ -246,13 +253,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.FEATURE_ELEMENT:
-      {
-        FeatureElement featureElement = (FeatureElement)theEObject;
-        T result = caseFeatureElement(featureElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.BINARY_EXPR:
       {
         BinaryExpr binaryExpr = (BinaryExpr)theEObject;
@@ -269,19 +269,11 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.STATE_VAR_REF:
+      case GumboPackage.DATA_REF_EXPR:
       {
-        StateVarRef stateVarRef = (StateVarRef)theEObject;
-        T result = caseStateVarRef(stateVarRef);
-        if (result == null) result = caseExpr(stateVarRef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.PORT_REF:
-      {
-        PortRef portRef = (PortRef)theEObject;
-        T result = casePortRef(portRef);
-        if (result == null) result = caseExpr(portRef);
+        DataRefExpr dataRefExpr = (DataRefExpr)theEObject;
+        T result = caseDataRefExpr(dataRefExpr);
+        if (result == null) result = caseExpr(dataRefExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -634,6 +626,22 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Other Data Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Other Data Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOtherDataRef(OtherDataRef object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Double Dot Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -682,22 +690,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFeatureElement(FeatureElement object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Binary Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -730,33 +722,17 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>State Var Ref</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Data Ref Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State Var Ref</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Data Ref Expr</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStateVarRef(StateVarRef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Port Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Port Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePortRef(PortRef object)
+  public T caseDataRefExpr(DataRefExpr object)
   {
     return null;
   }

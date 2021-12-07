@@ -221,12 +221,7 @@ public class InvSpecItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createStateVarRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createPortRef()));
+         GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter

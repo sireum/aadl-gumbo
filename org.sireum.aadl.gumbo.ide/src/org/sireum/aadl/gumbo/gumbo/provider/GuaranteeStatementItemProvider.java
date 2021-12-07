@@ -206,12 +206,7 @@ public class GuaranteeStatementItemProvider extends InitializeSpecStatementItemP
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createStateVarRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createPortRef()));
+         GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter

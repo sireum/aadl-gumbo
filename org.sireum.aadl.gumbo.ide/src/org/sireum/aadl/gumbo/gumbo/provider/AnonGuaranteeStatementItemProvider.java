@@ -189,12 +189,7 @@ public class AnonGuaranteeStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createStateVarRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createPortRef()));
+         GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter

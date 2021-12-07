@@ -17,10 +17,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import java.lang.reflect.Method
 import org.eclipse.xtext.scoping.impl.SimpleScope
-import org.sireum.aadl.gumbo.gumbo.FeatureElement
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement
-import org.sireum.aadl.gumbo.gumbo.StateVarRef
-import org.sireum.aadl.gumbo.gumbo.PortRef
 import org.osate.aadl2.Classifier
 import org.osate.aadl2.ComponentImplementation
 
@@ -33,18 +30,27 @@ import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.scoping.IScope
 import org.osate.aadl2.PackageSection
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr
-import org.osate.aadl2.EnumerationType
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr
 import org.osate.aadl2.DataImplementation
 import org.sireum.aadl.gumbo.gumbo.DataElement
 import org.osate.aadl2.DataType
-import org.osate.aadl2.modelsupport.util.AadlUtil
-import org.eclipse.emf.ecore.util.EcoreUtil
 import org.osate.aadl2.ListValue
 import org.osate.aadl2.DataClassifier
 import org.osate.aadl2.EnumerationLiteral
 import org.osate.aadl2.NamedValue
 import org.osate.aadl2.StringLiteral
+import org.osate.aadl2.NamedElement
+import org.sireum.aadl.gumbo.gumbo.OtherDataRef
+import org.osate.aadl2.Subcomponent
+import org.osate.aadl2.FeatureGroup
+import org.osate.aadl2.FeatureGroupType
+import org.osate.aadl2.FeatureGroupPrototype
+import org.osate.aadl2.ComponentClassifier
+import org.osate.aadl2.ComponentPrototype
+import org.osate.aadl2.DataPort
+import org.osate.aadl2.modelsupport.ResolvePrototypeUtil
+import org.osate.aadl2.EventDataPort
+import org.sireum.aadl.gumbo.gumbo.DataRefExpr
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -60,7 +66,9 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		val sname = method.toString.substring(1, method.toString.length - 1)
 		if (!class.methods.map[name].contains(sname)) {
 			println("Missing: " + class.name + '.' + sname + " : " + context.class.simpleName)
-		}
+		} //else {
+//			println("Found: " + class.name + '.' + sname + " : " + context.class.simpleName)
+//		}
 		return method
 	}
 
@@ -78,9 +86,9 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		scope
 	}
 
-	def scope_FeatureElement_feature(FeatureElement context, EReference reference) {
-		genericContext(context, reference)
-	}
+//	def scope_FeatureElement_feature(FeatureElement context, EReference reference) {
+//		genericContext(context, reference)
+//	}
 
 	def scope_AssumeStatement_forPort(AssumeStatement context, EReference reference) {
 		genericContext(context, reference)
@@ -108,12 +116,65 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
     	//context.delegateGetScope(reference)
    	}
 
-    def scope_StateVarRef_stateVar(StateVarRef context, EReference reference) {
-    	context.getContainerOfType(SpecSection).state.decls.scopeFor
+//    def scope_StateVarRef_stateVar(StateVarRef context, EReference reference) {
+//	}
+	
+	def scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {
+		val varScope = context.getContainerOfType(Classifier).allMembers.scopeFor
+		val scope = context.getContainerOfType(SpecSection).state?.decls?.scopeFor(varScope) ?: varScope
+		scope
+	}	
+	
+	def protected static getClassifierForPreviousOtherDataRefElement(NamedElement previousElement) {
+		switch previousElement {
+			case null,
+			case previousElement.eIsProxy:
+				//Don't provide a scope if the previous element could not be resolved
+				null
+			Subcomponent: {
+				switch subcomponentType : previousElement.allSubcomponentType {
+					ComponentClassifier:
+						subcomponentType
+					ComponentPrototype:
+						ResolvePrototypeUtil.resolveComponentPrototype(subcomponentType, previousElement)
+				}
+			}
+			FeatureGroup: {
+				switch featureType : previousElement.allFeatureType {
+					FeatureGroupType:
+						featureType
+					FeatureGroupPrototype:
+						ResolvePrototypeUtil.resolveFeatureGroupPrototype(featureType, previousElement)
+				}
+			}
+		}
 	}
 	
-	def scope_PortRef_portName(PortRef context, EReference reference) {
-		genericContext(context, reference)
+	def protected static getSubcomponentType(EObject e) {
+		switch e {
+			DataPort:
+				e.dataFeatureClassifier
+			EventDataPort:
+				e.dataFeatureClassifier
+			Subcomponent:
+				e.subcomponentType
+			StateVarDecl:
+				e.typeName
+			default:
+				null
+		}
+	}
+	
+	def scope_OtherDataRef_namedElement(OtherDataRef context, EReference reference) {
+		val namespace = switch ec : context.eContainer {
+			DataRefExpr: {
+				ec.portOrSubcomponentOrStateVar?.getSubcomponentType
+			}
+			OtherDataRef: {
+				ec.namedElement.classifierForPreviousOtherDataRefElement
+			}
+		}
+		namespace?.ownedElements?.filterRefined?.scopeFor ?: IScope::NULLSCOPE
 	}
 	
 	def scope_EnumLitExpr_enumType(EnumLitExpr context, EReference reference) {
@@ -163,7 +224,6 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 			    		}],
 			    		IScope::NULLSCOPE
 			    	)
-					println(scope)
 					return scope
 				}
 		    }

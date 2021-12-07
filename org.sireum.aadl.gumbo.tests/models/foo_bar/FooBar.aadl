@@ -3,6 +3,16 @@ public
 	
 	with Data_Model, Base_Types;
 	
+	data ABCD
+	    properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("Integer", "Float");
+		
+	end ABCD;
+	
+	data implementation ABCD.EFG
+	end ABCD.EFG;
+
 	data SetPoint
   	-- Indicate that the set point info will be a struct (record)
     -- For structs, use of the type must refer to the data component implementation (SetPoint.i),
@@ -15,19 +25,27 @@ public
       subcomponents
         low: data Base_Types::Integer;
         high: data Base_Types::Integer;
---      annex GUMBO {**       
---      invariants:
---        inv setPointinv "SetPoint Data Invariant":
---          low.degrees <= high.degrees;
---      **};
+	      annex gumbo {**       
+	      invariants
+	        inv "SetPoint Data Invariant": low <= high;
+	      **};
     end SetPoint.i;
+    
+    data SetPointEnclosure
+    end SetPointEnclosure;
+    
+    data implementation SetPointEnclosure.i
+    	subcomponents
+    		sp : data SetPoint.i;
+    end SetPointEnclosure.i;
   
 	thread C1
 	  features
 	    -- ==== INPUTS ====	
-	    inC1: in data port Base_Types::Integer; 
+	    inC1: in data port SetPoint.i;
+	    inS1: in data port SetPointEnclosure.i; 
 	    -- ==== OUTPUTS ====	
-	    outC1: out data port Base_Types::Integer;
+	    outC1: out data port SetPoint.i;
 	  annex gumbo {** 
 	   	state 
 	   	   myInt1: Base_Types::Integer;
@@ -39,26 +57,26 @@ public
 	   	   
 	   	   myRec1: SetPoint;
 	   	 invariants
-	   	   inv "inv1 title": var myInt1 > var myInt2;
-	   	   inv "inv2 title": var myInt3 = 1;
+	   	   inv "inv1 title": myInt1 > myInt2;
+	   	   inv "inv2 title": myInt3 = 1;
 	   	integration
-	   	  -- test comment
-	   	   assume "integration assume": var myInt1 > port inC1;
-	   	   assume "test floor()": floor(var myFloat1) < port inC1;
-	   	   assume "test floor() and +": (floor(var myFloat2 + 3.0) = port inC1) <=> false; 
-	   	   assume "test real() and ^": real(port inC1) ^ 2.0 > var myFloat3;
-	   	   assume "test enum literal": var myFloat1 = enum(Data_Model::Data_Representation, Integer);
-	   	   assume "test record literal": var myRec1 = SetPoint.i { low = 1; high = 2 }; 
-	   	   guarantee "guarantee title": port outC1;
+--	   	   test comment
+	   	   assume "integration assume": myInt1 > inS1.sp.low;
+	   	   assume "test floor()": floor(myFloat1) < inC1.high;
+	   	   assume "test floor() and +": (floor(myFloat2 + 3.0) = inC1.high) <=> false; 
+	   	   assume "test real() and ^": real(inC1.low) ^ 2.0 > myFloat3;
+	   	   assume "test enum literal": myFloat1 = enum(ABCD, Integer);
+	   	   assume "test record literal": inS1.sp <> SetPoint.i { low = 1; high = 2 }; 
+	   	   guarantee "guarantee title": outC1;
 	   	initialize
-	   	   guarantee "guarantee title": port outC1 = 1;
+	   	   guarantee "guarantee title": outC1 = 1;
 	   	compute
 	   	   case "case1 title": 
-	   	     assume port inC1 = 100;
-	   	     guarantee port outC1 = 3;
+	   	     assume inC1 = 100;
+	   	     guarantee outC1.low = 3 and outC1.high = 10;
 	   	   case "case2 title": 
-	   	     assume port inC1 <> 100;
-	   	     guarantee port outC1 = 4;
+	   	     assume inC1 <> 100;
+	   	     guarantee outC1.low = 4 and outC1.high = 20;
       **};
 	end C1;
 	
@@ -66,19 +84,20 @@ public
 	end C1.i;
 
     thread C2
+    	
       features
         -- ==== INPUTS ==== 
-        inC2: in data port Base_Types::Integer; 
+        inC2: in data port SetPoint.i; 
         -- ==== OUTPUTS ====  
-        outC2: out data port Base_Types::Integer;
+        outC2: out data port SetPoint.i;
       annex gumbo {**
         compute
           case "case1 title": 
-	   	    assume port inC2 > 5;
-	   	    guarantee port outC2 = 1;
+	   	    assume inC2 > 5;
+	   	    guarantee outC2.low = 1 and outC2.high = 1;
 	      case "case2 title": 
-	        assume port inC2 <= 5;
-	        guarantee port outC2 = 2;
+	        assume inC2 <= 5;
+	        guarantee outC2.low = 2 and outC2.high = 2;
       **};
     end C2;
   

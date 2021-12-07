@@ -196,6 +196,15 @@ public interface GumboFactory extends EFactory
   Expr createExpr();
 
   /**
+   * Returns a new object of class '<em>Other Data Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Other Data Ref</em>'.
+   * @generated
+   */
+  OtherDataRef createOtherDataRef();
+
+  /**
    * Returns a new object of class '<em>Double Dot Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -223,15 +232,6 @@ public interface GumboFactory extends EFactory
   SubcomponentElement createSubcomponentElement();
 
   /**
-   * Returns a new object of class '<em>Feature Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature Element</em>'.
-   * @generated
-   */
-  FeatureElement createFeatureElement();
-
-  /**
    * Returns a new object of class '<em>Binary Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -250,22 +250,13 @@ public interface GumboFactory extends EFactory
   UnaryExpr createUnaryExpr();
 
   /**
-   * Returns a new object of class '<em>State Var Ref</em>'.
+   * Returns a new object of class '<em>Data Ref Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>State Var Ref</em>'.
+   * @return a new object of class '<em>Data Ref Expr</em>'.
    * @generated
    */
-  StateVarRef createStateVarRef();
-
-  /**
-   * Returns a new object of class '<em>Port Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Port Ref</em>'.
-   * @generated
-   */
-  PortRef createPortRef();
+  DataRefExpr createDataRefExpr();
 
   /**
    * Returns a new object of class '<em>Enum Lit Expr</em>'.

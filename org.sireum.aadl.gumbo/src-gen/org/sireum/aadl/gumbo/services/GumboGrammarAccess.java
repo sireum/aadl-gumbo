@@ -1200,81 +1200,79 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AtomicExpr");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cStateVarRefAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Keyword cVarKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cStateVarAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final CrossReference cStateVarStateVarDeclCrossReference_0_2_0 = (CrossReference)cStateVarAssignment_0_2.eContents().get(0);
-		private final RuleCall cStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1 = (RuleCall)cStateVarStateVarDeclCrossReference_0_2_0.eContents().get(1);
+		private final Action cDataRefExprAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cPortOrSubcomponentOrStateVarAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cPortOrSubcomponentOrStateVarEObjectCrossReference_0_1_0 = (CrossReference)cPortOrSubcomponentOrStateVarAssignment_0_1.eContents().get(0);
+		private final RuleCall cPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_0_1_0_1 = (RuleCall)cPortOrSubcomponentOrStateVarEObjectCrossReference_0_1_0.eContents().get(1);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Keyword cFullStopKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Assignment cRefAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
+		private final RuleCall cRefOtherDataRefParserRuleCall_0_2_1_0 = (RuleCall)cRefAssignment_0_2_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cPortRefAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cPortKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cPortAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cPortFeatureElementParserRuleCall_1_2_0 = (RuleCall)cPortAssignment_1_2.eContents().get(0);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cEnumLitExprAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Keyword cEnumKeyword_1_0_0_1 = (Keyword)cGroup_1_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0_0_2 = (Keyword)cGroup_1_0_0.eContents().get(2);
+		private final Assignment cEnumTypeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cEnumTypeDataElementParserRuleCall_1_1_0 = (RuleCall)cEnumTypeAssignment_1_1.eContents().get(0);
+		private final Keyword cCommaKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cValueAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cValueStringLiteralCrossReference_1_3_0 = (CrossReference)cValueAssignment_1_3.eContents().get(0);
+		private final RuleCall cValueStringLiteralIDTerminalRuleCall_1_3_0_1 = (RuleCall)cValueStringLiteralCrossReference_1_3_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Group cGroup_2_0 = (Group)cGroup_2.eContents().get(0);
 		private final Group cGroup_2_0_0 = (Group)cGroup_2_0.eContents().get(0);
-		private final Action cEnumLitExprAction_2_0_0_0 = (Action)cGroup_2_0_0.eContents().get(0);
-		private final Keyword cEnumKeyword_2_0_0_1 = (Keyword)cGroup_2_0_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_2_0_0_2 = (Keyword)cGroup_2_0_0.eContents().get(2);
-		private final Assignment cEnumTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cEnumTypeDataElementParserRuleCall_2_1_0 = (RuleCall)cEnumTypeAssignment_2_1.eContents().get(0);
-		private final Keyword cCommaKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Assignment cValueAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
-		private final CrossReference cValueStringLiteralCrossReference_2_3_0 = (CrossReference)cValueAssignment_2_3.eContents().get(0);
-		private final RuleCall cValueStringLiteralIDTerminalRuleCall_2_3_0_1 = (RuleCall)cValueStringLiteralCrossReference_2_3_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Action cRecordLitExprAction_2_0_0_0 = (Action)cGroup_2_0_0.eContents().get(0);
+		private final Assignment cRecordTypeAssignment_2_0_0_1 = (Assignment)cGroup_2_0_0.eContents().get(1);
+		private final RuleCall cRecordTypeDataElementParserRuleCall_2_0_0_1_0 = (RuleCall)cRecordTypeAssignment_2_0_0_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_0_0_2 = (Keyword)cGroup_2_0_0.eContents().get(2);
+		private final Assignment cArgsAssignment_2_0_0_3 = (Assignment)cGroup_2_0_0.eContents().get(3);
+		private final CrossReference cArgsNamedElementCrossReference_2_0_0_3_0 = (CrossReference)cArgsAssignment_2_0_0_3.eContents().get(0);
+		private final RuleCall cArgsNamedElementIDTerminalRuleCall_2_0_0_3_0_1 = (RuleCall)cArgsNamedElementCrossReference_2_0_0_3_0.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_2_0_0_4 = (Keyword)cGroup_2_0_0.eContents().get(4);
+		private final Assignment cArgExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cArgExprExprParserRuleCall_2_1_0 = (RuleCall)cArgExprAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cSemicolonKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cArgsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final CrossReference cArgsNamedElementCrossReference_2_2_1_0 = (CrossReference)cArgsAssignment_2_2_1.eContents().get(0);
+		private final RuleCall cArgsNamedElementIDTerminalRuleCall_2_2_1_0_1 = (RuleCall)cArgsNamedElementCrossReference_2_2_1_0.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_2_2_2 = (Keyword)cGroup_2_2.eContents().get(2);
+		private final Assignment cArgExprAssignment_2_2_3 = (Assignment)cGroup_2_2.eContents().get(3);
+		private final RuleCall cArgExprExprParserRuleCall_2_2_3_0 = (RuleCall)cArgExprAssignment_2_2_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cGroup_3.eContents().get(0);
-		private final Group cGroup_3_0_0 = (Group)cGroup_3_0.eContents().get(0);
-		private final Action cRecordLitExprAction_3_0_0_0 = (Action)cGroup_3_0_0.eContents().get(0);
-		private final Assignment cRecordTypeAssignment_3_0_0_1 = (Assignment)cGroup_3_0_0.eContents().get(1);
-		private final RuleCall cRecordTypeDataElementParserRuleCall_3_0_0_1_0 = (RuleCall)cRecordTypeAssignment_3_0_0_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3_0_0_2 = (Keyword)cGroup_3_0_0.eContents().get(2);
-		private final Assignment cArgsAssignment_3_0_0_3 = (Assignment)cGroup_3_0_0.eContents().get(3);
-		private final CrossReference cArgsNamedElementCrossReference_3_0_0_3_0 = (CrossReference)cArgsAssignment_3_0_0_3.eContents().get(0);
-		private final RuleCall cArgsNamedElementIDTerminalRuleCall_3_0_0_3_0_1 = (RuleCall)cArgsNamedElementCrossReference_3_0_0_3_0.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_3_0_0_4 = (Keyword)cGroup_3_0_0.eContents().get(4);
-		private final Assignment cArgExprAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cArgExprExprParserRuleCall_3_1_0 = (RuleCall)cArgExprAssignment_3_1.eContents().get(0);
-		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
-		private final Keyword cSemicolonKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
-		private final Assignment cArgsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
-		private final CrossReference cArgsNamedElementCrossReference_3_2_1_0 = (CrossReference)cArgsAssignment_3_2_1.eContents().get(0);
-		private final RuleCall cArgsNamedElementIDTerminalRuleCall_3_2_1_0_1 = (RuleCall)cArgsNamedElementCrossReference_3_2_1_0.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_3_2_2 = (Keyword)cGroup_3_2.eContents().get(2);
-		private final Assignment cArgExprAssignment_3_2_3 = (Assignment)cGroup_3_2.eContents().get(3);
-		private final RuleCall cArgExprExprParserRuleCall_3_2_3_0 = (RuleCall)cArgExprAssignment_3_2_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Action cIntLitAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValueINTEGER_LITTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Action cIntLitAction_4_0 = (Action)cGroup_4.eContents().get(0);
-		private final Assignment cValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cValueINTEGER_LITTerminalRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
+		private final Action cRealLitExprAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Assignment cValAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cValREAL_LITTerminalRuleCall_4_1_0 = (RuleCall)cValAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cRealLitExprAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Action cBoolLitExprAction_5_0 = (Action)cGroup_5.eContents().get(0);
 		private final Assignment cValAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cValREAL_LITTerminalRuleCall_5_1_0 = (RuleCall)cValAssignment_5_1.eContents().get(0);
+		private final RuleCall cValBooleanLiteralParserRuleCall_5_1_0 = (RuleCall)cValAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cBoolLitExprAction_6_0 = (Action)cGroup_6.eContents().get(0);
-		private final Assignment cValAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cValBooleanLiteralParserRuleCall_6_1_0 = (RuleCall)cValAssignment_6_1.eContents().get(0);
+		private final Action cFloorCastAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Keyword cFloorKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Assignment cExprAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
+		private final RuleCall cExprExprParserRuleCall_6_3_0 = (RuleCall)cExprAssignment_6_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Action cFloorCastAction_7_0 = (Action)cGroup_7.eContents().get(0);
-		private final Keyword cFloorKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Action cRealCastAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Keyword cRealKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
 		private final Assignment cExprAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
 		private final RuleCall cExprExprParserRuleCall_7_3_0 = (RuleCall)cExprAssignment_7_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
-		private final Action cRealCastAction_8_0 = (Action)cGroup_8.eContents().get(0);
-		private final Keyword cRealKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
-		private final Assignment cExprAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
-		private final RuleCall cExprExprParserRuleCall_8_3_0 = (RuleCall)cExprAssignment_8_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
-		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
-		private final Keyword cLeftParenthesisKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final RuleCall cExprParserRuleCall_9_1 = (RuleCall)cGroup_9.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_9_2 = (Keyword)cGroup_9.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final RuleCall cExprParserRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
 		
 		//AtomicExpr returns Expr:
 		////  Need to figure out how to reference difference types of IDs, including cross references
@@ -1282,8 +1280,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
 		////  For example, invariants should only reference state variables.
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
-		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-		//|   {PortRef} 'port' port=FeatureElement
+		////    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
+		////|   {PortRef} 'port' port=ContainmentPathElement
+		//   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
 		//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
@@ -1300,8 +1299,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
 		////  For example, invariants should only reference state variables.
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
-		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-		//|   {PortRef} 'port' port=FeatureElement
+		////    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
+		////|   {PortRef} 'port' port=ContainmentPathElement
+		//   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
 		//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
@@ -1317,7 +1317,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
 		////  For example, invariants should only reference state variables.
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
-		//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
+		////    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
+		////|   {PortRef} 'port' port=ContainmentPathElement
+		//   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		////  Need to figure out how to reference difference types of IDs, including cross references
@@ -1325,185 +1327,202 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
 		////  For example, invariants should only reference state variables.
 		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
-		//    {StateVarRef}
-		public Action getStateVarRefAction_0_0() { return cStateVarRefAction_0_0; }
+		////    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
+		////|   {PortRef} 'port' port=ContainmentPathElement
+		//   {DataRefExpr}
+		public Action getDataRefExprAction_0_0() { return cDataRefExprAction_0_0; }
 		
-		//'var'
-		public Keyword getVarKeyword_0_1() { return cVarKeyword_0_1; }
+		//portOrSubcomponentOrStateVar=[ecore::EObject|ID]
+		public Assignment getPortOrSubcomponentOrStateVarAssignment_0_1() { return cPortOrSubcomponentOrStateVarAssignment_0_1; }
 		
-		//stateVar=[StateVarDecl|ID]
-		public Assignment getStateVarAssignment_0_2() { return cStateVarAssignment_0_2; }
-		
-		//[StateVarDecl|ID]
-		public CrossReference getStateVarStateVarDeclCrossReference_0_2_0() { return cStateVarStateVarDeclCrossReference_0_2_0; }
+		//[ecore::EObject|ID]
+		public CrossReference getPortOrSubcomponentOrStateVarEObjectCrossReference_0_1_0() { return cPortOrSubcomponentOrStateVarEObjectCrossReference_0_1_0; }
 		
 		//ID
-		public RuleCall getStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1() { return cStateVarStateVarDeclIDTerminalRuleCall_0_2_0_1; }
+		public RuleCall getPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_0_1_0_1() { return cPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_0_1_0_1; }
 		
-		//{PortRef} 'port' port=FeatureElement
-		public Group getGroup_1() { return cGroup_1; }
+		//('.' ref=OtherDataRef)?
+		public Group getGroup_0_2() { return cGroup_0_2; }
 		
-		//{PortRef}
-		public Action getPortRefAction_1_0() { return cPortRefAction_1_0; }
+		//'.'
+		public Keyword getFullStopKeyword_0_2_0() { return cFullStopKeyword_0_2_0; }
 		
-		//'port'
-		public Keyword getPortKeyword_1_1() { return cPortKeyword_1_1; }
+		//ref=OtherDataRef
+		public Assignment getRefAssignment_0_2_1() { return cRefAssignment_0_2_1; }
 		
-		//port=FeatureElement
-		public Assignment getPortAssignment_1_2() { return cPortAssignment_1_2; }
-		
-		//FeatureElement
-		public RuleCall getPortFeatureElementParserRuleCall_1_2_0() { return cPortFeatureElementParserRuleCall_1_2_0; }
+		//OtherDataRef
+		public RuleCall getRefOtherDataRefParserRuleCall_0_2_1_0() { return cRefOtherDataRefParserRuleCall_0_2_1_0; }
 		
 		//=> ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//=> ({EnumLitExpr} 'enum' '(')
-		public Group getGroup_2_0() { return cGroup_2_0; }
+		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//{EnumLitExpr} 'enum' '('
-		public Group getGroup_2_0_0() { return cGroup_2_0_0; }
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
 		//{EnumLitExpr}
-		public Action getEnumLitExprAction_2_0_0_0() { return cEnumLitExprAction_2_0_0_0; }
+		public Action getEnumLitExprAction_1_0_0_0() { return cEnumLitExprAction_1_0_0_0; }
 		
 		//'enum'
-		public Keyword getEnumKeyword_2_0_0_1() { return cEnumKeyword_2_0_0_1; }
+		public Keyword getEnumKeyword_1_0_0_1() { return cEnumKeyword_1_0_0_1; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_2_0_0_2() { return cLeftParenthesisKeyword_2_0_0_2; }
+		public Keyword getLeftParenthesisKeyword_1_0_0_2() { return cLeftParenthesisKeyword_1_0_0_2; }
 		
 		//enumType=DataElement
-		public Assignment getEnumTypeAssignment_2_1() { return cEnumTypeAssignment_2_1; }
+		public Assignment getEnumTypeAssignment_1_1() { return cEnumTypeAssignment_1_1; }
 		
 		//DataElement
-		public RuleCall getEnumTypeDataElementParserRuleCall_2_1_0() { return cEnumTypeDataElementParserRuleCall_2_1_0; }
+		public RuleCall getEnumTypeDataElementParserRuleCall_1_1_0() { return cEnumTypeDataElementParserRuleCall_1_1_0; }
 		
 		//','
-		public Keyword getCommaKeyword_2_2() { return cCommaKeyword_2_2; }
+		public Keyword getCommaKeyword_1_2() { return cCommaKeyword_1_2; }
 		
 		//value=[aadl2::StringLiteral|ID]
-		public Assignment getValueAssignment_2_3() { return cValueAssignment_2_3; }
+		public Assignment getValueAssignment_1_3() { return cValueAssignment_1_3; }
 		
 		//[aadl2::StringLiteral|ID]
-		public CrossReference getValueStringLiteralCrossReference_2_3_0() { return cValueStringLiteralCrossReference_2_3_0; }
+		public CrossReference getValueStringLiteralCrossReference_1_3_0() { return cValueStringLiteralCrossReference_1_3_0; }
 		
 		//ID
-		public RuleCall getValueStringLiteralIDTerminalRuleCall_2_3_0_1() { return cValueStringLiteralIDTerminalRuleCall_2_3_0_1; }
+		public RuleCall getValueStringLiteralIDTerminalRuleCall_1_3_0_1() { return cValueStringLiteralIDTerminalRuleCall_1_3_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
+		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
 		
 		//=> ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//=> ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=')
-		public Group getGroup_3_0() { return cGroup_3_0; }
+		public Group getGroup_2_0() { return cGroup_2_0; }
 		
 		//{RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '='
-		public Group getGroup_3_0_0() { return cGroup_3_0_0; }
+		public Group getGroup_2_0_0() { return cGroup_2_0_0; }
 		
 		//{RecordLitExpr}
-		public Action getRecordLitExprAction_3_0_0_0() { return cRecordLitExprAction_3_0_0_0; }
+		public Action getRecordLitExprAction_2_0_0_0() { return cRecordLitExprAction_2_0_0_0; }
 		
 		//recordType=DataElement
-		public Assignment getRecordTypeAssignment_3_0_0_1() { return cRecordTypeAssignment_3_0_0_1; }
+		public Assignment getRecordTypeAssignment_2_0_0_1() { return cRecordTypeAssignment_2_0_0_1; }
 		
 		//DataElement
-		public RuleCall getRecordTypeDataElementParserRuleCall_3_0_0_1_0() { return cRecordTypeDataElementParserRuleCall_3_0_0_1_0; }
+		public RuleCall getRecordTypeDataElementParserRuleCall_2_0_0_1_0() { return cRecordTypeDataElementParserRuleCall_2_0_0_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3_0_0_2() { return cLeftCurlyBracketKeyword_3_0_0_2; }
+		public Keyword getLeftCurlyBracketKeyword_2_0_0_2() { return cLeftCurlyBracketKeyword_2_0_0_2; }
 		
 		//args+=[aadl2::NamedElement|ID]
-		public Assignment getArgsAssignment_3_0_0_3() { return cArgsAssignment_3_0_0_3; }
+		public Assignment getArgsAssignment_2_0_0_3() { return cArgsAssignment_2_0_0_3; }
 		
 		//[aadl2::NamedElement|ID]
-		public CrossReference getArgsNamedElementCrossReference_3_0_0_3_0() { return cArgsNamedElementCrossReference_3_0_0_3_0; }
+		public CrossReference getArgsNamedElementCrossReference_2_0_0_3_0() { return cArgsNamedElementCrossReference_2_0_0_3_0; }
 		
 		//ID
-		public RuleCall getArgsNamedElementIDTerminalRuleCall_3_0_0_3_0_1() { return cArgsNamedElementIDTerminalRuleCall_3_0_0_3_0_1; }
+		public RuleCall getArgsNamedElementIDTerminalRuleCall_2_0_0_3_0_1() { return cArgsNamedElementIDTerminalRuleCall_2_0_0_3_0_1; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_3_0_0_4() { return cEqualsSignKeyword_3_0_0_4; }
+		public Keyword getEqualsSignKeyword_2_0_0_4() { return cEqualsSignKeyword_2_0_0_4; }
 		
 		//argExpr+=Expr
-		public Assignment getArgExprAssignment_3_1() { return cArgExprAssignment_3_1; }
+		public Assignment getArgExprAssignment_2_1() { return cArgExprAssignment_2_1; }
 		
 		//Expr
-		public RuleCall getArgExprExprParserRuleCall_3_1_0() { return cArgExprExprParserRuleCall_3_1_0; }
+		public RuleCall getArgExprExprParserRuleCall_2_1_0() { return cArgExprExprParserRuleCall_2_1_0; }
 		
 		//(';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)*
-		public Group getGroup_3_2() { return cGroup_3_2; }
+		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_3_2_0() { return cSemicolonKeyword_3_2_0; }
+		public Keyword getSemicolonKeyword_2_2_0() { return cSemicolonKeyword_2_2_0; }
 		
 		//args+=[aadl2::NamedElement|ID]
-		public Assignment getArgsAssignment_3_2_1() { return cArgsAssignment_3_2_1; }
+		public Assignment getArgsAssignment_2_2_1() { return cArgsAssignment_2_2_1; }
 		
 		//[aadl2::NamedElement|ID]
-		public CrossReference getArgsNamedElementCrossReference_3_2_1_0() { return cArgsNamedElementCrossReference_3_2_1_0; }
+		public CrossReference getArgsNamedElementCrossReference_2_2_1_0() { return cArgsNamedElementCrossReference_2_2_1_0; }
 		
 		//ID
-		public RuleCall getArgsNamedElementIDTerminalRuleCall_3_2_1_0_1() { return cArgsNamedElementIDTerminalRuleCall_3_2_1_0_1; }
+		public RuleCall getArgsNamedElementIDTerminalRuleCall_2_2_1_0_1() { return cArgsNamedElementIDTerminalRuleCall_2_2_1_0_1; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_3_2_2() { return cEqualsSignKeyword_3_2_2; }
+		public Keyword getEqualsSignKeyword_2_2_2() { return cEqualsSignKeyword_2_2_2; }
 		
 		//argExpr+=Expr
-		public Assignment getArgExprAssignment_3_2_3() { return cArgExprAssignment_3_2_3; }
+		public Assignment getArgExprAssignment_2_2_3() { return cArgExprAssignment_2_2_3; }
 		
 		//Expr
-		public RuleCall getArgExprExprParserRuleCall_3_2_3_0() { return cArgExprExprParserRuleCall_3_2_3_0; }
+		public RuleCall getArgExprExprParserRuleCall_2_2_3_0() { return cArgExprExprParserRuleCall_2_2_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
 		
 		//{IntLit} value=INTEGER_LIT
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//{IntLit}
-		public Action getIntLitAction_4_0() { return cIntLitAction_4_0; }
+		public Action getIntLitAction_3_0() { return cIntLitAction_3_0; }
 		
 		//value=INTEGER_LIT
-		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
+		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 		
 		//INTEGER_LIT
-		public RuleCall getValueINTEGER_LITTerminalRuleCall_4_1_0() { return cValueINTEGER_LITTerminalRuleCall_4_1_0; }
+		public RuleCall getValueINTEGER_LITTerminalRuleCall_3_1_0() { return cValueINTEGER_LITTerminalRuleCall_3_1_0; }
 		
 		//{RealLitExpr} val=REAL_LIT
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//{RealLitExpr}
-		public Action getRealLitExprAction_5_0() { return cRealLitExprAction_5_0; }
+		public Action getRealLitExprAction_4_0() { return cRealLitExprAction_4_0; }
 		
 		//val=REAL_LIT
-		public Assignment getValAssignment_5_1() { return cValAssignment_5_1; }
+		public Assignment getValAssignment_4_1() { return cValAssignment_4_1; }
 		
 		//REAL_LIT
-		public RuleCall getValREAL_LITTerminalRuleCall_5_1_0() { return cValREAL_LITTerminalRuleCall_5_1_0; }
+		public RuleCall getValREAL_LITTerminalRuleCall_4_1_0() { return cValREAL_LITTerminalRuleCall_4_1_0; }
 		
 		//{BoolLitExpr} val=BooleanLiteral
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//{BoolLitExpr}
-		public Action getBoolLitExprAction_6_0() { return cBoolLitExprAction_6_0; }
+		public Action getBoolLitExprAction_5_0() { return cBoolLitExprAction_5_0; }
 		
 		//val=BooleanLiteral
-		public Assignment getValAssignment_6_1() { return cValAssignment_6_1; }
+		public Assignment getValAssignment_5_1() { return cValAssignment_5_1; }
 		
 		//BooleanLiteral
-		public RuleCall getValBooleanLiteralParserRuleCall_6_1_0() { return cValBooleanLiteralParserRuleCall_6_1_0; }
+		public RuleCall getValBooleanLiteralParserRuleCall_5_1_0() { return cValBooleanLiteralParserRuleCall_5_1_0; }
 		
 		//{FloorCast} 'floor' '(' expr=Expr ')'
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//{FloorCast}
-		public Action getFloorCastAction_7_0() { return cFloorCastAction_7_0; }
+		public Action getFloorCastAction_6_0() { return cFloorCastAction_6_0; }
 		
 		//'floor'
-		public Keyword getFloorKeyword_7_1() { return cFloorKeyword_7_1; }
+		public Keyword getFloorKeyword_6_1() { return cFloorKeyword_6_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_6_2() { return cLeftParenthesisKeyword_6_2; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_6_3() { return cExprAssignment_6_3; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_6_3_0() { return cExprExprParserRuleCall_6_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
+		
+		//{RealCast}  'real' '(' expr=Expr ')'
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//{RealCast}
+		public Action getRealCastAction_7_0() { return cRealCastAction_7_0; }
+		
+		//'real'
+		public Keyword getRealKeyword_7_1() { return cRealKeyword_7_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_7_2() { return cLeftParenthesisKeyword_7_2; }
@@ -1517,38 +1536,74 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//')'
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
 		
-		//{RealCast}  'real' '(' expr=Expr ')'
+		//'(' Expr ')'
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//{RealCast}
-		public Action getRealCastAction_8_0() { return cRealCastAction_8_0; }
-		
-		//'real'
-		public Keyword getRealKeyword_8_1() { return cRealKeyword_8_1; }
-		
 		//'('
-		public Keyword getLeftParenthesisKeyword_8_2() { return cLeftParenthesisKeyword_8_2; }
-		
-		//expr=Expr
-		public Assignment getExprAssignment_8_3() { return cExprAssignment_8_3; }
+		public Keyword getLeftParenthesisKeyword_8_0() { return cLeftParenthesisKeyword_8_0; }
 		
 		//Expr
-		public RuleCall getExprExprParserRuleCall_8_3_0() { return cExprExprParserRuleCall_8_3_0; }
+		public RuleCall getExprParserRuleCall_8_1() { return cExprParserRuleCall_8_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_8_4() { return cRightParenthesisKeyword_8_4; }
+		public Keyword getRightParenthesisKeyword_8_2() { return cRightParenthesisKeyword_8_2; }
+	}
+	public class OtherDataRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.OtherDataRef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNamedElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cNamedElementNamedElementCrossReference_0_0 = (CrossReference)cNamedElementAssignment_0.eContents().get(0);
+		private final RuleCall cNamedElementNamedElementIDTerminalRuleCall_0_0_1 = (RuleCall)cNamedElementNamedElementCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cPathAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cPathOtherDataRefParserRuleCall_1_1_0 = (RuleCall)cPathAssignment_1_1.eContents().get(0);
 		
-		//'(' Expr ')'
-		public Group getGroup_9() { return cGroup_9; }
+		//OtherDataRef:
+		//    (
+		//        (
+		//            namedElement=[aadl2::NamedElement|ID]
+		////             (arrayRange+=ArrayRange)*
+		//        )
+		//        ('.' path=OtherDataRef)?
+		////     |      'annex' namedElement=[aadl2::NamedElement|ID]
+		//    )
+		//;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_9_0() { return cLeftParenthesisKeyword_9_0; }
+		//    (
+		//        (
+		//            namedElement=[aadl2::NamedElement|ID]
+		////             (arrayRange+=ArrayRange)*
+		//        )
+		//        ('.' path=OtherDataRef)?
+		////     |      'annex' namedElement=[aadl2::NamedElement|ID]
+		//    )
+		public Group getGroup() { return cGroup; }
 		
-		//Expr
-		public RuleCall getExprParserRuleCall_9_1() { return cExprParserRuleCall_9_1; }
+		//        (
+		//            namedElement=[aadl2::NamedElement|ID]
+		////             (arrayRange+=ArrayRange)*
+		//        )
+		public Assignment getNamedElementAssignment_0() { return cNamedElementAssignment_0; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_9_2() { return cRightParenthesisKeyword_9_2; }
+		//[aadl2::NamedElement|ID]
+		public CrossReference getNamedElementNamedElementCrossReference_0_0() { return cNamedElementNamedElementCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getNamedElementNamedElementIDTerminalRuleCall_0_0_1() { return cNamedElementNamedElementIDTerminalRuleCall_0_0_1; }
+		
+		//('.' path=OtherDataRef)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//path=OtherDataRef
+		public Assignment getPathAssignment_1_1() { return cPathAssignment_1_1; }
+		
+		//OtherDataRef
+		public RuleCall getPathOtherDataRefParserRuleCall_1_1_0() { return cPathOtherDataRefParserRuleCall_1_1_0; }
 	}
 	public class DoubleDotRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.DoubleDotRef");
@@ -1610,26 +1665,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getSubcomponentSubcomponentIDTerminalRuleCall_0_1() { return cSubcomponentSubcomponentIDTerminalRuleCall_0_1; }
 	}
-	public class FeatureElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.FeatureElement");
-		private final Assignment cFeatureAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cFeatureNamedElementCrossReference_0 = (CrossReference)cFeatureAssignment.eContents().get(0);
-		private final RuleCall cFeatureNamedElementIDTerminalRuleCall_0_1 = (RuleCall)cFeatureNamedElementCrossReference_0.eContents().get(1);
-		
-		//FeatureElement returns FeatureElement:
-		//    feature=[aadl2::NamedElement|ID]
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//feature=[aadl2::NamedElement|ID]
-		public Assignment getFeatureAssignment() { return cFeatureAssignment; }
-		
-		//[aadl2::NamedElement|ID]
-		public CrossReference getFeatureNamedElementCrossReference_0() { return cFeatureNamedElementCrossReference_0; }
-		
-		//ID
-		public RuleCall getFeatureNamedElementIDTerminalRuleCall_0_1() { return cFeatureNamedElementIDTerminalRuleCall_0_1; }
-	}
 	
 	
 	private final AnnexLibraryElements pAnnexLibrary;
@@ -1664,10 +1699,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ExpExprElements pExpExpr;
 	private final PrefixExprElements pPrefixExpr;
 	private final AtomicExprElements pAtomicExpr;
+	private final OtherDataRefElements pOtherDataRef;
 	private final DoubleDotRefElements pDoubleDotRef;
 	private final DataElementElements pDataElement;
 	private final SubcomponentElementElements pSubcomponentElement;
-	private final FeatureElementElements pFeatureElement;
 	
 	private final Grammar grammar;
 	
@@ -1710,10 +1745,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pExpExpr = new ExpExprElements();
 		this.pPrefixExpr = new PrefixExprElements();
 		this.pAtomicExpr = new AtomicExprElements();
+		this.pOtherDataRef = new OtherDataRefElements();
 		this.pDoubleDotRef = new DoubleDotRefElements();
 		this.pDataElement = new DataElementElements();
 		this.pSubcomponentElement = new SubcomponentElementElements();
-		this.pFeatureElement = new FeatureElementElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2136,8 +2171,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
 	////  For example, invariants should only reference state variables.
 	////    {IdExpr} id=[aadl2::NamedElement | QCREF]
-	//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-	//|   {PortRef} 'port' port=FeatureElement
+	////    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
+	////|   {PortRef} 'port' port=ContainmentPathElement
+	//   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
 	//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 	//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 	//|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
@@ -2153,6 +2189,24 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getAtomicExprRule() {
 		return getAtomicExprAccess().getRule();
+	}
+	
+	//OtherDataRef:
+	//    (
+	//        (
+	//            namedElement=[aadl2::NamedElement|ID]
+	////             (arrayRange+=ArrayRange)*
+	//        )
+	//        ('.' path=OtherDataRef)?
+	////     |      'annex' namedElement=[aadl2::NamedElement|ID]
+	//    )
+	//;
+	public OtherDataRefElements getOtherDataRefAccess() {
+		return pOtherDataRef;
+	}
+	
+	public ParserRule getOtherDataRefRule() {
+		return getOtherDataRefAccess().getRule();
 	}
 	
 	//DoubleDotRef:
@@ -2186,17 +2240,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getSubcomponentElementRule() {
 		return getSubcomponentElementAccess().getRule();
-	}
-	
-	//FeatureElement returns FeatureElement:
-	//    feature=[aadl2::NamedElement|ID]
-	//;
-	public FeatureElementElements getFeatureElementAccess() {
-		return pFeatureElement;
-	}
-	
-	public ParserRule getFeatureElementRule() {
-		return getFeatureElementAccess().getRule();
 	}
 	
 	//PModel returns aadl2::Element:

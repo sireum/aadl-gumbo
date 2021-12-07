@@ -191,8 +191,9 @@ AtomicExpr returns Expr:
 //  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
 //  For example, invariants should only reference state variables.	
 //	{IdExpr} id=[aadl2::NamedElement | QCREF]
-    {StateVarRef} 'var' stateVar=[StateVarDecl|ID]
-|   {PortRef} 'port' port=FeatureElement
+//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
+//|   {PortRef} 'port' port=ContainmentPathElement
+   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
 | => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 |	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
@@ -201,6 +202,17 @@ AtomicExpr returns Expr:
 |   {FloorCast} 'floor' '(' expr=Expr ')'
 |   {RealCast}  'real' '(' expr=Expr ')'
 |   '(' Expr ')'
+;
+
+OtherDataRef:
+	(
+		(
+			namedElement=[aadl2::NamedElement|ID]
+//	 		(arrayRange+=ArrayRange)*
+		) 
+		('.' path=OtherDataRef)?
+//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
+	)
 ;
 
 DoubleDotRef:
@@ -215,7 +227,7 @@ SubcomponentElement returns SubcomponentElement:
 	subcomponent = [aadl2::Subcomponent|ID]
 ;
 
-FeatureElement returns FeatureElement:
-	feature=[aadl2::NamedElement|ID]
-;
+//FeatureElement returns FeatureElement:
+//	feature=[aadl2::NamedElement|ID]
+//;
 		

@@ -206,12 +206,7 @@ public class RecordLitExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createStateVarRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createPortRef()));
+         GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter

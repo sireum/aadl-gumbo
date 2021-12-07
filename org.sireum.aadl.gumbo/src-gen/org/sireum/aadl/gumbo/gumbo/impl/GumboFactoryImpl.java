@@ -93,14 +93,13 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
       case GumboPackage.ANON_GUARANTEE_STATEMENT: return createAnonGuaranteeStatement();
       case GumboPackage.EXPR: return createExpr();
+      case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
       case GumboPackage.DOUBLE_DOT_REF: return createDoubleDotRef();
       case GumboPackage.DATA_ELEMENT: return createDataElement();
       case GumboPackage.SUBCOMPONENT_ELEMENT: return createSubcomponentElement();
-      case GumboPackage.FEATURE_ELEMENT: return createFeatureElement();
       case GumboPackage.BINARY_EXPR: return createBinaryExpr();
       case GumboPackage.UNARY_EXPR: return createUnaryExpr();
-      case GumboPackage.STATE_VAR_REF: return createStateVarRef();
-      case GumboPackage.PORT_REF: return createPortRef();
+      case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
       case GumboPackage.INT_LIT: return createIntLit();
@@ -335,6 +334,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public OtherDataRef createOtherDataRef()
+  {
+    OtherDataRefImpl otherDataRef = new OtherDataRefImpl();
+    return otherDataRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DoubleDotRef createDoubleDotRef()
   {
     DoubleDotRefImpl doubleDotRef = new DoubleDotRefImpl();
@@ -371,18 +382,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public FeatureElement createFeatureElement()
-  {
-    FeatureElementImpl featureElement = new FeatureElementImpl();
-    return featureElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public BinaryExpr createBinaryExpr()
   {
     BinaryExprImpl binaryExpr = new BinaryExprImpl();
@@ -407,22 +406,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public StateVarRef createStateVarRef()
+  public DataRefExpr createDataRefExpr()
   {
-    StateVarRefImpl stateVarRef = new StateVarRefImpl();
-    return stateVarRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public PortRef createPortRef()
-  {
-    PortRefImpl portRef = new PortRefImpl();
-    return portRef;
+    DataRefExprImpl dataRefExpr = new DataRefExprImpl();
+    return dataRefExpr;
   }
 
   /**

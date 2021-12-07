@@ -745,6 +745,43 @@ public interface GumboPackage extends EPackage
   int EXPR_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.OtherDataRefImpl <em>Other Data Ref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.OtherDataRefImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOtherDataRef()
+   * @generated
+   */
+  int OTHER_DATA_REF = 18;
+
+  /**
+   * The feature id for the '<em><b>Named Element</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_DATA_REF__NAMED_ELEMENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_DATA_REF__PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Other Data Ref</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_DATA_REF_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.DoubleDotRefImpl <em>Double Dot Ref</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -752,7 +789,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDoubleDotRef()
    * @generated
    */
-  int DOUBLE_DOT_REF = 18;
+  int DOUBLE_DOT_REF = 19;
 
   /**
    * The feature id for the '<em><b>Elm</b></em>' reference.
@@ -780,7 +817,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDataElement()
    * @generated
    */
-  int DATA_ELEMENT = 19;
+  int DATA_ELEMENT = 20;
 
   /**
    * The feature id for the '<em><b>Data Element</b></em>' reference.
@@ -808,7 +845,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSubcomponentElement()
    * @generated
    */
-  int SUBCOMPONENT_ELEMENT = 20;
+  int SUBCOMPONENT_ELEMENT = 21;
 
   /**
    * The feature id for the '<em><b>Subcomponent</b></em>' reference.
@@ -827,34 +864,6 @@ public interface GumboPackage extends EPackage
    * @ordered
    */
   int SUBCOMPONENT_ELEMENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl <em>Feature Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFeatureElement()
-   * @generated
-   */
-  int FEATURE_ELEMENT = 21;
-
-  /**
-   * The feature id for the '<em><b>Feature</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FEATURE_ELEMENT__FEATURE = 0;
-
-  /**
-   * The number of structural features of the '<em>Feature Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FEATURE_ELEMENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryExprImpl <em>Binary Expr</em>}' class.
@@ -940,60 +949,41 @@ public interface GumboPackage extends EPackage
   int UNARY_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.StateVarRefImpl <em>State Var Ref</em>}' class.
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.DataRefExprImpl <em>Data Ref Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.StateVarRefImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getStateVarRef()
+   * @see org.sireum.aadl.gumbo.gumbo.impl.DataRefExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDataRefExpr()
    * @generated
    */
-  int STATE_VAR_REF = 24;
+  int DATA_REF_EXPR = 24;
 
   /**
-   * The feature id for the '<em><b>State Var</b></em>' reference.
+   * The feature id for the '<em><b>Port Or Subcomponent Or State Var</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_VAR_REF__STATE_VAR = EXPR_FEATURE_COUNT + 0;
+  int DATA_REF_EXPR__PORT_OR_SUBCOMPONENT_OR_STATE_VAR = EXPR_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>State Var Ref</em>' class.
+   * The feature id for the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_VAR_REF_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+  int DATA_REF_EXPR__REF = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.PortRefImpl <em>Port Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.PortRefImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPortRef()
-   * @generated
-   */
-  int PORT_REF = 25;
-
-  /**
-   * The feature id for the '<em><b>Port</b></em>' containment reference.
+   * The number of structural features of the '<em>Data Ref Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PORT_REF__PORT = EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Port Ref</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PORT_REF_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+  int DATA_REF_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EnumLitExprImpl <em>Enum Lit Expr</em>}' class.
@@ -1003,7 +993,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEnumLitExpr()
    * @generated
    */
-  int ENUM_LIT_EXPR = 26;
+  int ENUM_LIT_EXPR = 25;
 
   /**
    * The feature id for the '<em><b>Enum Type</b></em>' containment reference.
@@ -1040,7 +1030,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRecordLitExpr()
    * @generated
    */
-  int RECORD_LIT_EXPR = 27;
+  int RECORD_LIT_EXPR = 26;
 
   /**
    * The feature id for the '<em><b>Record Type</b></em>' containment reference.
@@ -1086,7 +1076,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIntLit()
    * @generated
    */
-  int INT_LIT = 28;
+  int INT_LIT = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1114,7 +1104,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealLitExpr()
    * @generated
    */
-  int REAL_LIT_EXPR = 29;
+  int REAL_LIT_EXPR = 28;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' attribute.
@@ -1142,7 +1132,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBoolLitExpr()
    * @generated
    */
-  int BOOL_LIT_EXPR = 30;
+  int BOOL_LIT_EXPR = 29;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' containment reference.
@@ -1170,7 +1160,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFloorCast()
    * @generated
    */
-  int FLOOR_CAST = 31;
+  int FLOOR_CAST = 30;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1198,7 +1188,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealCast()
    * @generated
    */
-  int REAL_CAST = 32;
+  int REAL_CAST = 31;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1642,6 +1632,38 @@ public interface GumboPackage extends EPackage
   EClass getExpr();
 
   /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef <em>Other Data Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Other Data Ref</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef
+   * @generated
+   */
+  EClass getOtherDataRef();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef#getNamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Named Element</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef#getNamedElement()
+   * @see #getOtherDataRef()
+   * @generated
+   */
+  EReference getOtherDataRef_NamedElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef#getPath()
+   * @see #getOtherDataRef()
+   * @generated
+   */
+  EReference getOtherDataRef_Path();
+
+  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.DoubleDotRef <em>Double Dot Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1703,27 +1725,6 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getSubcomponentElement_Subcomponent();
-
-  /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.FeatureElement <em>Feature Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Feature Element</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.FeatureElement
-   * @generated
-   */
-  EClass getFeatureElement();
-
-  /**
-   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.FeatureElement#getFeature <em>Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Feature</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.FeatureElement#getFeature()
-   * @see #getFeatureElement()
-   * @generated
-   */
-  EReference getFeatureElement_Feature();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr <em>Binary Expr</em>}'.
@@ -1801,46 +1802,36 @@ public interface GumboPackage extends EPackage
   EReference getUnaryExpr_Expr();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.StateVarRef <em>State Var Ref</em>}'.
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.DataRefExpr <em>Data Ref Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>State Var Ref</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.StateVarRef
+   * @return the meta object for class '<em>Data Ref Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.DataRefExpr
    * @generated
    */
-  EClass getStateVarRef();
+  EClass getDataRefExpr();
 
   /**
-   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.StateVarRef#getStateVar <em>State Var</em>}'.
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.DataRefExpr#getPortOrSubcomponentOrStateVar <em>Port Or Subcomponent Or State Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>State Var</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.StateVarRef#getStateVar()
-   * @see #getStateVarRef()
+   * @return the meta object for the reference '<em>Port Or Subcomponent Or State Var</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.DataRefExpr#getPortOrSubcomponentOrStateVar()
+   * @see #getDataRefExpr()
    * @generated
    */
-  EReference getStateVarRef_StateVar();
+  EReference getDataRefExpr_PortOrSubcomponentOrStateVar();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.PortRef <em>Port Ref</em>}'.
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.DataRefExpr#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Port Ref</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.PortRef
+   * @return the meta object for the containment reference '<em>Ref</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.DataRefExpr#getRef()
+   * @see #getDataRefExpr()
    * @generated
    */
-  EClass getPortRef();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.PortRef#getPort <em>Port</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Port</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.PortRef#getPort()
-   * @see #getPortRef()
-   * @generated
-   */
-  EReference getPortRef_Port();
+  EReference getDataRefExpr_Ref();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr <em>Enum Lit Expr</em>}'.
@@ -2402,6 +2393,32 @@ public interface GumboPackage extends EPackage
     EClass EXPR = eINSTANCE.getExpr();
 
     /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.OtherDataRefImpl <em>Other Data Ref</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.OtherDataRefImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOtherDataRef()
+     * @generated
+     */
+    EClass OTHER_DATA_REF = eINSTANCE.getOtherDataRef();
+
+    /**
+     * The meta object literal for the '<em><b>Named Element</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OTHER_DATA_REF__NAMED_ELEMENT = eINSTANCE.getOtherDataRef_NamedElement();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OTHER_DATA_REF__PATH = eINSTANCE.getOtherDataRef_Path();
+
+    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.DoubleDotRefImpl <em>Double Dot Ref</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2454,24 +2471,6 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference SUBCOMPONENT_ELEMENT__SUBCOMPONENT = eINSTANCE.getSubcomponentElement_Subcomponent();
-
-    /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl <em>Feature Element</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.FeatureElementImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFeatureElement()
-     * @generated
-     */
-    EClass FEATURE_ELEMENT = eINSTANCE.getFeatureElement();
-
-    /**
-     * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FEATURE_ELEMENT__FEATURE = eINSTANCE.getFeatureElement_Feature();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryExprImpl <em>Binary Expr</em>}' class.
@@ -2534,40 +2533,30 @@ public interface GumboPackage extends EPackage
     EReference UNARY_EXPR__EXPR = eINSTANCE.getUnaryExpr_Expr();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.StateVarRefImpl <em>State Var Ref</em>}' class.
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.DataRefExprImpl <em>Data Ref Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.StateVarRefImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getStateVarRef()
+     * @see org.sireum.aadl.gumbo.gumbo.impl.DataRefExprImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDataRefExpr()
      * @generated
      */
-    EClass STATE_VAR_REF = eINSTANCE.getStateVarRef();
+    EClass DATA_REF_EXPR = eINSTANCE.getDataRefExpr();
 
     /**
-     * The meta object literal for the '<em><b>State Var</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Port Or Subcomponent Or State Var</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATE_VAR_REF__STATE_VAR = eINSTANCE.getStateVarRef_StateVar();
+    EReference DATA_REF_EXPR__PORT_OR_SUBCOMPONENT_OR_STATE_VAR = eINSTANCE.getDataRefExpr_PortOrSubcomponentOrStateVar();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.PortRefImpl <em>Port Ref</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.PortRefImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPortRef()
-     * @generated
-     */
-    EClass PORT_REF = eINSTANCE.getPortRef();
-
-    /**
-     * The meta object literal for the '<em><b>Port</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PORT_REF__PORT = eINSTANCE.getPortRef_Port();
+    EReference DATA_REF_EXPR__REF = eINSTANCE.getDataRefExpr_Ref();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EnumLitExprImpl <em>Enum Lit Expr</em>}' class.

@@ -61,6 +61,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AnonGuaranteeStatement/expr"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Expr"/>
+    <genClasses ecoreClass="Gumbo.ecore#//OtherDataRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/namedElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/path"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//DoubleDotRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DoubleDotRef/elm"/>
     </genClasses>
@@ -69,9 +73,6 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SubcomponentElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SubcomponentElement/subcomponent"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//FeatureElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//FeatureElement/feature"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//BinaryExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryExpr/left"/>
@@ -82,11 +83,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//UnaryExpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//UnaryExpr/expr"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//StateVarRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//StateVarRef/stateVar"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//PortRef">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//PortRef/port"/>
+    <genClasses ecoreClass="Gumbo.ecore#//DataRefExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/portOrSubcomponentOrStateVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/ref"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//EnumLitExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//EnumLitExpr/enumType"/>

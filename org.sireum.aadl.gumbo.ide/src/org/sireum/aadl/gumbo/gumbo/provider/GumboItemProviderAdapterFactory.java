@@ -535,6 +535,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.OtherDataRef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OtherDataRefItemProvider otherDataRefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.OtherDataRef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOtherDataRefAdapter()
+  {
+    if (otherDataRefItemProvider == null)
+    {
+      otherDataRefItemProvider = new OtherDataRefItemProvider(this);
+    }
+
+    return otherDataRefItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DoubleDotRef} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -610,31 +635,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.FeatureElement} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected FeatureElementItemProvider featureElementItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.FeatureElement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createFeatureElementAdapter()
-  {
-    if (featureElementItemProvider == null)
-    {
-      featureElementItemProvider = new FeatureElementItemProvider(this);
-    }
-
-    return featureElementItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -685,53 +685,28 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.StateVarRef} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DataRefExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StateVarRefItemProvider stateVarRefItemProvider;
+  protected DataRefExprItemProvider dataRefExprItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.StateVarRef}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DataRefExpr}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createStateVarRefAdapter()
+  public Adapter createDataRefExprAdapter()
   {
-    if (stateVarRefItemProvider == null)
+    if (dataRefExprItemProvider == null)
     {
-      stateVarRefItemProvider = new StateVarRefItemProvider(this);
+      dataRefExprItemProvider = new DataRefExprItemProvider(this);
     }
 
-    return stateVarRefItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.PortRef} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected PortRefItemProvider portRefItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.PortRef}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createPortRefAdapter()
-  {
-    if (portRefItemProvider == null)
-    {
-      portRefItemProvider = new PortRefItemProvider(this);
-    }
-
-    return portRefItemProvider;
+    return dataRefExprItemProvider;
   }
 
   /**
@@ -1044,14 +1019,13 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (guaranteeStatementItemProvider != null) guaranteeStatementItemProvider.dispose();
     if (anonGuaranteeStatementItemProvider != null) anonGuaranteeStatementItemProvider.dispose();
     if (exprItemProvider != null) exprItemProvider.dispose();
+    if (otherDataRefItemProvider != null) otherDataRefItemProvider.dispose();
     if (doubleDotRefItemProvider != null) doubleDotRefItemProvider.dispose();
     if (dataElementItemProvider != null) dataElementItemProvider.dispose();
     if (subcomponentElementItemProvider != null) subcomponentElementItemProvider.dispose();
-    if (featureElementItemProvider != null) featureElementItemProvider.dispose();
     if (binaryExprItemProvider != null) binaryExprItemProvider.dispose();
     if (unaryExprItemProvider != null) unaryExprItemProvider.dispose();
-    if (stateVarRefItemProvider != null) stateVarRefItemProvider.dispose();
-    if (portRefItemProvider != null) portRefItemProvider.dispose();
+    if (dataRefExprItemProvider != null) dataRefExprItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
     if (recordLitExprItemProvider != null) recordLitExprItemProvider.dispose();
     if (intLitItemProvider != null) intLitItemProvider.dispose();

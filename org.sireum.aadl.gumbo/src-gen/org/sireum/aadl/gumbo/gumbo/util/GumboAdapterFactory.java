@@ -182,6 +182,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createExprAdapter();
       }
       @Override
+      public Adapter caseOtherDataRef(OtherDataRef object)
+      {
+        return createOtherDataRefAdapter();
+      }
+      @Override
       public Adapter caseDoubleDotRef(DoubleDotRef object)
       {
         return createDoubleDotRefAdapter();
@@ -197,11 +202,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSubcomponentElementAdapter();
       }
       @Override
-      public Adapter caseFeatureElement(FeatureElement object)
-      {
-        return createFeatureElementAdapter();
-      }
-      @Override
       public Adapter caseBinaryExpr(BinaryExpr object)
       {
         return createBinaryExprAdapter();
@@ -212,14 +212,9 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createUnaryExprAdapter();
       }
       @Override
-      public Adapter caseStateVarRef(StateVarRef object)
+      public Adapter caseDataRefExpr(DataRefExpr object)
       {
-        return createStateVarRefAdapter();
-      }
-      @Override
-      public Adapter casePortRef(PortRef object)
-      {
-        return createPortRefAdapter();
+        return createDataRefExprAdapter();
       }
       @Override
       public Adapter caseEnumLitExpr(EnumLitExpr object)
@@ -574,6 +569,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef <em>Other Data Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef
+   * @generated
+   */
+  public Adapter createOtherDataRefAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DoubleDotRef <em>Double Dot Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -619,21 +629,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.FeatureElement <em>Feature Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.FeatureElement
-   * @generated
-   */
-  public Adapter createFeatureElementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr <em>Binary Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -664,31 +659,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.StateVarRef <em>State Var Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DataRefExpr <em>Data Ref Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.StateVarRef
+   * @see org.sireum.aadl.gumbo.gumbo.DataRefExpr
    * @generated
    */
-  public Adapter createStateVarRefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PortRef <em>Port Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.PortRef
-   * @generated
-   */
-  public Adapter createPortRefAdapter()
+  public Adapter createDataRefExprAdapter()
   {
     return null;
   }
