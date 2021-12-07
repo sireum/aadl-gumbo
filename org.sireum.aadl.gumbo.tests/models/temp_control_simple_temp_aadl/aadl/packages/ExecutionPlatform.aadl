@@ -1,0 +1,23 @@
+package ExecutionPlatform
+public
+	
+	-- A processor represents the hardware and associated software that is responsible 
+  -- for scheduling and executing threads
+
+	processor EmbeddedController
+	end EmbeddedController;
+
+  processor implementation EmbeddedController.i
+  	subcomponents
+  		-- how do I illustrate some sort of OS configuration here?  Through properties only?
+  		controllerRAM: memory RAM.i;
+  end EmbeddedController.i;
+
+  memory RAM
+  end RAM;
+  
+  memory implementation RAM.i
+  end RAM.i;
+  
+  
+end ExecutionPlatform;
