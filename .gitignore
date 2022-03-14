@@ -6,3 +6,5 @@
 **_trace
 **xtextbin
 **xtendbin
+**/.aadlbin-gen/
+**/.*.jar

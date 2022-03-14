@@ -51,6 +51,9 @@ import org.osate.aadl2.DataPort
 import org.osate.aadl2.modelsupport.ResolvePrototypeUtil
 import org.osate.aadl2.EventDataPort
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr
+import org.eclipse.emf.common.util.BasicEList
+import org.sireum.aadl.gumbo.gumbo.DefDef
+import org.sireum.aadl.gumbo.gumbo.DefParam
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -95,6 +98,14 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 	
     def scope_StateVarDecl_typeName(StateVarDecl context, EReference reference) {
+    	getVariableScope(context, reference)
+    }
+    
+    def scope_DefParam_typeName(DefParam context, EReference reference) {
+    	getVariableScope(context, reference)
+    }
+    
+    def getVariableScope(EObject context, EReference reference) {
     	val pkg = context.getContainerOfType(AadlPackage)
     	val elem = context.getContainerOfType(PackageSection).ownedMembers.filter(DataSubcomponentType) +
     	           context.getContainerOfType(PackageSection).
@@ -121,7 +132,17 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	
 	def scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {
 		val varScope = context.getContainerOfType(Classifier).allMembers.scopeFor
-		val scope = context.getContainerOfType(SpecSection).state?.decls?.scopeFor(varScope) ?: varScope
+		val decls = new BasicEList<EObject>()
+		val stateVarDecls = context.getContainerOfType(SpecSection).state?.decls
+		if (stateVarDecls !== null) {
+			decls.addAll(stateVarDecls)
+		}
+		val functionSpecs = context.getContainerOfType(SpecSection).functions?.specs
+		if (functionSpecs !== null) {
+			decls.addAll(functionSpecs)
+		}
+		var annexScope = decls.empty ? varScope : decls.scopeFor(varScope)
+		val scope = context.getContainerOfType(DefDef)?.args?.params?.scopeFor(annexScope) ?: annexScope
 		scope
 	}	
 	
@@ -159,6 +180,8 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 			Subcomponent:
 				e.subcomponentType
 			StateVarDecl:
+				e.typeName
+			DefParam:
 				e.typeName
 			default:
 				null

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.sireum.aadl.gumbo.gumbo.Compute;
+import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.Integration;
@@ -39,6 +40,7 @@ import org.sireum.aadl.gumbo.gumbo.State;
  * </p>
  * <ul>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getState <em>State</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getInvariants <em>Invariants</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getIntegration <em>Integration</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getInitialize <em>Initialize</em>}</li>
@@ -58,6 +60,16 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
    * @ordered
    */
   protected State state;
+
+  /**
+   * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctions()
+   * @generated
+   * @ordered
+   */
+  protected Functions functions;
 
   /**
    * The cached value of the '{@link #getInvariants() <em>Invariants</em>}' containment reference.
@@ -168,6 +180,56 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_SECTION__STATE, newState, newState));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Functions getFunctions()
+  {
+    return functions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunctions(Functions newFunctions, NotificationChain msgs)
+  {
+    Functions oldFunctions = functions;
+    functions = newFunctions;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_SECTION__FUNCTIONS, oldFunctions, newFunctions);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFunctions(Functions newFunctions)
+  {
+    if (newFunctions != functions)
+    {
+      NotificationChain msgs = null;
+      if (functions != null)
+        msgs = ((InternalEObject)functions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.SPEC_SECTION__FUNCTIONS, null, msgs);
+      if (newFunctions != null)
+        msgs = ((InternalEObject)newFunctions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.SPEC_SECTION__FUNCTIONS, null, msgs);
+      msgs = basicSetFunctions(newFunctions, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_SECTION__FUNCTIONS, newFunctions, newFunctions));
   }
 
   /**
@@ -382,6 +444,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
     {
       case GumboPackage.SPEC_SECTION__STATE:
         return basicSetState(null, msgs);
+      case GumboPackage.SPEC_SECTION__FUNCTIONS:
+        return basicSetFunctions(null, msgs);
       case GumboPackage.SPEC_SECTION__INVARIANTS:
         return basicSetInvariants(null, msgs);
       case GumboPackage.SPEC_SECTION__INTEGRATION:
@@ -406,6 +470,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
     {
       case GumboPackage.SPEC_SECTION__STATE:
         return getState();
+      case GumboPackage.SPEC_SECTION__FUNCTIONS:
+        return getFunctions();
       case GumboPackage.SPEC_SECTION__INVARIANTS:
         return getInvariants();
       case GumboPackage.SPEC_SECTION__INTEGRATION:
@@ -430,6 +496,9 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
     {
       case GumboPackage.SPEC_SECTION__STATE:
         setState((State)newValue);
+        return;
+      case GumboPackage.SPEC_SECTION__FUNCTIONS:
+        setFunctions((Functions)newValue);
         return;
       case GumboPackage.SPEC_SECTION__INVARIANTS:
         setInvariants((Invariants)newValue);
@@ -460,6 +529,9 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
       case GumboPackage.SPEC_SECTION__STATE:
         setState((State)null);
         return;
+      case GumboPackage.SPEC_SECTION__FUNCTIONS:
+        setFunctions((Functions)null);
+        return;
       case GumboPackage.SPEC_SECTION__INVARIANTS:
         setInvariants((Invariants)null);
         return;
@@ -488,6 +560,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
     {
       case GumboPackage.SPEC_SECTION__STATE:
         return state != null;
+      case GumboPackage.SPEC_SECTION__FUNCTIONS:
+        return functions != null;
       case GumboPackage.SPEC_SECTION__INVARIANTS:
         return invariants != null;
       case GumboPackage.SPEC_SECTION__INTEGRATION:

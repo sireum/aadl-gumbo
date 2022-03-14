@@ -95,6 +95,7 @@ public class SpecSectionItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__STATE);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__FUNCTIONS);
       childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INVARIANTS);
       childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INTEGRATION);
       childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INITIALIZE);
@@ -157,6 +158,7 @@ public class SpecSectionItemProvider
     switch (notification.getFeatureID(SpecSection.class))
     {
       case GumboPackage.SPEC_SECTION__STATE:
+      case GumboPackage.SPEC_SECTION__FUNCTIONS:
       case GumboPackage.SPEC_SECTION__INVARIANTS:
       case GumboPackage.SPEC_SECTION__INTEGRATION:
       case GumboPackage.SPEC_SECTION__INITIALIZE:
@@ -183,6 +185,11 @@ public class SpecSectionItemProvider
       (createChildParameter
         (GumboPackage.Literals.SPEC_SECTION__STATE,
          GumboFactory.eINSTANCE.createState()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_SECTION__FUNCTIONS,
+         GumboFactory.eINSTANCE.createFunctions()));
 
     newChildDescriptors.add
       (createChildParameter

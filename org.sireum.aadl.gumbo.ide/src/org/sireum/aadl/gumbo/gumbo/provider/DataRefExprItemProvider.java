@@ -105,6 +105,7 @@ public class DataRefExprItemProvider extends ExprItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.DATA_REF_EXPR__REF);
+      childrenFeatures.add(GumboPackage.Literals.DATA_REF_EXPR__CS);
     }
     return childrenFeatures;
   }
@@ -163,6 +164,7 @@ public class DataRefExprItemProvider extends ExprItemProvider
     switch (notification.getFeatureID(DataRefExpr.class))
     {
       case GumboPackage.DATA_REF_EXPR__REF:
+      case GumboPackage.DATA_REF_EXPR__CS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -185,6 +187,11 @@ public class DataRefExprItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.DATA_REF_EXPR__REF,
          GumboFactory.eINSTANCE.createOtherDataRef()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.DATA_REF_EXPR__CS,
+         GumboFactory.eINSTANCE.createCallSuffix()));
   }
 
 }

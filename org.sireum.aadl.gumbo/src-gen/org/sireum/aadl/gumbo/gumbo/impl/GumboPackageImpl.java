@@ -23,34 +23,54 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.osate.aadl2.Aadl2Package;
 
+import org.sireum.aadl.gumbo.gumbo.AccessSuffix;
 import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinaryExpr;
 import org.sireum.aadl.gumbo.gumbo.BoolLitExpr;
+import org.sireum.aadl.gumbo.gumbo.CallArgs;
+import org.sireum.aadl.gumbo.gumbo.CallSuffix;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
+import org.sireum.aadl.gumbo.gumbo.DefContract;
+import org.sireum.aadl.gumbo.gumbo.DefContractCase;
+import org.sireum.aadl.gumbo.gumbo.DefDef;
+import org.sireum.aadl.gumbo.gumbo.DefParam;
+import org.sireum.aadl.gumbo.gumbo.DefParams;
 import org.sireum.aadl.gumbo.gumbo.DoubleDotRef;
+import org.sireum.aadl.gumbo.gumbo.Ensures;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.FloorCast;
+import org.sireum.aadl.gumbo.gumbo.FuncSpec;
+import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.IdExp;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 import org.sireum.aadl.gumbo.gumbo.IntLit;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.Invariants;
+import org.sireum.aadl.gumbo.gumbo.Modifies;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
+import org.sireum.aadl.gumbo.gumbo.Reads;
 import org.sireum.aadl.gumbo.gumbo.RealCast;
 import org.sireum.aadl.gumbo.gumbo.RealLitExpr;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
+import org.sireum.aadl.gumbo.gumbo.Requires;
+import org.sireum.aadl.gumbo.gumbo.SlangAccess;
+import org.sireum.aadl.gumbo.gumbo.SlangExpr;
+import org.sireum.aadl.gumbo.gumbo.SlangQuantVar;
+import org.sireum.aadl.gumbo.gumbo.SlangRet;
+import org.sireum.aadl.gumbo.gumbo.SlangTerm;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 import org.sireum.aadl.gumbo.gumbo.State;
@@ -219,6 +239,146 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass subcomponentElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangQuantVarEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass accessSuffixEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangTermEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangRetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass callSuffixEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass callArgsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass idExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass funcSpecEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defDefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defParamsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defParamEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defContractEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defContractCaseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass readsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass requiresEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass modifiesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ensuresEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -418,7 +578,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSpecSection_Invariants()
+  public EReference getSpecSection_Functions()
   {
     return (EReference)specSectionEClass.getEStructuralFeatures().get(1);
   }
@@ -429,7 +589,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSpecSection_Integration()
+  public EReference getSpecSection_Invariants()
   {
     return (EReference)specSectionEClass.getEStructuralFeatures().get(2);
   }
@@ -440,7 +600,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSpecSection_Initialize()
+  public EReference getSpecSection_Integration()
   {
     return (EReference)specSectionEClass.getEStructuralFeatures().get(3);
   }
@@ -451,9 +611,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSpecSection_Compute()
+  public EReference getSpecSection_Initialize()
   {
     return (EReference)specSectionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSpecSection_Compute()
+  {
+    return (EReference)specSectionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -902,6 +1073,589 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getSlangExpr()
+  {
+    return slangExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangExpr_Terms()
+  {
+    return (EReference)slangExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangExpr_Then()
+  {
+    return (EReference)slangExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangExpr_Els()
+  {
+    return (EReference)slangExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangExpr_Var()
+  {
+    return (EReference)slangExprEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangExpr_Body()
+  {
+    return (EReference)slangExprEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangQuantVar()
+  {
+    return slangQuantVarEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangQuantVar_Val()
+  {
+    return (EReference)slangQuantVarEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangQuantVar_UpperBound()
+  {
+    return (EReference)slangQuantVarEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangAccess()
+  {
+    return slangAccessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangAccess_T()
+  {
+    return (EReference)slangAccessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangAccess_Suf()
+  {
+    return (EReference)slangAccessEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAccessSuffix()
+  {
+    return accessSuffixEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangTerm()
+  {
+    return slangTermEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangTerm_Tuple()
+  {
+    return (EReference)slangTermEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangRet()
+  {
+    return slangRetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCallSuffix()
+  {
+    return callSuffixEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCallSuffix_Args()
+  {
+    return (EReference)callSuffixEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCallArgs()
+  {
+    return callArgsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCallArgs_F()
+  {
+    return (EReference)callArgsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIdExp()
+  {
+    return idExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIdExp_L()
+  {
+    return (EReference)idExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIdExp_R()
+  {
+    return (EReference)idExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunctions()
+  {
+    return functionsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctions_Specs()
+  {
+    return (EReference)functionsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFuncSpec()
+  {
+    return funcSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefDef()
+  {
+    return defDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDefDef_Name()
+  {
+    return (EAttribute)defDefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefDef_Args()
+  {
+    return (EReference)defDefEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefDef_Contract()
+  {
+    return (EReference)defDefEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefDef_Body()
+  {
+    return (EReference)defDefEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefParams()
+  {
+    return defParamsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefParams_Params()
+  {
+    return (EReference)defParamsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefParam()
+  {
+    return defParamEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDefParam_Name()
+  {
+    return (EAttribute)defParamEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefParam_TypeName()
+  {
+    return (EReference)defParamEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefContract()
+  {
+    return defContractEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefContract_Rea()
+  {
+    return (EReference)defContractEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefContract_Req()
+  {
+    return (EReference)defContractEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefContract_Mod()
+  {
+    return (EReference)defContractEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefContract_Ens()
+  {
+    return (EReference)defContractEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefContract_Dcc()
+  {
+    return (EReference)defContractEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefContractCase()
+  {
+    return defContractCaseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefContractCase_R()
+  {
+    return (EReference)defContractCaseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefContractCase_E()
+  {
+    return (EReference)defContractCaseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReads()
+  {
+    return readsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReads_E()
+  {
+    return (EReference)readsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRequires()
+  {
+    return requiresEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequires_E()
+  {
+    return (EReference)requiresEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getModifies()
+  {
+    return modifiesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModifies_E()
+  {
+    return (EReference)modifiesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEnsures()
+  {
+    return ensuresEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEnsures_E()
+  {
+    return (EReference)ensuresEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getBinaryExpr()
   {
     return binaryExprEClass;
@@ -1004,6 +1758,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getDataRefExpr_Ref()
   {
     return (EReference)dataRefExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDataRefExpr_Cs()
+  {
+    return (EReference)dataRefExprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1231,6 +1996,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     specSectionEClass = createEClass(SPEC_SECTION);
     createEReference(specSectionEClass, SPEC_SECTION__STATE);
+    createEReference(specSectionEClass, SPEC_SECTION__FUNCTIONS);
     createEReference(specSectionEClass, SPEC_SECTION__INVARIANTS);
     createEReference(specSectionEClass, SPEC_SECTION__INTEGRATION);
     createEReference(specSectionEClass, SPEC_SECTION__INITIALIZE);
@@ -1295,6 +2061,79 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     subcomponentElementEClass = createEClass(SUBCOMPONENT_ELEMENT);
     createEReference(subcomponentElementEClass, SUBCOMPONENT_ELEMENT__SUBCOMPONENT);
 
+    slangExprEClass = createEClass(SLANG_EXPR);
+    createEReference(slangExprEClass, SLANG_EXPR__TERMS);
+    createEReference(slangExprEClass, SLANG_EXPR__THEN);
+    createEReference(slangExprEClass, SLANG_EXPR__ELS);
+    createEReference(slangExprEClass, SLANG_EXPR__VAR);
+    createEReference(slangExprEClass, SLANG_EXPR__BODY);
+
+    slangQuantVarEClass = createEClass(SLANG_QUANT_VAR);
+    createEReference(slangQuantVarEClass, SLANG_QUANT_VAR__VAL);
+    createEReference(slangQuantVarEClass, SLANG_QUANT_VAR__UPPER_BOUND);
+
+    slangAccessEClass = createEClass(SLANG_ACCESS);
+    createEReference(slangAccessEClass, SLANG_ACCESS__T);
+    createEReference(slangAccessEClass, SLANG_ACCESS__SUF);
+
+    accessSuffixEClass = createEClass(ACCESS_SUFFIX);
+
+    slangTermEClass = createEClass(SLANG_TERM);
+    createEReference(slangTermEClass, SLANG_TERM__TUPLE);
+
+    slangRetEClass = createEClass(SLANG_RET);
+
+    callSuffixEClass = createEClass(CALL_SUFFIX);
+    createEReference(callSuffixEClass, CALL_SUFFIX__ARGS);
+
+    callArgsEClass = createEClass(CALL_ARGS);
+    createEReference(callArgsEClass, CALL_ARGS__F);
+
+    idExpEClass = createEClass(ID_EXP);
+    createEReference(idExpEClass, ID_EXP__L);
+    createEReference(idExpEClass, ID_EXP__R);
+
+    functionsEClass = createEClass(FUNCTIONS);
+    createEReference(functionsEClass, FUNCTIONS__SPECS);
+
+    funcSpecEClass = createEClass(FUNC_SPEC);
+
+    defDefEClass = createEClass(DEF_DEF);
+    createEAttribute(defDefEClass, DEF_DEF__NAME);
+    createEReference(defDefEClass, DEF_DEF__ARGS);
+    createEReference(defDefEClass, DEF_DEF__CONTRACT);
+    createEReference(defDefEClass, DEF_DEF__BODY);
+
+    defParamsEClass = createEClass(DEF_PARAMS);
+    createEReference(defParamsEClass, DEF_PARAMS__PARAMS);
+
+    defParamEClass = createEClass(DEF_PARAM);
+    createEAttribute(defParamEClass, DEF_PARAM__NAME);
+    createEReference(defParamEClass, DEF_PARAM__TYPE_NAME);
+
+    defContractEClass = createEClass(DEF_CONTRACT);
+    createEReference(defContractEClass, DEF_CONTRACT__REA);
+    createEReference(defContractEClass, DEF_CONTRACT__REQ);
+    createEReference(defContractEClass, DEF_CONTRACT__MOD);
+    createEReference(defContractEClass, DEF_CONTRACT__ENS);
+    createEReference(defContractEClass, DEF_CONTRACT__DCC);
+
+    defContractCaseEClass = createEClass(DEF_CONTRACT_CASE);
+    createEReference(defContractCaseEClass, DEF_CONTRACT_CASE__R);
+    createEReference(defContractCaseEClass, DEF_CONTRACT_CASE__E);
+
+    readsEClass = createEClass(READS);
+    createEReference(readsEClass, READS__E);
+
+    requiresEClass = createEClass(REQUIRES);
+    createEReference(requiresEClass, REQUIRES__E);
+
+    modifiesEClass = createEClass(MODIFIES);
+    createEReference(modifiesEClass, MODIFIES__E);
+
+    ensuresEClass = createEClass(ENSURES);
+    createEReference(ensuresEClass, ENSURES__E);
+
     binaryExprEClass = createEClass(BINARY_EXPR);
     createEReference(binaryExprEClass, BINARY_EXPR__LEFT);
     createEReference(binaryExprEClass, BINARY_EXPR__RIGHT);
@@ -1307,6 +2146,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     dataRefExprEClass = createEClass(DATA_REF_EXPR);
     createEReference(dataRefExprEClass, DATA_REF_EXPR__PORT_OR_SUBCOMPONENT_OR_STATE_VAR);
     createEReference(dataRefExprEClass, DATA_REF_EXPR__REF);
+    createEReference(dataRefExprEClass, DATA_REF_EXPR__CS);
 
     enumLitExprEClass = createEClass(ENUM_LIT_EXPR);
     createEReference(enumLitExprEClass, ENUM_LIT_EXPR__ENUM_TYPE);
@@ -1371,6 +2211,10 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     assumeStatementEClass.getESuperTypes().add(this.getSpecStatement());
     guaranteeStatementEClass.getESuperTypes().add(this.getInitializeSpecStatement());
     guaranteeStatementEClass.getESuperTypes().add(this.getSpecStatement());
+    slangExprEClass.getESuperTypes().add(this.getSlangRet());
+    slangAccessEClass.getESuperTypes().add(this.getSlangExpr());
+    callSuffixEClass.getESuperTypes().add(this.getAccessSuffix());
+    defDefEClass.getESuperTypes().add(this.getFuncSpec());
     binaryExprEClass.getESuperTypes().add(this.getExpr());
     unaryExprEClass.getESuperTypes().add(this.getExpr());
     dataRefExprEClass.getESuperTypes().add(this.getExpr());
@@ -1390,6 +2234,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(specSectionEClass, SpecSection.class, "SpecSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSpecSection_State(), this.getState(), null, "state", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecSection_Functions(), this.getFunctions(), null, "functions", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Invariants(), this.getInvariants(), null, "invariants", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Integration(), this.getIntegration(), null, "integration", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Initialize(), this.getInitialize(), null, "initialize", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1454,6 +2299,79 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(subcomponentElementEClass, SubcomponentElement.class, "SubcomponentElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSubcomponentElement_Subcomponent(), theAadl2Package.getSubcomponent(), null, "subcomponent", null, 0, 1, SubcomponentElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(slangExprEClass, SlangExpr.class, "SlangExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangExpr_Terms(), this.getSlangAccess(), null, "terms", null, 0, -1, SlangExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangExpr_Then(), this.getSlangExpr(), null, "then", null, 0, 1, SlangExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangExpr_Els(), this.getSlangExpr(), null, "els", null, 0, 1, SlangExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangExpr_Var(), this.getSlangQuantVar(), null, "var", null, 0, -1, SlangExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangExpr_Body(), this.getSlangExpr(), null, "body", null, 0, 1, SlangExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(slangQuantVarEClass, SlangQuantVar.class, "SlangQuantVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangQuantVar_Val(), this.getSlangExpr(), null, "val", null, 0, 1, SlangQuantVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangQuantVar_UpperBound(), this.getSlangExpr(), null, "upperBound", null, 0, 1, SlangQuantVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(slangAccessEClass, SlangAccess.class, "SlangAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangAccess_T(), this.getSlangTerm(), null, "t", null, 0, 1, SlangAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangAccess_Suf(), this.getAccessSuffix(), null, "suf", null, 0, 1, SlangAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(accessSuffixEClass, AccessSuffix.class, "AccessSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(slangTermEClass, SlangTerm.class, "SlangTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangTerm_Tuple(), this.getSlangExpr(), null, "tuple", null, 0, -1, SlangTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(slangRetEClass, SlangRet.class, "SlangRet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(callSuffixEClass, CallSuffix.class, "CallSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCallSuffix_Args(), this.getCallArgs(), null, "args", null, 0, 1, CallSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(callArgsEClass, CallArgs.class, "CallArgs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCallArgs_F(), this.getIdExp(), null, "f", null, 0, -1, CallArgs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(idExpEClass, IdExp.class, "IdExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIdExp_L(), this.getExpr(), null, "l", null, 0, 1, IdExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIdExp_R(), this.getExpr(), null, "r", null, 0, 1, IdExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionsEClass, Functions.class, "Functions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctions_Specs(), this.getFuncSpec(), null, "specs", null, 0, -1, Functions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(funcSpecEClass, FuncSpec.class, "FuncSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(defDefEClass, DefDef.class, "DefDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefDef_Name(), theEcorePackage.getEString(), "name", null, 0, 1, DefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefDef_Args(), this.getDefParams(), null, "args", null, 0, 1, DefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefDef_Contract(), this.getDefContract(), null, "contract", null, 0, 1, DefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefDef_Body(), this.getExpr(), null, "body", null, 0, 1, DefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(defParamsEClass, DefParams.class, "DefParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefParams_Params(), this.getDefParam(), null, "params", null, 0, -1, DefParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(defParamEClass, DefParam.class, "DefParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefParam_Name(), theEcorePackage.getEString(), "name", null, 0, 1, DefParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefParam_TypeName(), theAadl2Package.getDataSubcomponentType(), null, "typeName", null, 0, 1, DefParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(defContractEClass, DefContract.class, "DefContract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefContract_Rea(), this.getReads(), null, "rea", null, 0, 1, DefContract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefContract_Req(), this.getRequires(), null, "req", null, 0, 1, DefContract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefContract_Mod(), this.getModifies(), null, "mod", null, 0, 1, DefContract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefContract_Ens(), this.getEnsures(), null, "ens", null, 0, 1, DefContract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefContract_Dcc(), this.getDefContractCase(), null, "dcc", null, 0, -1, DefContract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(defContractCaseEClass, DefContractCase.class, "DefContractCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefContractCase_R(), this.getRequires(), null, "r", null, 0, 1, DefContractCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefContractCase_E(), this.getEnsures(), null, "e", null, 0, 1, DefContractCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(readsEClass, Reads.class, "Reads", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReads_E(), this.getExpr(), null, "e", null, 0, -1, Reads.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(requiresEClass, Requires.class, "Requires", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRequires_E(), this.getExpr(), null, "e", null, 0, -1, Requires.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(modifiesEClass, Modifies.class, "Modifies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModifies_E(), this.getExpr(), null, "e", null, 0, -1, Modifies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ensuresEClass, Ensures.class, "Ensures", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnsures_E(), this.getExpr(), null, "e", null, 0, -1, Ensures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(binaryExprEClass, BinaryExpr.class, "BinaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBinaryExpr_Left(), this.getExpr(), null, "left", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBinaryExpr_Right(), this.getExpr(), null, "right", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1466,6 +2384,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(dataRefExprEClass, DataRefExpr.class, "DataRefExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDataRefExpr_PortOrSubcomponentOrStateVar(), theEcorePackage.getEObject(), null, "portOrSubcomponentOrStateVar", null, 0, 1, DataRefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataRefExpr_Ref(), this.getOtherDataRef(), null, "ref", null, 0, 1, DataRefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataRefExpr_Cs(), this.getCallSuffix(), null, "cs", null, 0, 1, DataRefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLitExprEClass, EnumLitExpr.class, "EnumLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumLitExpr_EnumType(), this.getDataElement(), null, "enumType", null, 0, 1, EnumLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

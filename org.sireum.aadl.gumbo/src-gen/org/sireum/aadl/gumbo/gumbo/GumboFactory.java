@@ -232,6 +232,186 @@ public interface GumboFactory extends EFactory
   SubcomponentElement createSubcomponentElement();
 
   /**
+   * Returns a new object of class '<em>Slang Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Expr</em>'.
+   * @generated
+   */
+  SlangExpr createSlangExpr();
+
+  /**
+   * Returns a new object of class '<em>Slang Quant Var</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Quant Var</em>'.
+   * @generated
+   */
+  SlangQuantVar createSlangQuantVar();
+
+  /**
+   * Returns a new object of class '<em>Slang Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Access</em>'.
+   * @generated
+   */
+  SlangAccess createSlangAccess();
+
+  /**
+   * Returns a new object of class '<em>Access Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Access Suffix</em>'.
+   * @generated
+   */
+  AccessSuffix createAccessSuffix();
+
+  /**
+   * Returns a new object of class '<em>Slang Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Term</em>'.
+   * @generated
+   */
+  SlangTerm createSlangTerm();
+
+  /**
+   * Returns a new object of class '<em>Slang Ret</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Ret</em>'.
+   * @generated
+   */
+  SlangRet createSlangRet();
+
+  /**
+   * Returns a new object of class '<em>Call Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call Suffix</em>'.
+   * @generated
+   */
+  CallSuffix createCallSuffix();
+
+  /**
+   * Returns a new object of class '<em>Call Args</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call Args</em>'.
+   * @generated
+   */
+  CallArgs createCallArgs();
+
+  /**
+   * Returns a new object of class '<em>Id Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Id Exp</em>'.
+   * @generated
+   */
+  IdExp createIdExp();
+
+  /**
+   * Returns a new object of class '<em>Functions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Functions</em>'.
+   * @generated
+   */
+  Functions createFunctions();
+
+  /**
+   * Returns a new object of class '<em>Func Spec</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Func Spec</em>'.
+   * @generated
+   */
+  FuncSpec createFuncSpec();
+
+  /**
+   * Returns a new object of class '<em>Def Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Def Def</em>'.
+   * @generated
+   */
+  DefDef createDefDef();
+
+  /**
+   * Returns a new object of class '<em>Def Params</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Def Params</em>'.
+   * @generated
+   */
+  DefParams createDefParams();
+
+  /**
+   * Returns a new object of class '<em>Def Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Def Param</em>'.
+   * @generated
+   */
+  DefParam createDefParam();
+
+  /**
+   * Returns a new object of class '<em>Def Contract</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Def Contract</em>'.
+   * @generated
+   */
+  DefContract createDefContract();
+
+  /**
+   * Returns a new object of class '<em>Def Contract Case</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Def Contract Case</em>'.
+   * @generated
+   */
+  DefContractCase createDefContractCase();
+
+  /**
+   * Returns a new object of class '<em>Reads</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reads</em>'.
+   * @generated
+   */
+  Reads createReads();
+
+  /**
+   * Returns a new object of class '<em>Requires</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Requires</em>'.
+   * @generated
+   */
+  Requires createRequires();
+
+  /**
+   * Returns a new object of class '<em>Modifies</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Modifies</em>'.
+   * @generated
+   */
+  Modifies createModifies();
+
+  /**
+   * Returns a new object of class '<em>Ensures</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ensures</em>'.
+   * @generated
+   */
+  Ensures createEnsures();
+
+  /**
    * Returns a new object of class '<em>Binary Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

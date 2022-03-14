@@ -97,6 +97,26 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.DOUBLE_DOT_REF: return createDoubleDotRef();
       case GumboPackage.DATA_ELEMENT: return createDataElement();
       case GumboPackage.SUBCOMPONENT_ELEMENT: return createSubcomponentElement();
+      case GumboPackage.SLANG_EXPR: return createSlangExpr();
+      case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
+      case GumboPackage.SLANG_ACCESS: return createSlangAccess();
+      case GumboPackage.ACCESS_SUFFIX: return createAccessSuffix();
+      case GumboPackage.SLANG_TERM: return createSlangTerm();
+      case GumboPackage.SLANG_RET: return createSlangRet();
+      case GumboPackage.CALL_SUFFIX: return createCallSuffix();
+      case GumboPackage.CALL_ARGS: return createCallArgs();
+      case GumboPackage.ID_EXP: return createIdExp();
+      case GumboPackage.FUNCTIONS: return createFunctions();
+      case GumboPackage.FUNC_SPEC: return createFuncSpec();
+      case GumboPackage.DEF_DEF: return createDefDef();
+      case GumboPackage.DEF_PARAMS: return createDefParams();
+      case GumboPackage.DEF_PARAM: return createDefParam();
+      case GumboPackage.DEF_CONTRACT: return createDefContract();
+      case GumboPackage.DEF_CONTRACT_CASE: return createDefContractCase();
+      case GumboPackage.READS: return createReads();
+      case GumboPackage.REQUIRES: return createRequires();
+      case GumboPackage.MODIFIES: return createModifies();
+      case GumboPackage.ENSURES: return createEnsures();
       case GumboPackage.BINARY_EXPR: return createBinaryExpr();
       case GumboPackage.UNARY_EXPR: return createUnaryExpr();
       case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
@@ -374,6 +394,246 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SubcomponentElementImpl subcomponentElement = new SubcomponentElementImpl();
     return subcomponentElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangExpr createSlangExpr()
+  {
+    SlangExprImpl slangExpr = new SlangExprImpl();
+    return slangExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangQuantVar createSlangQuantVar()
+  {
+    SlangQuantVarImpl slangQuantVar = new SlangQuantVarImpl();
+    return slangQuantVar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangAccess createSlangAccess()
+  {
+    SlangAccessImpl slangAccess = new SlangAccessImpl();
+    return slangAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AccessSuffix createAccessSuffix()
+  {
+    AccessSuffixImpl accessSuffix = new AccessSuffixImpl();
+    return accessSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTerm createSlangTerm()
+  {
+    SlangTermImpl slangTerm = new SlangTermImpl();
+    return slangTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangRet createSlangRet()
+  {
+    SlangRetImpl slangRet = new SlangRetImpl();
+    return slangRet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CallSuffix createCallSuffix()
+  {
+    CallSuffixImpl callSuffix = new CallSuffixImpl();
+    return callSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CallArgs createCallArgs()
+  {
+    CallArgsImpl callArgs = new CallArgsImpl();
+    return callArgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IdExp createIdExp()
+  {
+    IdExpImpl idExp = new IdExpImpl();
+    return idExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Functions createFunctions()
+  {
+    FunctionsImpl functions = new FunctionsImpl();
+    return functions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FuncSpec createFuncSpec()
+  {
+    FuncSpecImpl funcSpec = new FuncSpecImpl();
+    return funcSpec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DefDef createDefDef()
+  {
+    DefDefImpl defDef = new DefDefImpl();
+    return defDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DefParams createDefParams()
+  {
+    DefParamsImpl defParams = new DefParamsImpl();
+    return defParams;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DefParam createDefParam()
+  {
+    DefParamImpl defParam = new DefParamImpl();
+    return defParam;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DefContract createDefContract()
+  {
+    DefContractImpl defContract = new DefContractImpl();
+    return defContract;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DefContractCase createDefContractCase()
+  {
+    DefContractCaseImpl defContractCase = new DefContractCaseImpl();
+    return defContractCase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Reads createReads()
+  {
+    ReadsImpl reads = new ReadsImpl();
+    return reads;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Requires createRequires()
+  {
+    RequiresImpl requires = new RequiresImpl();
+    return requires;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Modifies createModifies()
+  {
+    ModifiesImpl modifies = new ModifiesImpl();
+    return modifies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Ensures createEnsures()
+  {
+    EnsuresImpl ensures = new EnsuresImpl();
+    return ensures;
   }
 
   /**

@@ -30,6 +30,7 @@ SpecSection:
 //	ComputationalModel
 //|	Flows
 	(state = State)?
+	(functions = Functions)?
 	(invariants = Invariants)?
 	(integration = Integration)?
 	(initialize = Initialize)?
@@ -193,7 +194,7 @@ AtomicExpr returns Expr:
 //	{IdExpr} id=[aadl2::NamedElement | QCREF]
 //    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
 //|   {PortRef} 'port' port=ContainmentPathElement
-   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
+   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=CallSuffix?
 | => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 |	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
@@ -201,6 +202,7 @@ AtomicExpr returns Expr:
 |   {BoolLitExpr} val=BooleanLiteral
 |   {FloorCast} 'floor' '(' expr=Expr ')'
 |   {RealCast}  'real' '(' expr=Expr ')'
+//|   ID CallSuffix
 |   '(' Expr ')'
 ;
 
@@ -230,4 +232,109 @@ SubcomponentElement returns SubcomponentElement:
 //FeatureElement returns FeatureElement:
 //	feature=[aadl2::NamedElement|ID]
 //;
+
+SlangExpr
+	: terms+=SlangAccess ( 
+	  ( OP terms+=SlangAccess )* 
+	  | '?' then=SlangExpr ':' els=SlangExpr
+	  )
+	| ( '\\all' | '\\some' | '∀' | '∃' ) var+=SlangQuantVar ( ',' var+=SlangQuantVar )* '=>' body=SlangExpr
+	| OP SlangAccess
+	;
+	
+SlangQuantVar: ID ':' val=SlangExpr ( ( '..' | '..<' ) upperBound=SlangExpr )? ;
+	
+SlangAccess: t=SlangTerm suf=AccessSuffix* ;
+
+AccessSuffix: '.' ID CallSuffix? ;
+
+SlangTerm
+    : ID
+	| '(' tuple+=SlangExpr ( ',' tuple+=SlangExpr )*  ')'
+//	| 'for' forRange ( ',' forRange )*  'yield' ( SlangBlock |  '(' SlangExpr ')' )
+//	| '{'
+//	   ( params '=>' SlangExpr '}'
+//	   | stmt* ret? '}'
+//	   )
+	;
+	
+SlangRet: 'return' SlangExpr? ;
+
+CallSuffix
+	: TypeArgs args=CallArgs?
+	| args=CallArgs
+	;
+	
+CallArgs: '(' ( f+=IdExp ( ',' f+=IdExp )* )? ')' ;
+	
+IdExp: l=Expr ( ':=' r=Expr )? ;
+
 		
+Type
+	: BaseType ( '=>' BaseType )*
+	| 'mut' BaseType ( '=>' BaseType )+
+	;
+	
+BaseType
+	: QCREF TypeArgs?
+	| '(' ( Type ( ',' Type )* )? ')'
+	;
+
+TypeArgs: '[' Type ( ',' Type )* ']' ;
+
+Functions:
+	'functions' (specs+=FuncSpec)+
+;
+
+FuncSpec: DefDef ';';
+
+Params: '(' Param ( ',' Param )? ')' ;
+	
+Param: 'var'? ID ':' ( '=>' )? Type '*'? ;
+
+DefDef: DefMods? DefExt? name=DefID TypeParams? args=DefParams? ':' Type contract=DefContract? ':=' body=Expr ;
+
+DefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
+
+DefExt: '(' ID ':' Type ')' ;
+	
+DefID: ID | OP ;
+
+DefParams: '(' params+=DefParam ( ',' params+=DefParam )? ')' ;
+	
+DefParam: name=ID ':' ( '=>' )? typeName=[aadl2::DataSubcomponentType|QCREF] '*'? ;
+
+DefContract
+	: {DefContract} 'spec'
+	  ( rea=Reads? req=Requires? mod=Modifies? ens=Ensures?
+	  | dcc+=DefContractCase+ rea=Reads? mod=Modifies?
+	  )
+	;
+
+DefContractCase: {DefContractCase} 'case' STRING r=Requires? e=Ensures? ;
+
+TypeParams: '[' TypeParam (  ',' TypeParam )* ']' ;
+
+TypeParam: 'mut'? ID ;
+
+Reads: 'reads' e+=Expr ( ',' e+=Expr )* ;
+
+Requires: 'requires' e+=Expr ( ',' e+=Expr )* ;
+
+Modifies: 'modifies' e+=Expr ( ',' e+=Expr )* ;
+
+Ensures: 'ensures' e+=Expr ( ',' e+=Expr )* ;
+
+terminal OP: ( OPSYM+ | '\\' IDF ) ;
+
+terminal fragment IDF: ( LETTER | '_' ) ( LETTER | DIGIT )* ;
+
+terminal fragment LETTER: ('a'..'z' | 'A'..'Z');
+
+terminal fragment OPSYM
+	: '+' | '-' | '*' | '/' | '%' | '=' | '<' | '>' | '!' | '&' | '^' | '|' | '~'
+	| ( '\u2200' .. '\u22FF' ) // https://en.wikipedia.org/wiki/Mathematical_Operators
+	| ( '\u2A00' .. '\u2AFF' ) // https://en.wikipedia.org/wiki/Supplemental_Mathematical_Operators
+	| ( '\u27C0' .. '\u27EF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-A
+	| ( '\u2980' .. '\u29FF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
+	;
