@@ -187,15 +187,6 @@ public interface GumboFactory extends EFactory
   AnonGuaranteeStatement createAnonGuaranteeStatement();
 
   /**
-   * Returns a new object of class '<em>Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expr</em>'.
-   * @generated
-   */
-  Expr createExpr();
-
-  /**
    * Returns a new object of class '<em>Other Data Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -232,87 +223,6 @@ public interface GumboFactory extends EFactory
   SubcomponentElement createSubcomponentElement();
 
   /**
-   * Returns a new object of class '<em>Slang Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Expr</em>'.
-   * @generated
-   */
-  SlangExpr createSlangExpr();
-
-  /**
-   * Returns a new object of class '<em>Slang Quant Var</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Quant Var</em>'.
-   * @generated
-   */
-  SlangQuantVar createSlangQuantVar();
-
-  /**
-   * Returns a new object of class '<em>Slang Access</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Access</em>'.
-   * @generated
-   */
-  SlangAccess createSlangAccess();
-
-  /**
-   * Returns a new object of class '<em>Access Suffix</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Access Suffix</em>'.
-   * @generated
-   */
-  AccessSuffix createAccessSuffix();
-
-  /**
-   * Returns a new object of class '<em>Slang Term</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Term</em>'.
-   * @generated
-   */
-  SlangTerm createSlangTerm();
-
-  /**
-   * Returns a new object of class '<em>Slang Ret</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Ret</em>'.
-   * @generated
-   */
-  SlangRet createSlangRet();
-
-  /**
-   * Returns a new object of class '<em>Call Suffix</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Call Suffix</em>'.
-   * @generated
-   */
-  CallSuffix createCallSuffix();
-
-  /**
-   * Returns a new object of class '<em>Call Args</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Call Args</em>'.
-   * @generated
-   */
-  CallArgs createCallArgs();
-
-  /**
-   * Returns a new object of class '<em>Id Exp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Id Exp</em>'.
-   * @generated
-   */
-  IdExp createIdExp();
-
-  /**
    * Returns a new object of class '<em>Functions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -331,112 +241,463 @@ public interface GumboFactory extends EFactory
   FuncSpec createFuncSpec();
 
   /**
-   * Returns a new object of class '<em>Def Def</em>'.
+   * Returns a new object of class '<em>Slang Def Decl Def</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Def Def</em>'.
+   * @return a new object of class '<em>Slang Def Decl Def</em>'.
    * @generated
    */
-  DefDef createDefDef();
+  SlangDefDeclDef createSlangDefDeclDef();
 
   /**
-   * Returns a new object of class '<em>Def Params</em>'.
+   * Returns a new object of class '<em>Slang Def Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Def Params</em>'.
+   * @return a new object of class '<em>Slang Def Decl</em>'.
    * @generated
    */
-  DefParams createDefParams();
+  SlangDefDecl createSlangDefDecl();
 
   /**
-   * Returns a new object of class '<em>Def Param</em>'.
+   * Returns a new object of class '<em>Slang Def Def</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Def Param</em>'.
+   * @return a new object of class '<em>Slang Def Def</em>'.
    * @generated
    */
-  DefParam createDefParam();
+  SlangDefDef createSlangDefDef();
 
   /**
-   * Returns a new object of class '<em>Def Contract</em>'.
+   * Returns a new object of class '<em>Slang Def Ext</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Def Contract</em>'.
+   * @return a new object of class '<em>Slang Def Ext</em>'.
    * @generated
    */
-  DefContract createDefContract();
+  SlangDefExt createSlangDefExt();
 
   /**
-   * Returns a new object of class '<em>Def Contract Case</em>'.
+   * Returns a new object of class '<em>Slang Def Params</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Def Contract Case</em>'.
+   * @return a new object of class '<em>Slang Def Params</em>'.
    * @generated
    */
-  DefContractCase createDefContractCase();
+  SlangDefParams createSlangDefParams();
 
   /**
-   * Returns a new object of class '<em>Reads</em>'.
+   * Returns a new object of class '<em>Slang Def Param</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Reads</em>'.
+   * @return a new object of class '<em>Slang Def Param</em>'.
    * @generated
    */
-  Reads createReads();
+  SlangDefParam createSlangDefParam();
 
   /**
-   * Returns a new object of class '<em>Requires</em>'.
+   * Returns a new object of class '<em>Slang Def Contract</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Requires</em>'.
+   * @return a new object of class '<em>Slang Def Contract</em>'.
    * @generated
    */
-  Requires createRequires();
+  SlangDefContract createSlangDefContract();
 
   /**
-   * Returns a new object of class '<em>Modifies</em>'.
+   * Returns a new object of class '<em>Slang Def Contract Case</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Modifies</em>'.
+   * @return a new object of class '<em>Slang Def Contract Case</em>'.
    * @generated
    */
-  Modifies createModifies();
+  SlangDefContractCase createSlangDefContractCase();
 
   /**
-   * Returns a new object of class '<em>Ensures</em>'.
+   * Returns a new object of class '<em>Slang Suprs</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ensures</em>'.
+   * @return a new object of class '<em>Slang Suprs</em>'.
    * @generated
    */
-  Ensures createEnsures();
+  SlangSuprs createSlangSuprs();
 
   /**
-   * Returns a new object of class '<em>Binary Expr</em>'.
+   * Returns a new object of class '<em>Slang Supr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binary Expr</em>'.
+   * @return a new object of class '<em>Slang Supr</em>'.
    * @generated
    */
-  BinaryExpr createBinaryExpr();
+  SlangSupr createSlangSupr();
 
   /**
-   * Returns a new object of class '<em>Unary Expr</em>'.
+   * Returns a new object of class '<em>Slang Ext</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unary Expr</em>'.
+   * @return a new object of class '<em>Slang Ext</em>'.
    * @generated
    */
-  UnaryExpr createUnaryExpr();
+  SlangExt createSlangExt();
 
   /**
-   * Returns a new object of class '<em>Data Ref Expr</em>'.
+   * Returns a new object of class '<em>Slang Invariant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Ref Expr</em>'.
+   * @return a new object of class '<em>Slang Invariant</em>'.
    * @generated
    */
-  DataRefExpr createDataRefExpr();
+  SlangInvariant createSlangInvariant();
+
+  /**
+   * Returns a new object of class '<em>Slang Reads</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Reads</em>'.
+   * @generated
+   */
+  SlangReads createSlangReads();
+
+  /**
+   * Returns a new object of class '<em>Slang Requires</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Requires</em>'.
+   * @generated
+   */
+  SlangRequires createSlangRequires();
+
+  /**
+   * Returns a new object of class '<em>Slang Modifies</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Modifies</em>'.
+   * @generated
+   */
+  SlangModifies createSlangModifies();
+
+  /**
+   * Returns a new object of class '<em>Slang Ensures</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Ensures</em>'.
+   * @generated
+   */
+  SlangEnsures createSlangEnsures();
+
+  /**
+   * Returns a new object of class '<em>Slang Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Stmt</em>'.
+   * @generated
+   */
+  SlangStmt createSlangStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Else</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Else</em>'.
+   * @generated
+   */
+  SlangElse createSlangElse();
+
+  /**
+   * Returns a new object of class '<em>Slang Loop Contract</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Loop Contract</em>'.
+   * @generated
+   */
+  SlangLoopContract createSlangLoopContract();
+
+  /**
+   * Returns a new object of class '<em>Slang LHS Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang LHS Suffix</em>'.
+   * @generated
+   */
+  SlangLHSSuffix createSlangLHSSuffix();
+
+  /**
+   * Returns a new object of class '<em>Slang Case</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Case</em>'.
+   * @generated
+   */
+  SlangCase createSlangCase();
+
+  /**
+   * Returns a new object of class '<em>Slang Pattern</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Pattern</em>'.
+   * @generated
+   */
+  SlangPattern createSlangPattern();
+
+  /**
+   * Returns a new object of class '<em>Slang TPattern</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang TPattern</em>'.
+   * @generated
+   */
+  SlangTPattern createSlangTPattern();
+
+  /**
+   * Returns a new object of class '<em>Slang Typed Var Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Typed Var Def</em>'.
+   * @generated
+   */
+  SlangTypedVarDef createSlangTypedVarDef();
+
+  /**
+   * Returns a new object of class '<em>Slang Var Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Var Def</em>'.
+   * @generated
+   */
+  SlangVarDef createSlangVarDef();
+
+  /**
+   * Returns a new object of class '<em>Slang Var Decl Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Var Decl Def</em>'.
+   * @generated
+   */
+  SlangVarDeclDef createSlangVarDeclDef();
+
+  /**
+   * Returns a new object of class '<em>Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr</em>'.
+   * @generated
+   */
+  Expr createExpr();
+
+  /**
+   * Returns a new object of class '<em>Slang Quant Var</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Quant Var</em>'.
+   * @generated
+   */
+  SlangQuantVar createSlangQuantVar();
+
+  /**
+   * Returns a new object of class '<em>Slang Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Block</em>'.
+   * @generated
+   */
+  SlangBlock createSlangBlock();
+
+  /**
+   * Returns a new object of class '<em>Slang Params</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Params</em>'.
+   * @generated
+   */
+  SlangParams createSlangParams();
+
+  /**
+   * Returns a new object of class '<em>Slang Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Param</em>'.
+   * @generated
+   */
+  SlangParam createSlangParam();
+
+  /**
+   * Returns a new object of class '<em>Slang For Range</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang For Range</em>'.
+   * @generated
+   */
+  SlangForRange createSlangForRange();
+
+  /**
+   * Returns a new object of class '<em>Slang Ret</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Ret</em>'.
+   * @generated
+   */
+  SlangRet createSlangRet();
+
+  /**
+   * Returns a new object of class '<em>Slang Call Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Call Suffix</em>'.
+   * @generated
+   */
+  SlangCallSuffix createSlangCallSuffix();
+
+  /**
+   * Returns a new object of class '<em>Slang Call Args</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Call Args</em>'.
+   * @generated
+   */
+  SlangCallArgs createSlangCallArgs();
+
+  /**
+   * Returns a new object of class '<em>Slang ID Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang ID Exp</em>'.
+   * @generated
+   */
+  SlangIDExp createSlangIDExp();
+
+  /**
+   * Returns a new object of class '<em>Slang Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Type</em>'.
+   * @generated
+   */
+  SlangType createSlangType();
+
+  /**
+   * Returns a new object of class '<em>Slang Type Args</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Type Args</em>'.
+   * @generated
+   */
+  SlangTypeArgs createSlangTypeArgs();
+
+  /**
+   * Returns a new object of class '<em>Slang Interp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Interp</em>'.
+   * @generated
+   */
+  SlangInterp createSlangInterp();
+
+  /**
+   * Returns a new object of class '<em>Slang MInterp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang MInterp</em>'.
+   * @generated
+   */
+  SlangMInterp createSlangMInterp();
+
+  /**
+   * Returns a new object of class '<em>Slang If Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang If Stmt</em>'.
+   * @generated
+   */
+  SlangIfStmt createSlangIfStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Match Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Match Stmt</em>'.
+   * @generated
+   */
+  SlangMatchStmt createSlangMatchStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Spec Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Spec Stmt</em>'.
+   * @generated
+   */
+  SlangSpecStmt createSlangSpecStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Assume Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Assume Stmt</em>'.
+   * @generated
+   */
+  SlangAssumeStmt createSlangAssumeStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Assert Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Assert Stmt</em>'.
+   * @generated
+   */
+  SlangAssertStmt createSlangAssertStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Halt Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Halt Stmt</em>'.
+   * @generated
+   */
+  SlangHaltStmt createSlangHaltStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Do Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Do Stmt</em>'.
+   * @generated
+   */
+  SlangDoStmt createSlangDoStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Field Lookup</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Field Lookup</em>'.
+   * @generated
+   */
+  SlangFieldLookup createSlangFieldLookup();
+
+  /**
+   * Returns a new object of class '<em>Slang Method Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Method Call</em>'.
+   * @generated
+   */
+  SlangMethodCall createSlangMethodCall();
+
+  /**
+   * Returns a new object of class '<em>Slang Lit Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Lit Term</em>'.
+   * @generated
+   */
+  SlangLitTerm createSlangLitTerm();
+
+  /**
+   * Returns a new object of class '<em>Slang Interp Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Interp Term</em>'.
+   * @generated
+   */
+  SlangInterpTerm createSlangInterpTerm();
 
   /**
    * Returns a new object of class '<em>Enum Lit Expr</em>'.
@@ -457,49 +718,40 @@ public interface GumboFactory extends EFactory
   RecordLitExpr createRecordLitExpr();
 
   /**
-   * Returns a new object of class '<em>Int Lit</em>'.
+   * Returns a new object of class '<em>Data Ref Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Int Lit</em>'.
+   * @return a new object of class '<em>Data Ref Expr</em>'.
    * @generated
    */
-  IntLit createIntLit();
+  DataRefExpr createDataRefExpr();
 
   /**
-   * Returns a new object of class '<em>Real Lit Expr</em>'.
+   * Returns a new object of class '<em>Slang Tuple Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Real Lit Expr</em>'.
+   * @return a new object of class '<em>Slang Tuple Term</em>'.
    * @generated
    */
-  RealLitExpr createRealLitExpr();
+  SlangTupleTerm createSlangTupleTerm();
 
   /**
-   * Returns a new object of class '<em>Bool Lit Expr</em>'.
+   * Returns a new object of class '<em>Slang For Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Bool Lit Expr</em>'.
+   * @return a new object of class '<em>Slang For Term</em>'.
    * @generated
    */
-  BoolLitExpr createBoolLitExpr();
+  SlangForTerm createSlangForTerm();
 
   /**
-   * Returns a new object of class '<em>Floor Cast</em>'.
+   * Returns a new object of class '<em>Slang Block Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Floor Cast</em>'.
+   * @return a new object of class '<em>Slang Block Term</em>'.
    * @generated
    */
-  FloorCast createFloorCast();
-
-  /**
-   * Returns a new object of class '<em>Real Cast</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Real Cast</em>'.
-   * @generated
-   */
-  RealCast createRealCast();
+  SlangBlockTerm createSlangBlockTerm();
 
   /**
    * Returns the package supported by this factory.

@@ -68,7 +68,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="AnonGuaranteeStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expr"/>
   <eClassifiers xsi:type="ecore:EClass" name="OtherDataRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="namedElement" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//OtherDataRef"
@@ -83,117 +82,258 @@
   <eClassifiers xsi:type="ecore:EClass" name="SubcomponentElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponent" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Subcomponent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangExpr" eSuperTypes="#//SlangRet">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="terms" upperBound="-1"
-        eType="#//SlangAccess" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="then" eType="#//SlangExpr"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="els" eType="#//SlangExpr"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var" upperBound="-1" eType="#//SlangQuantVar"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//SlangExpr"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangQuantVar">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="#//SlangExpr"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" eType="#//SlangExpr"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangAccess" eSuperTypes="#//SlangExpr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//SlangTerm"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="suf" eType="#//AccessSuffix"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AccessSuffix"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangTerm">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tuple" upperBound="-1"
-        eType="#//SlangExpr" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangRet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CallSuffix" eSuperTypes="#//AccessSuffix">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//CallArgs"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CallArgs">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="f" upperBound="-1" eType="#//IdExp"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IdExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//Expr" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Functions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="specs" upperBound="-1"
         eType="#//FuncSpec" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FuncSpec"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DefDef" eSuperTypes="#//FuncSpec">
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefDeclDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//DefParams"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParams" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contract" eType="#//DefContract"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" eType="#//SlangDefContract"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefParams">
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParams" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" eType="#//SlangDefContract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefDef" eSuperTypes="#//FuncSpec">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParams" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" eType="#//SlangDefContract"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefExt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefParams">
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
-        eType="#//DefParam" containment="true"/>
+        eType="#//SlangDefParam" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefParam">
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefParam">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefContract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rea" eType="#//SlangReads"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="req" eType="#//SlangRequires"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mod" eType="#//SlangModifies"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ens" eType="#//SlangEnsures"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contracts" upperBound="-1"
+        eType="#//SlangDefContractCase" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDefContractCase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="req" eType="#//SlangRequires"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ens" eType="#//SlangEnsures"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangSuprs">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superTypes" upperBound="-1"
+        eType="#//SlangSupr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangSupr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangExt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decl" upperBound="-1" eType="#//SlangDefDecl"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangInvariant">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
+        eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangReads">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
+        eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangRequires">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
+        eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangModifies">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
+        eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangEnsures">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
+        eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangStmt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangElse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cond" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//SlangBlock"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//SlangElse"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangLoopContract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inv" eType="#//SlangInvariant"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mod" eType="#//SlangModifies"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangLHSSuffix"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangCase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//SlangPattern"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s" upperBound="-1" eType="#//SlangStmt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangPattern" eSuperTypes="#//SlangTypedVarDef #//SlangVarDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
+        eType="#//SlangTPattern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangTPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
+        eType="#//SlangTPattern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangTypedVarDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangVarDef" eSuperTypes="#//SlangStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="d" eType="#//SlangVarDef"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangVarDeclDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expr" eSuperTypes="#//SlangMInterp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="term" upperBound="-1" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thenExpr" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseExpr" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qVar" upperBound="-1" eType="#//SlangQuantVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedExpr" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m" eType="#//SlangMInterp"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangQuantVar">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangBlock" eSuperTypes="#//SlangElse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stmts" upperBound="-1"
+        eType="#//SlangStmt" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//SlangRet"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangParams">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//SlangParam" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangParam">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangForRange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upper" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangRet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangCallSuffix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ta" eType="#//SlangTypeArgs"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ca" eType="#//SlangCallArgs"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangCallArgs">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arg" upperBound="-1" eType="#//SlangIDExp"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangIDExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataSubcomponentType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefContract">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rea" eType="#//Reads" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="req" eType="#//Requires"
+  <eClassifiers xsi:type="ecore:EClass" name="SlangTypeArgs" eSuperTypes="#//SlangSupr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//SlangType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangInterp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangMInterp" eSuperTypes="#//SlangInterp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangIfStmt" eSuperTypes="#//SlangStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cond" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//SlangBlock"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mod" eType="#//Modifies"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ens" eType="#//Ensures"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dcc" upperBound="-1" eType="#//DefContractCase"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//SlangElse"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefContractCase">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//Requires"
+  <eClassifiers xsi:type="ecore:EClass" name="SlangMatchStmt" eSuperTypes="#//SlangStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testExpr" eType="#//Expr"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Ensures" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reads">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//Expr"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" upperBound="-1" eType="#//SlangCase"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Requires">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//Expr"
+  <eClassifiers xsi:type="ecore:EClass" name="SlangSpecStmt" eSuperTypes="#//SlangStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//SlangBlock"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Modifies">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//Expr"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangAssumeStmt" eSuperTypes="#//SlangStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ensures">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//Expr"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangAssertStmt" eSuperTypes="#//SlangStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangHaltStmt" eSuperTypes="#//SlangStmt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangDoStmt" eSuperTypes="#//SlangStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnaryExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangFieldLookup" eSuperTypes="#//SlangLHSSuffix"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangMethodCall" eSuperTypes="#//SlangLHSSuffix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
+        eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataRefExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="portOrSubcomponentOrStateVar"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//OtherDataRef"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cs" eType="#//CallSuffix"
+  <eClassifiers xsi:type="ecore:EClass" name="SlangLitTerm" eSuperTypes="#//Expr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangInterpTerm" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="i" eType="#//SlangInterp"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLitExpr" eSuperTypes="#//Expr">
@@ -209,20 +349,32 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="argExpr" upperBound="-1"
         eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntLit" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RealLitExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BoolLitExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//BooleanLiteral"
+  <eClassifiers xsi:type="ecore:EClass" name="DataRefExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="portOrSubcomponentOrStateVar"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//OtherDataRef"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cs" eType="#//SlangCallSuffix"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FloorCast" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangTupleTerm" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//Expr"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RealCast" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangForTerm" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" upperBound="-1" eType="#//SlangForRange"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//SlangBlock"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangBlockTerm" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="p" eType="#//SlangParams"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stmt" upperBound="-1" eType="#//SlangStmt"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//SlangRet"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

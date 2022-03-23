@@ -92,41 +92,69 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.ANON_ASSUME_STATEMENT: return createAnonAssumeStatement();
       case GumboPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
       case GumboPackage.ANON_GUARANTEE_STATEMENT: return createAnonGuaranteeStatement();
-      case GumboPackage.EXPR: return createExpr();
       case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
       case GumboPackage.DOUBLE_DOT_REF: return createDoubleDotRef();
       case GumboPackage.DATA_ELEMENT: return createDataElement();
       case GumboPackage.SUBCOMPONENT_ELEMENT: return createSubcomponentElement();
-      case GumboPackage.SLANG_EXPR: return createSlangExpr();
-      case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
-      case GumboPackage.SLANG_ACCESS: return createSlangAccess();
-      case GumboPackage.ACCESS_SUFFIX: return createAccessSuffix();
-      case GumboPackage.SLANG_TERM: return createSlangTerm();
-      case GumboPackage.SLANG_RET: return createSlangRet();
-      case GumboPackage.CALL_SUFFIX: return createCallSuffix();
-      case GumboPackage.CALL_ARGS: return createCallArgs();
-      case GumboPackage.ID_EXP: return createIdExp();
       case GumboPackage.FUNCTIONS: return createFunctions();
       case GumboPackage.FUNC_SPEC: return createFuncSpec();
-      case GumboPackage.DEF_DEF: return createDefDef();
-      case GumboPackage.DEF_PARAMS: return createDefParams();
-      case GumboPackage.DEF_PARAM: return createDefParam();
-      case GumboPackage.DEF_CONTRACT: return createDefContract();
-      case GumboPackage.DEF_CONTRACT_CASE: return createDefContractCase();
-      case GumboPackage.READS: return createReads();
-      case GumboPackage.REQUIRES: return createRequires();
-      case GumboPackage.MODIFIES: return createModifies();
-      case GumboPackage.ENSURES: return createEnsures();
-      case GumboPackage.BINARY_EXPR: return createBinaryExpr();
-      case GumboPackage.UNARY_EXPR: return createUnaryExpr();
-      case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
+      case GumboPackage.SLANG_DEF_DECL_DEF: return createSlangDefDeclDef();
+      case GumboPackage.SLANG_DEF_DECL: return createSlangDefDecl();
+      case GumboPackage.SLANG_DEF_DEF: return createSlangDefDef();
+      case GumboPackage.SLANG_DEF_EXT: return createSlangDefExt();
+      case GumboPackage.SLANG_DEF_PARAMS: return createSlangDefParams();
+      case GumboPackage.SLANG_DEF_PARAM: return createSlangDefParam();
+      case GumboPackage.SLANG_DEF_CONTRACT: return createSlangDefContract();
+      case GumboPackage.SLANG_DEF_CONTRACT_CASE: return createSlangDefContractCase();
+      case GumboPackage.SLANG_SUPRS: return createSlangSuprs();
+      case GumboPackage.SLANG_SUPR: return createSlangSupr();
+      case GumboPackage.SLANG_EXT: return createSlangExt();
+      case GumboPackage.SLANG_INVARIANT: return createSlangInvariant();
+      case GumboPackage.SLANG_READS: return createSlangReads();
+      case GumboPackage.SLANG_REQUIRES: return createSlangRequires();
+      case GumboPackage.SLANG_MODIFIES: return createSlangModifies();
+      case GumboPackage.SLANG_ENSURES: return createSlangEnsures();
+      case GumboPackage.SLANG_STMT: return createSlangStmt();
+      case GumboPackage.SLANG_ELSE: return createSlangElse();
+      case GumboPackage.SLANG_LOOP_CONTRACT: return createSlangLoopContract();
+      case GumboPackage.SLANG_LHS_SUFFIX: return createSlangLHSSuffix();
+      case GumboPackage.SLANG_CASE: return createSlangCase();
+      case GumboPackage.SLANG_PATTERN: return createSlangPattern();
+      case GumboPackage.SLANG_TPATTERN: return createSlangTPattern();
+      case GumboPackage.SLANG_TYPED_VAR_DEF: return createSlangTypedVarDef();
+      case GumboPackage.SLANG_VAR_DEF: return createSlangVarDef();
+      case GumboPackage.SLANG_VAR_DECL_DEF: return createSlangVarDeclDef();
+      case GumboPackage.EXPR: return createExpr();
+      case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
+      case GumboPackage.SLANG_BLOCK: return createSlangBlock();
+      case GumboPackage.SLANG_PARAMS: return createSlangParams();
+      case GumboPackage.SLANG_PARAM: return createSlangParam();
+      case GumboPackage.SLANG_FOR_RANGE: return createSlangForRange();
+      case GumboPackage.SLANG_RET: return createSlangRet();
+      case GumboPackage.SLANG_CALL_SUFFIX: return createSlangCallSuffix();
+      case GumboPackage.SLANG_CALL_ARGS: return createSlangCallArgs();
+      case GumboPackage.SLANG_ID_EXP: return createSlangIDExp();
+      case GumboPackage.SLANG_TYPE: return createSlangType();
+      case GumboPackage.SLANG_TYPE_ARGS: return createSlangTypeArgs();
+      case GumboPackage.SLANG_INTERP: return createSlangInterp();
+      case GumboPackage.SLANG_MINTERP: return createSlangMInterp();
+      case GumboPackage.SLANG_IF_STMT: return createSlangIfStmt();
+      case GumboPackage.SLANG_MATCH_STMT: return createSlangMatchStmt();
+      case GumboPackage.SLANG_SPEC_STMT: return createSlangSpecStmt();
+      case GumboPackage.SLANG_ASSUME_STMT: return createSlangAssumeStmt();
+      case GumboPackage.SLANG_ASSERT_STMT: return createSlangAssertStmt();
+      case GumboPackage.SLANG_HALT_STMT: return createSlangHaltStmt();
+      case GumboPackage.SLANG_DO_STMT: return createSlangDoStmt();
+      case GumboPackage.SLANG_FIELD_LOOKUP: return createSlangFieldLookup();
+      case GumboPackage.SLANG_METHOD_CALL: return createSlangMethodCall();
+      case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
+      case GumboPackage.SLANG_INTERP_TERM: return createSlangInterpTerm();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
-      case GumboPackage.INT_LIT: return createIntLit();
-      case GumboPackage.REAL_LIT_EXPR: return createRealLitExpr();
-      case GumboPackage.BOOL_LIT_EXPR: return createBoolLitExpr();
-      case GumboPackage.FLOOR_CAST: return createFloorCast();
-      case GumboPackage.REAL_CAST: return createRealCast();
+      case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
+      case GumboPackage.SLANG_TUPLE_TERM: return createSlangTupleTerm();
+      case GumboPackage.SLANG_FOR_TERM: return createSlangForTerm();
+      case GumboPackage.SLANG_BLOCK_TERM: return createSlangBlockTerm();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -342,18 +370,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Expr createExpr()
-  {
-    ExprImpl expr = new ExprImpl();
-    return expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public OtherDataRef createOtherDataRef()
   {
     OtherDataRefImpl otherDataRef = new OtherDataRefImpl();
@@ -402,114 +418,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangExpr createSlangExpr()
-  {
-    SlangExprImpl slangExpr = new SlangExprImpl();
-    return slangExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangQuantVar createSlangQuantVar()
-  {
-    SlangQuantVarImpl slangQuantVar = new SlangQuantVarImpl();
-    return slangQuantVar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangAccess createSlangAccess()
-  {
-    SlangAccessImpl slangAccess = new SlangAccessImpl();
-    return slangAccess;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public AccessSuffix createAccessSuffix()
-  {
-    AccessSuffixImpl accessSuffix = new AccessSuffixImpl();
-    return accessSuffix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangTerm createSlangTerm()
-  {
-    SlangTermImpl slangTerm = new SlangTermImpl();
-    return slangTerm;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangRet createSlangRet()
-  {
-    SlangRetImpl slangRet = new SlangRetImpl();
-    return slangRet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CallSuffix createCallSuffix()
-  {
-    CallSuffixImpl callSuffix = new CallSuffixImpl();
-    return callSuffix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CallArgs createCallArgs()
-  {
-    CallArgsImpl callArgs = new CallArgsImpl();
-    return callArgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IdExp createIdExp()
-  {
-    IdExpImpl idExp = new IdExpImpl();
-    return idExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Functions createFunctions()
   {
     FunctionsImpl functions = new FunctionsImpl();
@@ -534,10 +442,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public DefDef createDefDef()
+  public SlangDefDeclDef createSlangDefDeclDef()
   {
-    DefDefImpl defDef = new DefDefImpl();
-    return defDef;
+    SlangDefDeclDefImpl slangDefDeclDef = new SlangDefDeclDefImpl();
+    return slangDefDeclDef;
   }
 
   /**
@@ -546,10 +454,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public DefParams createDefParams()
+  public SlangDefDecl createSlangDefDecl()
   {
-    DefParamsImpl defParams = new DefParamsImpl();
-    return defParams;
+    SlangDefDeclImpl slangDefDecl = new SlangDefDeclImpl();
+    return slangDefDecl;
   }
 
   /**
@@ -558,10 +466,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public DefParam createDefParam()
+  public SlangDefDef createSlangDefDef()
   {
-    DefParamImpl defParam = new DefParamImpl();
-    return defParam;
+    SlangDefDefImpl slangDefDef = new SlangDefDefImpl();
+    return slangDefDef;
   }
 
   /**
@@ -570,10 +478,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public DefContract createDefContract()
+  public SlangDefExt createSlangDefExt()
   {
-    DefContractImpl defContract = new DefContractImpl();
-    return defContract;
+    SlangDefExtImpl slangDefExt = new SlangDefExtImpl();
+    return slangDefExt;
   }
 
   /**
@@ -582,10 +490,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public DefContractCase createDefContractCase()
+  public SlangDefParams createSlangDefParams()
   {
-    DefContractCaseImpl defContractCase = new DefContractCaseImpl();
-    return defContractCase;
+    SlangDefParamsImpl slangDefParams = new SlangDefParamsImpl();
+    return slangDefParams;
   }
 
   /**
@@ -594,10 +502,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Reads createReads()
+  public SlangDefParam createSlangDefParam()
   {
-    ReadsImpl reads = new ReadsImpl();
-    return reads;
+    SlangDefParamImpl slangDefParam = new SlangDefParamImpl();
+    return slangDefParam;
   }
 
   /**
@@ -606,10 +514,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Requires createRequires()
+  public SlangDefContract createSlangDefContract()
   {
-    RequiresImpl requires = new RequiresImpl();
-    return requires;
+    SlangDefContractImpl slangDefContract = new SlangDefContractImpl();
+    return slangDefContract;
   }
 
   /**
@@ -618,10 +526,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Modifies createModifies()
+  public SlangDefContractCase createSlangDefContractCase()
   {
-    ModifiesImpl modifies = new ModifiesImpl();
-    return modifies;
+    SlangDefContractCaseImpl slangDefContractCase = new SlangDefContractCaseImpl();
+    return slangDefContractCase;
   }
 
   /**
@@ -630,10 +538,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Ensures createEnsures()
+  public SlangSuprs createSlangSuprs()
   {
-    EnsuresImpl ensures = new EnsuresImpl();
-    return ensures;
+    SlangSuprsImpl slangSuprs = new SlangSuprsImpl();
+    return slangSuprs;
   }
 
   /**
@@ -642,10 +550,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public BinaryExpr createBinaryExpr()
+  public SlangSupr createSlangSupr()
   {
-    BinaryExprImpl binaryExpr = new BinaryExprImpl();
-    return binaryExpr;
+    SlangSuprImpl slangSupr = new SlangSuprImpl();
+    return slangSupr;
   }
 
   /**
@@ -654,10 +562,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public UnaryExpr createUnaryExpr()
+  public SlangExt createSlangExt()
   {
-    UnaryExprImpl unaryExpr = new UnaryExprImpl();
-    return unaryExpr;
+    SlangExtImpl slangExt = new SlangExtImpl();
+    return slangExt;
   }
 
   /**
@@ -666,10 +574,478 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public DataRefExpr createDataRefExpr()
+  public SlangInvariant createSlangInvariant()
   {
-    DataRefExprImpl dataRefExpr = new DataRefExprImpl();
-    return dataRefExpr;
+    SlangInvariantImpl slangInvariant = new SlangInvariantImpl();
+    return slangInvariant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangReads createSlangReads()
+  {
+    SlangReadsImpl slangReads = new SlangReadsImpl();
+    return slangReads;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangRequires createSlangRequires()
+  {
+    SlangRequiresImpl slangRequires = new SlangRequiresImpl();
+    return slangRequires;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangModifies createSlangModifies()
+  {
+    SlangModifiesImpl slangModifies = new SlangModifiesImpl();
+    return slangModifies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangEnsures createSlangEnsures()
+  {
+    SlangEnsuresImpl slangEnsures = new SlangEnsuresImpl();
+    return slangEnsures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangStmt createSlangStmt()
+  {
+    SlangStmtImpl slangStmt = new SlangStmtImpl();
+    return slangStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangElse createSlangElse()
+  {
+    SlangElseImpl slangElse = new SlangElseImpl();
+    return slangElse;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangLoopContract createSlangLoopContract()
+  {
+    SlangLoopContractImpl slangLoopContract = new SlangLoopContractImpl();
+    return slangLoopContract;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangLHSSuffix createSlangLHSSuffix()
+  {
+    SlangLHSSuffixImpl slangLHSSuffix = new SlangLHSSuffixImpl();
+    return slangLHSSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangCase createSlangCase()
+  {
+    SlangCaseImpl slangCase = new SlangCaseImpl();
+    return slangCase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangPattern createSlangPattern()
+  {
+    SlangPatternImpl slangPattern = new SlangPatternImpl();
+    return slangPattern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTPattern createSlangTPattern()
+  {
+    SlangTPatternImpl slangTPattern = new SlangTPatternImpl();
+    return slangTPattern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTypedVarDef createSlangTypedVarDef()
+  {
+    SlangTypedVarDefImpl slangTypedVarDef = new SlangTypedVarDefImpl();
+    return slangTypedVarDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangVarDef createSlangVarDef()
+  {
+    SlangVarDefImpl slangVarDef = new SlangVarDefImpl();
+    return slangVarDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangVarDeclDef createSlangVarDeclDef()
+  {
+    SlangVarDeclDefImpl slangVarDeclDef = new SlangVarDeclDefImpl();
+    return slangVarDeclDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expr createExpr()
+  {
+    ExprImpl expr = new ExprImpl();
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangQuantVar createSlangQuantVar()
+  {
+    SlangQuantVarImpl slangQuantVar = new SlangQuantVarImpl();
+    return slangQuantVar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangBlock createSlangBlock()
+  {
+    SlangBlockImpl slangBlock = new SlangBlockImpl();
+    return slangBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangParams createSlangParams()
+  {
+    SlangParamsImpl slangParams = new SlangParamsImpl();
+    return slangParams;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangParam createSlangParam()
+  {
+    SlangParamImpl slangParam = new SlangParamImpl();
+    return slangParam;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangForRange createSlangForRange()
+  {
+    SlangForRangeImpl slangForRange = new SlangForRangeImpl();
+    return slangForRange;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangRet createSlangRet()
+  {
+    SlangRetImpl slangRet = new SlangRetImpl();
+    return slangRet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangCallSuffix createSlangCallSuffix()
+  {
+    SlangCallSuffixImpl slangCallSuffix = new SlangCallSuffixImpl();
+    return slangCallSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangCallArgs createSlangCallArgs()
+  {
+    SlangCallArgsImpl slangCallArgs = new SlangCallArgsImpl();
+    return slangCallArgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangIDExp createSlangIDExp()
+  {
+    SlangIDExpImpl slangIDExp = new SlangIDExpImpl();
+    return slangIDExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangType createSlangType()
+  {
+    SlangTypeImpl slangType = new SlangTypeImpl();
+    return slangType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTypeArgs createSlangTypeArgs()
+  {
+    SlangTypeArgsImpl slangTypeArgs = new SlangTypeArgsImpl();
+    return slangTypeArgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangInterp createSlangInterp()
+  {
+    SlangInterpImpl slangInterp = new SlangInterpImpl();
+    return slangInterp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangMInterp createSlangMInterp()
+  {
+    SlangMInterpImpl slangMInterp = new SlangMInterpImpl();
+    return slangMInterp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangIfStmt createSlangIfStmt()
+  {
+    SlangIfStmtImpl slangIfStmt = new SlangIfStmtImpl();
+    return slangIfStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangMatchStmt createSlangMatchStmt()
+  {
+    SlangMatchStmtImpl slangMatchStmt = new SlangMatchStmtImpl();
+    return slangMatchStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangSpecStmt createSlangSpecStmt()
+  {
+    SlangSpecStmtImpl slangSpecStmt = new SlangSpecStmtImpl();
+    return slangSpecStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangAssumeStmt createSlangAssumeStmt()
+  {
+    SlangAssumeStmtImpl slangAssumeStmt = new SlangAssumeStmtImpl();
+    return slangAssumeStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangAssertStmt createSlangAssertStmt()
+  {
+    SlangAssertStmtImpl slangAssertStmt = new SlangAssertStmtImpl();
+    return slangAssertStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangHaltStmt createSlangHaltStmt()
+  {
+    SlangHaltStmtImpl slangHaltStmt = new SlangHaltStmtImpl();
+    return slangHaltStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangDoStmt createSlangDoStmt()
+  {
+    SlangDoStmtImpl slangDoStmt = new SlangDoStmtImpl();
+    return slangDoStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangFieldLookup createSlangFieldLookup()
+  {
+    SlangFieldLookupImpl slangFieldLookup = new SlangFieldLookupImpl();
+    return slangFieldLookup;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangMethodCall createSlangMethodCall()
+  {
+    SlangMethodCallImpl slangMethodCall = new SlangMethodCallImpl();
+    return slangMethodCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangLitTerm createSlangLitTerm()
+  {
+    SlangLitTermImpl slangLitTerm = new SlangLitTermImpl();
+    return slangLitTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangInterpTerm createSlangInterpTerm()
+  {
+    SlangInterpTermImpl slangInterpTerm = new SlangInterpTermImpl();
+    return slangInterpTerm;
   }
 
   /**
@@ -702,10 +1078,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public IntLit createIntLit()
+  public DataRefExpr createDataRefExpr()
   {
-    IntLitImpl intLit = new IntLitImpl();
-    return intLit;
+    DataRefExprImpl dataRefExpr = new DataRefExprImpl();
+    return dataRefExpr;
   }
 
   /**
@@ -714,10 +1090,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public RealLitExpr createRealLitExpr()
+  public SlangTupleTerm createSlangTupleTerm()
   {
-    RealLitExprImpl realLitExpr = new RealLitExprImpl();
-    return realLitExpr;
+    SlangTupleTermImpl slangTupleTerm = new SlangTupleTermImpl();
+    return slangTupleTerm;
   }
 
   /**
@@ -726,10 +1102,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public BoolLitExpr createBoolLitExpr()
+  public SlangForTerm createSlangForTerm()
   {
-    BoolLitExprImpl boolLitExpr = new BoolLitExprImpl();
-    return boolLitExpr;
+    SlangForTermImpl slangForTerm = new SlangForTermImpl();
+    return slangForTerm;
   }
 
   /**
@@ -738,22 +1114,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public FloorCast createFloorCast()
+  public SlangBlockTerm createSlangBlockTerm()
   {
-    FloorCastImpl floorCast = new FloorCastImpl();
-    return floorCast;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public RealCast createRealCast()
-  {
-    RealCastImpl realCast = new RealCastImpl();
-    return realCast;
+    SlangBlockTermImpl slangBlockTerm = new SlangBlockTermImpl();
+    return slangBlockTerm;
   }
 
   /**

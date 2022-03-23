@@ -94,7 +94,7 @@ public class SlangQuantVarItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_QUANT_VAR__VAL);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_QUANT_VAR__E);
       childrenFeatures.add(GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND);
     }
     return childrenFeatures;
@@ -153,7 +153,7 @@ public class SlangQuantVarItemProvider
 
     switch (notification.getFeatureID(SlangQuantVar.class))
     {
-      case GumboPackage.SLANG_QUANT_VAR__VAL:
+      case GumboPackage.SLANG_QUANT_VAR__E:
       case GumboPackage.SLANG_QUANT_VAR__UPPER_BOUND:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -175,23 +175,93 @@ public class SlangQuantVarItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_QUANT_VAR__VAL,
-         GumboFactory.eINSTANCE.createSlangExpr()));
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_QUANT_VAR__VAL,
-         GumboFactory.eINSTANCE.createSlangAccess()));
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createDataRefExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createSlangForTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
-         GumboFactory.eINSTANCE.createSlangExpr()));
+         GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
-         GumboFactory.eINSTANCE.createSlangAccess()));
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createDataRefExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createSlangForTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
   /**
@@ -207,7 +277,7 @@ public class SlangQuantVarItemProvider
     Object childObject = child;
 
     boolean qualify =
-      childFeature == GumboPackage.Literals.SLANG_QUANT_VAR__VAL ||
+      childFeature == GumboPackage.Literals.SLANG_QUANT_VAR__E ||
       childFeature == GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND;
 
     if (qualify)

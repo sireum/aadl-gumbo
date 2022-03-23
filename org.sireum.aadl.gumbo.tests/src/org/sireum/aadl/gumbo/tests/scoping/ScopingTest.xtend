@@ -17,9 +17,9 @@ import org.osate.aadl2.ThreadType
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause
 import org.osate.aadl2.Classifier
 import org.eclipse.xtext.EcoreUtil2
-import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
-import org.sireum.aadl.gumbo.gumbo.BinaryExpr
-import org.osate.aadl2.DataPort
+//import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
+//import org.sireum.aadl.gumbo.gumbo.BinaryExpr
+//import org.osate.aadl2.DataPort
 
 @RunWith(XtextRunner)
 @InjectWith(GumboInjectorProvider)

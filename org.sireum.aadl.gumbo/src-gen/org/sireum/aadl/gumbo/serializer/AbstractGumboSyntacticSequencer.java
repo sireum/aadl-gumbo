@@ -21,6 +21,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -31,58 +32,76 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_AtomicExpr_LeftParenthesisKeyword_8_0_a;
-	protected AbstractElementAlias match_AtomicExpr_LeftParenthesisKeyword_8_0_p;
-	protected AbstractElementAlias match_CallSuffix_TypeArgsParserRuleCall_0_0_q;
-	protected AbstractElementAlias match_DefDef_DefExtParserRuleCall_1_q;
-	protected AbstractElementAlias match_DefDef_DefModsParserRuleCall_0_q;
-	protected AbstractElementAlias match_DefDef_TypeParamsParserRuleCall_3_q;
-	protected AbstractElementAlias match_DefParam_AsteriskKeyword_4_q;
-	protected AbstractElementAlias match_DefParam_EqualsSignGreaterThanSignKeyword_2_q;
-	protected AbstractElementAlias match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1;
-	protected AbstractElementAlias match_SlangExpr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3;
+	protected AbstractElementAlias match_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3;
+	protected AbstractElementAlias match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q;
+	protected AbstractElementAlias match_SlangDefDecl_SlangDefModsParserRuleCall_1_q;
+	protected AbstractElementAlias match_SlangDefDef_SlangDefModsParserRuleCall_1_q;
+	protected AbstractElementAlias match_SlangDefParam_AsteriskKeyword_4_q;
+	protected AbstractElementAlias match_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q;
+	protected AbstractElementAlias match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q;
+	protected AbstractElementAlias match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
+	protected AbstractElementAlias match_SlangParam_AsteriskKeyword_5_q;
+	protected AbstractElementAlias match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q;
+	protected AbstractElementAlias match_SlangParam_VarKeyword_0_q;
 	protected AbstractElementAlias match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
+	protected AbstractElementAlias match_SlangStmt_STRINGTerminalRuleCall_4_3_q;
+	protected AbstractElementAlias match_SlangStmt_STRINGTerminalRuleCall_5_3_q;
+	protected AbstractElementAlias match_SlangStmt_STRINGTerminalRuleCall_6_2_q;
+	protected AbstractElementAlias match_SlangTPattern_IDTerminalRuleCall_0_0_or__Keyword_2_0;
+	protected AbstractElementAlias match_SlangVarDeclDef_SpecKeyword_2_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
-		match_AtomicExpr_LeftParenthesisKeyword_8_0_a = new TokenAlias(true, true, grammarAccess.getAtomicExprAccess().getLeftParenthesisKeyword_8_0());
-		match_AtomicExpr_LeftParenthesisKeyword_8_0_p = new TokenAlias(true, false, grammarAccess.getAtomicExprAccess().getLeftParenthesisKeyword_8_0());
-		match_CallSuffix_TypeArgsParserRuleCall_0_0_q = new TokenAlias(false, true, grammarAccess.getCallSuffixAccess().getTypeArgsParserRuleCall_0_0());
-		match_DefDef_DefExtParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getDefDefAccess().getDefExtParserRuleCall_1());
-		match_DefDef_DefModsParserRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getDefDefAccess().getDefModsParserRuleCall_0());
-		match_DefDef_TypeParamsParserRuleCall_3_q = new TokenAlias(false, true, grammarAccess.getDefDefAccess().getTypeParamsParserRuleCall_3());
-		match_DefParam_AsteriskKeyword_4_q = new TokenAlias(false, true, grammarAccess.getDefParamAccess().getAsteriskKeyword_4());
-		match_DefParam_EqualsSignGreaterThanSignKeyword_2_q = new TokenAlias(false, true, grammarAccess.getDefParamAccess().getEqualsSignGreaterThanSignKeyword_2());
-		match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getImpliesExprAccess().getEqualsSignGreaterThanSignKeyword_1_0_0_1_0()), new TokenAlias(false, false, grammarAccess.getImpliesExprAccess().getImpliesKeyword_1_0_0_1_1()));
-		match_SlangExpr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangExprAccess().getAllKeyword_1_0_0()), new TokenAlias(false, false, grammarAccess.getSlangExprAccess().getForAllKeyword_1_0_2()), new TokenAlias(false, false, grammarAccess.getSlangExprAccess().getSomeKeyword_1_0_1()), new TokenAlias(false, false, grammarAccess.getSlangExprAccess().getThereExistsKeyword_1_0_3()));
+		match_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExprAccess().getAllKeyword_1_0_0()), new TokenAlias(false, false, grammarAccess.getExprAccess().getForAllKeyword_1_0_2()), new TokenAlias(false, false, grammarAccess.getExprAccess().getSomeKeyword_1_0_1()), new TokenAlias(false, false, grammarAccess.getExprAccess().getThereExistsKeyword_1_0_3()));
+		match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclDefAccess().getSlangDefModsParserRuleCall_1());
+		match_SlangDefDecl_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclAccess().getSlangDefModsParserRuleCall_1());
+		match_SlangDefDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDefAccess().getSlangDefModsParserRuleCall_1());
+		match_SlangDefParam_AsteriskKeyword_4_q = new TokenAlias(false, true, grammarAccess.getSlangDefParamAccess().getAsteriskKeyword_4());
+		match_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q = new TokenAlias(false, true, grammarAccess.getSlangDefParamAccess().getEqualsSignGreaterThanSignKeyword_2());
+		match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSlangExtAccess().getForKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getSlangExtAccess().getSlangNameParserRuleCall_3_1()));
+		match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
+		match_SlangParam_AsteriskKeyword_5_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getAsteriskKeyword_5());
+		match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getEqualsSignGreaterThanSignKeyword_3());
+		match_SlangParam_VarKeyword_0_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getVarKeyword_0());
 		match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangQuantVarAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangQuantVarAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
+		match_SlangStmt_STRINGTerminalRuleCall_4_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSTRINGTerminalRuleCall_4_3());
+		match_SlangStmt_STRINGTerminalRuleCall_5_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSTRINGTerminalRuleCall_5_3());
+		match_SlangStmt_STRINGTerminalRuleCall_6_2_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSTRINGTerminalRuleCall_6_2());
+		match_SlangTPattern_IDTerminalRuleCall_0_0_or__Keyword_2_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangTPatternAccess().getIDTerminalRuleCall_0_0()), new TokenAlias(false, false, grammarAccess.getSlangTPatternAccess().get_Keyword_2_0()));
+		match_SlangVarDeclDef_SpecKeyword_2_q = new TokenAlias(false, true, grammarAccess.getSlangVarDeclDefAccess().getSpecKeyword_2());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getAppliesToKeywordsRule())
 			return getAppliesToKeywordsToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getDefExtRule())
-			return getDefExtToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getDefModsRule())
-			return getDefModsToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getIDRule())
 			return getIDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getInBindingKeywordsRule())
 			return getInBindingKeywordsToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getInModesKeywordsRule())
 			return getInModesKeywordsToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getOPRule())
-			return getOPToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getMSPRule())
+			return getMSPToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getMSPBRule())
+			return getMSPBToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getMSPERule())
+			return getMSPEToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getMSPMRule())
+			return getMSPMToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getOperatorRule())
+			return getOperatorToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
 			return getSTRINGToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getTypeRule())
-			return getTypeToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getTypeArgsRule())
-			return getTypeArgsToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getTypeParamsRule())
-			return getTypeParamsToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSlangDefModsRule())
+			return getSlangDefModsToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSlangLitRule())
+			return getSlangLitToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSlangNameRule())
+			return getSlangNameToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSlangVarModRule())
+			return getSlangVarModToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -95,24 +114,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		if (node != null)
 			return getTokenText(node);
 		return "applies to";
-	}
-	
-	/**
-	 * DefExt: '(' ID ':' Type ')' ;
-	 */
-	protected String getDefExtToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "( : )";
-	}
-	
-	/**
-	 * DefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
-	 */
-	protected String getDefModsToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "strict";
 	}
 	
 	/**
@@ -151,12 +152,48 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	}
 	
 	/**
-	 * terminal OP: ( OPSYM+ | '\\' IDF ) ;
+	 * terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
 	 */
-	protected String getOPToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getMSPToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "+";
+		return "\"\"\"\"\"\"";
+	}
+	
+	/**
+	 * terminal MSPB: IDF '"""' MSPI* '$' ;
+	 */
+	protected String getMSPBToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\"\"\"$";
+	}
+	
+	/**
+	 * terminal MSPE: '$' MSPI* ( '"""' | '""""' | '"""""' ) ;
+	 */
+	protected String getMSPEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "$\"\"\"";
+	}
+	
+	/**
+	 * terminal MSPM: '$' MSPI* '$' ;
+	 */
+	protected String getMSPMToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "$$";
+	}
+	
+	/**
+	 * Operator: OP | PlusMinus | STAR;
+	 */
+	protected String getOperatorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "/";
 	}
 	
 	/**
@@ -172,33 +209,43 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	}
 	
 	/**
-	 * Type
-	 * 	: BaseType ( '=>' BaseType )*
-	 * 	| 'mut' BaseType ( '=>' BaseType )+
+	 * SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
+	 */
+	protected String getSlangDefModsToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "strict";
+	}
+	
+	/**
+	 * SlangLit
+	 * 	: 'true'
+	 * 	| 'false'
+	 * 	| INTEGER_LIT	| REAL_LIT	| STRING
 	 * 	;
 	 */
-	protected String getTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSlangLitToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "true";
+	}
+	
+	/**
+	 * SlangName: ID ( '.' ID )* ;
+	 */
+	protected String getSlangNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "";
 	}
 	
 	/**
-	 * TypeArgs: '[' Type ( ',' Type )* ']' ;
+	 * SlangVarMod: 'val' | 'var' ;
 	 */
-	protected String getTypeArgsToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSlangVarModToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "[ ]";
-	}
-	
-	/**
-	 * TypeParams: '[' TypeParam (  ',' TypeParam )* ']' ;
-	 */
-	protected String getTypeParamsToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "[ ]";
+		return "val";
 	}
 	
 	@Override
@@ -207,109 +254,90 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_AtomicExpr_LeftParenthesisKeyword_8_0_a.equals(syntax))
-				emit_AtomicExpr_LeftParenthesisKeyword_8_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_AtomicExpr_LeftParenthesisKeyword_8_0_p.equals(syntax))
-				emit_AtomicExpr_LeftParenthesisKeyword_8_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_CallSuffix_TypeArgsParserRuleCall_0_0_q.equals(syntax))
-				emit_CallSuffix_TypeArgsParserRuleCall_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DefDef_DefExtParserRuleCall_1_q.equals(syntax))
-				emit_DefDef_DefExtParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DefDef_DefModsParserRuleCall_0_q.equals(syntax))
-				emit_DefDef_DefModsParserRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DefDef_TypeParamsParserRuleCall_3_q.equals(syntax))
-				emit_DefDef_TypeParamsParserRuleCall_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DefParam_AsteriskKeyword_4_q.equals(syntax))
-				emit_DefParam_AsteriskKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DefParam_EqualsSignGreaterThanSignKeyword_2_q.equals(syntax))
-				emit_DefParam_EqualsSignGreaterThanSignKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1.equals(syntax))
-				emit_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangExpr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3.equals(syntax))
-				emit_SlangExpr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3.equals(syntax))
+				emit_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q.equals(syntax))
+				emit_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangDefDecl_SlangDefModsParserRuleCall_1_q.equals(syntax))
+				emit_SlangDefDecl_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangDefDef_SlangDefModsParserRuleCall_1_q.equals(syntax))
+				emit_SlangDefDef_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangDefParam_AsteriskKeyword_4_q.equals(syntax))
+				emit_SlangDefParam_AsteriskKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q.equals(syntax))
+				emit_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q.equals(syntax))
+				emit_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1.equals(syntax))
+				emit_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangParam_AsteriskKeyword_5_q.equals(syntax))
+				emit_SlangParam_AsteriskKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q.equals(syntax))
+				emit_SlangParam_EqualsSignGreaterThanSignKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangParam_VarKeyword_0_q.equals(syntax))
+				emit_SlangParam_VarKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1.equals(syntax))
 				emit_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangStmt_STRINGTerminalRuleCall_4_3_q.equals(syntax))
+				emit_SlangStmt_STRINGTerminalRuleCall_4_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangStmt_STRINGTerminalRuleCall_5_3_q.equals(syntax))
+				emit_SlangStmt_STRINGTerminalRuleCall_5_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangStmt_STRINGTerminalRuleCall_6_2_q.equals(syntax))
+				emit_SlangStmt_STRINGTerminalRuleCall_6_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangTPattern_IDTerminalRuleCall_0_0_or__Keyword_2_0.equals(syntax))
+				emit_SlangTPattern_IDTerminalRuleCall_0_0_or__Keyword_2_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangVarDeclDef_SpecKeyword_2_q.equals(syntax))
+				emit_SlangVarDeclDef_SpecKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     '('*
+	 *     '\all' | '\some' | '∀' | '∃'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'enum' '(' enumType=DataElement
-	 *     (rule start) (ambiguity) 'floor' '(' expr=Expr
-	 *     (rule start) (ambiguity) 'real' '(' expr=Expr
-	 *     (rule start) (ambiguity) op='-'
-	 *     (rule start) (ambiguity) op='not'
-	 *     (rule start) (ambiguity) portOrSubcomponentOrStateVar=[EObject|ID]
-	 *     (rule start) (ambiguity) recordType=DataElement
-	 *     (rule start) (ambiguity) val=BooleanLiteral
-	 *     (rule start) (ambiguity) val=REAL_LIT
-	 *     (rule start) (ambiguity) value=INTEGER_LIT
-	 *     (rule start) (ambiguity) {BinaryExpr.left=}
+	 *     (rule start) '{' (ambiguity) qVar+=SlangQuantVar
+	 *     (rule start) (ambiguity) qVar+=SlangQuantVar
+	 *     (rule start) MSPB '{' (ambiguity) qVar+=SlangQuantVar
 	 */
-	protected void emit_AtomicExpr_LeftParenthesisKeyword_8_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '('+
+	 *     SlangDefMods?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) op='-'
-	 *     (rule start) (ambiguity) op='not'
-	 *     (rule start) (ambiguity) {BinaryExpr.left=}
+	 *     (rule start) 'def' (ambiguity) name=SlangDefID
+	 *     (rule start) 'def' (ambiguity) sde=SlangDefExt
 	 */
-	protected void emit_AtomicExpr_LeftParenthesisKeyword_8_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     TypeArgs?
+	 *     SlangDefMods?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '.' ID (ambiguity) (rule start)
+	 *     (rule start) 'def' (ambiguity) name=SlangDefID
+	 *     (rule start) 'def' (ambiguity) sde=SlangDefExt
 	 */
-	protected void emit_CallSuffix_TypeArgsParserRuleCall_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangDefDecl_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     DefExt?
+	 *     SlangDefMods?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) DefMods? (ambiguity) name=DefID
+	 *     (rule start) 'def' (ambiguity) name=SlangDefID
+	 *     (rule start) 'def' (ambiguity) sde=SlangDefExt
 	 */
-	protected void emit_DefDef_DefExtParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     DefMods?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) DefExt? name=DefID
-	 */
-	protected void emit_DefDef_DefModsParserRuleCall_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     TypeParams?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name=DefID (ambiguity) ':' Type ':=' body=Expr
-	 *     name=DefID (ambiguity) ':' Type contract=DefContract
-	 *     name=DefID (ambiguity) args=DefParams
-	 */
-	protected void emit_DefDef_TypeParamsParserRuleCall_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangDefDef_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -318,9 +346,9 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     '*'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     typeName=[DataSubcomponentType|QCREF] (ambiguity) (rule end)
+	 *     typeName=SlangType (ambiguity) (rule end)
 	 */
-	protected void emit_DefParam_AsteriskKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangDefParam_AsteriskKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -329,32 +357,21 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     '=>'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=ID ':' (ambiguity) typeName=[DataSubcomponentType|QCREF]
+	 *     name=ID ':' (ambiguity) typeName=SlangType
 	 */
-	protected void emit_DefParam_EqualsSignGreaterThanSignKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '=>' | 'implies'
+	 *     ('for' SlangName)?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     {BinaryExpr.left=} (ambiguity) right=ImpliesExpr
+	 *     (rule start) 'extension' ID (ambiguity) '{' '}' (rule start)
+	 *     (rule start) 'extension' ID (ambiguity) '{' decl+=SlangDefDecl
 	 */
-	protected void emit_ImpliesExpr_EqualsSignGreaterThanSignKeyword_1_0_0_1_0_or_ImpliesKeyword_1_0_0_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '\all' | '\some' | '∀' | '∃'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'return' (ambiguity) var+=SlangQuantVar
-	 *     (rule start) (ambiguity) var+=SlangQuantVar
-	 */
-	protected void emit_SlangExpr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -363,9 +380,108 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     '..' | '..<'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     val=SlangExpr (ambiguity) upperBound=SlangExpr
+	 *     e=Expr (ambiguity) upper=Expr
+	 */
+	protected void emit_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '*'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     typeName=SlangType (ambiguity) (rule end)
+	 */
+	protected void emit_SlangParam_AsteriskKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '=>'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID ':' (ambiguity) typeName=SlangType
+	 */
+	protected void emit_SlangParam_EqualsSignGreaterThanSignKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'var'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) name=ID
+	 */
+	protected void emit_SlangParam_VarKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '..' | '..<'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     e=Expr (ambiguity) upperBound=Expr
 	 */
 	protected void emit_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     STRING?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     e=Expr (ambiguity) (rule end)
+	 */
+	protected void emit_SlangStmt_STRINGTerminalRuleCall_4_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     STRING?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     e=Expr (ambiguity) (rule end)
+	 */
+	protected void emit_SlangStmt_STRINGTerminalRuleCall_5_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     STRING?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'halt' (ambiguity) (rule start)
+	 */
+	protected void emit_SlangStmt_STRINGTerminalRuleCall_6_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ID | '_'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_SlangTPattern_IDTerminalRuleCall_0_0_or__Keyword_2_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'spec'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) SlangVarMod (ambiguity) name=ID
+	 */
+	protected void emit_SlangVarDeclDef_SpecKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

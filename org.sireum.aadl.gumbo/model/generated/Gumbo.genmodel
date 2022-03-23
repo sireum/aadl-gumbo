@@ -61,7 +61,6 @@
     <genClasses ecoreClass="Gumbo.ecore#//AnonGuaranteeStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AnonGuaranteeStatement/expr"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Expr"/>
     <genClasses ecoreClass="Gumbo.ecore#//OtherDataRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/namedElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/path"/>
@@ -75,89 +74,193 @@
     <genClasses ecoreClass="Gumbo.ecore#//SubcomponentElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SubcomponentElement/subcomponent"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangExpr/terms"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangExpr/then"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangExpr/els"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangExpr/var"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangExpr/body"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangQuantVar">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/val"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/upperBound"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangAccess">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangAccess/t"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangAccess/suf"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//AccessSuffix"/>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangTerm">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTerm/tuple"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangRet"/>
-    <genClasses ecoreClass="Gumbo.ecore#//CallSuffix">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CallSuffix/args"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//CallArgs">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CallArgs/f"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//IdExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//IdExp/l"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//IdExp/r"/>
-    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Functions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Functions/specs"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//FuncSpec"/>
-    <genClasses ecoreClass="Gumbo.ecore#//DefDef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//DefDef/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefDef/args"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefDef/contract"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefDef/body"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefDeclDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/sde"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDeclDef/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDeclDef/typeParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/c"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/e"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//DefParams">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefParams/params"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/sde"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDecl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDecl/typeParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/c"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//DefParam">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//DefParam/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefParam/typeName"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/sde"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/typeParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/c"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/e"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//DefContract">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefContract/rea"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefContract/req"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefContract/mod"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefContract/ens"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefContract/dcc"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefExt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefExt/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefExt/typeName"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//DefContractCase">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefContractCase/r"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DefContractCase/e"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefParams">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefParams/params"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Reads">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Reads/e"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefParam/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefParam/typeName"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Requires">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Requires/e"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefContract">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContract/rea"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContract/req"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContract/mod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContract/ens"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContract/contracts"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Modifies">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Modifies/e"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDefContractCase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContractCase/req"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContractCase/ens"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Ensures">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Ensures/e"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangSuprs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangSuprs/superTypes"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//BinaryExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryExpr/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryExpr/right"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinaryExpr/op"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangSupr"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangExt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangExt/decl"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//UnaryExpr">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//UnaryExpr/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//UnaryExpr/expr"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangInvariant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangInvariant/exprs"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//DataRefExpr">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/portOrSubcomponentOrStateVar"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/ref"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/cs"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangReads">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangReads/exprs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangRequires">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangRequires/exprs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangModifies">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangModifies/exprs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangEnsures">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangEnsures/exprs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangStmt"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangElse">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangElse/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangElse/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangElse/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangLoopContract">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangLoopContract/inv"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangLoopContract/mod"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangLHSSuffix"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangCase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangCase/pattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangCase/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangCase/s"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangPattern/patterns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangPattern/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangPattern/init"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangTPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTPattern/patterns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTPattern/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangTypedVarDef"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangVarDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangVarDef/d"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangVarDeclDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangVarDeclDef/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangVarDeclDef/typeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangVarDeclDef/init"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//Expr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/term"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/thenExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/elseExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/qVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/quantifiedExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/t"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/m"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangQuantVar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlock/stmts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlock/r"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangParams">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangParams/params"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangParam/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangParam/typeName"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangForRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangForRange/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangForRange/upper"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangForRange/step"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangRet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangRet/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangCallSuffix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangCallSuffix/ta"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangCallSuffix/ca"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangCallArgs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangCallArgs/arg"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangIDExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIDExp/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangType/typeName"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangTypeArgs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTypeArgs/types"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangInterp"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangMInterp"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangIfStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIfStmt/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIfStmt/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIfStmt/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangMatchStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangMatchStmt/testExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangMatchStmt/c"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangSpecStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangSpecStmt/b"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangAssumeStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangAssumeStmt/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangAssertStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangAssertStmt/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangHaltStmt"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangDoStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDoStmt/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangFieldLookup"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangMethodCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangMethodCall/exprs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangLitTerm"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangInterpTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangInterpTerm/i"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//EnumLitExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//EnumLitExpr/enumType"/>
@@ -168,20 +271,24 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//RecordLitExpr/args"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//RecordLitExpr/argExpr"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//IntLit">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//IntLit/value"/>
+    <genClasses ecoreClass="Gumbo.ecore#//DataRefExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/portOrSubcomponentOrStateVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/cs"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//RealLitExpr">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//RealLitExpr/val"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangTupleTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTupleTerm/e"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//BoolLitExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BoolLitExpr/val"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangForTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangForTerm/r"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangForTerm/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangForTerm/e"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//FloorCast">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//FloorCast/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//RealCast">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//RealCast/expr"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangBlockTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlockTerm/p"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlockTerm/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlockTerm/stmt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlockTerm/r"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

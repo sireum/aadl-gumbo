@@ -177,11 +177,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createAnonGuaranteeStatementAdapter();
       }
       @Override
-      public Adapter caseExpr(Expr object)
-      {
-        return createExprAdapter();
-      }
-      @Override
       public Adapter caseOtherDataRef(OtherDataRef object)
       {
         return createOtherDataRefAdapter();
@@ -202,51 +197,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSubcomponentElementAdapter();
       }
       @Override
-      public Adapter caseSlangExpr(SlangExpr object)
-      {
-        return createSlangExprAdapter();
-      }
-      @Override
-      public Adapter caseSlangQuantVar(SlangQuantVar object)
-      {
-        return createSlangQuantVarAdapter();
-      }
-      @Override
-      public Adapter caseSlangAccess(SlangAccess object)
-      {
-        return createSlangAccessAdapter();
-      }
-      @Override
-      public Adapter caseAccessSuffix(AccessSuffix object)
-      {
-        return createAccessSuffixAdapter();
-      }
-      @Override
-      public Adapter caseSlangTerm(SlangTerm object)
-      {
-        return createSlangTermAdapter();
-      }
-      @Override
-      public Adapter caseSlangRet(SlangRet object)
-      {
-        return createSlangRetAdapter();
-      }
-      @Override
-      public Adapter caseCallSuffix(CallSuffix object)
-      {
-        return createCallSuffixAdapter();
-      }
-      @Override
-      public Adapter caseCallArgs(CallArgs object)
-      {
-        return createCallArgsAdapter();
-      }
-      @Override
-      public Adapter caseIdExp(IdExp object)
-      {
-        return createIdExpAdapter();
-      }
-      @Override
       public Adapter caseFunctions(Functions object)
       {
         return createFunctionsAdapter();
@@ -257,64 +207,259 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createFuncSpecAdapter();
       }
       @Override
-      public Adapter caseDefDef(DefDef object)
+      public Adapter caseSlangDefDeclDef(SlangDefDeclDef object)
       {
-        return createDefDefAdapter();
+        return createSlangDefDeclDefAdapter();
       }
       @Override
-      public Adapter caseDefParams(DefParams object)
+      public Adapter caseSlangDefDecl(SlangDefDecl object)
       {
-        return createDefParamsAdapter();
+        return createSlangDefDeclAdapter();
       }
       @Override
-      public Adapter caseDefParam(DefParam object)
+      public Adapter caseSlangDefDef(SlangDefDef object)
       {
-        return createDefParamAdapter();
+        return createSlangDefDefAdapter();
       }
       @Override
-      public Adapter caseDefContract(DefContract object)
+      public Adapter caseSlangDefExt(SlangDefExt object)
       {
-        return createDefContractAdapter();
+        return createSlangDefExtAdapter();
       }
       @Override
-      public Adapter caseDefContractCase(DefContractCase object)
+      public Adapter caseSlangDefParams(SlangDefParams object)
       {
-        return createDefContractCaseAdapter();
+        return createSlangDefParamsAdapter();
       }
       @Override
-      public Adapter caseReads(Reads object)
+      public Adapter caseSlangDefParam(SlangDefParam object)
       {
-        return createReadsAdapter();
+        return createSlangDefParamAdapter();
       }
       @Override
-      public Adapter caseRequires(Requires object)
+      public Adapter caseSlangDefContract(SlangDefContract object)
       {
-        return createRequiresAdapter();
+        return createSlangDefContractAdapter();
       }
       @Override
-      public Adapter caseModifies(Modifies object)
+      public Adapter caseSlangDefContractCase(SlangDefContractCase object)
       {
-        return createModifiesAdapter();
+        return createSlangDefContractCaseAdapter();
       }
       @Override
-      public Adapter caseEnsures(Ensures object)
+      public Adapter caseSlangSuprs(SlangSuprs object)
       {
-        return createEnsuresAdapter();
+        return createSlangSuprsAdapter();
       }
       @Override
-      public Adapter caseBinaryExpr(BinaryExpr object)
+      public Adapter caseSlangSupr(SlangSupr object)
       {
-        return createBinaryExprAdapter();
+        return createSlangSuprAdapter();
       }
       @Override
-      public Adapter caseUnaryExpr(UnaryExpr object)
+      public Adapter caseSlangExt(SlangExt object)
       {
-        return createUnaryExprAdapter();
+        return createSlangExtAdapter();
       }
       @Override
-      public Adapter caseDataRefExpr(DataRefExpr object)
+      public Adapter caseSlangInvariant(SlangInvariant object)
       {
-        return createDataRefExprAdapter();
+        return createSlangInvariantAdapter();
+      }
+      @Override
+      public Adapter caseSlangReads(SlangReads object)
+      {
+        return createSlangReadsAdapter();
+      }
+      @Override
+      public Adapter caseSlangRequires(SlangRequires object)
+      {
+        return createSlangRequiresAdapter();
+      }
+      @Override
+      public Adapter caseSlangModifies(SlangModifies object)
+      {
+        return createSlangModifiesAdapter();
+      }
+      @Override
+      public Adapter caseSlangEnsures(SlangEnsures object)
+      {
+        return createSlangEnsuresAdapter();
+      }
+      @Override
+      public Adapter caseSlangStmt(SlangStmt object)
+      {
+        return createSlangStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangElse(SlangElse object)
+      {
+        return createSlangElseAdapter();
+      }
+      @Override
+      public Adapter caseSlangLoopContract(SlangLoopContract object)
+      {
+        return createSlangLoopContractAdapter();
+      }
+      @Override
+      public Adapter caseSlangLHSSuffix(SlangLHSSuffix object)
+      {
+        return createSlangLHSSuffixAdapter();
+      }
+      @Override
+      public Adapter caseSlangCase(SlangCase object)
+      {
+        return createSlangCaseAdapter();
+      }
+      @Override
+      public Adapter caseSlangPattern(SlangPattern object)
+      {
+        return createSlangPatternAdapter();
+      }
+      @Override
+      public Adapter caseSlangTPattern(SlangTPattern object)
+      {
+        return createSlangTPatternAdapter();
+      }
+      @Override
+      public Adapter caseSlangTypedVarDef(SlangTypedVarDef object)
+      {
+        return createSlangTypedVarDefAdapter();
+      }
+      @Override
+      public Adapter caseSlangVarDef(SlangVarDef object)
+      {
+        return createSlangVarDefAdapter();
+      }
+      @Override
+      public Adapter caseSlangVarDeclDef(SlangVarDeclDef object)
+      {
+        return createSlangVarDeclDefAdapter();
+      }
+      @Override
+      public Adapter caseExpr(Expr object)
+      {
+        return createExprAdapter();
+      }
+      @Override
+      public Adapter caseSlangQuantVar(SlangQuantVar object)
+      {
+        return createSlangQuantVarAdapter();
+      }
+      @Override
+      public Adapter caseSlangBlock(SlangBlock object)
+      {
+        return createSlangBlockAdapter();
+      }
+      @Override
+      public Adapter caseSlangParams(SlangParams object)
+      {
+        return createSlangParamsAdapter();
+      }
+      @Override
+      public Adapter caseSlangParam(SlangParam object)
+      {
+        return createSlangParamAdapter();
+      }
+      @Override
+      public Adapter caseSlangForRange(SlangForRange object)
+      {
+        return createSlangForRangeAdapter();
+      }
+      @Override
+      public Adapter caseSlangRet(SlangRet object)
+      {
+        return createSlangRetAdapter();
+      }
+      @Override
+      public Adapter caseSlangCallSuffix(SlangCallSuffix object)
+      {
+        return createSlangCallSuffixAdapter();
+      }
+      @Override
+      public Adapter caseSlangCallArgs(SlangCallArgs object)
+      {
+        return createSlangCallArgsAdapter();
+      }
+      @Override
+      public Adapter caseSlangIDExp(SlangIDExp object)
+      {
+        return createSlangIDExpAdapter();
+      }
+      @Override
+      public Adapter caseSlangType(SlangType object)
+      {
+        return createSlangTypeAdapter();
+      }
+      @Override
+      public Adapter caseSlangTypeArgs(SlangTypeArgs object)
+      {
+        return createSlangTypeArgsAdapter();
+      }
+      @Override
+      public Adapter caseSlangInterp(SlangInterp object)
+      {
+        return createSlangInterpAdapter();
+      }
+      @Override
+      public Adapter caseSlangMInterp(SlangMInterp object)
+      {
+        return createSlangMInterpAdapter();
+      }
+      @Override
+      public Adapter caseSlangIfStmt(SlangIfStmt object)
+      {
+        return createSlangIfStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangMatchStmt(SlangMatchStmt object)
+      {
+        return createSlangMatchStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangSpecStmt(SlangSpecStmt object)
+      {
+        return createSlangSpecStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangAssumeStmt(SlangAssumeStmt object)
+      {
+        return createSlangAssumeStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangAssertStmt(SlangAssertStmt object)
+      {
+        return createSlangAssertStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangHaltStmt(SlangHaltStmt object)
+      {
+        return createSlangHaltStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangDoStmt(SlangDoStmt object)
+      {
+        return createSlangDoStmtAdapter();
+      }
+      @Override
+      public Adapter caseSlangFieldLookup(SlangFieldLookup object)
+      {
+        return createSlangFieldLookupAdapter();
+      }
+      @Override
+      public Adapter caseSlangMethodCall(SlangMethodCall object)
+      {
+        return createSlangMethodCallAdapter();
+      }
+      @Override
+      public Adapter caseSlangLitTerm(SlangLitTerm object)
+      {
+        return createSlangLitTermAdapter();
+      }
+      @Override
+      public Adapter caseSlangInterpTerm(SlangInterpTerm object)
+      {
+        return createSlangInterpTermAdapter();
       }
       @Override
       public Adapter caseEnumLitExpr(EnumLitExpr object)
@@ -327,29 +472,24 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createRecordLitExprAdapter();
       }
       @Override
-      public Adapter caseIntLit(IntLit object)
+      public Adapter caseDataRefExpr(DataRefExpr object)
       {
-        return createIntLitAdapter();
+        return createDataRefExprAdapter();
       }
       @Override
-      public Adapter caseRealLitExpr(RealLitExpr object)
+      public Adapter caseSlangTupleTerm(SlangTupleTerm object)
       {
-        return createRealLitExprAdapter();
+        return createSlangTupleTermAdapter();
       }
       @Override
-      public Adapter caseBoolLitExpr(BoolLitExpr object)
+      public Adapter caseSlangForTerm(SlangForTerm object)
       {
-        return createBoolLitExprAdapter();
+        return createSlangForTermAdapter();
       }
       @Override
-      public Adapter caseFloorCast(FloorCast object)
+      public Adapter caseSlangBlockTerm(SlangBlockTerm object)
       {
-        return createFloorCastAdapter();
-      }
-      @Override
-      public Adapter caseRealCast(RealCast object)
-      {
-        return createRealCastAdapter();
+        return createSlangBlockTermAdapter();
       }
       @Override
       public Adapter caseElement(Element object)
@@ -654,21 +794,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Expr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Expr
-   * @generated
-   */
-  public Adapter createExprAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef <em>Other Data Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -729,141 +854,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangExpr <em>Slang Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangExpr
-   * @generated
-   */
-  public Adapter createSlangExprAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar <em>Slang Quant Var</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangQuantVar
-   * @generated
-   */
-  public Adapter createSlangQuantVarAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangAccess <em>Slang Access</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangAccess
-   * @generated
-   */
-  public Adapter createSlangAccessAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.AccessSuffix <em>Access Suffix</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.AccessSuffix
-   * @generated
-   */
-  public Adapter createAccessSuffixAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTerm <em>Slang Term</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangTerm
-   * @generated
-   */
-  public Adapter createSlangTermAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangRet <em>Slang Ret</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangRet
-   * @generated
-   */
-  public Adapter createSlangRetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.CallSuffix <em>Call Suffix</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.CallSuffix
-   * @generated
-   */
-  public Adapter createCallSuffixAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.CallArgs <em>Call Args</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.CallArgs
-   * @generated
-   */
-  public Adapter createCallArgsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IdExp <em>Id Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.IdExp
-   * @generated
-   */
-  public Adapter createIdExpAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Functions <em>Functions</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -894,181 +884,766 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DefDef <em>Def Def</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefDeclDef <em>Slang Def Decl Def</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.DefDef
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefDeclDef
    * @generated
    */
-  public Adapter createDefDefAdapter()
+  public Adapter createSlangDefDeclDefAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DefParams <em>Def Params</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefDecl <em>Slang Def Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.DefParams
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefDecl
    * @generated
    */
-  public Adapter createDefParamsAdapter()
+  public Adapter createSlangDefDeclAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DefParam <em>Def Param</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefDef <em>Slang Def Def</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.DefParam
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefDef
    * @generated
    */
-  public Adapter createDefParamAdapter()
+  public Adapter createSlangDefDefAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DefContract <em>Def Contract</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefExt <em>Slang Def Ext</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.DefContract
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefExt
    * @generated
    */
-  public Adapter createDefContractAdapter()
+  public Adapter createSlangDefExtAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DefContractCase <em>Def Contract Case</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefParams <em>Slang Def Params</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.DefContractCase
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefParams
    * @generated
    */
-  public Adapter createDefContractCaseAdapter()
+  public Adapter createSlangDefParamsAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Reads <em>Reads</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefParam <em>Slang Def Param</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Reads
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefParam
    * @generated
    */
-  public Adapter createReadsAdapter()
+  public Adapter createSlangDefParamAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Requires <em>Requires</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefContract <em>Slang Def Contract</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Requires
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefContract
    * @generated
    */
-  public Adapter createRequiresAdapter()
+  public Adapter createSlangDefContractAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Modifies <em>Modifies</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDefContractCase <em>Slang Def Contract Case</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Modifies
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefContractCase
    * @generated
    */
-  public Adapter createModifiesAdapter()
+  public Adapter createSlangDefContractCaseAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Ensures <em>Ensures</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangSuprs <em>Slang Suprs</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Ensures
+   * @see org.sireum.aadl.gumbo.gumbo.SlangSuprs
    * @generated
    */
-  public Adapter createEnsuresAdapter()
+  public Adapter createSlangSuprsAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BinaryExpr <em>Binary Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangSupr <em>Slang Supr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryExpr
+   * @see org.sireum.aadl.gumbo.gumbo.SlangSupr
    * @generated
    */
-  public Adapter createBinaryExprAdapter()
+  public Adapter createSlangSuprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.UnaryExpr <em>Unary Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangExt <em>Slang Ext</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.UnaryExpr
+   * @see org.sireum.aadl.gumbo.gumbo.SlangExt
    * @generated
    */
-  public Adapter createUnaryExprAdapter()
+  public Adapter createSlangExtAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DataRefExpr <em>Data Ref Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangInvariant <em>Slang Invariant</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.DataRefExpr
+   * @see org.sireum.aadl.gumbo.gumbo.SlangInvariant
    * @generated
    */
-  public Adapter createDataRefExprAdapter()
+  public Adapter createSlangInvariantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangReads <em>Slang Reads</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangReads
+   * @generated
+   */
+  public Adapter createSlangReadsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangRequires <em>Slang Requires</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangRequires
+   * @generated
+   */
+  public Adapter createSlangRequiresAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangModifies <em>Slang Modifies</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangModifies
+   * @generated
+   */
+  public Adapter createSlangModifiesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangEnsures <em>Slang Ensures</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangEnsures
+   * @generated
+   */
+  public Adapter createSlangEnsuresAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangStmt <em>Slang Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangStmt
+   * @generated
+   */
+  public Adapter createSlangStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangElse <em>Slang Else</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangElse
+   * @generated
+   */
+  public Adapter createSlangElseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangLoopContract <em>Slang Loop Contract</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangLoopContract
+   * @generated
+   */
+  public Adapter createSlangLoopContractAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangLHSSuffix <em>Slang LHS Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangLHSSuffix
+   * @generated
+   */
+  public Adapter createSlangLHSSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangCase <em>Slang Case</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangCase
+   * @generated
+   */
+  public Adapter createSlangCaseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangPattern <em>Slang Pattern</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangPattern
+   * @generated
+   */
+  public Adapter createSlangPatternAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTPattern <em>Slang TPattern</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTPattern
+   * @generated
+   */
+  public Adapter createSlangTPatternAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypedVarDef <em>Slang Typed Var Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTypedVarDef
+   * @generated
+   */
+  public Adapter createSlangTypedVarDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDef <em>Slang Var Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDef
+   * @generated
+   */
+  public Adapter createSlangVarDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef <em>Slang Var Decl Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef
+   * @generated
+   */
+  public Adapter createSlangVarDeclDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Expr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Expr
+   * @generated
+   */
+  public Adapter createExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar <em>Slang Quant Var</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangQuantVar
+   * @generated
+   */
+  public Adapter createSlangQuantVarAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangBlock <em>Slang Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangBlock
+   * @generated
+   */
+  public Adapter createSlangBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangParams <em>Slang Params</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangParams
+   * @generated
+   */
+  public Adapter createSlangParamsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangParam <em>Slang Param</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangParam
+   * @generated
+   */
+  public Adapter createSlangParamAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangForRange <em>Slang For Range</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangForRange
+   * @generated
+   */
+  public Adapter createSlangForRangeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangRet <em>Slang Ret</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangRet
+   * @generated
+   */
+  public Adapter createSlangRetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangCallSuffix <em>Slang Call Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangCallSuffix
+   * @generated
+   */
+  public Adapter createSlangCallSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangCallArgs <em>Slang Call Args</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangCallArgs
+   * @generated
+   */
+  public Adapter createSlangCallArgsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangIDExp <em>Slang ID Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangIDExp
+   * @generated
+   */
+  public Adapter createSlangIDExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangType <em>Slang Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangType
+   * @generated
+   */
+  public Adapter createSlangTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypeArgs <em>Slang Type Args</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTypeArgs
+   * @generated
+   */
+  public Adapter createSlangTypeArgsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangInterp <em>Slang Interp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangInterp
+   * @generated
+   */
+  public Adapter createSlangInterpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangMInterp <em>Slang MInterp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMInterp
+   * @generated
+   */
+  public Adapter createSlangMInterpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangIfStmt <em>Slang If Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangIfStmt
+   * @generated
+   */
+  public Adapter createSlangIfStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangMatchStmt <em>Slang Match Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMatchStmt
+   * @generated
+   */
+  public Adapter createSlangMatchStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangSpecStmt <em>Slang Spec Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangSpecStmt
+   * @generated
+   */
+  public Adapter createSlangSpecStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt <em>Slang Assume Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt
+   * @generated
+   */
+  public Adapter createSlangAssumeStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangAssertStmt <em>Slang Assert Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangAssertStmt
+   * @generated
+   */
+  public Adapter createSlangAssertStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangHaltStmt <em>Slang Halt Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangHaltStmt
+   * @generated
+   */
+  public Adapter createSlangHaltStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangDoStmt <em>Slang Do Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDoStmt
+   * @generated
+   */
+  public Adapter createSlangDoStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangFieldLookup <em>Slang Field Lookup</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangFieldLookup
+   * @generated
+   */
+  public Adapter createSlangFieldLookupAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangMethodCall <em>Slang Method Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMethodCall
+   * @generated
+   */
+  public Adapter createSlangMethodCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangLitTerm <em>Slang Lit Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangLitTerm
+   * @generated
+   */
+  public Adapter createSlangLitTermAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangInterpTerm <em>Slang Interp Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangInterpTerm
+   * @generated
+   */
+  public Adapter createSlangInterpTermAdapter()
   {
     return null;
   }
@@ -1104,76 +1679,61 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IntLit <em>Int Lit</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DataRefExpr <em>Data Ref Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.IntLit
+   * @see org.sireum.aadl.gumbo.gumbo.DataRefExpr
    * @generated
    */
-  public Adapter createIntLitAdapter()
+  public Adapter createDataRefExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.RealLitExpr <em>Real Lit Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTupleTerm <em>Slang Tuple Term</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.RealLitExpr
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTupleTerm
    * @generated
    */
-  public Adapter createRealLitExprAdapter()
+  public Adapter createSlangTupleTermAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BoolLitExpr <em>Bool Lit Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangForTerm <em>Slang For Term</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.BoolLitExpr
+   * @see org.sireum.aadl.gumbo.gumbo.SlangForTerm
    * @generated
    */
-  public Adapter createBoolLitExprAdapter()
+  public Adapter createSlangForTermAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.FloorCast <em>Floor Cast</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangBlockTerm <em>Slang Block Term</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.FloorCast
+   * @see org.sireum.aadl.gumbo.gumbo.SlangBlockTerm
    * @generated
    */
-  public Adapter createFloorCastAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.RealCast <em>Real Cast</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.RealCast
-   * @generated
-   */
-  public Adapter createRealCastAdapter()
+  public Adapter createSlangBlockTermAdapter()
   {
     return null;
   }

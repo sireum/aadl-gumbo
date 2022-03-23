@@ -510,31 +510,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Expr} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ExprItemProvider exprItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Expr}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createExprAdapter()
-  {
-    if (exprItemProvider == null)
-    {
-      exprItemProvider = new ExprItemProvider(this);
-    }
-
-    return exprItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.OtherDataRef} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -635,231 +610,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangExpr} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SlangExprItemProvider slangExprItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangExpr}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createSlangExprAdapter()
-  {
-    if (slangExprItemProvider == null)
-    {
-      slangExprItemProvider = new SlangExprItemProvider(this);
-    }
-
-    return slangExprItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SlangQuantVarItemProvider slangQuantVarItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createSlangQuantVarAdapter()
-  {
-    if (slangQuantVarItemProvider == null)
-    {
-      slangQuantVarItemProvider = new SlangQuantVarItemProvider(this);
-    }
-
-    return slangQuantVarItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangAccess} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SlangAccessItemProvider slangAccessItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangAccess}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createSlangAccessAdapter()
-  {
-    if (slangAccessItemProvider == null)
-    {
-      slangAccessItemProvider = new SlangAccessItemProvider(this);
-    }
-
-    return slangAccessItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.AccessSuffix} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected AccessSuffixItemProvider accessSuffixItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.AccessSuffix}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createAccessSuffixAdapter()
-  {
-    if (accessSuffixItemProvider == null)
-    {
-      accessSuffixItemProvider = new AccessSuffixItemProvider(this);
-    }
-
-    return accessSuffixItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangTerm} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SlangTermItemProvider slangTermItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTerm}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createSlangTermAdapter()
-  {
-    if (slangTermItemProvider == null)
-    {
-      slangTermItemProvider = new SlangTermItemProvider(this);
-    }
-
-    return slangTermItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangRet} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SlangRetItemProvider slangRetItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangRet}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createSlangRetAdapter()
-  {
-    if (slangRetItemProvider == null)
-    {
-      slangRetItemProvider = new SlangRetItemProvider(this);
-    }
-
-    return slangRetItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.CallSuffix} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected CallSuffixItemProvider callSuffixItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.CallSuffix}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createCallSuffixAdapter()
-  {
-    if (callSuffixItemProvider == null)
-    {
-      callSuffixItemProvider = new CallSuffixItemProvider(this);
-    }
-
-    return callSuffixItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.CallArgs} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected CallArgsItemProvider callArgsItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.CallArgs}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createCallArgsAdapter()
-  {
-    if (callArgsItemProvider == null)
-    {
-      callArgsItemProvider = new CallArgsItemProvider(this);
-    }
-
-    return callArgsItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IdExp} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IdExpItemProvider idExpItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.IdExp}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createIdExpAdapter()
-  {
-    if (idExpItemProvider == null)
-    {
-      idExpItemProvider = new IdExpItemProvider(this);
-    }
-
-    return idExpItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Functions} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -910,303 +660,1278 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DefDef} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefDeclDef} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefDefItemProvider defDefItemProvider;
+  protected SlangDefDeclDefItemProvider slangDefDeclDefItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DefDef}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefDeclDef}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createDefDefAdapter()
+  public Adapter createSlangDefDeclDefAdapter()
   {
-    if (defDefItemProvider == null)
+    if (slangDefDeclDefItemProvider == null)
     {
-      defDefItemProvider = new DefDefItemProvider(this);
+      slangDefDeclDefItemProvider = new SlangDefDeclDefItemProvider(this);
     }
 
-    return defDefItemProvider;
+    return slangDefDeclDefItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DefParams} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefDecl} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefParamsItemProvider defParamsItemProvider;
+  protected SlangDefDeclItemProvider slangDefDeclItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DefParams}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefDecl}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createDefParamsAdapter()
+  public Adapter createSlangDefDeclAdapter()
   {
-    if (defParamsItemProvider == null)
+    if (slangDefDeclItemProvider == null)
     {
-      defParamsItemProvider = new DefParamsItemProvider(this);
+      slangDefDeclItemProvider = new SlangDefDeclItemProvider(this);
     }
 
-    return defParamsItemProvider;
+    return slangDefDeclItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DefParam} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefDef} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefParamItemProvider defParamItemProvider;
+  protected SlangDefDefItemProvider slangDefDefItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DefParam}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefDef}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createDefParamAdapter()
+  public Adapter createSlangDefDefAdapter()
   {
-    if (defParamItemProvider == null)
+    if (slangDefDefItemProvider == null)
     {
-      defParamItemProvider = new DefParamItemProvider(this);
+      slangDefDefItemProvider = new SlangDefDefItemProvider(this);
     }
 
-    return defParamItemProvider;
+    return slangDefDefItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DefContract} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefExt} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefContractItemProvider defContractItemProvider;
+  protected SlangDefExtItemProvider slangDefExtItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DefContract}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefExt}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createDefContractAdapter()
+  public Adapter createSlangDefExtAdapter()
   {
-    if (defContractItemProvider == null)
+    if (slangDefExtItemProvider == null)
     {
-      defContractItemProvider = new DefContractItemProvider(this);
+      slangDefExtItemProvider = new SlangDefExtItemProvider(this);
     }
 
-    return defContractItemProvider;
+    return slangDefExtItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DefContractCase} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefParams} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefContractCaseItemProvider defContractCaseItemProvider;
+  protected SlangDefParamsItemProvider slangDefParamsItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DefContractCase}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefParams}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createDefContractCaseAdapter()
+  public Adapter createSlangDefParamsAdapter()
   {
-    if (defContractCaseItemProvider == null)
+    if (slangDefParamsItemProvider == null)
     {
-      defContractCaseItemProvider = new DefContractCaseItemProvider(this);
+      slangDefParamsItemProvider = new SlangDefParamsItemProvider(this);
     }
 
-    return defContractCaseItemProvider;
+    return slangDefParamsItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Reads} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefParam} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ReadsItemProvider readsItemProvider;
+  protected SlangDefParamItemProvider slangDefParamItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Reads}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefParam}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createReadsAdapter()
+  public Adapter createSlangDefParamAdapter()
   {
-    if (readsItemProvider == null)
+    if (slangDefParamItemProvider == null)
     {
-      readsItemProvider = new ReadsItemProvider(this);
+      slangDefParamItemProvider = new SlangDefParamItemProvider(this);
     }
 
-    return readsItemProvider;
+    return slangDefParamItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Requires} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefContract} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RequiresItemProvider requiresItemProvider;
+  protected SlangDefContractItemProvider slangDefContractItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Requires}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefContract}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createRequiresAdapter()
+  public Adapter createSlangDefContractAdapter()
   {
-    if (requiresItemProvider == null)
+    if (slangDefContractItemProvider == null)
     {
-      requiresItemProvider = new RequiresItemProvider(this);
+      slangDefContractItemProvider = new SlangDefContractItemProvider(this);
     }
 
-    return requiresItemProvider;
+    return slangDefContractItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Modifies} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefContractCase} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModifiesItemProvider modifiesItemProvider;
+  protected SlangDefContractCaseItemProvider slangDefContractCaseItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Modifies}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefContractCase}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createModifiesAdapter()
+  public Adapter createSlangDefContractCaseAdapter()
   {
-    if (modifiesItemProvider == null)
+    if (slangDefContractCaseItemProvider == null)
     {
-      modifiesItemProvider = new ModifiesItemProvider(this);
+      slangDefContractCaseItemProvider = new SlangDefContractCaseItemProvider(this);
     }
 
-    return modifiesItemProvider;
+    return slangDefContractCaseItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Ensures} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangSuprs} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EnsuresItemProvider ensuresItemProvider;
+  protected SlangSuprsItemProvider slangSuprsItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Ensures}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangSuprs}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createEnsuresAdapter()
+  public Adapter createSlangSuprsAdapter()
   {
-    if (ensuresItemProvider == null)
+    if (slangSuprsItemProvider == null)
     {
-      ensuresItemProvider = new EnsuresItemProvider(this);
+      slangSuprsItemProvider = new SlangSuprsItemProvider(this);
     }
 
-    return ensuresItemProvider;
+    return slangSuprsItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryExpr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangSupr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BinaryExprItemProvider binaryExprItemProvider;
+  protected SlangSuprItemProvider slangSuprItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinaryExpr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangSupr}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createBinaryExprAdapter()
+  public Adapter createSlangSuprAdapter()
   {
-    if (binaryExprItemProvider == null)
+    if (slangSuprItemProvider == null)
     {
-      binaryExprItemProvider = new BinaryExprItemProvider(this);
+      slangSuprItemProvider = new SlangSuprItemProvider(this);
     }
 
-    return binaryExprItemProvider;
+    return slangSuprItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.UnaryExpr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangExt} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected UnaryExprItemProvider unaryExprItemProvider;
+  protected SlangExtItemProvider slangExtItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.UnaryExpr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangExt}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createUnaryExprAdapter()
+  public Adapter createSlangExtAdapter()
   {
-    if (unaryExprItemProvider == null)
+    if (slangExtItemProvider == null)
     {
-      unaryExprItemProvider = new UnaryExprItemProvider(this);
+      slangExtItemProvider = new SlangExtItemProvider(this);
     }
 
-    return unaryExprItemProvider;
+    return slangExtItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DataRefExpr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangInvariant} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DataRefExprItemProvider dataRefExprItemProvider;
+  protected SlangInvariantItemProvider slangInvariantItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DataRefExpr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangInvariant}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createDataRefExprAdapter()
+  public Adapter createSlangInvariantAdapter()
   {
-    if (dataRefExprItemProvider == null)
+    if (slangInvariantItemProvider == null)
     {
-      dataRefExprItemProvider = new DataRefExprItemProvider(this);
+      slangInvariantItemProvider = new SlangInvariantItemProvider(this);
     }
 
-    return dataRefExprItemProvider;
+    return slangInvariantItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangReads} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangReadsItemProvider slangReadsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangReads}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangReadsAdapter()
+  {
+    if (slangReadsItemProvider == null)
+    {
+      slangReadsItemProvider = new SlangReadsItemProvider(this);
+    }
+
+    return slangReadsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangRequires} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangRequiresItemProvider slangRequiresItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangRequires}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangRequiresAdapter()
+  {
+    if (slangRequiresItemProvider == null)
+    {
+      slangRequiresItemProvider = new SlangRequiresItemProvider(this);
+    }
+
+    return slangRequiresItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangModifies} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangModifiesItemProvider slangModifiesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangModifies}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangModifiesAdapter()
+  {
+    if (slangModifiesItemProvider == null)
+    {
+      slangModifiesItemProvider = new SlangModifiesItemProvider(this);
+    }
+
+    return slangModifiesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangEnsures} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangEnsuresItemProvider slangEnsuresItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangEnsures}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangEnsuresAdapter()
+  {
+    if (slangEnsuresItemProvider == null)
+    {
+      slangEnsuresItemProvider = new SlangEnsuresItemProvider(this);
+    }
+
+    return slangEnsuresItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangStmtItemProvider slangStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangStmtAdapter()
+  {
+    if (slangStmtItemProvider == null)
+    {
+      slangStmtItemProvider = new SlangStmtItemProvider(this);
+    }
+
+    return slangStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangElse} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangElseItemProvider slangElseItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangElse}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangElseAdapter()
+  {
+    if (slangElseItemProvider == null)
+    {
+      slangElseItemProvider = new SlangElseItemProvider(this);
+    }
+
+    return slangElseItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangLoopContract} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangLoopContractItemProvider slangLoopContractItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLoopContract}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangLoopContractAdapter()
+  {
+    if (slangLoopContractItemProvider == null)
+    {
+      slangLoopContractItemProvider = new SlangLoopContractItemProvider(this);
+    }
+
+    return slangLoopContractItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangLHSSuffix} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangLHSSuffixItemProvider slangLHSSuffixItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLHSSuffix}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangLHSSuffixAdapter()
+  {
+    if (slangLHSSuffixItemProvider == null)
+    {
+      slangLHSSuffixItemProvider = new SlangLHSSuffixItemProvider(this);
+    }
+
+    return slangLHSSuffixItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangCase} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangCaseItemProvider slangCaseItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangCase}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangCaseAdapter()
+  {
+    if (slangCaseItemProvider == null)
+    {
+      slangCaseItemProvider = new SlangCaseItemProvider(this);
+    }
+
+    return slangCaseItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangPattern} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangPatternItemProvider slangPatternItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangPattern}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangPatternAdapter()
+  {
+    if (slangPatternItemProvider == null)
+    {
+      slangPatternItemProvider = new SlangPatternItemProvider(this);
+    }
+
+    return slangPatternItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangTPattern} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangTPatternItemProvider slangTPatternItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTPattern}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangTPatternAdapter()
+  {
+    if (slangTPatternItemProvider == null)
+    {
+      slangTPatternItemProvider = new SlangTPatternItemProvider(this);
+    }
+
+    return slangTPatternItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangTypedVarDef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangTypedVarDefItemProvider slangTypedVarDefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTypedVarDef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangTypedVarDefAdapter()
+  {
+    if (slangTypedVarDefItemProvider == null)
+    {
+      slangTypedVarDefItemProvider = new SlangTypedVarDefItemProvider(this);
+    }
+
+    return slangTypedVarDefItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangVarDef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangVarDefItemProvider slangVarDefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangVarDef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangVarDefAdapter()
+  {
+    if (slangVarDefItemProvider == null)
+    {
+      slangVarDefItemProvider = new SlangVarDefItemProvider(this);
+    }
+
+    return slangVarDefItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangVarDeclDefItemProvider slangVarDeclDefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangVarDeclDefAdapter()
+  {
+    if (slangVarDeclDefItemProvider == null)
+    {
+      slangVarDeclDefItemProvider = new SlangVarDeclDefItemProvider(this);
+    }
+
+    return slangVarDeclDefItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Expr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ExprItemProvider exprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Expr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createExprAdapter()
+  {
+    if (exprItemProvider == null)
+    {
+      exprItemProvider = new ExprItemProvider(this);
+    }
+
+    return exprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangQuantVarItemProvider slangQuantVarItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangQuantVarAdapter()
+  {
+    if (slangQuantVarItemProvider == null)
+    {
+      slangQuantVarItemProvider = new SlangQuantVarItemProvider(this);
+    }
+
+    return slangQuantVarItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangBlock} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangBlockItemProvider slangBlockItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangBlock}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangBlockAdapter()
+  {
+    if (slangBlockItemProvider == null)
+    {
+      slangBlockItemProvider = new SlangBlockItemProvider(this);
+    }
+
+    return slangBlockItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangParams} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangParamsItemProvider slangParamsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangParams}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangParamsAdapter()
+  {
+    if (slangParamsItemProvider == null)
+    {
+      slangParamsItemProvider = new SlangParamsItemProvider(this);
+    }
+
+    return slangParamsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangParam} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangParamItemProvider slangParamItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangParam}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangParamAdapter()
+  {
+    if (slangParamItemProvider == null)
+    {
+      slangParamItemProvider = new SlangParamItemProvider(this);
+    }
+
+    return slangParamItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangForRange} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangForRangeItemProvider slangForRangeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangForRange}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangForRangeAdapter()
+  {
+    if (slangForRangeItemProvider == null)
+    {
+      slangForRangeItemProvider = new SlangForRangeItemProvider(this);
+    }
+
+    return slangForRangeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangRet} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangRetItemProvider slangRetItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangRet}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangRetAdapter()
+  {
+    if (slangRetItemProvider == null)
+    {
+      slangRetItemProvider = new SlangRetItemProvider(this);
+    }
+
+    return slangRetItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangCallSuffix} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangCallSuffixItemProvider slangCallSuffixItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangCallSuffix}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangCallSuffixAdapter()
+  {
+    if (slangCallSuffixItemProvider == null)
+    {
+      slangCallSuffixItemProvider = new SlangCallSuffixItemProvider(this);
+    }
+
+    return slangCallSuffixItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangCallArgs} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangCallArgsItemProvider slangCallArgsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangCallArgs}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangCallArgsAdapter()
+  {
+    if (slangCallArgsItemProvider == null)
+    {
+      slangCallArgsItemProvider = new SlangCallArgsItemProvider(this);
+    }
+
+    return slangCallArgsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangIDExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangIDExpItemProvider slangIDExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangIDExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangIDExpAdapter()
+  {
+    if (slangIDExpItemProvider == null)
+    {
+      slangIDExpItemProvider = new SlangIDExpItemProvider(this);
+    }
+
+    return slangIDExpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangType} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangTypeItemProvider slangTypeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangType}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangTypeAdapter()
+  {
+    if (slangTypeItemProvider == null)
+    {
+      slangTypeItemProvider = new SlangTypeItemProvider(this);
+    }
+
+    return slangTypeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangTypeArgs} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangTypeArgsItemProvider slangTypeArgsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTypeArgs}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangTypeArgsAdapter()
+  {
+    if (slangTypeArgsItemProvider == null)
+    {
+      slangTypeArgsItemProvider = new SlangTypeArgsItemProvider(this);
+    }
+
+    return slangTypeArgsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangInterp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangInterpItemProvider slangInterpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangInterp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangInterpAdapter()
+  {
+    if (slangInterpItemProvider == null)
+    {
+      slangInterpItemProvider = new SlangInterpItemProvider(this);
+    }
+
+    return slangInterpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangMInterp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangMInterpItemProvider slangMInterpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangMInterp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangMInterpAdapter()
+  {
+    if (slangMInterpItemProvider == null)
+    {
+      slangMInterpItemProvider = new SlangMInterpItemProvider(this);
+    }
+
+    return slangMInterpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangIfStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangIfStmtItemProvider slangIfStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangIfStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangIfStmtAdapter()
+  {
+    if (slangIfStmtItemProvider == null)
+    {
+      slangIfStmtItemProvider = new SlangIfStmtItemProvider(this);
+    }
+
+    return slangIfStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangMatchStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangMatchStmtItemProvider slangMatchStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangMatchStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangMatchStmtAdapter()
+  {
+    if (slangMatchStmtItemProvider == null)
+    {
+      slangMatchStmtItemProvider = new SlangMatchStmtItemProvider(this);
+    }
+
+    return slangMatchStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangSpecStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangSpecStmtItemProvider slangSpecStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangSpecStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangSpecStmtAdapter()
+  {
+    if (slangSpecStmtItemProvider == null)
+    {
+      slangSpecStmtItemProvider = new SlangSpecStmtItemProvider(this);
+    }
+
+    return slangSpecStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangAssumeStmtItemProvider slangAssumeStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangAssumeStmtAdapter()
+  {
+    if (slangAssumeStmtItemProvider == null)
+    {
+      slangAssumeStmtItemProvider = new SlangAssumeStmtItemProvider(this);
+    }
+
+    return slangAssumeStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangAssertStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangAssertStmtItemProvider slangAssertStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangAssertStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangAssertStmtAdapter()
+  {
+    if (slangAssertStmtItemProvider == null)
+    {
+      slangAssertStmtItemProvider = new SlangAssertStmtItemProvider(this);
+    }
+
+    return slangAssertStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangHaltStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangHaltStmtItemProvider slangHaltStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangHaltStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangHaltStmtAdapter()
+  {
+    if (slangHaltStmtItemProvider == null)
+    {
+      slangHaltStmtItemProvider = new SlangHaltStmtItemProvider(this);
+    }
+
+    return slangHaltStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDoStmt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangDoStmtItemProvider slangDoStmtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDoStmt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangDoStmtAdapter()
+  {
+    if (slangDoStmtItemProvider == null)
+    {
+      slangDoStmtItemProvider = new SlangDoStmtItemProvider(this);
+    }
+
+    return slangDoStmtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangFieldLookup} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangFieldLookupItemProvider slangFieldLookupItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangFieldLookup}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangFieldLookupAdapter()
+  {
+    if (slangFieldLookupItemProvider == null)
+    {
+      slangFieldLookupItemProvider = new SlangFieldLookupItemProvider(this);
+    }
+
+    return slangFieldLookupItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangMethodCall} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangMethodCallItemProvider slangMethodCallItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangMethodCall}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangMethodCallAdapter()
+  {
+    if (slangMethodCallItemProvider == null)
+    {
+      slangMethodCallItemProvider = new SlangMethodCallItemProvider(this);
+    }
+
+    return slangMethodCallItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangLitTerm} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangLitTermItemProvider slangLitTermItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLitTerm}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangLitTermAdapter()
+  {
+    if (slangLitTermItemProvider == null)
+    {
+      slangLitTermItemProvider = new SlangLitTermItemProvider(this);
+    }
+
+    return slangLitTermItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangInterpTerm} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangInterpTermItemProvider slangInterpTermItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangInterpTerm}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangInterpTermAdapter()
+  {
+    if (slangInterpTermItemProvider == null)
+    {
+      slangInterpTermItemProvider = new SlangInterpTermItemProvider(this);
+    }
+
+    return slangInterpTermItemProvider;
   }
 
   /**
@@ -1260,128 +1985,103 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IntLit} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.DataRefExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IntLitItemProvider intLitItemProvider;
+  protected DataRefExprItemProvider dataRefExprItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.IntLit}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.DataRefExpr}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createIntLitAdapter()
+  public Adapter createDataRefExprAdapter()
   {
-    if (intLitItemProvider == null)
+    if (dataRefExprItemProvider == null)
     {
-      intLitItemProvider = new IntLitItemProvider(this);
+      dataRefExprItemProvider = new DataRefExprItemProvider(this);
     }
 
-    return intLitItemProvider;
+    return dataRefExprItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealLitExpr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangTupleTerm} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RealLitExprItemProvider realLitExprItemProvider;
+  protected SlangTupleTermItemProvider slangTupleTermItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealLitExpr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTupleTerm}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createRealLitExprAdapter()
+  public Adapter createSlangTupleTermAdapter()
   {
-    if (realLitExprItemProvider == null)
+    if (slangTupleTermItemProvider == null)
     {
-      realLitExprItemProvider = new RealLitExprItemProvider(this);
+      slangTupleTermItemProvider = new SlangTupleTermItemProvider(this);
     }
 
-    return realLitExprItemProvider;
+    return slangTupleTermItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BoolLitExpr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangForTerm} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BoolLitExprItemProvider boolLitExprItemProvider;
+  protected SlangForTermItemProvider slangForTermItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BoolLitExpr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangForTerm}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createBoolLitExprAdapter()
+  public Adapter createSlangForTermAdapter()
   {
-    if (boolLitExprItemProvider == null)
+    if (slangForTermItemProvider == null)
     {
-      boolLitExprItemProvider = new BoolLitExprItemProvider(this);
+      slangForTermItemProvider = new SlangForTermItemProvider(this);
     }
 
-    return boolLitExprItemProvider;
+    return slangForTermItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.FloorCast} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangBlockTerm} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FloorCastItemProvider floorCastItemProvider;
+  protected SlangBlockTermItemProvider slangBlockTermItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.FloorCast}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangBlockTerm}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createFloorCastAdapter()
+  public Adapter createSlangBlockTermAdapter()
   {
-    if (floorCastItemProvider == null)
+    if (slangBlockTermItemProvider == null)
     {
-      floorCastItemProvider = new FloorCastItemProvider(this);
+      slangBlockTermItemProvider = new SlangBlockTermItemProvider(this);
     }
 
-    return floorCastItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealCast} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected RealCastItemProvider realCastItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealCast}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createRealCastAdapter()
-  {
-    if (realCastItemProvider == null)
-    {
-      realCastItemProvider = new RealCastItemProvider(this);
-    }
-
-    return realCastItemProvider;
+    return slangBlockTermItemProvider;
   }
 
   /**
@@ -1518,41 +2218,69 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (anonAssumeStatementItemProvider != null) anonAssumeStatementItemProvider.dispose();
     if (guaranteeStatementItemProvider != null) guaranteeStatementItemProvider.dispose();
     if (anonGuaranteeStatementItemProvider != null) anonGuaranteeStatementItemProvider.dispose();
-    if (exprItemProvider != null) exprItemProvider.dispose();
     if (otherDataRefItemProvider != null) otherDataRefItemProvider.dispose();
     if (doubleDotRefItemProvider != null) doubleDotRefItemProvider.dispose();
     if (dataElementItemProvider != null) dataElementItemProvider.dispose();
     if (subcomponentElementItemProvider != null) subcomponentElementItemProvider.dispose();
-    if (slangExprItemProvider != null) slangExprItemProvider.dispose();
-    if (slangQuantVarItemProvider != null) slangQuantVarItemProvider.dispose();
-    if (slangAccessItemProvider != null) slangAccessItemProvider.dispose();
-    if (accessSuffixItemProvider != null) accessSuffixItemProvider.dispose();
-    if (slangTermItemProvider != null) slangTermItemProvider.dispose();
-    if (slangRetItemProvider != null) slangRetItemProvider.dispose();
-    if (callSuffixItemProvider != null) callSuffixItemProvider.dispose();
-    if (callArgsItemProvider != null) callArgsItemProvider.dispose();
-    if (idExpItemProvider != null) idExpItemProvider.dispose();
     if (functionsItemProvider != null) functionsItemProvider.dispose();
     if (funcSpecItemProvider != null) funcSpecItemProvider.dispose();
-    if (defDefItemProvider != null) defDefItemProvider.dispose();
-    if (defParamsItemProvider != null) defParamsItemProvider.dispose();
-    if (defParamItemProvider != null) defParamItemProvider.dispose();
-    if (defContractItemProvider != null) defContractItemProvider.dispose();
-    if (defContractCaseItemProvider != null) defContractCaseItemProvider.dispose();
-    if (readsItemProvider != null) readsItemProvider.dispose();
-    if (requiresItemProvider != null) requiresItemProvider.dispose();
-    if (modifiesItemProvider != null) modifiesItemProvider.dispose();
-    if (ensuresItemProvider != null) ensuresItemProvider.dispose();
-    if (binaryExprItemProvider != null) binaryExprItemProvider.dispose();
-    if (unaryExprItemProvider != null) unaryExprItemProvider.dispose();
-    if (dataRefExprItemProvider != null) dataRefExprItemProvider.dispose();
+    if (slangDefDeclDefItemProvider != null) slangDefDeclDefItemProvider.dispose();
+    if (slangDefDeclItemProvider != null) slangDefDeclItemProvider.dispose();
+    if (slangDefDefItemProvider != null) slangDefDefItemProvider.dispose();
+    if (slangDefExtItemProvider != null) slangDefExtItemProvider.dispose();
+    if (slangDefParamsItemProvider != null) slangDefParamsItemProvider.dispose();
+    if (slangDefParamItemProvider != null) slangDefParamItemProvider.dispose();
+    if (slangDefContractItemProvider != null) slangDefContractItemProvider.dispose();
+    if (slangDefContractCaseItemProvider != null) slangDefContractCaseItemProvider.dispose();
+    if (slangSuprsItemProvider != null) slangSuprsItemProvider.dispose();
+    if (slangSuprItemProvider != null) slangSuprItemProvider.dispose();
+    if (slangExtItemProvider != null) slangExtItemProvider.dispose();
+    if (slangInvariantItemProvider != null) slangInvariantItemProvider.dispose();
+    if (slangReadsItemProvider != null) slangReadsItemProvider.dispose();
+    if (slangRequiresItemProvider != null) slangRequiresItemProvider.dispose();
+    if (slangModifiesItemProvider != null) slangModifiesItemProvider.dispose();
+    if (slangEnsuresItemProvider != null) slangEnsuresItemProvider.dispose();
+    if (slangStmtItemProvider != null) slangStmtItemProvider.dispose();
+    if (slangElseItemProvider != null) slangElseItemProvider.dispose();
+    if (slangLoopContractItemProvider != null) slangLoopContractItemProvider.dispose();
+    if (slangLHSSuffixItemProvider != null) slangLHSSuffixItemProvider.dispose();
+    if (slangCaseItemProvider != null) slangCaseItemProvider.dispose();
+    if (slangPatternItemProvider != null) slangPatternItemProvider.dispose();
+    if (slangTPatternItemProvider != null) slangTPatternItemProvider.dispose();
+    if (slangTypedVarDefItemProvider != null) slangTypedVarDefItemProvider.dispose();
+    if (slangVarDefItemProvider != null) slangVarDefItemProvider.dispose();
+    if (slangVarDeclDefItemProvider != null) slangVarDeclDefItemProvider.dispose();
+    if (exprItemProvider != null) exprItemProvider.dispose();
+    if (slangQuantVarItemProvider != null) slangQuantVarItemProvider.dispose();
+    if (slangBlockItemProvider != null) slangBlockItemProvider.dispose();
+    if (slangParamsItemProvider != null) slangParamsItemProvider.dispose();
+    if (slangParamItemProvider != null) slangParamItemProvider.dispose();
+    if (slangForRangeItemProvider != null) slangForRangeItemProvider.dispose();
+    if (slangRetItemProvider != null) slangRetItemProvider.dispose();
+    if (slangCallSuffixItemProvider != null) slangCallSuffixItemProvider.dispose();
+    if (slangCallArgsItemProvider != null) slangCallArgsItemProvider.dispose();
+    if (slangIDExpItemProvider != null) slangIDExpItemProvider.dispose();
+    if (slangTypeItemProvider != null) slangTypeItemProvider.dispose();
+    if (slangTypeArgsItemProvider != null) slangTypeArgsItemProvider.dispose();
+    if (slangInterpItemProvider != null) slangInterpItemProvider.dispose();
+    if (slangMInterpItemProvider != null) slangMInterpItemProvider.dispose();
+    if (slangIfStmtItemProvider != null) slangIfStmtItemProvider.dispose();
+    if (slangMatchStmtItemProvider != null) slangMatchStmtItemProvider.dispose();
+    if (slangSpecStmtItemProvider != null) slangSpecStmtItemProvider.dispose();
+    if (slangAssumeStmtItemProvider != null) slangAssumeStmtItemProvider.dispose();
+    if (slangAssertStmtItemProvider != null) slangAssertStmtItemProvider.dispose();
+    if (slangHaltStmtItemProvider != null) slangHaltStmtItemProvider.dispose();
+    if (slangDoStmtItemProvider != null) slangDoStmtItemProvider.dispose();
+    if (slangFieldLookupItemProvider != null) slangFieldLookupItemProvider.dispose();
+    if (slangMethodCallItemProvider != null) slangMethodCallItemProvider.dispose();
+    if (slangLitTermItemProvider != null) slangLitTermItemProvider.dispose();
+    if (slangInterpTermItemProvider != null) slangInterpTermItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
     if (recordLitExprItemProvider != null) recordLitExprItemProvider.dispose();
-    if (intLitItemProvider != null) intLitItemProvider.dispose();
-    if (realLitExprItemProvider != null) realLitExprItemProvider.dispose();
-    if (boolLitExprItemProvider != null) boolLitExprItemProvider.dispose();
-    if (floorCastItemProvider != null) floorCastItemProvider.dispose();
-    if (realCastItemProvider != null) realCastItemProvider.dispose();
+    if (dataRefExprItemProvider != null) dataRefExprItemProvider.dispose();
+    if (slangTupleTermItemProvider != null) slangTupleTermItemProvider.dispose();
+    if (slangForTermItemProvider != null) slangForTermItemProvider.dispose();
+    if (slangBlockTermItemProvider != null) slangBlockTermItemProvider.dispose();
   }
 
 }

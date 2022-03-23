@@ -141,52 +141,7 @@ PREDICATE: // TODO
 	ID
 ;
 
-Expr:
-	ImpliesExpr
-;
-
-ImpliesExpr returns Expr:
-	EquivExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
-;
-
-EquivExpr returns Expr:
-	OrExpr (=> ({BinaryExpr.left=current} op='<=>') right=OrExpr)?;
-
-OrExpr returns Expr:
-	AndExpr (=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
-;
-
-AndExpr returns Expr:
-	RelationalExpr (=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=RelationalExpr)*
-;
-
-
-RelationalOp:
-	'<' | '<=' | '>' | '>=' | '=' | '<>'
-;
- 
-RelationalExpr returns Expr:
-	AddSubExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=AddSubExpr)?
-;
-
-AddSubExpr returns Expr:
-	MultDivModExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=MultDivModExpr)*
-;
-
-MultDivModExpr returns Expr:
-	ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*	
-;
-
-ExpExpr returns Expr:
-	PrefixExpr (=>({BinaryExpr.left=current} op=('^')) right=PrefixExpr)*
-;
-
-PrefixExpr returns Expr:
-	{UnaryExpr} op=('-' | 'not') expr=PrefixExpr
-|	AtomicExpr
-;
-
-AtomicExpr returns Expr:
+//AtomicExpr returns Expr:
 //  Need to figure out how to reference difference types of IDs, including cross references
 //  to port names, state variables, etc.
 //  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
@@ -194,17 +149,17 @@ AtomicExpr returns Expr:
 //	{IdExpr} id=[aadl2::NamedElement | QCREF]
 //    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
 //|   {PortRef} 'port' port=ContainmentPathElement
-   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=CallSuffix?
-| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
-| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
-|	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
-|   {RealLitExpr} val=REAL_LIT
-|   {BoolLitExpr} val=BooleanLiteral
-|   {FloorCast} 'floor' '(' expr=Expr ')'
-|   {RealCast}  'real' '(' expr=Expr ')'
+//   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=CallSuffix?
+//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
+//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
+//|	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
+//|   {RealLitExpr} val=REAL_LIT
+//|   {BoolLitExpr} val=BooleanLiteral
+//|   {FloorCast} 'floor' '(' expr=Expr ')'
+//|   {RealCast}  'real' '(' expr=Expr ')'
 //|   ID CallSuffix
-|   '(' Expr ')'
-;
+//|   '(' Expr ')'
+//;
 
 OtherDataRef:
 	(
@@ -233,108 +188,250 @@ SubcomponentElement returns SubcomponentElement:
 //	feature=[aadl2::NamedElement|ID]
 //;
 
-SlangExpr
-	: terms+=SlangAccess ( 
-	  ( OP terms+=SlangAccess )* 
-	  | '?' then=SlangExpr ':' els=SlangExpr
-	  )
-	| ( '\\all' | '\\some' | '∀' | '∃' ) var+=SlangQuantVar ( ',' var+=SlangQuantVar )* '=>' body=SlangExpr
-	| OP SlangAccess
-	;
-	
-SlangQuantVar: ID ':' val=SlangExpr ( ( '..' | '..<' ) upperBound=SlangExpr )? ;
-	
-SlangAccess: t=SlangTerm suf=AccessSuffix* ;
-
-AccessSuffix: '.' ID CallSuffix? ;
-
-SlangTerm
-    : ID
-	| '(' tuple+=SlangExpr ( ',' tuple+=SlangExpr )*  ')'
-//	| 'for' forRange ( ',' forRange )*  'yield' ( SlangBlock |  '(' SlangExpr ')' )
-//	| '{'
-//	   ( params '=>' SlangExpr '}'
-//	   | stmt* ret? '}'
-//	   )
-	;
-	
-SlangRet: 'return' SlangExpr? ;
-
-CallSuffix
-	: TypeArgs args=CallArgs?
-	| args=CallArgs
-	;
-	
-CallArgs: '(' ( f+=IdExp ( ',' f+=IdExp )* )? ')' ;
-	
-IdExp: l=Expr ( ':=' r=Expr )? ;
-
-		
-Type
-	: BaseType ( '=>' BaseType )*
-	| 'mut' BaseType ( '=>' BaseType )+
-	;
-	
-BaseType
-	: QCREF TypeArgs?
-	| '(' ( Type ( ',' Type )* )? ')'
-	;
-
-TypeArgs: '[' Type ( ',' Type )* ']' ;
-
 Functions:
 	'functions' (specs+=FuncSpec)+
 ;
 
-FuncSpec: DefDef ';';
+FuncSpec: SlangDefDef ';';
 
-Params: '(' Param ( ',' Param )? ')' ;
+SlangDefDeclDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ( ':=' e=Expr )? ;
+
+SlangDefDecl: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ;
 	
-Param: 'var'? ID ':' ( '=>' )? Type '*'? ;
+SlangDefDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ':=' e=Expr ;
 
-DefDef: DefMods? DefExt? name=DefID TypeParams? args=DefParams? ':' Type contract=DefContract? ':=' body=Expr ;
+SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
 
-DefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
-
-DefExt: '(' ID ':' Type ')' ;
+SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
 	
-DefID: ID | OP ;
+SlangDefID: ID | Operator ;
 
-DefParams: '(' params+=DefParam ( ',' params+=DefParam )? ')' ;
+SlangDefParams: '(' params+=SlangDefParam ( ',' params+=SlangDefParam )? ')' ;
 	
-DefParam: name=ID ':' ( '=>' )? typeName=[aadl2::DataSubcomponentType|QCREF] '*'? ;
+SlangDefParam: name=ID ':' ( '=>' )? typeName=SlangType '*'? ;
 
-DefContract
-	: {DefContract} 'spec'
-	  ( rea=Reads? req=Requires? mod=Modifies? ens=Ensures?
-	  | dcc+=DefContractCase+ rea=Reads? mod=Modifies?
+
+SlangTypeParams: '[' SlangTypeParam (  ',' SlangTypeParam )* ']' ;
+
+SlangTypeParam: 'mut'? ID ;
+
+SlangDefContract
+	: {SlangDefContract} 'spec'
+	  ( rea=SlangReads? req=SlangRequires? mod=SlangModifies? ens=SlangEnsures?
+	  | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
 	  )
 	;
 
-DefContractCase: {DefContractCase} 'case' STRING r=Requires? e=Ensures? ;
+SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING req=SlangRequires? ens=SlangEnsures? ;
 
-TypeParams: '[' TypeParam (  ',' TypeParam )* ']' ;
+SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
 
-TypeParam: 'mut'? ID ;
+SlangSupr: SlangName SlangTypeArgs? ;
 
-Reads: 'reads' e+=Expr ( ',' e+=Expr )* ;
+SlangName: ID ( '.' ID )* ;
 
-Requires: 'requires' e+=Expr ( ',' e+=Expr )* ;
+SlangExt: {SlangExt} 'extension' ID ( 'for' SlangName )?  '{' decl+=SlangDefDecl* '}' ;
 
-Modifies: 'modifies' e+=Expr ( ',' e+=Expr )* ;
+SlangInvariant: 'invariant' exprs+=Expr ( ',' exprs+=Expr )* ;
 
-Ensures: 'ensures' e+=Expr ( ',' e+=Expr )* ;
+SlangReads: 'reads' exprs+=Expr ( ',' exprs+=Expr )* ;
+
+SlangRequires: 'requires' exprs+=Expr ( ',' exprs+=Expr )* ;
+
+SlangModifies: 'modifies' exprs+=Expr ( ',' exprs+=Expr )* ;
+
+SlangEnsures: 'ensures' exprs+=Expr ( ',' exprs+=Expr )* ;
+
+SlangStmt
+	: {SlangVarDef} d=SlangVarDef
+	| {SlangIfStmt} 'if' cond=Expr b=SlangBlock e=SlangElse?
+//	| {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
+//	| {SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )* l=SlangLoopContract b=SlangBlock
+	| {SlangMatchStmt} 'match' testExpr=Expr '{' c+=SlangCase* '}'
+	| {SlangSpecStmt} 'spec' b=SlangBlock
+	| {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/STRING?
+	| {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/STRING?
+	| {SlangHaltStmt} 'halt' /*SLANG_*/STRING?
+	| {SlangDoStmt} 'do' e=Expr
+//	| {SlangIdStmt} ID 
+//	  ( ':'
+//	  | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
+//	  )
+	;
+	
+SlangElse
+	: 'else'
+		( 'if' cond=Expr b=SlangBlock e=SlangElse?
+		| SlangBlock
+		)
+	;
+	
+SlangLoopContract: {SlangLoopContract} inv=SlangInvariant? mod=SlangModifies? ;
+
+SlangLHSSuffix
+	: {SlangFieldLookup} '.' ID
+	| {SlangMethodCall} '(' ( exprs+=Expr ( ',' exprs+=Expr )* )? ')'
+	;
+
+SlangCase: 'case' pattern=SlangPattern ( 'if' e=Expr )? '=>' s+=SlangStmt* ;
+
+SlangPattern
+	: ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
+	| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
+	;
+
+SlangTPattern
+	: ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
+	| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
+	| '_' ( ':' type=SlangType )?
+	;
+	
+SlangTypedVarDef: SlangVarMod SlangPattern ':' type=SlangType ':=' init=Expr ;
+
+SlangVarDef: SlangVarMod SlangPattern ( ':' type=SlangType )? ':=' init=Expr ;
+
+SlangVarDeclDef: {SlangVarDeclDef} SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )? ;
+
+SlangVarMod: 'val' | 'var' ;
+
+Expr
+	: term+=SlangAccess ( 
+	  ( Operator term+=SlangAccess )* 
+	  | '?' thenExpr=Expr ':' elseExpr=Expr
+	  )
+	| ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=Expr
+	| Operator SlangAccess
+	;
+	
+SlangQuantVar: ID ':' e=Expr ( ( '..' | '..<' ) upperBound=Expr )? ;
+
+SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
+	
+SlangAccess returns Expr: t=SlangTerm ;//suf+=SlangAccessSuffix* ;
+
+//SlangAccessSuffix: {SlangAccessSuffix} '.' ID cs=SlangCallSuffix? ;
+
+SlangTerm returns Expr
+	: {SlangLitTerm} SlangLit
+	| {SlangInterpTerm} i=SlangInterp
+	| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
+	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
+	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=SlangCallSuffix?
+	| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
+	| {SlangForTerm} 'for' r+=SlangForRange ( ',' r+=SlangForRange )*  'yield' ( b=SlangBlock |  '(' e=Expr ')' )
+	| {SlangBlockTerm} '{'
+	   ( (p=SlangParams '=>')? e=Expr '}'
+	    | stmt+=SlangStmt* r=SlangRet? '}'
+	   )
+	;
+
+
+SlangParams: '(' params+=SlangParam ( ',' params+=SlangParam )? ')' ;
+	
+SlangParam: 'var'? name=ID ':' ( '=>' )? typeName=SlangType '*'? ;
+
+SlangForRange: ID ':' e=Expr ( ( '..' |  '..<' ) upper=Expr ( 'by' step=Expr )? )? ;
+
+SlangRet: {SlangRet} 'return' e=Expr? ;
+
+SlangCallSuffix: {SlangCallSuffix}
+	ta=SlangTypeArgs ca=SlangCallArgs?
+	| ca=SlangCallArgs
+	;
+	
+SlangCallArgs: {SlangCallArgs} '(' ( arg+=SlangIDExp ( ',' arg+=SlangIDExp )* )? ')' ;
+	
+SlangIDExp: e+=Expr ( ':=' e+=Expr )? ;
+		
+SlangType
+	: SlangBaseType// ( '=>' SlangBaseType )*
+	//| 'mut' SlangBaseType ( '=>' SlangBaseType )+
+	;
+	
+SlangBaseType returns SlangType
+	: typeName=[aadl2::DataSubcomponentType|QCREF]//ID SlangTypeArgs?
+	//| '(' ( SlangType ( ',' SlangType )* )? ')'
+	;
+
+SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
+
+SlangLit
+	: 'true'
+	| 'false'
+	| INTEGER_LIT//INT
+//	| HEX
+//	| BIN
+	| REAL_LIT//REAL
+	| /*SLANG_*/STRING
+//	| MSTRING
+	;
+
+SlangInterp	: {SlangInterp}
+	  MSP
+	| MSPB SlangMInterp
+	;
+
+SlangMInterp
+	: '{' Expr '}' ( MSPM m=SlangMInterp | MSPE )
+	;
+	
+//terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
+
+//terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
+//
+terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
+
+terminal MSPB: IDF '"""' MSPI* '$' ;
+
+terminal MSPM: '$' MSPI* '$' ;
+
+terminal MSPE: '$' MSPI* ( '"""' | '""""' | '"""""' ) ;
+
+//terminal DEFOP: ':' OPSYM* '=' ;
+//
+
+Operator: OP | PlusMinus | STAR;
 
 terminal OP: ( OPSYM+ | '\\' IDF ) ;
+//
+//terminal INT
+//	: '0' IDF?
+//	| '1'..'9' DIGIT* IDF_NOU?
+//	;
+//	
+//terminal HEX: '0x' EXTENDED_DIGIT+ ( '.' IDF )? ;
+//
+//terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
+
+//terminal REAL
+//	: DIGIT+ '.' DIGIT+ EXPONENT? REALIDF?
+//	| '.' DIGIT+ EXPONENT? REALIDF?
+//	| DIGIT+ EXPONENT REALIDF?
+//	;
+
+//terminal CHAR: '\'' ( ESC_SEQ | !('\''|'\\') ) '\'' ;
 
 terminal fragment IDF: ( LETTER | '_' ) ( LETTER | DIGIT )* ;
 
-terminal fragment LETTER: ('a'..'z' | 'A'..'Z');
+//terminal fragment IDF_NOU: LETTER ( LETTER | DIGIT )* ;
+//
+//terminal fragment REALIDF: LETTER_NOE ( LETTER | DIGIT )* ;
+//
+terminal fragment MSPI: !( '"' | '$' ) | '$$' | '"' !'"' | '""' !'"' ;
+
+terminal fragment LETTER: 'a'..'z' | 'A'..'Z';
+
+//terminal fragment LETTER_NOE: 'a'..'d' | 'f'..'z' | 'A'..'D' | 'F'..'Z' ;
 
 terminal fragment OPSYM
-	: '+' | '-' | '*' | '/' | '%' | '=' | '<' | '>' | '!' | '&' | '^' | '|' | '~'
+	: //'+' | '-' | '*' |
+	 '/' | '%' | '=' | '<' | '>' | '!' | '&' | '^' | '|' | '~'
 	| ( '\u2200' .. '\u22FF' ) // https://en.wikipedia.org/wiki/Mathematical_Operators
 	| ( '\u2A00' .. '\u2AFF' ) // https://en.wikipedia.org/wiki/Supplemental_Mathematical_Operators
 	| ( '\u27C0' .. '\u27EF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-A
 	| ( '\u2980' .. '\u29FF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
 	;
+	
+//terminal fragment ESC_SEQ: '\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\' ) | UNICODE_ESC ;
+	
+//terminal fragment UNICODE_ESC: '\\' 'u' EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT ;

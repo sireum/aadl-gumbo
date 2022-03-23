@@ -46,50 +46,77 @@ import org.osate.xtext.aadl2.properties.serializer.PropertiesSemanticSequencer;
 import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
-import org.sireum.aadl.gumbo.gumbo.BinaryExpr;
-import org.sireum.aadl.gumbo.gumbo.BoolLitExpr;
-import org.sireum.aadl.gumbo.gumbo.CallArgs;
-import org.sireum.aadl.gumbo.gumbo.CallSuffix;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
-import org.sireum.aadl.gumbo.gumbo.DefContract;
-import org.sireum.aadl.gumbo.gumbo.DefContractCase;
-import org.sireum.aadl.gumbo.gumbo.DefDef;
-import org.sireum.aadl.gumbo.gumbo.DefParam;
-import org.sireum.aadl.gumbo.gumbo.DefParams;
 import org.sireum.aadl.gumbo.gumbo.DoubleDotRef;
-import org.sireum.aadl.gumbo.gumbo.Ensures;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
-import org.sireum.aadl.gumbo.gumbo.FloorCast;
+import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
-import org.sireum.aadl.gumbo.gumbo.IdExp;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
-import org.sireum.aadl.gumbo.gumbo.IntLit;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.Invariants;
-import org.sireum.aadl.gumbo.gumbo.Modifies;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
-import org.sireum.aadl.gumbo.gumbo.Reads;
-import org.sireum.aadl.gumbo.gumbo.RealCast;
-import org.sireum.aadl.gumbo.gumbo.RealLitExpr;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
-import org.sireum.aadl.gumbo.gumbo.Requires;
-import org.sireum.aadl.gumbo.gumbo.SlangAccess;
-import org.sireum.aadl.gumbo.gumbo.SlangExpr;
+import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangBlock;
+import org.sireum.aadl.gumbo.gumbo.SlangBlockTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
+import org.sireum.aadl.gumbo.gumbo.SlangCallSuffix;
+import org.sireum.aadl.gumbo.gumbo.SlangCase;
+import org.sireum.aadl.gumbo.gumbo.SlangDefContract;
+import org.sireum.aadl.gumbo.gumbo.SlangDefContractCase;
+import org.sireum.aadl.gumbo.gumbo.SlangDefDecl;
+import org.sireum.aadl.gumbo.gumbo.SlangDefDeclDef;
+import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
+import org.sireum.aadl.gumbo.gumbo.SlangDefExt;
+import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
+import org.sireum.aadl.gumbo.gumbo.SlangDefParams;
+import org.sireum.aadl.gumbo.gumbo.SlangDoStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangElse;
+import org.sireum.aadl.gumbo.gumbo.SlangEnsures;
+import org.sireum.aadl.gumbo.gumbo.SlangExt;
+import org.sireum.aadl.gumbo.gumbo.SlangFieldLookup;
+import org.sireum.aadl.gumbo.gumbo.SlangForRange;
+import org.sireum.aadl.gumbo.gumbo.SlangForTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangHaltStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangIDExp;
+import org.sireum.aadl.gumbo.gumbo.SlangIfStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangInterp;
+import org.sireum.aadl.gumbo.gumbo.SlangInterpTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangInvariant;
+import org.sireum.aadl.gumbo.gumbo.SlangLitTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangLoopContract;
+import org.sireum.aadl.gumbo.gumbo.SlangMatchStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangMethodCall;
+import org.sireum.aadl.gumbo.gumbo.SlangModifies;
+import org.sireum.aadl.gumbo.gumbo.SlangParam;
+import org.sireum.aadl.gumbo.gumbo.SlangParams;
+import org.sireum.aadl.gumbo.gumbo.SlangPattern;
 import org.sireum.aadl.gumbo.gumbo.SlangQuantVar;
-import org.sireum.aadl.gumbo.gumbo.SlangTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangReads;
+import org.sireum.aadl.gumbo.gumbo.SlangRequires;
+import org.sireum.aadl.gumbo.gumbo.SlangRet;
+import org.sireum.aadl.gumbo.gumbo.SlangSpecStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangSuprs;
+import org.sireum.aadl.gumbo.gumbo.SlangTPattern;
+import org.sireum.aadl.gumbo.gumbo.SlangTupleTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangType;
+import org.sireum.aadl.gumbo.gumbo.SlangTypeArgs;
+import org.sireum.aadl.gumbo.gumbo.SlangTypedVarDef;
+import org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef;
+import org.sireum.aadl.gumbo.gumbo.SlangVarDef;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
-import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
 import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 
 @SuppressWarnings("all")
@@ -212,18 +239,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.ASSUME_STATEMENT:
 				sequence_AssumeStatement(context, (AssumeStatement) semanticObject); 
 				return; 
-			case GumboPackage.BINARY_EXPR:
-				sequence_AddSubExpr_AndExpr_EquivExpr_ExpExpr_ImpliesExpr_MultDivModExpr_OrExpr_RelationalExpr(context, (BinaryExpr) semanticObject); 
-				return; 
-			case GumboPackage.BOOL_LIT_EXPR:
-				sequence_AtomicExpr(context, (BoolLitExpr) semanticObject); 
-				return; 
-			case GumboPackage.CALL_ARGS:
-				sequence_CallArgs(context, (CallArgs) semanticObject); 
-				return; 
-			case GumboPackage.CALL_SUFFIX:
-				sequence_CallSuffix(context, (CallSuffix) semanticObject); 
-				return; 
 			case GumboPackage.CASE_STATEMENT_CLAUSE:
 				sequence_CaseStatementClause(context, (CaseStatementClause) semanticObject); 
 				return; 
@@ -234,35 +249,29 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				sequence_DataElement(context, (DataElement) semanticObject); 
 				return; 
 			case GumboPackage.DATA_REF_EXPR:
-				sequence_AtomicExpr(context, (DataRefExpr) semanticObject); 
-				return; 
-			case GumboPackage.DEF_CONTRACT:
-				sequence_DefContract(context, (DefContract) semanticObject); 
-				return; 
-			case GumboPackage.DEF_CONTRACT_CASE:
-				sequence_DefContractCase(context, (DefContractCase) semanticObject); 
-				return; 
-			case GumboPackage.DEF_DEF:
-				sequence_DefDef(context, (DefDef) semanticObject); 
-				return; 
-			case GumboPackage.DEF_PARAM:
-				sequence_DefParam(context, (DefParam) semanticObject); 
-				return; 
-			case GumboPackage.DEF_PARAMS:
-				sequence_DefParams(context, (DefParams) semanticObject); 
+				sequence_SlangTerm(context, (DataRefExpr) semanticObject); 
 				return; 
 			case GumboPackage.DOUBLE_DOT_REF:
 				sequence_DoubleDotRef(context, (DoubleDotRef) semanticObject); 
 				return; 
-			case GumboPackage.ENSURES:
-				sequence_Ensures(context, (Ensures) semanticObject); 
-				return; 
 			case GumboPackage.ENUM_LIT_EXPR:
-				sequence_AtomicExpr(context, (EnumLitExpr) semanticObject); 
+				sequence_SlangTerm(context, (EnumLitExpr) semanticObject); 
 				return; 
-			case GumboPackage.FLOOR_CAST:
-				sequence_AtomicExpr(context, (FloorCast) semanticObject); 
-				return; 
+			case GumboPackage.EXPR:
+				if (rule == grammarAccess.getExprRule()) {
+					sequence_Expr_SlangAccess(context, (Expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSlangInterpRule()
+						|| rule == grammarAccess.getSlangMInterpRule()) {
+					sequence_Expr_SlangAccess_SlangMInterp(context, (Expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSlangAccessRule()) {
+					sequence_SlangAccess(context, (Expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case GumboPackage.FUNCTIONS:
 				sequence_Functions(context, (Functions) semanticObject); 
 				return; 
@@ -275,14 +284,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.GUMBO_SUBCLAUSE:
 				sequence_GumboSubclause(context, (GumboSubclause) semanticObject); 
 				return; 
-			case GumboPackage.ID_EXP:
-				sequence_IdExp(context, (IdExp) semanticObject); 
-				return; 
 			case GumboPackage.INITIALIZE:
 				sequence_Initialize(context, (Initialize) semanticObject); 
-				return; 
-			case GumboPackage.INT_LIT:
-				sequence_AtomicExpr(context, (IntLit) semanticObject); 
 				return; 
 			case GumboPackage.INTEGRATION:
 				sequence_Integration(context, (Integration) semanticObject); 
@@ -293,39 +296,177 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.INVARIANTS:
 				sequence_Invariants(context, (Invariants) semanticObject); 
 				return; 
-			case GumboPackage.MODIFIES:
-				sequence_Modifies(context, (Modifies) semanticObject); 
-				return; 
 			case GumboPackage.OTHER_DATA_REF:
 				sequence_OtherDataRef(context, (OtherDataRef) semanticObject); 
 				return; 
-			case GumboPackage.READS:
-				sequence_Reads(context, (Reads) semanticObject); 
-				return; 
-			case GumboPackage.REAL_CAST:
-				sequence_AtomicExpr(context, (RealCast) semanticObject); 
-				return; 
-			case GumboPackage.REAL_LIT_EXPR:
-				sequence_AtomicExpr(context, (RealLitExpr) semanticObject); 
-				return; 
 			case GumboPackage.RECORD_LIT_EXPR:
-				sequence_AtomicExpr(context, (RecordLitExpr) semanticObject); 
+				sequence_SlangTerm(context, (RecordLitExpr) semanticObject); 
 				return; 
-			case GumboPackage.REQUIRES:
-				sequence_Requires(context, (Requires) semanticObject); 
+			case GumboPackage.SLANG_ASSERT_STMT:
+				sequence_SlangStmt(context, (SlangAssertStmt) semanticObject); 
 				return; 
-			case GumboPackage.SLANG_ACCESS:
-				sequence_SlangAccess(context, (SlangAccess) semanticObject); 
+			case GumboPackage.SLANG_ASSUME_STMT:
+				sequence_SlangStmt(context, (SlangAssumeStmt) semanticObject); 
 				return; 
-			case GumboPackage.SLANG_EXPR:
-				sequence_SlangExpr(context, (SlangExpr) semanticObject); 
+			case GumboPackage.SLANG_BLOCK:
+				sequence_SlangBlock(context, (SlangBlock) semanticObject); 
 				return; 
+			case GumboPackage.SLANG_BLOCK_TERM:
+				sequence_SlangTerm(context, (SlangBlockTerm) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_CALL_ARGS:
+				sequence_SlangCallArgs(context, (SlangCallArgs) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_CALL_SUFFIX:
+				sequence_SlangCallSuffix(context, (SlangCallSuffix) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_CASE:
+				sequence_SlangCase(context, (SlangCase) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_CONTRACT:
+				sequence_SlangDefContract(context, (SlangDefContract) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_CONTRACT_CASE:
+				sequence_SlangDefContractCase(context, (SlangDefContractCase) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_DECL:
+				sequence_SlangDefDecl(context, (SlangDefDecl) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_DECL_DEF:
+				sequence_SlangDefDeclDef(context, (SlangDefDeclDef) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_DEF:
+				sequence_SlangDefDef(context, (SlangDefDef) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_EXT:
+				sequence_SlangDefExt(context, (SlangDefExt) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_PARAM:
+				sequence_SlangDefParam(context, (SlangDefParam) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DEF_PARAMS:
+				sequence_SlangDefParams(context, (SlangDefParams) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_DO_STMT:
+				sequence_SlangStmt(context, (SlangDoStmt) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_ELSE:
+				sequence_SlangElse(context, (SlangElse) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_ENSURES:
+				sequence_SlangEnsures(context, (SlangEnsures) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_EXT:
+				sequence_SlangExt(context, (SlangExt) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_FIELD_LOOKUP:
+				sequence_SlangLHSSuffix(context, (SlangFieldLookup) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_FOR_RANGE:
+				sequence_SlangForRange(context, (SlangForRange) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_FOR_TERM:
+				sequence_SlangTerm(context, (SlangForTerm) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_HALT_STMT:
+				sequence_SlangStmt(context, (SlangHaltStmt) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_ID_EXP:
+				sequence_SlangIDExp(context, (SlangIDExp) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_IF_STMT:
+				sequence_SlangStmt(context, (SlangIfStmt) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_INTERP:
+				sequence_SlangInterp(context, (SlangInterp) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_INTERP_TERM:
+				sequence_SlangTerm(context, (SlangInterpTerm) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_INVARIANT:
+				sequence_SlangInvariant(context, (SlangInvariant) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_LIT_TERM:
+				sequence_SlangTerm(context, (SlangLitTerm) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_LOOP_CONTRACT:
+				sequence_SlangLoopContract(context, (SlangLoopContract) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_MATCH_STMT:
+				sequence_SlangStmt(context, (SlangMatchStmt) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_METHOD_CALL:
+				sequence_SlangLHSSuffix(context, (SlangMethodCall) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_MODIFIES:
+				sequence_SlangModifies(context, (SlangModifies) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_PARAM:
+				sequence_SlangParam(context, (SlangParam) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_PARAMS:
+				sequence_SlangParams(context, (SlangParams) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_PATTERN:
+				if (rule == grammarAccess.getSlangPatternRule()) {
+					sequence_SlangPattern(context, (SlangPattern) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSlangTypedVarDefRule()) {
+					sequence_SlangPattern_SlangTypedVarDef(context, (SlangPattern) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSlangVarDefRule()) {
+					sequence_SlangPattern_SlangVarDef(context, (SlangPattern) semanticObject); 
+					return; 
+				}
+				else break;
 			case GumboPackage.SLANG_QUANT_VAR:
 				sequence_SlangQuantVar(context, (SlangQuantVar) semanticObject); 
 				return; 
-			case GumboPackage.SLANG_TERM:
-				sequence_SlangTerm(context, (SlangTerm) semanticObject); 
+			case GumboPackage.SLANG_READS:
+				sequence_SlangReads(context, (SlangReads) semanticObject); 
 				return; 
+			case GumboPackage.SLANG_REQUIRES:
+				sequence_SlangRequires(context, (SlangRequires) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_RET:
+				sequence_SlangRet(context, (SlangRet) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_SPEC_STMT:
+				sequence_SlangStmt(context, (SlangSpecStmt) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_SUPRS:
+				sequence_SlangSuprs(context, (SlangSuprs) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_TPATTERN:
+				sequence_SlangTPattern(context, (SlangTPattern) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_TUPLE_TERM:
+				sequence_SlangTerm(context, (SlangTupleTerm) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_TYPE:
+				sequence_SlangBaseType(context, (SlangType) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_TYPE_ARGS:
+				sequence_SlangTypeArgs(context, (SlangTypeArgs) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_TYPED_VAR_DEF:
+				sequence_SlangTypedVarDef(context, (SlangTypedVarDef) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_VAR_DECL_DEF:
+				sequence_SlangVarDeclDef(context, (SlangVarDeclDef) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_VAR_DEF:
+				if (rule == grammarAccess.getSlangStmtRule()) {
+					sequence_SlangStmt(context, (SlangVarDef) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSlangVarDefRule()) {
+					sequence_SlangVarDef(context, (SlangVarDef) semanticObject); 
+					return; 
+				}
+				else break;
 			case GumboPackage.SPEC_SECTION:
 				sequence_SpecSection(context, (SpecSection) semanticObject); 
 				return; 
@@ -338,52 +479,10 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.SUBCOMPONENT_ELEMENT:
 				sequence_SubcomponentElement(context, (SubcomponentElement) semanticObject); 
 				return; 
-			case GumboPackage.UNARY_EXPR:
-				sequence_PrefixExpr(context, (UnaryExpr) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     Expr returns BinaryExpr
-	 *     ImpliesExpr returns BinaryExpr
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     EquivExpr returns BinaryExpr
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     OrExpr returns BinaryExpr
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     AndExpr returns BinaryExpr
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     RelationalExpr returns BinaryExpr
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     AddSubExpr returns BinaryExpr
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     MultDivModExpr returns BinaryExpr
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     ExpExpr returns BinaryExpr
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns BinaryExpr
-	 *     PrefixExpr returns BinaryExpr
-	 *     AtomicExpr returns BinaryExpr
-	 *
-	 * Constraint:
-	 *     (
-	 *         (left=ImpliesExpr_BinaryExpr_1_0_0_0 right=ImpliesExpr) | 
-	 *         (left=EquivExpr_BinaryExpr_1_0_0_0 op='<=>' right=OrExpr) | 
-	 *         (left=OrExpr_BinaryExpr_1_0_0_0 (op='or' | op='orelse') right=AndExpr) | 
-	 *         (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=RelationalExpr) | 
-	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=AddSubExpr) | 
-	 *         (left=AddSubExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=MultDivModExpr) | 
-	 *         (left=MultDivModExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=ExpExpr) | 
-	 *         (left=ExpExpr_BinaryExpr_1_0_0_0 op='^' right=PrefixExpr)
-	 *     )
-	 */
-	protected void sequence_AddSubExpr_AndExpr_EquivExpr_ExpExpr_ImpliesExpr_MultDivModExpr_OrExpr_RelationalExpr(ISerializationContext context, BinaryExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -445,310 +544,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     Expr returns BoolLitExpr
-	 *     ImpliesExpr returns BoolLitExpr
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     EquivExpr returns BoolLitExpr
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     OrExpr returns BoolLitExpr
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     AndExpr returns BoolLitExpr
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     RelationalExpr returns BoolLitExpr
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     AddSubExpr returns BoolLitExpr
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     MultDivModExpr returns BoolLitExpr
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     ExpExpr returns BoolLitExpr
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns BoolLitExpr
-	 *     PrefixExpr returns BoolLitExpr
-	 *     AtomicExpr returns BoolLitExpr
-	 *
-	 * Constraint:
-	 *     val=BooleanLiteral
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, BoolLitExpr semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.BOOL_LIT_EXPR__VAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.BOOL_LIT_EXPR__VAL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValBooleanLiteralParserRuleCall_5_1_0(), semanticObject.getVal());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expr returns DataRefExpr
-	 *     ImpliesExpr returns DataRefExpr
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     EquivExpr returns DataRefExpr
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     OrExpr returns DataRefExpr
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     AndExpr returns DataRefExpr
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     RelationalExpr returns DataRefExpr
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     AddSubExpr returns DataRefExpr
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     MultDivModExpr returns DataRefExpr
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     ExpExpr returns DataRefExpr
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns DataRefExpr
-	 *     PrefixExpr returns DataRefExpr
-	 *     AtomicExpr returns DataRefExpr
-	 *
-	 * Constraint:
-	 *     (portOrSubcomponentOrStateVar=[EObject|ID] ref=OtherDataRef? cs=CallSuffix?)
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, DataRefExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expr returns EnumLitExpr
-	 *     ImpliesExpr returns EnumLitExpr
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     EquivExpr returns EnumLitExpr
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     OrExpr returns EnumLitExpr
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     AndExpr returns EnumLitExpr
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     RelationalExpr returns EnumLitExpr
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     AddSubExpr returns EnumLitExpr
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     MultDivModExpr returns EnumLitExpr
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     ExpExpr returns EnumLitExpr
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns EnumLitExpr
-	 *     PrefixExpr returns EnumLitExpr
-	 *     AtomicExpr returns EnumLitExpr
-	 *
-	 * Constraint:
-	 *     (enumType=DataElement value=[StringLiteral|ID])
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, EnumLitExpr semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getEnumTypeDataElementParserRuleCall_1_1_0(), semanticObject.getEnumType());
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValueStringLiteralIDTerminalRuleCall_1_3_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expr returns FloorCast
-	 *     ImpliesExpr returns FloorCast
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     EquivExpr returns FloorCast
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     OrExpr returns FloorCast
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     AndExpr returns FloorCast
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     RelationalExpr returns FloorCast
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     AddSubExpr returns FloorCast
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     MultDivModExpr returns FloorCast
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     ExpExpr returns FloorCast
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns FloorCast
-	 *     PrefixExpr returns FloorCast
-	 *     AtomicExpr returns FloorCast
-	 *
-	 * Constraint:
-	 *     expr=Expr
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, FloorCast semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.FLOOR_CAST__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.FLOOR_CAST__EXPR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_6_3_0(), semanticObject.getExpr());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expr returns IntLit
-	 *     ImpliesExpr returns IntLit
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     EquivExpr returns IntLit
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     OrExpr returns IntLit
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     AndExpr returns IntLit
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     RelationalExpr returns IntLit
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     AddSubExpr returns IntLit
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     MultDivModExpr returns IntLit
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     ExpExpr returns IntLit
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns IntLit
-	 *     PrefixExpr returns IntLit
-	 *     AtomicExpr returns IntLit
-	 *
-	 * Constraint:
-	 *     value=INTEGER_LIT
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, IntLit semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.INT_LIT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.INT_LIT__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValueINTEGER_LITTerminalRuleCall_3_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expr returns RealCast
-	 *     ImpliesExpr returns RealCast
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     EquivExpr returns RealCast
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     OrExpr returns RealCast
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     AndExpr returns RealCast
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     RelationalExpr returns RealCast
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     AddSubExpr returns RealCast
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     MultDivModExpr returns RealCast
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     ExpExpr returns RealCast
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns RealCast
-	 *     PrefixExpr returns RealCast
-	 *     AtomicExpr returns RealCast
-	 *
-	 * Constraint:
-	 *     expr=Expr
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, RealCast semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.REAL_CAST__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.REAL_CAST__EXPR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getExprExprParserRuleCall_7_3_0(), semanticObject.getExpr());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expr returns RealLitExpr
-	 *     ImpliesExpr returns RealLitExpr
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     EquivExpr returns RealLitExpr
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     OrExpr returns RealLitExpr
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     AndExpr returns RealLitExpr
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     RelationalExpr returns RealLitExpr
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     AddSubExpr returns RealLitExpr
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     MultDivModExpr returns RealLitExpr
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     ExpExpr returns RealLitExpr
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns RealLitExpr
-	 *     PrefixExpr returns RealLitExpr
-	 *     AtomicExpr returns RealLitExpr
-	 *
-	 * Constraint:
-	 *     val=REAL_LIT
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, RealLitExpr semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.REAL_LIT_EXPR__VAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.REAL_LIT_EXPR__VAL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValREAL_LITTerminalRuleCall_4_1_0(), semanticObject.getVal());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expr returns RecordLitExpr
-	 *     ImpliesExpr returns RecordLitExpr
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     EquivExpr returns RecordLitExpr
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     OrExpr returns RecordLitExpr
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     AndExpr returns RecordLitExpr
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     RelationalExpr returns RecordLitExpr
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     AddSubExpr returns RecordLitExpr
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     MultDivModExpr returns RecordLitExpr
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     ExpExpr returns RecordLitExpr
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns RecordLitExpr
-	 *     PrefixExpr returns RecordLitExpr
-	 *     AtomicExpr returns RecordLitExpr
-	 *
-	 * Constraint:
-	 *     (recordType=DataElement args+=[NamedElement|ID] argExpr+=Expr (args+=[NamedElement|ID] argExpr+=Expr)*)
-	 */
-	protected void sequence_AtomicExpr(ISerializationContext context, RecordLitExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     CallArgs returns CallArgs
-	 *
-	 * Constraint:
-	 *     (f+=IdExp f+=IdExp*)
-	 */
-	protected void sequence_CallArgs(ISerializationContext context, CallArgs semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AccessSuffix returns CallSuffix
-	 *     CallSuffix returns CallSuffix
-	 *
-	 * Constraint:
-	 *     (args=CallArgs | args=CallArgs)
-	 */
-	protected void sequence_CallSuffix(ISerializationContext context, CallSuffix semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     CaseStatementClause returns CaseStatementClause
 	 *
 	 * Constraint:
@@ -803,76 +598,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     DefContractCase returns DefContractCase
-	 *
-	 * Constraint:
-	 *     (r=Requires? e=Ensures?)
-	 */
-	protected void sequence_DefContractCase(ISerializationContext context, DefContractCase semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DefContract returns DefContract
-	 *
-	 * Constraint:
-	 *     ((rea=Reads? req=Requires? mod=Modifies? ens=Ensures?) | (dcc+=DefContractCase+ rea=Reads? mod=Modifies?))
-	 */
-	protected void sequence_DefContract(ISerializationContext context, DefContract semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     FuncSpec returns DefDef
-	 *     DefDef returns DefDef
-	 *
-	 * Constraint:
-	 *     (name=DefID args=DefParams? contract=DefContract? body=Expr)
-	 */
-	protected void sequence_DefDef(ISerializationContext context, DefDef semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DefParam returns DefParam
-	 *
-	 * Constraint:
-	 *     (name=ID typeName=[DataSubcomponentType|QCREF])
-	 */
-	protected void sequence_DefParam(ISerializationContext context, DefParam semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.DEF_PARAM__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.DEF_PARAM__NAME));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.DEF_PARAM__TYPE_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.DEF_PARAM__TYPE_NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDefParamAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDefParamAccess().getTypeNameDataSubcomponentTypeQCREFParserRuleCall_3_0_1(), semanticObject.eGet(GumboPackage.Literals.DEF_PARAM__TYPE_NAME, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DefParams returns DefParams
-	 *
-	 * Constraint:
-	 *     (params+=DefParam params+=DefParam?)
-	 */
-	protected void sequence_DefParams(ISerializationContext context, DefParams semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DoubleDotRef returns DoubleDotRef
 	 *
 	 * Constraint:
@@ -891,12 +616,36 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     Ensures returns Ensures
+	 *     Expr returns Expr
 	 *
 	 * Constraint:
-	 *     (e+=Expr e+=Expr*)
+	 *     (
+	 *         (term+=SlangAccess (term+=SlangAccess+ | (thenExpr=Expr elseExpr=Expr))?) | 
+	 *         (qVar+=SlangQuantVar qVar+=SlangQuantVar* quantifiedExpr=Expr) | 
+	 *         t=SlangTerm
+	 *     )
 	 */
-	protected void sequence_Ensures(ISerializationContext context, Ensures semanticObject) {
+	protected void sequence_Expr_SlangAccess(ISerializationContext context, Expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangInterp returns Expr
+	 *     SlangMInterp returns Expr
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             (term+=SlangAccess (term+=SlangAccess+ | (thenExpr=Expr elseExpr=Expr))?) | 
+	 *             (qVar+=SlangQuantVar qVar+=SlangQuantVar* quantifiedExpr=Expr) | 
+	 *             t=SlangTerm
+	 *         ) 
+	 *         m=SlangMInterp?
+	 *     )
+	 */
+	protected void sequence_Expr_SlangAccess_SlangMInterp(ISerializationContext context, Expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -970,18 +719,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     IdExp returns IdExp
-	 *
-	 * Constraint:
-	 *     (l=Expr r=Expr?)
-	 */
-	protected void sequence_IdExp(ISerializationContext context, IdExp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Initialize returns Initialize
 	 *
 	 * Constraint:
@@ -1039,18 +776,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     Modifies returns Modifies
-	 *
-	 * Constraint:
-	 *     (e+=Expr e+=Expr*)
-	 */
-	protected void sequence_Modifies(ISerializationContext context, Modifies semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     OtherDataRef returns OtherDataRef
 	 *
 	 * Constraint:
@@ -1063,81 +788,428 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     Expr returns UnaryExpr
-	 *     ImpliesExpr returns UnaryExpr
-	 *     ImpliesExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     EquivExpr returns UnaryExpr
-	 *     EquivExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     OrExpr returns UnaryExpr
-	 *     OrExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     AndExpr returns UnaryExpr
-	 *     AndExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     RelationalExpr returns UnaryExpr
-	 *     RelationalExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     AddSubExpr returns UnaryExpr
-	 *     AddSubExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     MultDivModExpr returns UnaryExpr
-	 *     MultDivModExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     ExpExpr returns UnaryExpr
-	 *     ExpExpr.BinaryExpr_1_0_0_0 returns UnaryExpr
-	 *     PrefixExpr returns UnaryExpr
-	 *     AtomicExpr returns UnaryExpr
+	 *     SlangAccess returns Expr
 	 *
 	 * Constraint:
-	 *     ((op='-' | op='not') expr=PrefixExpr)
+	 *     t=SlangTerm
 	 */
-	protected void sequence_PrefixExpr(ISerializationContext context, UnaryExpr semanticObject) {
+	protected void sequence_SlangAccess(ISerializationContext context, Expr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.EXPR__T) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.EXPR__T));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangAccessAccess().getTSlangTermParserRuleCall_0(), semanticObject.getT());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangType returns SlangType
+	 *     SlangBaseType returns SlangType
+	 *
+	 * Constraint:
+	 *     typeName=[DataSubcomponentType|QCREF]
+	 */
+	protected void sequence_SlangBaseType(ISerializationContext context, SlangType semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_TYPE__TYPE_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_TYPE__TYPE_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangBaseTypeAccess().getTypeNameDataSubcomponentTypeQCREFParserRuleCall_0_1(), semanticObject.eGet(GumboPackage.Literals.SLANG_TYPE__TYPE_NAME, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangElse returns SlangBlock
+	 *     SlangBlock returns SlangBlock
+	 *
+	 * Constraint:
+	 *     (stmts+=SlangStmt* r=SlangRet?)
+	 */
+	protected void sequence_SlangBlock(ISerializationContext context, SlangBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Reads returns Reads
+	 *     SlangCallArgs returns SlangCallArgs
 	 *
 	 * Constraint:
-	 *     (e+=Expr e+=Expr*)
+	 *     (arg+=SlangIDExp arg+=SlangIDExp*)?
 	 */
-	protected void sequence_Reads(ISerializationContext context, Reads semanticObject) {
+	protected void sequence_SlangCallArgs(ISerializationContext context, SlangCallArgs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Requires returns Requires
+	 *     SlangCallSuffix returns SlangCallSuffix
 	 *
 	 * Constraint:
-	 *     (e+=Expr e+=Expr*)
+	 *     ((ta=SlangTypeArgs ca=SlangCallArgs?) | ca=SlangCallArgs)
 	 */
-	protected void sequence_Requires(ISerializationContext context, Requires semanticObject) {
+	protected void sequence_SlangCallSuffix(ISerializationContext context, SlangCallSuffix semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SlangExpr returns SlangAccess
-	 *     SlangAccess returns SlangAccess
-	 *     SlangRet returns SlangAccess
+	 *     SlangCase returns SlangCase
 	 *
 	 * Constraint:
-	 *     (t=SlangTerm suf=AccessSuffix*)
+	 *     (pattern=SlangPattern e=Expr? s+=SlangStmt*)
 	 */
-	protected void sequence_SlangAccess(ISerializationContext context, SlangAccess semanticObject) {
+	protected void sequence_SlangCase(ISerializationContext context, SlangCase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SlangExpr returns SlangExpr
-	 *     SlangRet returns SlangExpr
+	 *     SlangDefContractCase returns SlangDefContractCase
 	 *
 	 * Constraint:
-	 *     ((terms+=SlangAccess (terms+=SlangAccess+ | (then=SlangExpr els=SlangExpr))?) | (var+=SlangQuantVar var+=SlangQuantVar* body=SlangExpr))
+	 *     (req=SlangRequires? ens=SlangEnsures?)
 	 */
-	protected void sequence_SlangExpr(ISerializationContext context, SlangExpr semanticObject) {
+	protected void sequence_SlangDefContractCase(ISerializationContext context, SlangDefContractCase semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangDefContract returns SlangDefContract
+	 *
+	 * Constraint:
+	 *     (
+	 *         (rea=SlangReads? req=SlangRequires? mod=SlangModifies? ens=SlangEnsures?) | 
+	 *         (contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?)
+	 *     )
+	 */
+	protected void sequence_SlangDefContract(ISerializationContext context, SlangDefContract semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangDefDeclDef returns SlangDefDeclDef
+	 *
+	 * Constraint:
+	 *     (
+	 *         sde=SlangDefExt? 
+	 *         name=SlangDefID 
+	 *         typeParams=SlangTypeParams? 
+	 *         params=SlangDefParams? 
+	 *         type=SlangType 
+	 *         c=SlangDefContract? 
+	 *         e=Expr?
+	 *     )
+	 */
+	protected void sequence_SlangDefDeclDef(ISerializationContext context, SlangDefDeclDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangDefDecl returns SlangDefDecl
+	 *
+	 * Constraint:
+	 *     (
+	 *         sde=SlangDefExt? 
+	 *         name=SlangDefID 
+	 *         typeParams=SlangTypeParams? 
+	 *         params=SlangDefParams? 
+	 *         type=SlangType 
+	 *         c=SlangDefContract?
+	 *     )
+	 */
+	protected void sequence_SlangDefDecl(ISerializationContext context, SlangDefDecl semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FuncSpec returns SlangDefDef
+	 *     SlangDefDef returns SlangDefDef
+	 *
+	 * Constraint:
+	 *     (
+	 *         sde=SlangDefExt? 
+	 *         name=SlangDefID 
+	 *         typeParams=SlangTypeParams? 
+	 *         params=SlangDefParams? 
+	 *         type=SlangType 
+	 *         c=SlangDefContract? 
+	 *         e=Expr
+	 *     )
+	 */
+	protected void sequence_SlangDefDef(ISerializationContext context, SlangDefDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangDefExt returns SlangDefExt
+	 *
+	 * Constraint:
+	 *     (name=ID typeName=SlangType)
+	 */
+	protected void sequence_SlangDefExt(ISerializationContext context, SlangDefExt semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_DEF_EXT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_DEF_EXT__NAME));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_DEF_EXT__TYPE_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_DEF_EXT__TYPE_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangDefExtAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSlangDefExtAccess().getTypeNameSlangTypeParserRuleCall_3_0(), semanticObject.getTypeName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangDefParam returns SlangDefParam
+	 *
+	 * Constraint:
+	 *     (name=ID typeName=SlangType)
+	 */
+	protected void sequence_SlangDefParam(ISerializationContext context, SlangDefParam semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__NAME));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__TYPE_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__TYPE_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangDefParamAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSlangDefParamAccess().getTypeNameSlangTypeParserRuleCall_3_0(), semanticObject.getTypeName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangDefParams returns SlangDefParams
+	 *
+	 * Constraint:
+	 *     (params+=SlangDefParam params+=SlangDefParam?)
+	 */
+	protected void sequence_SlangDefParams(ISerializationContext context, SlangDefParams semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangElse returns SlangElse
+	 *
+	 * Constraint:
+	 *     (cond=Expr b=SlangBlock e=SlangElse?)
+	 */
+	protected void sequence_SlangElse(ISerializationContext context, SlangElse semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangEnsures returns SlangEnsures
+	 *
+	 * Constraint:
+	 *     (exprs+=Expr exprs+=Expr*)
+	 */
+	protected void sequence_SlangEnsures(ISerializationContext context, SlangEnsures semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangExt returns SlangExt
+	 *
+	 * Constraint:
+	 *     decl+=SlangDefDecl*
+	 */
+	protected void sequence_SlangExt(ISerializationContext context, SlangExt semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangForRange returns SlangForRange
+	 *
+	 * Constraint:
+	 *     (e=Expr (upper=Expr step=Expr?)?)
+	 */
+	protected void sequence_SlangForRange(ISerializationContext context, SlangForRange semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangIDExp returns SlangIDExp
+	 *
+	 * Constraint:
+	 *     (e+=Expr e+=Expr?)
+	 */
+	protected void sequence_SlangIDExp(ISerializationContext context, SlangIDExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangInterp returns SlangInterp
+	 *
+	 * Constraint:
+	 *     {SlangInterp}
+	 */
+	protected void sequence_SlangInterp(ISerializationContext context, SlangInterp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangInvariant returns SlangInvariant
+	 *
+	 * Constraint:
+	 *     (exprs+=Expr exprs+=Expr*)
+	 */
+	protected void sequence_SlangInvariant(ISerializationContext context, SlangInvariant semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangLHSSuffix returns SlangFieldLookup
+	 *
+	 * Constraint:
+	 *     {SlangFieldLookup}
+	 */
+	protected void sequence_SlangLHSSuffix(ISerializationContext context, SlangFieldLookup semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangLHSSuffix returns SlangMethodCall
+	 *
+	 * Constraint:
+	 *     (exprs+=Expr exprs+=Expr*)?
+	 */
+	protected void sequence_SlangLHSSuffix(ISerializationContext context, SlangMethodCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangLoopContract returns SlangLoopContract
+	 *
+	 * Constraint:
+	 *     (inv=SlangInvariant? mod=SlangModifies?)
+	 */
+	protected void sequence_SlangLoopContract(ISerializationContext context, SlangLoopContract semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangModifies returns SlangModifies
+	 *
+	 * Constraint:
+	 *     (exprs+=Expr exprs+=Expr*)
+	 */
+	protected void sequence_SlangModifies(ISerializationContext context, SlangModifies semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangParam returns SlangParam
+	 *
+	 * Constraint:
+	 *     (name=ID typeName=SlangType)
+	 */
+	protected void sequence_SlangParam(ISerializationContext context, SlangParam semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_PARAM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_PARAM__NAME));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_PARAM__TYPE_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_PARAM__TYPE_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangParamAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSlangParamAccess().getTypeNameSlangTypeParserRuleCall_4_0(), semanticObject.getTypeName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangParams returns SlangParams
+	 *
+	 * Constraint:
+	 *     (params+=SlangParam params+=SlangParam?)
+	 */
+	protected void sequence_SlangParams(ISerializationContext context, SlangParams semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangPattern returns SlangPattern
+	 *
+	 * Constraint:
+	 *     ((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*))
+	 */
+	protected void sequence_SlangPattern(ISerializationContext context, SlangPattern semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTypedVarDef returns SlangPattern
+	 *
+	 * Constraint:
+	 *     (((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*)) type=SlangType init=Expr)
+	 */
+	protected void sequence_SlangPattern_SlangTypedVarDef(ISerializationContext context, SlangPattern semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangVarDef returns SlangPattern
+	 *
+	 * Constraint:
+	 *     (((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*)) type=SlangType? init=Expr)
+	 */
+	protected void sequence_SlangPattern_SlangVarDef(ISerializationContext context, SlangPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1147,7 +1219,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangQuantVar returns SlangQuantVar
 	 *
 	 * Constraint:
-	 *     (val=SlangExpr upperBound=SlangExpr?)
+	 *     (e=Expr upperBound=Expr?)
 	 */
 	protected void sequence_SlangQuantVar(ISerializationContext context, SlangQuantVar semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1156,12 +1228,346 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     SlangTerm returns SlangTerm
+	 *     SlangReads returns SlangReads
 	 *
 	 * Constraint:
-	 *     (tuple+=SlangExpr tuple+=SlangExpr*)
+	 *     (exprs+=Expr exprs+=Expr*)
 	 */
-	protected void sequence_SlangTerm(ISerializationContext context, SlangTerm semanticObject) {
+	protected void sequence_SlangReads(ISerializationContext context, SlangReads semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangRequires returns SlangRequires
+	 *
+	 * Constraint:
+	 *     (exprs+=Expr exprs+=Expr*)
+	 */
+	protected void sequence_SlangRequires(ISerializationContext context, SlangRequires semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangRet returns SlangRet
+	 *
+	 * Constraint:
+	 *     e=Expr?
+	 */
+	protected void sequence_SlangRet(ISerializationContext context, SlangRet semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangAssertStmt
+	 *
+	 * Constraint:
+	 *     e=Expr
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangAssertStmt semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_ASSERT_STMT__E) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_ASSERT_STMT__E));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangStmtAccess().getEExprParserRuleCall_5_2_0(), semanticObject.getE());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangAssumeStmt
+	 *
+	 * Constraint:
+	 *     e=Expr
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangAssumeStmt semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_ASSUME_STMT__E) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_ASSUME_STMT__E));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangStmtAccess().getEExprParserRuleCall_4_2_0(), semanticObject.getE());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangDoStmt
+	 *
+	 * Constraint:
+	 *     e=Expr
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangDoStmt semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_DO_STMT__E) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_DO_STMT__E));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangStmtAccess().getEExprParserRuleCall_7_2_0(), semanticObject.getE());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangHaltStmt
+	 *
+	 * Constraint:
+	 *     {SlangHaltStmt}
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangHaltStmt semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangIfStmt
+	 *
+	 * Constraint:
+	 *     (cond=Expr b=SlangBlock e=SlangElse?)
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangIfStmt semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangMatchStmt
+	 *
+	 * Constraint:
+	 *     (testExpr=Expr c+=SlangCase*)
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangMatchStmt semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangSpecStmt
+	 *
+	 * Constraint:
+	 *     b=SlangBlock
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangSpecStmt semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_SPEC_STMT__B) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_SPEC_STMT__B));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangStmtAccess().getBSlangBlockParserRuleCall_3_2_0(), semanticObject.getB());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangStmt returns SlangVarDef
+	 *
+	 * Constraint:
+	 *     d=SlangVarDef
+	 */
+	protected void sequence_SlangStmt(ISerializationContext context, SlangVarDef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_VAR_DEF__D) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_VAR_DEF__D));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangStmtAccess().getDSlangVarDefParserRuleCall_0_1_0(), semanticObject.getD());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangSuprs returns SlangSuprs
+	 *
+	 * Constraint:
+	 *     (superTypes+=SlangSupr superTypes+=SlangSupr*)
+	 */
+	protected void sequence_SlangSuprs(ISerializationContext context, SlangSuprs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTPattern returns SlangTPattern
+	 *
+	 * Constraint:
+	 *     ((patterns+=SlangTPattern patterns+=SlangTPattern*) | type=SlangType | (patterns+=SlangTPattern patterns+=SlangTPattern*) | type=SlangType)
+	 */
+	protected void sequence_SlangTPattern(ISerializationContext context, SlangTPattern semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns DataRefExpr
+	 *
+	 * Constraint:
+	 *     (portOrSubcomponentOrStateVar=[EObject|ID] ref=OtherDataRef? cs=SlangCallSuffix?)
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, DataRefExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns EnumLitExpr
+	 *
+	 * Constraint:
+	 *     (enumType=DataElement value=[StringLiteral|ID])
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, EnumLitExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataElementParserRuleCall_2_1_0(), semanticObject.getEnumType());
+		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_2_3_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns RecordLitExpr
+	 *
+	 * Constraint:
+	 *     (recordType=DataElement args+=[NamedElement|ID] argExpr+=Expr (args+=[NamedElement|ID] argExpr+=Expr)*)
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, RecordLitExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns SlangBlockTerm
+	 *
+	 * Constraint:
+	 *     ((p=SlangParams? e=Expr) | (stmt+=SlangStmt* r=SlangRet?))
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, SlangBlockTerm semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns SlangForTerm
+	 *
+	 * Constraint:
+	 *     (r+=SlangForRange r+=SlangForRange* (b=SlangBlock | e=Expr))
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, SlangForTerm semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns SlangInterpTerm
+	 *
+	 * Constraint:
+	 *     i=SlangInterp
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, SlangInterpTerm semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_INTERP_TERM__I) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_INTERP_TERM__I));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangTermAccess().getISlangInterpParserRuleCall_1_1_0(), semanticObject.getI());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns SlangLitTerm
+	 *
+	 * Constraint:
+	 *     {SlangLitTerm}
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, SlangLitTerm semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTerm returns SlangTupleTerm
+	 *
+	 * Constraint:
+	 *     (e+=Expr e+=Expr*)
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, SlangTupleTerm semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangSupr returns SlangTypeArgs
+	 *     SlangTypeArgs returns SlangTypeArgs
+	 *
+	 * Constraint:
+	 *     (types+=SlangType types+=SlangType*)
+	 */
+	protected void sequence_SlangTypeArgs(ISerializationContext context, SlangTypeArgs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangTypedVarDef returns SlangTypedVarDef
+	 *
+	 * Constraint:
+	 *     (type=SlangType init=Expr)
+	 */
+	protected void sequence_SlangTypedVarDef(ISerializationContext context, SlangTypedVarDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangVarDeclDef returns SlangVarDeclDef
+	 *
+	 * Constraint:
+	 *     (name=ID typeName=SlangType init=Expr?)
+	 */
+	protected void sequence_SlangVarDeclDef(ISerializationContext context, SlangVarDeclDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangVarDef returns SlangVarDef
+	 *
+	 * Constraint:
+	 *     (type=SlangType? init=Expr)
+	 */
+	protected void sequence_SlangVarDef(ISerializationContext context, SlangVarDef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -196,17 +196,12 @@ public class RecordLitExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createBinaryExpr()));
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createUnaryExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -221,27 +216,52 @@ public class RecordLitExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createIntLit()));
+         GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createRealLitExpr()));
+         GumboFactory.eINSTANCE.createSlangTupleTerm()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createBoolLitExpr()));
+         GumboFactory.eINSTANCE.createSlangForTerm()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createFloorCast()));
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
+  }
 
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createRealCast()));
+  /**
+   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
+  {
+    Object childFeature = feature;
+    Object childObject = child;
+
+    boolean qualify =
+      childFeature == GumboPackage.Literals.EXPR__TERM ||
+      childFeature == GumboPackage.Literals.EXPR__THEN_EXPR ||
+      childFeature == GumboPackage.Literals.EXPR__ELSE_EXPR ||
+      childFeature == GumboPackage.Literals.EXPR__QUANTIFIED_EXPR ||
+      childFeature == GumboPackage.Literals.EXPR__T ||
+      childFeature == GumboPackage.Literals.EXPR__M ||
+      childFeature == GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR;
+
+    if (qualify)
+    {
+      return getString
+        ("_UI_CreateChild_text2",
+         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+    }
+    return super.getCreateChildText(owner, feature, child, selection);
   }
 
 }

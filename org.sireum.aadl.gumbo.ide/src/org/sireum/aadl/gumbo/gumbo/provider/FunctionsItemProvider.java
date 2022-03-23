@@ -179,7 +179,7 @@ public class FunctionsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.FUNCTIONS__SPECS,
-         GumboFactory.eINSTANCE.createDefDef()));
+         GumboFactory.eINSTANCE.createSlangDefDef()));
   }
 
   /**

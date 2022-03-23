@@ -52,8 +52,9 @@ import org.osate.aadl2.modelsupport.ResolvePrototypeUtil
 import org.osate.aadl2.EventDataPort
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr
 import org.eclipse.emf.common.util.BasicEList
-import org.sireum.aadl.gumbo.gumbo.DefDef
-import org.sireum.aadl.gumbo.gumbo.DefParam
+import org.sireum.aadl.gumbo.gumbo.SlangDefDef
+import org.sireum.aadl.gumbo.gumbo.SlangDefParam
+import org.sireum.aadl.gumbo.gumbo.SlangType
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -101,7 +102,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
     	getVariableScope(context, reference)
     }
     
-    def scope_DefParam_typeName(DefParam context, EReference reference) {
+    def scope_DefParam_typeName(SlangDefParam context, EReference reference) {
     	getVariableScope(context, reference)
     }
     
@@ -142,7 +143,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 			decls.addAll(functionSpecs)
 		}
 		var annexScope = decls.empty ? varScope : decls.scopeFor(varScope)
-		val scope = context.getContainerOfType(DefDef)?.args?.params?.scopeFor(annexScope) ?: annexScope
+		val scope = context.getContainerOfType(SlangDefDef)?.params?.params?.scopeFor(annexScope) ?: annexScope
 		scope
 	}	
 	
@@ -181,11 +182,15 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 				e.subcomponentType
 			StateVarDecl:
 				e.typeName
-			DefParam:
-				e.typeName
+			SlangDefParam:
+				e.typeName.typeName
 			default:
 				null
 		}
+	}
+	
+	def scope_SlangType_typeName(SlangType context, EReference reference) {
+    	getVariableScope(context, reference)		
 	}
 	
 	def scope_OtherDataRef_namedElement(OtherDataRef context, EReference reference) {

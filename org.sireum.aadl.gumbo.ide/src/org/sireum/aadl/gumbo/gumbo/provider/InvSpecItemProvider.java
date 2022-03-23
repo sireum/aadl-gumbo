@@ -211,17 +211,12 @@ public class InvSpecItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createBinaryExpr()));
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createUnaryExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -236,27 +231,22 @@ public class InvSpecItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createIntLit()));
+         GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createRealLitExpr()));
+         GumboFactory.eINSTANCE.createSlangTupleTerm()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createBoolLitExpr()));
+         GumboFactory.eINSTANCE.createSlangForTerm()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createFloorCast()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createRealCast()));
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
   /**
