@@ -448,15 +448,6 @@ public interface GumboFactory extends EFactory
   SlangTPattern createSlangTPattern();
 
   /**
-   * Returns a new object of class '<em>Slang Typed Var Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Typed Var Def</em>'.
-   * @generated
-   */
-  SlangTypedVarDef createSlangTypedVarDef();
-
-  /**
    * Returns a new object of class '<em>Slang Var Def</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -464,15 +455,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangVarDef createSlangVarDef();
-
-  /**
-   * Returns a new object of class '<em>Slang Var Decl Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Var Decl Def</em>'.
-   * @generated
-   */
-  SlangVarDeclDef createSlangVarDeclDef();
 
   /**
    * Returns a new object of class '<em>Expr</em>'.
@@ -610,6 +592,15 @@ public interface GumboFactory extends EFactory
   SlangIfStmt createSlangIfStmt();
 
   /**
+   * Returns a new object of class '<em>Slang While Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang While Stmt</em>'.
+   * @generated
+   */
+  SlangWhileStmt createSlangWhileStmt();
+
+  /**
    * Returns a new object of class '<em>Slang Match Stmt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -662,6 +653,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangDoStmt createSlangDoStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Id Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Id Stmt</em>'.
+   * @generated
+   */
+  SlangIdStmt createSlangIdStmt();
 
   /**
    * Returns a new object of class '<em>Slang Field Lookup</em>'.

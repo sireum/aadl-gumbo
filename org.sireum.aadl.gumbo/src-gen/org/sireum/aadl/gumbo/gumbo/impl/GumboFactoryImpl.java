@@ -121,9 +121,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_CASE: return createSlangCase();
       case GumboPackage.SLANG_PATTERN: return createSlangPattern();
       case GumboPackage.SLANG_TPATTERN: return createSlangTPattern();
-      case GumboPackage.SLANG_TYPED_VAR_DEF: return createSlangTypedVarDef();
       case GumboPackage.SLANG_VAR_DEF: return createSlangVarDef();
-      case GumboPackage.SLANG_VAR_DECL_DEF: return createSlangVarDeclDef();
       case GumboPackage.EXPR: return createExpr();
       case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
       case GumboPackage.SLANG_BLOCK: return createSlangBlock();
@@ -139,12 +137,14 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_INTERP: return createSlangInterp();
       case GumboPackage.SLANG_MINTERP: return createSlangMInterp();
       case GumboPackage.SLANG_IF_STMT: return createSlangIfStmt();
+      case GumboPackage.SLANG_WHILE_STMT: return createSlangWhileStmt();
       case GumboPackage.SLANG_MATCH_STMT: return createSlangMatchStmt();
       case GumboPackage.SLANG_SPEC_STMT: return createSlangSpecStmt();
       case GumboPackage.SLANG_ASSUME_STMT: return createSlangAssumeStmt();
       case GumboPackage.SLANG_ASSERT_STMT: return createSlangAssertStmt();
       case GumboPackage.SLANG_HALT_STMT: return createSlangHaltStmt();
       case GumboPackage.SLANG_DO_STMT: return createSlangDoStmt();
+      case GumboPackage.SLANG_ID_STMT: return createSlangIdStmt();
       case GumboPackage.SLANG_FIELD_LOOKUP: return createSlangFieldLookup();
       case GumboPackage.SLANG_METHOD_CALL: return createSlangMethodCall();
       case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
@@ -718,34 +718,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangTypedVarDef createSlangTypedVarDef()
-  {
-    SlangTypedVarDefImpl slangTypedVarDef = new SlangTypedVarDefImpl();
-    return slangTypedVarDef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public SlangVarDef createSlangVarDef()
   {
     SlangVarDefImpl slangVarDef = new SlangVarDefImpl();
     return slangVarDef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangVarDeclDef createSlangVarDeclDef()
-  {
-    SlangVarDeclDefImpl slangVarDeclDef = new SlangVarDeclDefImpl();
-    return slangVarDeclDef;
   }
 
   /**
@@ -934,6 +910,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public SlangWhileStmt createSlangWhileStmt()
+  {
+    SlangWhileStmtImpl slangWhileStmt = new SlangWhileStmtImpl();
+    return slangWhileStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SlangMatchStmt createSlangMatchStmt()
   {
     SlangMatchStmtImpl slangMatchStmt = new SlangMatchStmtImpl();
@@ -998,6 +986,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangDoStmtImpl slangDoStmt = new SlangDoStmtImpl();
     return slangDoStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangIdStmt createSlangIdStmt()
+  {
+    SlangIdStmtImpl slangIdStmt = new SlangIdStmtImpl();
+    return slangIdStmt;
   }
 
   /**

@@ -412,7 +412,6 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SlangPattern slangPattern = (SlangPattern)theEObject;
         T result = caseSlangPattern(slangPattern);
-        if (result == null) result = caseSlangTypedVarDef(slangPattern);
         if (result == null) result = caseSlangVarDef(slangPattern);
         if (result == null) result = caseSlangStmt(slangPattern);
         if (result == null) result = defaultCase(theEObject);
@@ -425,25 +424,11 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SLANG_TYPED_VAR_DEF:
-      {
-        SlangTypedVarDef slangTypedVarDef = (SlangTypedVarDef)theEObject;
-        T result = caseSlangTypedVarDef(slangTypedVarDef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.SLANG_VAR_DEF:
       {
         SlangVarDef slangVarDef = (SlangVarDef)theEObject;
         T result = caseSlangVarDef(slangVarDef);
         if (result == null) result = caseSlangStmt(slangVarDef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_VAR_DECL_DEF:
-      {
-        SlangVarDeclDef slangVarDeclDef = (SlangVarDeclDef)theEObject;
-        T result = caseSlangVarDeclDef(slangVarDeclDef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -531,7 +516,6 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SlangTypeArgs slangTypeArgs = (SlangTypeArgs)theEObject;
         T result = caseSlangTypeArgs(slangTypeArgs);
-        if (result == null) result = caseSlangSupr(slangTypeArgs);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -555,6 +539,14 @@ public class GumboSwitch<T> extends Switch<T>
         SlangIfStmt slangIfStmt = (SlangIfStmt)theEObject;
         T result = caseSlangIfStmt(slangIfStmt);
         if (result == null) result = caseSlangStmt(slangIfStmt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_WHILE_STMT:
+      {
+        SlangWhileStmt slangWhileStmt = (SlangWhileStmt)theEObject;
+        T result = caseSlangWhileStmt(slangWhileStmt);
+        if (result == null) result = caseSlangStmt(slangWhileStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -603,6 +595,14 @@ public class GumboSwitch<T> extends Switch<T>
         SlangDoStmt slangDoStmt = (SlangDoStmt)theEObject;
         T result = caseSlangDoStmt(slangDoStmt);
         if (result == null) result = caseSlangStmt(slangDoStmt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_ID_STMT:
+      {
+        SlangIdStmt slangIdStmt = (SlangIdStmt)theEObject;
+        T result = caseSlangIdStmt(slangIdStmt);
+        if (result == null) result = caseSlangStmt(slangIdStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1443,22 +1443,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Typed Var Def</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Typed Var Def</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangTypedVarDef(SlangTypedVarDef object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang Var Def</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1470,22 +1454,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangVarDef(SlangVarDef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Var Decl Def</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Var Decl Def</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangVarDeclDef(SlangVarDeclDef object)
   {
     return null;
   }
@@ -1731,6 +1699,22 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang While Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang While Stmt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangWhileStmt(SlangWhileStmt object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang Match Stmt</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1822,6 +1806,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangDoStmt(SlangDoStmt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Id Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Id Stmt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangIdStmt(SlangIdStmt object)
   {
     return null;
   }

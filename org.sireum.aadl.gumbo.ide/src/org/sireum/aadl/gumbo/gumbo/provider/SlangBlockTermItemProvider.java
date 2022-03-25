@@ -220,17 +220,22 @@ public class SlangBlockTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
-         GumboFactory.eINSTANCE.createSlangPattern()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
          GumboFactory.eINSTANCE.createSlangVarDef()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
+         GumboFactory.eINSTANCE.createSlangPattern()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
          GumboFactory.eINSTANCE.createSlangIfStmt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
+         GumboFactory.eINSTANCE.createSlangWhileStmt()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -261,6 +266,11 @@ public class SlangBlockTermItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
          GumboFactory.eINSTANCE.createSlangDoStmt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
+         GumboFactory.eINSTANCE.createSlangIdStmt()));
 
     newChildDescriptors.add
       (createChildParameter

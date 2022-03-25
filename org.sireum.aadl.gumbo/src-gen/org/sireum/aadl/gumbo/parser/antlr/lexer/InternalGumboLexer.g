@@ -81,6 +81,8 @@ Reads : ('R'|'r')('E'|'e')('A'|'a')('D'|'d')('S'|'s');
 
 State : ('S'|'s')('T'|'t')('A'|'a')('T'|'t')('E'|'e');
 
+While : ('W'|'w')('H'|'h')('I'|'i')('L'|'l')('E'|'e');
+
 Yield : ('Y'|'y')('I'|'i')('E'|'e')('L'|'l')('D'|'d');
 
 All : '\\'('A'|'a')('L'|'l')('L'|'l');
@@ -169,6 +171,10 @@ ForAll : '\u2200';
 
 ThereExists : '\u2203';
 
+RULE_SLANG_STRING : '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
+
+RULE_MSTRING : '"""' (~('"')|'"' ~('"')|'""' ~('"'))* ('"""'|'""""'|'"""""');
+
 RULE_MSP : RULE_IDF '"""' RULE_MSPI* ('"""'|'""""'|'"""""');
 
 RULE_MSPB : RULE_IDF '"""' RULE_MSPI* '$';
@@ -177,7 +183,17 @@ RULE_MSPM : '$' RULE_MSPI* '$';
 
 RULE_MSPE : '$' RULE_MSPI* ('"""'|'""""'|'"""""');
 
+RULE_DEFOP : ':' RULE_OPSYM* '=';
+
 RULE_OP : (RULE_OPSYM+|'\\' RULE_IDF);
+
+RULE_HEX : '0x' RULE_EXTENDED_DIGIT+ ('.' RULE_IDF)?;
+
+RULE_BIN : '0b' ('0'|'1'|'_')+ ('.' RULE_IDF)?;
+
+RULE_INT_IDF : RULE_INTEGER_LIT RULE_IDF;
+
+RULE_REAL_IDF : RULE_REAL_LIT RULE_IDF;
 
 fragment RULE_IDF : (RULE_LETTER|'_') (RULE_LETTER|RULE_DIGIT)*;
 
@@ -186,6 +202,10 @@ fragment RULE_MSPI : (~(('"'|'$'))|'$$'|'"' ~('"')|'""' ~('"'));
 fragment RULE_LETTER : ('a'..'z'|'A'..'Z');
 
 fragment RULE_OPSYM : ('/'|'%'|'='|'<'|'>'|'!'|'&'|'^'|'|'|'~'|'\u2200'..'\u22FF'|'\u2A00'..'\u2AFF'|'\u27C0'..'\u27EF'|'\u2980'..'\u29FF');
+
+fragment RULE_ESC_SEQ : ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|RULE_UNICODE_ESC);
+
+fragment RULE_UNICODE_ESC : '\\' 'u' RULE_EXTENDED_DIGIT RULE_EXTENDED_DIGIT RULE_EXTENDED_DIGIT RULE_EXTENDED_DIGIT;
 
 RULE_SL_COMMENT : '--' ~(('\n'|'\r'))* ('\r'? '\n')?;
 

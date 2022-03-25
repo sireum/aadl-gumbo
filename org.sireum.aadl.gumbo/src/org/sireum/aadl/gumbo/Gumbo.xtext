@@ -26,9 +26,7 @@ GumboSubclause returns GumboSubclause:
     specs=SpecSection
 ;
 
-SpecSection:
-//	ComputationalModel
-//|	Flows
+SpecSection: {SpecSection}
 	(state = State)?
 	(functions = Functions)?
 	(invariants = Invariants)?
@@ -36,29 +34,6 @@ SpecSection:
 	(initialize = Initialize)?
 	(compute = Compute)?
 ;
-
-//ComputationalModel:
-//	'computational_model' (
-//		{PeriodicComputationalModel} 'periodic'
-//	|	{HyperperiodComputationalModel} 'hyperperiod' 'with' 
-//		(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-//	)
-//;
-
-//Flows:
-//	'flows' (flows+=Flow)+
-//;
-//
-//Flow returns Flow:
-//	=>	flowId=ID ':' 
-//		srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-//		dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)* 
-//;
-
-
-//Contract:
-//	'contracts' (specs+=SpecStatement)+
-//;
 
 State:
 	'state' (decls += StateVarDecl)+
@@ -78,7 +53,7 @@ Invariants:
 ;
 
 InvSpec:
-	'inv' displayName=STRING ':' expr=Expr ';'
+	'inv' displayName=SLANG_STRING ':' expr=Expr ';'
 ;
 
 Integration:
@@ -101,7 +76,7 @@ Compute:
 ;
 
 CaseStatementClause:
-	'case' displayName=STRING ':' 
+	'case' displayName=SLANG_STRING ':' 
 	       // in case clauses, we must have both an assume clause and a guarantee clause
 	       // but they don't have a display name (they will "inherit" the name from the case name).
 	       assumeStatement = AnonAssumeStatement
@@ -115,7 +90,7 @@ SpecStatement:
 
 
 AssumeStatement: 
-	'assume' displayName=STRING ':' expr=Expr ';'
+	'assume' displayName=SLANG_STRING ':' expr=Expr ';'
 ;
 
 AnonAssumeStatement:  
@@ -123,49 +98,22 @@ AnonAssumeStatement:
 ;
 
 GuaranteeStatement: 
-	'guarantee' displayName=STRING ':' expr=Expr ';'
+	'guarantee' displayName=SLANG_STRING ':' expr=Expr ';'
 ;
 
 AnonGuaranteeStatement: 
 	'guarantee' expr=Expr ';'
 ;
 
-
-//SpecStatement:
-//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? 
-//		assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?  
-//|	{GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
-//;
-
 PREDICATE: // TODO 
 	ID
 ;
-
-//AtomicExpr returns Expr:
-//  Need to figure out how to reference difference types of IDs, including cross references
-//  to port names, state variables, etc.
-//  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
-//  For example, invariants should only reference state variables.	
-//	{IdExpr} id=[aadl2::NamedElement | QCREF]
-//    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
-//|   {PortRef} 'port' port=ContainmentPathElement
-//   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=CallSuffix?
-//| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
-//| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
-//|	{IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
-//|   {RealLitExpr} val=REAL_LIT
-//|   {BoolLitExpr} val=BooleanLiteral
-//|   {FloorCast} 'floor' '(' expr=Expr ')'
-//|   {RealCast}  'real' '(' expr=Expr ')'
-//|   ID CallSuffix
-//|   '(' Expr ')'
-//;
 
 OtherDataRef:
 	(
 		(
 			namedElement=[aadl2::NamedElement|ID]
-//	 		(arrayRange+=ArrayRange)*
+	 		(arrayRange+=ArrayRange)*
 		) 
 		('.' path=OtherDataRef)?
 //	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
@@ -183,10 +131,6 @@ DataElement returns DataElement:
 SubcomponentElement returns SubcomponentElement:
 	subcomponent = [aadl2::Subcomponent|ID]
 ;
-
-//FeatureElement returns FeatureElement:
-//	feature=[aadl2::NamedElement|ID]
-//;
 
 Functions:
 	'functions' (specs+=FuncSpec)+
@@ -222,11 +166,11 @@ SlangDefContract
 	  )
 	;
 
-SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING req=SlangRequires? ens=SlangEnsures? ;
+SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/SLANG_STRING req=SlangRequires? ens=SlangEnsures? ;
 
 SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
 
-SlangSupr: SlangName SlangTypeArgs? ;
+SlangSupr: name=SlangName args=SlangTypeArgs? ;
 
 SlangName: ID ( '.' ID )* ;
 
@@ -245,18 +189,19 @@ SlangEnsures: 'ensures' exprs+=Expr ( ',' exprs+=Expr )* ;
 SlangStmt
 	: {SlangVarDef} d=SlangVarDef
 	| {SlangIfStmt} 'if' cond=Expr b=SlangBlock e=SlangElse?
-//	| {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
-//	| {SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )* l=SlangLoopContract b=SlangBlock
+	| {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
+//	| ({SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )*) l=SlangLoopContract b=SlangBlock
 	| {SlangMatchStmt} 'match' testExpr=Expr '{' c+=SlangCase* '}'
 	| {SlangSpecStmt} 'spec' b=SlangBlock
-	| {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/STRING?
-	| {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/STRING?
-	| {SlangHaltStmt} 'halt' /*SLANG_*/STRING?
+	| {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/SLANG_STRING?
+	| {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/SLANG_STRING?
+	| {SlangHaltStmt} 'halt' /*SLANG_*/SLANG_STRING?
 	| {SlangDoStmt} 'do' e=Expr
-//	| {SlangIdStmt} ID 
-//	  ( ':'
-//	  | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
-//	  )
+	// FIXME: This causes a "multiple alternatives" warning.
+	| {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID] 
+	  ( ':'
+	  | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+	  )
 	;
 	
 SlangElse
@@ -275,22 +220,26 @@ SlangLHSSuffix
 
 SlangCase: 'case' pattern=SlangPattern ( 'if' e=Expr )? '=>' s+=SlangStmt* ;
 
-SlangPattern
-	: ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
+SlangPattern: {SlangPattern}
+	  ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
 	| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
 	;
 
-SlangTPattern
-	: ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
+SlangTPattern:
+	  {SlangTPattern} ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
 	| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
-	| '_' ( ':' type=SlangType )?
+	| {SlangTPattern} '_' ( ':' type=SlangType )?
 	;
 	
-SlangTypedVarDef: SlangVarMod SlangPattern ':' type=SlangType ':=' init=Expr ;
+SlangTypedVarDef returns SlangVarDef:
+	SlangVarMod SlangPattern ':' typeName=SlangType ':=' init=Expr
+;
 
-SlangVarDef: SlangVarMod SlangPattern ( ':' type=SlangType )? ':=' init=Expr ;
+SlangVarDef: SlangVarMod SlangPattern ( ':' typeName=SlangType )? ':=' init=Expr ;
 
-SlangVarDeclDef: {SlangVarDeclDef} SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )? ;
+SlangVarDeclDef returns SlangVarDef:
+	SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )?
+;
 
 SlangVarMod: 'val' | 'var' ;
 
@@ -358,12 +307,14 @@ SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
 SlangLit
 	: 'true'
 	| 'false'
-	| INTEGER_LIT//INT
-//	| HEX
-//	| BIN
-	| REAL_LIT//REAL
-	| /*SLANG_*/STRING
-//	| MSTRING
+	| INTEGER_LIT
+	| INT_IDF
+	| HEX
+	| BIN
+	| REAL_LIT
+	| SLANG_STRING
+	| REAL_IDF
+	| MSTRING
 	;
 
 SlangInterp	: {SlangInterp}
@@ -375,10 +326,10 @@ SlangMInterp
 	: '{' Expr '}' ( MSPM m=SlangMInterp | MSPE )
 	;
 	
-//terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
+terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 
-//terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
-//
+terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
+
 terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
 
 terminal MSPB: IDF '"""' MSPI* '$' ;
@@ -387,7 +338,7 @@ terminal MSPM: '$' MSPI* '$' ;
 
 terminal MSPE: '$' MSPI* ( '"""' | '""""' | '"""""' ) ;
 
-//terminal DEFOP: ':' OPSYM* '=' ;
+terminal DEFOP: ':' OPSYM* '=' ;
 //
 
 Operator: OP | PlusMinus | STAR;
@@ -399,9 +350,9 @@ terminal OP: ( OPSYM+ | '\\' IDF ) ;
 //	| '1'..'9' DIGIT* IDF_NOU?
 //	;
 //	
-//terminal HEX: '0x' EXTENDED_DIGIT+ ( '.' IDF )? ;
-//
-//terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
+terminal HEX: '0x' EXTENDED_DIGIT+ ( '.' IDF )? ;
+
+terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
 
 //terminal REAL
 //	: DIGIT+ '.' DIGIT+ EXPONENT? REALIDF?
@@ -410,6 +361,10 @@ terminal OP: ( OPSYM+ | '\\' IDF ) ;
 //	;
 
 //terminal CHAR: '\'' ( ESC_SEQ | !('\''|'\\') ) '\'' ;
+
+terminal INT_IDF: INTEGER_LIT IDF;
+
+terminal REAL_IDF: REAL_LIT IDF;
 
 terminal fragment IDF: ( LETTER | '_' ) ( LETTER | DIGIT )* ;
 
@@ -432,6 +387,6 @@ terminal fragment OPSYM
 	| ( '\u2980' .. '\u29FF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
 	;
 	
-//terminal fragment ESC_SEQ: '\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\' ) | UNICODE_ESC ;
+terminal fragment ESC_SEQ: '\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\' ) | UNICODE_ESC ;
 	
-//terminal fragment UNICODE_ESC: '\\' 'u' EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT ;
+terminal fragment UNICODE_ESC: '\\' 'u' EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT ;

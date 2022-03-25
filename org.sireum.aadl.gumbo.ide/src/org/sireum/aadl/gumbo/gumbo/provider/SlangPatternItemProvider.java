@@ -35,7 +35,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangPattern;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangPatternItemProvider extends SlangTypedVarDefItemProvider
+public class SlangPatternItemProvider extends SlangVarDefItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -79,10 +79,7 @@ public class SlangPatternItemProvider extends SlangTypedVarDefItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_VAR_DEF__D);
       childrenFeatures.add(GumboPackage.Literals.SLANG_PATTERN__PATTERNS);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_PATTERN__TYPE);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_PATTERN__INIT);
     }
     return childrenFeatures;
   }
@@ -122,7 +119,10 @@ public class SlangPatternItemProvider extends SlangTypedVarDefItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_SlangPattern_type");
+    String label = ((SlangPattern)object).getName();
+    return label == null || label.length() == 0 ?
+      getString("_UI_SlangPattern_type") :
+      getString("_UI_SlangPattern_type") + " " + label;
   }
 
 
@@ -140,10 +140,7 @@ public class SlangPatternItemProvider extends SlangTypedVarDefItemProvider
 
     switch (notification.getFeatureID(SlangPattern.class))
     {
-      case GumboPackage.SLANG_PATTERN__D:
       case GumboPackage.SLANG_PATTERN__PATTERNS:
-      case GumboPackage.SLANG_PATTERN__TYPE:
-      case GumboPackage.SLANG_PATTERN__INIT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -164,68 +161,8 @@ public class SlangPatternItemProvider extends SlangTypedVarDefItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DEF__D,
-         GumboFactory.eINSTANCE.createSlangPattern()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DEF__D,
-         GumboFactory.eINSTANCE.createSlangVarDef()));
-
-    newChildDescriptors.add
-      (createChildParameter
         (GumboPackage.Literals.SLANG_PATTERN__PATTERNS,
          GumboFactory.eINSTANCE.createSlangTPattern()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__TYPE,
-         GumboFactory.eINSTANCE.createSlangType()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createSlangLitTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createSlangInterpTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createSlangForTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
 }

@@ -166,17 +166,22 @@ public class SlangBlockItemProvider extends SlangElseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK__STMTS,
-         GumboFactory.eINSTANCE.createSlangPattern()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_BLOCK__STMTS,
          GumboFactory.eINSTANCE.createSlangVarDef()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK__STMTS,
+         GumboFactory.eINSTANCE.createSlangPattern()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK__STMTS,
          GumboFactory.eINSTANCE.createSlangIfStmt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK__STMTS,
+         GumboFactory.eINSTANCE.createSlangWhileStmt()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -207,6 +212,11 @@ public class SlangBlockItemProvider extends SlangElseItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK__STMTS,
          GumboFactory.eINSTANCE.createSlangDoStmt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK__STMTS,
+         GumboFactory.eINSTANCE.createSlangIdStmt()));
 
     newChildDescriptors.add
       (createChildParameter

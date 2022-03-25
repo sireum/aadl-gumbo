@@ -20,39 +20,22 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.SlangSupr;
+import org.sireum.aadl.gumbo.gumbo.SlangWhileStmt;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangSupr} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangWhileStmt} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangSuprItemProvider 
-  extends ItemProviderAdapter
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
+public class SlangWhileStmtItemProvider extends SlangStmtItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -60,7 +43,7 @@ public class SlangSuprItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public SlangSuprItemProvider(AdapterFactory adapterFactory)
+  public SlangWhileStmtItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -78,32 +61,8 @@ public class SlangSuprItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_SlangSupr_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangSupr_name_feature", "_UI_SlangSupr_type"),
-         GumboPackage.Literals.SLANG_SUPR__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -120,7 +79,9 @@ public class SlangSuprItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_SUPR__ARGS);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_WHILE_STMT__COND);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_WHILE_STMT__L);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_WHILE_STMT__B);
     }
     return childrenFeatures;
   }
@@ -140,7 +101,7 @@ public class SlangSuprItemProvider
   }
 
   /**
-   * This returns SlangSupr.gif.
+   * This returns SlangWhileStmt.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -148,7 +109,7 @@ public class SlangSuprItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangSupr"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangWhileStmt"));
   }
 
   /**
@@ -160,10 +121,7 @@ public class SlangSuprItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SlangSupr)object).getName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_SlangSupr_type") :
-      getString("_UI_SlangSupr_type") + " " + label;
+    return getString("_UI_SlangWhileStmt_type");
   }
 
 
@@ -179,12 +137,11 @@ public class SlangSuprItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(SlangSupr.class))
+    switch (notification.getFeatureID(SlangWhileStmt.class))
     {
-      case GumboPackage.SLANG_SUPR__NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case GumboPackage.SLANG_SUPR__ARGS:
+      case GumboPackage.SLANG_WHILE_STMT__COND:
+      case GumboPackage.SLANG_WHILE_STMT__L:
+      case GumboPackage.SLANG_WHILE_STMT__B:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -205,20 +162,58 @@ public class SlangSuprItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_SUPR__ARGS,
-         GumboFactory.eINSTANCE.createSlangTypeArgs()));
-  }
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createExpr()));
 
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return GumboEditPlugin.INSTANCE;
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createDataRefExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createSlangForTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__L,
+         GumboFactory.eINSTANCE.createSlangLoopContract()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__B,
+         GumboFactory.eINSTANCE.createSlangBlock()));
   }
 
 }

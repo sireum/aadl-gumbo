@@ -55,6 +55,7 @@ import org.eclipse.emf.common.util.BasicEList
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam
 import org.sireum.aadl.gumbo.gumbo.SlangType
+import org.sireum.aadl.gumbo.gumbo.SlangIdStmt
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -130,8 +131,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 
 //    def scope_StateVarRef_stateVar(StateVarRef context, EReference reference) {
 //	}
-	
-	def scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {
+	def getVariableCrossRef(EObject context, EReference reference) {
 		val varScope = context.getContainerOfType(Classifier).allMembers.scopeFor
 		val decls = new BasicEList<EObject>()
 		val stateVarDecls = context.getContainerOfType(SpecSection).state?.decls
@@ -144,8 +144,16 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		}
 		var annexScope = decls.empty ? varScope : decls.scopeFor(varScope)
 		val scope = context.getContainerOfType(SlangDefDef)?.params?.params?.scopeFor(annexScope) ?: annexScope
-		scope
-	}	
+		scope		
+	}
+	
+	def scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {
+		return getVariableCrossRef(context, reference)
+	}
+	
+	def scope_SlangIdStmt_portOrSubcomponentOrStateVar(SlangIdStmt context, EReference reference) {
+		return getVariableCrossRef(context, reference)		
+	}
 	
 	def protected static getClassifierForPreviousOtherDataRefElement(NamedElement previousElement) {
 		switch previousElement {

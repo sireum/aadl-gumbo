@@ -175,11 +175,6 @@ public class SlangSuprsItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_SUPRS__SUPER_TYPES,
          GumboFactory.eINSTANCE.createSlangSupr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_SUPRS__SUPER_TYPES,
-         GumboFactory.eINSTANCE.createSlangTypeArgs()));
   }
 
   /**

@@ -22,7 +22,9 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
@@ -61,8 +63,32 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SlangVarDef_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SlangVarDef_name_feature", "_UI_SlangVarDef_type"),
+         GumboPackage.Literals.SLANG_VAR_DEF__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -80,6 +106,8 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.SLANG_VAR_DEF__D);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_VAR_DEF__TYPE_NAME);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_VAR_DEF__INIT);
     }
     return childrenFeatures;
   }
@@ -119,7 +147,10 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_SlangVarDef_type");
+    String label = ((SlangVarDef)object).getName();
+    return label == null || label.length() == 0 ?
+      getString("_UI_SlangVarDef_type") :
+      getString("_UI_SlangVarDef_type") + " " + label;
   }
 
 
@@ -137,7 +168,12 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
 
     switch (notification.getFeatureID(SlangVarDef.class))
     {
+      case GumboPackage.SLANG_VAR_DEF__NAME:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case GumboPackage.SLANG_VAR_DEF__D:
+      case GumboPackage.SLANG_VAR_DEF__TYPE_NAME:
+      case GumboPackage.SLANG_VAR_DEF__INIT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -159,12 +195,62 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_VAR_DEF__D,
-         GumboFactory.eINSTANCE.createSlangPattern()));
+         GumboFactory.eINSTANCE.createSlangVarDef()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_VAR_DEF__D,
-         GumboFactory.eINSTANCE.createSlangVarDef()));
+         GumboFactory.eINSTANCE.createSlangPattern()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__TYPE_NAME,
+         GumboFactory.eINSTANCE.createSlangType()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createDataRefExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createSlangForTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
 }

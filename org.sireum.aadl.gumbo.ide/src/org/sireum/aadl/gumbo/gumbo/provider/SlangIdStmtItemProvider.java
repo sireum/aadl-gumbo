@@ -20,39 +20,23 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef;
+import org.sireum.aadl.gumbo.gumbo.SlangIdStmt;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangIdStmt} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangVarDeclDefItemProvider 
-  extends ItemProviderAdapter
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
+public class SlangIdStmtItemProvider extends SlangStmtItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -60,7 +44,7 @@ public class SlangVarDeclDefItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public SlangVarDeclDefItemProvider(AdapterFactory adapterFactory)
+  public SlangIdStmtItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -78,30 +62,30 @@ public class SlangVarDeclDefItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
+      addPortOrSubcomponentOrStateVarPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Name feature.
+   * This adds a property descriptor for the Port Or Subcomponent Or State Var feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addNamePropertyDescriptor(Object object)
+  protected void addPortOrSubcomponentOrStateVarPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_SlangVarDeclDef_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangVarDeclDef_name_feature", "_UI_SlangVarDeclDef_type"),
-         GumboPackage.Literals.SLANG_VAR_DECL_DEF__NAME,
+         getString("_UI_SlangIdStmt_portOrSubcomponentOrStateVar_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SlangIdStmt_portOrSubcomponentOrStateVar_feature", "_UI_SlangIdStmt_type"),
+         GumboPackage.Literals.SLANG_ID_STMT__PORT_OR_SUBCOMPONENT_OR_STATE_VAR,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
@@ -120,8 +104,7 @@ public class SlangVarDeclDefItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_VAR_DECL_DEF__TYPE_NAME);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_ID_STMT__E);
     }
     return childrenFeatures;
   }
@@ -141,7 +124,7 @@ public class SlangVarDeclDefItemProvider
   }
 
   /**
-   * This returns SlangVarDeclDef.gif.
+   * This returns SlangIdStmt.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -149,7 +132,7 @@ public class SlangVarDeclDefItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangVarDeclDef"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangIdStmt"));
   }
 
   /**
@@ -161,10 +144,7 @@ public class SlangVarDeclDefItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SlangVarDeclDef)object).getName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_SlangVarDeclDef_type") :
-      getString("_UI_SlangVarDeclDef_type") + " " + label;
+    return getString("_UI_SlangIdStmt_type");
   }
 
 
@@ -180,13 +160,9 @@ public class SlangVarDeclDefItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(SlangVarDeclDef.class))
+    switch (notification.getFeatureID(SlangIdStmt.class))
     {
-      case GumboPackage.SLANG_VAR_DECL_DEF__NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case GumboPackage.SLANG_VAR_DECL_DEF__TYPE_NAME:
-      case GumboPackage.SLANG_VAR_DECL_DEF__INIT:
+      case GumboPackage.SLANG_ID_STMT__E:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -207,65 +183,48 @@ public class SlangVarDeclDefItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__TYPE_NAME,
-         GumboFactory.eINSTANCE.createSlangType()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createSlangInterpTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createRecordLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createSlangTupleTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createSlangForTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_VAR_DECL_DEF__INIT,
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createSlangBlockTerm()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return GumboEditPlugin.INSTANCE;
   }
 
 }

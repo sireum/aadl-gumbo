@@ -233,17 +233,22 @@ public class SlangCaseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CASE__S,
-         GumboFactory.eINSTANCE.createSlangPattern()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_CASE__S,
          GumboFactory.eINSTANCE.createSlangVarDef()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CASE__S,
+         GumboFactory.eINSTANCE.createSlangPattern()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__S,
          GumboFactory.eINSTANCE.createSlangIfStmt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__S,
+         GumboFactory.eINSTANCE.createSlangWhileStmt()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -274,6 +279,11 @@ public class SlangCaseItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_CASE__S,
          GumboFactory.eINSTANCE.createSlangDoStmt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__S,
+         GumboFactory.eINSTANCE.createSlangIdStmt()));
   }
 
   /**

@@ -34,6 +34,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.osate.aadl2.Aadl2Factory;
+
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
@@ -119,6 +121,7 @@ public class OtherDataRefItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.OTHER_DATA_REF__ARRAY_RANGE);
       childrenFeatures.add(GumboPackage.Literals.OTHER_DATA_REF__PATH);
     }
     return childrenFeatures;
@@ -177,6 +180,7 @@ public class OtherDataRefItemProvider
 
     switch (notification.getFeatureID(OtherDataRef.class))
     {
+      case GumboPackage.OTHER_DATA_REF__ARRAY_RANGE:
       case GumboPackage.OTHER_DATA_REF__PATH:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -195,6 +199,11 @@ public class OtherDataRefItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.OTHER_DATA_REF__ARRAY_RANGE,
+         Aadl2Factory.eINSTANCE.createArrayRange()));
 
     newChildDescriptors.add
       (createChildParameter

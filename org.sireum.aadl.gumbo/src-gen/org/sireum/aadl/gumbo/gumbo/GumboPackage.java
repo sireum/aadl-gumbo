@@ -754,13 +754,22 @@ public interface GumboPackage extends EPackage
   int OTHER_DATA_REF__NAMED_ELEMENT = 0;
 
   /**
+   * The feature id for the '<em><b>Array Range</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHER_DATA_REF__ARRAY_RANGE = 1;
+
+  /**
    * The feature id for the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OTHER_DATA_REF__PATH = 1;
+  int OTHER_DATA_REF__PATH = 2;
 
   /**
    * The number of structural features of the '<em>Other Data Ref</em>' class.
@@ -769,7 +778,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OTHER_DATA_REF_FEATURE_COUNT = 2;
+  int OTHER_DATA_REF_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.DoubleDotRefImpl <em>Double Dot Ref</em>}' class.
@@ -1381,13 +1390,31 @@ public interface GumboPackage extends EPackage
   int SLANG_SUPR = 32;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_SUPR__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Args</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_SUPR__ARGS = 1;
+
+  /**
    * The number of structural features of the '<em>Slang Supr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SLANG_SUPR_FEATURE_COUNT = 0;
+  int SLANG_SUPR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangExtImpl <em>Slang Ext</em>}' class.
@@ -1725,23 +1752,59 @@ public interface GumboPackage extends EPackage
   int SLANG_CASE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangTypedVarDefImpl <em>Slang Typed Var Def</em>}' class.
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangVarDefImpl <em>Slang Var Def</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangTypedVarDefImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangTypedVarDef()
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangVarDefImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangVarDef()
    * @generated
    */
-  int SLANG_TYPED_VAR_DEF = 46;
+  int SLANG_VAR_DEF = 46;
 
   /**
-   * The number of structural features of the '<em>Slang Typed Var Def</em>' class.
+   * The feature id for the '<em><b>D</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SLANG_TYPED_VAR_DEF_FEATURE_COUNT = 0;
+  int SLANG_VAR_DEF__D = SLANG_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_VAR_DEF__NAME = SLANG_STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_VAR_DEF__TYPE_NAME = SLANG_STMT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_VAR_DEF__INIT = SLANG_STMT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Slang Var Def</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_VAR_DEF_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangPatternImpl <em>Slang Pattern</em>}' class.
@@ -1760,25 +1823,25 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_PATTERN__D = SLANG_TYPED_VAR_DEF_FEATURE_COUNT + 0;
+  int SLANG_PATTERN__D = SLANG_VAR_DEF__D;
 
   /**
-   * The feature id for the '<em><b>Patterns</b></em>' containment reference list.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SLANG_PATTERN__PATTERNS = SLANG_TYPED_VAR_DEF_FEATURE_COUNT + 1;
+  int SLANG_PATTERN__NAME = SLANG_VAR_DEF__NAME;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SLANG_PATTERN__TYPE = SLANG_TYPED_VAR_DEF_FEATURE_COUNT + 2;
+  int SLANG_PATTERN__TYPE_NAME = SLANG_VAR_DEF__TYPE_NAME;
 
   /**
    * The feature id for the '<em><b>Init</b></em>' containment reference.
@@ -1787,7 +1850,16 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_PATTERN__INIT = SLANG_TYPED_VAR_DEF_FEATURE_COUNT + 3;
+  int SLANG_PATTERN__INIT = SLANG_VAR_DEF__INIT;
+
+  /**
+   * The feature id for the '<em><b>Patterns</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_PATTERN__PATTERNS = SLANG_VAR_DEF_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Slang Pattern</em>' class.
@@ -1796,7 +1868,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_PATTERN_FEATURE_COUNT = SLANG_TYPED_VAR_DEF_FEATURE_COUNT + 4;
+  int SLANG_PATTERN_FEATURE_COUNT = SLANG_VAR_DEF_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangTPatternImpl <em>Slang TPattern</em>}' class.
@@ -1836,80 +1908,6 @@ public interface GumboPackage extends EPackage
   int SLANG_TPATTERN_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangVarDefImpl <em>Slang Var Def</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangVarDefImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangVarDef()
-   * @generated
-   */
-  int SLANG_VAR_DEF = 47;
-
-  /**
-   * The feature id for the '<em><b>D</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_VAR_DEF__D = SLANG_STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Slang Var Def</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_VAR_DEF_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangVarDeclDefImpl <em>Slang Var Decl Def</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangVarDeclDefImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangVarDeclDef()
-   * @generated
-   */
-  int SLANG_VAR_DECL_DEF = 48;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_VAR_DECL_DEF__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_VAR_DECL_DEF__TYPE_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Init</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_VAR_DECL_DEF__INIT = 2;
-
-  /**
-   * The number of structural features of the '<em>Slang Var Decl Def</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_VAR_DECL_DEF_FEATURE_COUNT = 3;
-
-  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangInterpImpl <em>Slang Interp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1917,7 +1915,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangInterp()
    * @generated
    */
-  int SLANG_INTERP = 61;
+  int SLANG_INTERP = 59;
 
   /**
    * The number of structural features of the '<em>Slang Interp</em>' class.
@@ -1936,7 +1934,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMInterp()
    * @generated
    */
-  int SLANG_MINTERP = 62;
+  int SLANG_MINTERP = 60;
 
   /**
    * The number of structural features of the '<em>Slang MInterp</em>' class.
@@ -1955,7 +1953,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getExpr()
    * @generated
    */
-  int EXPR = 49;
+  int EXPR = 47;
 
   /**
    * The feature id for the '<em><b>Term</b></em>' containment reference list.
@@ -2037,7 +2035,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangQuantVar()
    * @generated
    */
-  int SLANG_QUANT_VAR = 50;
+  int SLANG_QUANT_VAR = 48;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2074,7 +2072,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangBlock()
    * @generated
    */
-  int SLANG_BLOCK = 51;
+  int SLANG_BLOCK = 49;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -2138,7 +2136,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangParams()
    * @generated
    */
-  int SLANG_PARAMS = 52;
+  int SLANG_PARAMS = 50;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -2166,7 +2164,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangParam()
    * @generated
    */
-  int SLANG_PARAM = 53;
+  int SLANG_PARAM = 51;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2203,7 +2201,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangForRange()
    * @generated
    */
-  int SLANG_FOR_RANGE = 54;
+  int SLANG_FOR_RANGE = 52;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2249,7 +2247,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangRet()
    * @generated
    */
-  int SLANG_RET = 55;
+  int SLANG_RET = 53;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2277,7 +2275,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangCallSuffix()
    * @generated
    */
-  int SLANG_CALL_SUFFIX = 56;
+  int SLANG_CALL_SUFFIX = 54;
 
   /**
    * The feature id for the '<em><b>Ta</b></em>' containment reference.
@@ -2314,7 +2312,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangCallArgs()
    * @generated
    */
-  int SLANG_CALL_ARGS = 57;
+  int SLANG_CALL_ARGS = 55;
 
   /**
    * The feature id for the '<em><b>Arg</b></em>' containment reference list.
@@ -2342,7 +2340,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangIDExp()
    * @generated
    */
-  int SLANG_ID_EXP = 58;
+  int SLANG_ID_EXP = 56;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference list.
@@ -2370,7 +2368,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangType()
    * @generated
    */
-  int SLANG_TYPE = 59;
+  int SLANG_TYPE = 57;
 
   /**
    * The feature id for the '<em><b>Type Name</b></em>' reference.
@@ -2398,7 +2396,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangTypeArgs()
    * @generated
    */
-  int SLANG_TYPE_ARGS = 60;
+  int SLANG_TYPE_ARGS = 58;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -2407,7 +2405,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_TYPE_ARGS__TYPES = SLANG_SUPR_FEATURE_COUNT + 0;
+  int SLANG_TYPE_ARGS__TYPES = 0;
 
   /**
    * The number of structural features of the '<em>Slang Type Args</em>' class.
@@ -2416,7 +2414,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_TYPE_ARGS_FEATURE_COUNT = SLANG_SUPR_FEATURE_COUNT + 1;
+  int SLANG_TYPE_ARGS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangIfStmtImpl <em>Slang If Stmt</em>}' class.
@@ -2426,7 +2424,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangIfStmt()
    * @generated
    */
-  int SLANG_IF_STMT = 63;
+  int SLANG_IF_STMT = 61;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -2465,6 +2463,52 @@ public interface GumboPackage extends EPackage
   int SLANG_IF_STMT_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangWhileStmtImpl <em>Slang While Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangWhileStmtImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangWhileStmt()
+   * @generated
+   */
+  int SLANG_WHILE_STMT = 62;
+
+  /**
+   * The feature id for the '<em><b>Cond</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_WHILE_STMT__COND = SLANG_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>L</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_WHILE_STMT__L = SLANG_STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>B</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_WHILE_STMT__B = SLANG_STMT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Slang While Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_WHILE_STMT_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangMatchStmtImpl <em>Slang Match Stmt</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2472,7 +2516,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMatchStmt()
    * @generated
    */
-  int SLANG_MATCH_STMT = 64;
+  int SLANG_MATCH_STMT = 63;
 
   /**
    * The feature id for the '<em><b>Test Expr</b></em>' containment reference.
@@ -2509,7 +2553,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangSpecStmt()
    * @generated
    */
-  int SLANG_SPEC_STMT = 65;
+  int SLANG_SPEC_STMT = 64;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -2537,7 +2581,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangAssumeStmt()
    * @generated
    */
-  int SLANG_ASSUME_STMT = 66;
+  int SLANG_ASSUME_STMT = 65;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2565,7 +2609,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangAssertStmt()
    * @generated
    */
-  int SLANG_ASSERT_STMT = 67;
+  int SLANG_ASSERT_STMT = 66;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2593,7 +2637,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangHaltStmt()
    * @generated
    */
-  int SLANG_HALT_STMT = 68;
+  int SLANG_HALT_STMT = 67;
 
   /**
    * The number of structural features of the '<em>Slang Halt Stmt</em>' class.
@@ -2612,7 +2656,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangDoStmt()
    * @generated
    */
-  int SLANG_DO_STMT = 69;
+  int SLANG_DO_STMT = 68;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2631,6 +2675,43 @@ public interface GumboPackage extends EPackage
    * @ordered
    */
   int SLANG_DO_STMT_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangIdStmtImpl <em>Slang Id Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangIdStmtImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangIdStmt()
+   * @generated
+   */
+  int SLANG_ID_STMT = 69;
+
+  /**
+   * The feature id for the '<em><b>Port Or Subcomponent Or State Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_ID_STMT__PORT_OR_SUBCOMPONENT_OR_STATE_VAR = SLANG_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_ID_STMT__E = SLANG_STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Slang Id Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_ID_STMT_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangFieldLookupImpl <em>Slang Field Lookup</em>}' class.
@@ -3934,6 +4015,17 @@ public interface GumboPackage extends EPackage
   EReference getOtherDataRef_NamedElement();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef#getArrayRange <em>Array Range</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Array Range</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef#getArrayRange()
+   * @see #getOtherDataRef()
+   * @generated
+   */
+  EReference getOtherDataRef_ArrayRange();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4502,6 +4594,28 @@ public interface GumboPackage extends EPackage
   EClass getSlangSupr();
 
   /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangSupr#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangSupr#getName()
+   * @see #getSlangSupr()
+   * @generated
+   */
+  EAttribute getSlangSupr_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangSupr#getArgs <em>Args</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Args</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangSupr#getArgs()
+   * @see #getSlangSupr()
+   * @generated
+   */
+  EReference getSlangSupr_Args();
+
+  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangExt <em>Slang Ext</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4787,28 +4901,6 @@ public interface GumboPackage extends EPackage
   EReference getSlangPattern_Patterns();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangPattern#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangPattern#getType()
-   * @see #getSlangPattern()
-   * @generated
-   */
-  EReference getSlangPattern_Type();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangPattern#getInit <em>Init</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Init</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangPattern#getInit()
-   * @see #getSlangPattern()
-   * @generated
-   */
-  EReference getSlangPattern_Init();
-
-  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangTPattern <em>Slang TPattern</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4841,16 +4933,6 @@ public interface GumboPackage extends EPackage
   EReference getSlangTPattern_Type();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypedVarDef <em>Slang Typed Var Def</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Slang Typed Var Def</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangTypedVarDef
-   * @generated
-   */
-  EClass getSlangTypedVarDef();
-
-  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDef <em>Slang Var Def</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4872,47 +4954,37 @@ public interface GumboPackage extends EPackage
   EReference getSlangVarDef_D();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef <em>Slang Var Decl Def</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Slang Var Decl Def</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef
-   * @generated
-   */
-  EClass getSlangVarDeclDef();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDef#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef#getName()
-   * @see #getSlangVarDeclDef()
+   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDef#getName()
+   * @see #getSlangVarDef()
    * @generated
    */
-  EAttribute getSlangVarDeclDef_Name();
+  EAttribute getSlangVarDef_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef#getTypeName <em>Type Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDef#getTypeName <em>Type Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Type Name</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef#getTypeName()
-   * @see #getSlangVarDeclDef()
+   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDef#getTypeName()
+   * @see #getSlangVarDef()
    * @generated
    */
-  EReference getSlangVarDeclDef_TypeName();
+  EReference getSlangVarDef_TypeName();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef#getInit <em>Init</em>}'.
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangVarDef#getInit <em>Init</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Init</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDeclDef#getInit()
-   * @see #getSlangVarDeclDef()
+   * @see org.sireum.aadl.gumbo.gumbo.SlangVarDef#getInit()
+   * @see #getSlangVarDef()
    * @generated
    */
-  EReference getSlangVarDeclDef_Init();
+  EReference getSlangVarDef_Init();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.Expr <em>Expr</em>}'.
@@ -5362,6 +5434,49 @@ public interface GumboPackage extends EPackage
   EReference getSlangIfStmt_E();
 
   /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangWhileStmt <em>Slang While Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Slang While Stmt</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangWhileStmt
+   * @generated
+   */
+  EClass getSlangWhileStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangWhileStmt#getCond <em>Cond</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Cond</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangWhileStmt#getCond()
+   * @see #getSlangWhileStmt()
+   * @generated
+   */
+  EReference getSlangWhileStmt_Cond();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangWhileStmt#getL <em>L</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>L</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangWhileStmt#getL()
+   * @see #getSlangWhileStmt()
+   * @generated
+   */
+  EReference getSlangWhileStmt_L();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangWhileStmt#getB <em>B</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>B</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangWhileStmt#getB()
+   * @see #getSlangWhileStmt()
+   * @generated
+   */
+  EReference getSlangWhileStmt_B();
+
+  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangMatchStmt <em>Slang Match Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5486,6 +5601,38 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getSlangDoStmt_E();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangIdStmt <em>Slang Id Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Slang Id Stmt</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangIdStmt
+   * @generated
+   */
+  EClass getSlangIdStmt();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.SlangIdStmt#getPortOrSubcomponentOrStateVar <em>Port Or Subcomponent Or State Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Port Or Subcomponent Or State Var</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangIdStmt#getPortOrSubcomponentOrStateVar()
+   * @see #getSlangIdStmt()
+   * @generated
+   */
+  EReference getSlangIdStmt_PortOrSubcomponentOrStateVar();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangIdStmt#getE <em>E</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>E</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangIdStmt#getE()
+   * @see #getSlangIdStmt()
+   * @generated
+   */
+  EReference getSlangIdStmt_E();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangFieldLookup <em>Slang Field Lookup</em>}'.
@@ -6181,6 +6328,14 @@ public interface GumboPackage extends EPackage
     EReference OTHER_DATA_REF__NAMED_ELEMENT = eINSTANCE.getOtherDataRef_NamedElement();
 
     /**
+     * The meta object literal for the '<em><b>Array Range</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OTHER_DATA_REF__ARRAY_RANGE = eINSTANCE.getOtherDataRef_ArrayRange();
+
+    /**
      * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6635,6 +6790,22 @@ public interface GumboPackage extends EPackage
     EClass SLANG_SUPR = eINSTANCE.getSlangSupr();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SLANG_SUPR__NAME = eINSTANCE.getSlangSupr_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_SUPR__ARGS = eINSTANCE.getSlangSupr_Args();
+
+    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangExtImpl <em>Slang Ext</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6875,22 +7046,6 @@ public interface GumboPackage extends EPackage
     EReference SLANG_PATTERN__PATTERNS = eINSTANCE.getSlangPattern_Patterns();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SLANG_PATTERN__TYPE = eINSTANCE.getSlangPattern_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SLANG_PATTERN__INIT = eINSTANCE.getSlangPattern_Init();
-
-    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangTPatternImpl <em>Slang TPattern</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6917,16 +7072,6 @@ public interface GumboPackage extends EPackage
     EReference SLANG_TPATTERN__TYPE = eINSTANCE.getSlangTPattern_Type();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangTypedVarDefImpl <em>Slang Typed Var Def</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangTypedVarDefImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangTypedVarDef()
-     * @generated
-     */
-    EClass SLANG_TYPED_VAR_DEF = eINSTANCE.getSlangTypedVarDef();
-
-    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangVarDefImpl <em>Slang Var Def</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6945,22 +7090,12 @@ public interface GumboPackage extends EPackage
     EReference SLANG_VAR_DEF__D = eINSTANCE.getSlangVarDef_D();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangVarDeclDefImpl <em>Slang Var Decl Def</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangVarDeclDefImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangVarDeclDef()
-     * @generated
-     */
-    EClass SLANG_VAR_DECL_DEF = eINSTANCE.getSlangVarDeclDef();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SLANG_VAR_DECL_DEF__NAME = eINSTANCE.getSlangVarDeclDef_Name();
+    EAttribute SLANG_VAR_DEF__NAME = eINSTANCE.getSlangVarDef_Name();
 
     /**
      * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
@@ -6968,7 +7103,7 @@ public interface GumboPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SLANG_VAR_DECL_DEF__TYPE_NAME = eINSTANCE.getSlangVarDeclDef_TypeName();
+    EReference SLANG_VAR_DEF__TYPE_NAME = eINSTANCE.getSlangVarDef_TypeName();
 
     /**
      * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
@@ -6976,7 +7111,7 @@ public interface GumboPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SLANG_VAR_DECL_DEF__INIT = eINSTANCE.getSlangVarDeclDef_Init();
+    EReference SLANG_VAR_DEF__INIT = eINSTANCE.getSlangVarDef_Init();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ExprImpl <em>Expr</em>}' class.
@@ -7345,6 +7480,40 @@ public interface GumboPackage extends EPackage
     EReference SLANG_IF_STMT__E = eINSTANCE.getSlangIfStmt_E();
 
     /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangWhileStmtImpl <em>Slang While Stmt</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangWhileStmtImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangWhileStmt()
+     * @generated
+     */
+    EClass SLANG_WHILE_STMT = eINSTANCE.getSlangWhileStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_WHILE_STMT__COND = eINSTANCE.getSlangWhileStmt_Cond();
+
+    /**
+     * The meta object literal for the '<em><b>L</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_WHILE_STMT__L = eINSTANCE.getSlangWhileStmt_L();
+
+    /**
+     * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_WHILE_STMT__B = eINSTANCE.getSlangWhileStmt_B();
+
+    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangMatchStmtImpl <em>Slang Match Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7451,6 +7620,32 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference SLANG_DO_STMT__E = eINSTANCE.getSlangDoStmt_E();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangIdStmtImpl <em>Slang Id Stmt</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangIdStmtImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangIdStmt()
+     * @generated
+     */
+    EClass SLANG_ID_STMT = eINSTANCE.getSlangIdStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Port Or Subcomponent Or State Var</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_ID_STMT__PORT_OR_SUBCOMPONENT_OR_STATE_VAR = eINSTANCE.getSlangIdStmt_PortOrSubcomponentOrStateVar();
+
+    /**
+     * The meta object literal for the '<em><b>E</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_ID_STMT__E = eINSTANCE.getSlangIdStmt_E();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangFieldLookupImpl <em>Slang Field Lookup</em>}' class.

@@ -120,22 +120,21 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class SpecSectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SpecSection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cStateAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cStateStateParserRuleCall_0_0 = (RuleCall)cStateAssignment_0.eContents().get(0);
-		private final Assignment cFunctionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFunctionsFunctionsParserRuleCall_1_0 = (RuleCall)cFunctionsAssignment_1.eContents().get(0);
-		private final Assignment cInvariantsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cInvariantsInvariantsParserRuleCall_2_0 = (RuleCall)cInvariantsAssignment_2.eContents().get(0);
-		private final Assignment cIntegrationAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIntegrationIntegrationParserRuleCall_3_0 = (RuleCall)cIntegrationAssignment_3.eContents().get(0);
-		private final Assignment cInitializeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cInitializeInitializeParserRuleCall_4_0 = (RuleCall)cInitializeAssignment_4.eContents().get(0);
-		private final Assignment cComputeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cComputeComputeParserRuleCall_5_0 = (RuleCall)cComputeAssignment_5.eContents().get(0);
+		private final Action cSpecSectionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStateStateParserRuleCall_1_0 = (RuleCall)cStateAssignment_1.eContents().get(0);
+		private final Assignment cFunctionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFunctionsFunctionsParserRuleCall_2_0 = (RuleCall)cFunctionsAssignment_2.eContents().get(0);
+		private final Assignment cInvariantsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cInvariantsInvariantsParserRuleCall_3_0 = (RuleCall)cInvariantsAssignment_3.eContents().get(0);
+		private final Assignment cIntegrationAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cIntegrationIntegrationParserRuleCall_4_0 = (RuleCall)cIntegrationAssignment_4.eContents().get(0);
+		private final Assignment cInitializeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cInitializeInitializeParserRuleCall_5_0 = (RuleCall)cInitializeAssignment_5.eContents().get(0);
+		private final Assignment cComputeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cComputeComputeParserRuleCall_6_0 = (RuleCall)cComputeAssignment_6.eContents().get(0);
 		
-		//SpecSection:
-		////    ComputationalModel
-		////|    Flows
+		//SpecSection: {SpecSection}
 		//    (state = State)?
 		//    (functions = Functions)?
 		//    (invariants = Invariants)?
@@ -145,53 +144,53 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////    ComputationalModel
-		////|    Flows
-		//    (state = State)?
-		//    (functions = Functions)?
-		//    (invariants = Invariants)?
-		//    (integration = Integration)?
-		//    (initialize = Initialize)?
-		//    (compute = Compute)?
+		//{SpecSection}
+		//   (state = State)?
+		//   (functions = Functions)?
+		//   (invariants = Invariants)?
+		//   (integration = Integration)?
+		//   (initialize = Initialize)?
+		//   (compute = Compute)?
 		public Group getGroup() { return cGroup; }
 		
-		////    ComputationalModel
-		////|    Flows
-		//    (state = State)?
-		public Assignment getStateAssignment_0() { return cStateAssignment_0; }
+		//{SpecSection}
+		public Action getSpecSectionAction_0() { return cSpecSectionAction_0; }
+		
+		//(state = State)?
+		public Assignment getStateAssignment_1() { return cStateAssignment_1; }
 		
 		//State
-		public RuleCall getStateStateParserRuleCall_0_0() { return cStateStateParserRuleCall_0_0; }
+		public RuleCall getStateStateParserRuleCall_1_0() { return cStateStateParserRuleCall_1_0; }
 		
 		//(functions = Functions)?
-		public Assignment getFunctionsAssignment_1() { return cFunctionsAssignment_1; }
+		public Assignment getFunctionsAssignment_2() { return cFunctionsAssignment_2; }
 		
 		//Functions
-		public RuleCall getFunctionsFunctionsParserRuleCall_1_0() { return cFunctionsFunctionsParserRuleCall_1_0; }
+		public RuleCall getFunctionsFunctionsParserRuleCall_2_0() { return cFunctionsFunctionsParserRuleCall_2_0; }
 		
 		//(invariants = Invariants)?
-		public Assignment getInvariantsAssignment_2() { return cInvariantsAssignment_2; }
+		public Assignment getInvariantsAssignment_3() { return cInvariantsAssignment_3; }
 		
 		//Invariants
-		public RuleCall getInvariantsInvariantsParserRuleCall_2_0() { return cInvariantsInvariantsParserRuleCall_2_0; }
+		public RuleCall getInvariantsInvariantsParserRuleCall_3_0() { return cInvariantsInvariantsParserRuleCall_3_0; }
 		
 		//(integration = Integration)?
-		public Assignment getIntegrationAssignment_3() { return cIntegrationAssignment_3; }
+		public Assignment getIntegrationAssignment_4() { return cIntegrationAssignment_4; }
 		
 		//Integration
-		public RuleCall getIntegrationIntegrationParserRuleCall_3_0() { return cIntegrationIntegrationParserRuleCall_3_0; }
+		public RuleCall getIntegrationIntegrationParserRuleCall_4_0() { return cIntegrationIntegrationParserRuleCall_4_0; }
 		
 		//(initialize = Initialize)?
-		public Assignment getInitializeAssignment_4() { return cInitializeAssignment_4; }
+		public Assignment getInitializeAssignment_5() { return cInitializeAssignment_5; }
 		
 		//Initialize
-		public RuleCall getInitializeInitializeParserRuleCall_4_0() { return cInitializeInitializeParserRuleCall_4_0; }
+		public RuleCall getInitializeInitializeParserRuleCall_5_0() { return cInitializeInitializeParserRuleCall_5_0; }
 		
 		//(compute = Compute)?
-		public Assignment getComputeAssignment_5() { return cComputeAssignment_5; }
+		public Assignment getComputeAssignment_6() { return cComputeAssignment_6; }
 		
 		//Compute
-		public RuleCall getComputeComputeParserRuleCall_5_0() { return cComputeComputeParserRuleCall_5_0; }
+		public RuleCall getComputeComputeParserRuleCall_6_0() { return cComputeComputeParserRuleCall_6_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.State");
@@ -200,25 +199,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cDeclsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cDeclsStateVarDeclParserRuleCall_1_0 = (RuleCall)cDeclsAssignment_1.eContents().get(0);
 		
-		////ComputationalModel:
-		////    'computational_model' (
-		////        {PeriodicComputationalModel} 'periodic'
-		////    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
-		////        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-		////    )
-		////;
-		////Flows:
-		////    'flows' (flows+=Flow)+
-		////;
-		////
-		////Flow returns Flow:
-		////    =>    flowId=ID ':'
-		////        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-		////        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
-		////;
-		////Contract:
-		////    'contracts' (specs+=SpecStatement)+
-		////;
 		//State:
 		//    'state' (decls += StateVarDecl)+
 		//;
@@ -320,28 +300,28 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cInvKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final RuleCall cDisplayNameSLANG_STRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExprExprParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//InvSpec:
-		//    'inv' displayName=STRING ':' expr=Expr ';'
+		//    'inv' displayName=SLANG_STRING ':' expr=Expr ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'inv' displayName=STRING ':' expr=Expr ';'
+		//'inv' displayName=SLANG_STRING ':' expr=Expr ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'inv'
 		public Keyword getInvKeyword_0() { return cInvKeyword_0; }
 		
-		//displayName=STRING
+		//displayName=SLANG_STRING
 		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
 		
-		//STRING
-		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
+		//SLANG_STRING
+		public RuleCall getDisplayNameSLANG_STRINGTerminalRuleCall_1_0() { return cDisplayNameSLANG_STRINGTerminalRuleCall_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -452,7 +432,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCaseKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final RuleCall cDisplayNameSLANG_STRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cAssumeStatementAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cAssumeStatementAnonAssumeStatementParserRuleCall_3_0 = (RuleCall)cAssumeStatementAssignment_3.eContents().get(0);
@@ -460,7 +440,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cGuaranteeStatementAnonGuaranteeStatementParserRuleCall_4_0 = (RuleCall)cGuaranteeStatementAssignment_4.eContents().get(0);
 		
 		//CaseStatementClause:
-		//    'case' displayName=STRING ':'
+		//    'case' displayName=SLANG_STRING ':'
 		//           // in case clauses, we must have both an assume clause and a guarantee clause
 		//           // but they don't have a display name (they will "inherit" the name from the case name).
 		//           assumeStatement = AnonAssumeStatement
@@ -468,7 +448,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'case' displayName=STRING ':'
+		//'case' displayName=SLANG_STRING ':'
 		//       // in case clauses, we must have both an assume clause and a guarantee clause
 		//       // but they don't have a display name (they will "inherit" the name from the case name).
 		//       assumeStatement = AnonAssumeStatement
@@ -478,11 +458,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'case'
 		public Keyword getCaseKeyword_0() { return cCaseKeyword_0; }
 		
-		//displayName=STRING
+		//displayName=SLANG_STRING
 		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
 		
-		//STRING
-		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
+		//SLANG_STRING
+		public RuleCall getDisplayNameSLANG_STRINGTerminalRuleCall_1_0() { return cDisplayNameSLANG_STRINGTerminalRuleCall_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -528,28 +508,28 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAssumeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final RuleCall cDisplayNameSLANG_STRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExprExprParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//AssumeStatement:
-		//    'assume' displayName=STRING ':' expr=Expr ';'
+		//    'assume' displayName=SLANG_STRING ':' expr=Expr ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'assume' displayName=STRING ':' expr=Expr ';'
+		//'assume' displayName=SLANG_STRING ':' expr=Expr ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'assume'
 		public Keyword getAssumeKeyword_0() { return cAssumeKeyword_0; }
 		
-		//displayName=STRING
+		//displayName=SLANG_STRING
 		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
 		
-		//STRING
-		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
+		//SLANG_STRING
+		public RuleCall getDisplayNameSLANG_STRINGTerminalRuleCall_1_0() { return cDisplayNameSLANG_STRINGTerminalRuleCall_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -596,28 +576,28 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGuaranteeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cDisplayNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDisplayNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
+		private final RuleCall cDisplayNameSLANG_STRINGTerminalRuleCall_1_0 = (RuleCall)cDisplayNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExprExprParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//GuaranteeStatement:
-		//    'guarantee' displayName=STRING ':' expr=Expr ';'
+		//    'guarantee' displayName=SLANG_STRING ':' expr=Expr ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'guarantee' displayName=STRING ':' expr=Expr ';'
+		//'guarantee' displayName=SLANG_STRING ':' expr=Expr ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'guarantee'
 		public Keyword getGuaranteeKeyword_0() { return cGuaranteeKeyword_0; }
 		
-		//displayName=STRING
+		//displayName=SLANG_STRING
 		public Assignment getDisplayNameAssignment_1() { return cDisplayNameAssignment_1; }
 		
-		//STRING
-		public RuleCall getDisplayNameSTRINGTerminalRuleCall_1_0() { return cDisplayNameSTRINGTerminalRuleCall_1_0; }
+		//SLANG_STRING
+		public RuleCall getDisplayNameSLANG_STRINGTerminalRuleCall_1_0() { return cDisplayNameSLANG_STRINGTerminalRuleCall_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -663,11 +643,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.PREDICATE");
 		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		////SpecStatement:
-		////    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-		////        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-		////|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
-		////;
 		//PREDICATE: // TODO
 		//    ID
 		//;
@@ -680,38 +655,22 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class OtherDataRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.OtherDataRef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNamedElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cNamedElementNamedElementCrossReference_0_0 = (CrossReference)cNamedElementAssignment_0.eContents().get(0);
-		private final RuleCall cNamedElementNamedElementIDTerminalRuleCall_0_0_1 = (RuleCall)cNamedElementNamedElementCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cNamedElementAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cNamedElementNamedElementCrossReference_0_0_0 = (CrossReference)cNamedElementAssignment_0_0.eContents().get(0);
+		private final RuleCall cNamedElementNamedElementIDTerminalRuleCall_0_0_0_1 = (RuleCall)cNamedElementNamedElementCrossReference_0_0_0.eContents().get(1);
+		private final Assignment cArrayRangeAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cArrayRangeArrayRangeParserRuleCall_0_1_0 = (RuleCall)cArrayRangeAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cPathAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cPathOtherDataRefParserRuleCall_1_1_0 = (RuleCall)cPathAssignment_1_1.eContents().get(0);
 		
-		////AtomicExpr returns Expr:
-		////  Need to figure out how to reference difference types of IDs, including cross references
-		////  to port names, state variables, etc.
-		////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
-		////  For example, invariants should only reference state variables.
-		////    {IdExpr} id=[aadl2::NamedElement | QCREF]
-		////    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
-		////|   {PortRef} 'port' port=ContainmentPathElement
-		////   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=CallSuffix?
-		////| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
-		////| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
-		////|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
-		////|   {RealLitExpr} val=REAL_LIT
-		////|   {BoolLitExpr} val=BooleanLiteral
-		////|   {FloorCast} 'floor' '(' expr=Expr ')'
-		////|   {RealCast}  'real' '(' expr=Expr ')'
-		////|   ID CallSuffix
-		////|   '(' Expr ')'
-		////;
 		//OtherDataRef:
 		//    (
 		//        (
 		//            namedElement=[aadl2::NamedElement|ID]
-		////             (arrayRange+=ArrayRange)*
+		//             (arrayRange+=ArrayRange)*
 		//        )
 		//        ('.' path=OtherDataRef)?
 		////     |      'annex' namedElement=[aadl2::NamedElement|ID]
@@ -722,24 +681,33 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    (
 		//        (
 		//            namedElement=[aadl2::NamedElement|ID]
-		////             (arrayRange+=ArrayRange)*
+		//             (arrayRange+=ArrayRange)*
 		//        )
 		//        ('.' path=OtherDataRef)?
 		////     |      'annex' namedElement=[aadl2::NamedElement|ID]
 		//    )
 		public Group getGroup() { return cGroup; }
 		
-		//        (
-		//            namedElement=[aadl2::NamedElement|ID]
-		////             (arrayRange+=ArrayRange)*
-		//        )
-		public Assignment getNamedElementAssignment_0() { return cNamedElementAssignment_0; }
+		//(
+		//    namedElement=[aadl2::NamedElement|ID]
+		//     (arrayRange+=ArrayRange)*
+		//)
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//namedElement=[aadl2::NamedElement|ID]
+		public Assignment getNamedElementAssignment_0_0() { return cNamedElementAssignment_0_0; }
 		
 		//[aadl2::NamedElement|ID]
-		public CrossReference getNamedElementNamedElementCrossReference_0_0() { return cNamedElementNamedElementCrossReference_0_0; }
+		public CrossReference getNamedElementNamedElementCrossReference_0_0_0() { return cNamedElementNamedElementCrossReference_0_0_0; }
 		
 		//ID
-		public RuleCall getNamedElementNamedElementIDTerminalRuleCall_0_0_1() { return cNamedElementNamedElementIDTerminalRuleCall_0_0_1; }
+		public RuleCall getNamedElementNamedElementIDTerminalRuleCall_0_0_0_1() { return cNamedElementNamedElementIDTerminalRuleCall_0_0_0_1; }
+		
+		//(arrayRange+=ArrayRange)*
+		public Assignment getArrayRangeAssignment_0_1() { return cArrayRangeAssignment_0_1; }
+		
+		//ArrayRange
+		public RuleCall getArrayRangeArrayRangeParserRuleCall_0_1_0() { return cArrayRangeArrayRangeParserRuleCall_0_1_0; }
 		
 		//('.' path=OtherDataRef)?
 		public Group getGroup_1() { return cGroup_1; }
@@ -820,9 +788,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cSpecsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSpecsFuncSpecParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
 		
-		////FeatureElement returns FeatureElement:
-		////    feature=[aadl2::NamedElement|ID]
-		////;
 		//Functions:
 		//    'functions' (specs+=FuncSpec)+
 		//;
@@ -1411,16 +1376,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSlangDefContractCaseAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cCaseKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cSLANG_STRINGTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cReqAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cReqSlangRequiresParserRuleCall_3_0 = (RuleCall)cReqAssignment_3.eContents().get(0);
 		private final Assignment cEnsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cEnsSlangEnsuresParserRuleCall_4_0 = (RuleCall)cEnsAssignment_4.eContents().get(0);
 		
-		//SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING req=SlangRequires? ens=SlangEnsures? ;
+		//SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/SLANG_STRING req=SlangRequires? ens=SlangEnsures? ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SlangDefContractCase} 'case' /*SLANG_*/STRING req=SlangRequires? ens=SlangEnsures?
+		//{SlangDefContractCase} 'case' /*SLANG_*/SLANG_STRING req=SlangRequires? ens=SlangEnsures?
 		public Group getGroup() { return cGroup; }
 		
 		//{SlangDefContractCase}
@@ -1429,8 +1394,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'case'
 		public Keyword getCaseKeyword_1() { return cCaseKeyword_1; }
 		
-		///*SLANG_*/STRING
-		public RuleCall getSTRINGTerminalRuleCall_2() { return cSTRINGTerminalRuleCall_2; }
+		///*SLANG_*/SLANG_STRING
+		public RuleCall getSLANG_STRINGTerminalRuleCall_2() { return cSLANG_STRINGTerminalRuleCall_2; }
 		
 		//req=SlangRequires?
 		public Assignment getReqAssignment_3() { return cReqAssignment_3; }
@@ -1485,20 +1450,28 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class SlangSuprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangSupr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSlangNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final RuleCall cSlangTypeArgsParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameSlangNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cArgsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArgsSlangTypeArgsParserRuleCall_1_0 = (RuleCall)cArgsAssignment_1.eContents().get(0);
 		
-		//SlangSupr: SlangName SlangTypeArgs? ;
+		//SlangSupr: name=SlangName args=SlangTypeArgs? ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SlangName SlangTypeArgs?
+		//name=SlangName args=SlangTypeArgs?
 		public Group getGroup() { return cGroup; }
 		
-		//SlangName
-		public RuleCall getSlangNameParserRuleCall_0() { return cSlangNameParserRuleCall_0; }
+		//name=SlangName
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//SlangTypeArgs?
-		public RuleCall getSlangTypeArgsParserRuleCall_1() { return cSlangTypeArgsParserRuleCall_1; }
+		//SlangName
+		public RuleCall getNameSlangNameParserRuleCall_0_0() { return cNameSlangNameParserRuleCall_0_0; }
+		
+		//args=SlangTypeArgs?
+		public Assignment getArgsAssignment_1() { return cArgsAssignment_1; }
+		
+		//SlangTypeArgs
+		public RuleCall getArgsSlangTypeArgsParserRuleCall_1_0() { return cArgsSlangTypeArgsParserRuleCall_1_0; }
 	}
 	public class SlangNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangName");
@@ -1783,69 +1756,97 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cEAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
 		private final RuleCall cESlangElseParserRuleCall_1_4_0 = (RuleCall)cEAssignment_1_4.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cSlangMatchStmtAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Keyword cMatchKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cTestExprAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cTestExprExprParserRuleCall_2_2_0 = (RuleCall)cTestExprAssignment_2_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Assignment cCAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
-		private final RuleCall cCSlangCaseParserRuleCall_2_4_0 = (RuleCall)cCAssignment_2_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
+		private final Action cSlangWhileStmtAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cWhileKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cCondAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cCondExprParserRuleCall_2_2_0 = (RuleCall)cCondAssignment_2_2.eContents().get(0);
+		private final Assignment cLAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cLSlangLoopContractParserRuleCall_2_3_0 = (RuleCall)cLAssignment_2_3.eContents().get(0);
+		private final Assignment cBAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
+		private final RuleCall cBSlangBlockParserRuleCall_2_4_0 = (RuleCall)cBAssignment_2_4.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Action cSlangSpecStmtAction_3_0 = (Action)cGroup_3.eContents().get(0);
-		private final Keyword cSpecKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cBAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cBSlangBlockParserRuleCall_3_2_0 = (RuleCall)cBAssignment_3_2.eContents().get(0);
+		private final Action cSlangMatchStmtAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Keyword cMatchKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cTestExprAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cTestExprExprParserRuleCall_3_2_0 = (RuleCall)cTestExprAssignment_3_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Assignment cCAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
+		private final RuleCall cCSlangCaseParserRuleCall_3_4_0 = (RuleCall)cCAssignment_3_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_5 = (Keyword)cGroup_3.eContents().get(5);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Action cSlangAssumeStmtAction_4_0 = (Action)cGroup_4.eContents().get(0);
-		private final Keyword cAssumeKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cEAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cEExprParserRuleCall_4_2_0 = (RuleCall)cEAssignment_4_2.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_4_3 = (RuleCall)cGroup_4.eContents().get(3);
+		private final Action cSlangSpecStmtAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Keyword cSpecKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cBAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cBSlangBlockParserRuleCall_4_2_0 = (RuleCall)cBAssignment_4_2.eContents().get(0);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cSlangAssertStmtAction_5_0 = (Action)cGroup_5.eContents().get(0);
-		private final Keyword cAssertKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Action cSlangAssumeStmtAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Keyword cAssumeKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Assignment cEAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
 		private final RuleCall cEExprParserRuleCall_5_2_0 = (RuleCall)cEAssignment_5_2.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_5_3 = (RuleCall)cGroup_5.eContents().get(3);
+		private final RuleCall cSLANG_STRINGTerminalRuleCall_5_3 = (RuleCall)cGroup_5.eContents().get(3);
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cSlangHaltStmtAction_6_0 = (Action)cGroup_6.eContents().get(0);
-		private final Keyword cHaltKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_6_2 = (RuleCall)cGroup_6.eContents().get(2);
+		private final Action cSlangAssertStmtAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Keyword cAssertKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cEAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cEExprParserRuleCall_6_2_0 = (RuleCall)cEAssignment_6_2.eContents().get(0);
+		private final RuleCall cSLANG_STRINGTerminalRuleCall_6_3 = (RuleCall)cGroup_6.eContents().get(3);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Action cSlangDoStmtAction_7_0 = (Action)cGroup_7.eContents().get(0);
-		private final Keyword cDoKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cEAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cEExprParserRuleCall_7_2_0 = (RuleCall)cEAssignment_7_2.eContents().get(0);
+		private final Action cSlangHaltStmtAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Keyword cHaltKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final RuleCall cSLANG_STRINGTerminalRuleCall_7_2 = (RuleCall)cGroup_7.eContents().get(2);
+		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
+		private final Action cSlangDoStmtAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final Keyword cDoKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cEAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cEExprParserRuleCall_8_2_0 = (RuleCall)cEAssignment_8_2.eContents().get(0);
+		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
+		private final Action cSlangIdStmtAction_9_0 = (Action)cGroup_9.eContents().get(0);
+		private final Assignment cPortOrSubcomponentOrStateVarAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cPortOrSubcomponentOrStateVarEObjectCrossReference_9_1_0 = (CrossReference)cPortOrSubcomponentOrStateVarAssignment_9_1.eContents().get(0);
+		private final RuleCall cPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_9_1_0_1 = (RuleCall)cPortOrSubcomponentOrStateVarEObjectCrossReference_9_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_9_2 = (Alternatives)cGroup_9.eContents().get(2);
+		private final Keyword cColonKeyword_9_2_0 = (Keyword)cAlternatives_9_2.eContents().get(0);
+		private final Group cGroup_9_2_1 = (Group)cAlternatives_9_2.eContents().get(1);
+		private final Alternatives cAlternatives_9_2_1_0 = (Alternatives)cGroup_9_2_1.eContents().get(0);
+		private final Keyword cColonEqualsSignKeyword_9_2_1_0_0 = (Keyword)cAlternatives_9_2_1_0.eContents().get(0);
+		private final RuleCall cDEFOPTerminalRuleCall_9_2_1_0_1 = (RuleCall)cAlternatives_9_2_1_0.eContents().get(1);
+		private final Assignment cEAssignment_9_2_1_1 = (Assignment)cGroup_9_2_1.eContents().get(1);
+		private final RuleCall cEExprParserRuleCall_9_2_1_1_0 = (RuleCall)cEAssignment_9_2_1_1.eContents().get(0);
 		
 		//SlangStmt
 		//    : {SlangVarDef} d=SlangVarDef
 		//    | {SlangIfStmt} 'if' cond=Expr b=SlangBlock e=SlangElse?
-		////    | {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
-		////    | {SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )* l=SlangLoopContract b=SlangBlock
+		//    | {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
+		////    | ({SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )*) l=SlangLoopContract b=SlangBlock
 		//    | {SlangMatchStmt} 'match' testExpr=Expr '{' c+=SlangCase* '}'
 		//    | {SlangSpecStmt} 'spec' b=SlangBlock
-		//    | {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/STRING?
-		//    | {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/STRING?
-		//    | {SlangHaltStmt} 'halt' /*SLANG_*/STRING?
+		//    | {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/SLANG_STRING?
+		//    | {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/SLANG_STRING?
+		//    | {SlangHaltStmt} 'halt' /*SLANG_*/SLANG_STRING?
 		//    | {SlangDoStmt} 'do' e=Expr
-		////    | {SlangIdStmt} ID
-		////      ( ':'
-		////      | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
-		////      )
+		//    // FIXME: This causes a "multiple alternatives" warning.
+		//    | {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
+		//      ( ':'
+		//      | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//      )
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		// {SlangVarDef} d=SlangVarDef
 		//    | {SlangIfStmt} 'if' cond=Expr b=SlangBlock e=SlangElse?
-		////    | {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
-		////    | {SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )* l=SlangLoopContract b=SlangBlock
+		//    | {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
+		////    | ({SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )*) l=SlangLoopContract b=SlangBlock
 		//    | {SlangMatchStmt} 'match' testExpr=Expr '{' c+=SlangCase* '}'
 		//    | {SlangSpecStmt} 'spec' b=SlangBlock
-		//    | {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/STRING?
-		//    | {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/STRING?
-		//    | {SlangHaltStmt} 'halt' /*SLANG_*/STRING?
+		//    | {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/SLANG_STRING?
+		//    | {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/SLANG_STRING?
+		//    | {SlangHaltStmt} 'halt' /*SLANG_*/SLANG_STRING?
 		//    | {SlangDoStmt} 'do' e=Expr
+		//    // FIXME: This causes a "multiple alternatives" warning.
+		//    | {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
+		//      ( ':'
+		//      | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//      )
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{SlangVarDef} d=SlangVarDef
@@ -1887,74 +1888,83 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//SlangElse
 		public RuleCall getESlangElseParserRuleCall_1_4_0() { return cESlangElseParserRuleCall_1_4_0; }
 		
-		//{SlangMatchStmt} 'match' testExpr=Expr '{' c+=SlangCase* '}'
+		//{SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//{SlangMatchStmt}
-		public Action getSlangMatchStmtAction_2_0() { return cSlangMatchStmtAction_2_0; }
+		//{SlangWhileStmt}
+		public Action getSlangWhileStmtAction_2_0() { return cSlangWhileStmtAction_2_0; }
 		
-		//'match'
-		public Keyword getMatchKeyword_2_1() { return cMatchKeyword_2_1; }
+		//'while'
+		public Keyword getWhileKeyword_2_1() { return cWhileKeyword_2_1; }
 		
-		//testExpr=Expr
-		public Assignment getTestExprAssignment_2_2() { return cTestExprAssignment_2_2; }
+		//cond=Expr
+		public Assignment getCondAssignment_2_2() { return cCondAssignment_2_2; }
 		
 		//Expr
-		public RuleCall getTestExprExprParserRuleCall_2_2_0() { return cTestExprExprParserRuleCall_2_2_0; }
+		public RuleCall getCondExprParserRuleCall_2_2_0() { return cCondExprParserRuleCall_2_2_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2_3() { return cLeftCurlyBracketKeyword_2_3; }
+		//l=SlangLoopContract
+		public Assignment getLAssignment_2_3() { return cLAssignment_2_3; }
 		
-		//c+=SlangCase*
-		public Assignment getCAssignment_2_4() { return cCAssignment_2_4; }
-		
-		//SlangCase
-		public RuleCall getCSlangCaseParserRuleCall_2_4_0() { return cCSlangCaseParserRuleCall_2_4_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_2_5() { return cRightCurlyBracketKeyword_2_5; }
-		
-		//{SlangSpecStmt} 'spec' b=SlangBlock
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//{SlangSpecStmt}
-		public Action getSlangSpecStmtAction_3_0() { return cSlangSpecStmtAction_3_0; }
-		
-		//'spec'
-		public Keyword getSpecKeyword_3_1() { return cSpecKeyword_3_1; }
+		//SlangLoopContract
+		public RuleCall getLSlangLoopContractParserRuleCall_2_3_0() { return cLSlangLoopContractParserRuleCall_2_3_0; }
 		
 		//b=SlangBlock
-		public Assignment getBAssignment_3_2() { return cBAssignment_3_2; }
+		public Assignment getBAssignment_2_4() { return cBAssignment_2_4; }
 		
 		//SlangBlock
-		public RuleCall getBSlangBlockParserRuleCall_3_2_0() { return cBSlangBlockParserRuleCall_3_2_0; }
+		public RuleCall getBSlangBlockParserRuleCall_2_4_0() { return cBSlangBlockParserRuleCall_2_4_0; }
 		
-		//{SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/STRING?
-		public Group getGroup_4() { return cGroup_4; }
+		//{SlangMatchStmt} 'match' testExpr=Expr '{' c+=SlangCase* '}'
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//{SlangAssumeStmt}
-		public Action getSlangAssumeStmtAction_4_0() { return cSlangAssumeStmtAction_4_0; }
+		//{SlangMatchStmt}
+		public Action getSlangMatchStmtAction_3_0() { return cSlangMatchStmtAction_3_0; }
 		
-		//'assume'
-		public Keyword getAssumeKeyword_4_1() { return cAssumeKeyword_4_1; }
+		//'match'
+		public Keyword getMatchKeyword_3_1() { return cMatchKeyword_3_1; }
 		
-		//e=Expr
-		public Assignment getEAssignment_4_2() { return cEAssignment_4_2; }
+		//testExpr=Expr
+		public Assignment getTestExprAssignment_3_2() { return cTestExprAssignment_3_2; }
 		
 		//Expr
-		public RuleCall getEExprParserRuleCall_4_2_0() { return cEExprParserRuleCall_4_2_0; }
+		public RuleCall getTestExprExprParserRuleCall_3_2_0() { return cTestExprExprParserRuleCall_3_2_0; }
 		
-		///*SLANG_*/STRING?
-		public RuleCall getSTRINGTerminalRuleCall_4_3() { return cSTRINGTerminalRuleCall_4_3; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3_3() { return cLeftCurlyBracketKeyword_3_3; }
 		
-		//{SlangAssertStmt} 'assert' e=Expr /*SLANG_*/STRING?
+		//c+=SlangCase*
+		public Assignment getCAssignment_3_4() { return cCAssignment_3_4; }
+		
+		//SlangCase
+		public RuleCall getCSlangCaseParserRuleCall_3_4_0() { return cCSlangCaseParserRuleCall_3_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3_5() { return cRightCurlyBracketKeyword_3_5; }
+		
+		//{SlangSpecStmt} 'spec' b=SlangBlock
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{SlangSpecStmt}
+		public Action getSlangSpecStmtAction_4_0() { return cSlangSpecStmtAction_4_0; }
+		
+		//'spec'
+		public Keyword getSpecKeyword_4_1() { return cSpecKeyword_4_1; }
+		
+		//b=SlangBlock
+		public Assignment getBAssignment_4_2() { return cBAssignment_4_2; }
+		
+		//SlangBlock
+		public RuleCall getBSlangBlockParserRuleCall_4_2_0() { return cBSlangBlockParserRuleCall_4_2_0; }
+		
+		//{SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/SLANG_STRING?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//{SlangAssertStmt}
-		public Action getSlangAssertStmtAction_5_0() { return cSlangAssertStmtAction_5_0; }
+		//{SlangAssumeStmt}
+		public Action getSlangAssumeStmtAction_5_0() { return cSlangAssumeStmtAction_5_0; }
 		
-		//'assert'
-		public Keyword getAssertKeyword_5_1() { return cAssertKeyword_5_1; }
+		//'assume'
+		public Keyword getAssumeKeyword_5_1() { return cAssumeKeyword_5_1; }
 		
 		//e=Expr
 		public Assignment getEAssignment_5_2() { return cEAssignment_5_2; }
@@ -1962,35 +1972,97 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Expr
 		public RuleCall getEExprParserRuleCall_5_2_0() { return cEExprParserRuleCall_5_2_0; }
 		
-		///*SLANG_*/STRING?
-		public RuleCall getSTRINGTerminalRuleCall_5_3() { return cSTRINGTerminalRuleCall_5_3; }
+		///*SLANG_*/SLANG_STRING?
+		public RuleCall getSLANG_STRINGTerminalRuleCall_5_3() { return cSLANG_STRINGTerminalRuleCall_5_3; }
 		
-		//{SlangHaltStmt} 'halt' /*SLANG_*/STRING?
+		//{SlangAssertStmt} 'assert' e=Expr /*SLANG_*/SLANG_STRING?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//{SlangHaltStmt}
-		public Action getSlangHaltStmtAction_6_0() { return cSlangHaltStmtAction_6_0; }
+		//{SlangAssertStmt}
+		public Action getSlangAssertStmtAction_6_0() { return cSlangAssertStmtAction_6_0; }
 		
-		//'halt'
-		public Keyword getHaltKeyword_6_1() { return cHaltKeyword_6_1; }
-		
-		///*SLANG_*/STRING?
-		public RuleCall getSTRINGTerminalRuleCall_6_2() { return cSTRINGTerminalRuleCall_6_2; }
-		
-		//{SlangDoStmt} 'do' e=Expr
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//{SlangDoStmt}
-		public Action getSlangDoStmtAction_7_0() { return cSlangDoStmtAction_7_0; }
-		
-		//'do'
-		public Keyword getDoKeyword_7_1() { return cDoKeyword_7_1; }
+		//'assert'
+		public Keyword getAssertKeyword_6_1() { return cAssertKeyword_6_1; }
 		
 		//e=Expr
-		public Assignment getEAssignment_7_2() { return cEAssignment_7_2; }
+		public Assignment getEAssignment_6_2() { return cEAssignment_6_2; }
 		
 		//Expr
-		public RuleCall getEExprParserRuleCall_7_2_0() { return cEExprParserRuleCall_7_2_0; }
+		public RuleCall getEExprParserRuleCall_6_2_0() { return cEExprParserRuleCall_6_2_0; }
+		
+		///*SLANG_*/SLANG_STRING?
+		public RuleCall getSLANG_STRINGTerminalRuleCall_6_3() { return cSLANG_STRINGTerminalRuleCall_6_3; }
+		
+		//{SlangHaltStmt} 'halt' /*SLANG_*/SLANG_STRING?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//{SlangHaltStmt}
+		public Action getSlangHaltStmtAction_7_0() { return cSlangHaltStmtAction_7_0; }
+		
+		//'halt'
+		public Keyword getHaltKeyword_7_1() { return cHaltKeyword_7_1; }
+		
+		///*SLANG_*/SLANG_STRING?
+		public RuleCall getSLANG_STRINGTerminalRuleCall_7_2() { return cSLANG_STRINGTerminalRuleCall_7_2; }
+		
+		//{SlangDoStmt} 'do' e=Expr
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//{SlangDoStmt}
+		public Action getSlangDoStmtAction_8_0() { return cSlangDoStmtAction_8_0; }
+		
+		//'do'
+		public Keyword getDoKeyword_8_1() { return cDoKeyword_8_1; }
+		
+		//e=Expr
+		public Assignment getEAssignment_8_2() { return cEAssignment_8_2; }
+		
+		//Expr
+		public RuleCall getEExprParserRuleCall_8_2_0() { return cEExprParserRuleCall_8_2_0; }
+		
+		//{SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
+		//     ( ':'
+		//     | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//     )
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//{SlangIdStmt}
+		public Action getSlangIdStmtAction_9_0() { return cSlangIdStmtAction_9_0; }
+		
+		//portOrSubcomponentOrStateVar=[ecore::EObject|ID]
+		public Assignment getPortOrSubcomponentOrStateVarAssignment_9_1() { return cPortOrSubcomponentOrStateVarAssignment_9_1; }
+		
+		//[ecore::EObject|ID]
+		public CrossReference getPortOrSubcomponentOrStateVarEObjectCrossReference_9_1_0() { return cPortOrSubcomponentOrStateVarEObjectCrossReference_9_1_0; }
+		
+		//ID
+		public RuleCall getPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_9_1_0_1() { return cPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_9_1_0_1; }
+		
+		//( ':'
+		//| /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//)
+		public Alternatives getAlternatives_9_2() { return cAlternatives_9_2; }
+		
+		//':'
+		public Keyword getColonKeyword_9_2_0() { return cColonKeyword_9_2_0; }
+		
+		///*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		public Group getGroup_9_2_1() { return cGroup_9_2_1; }
+		
+		//( ':=' | DEFOP )
+		public Alternatives getAlternatives_9_2_1_0() { return cAlternatives_9_2_1_0; }
+		
+		//':='
+		public Keyword getColonEqualsSignKeyword_9_2_1_0_0() { return cColonEqualsSignKeyword_9_2_1_0_0; }
+		
+		//DEFOP
+		public RuleCall getDEFOPTerminalRuleCall_9_2_1_0_1() { return cDEFOPTerminalRuleCall_9_2_1_0_1; }
+		
+		//e=Expr
+		public Assignment getEAssignment_9_2_1_1() { return cEAssignment_9_2_1_1; }
+		
+		//Expr
+		public RuleCall getEExprParserRuleCall_9_2_1_1_0() { return cEExprParserRuleCall_9_2_1_1_0; }
 	}
 	public class SlangElseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangElse");
@@ -2214,16 +2286,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangPattern");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Assignment cPatternsAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
-		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_1_1_0 = (RuleCall)cPatternsAssignment_0_1_1.eContents().get(0);
-		private final Group cGroup_0_1_2 = (Group)cGroup_0_1.eContents().get(2);
-		private final Keyword cCommaKeyword_0_1_2_0 = (Keyword)cGroup_0_1_2.eContents().get(0);
-		private final Assignment cPatternsAssignment_0_1_2_1 = (Assignment)cGroup_0_1_2.eContents().get(1);
-		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_1_2_1_0 = (RuleCall)cPatternsAssignment_0_1_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
+		private final Action cSlangPatternAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Assignment cPatternsAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
+		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_2_1_0 = (RuleCall)cPatternsAssignment_0_2_1.eContents().get(0);
+		private final Group cGroup_0_2_2 = (Group)cGroup_0_2.eContents().get(2);
+		private final Keyword cCommaKeyword_0_2_2_0 = (Keyword)cGroup_0_2_2.eContents().get(0);
+		private final Assignment cPatternsAssignment_0_2_2_1 = (Assignment)cGroup_0_2_2.eContents().get(1);
+		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_2_2_1_0 = (RuleCall)cPatternsAssignment_0_2_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_2_3 = (Keyword)cGroup_0_2.eContents().get(3);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cPatternsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -2234,48 +2307,53 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cPatternsSlangTPatternParserRuleCall_1_2_1_0 = (RuleCall)cPatternsAssignment_1_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		
-		//SlangPattern
-		//    : ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
+		//SlangPattern: {SlangPattern}
+		//      ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
 		//    | '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
+		//{SlangPattern}
+		//     ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
 		//   | '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
+		//{SlangPattern}
+		//     ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
 		public Group getGroup_0() { return cGroup_0; }
 		
+		//{SlangPattern}
+		public Action getSlangPatternAction_0_0() { return cSlangPatternAction_0_0; }
+		
 		//ID
-		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
+		public RuleCall getIDTerminalRuleCall_0_1() { return cIDTerminalRuleCall_0_1; }
 		
 		//( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
-		public Group getGroup_0_1() { return cGroup_0_1; }
+		public Group getGroup_0_2() { return cGroup_0_2; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_0_1_0() { return cLeftParenthesisKeyword_0_1_0; }
+		public Keyword getLeftParenthesisKeyword_0_2_0() { return cLeftParenthesisKeyword_0_2_0; }
 		
 		//patterns+=SlangTPattern
-		public Assignment getPatternsAssignment_0_1_1() { return cPatternsAssignment_0_1_1; }
+		public Assignment getPatternsAssignment_0_2_1() { return cPatternsAssignment_0_2_1; }
 		
 		//SlangTPattern
-		public RuleCall getPatternsSlangTPatternParserRuleCall_0_1_1_0() { return cPatternsSlangTPatternParserRuleCall_0_1_1_0; }
+		public RuleCall getPatternsSlangTPatternParserRuleCall_0_2_1_0() { return cPatternsSlangTPatternParserRuleCall_0_2_1_0; }
 		
 		//( ',' patterns+=SlangTPattern )*
-		public Group getGroup_0_1_2() { return cGroup_0_1_2; }
+		public Group getGroup_0_2_2() { return cGroup_0_2_2; }
 		
 		//','
-		public Keyword getCommaKeyword_0_1_2_0() { return cCommaKeyword_0_1_2_0; }
+		public Keyword getCommaKeyword_0_2_2_0() { return cCommaKeyword_0_2_2_0; }
 		
 		//patterns+=SlangTPattern
-		public Assignment getPatternsAssignment_0_1_2_1() { return cPatternsAssignment_0_1_2_1; }
+		public Assignment getPatternsAssignment_0_2_2_1() { return cPatternsAssignment_0_2_2_1; }
 		
 		//SlangTPattern
-		public RuleCall getPatternsSlangTPatternParserRuleCall_0_1_2_1_0() { return cPatternsSlangTPatternParserRuleCall_0_1_2_1_0; }
+		public RuleCall getPatternsSlangTPatternParserRuleCall_0_2_2_1_0() { return cPatternsSlangTPatternParserRuleCall_0_2_2_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_0_1_3() { return cRightParenthesisKeyword_0_1_3; }
+		public Keyword getRightParenthesisKeyword_0_2_3() { return cRightParenthesisKeyword_0_2_3; }
 		
 		//'(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
 		public Group getGroup_1() { return cGroup_1; }
@@ -2308,21 +2386,22 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangTPattern");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
-		private final Alternatives cAlternatives_0_1 = (Alternatives)cGroup_0.eContents().get(1);
-		private final Group cGroup_0_1_0 = (Group)cAlternatives_0_1.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_0_1_0_0 = (Keyword)cGroup_0_1_0.eContents().get(0);
-		private final Assignment cPatternsAssignment_0_1_0_1 = (Assignment)cGroup_0_1_0.eContents().get(1);
-		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_1_0_1_0 = (RuleCall)cPatternsAssignment_0_1_0_1.eContents().get(0);
-		private final Group cGroup_0_1_0_2 = (Group)cGroup_0_1_0.eContents().get(2);
-		private final Keyword cCommaKeyword_0_1_0_2_0 = (Keyword)cGroup_0_1_0_2.eContents().get(0);
-		private final Assignment cPatternsAssignment_0_1_0_2_1 = (Assignment)cGroup_0_1_0_2.eContents().get(1);
-		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_1_0_2_1_0 = (RuleCall)cPatternsAssignment_0_1_0_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_0_1_0_3 = (Keyword)cGroup_0_1_0.eContents().get(3);
-		private final Group cGroup_0_1_1 = (Group)cAlternatives_0_1.eContents().get(1);
-		private final Keyword cColonKeyword_0_1_1_0 = (Keyword)cGroup_0_1_1.eContents().get(0);
-		private final Assignment cTypeAssignment_0_1_1_1 = (Assignment)cGroup_0_1_1.eContents().get(1);
-		private final RuleCall cTypeSlangTypeParserRuleCall_0_1_1_1_0 = (RuleCall)cTypeAssignment_0_1_1_1.eContents().get(0);
+		private final Action cSlangTPatternAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
+		private final Group cGroup_0_2_0 = (Group)cAlternatives_0_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_2_0_0 = (Keyword)cGroup_0_2_0.eContents().get(0);
+		private final Assignment cPatternsAssignment_0_2_0_1 = (Assignment)cGroup_0_2_0.eContents().get(1);
+		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_2_0_1_0 = (RuleCall)cPatternsAssignment_0_2_0_1.eContents().get(0);
+		private final Group cGroup_0_2_0_2 = (Group)cGroup_0_2_0.eContents().get(2);
+		private final Keyword cCommaKeyword_0_2_0_2_0 = (Keyword)cGroup_0_2_0_2.eContents().get(0);
+		private final Assignment cPatternsAssignment_0_2_0_2_1 = (Assignment)cGroup_0_2_0_2.eContents().get(1);
+		private final RuleCall cPatternsSlangTPatternParserRuleCall_0_2_0_2_1_0 = (RuleCall)cPatternsAssignment_0_2_0_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_2_0_3 = (Keyword)cGroup_0_2_0.eContents().get(3);
+		private final Group cGroup_0_2_1 = (Group)cAlternatives_0_2.eContents().get(1);
+		private final Keyword cColonKeyword_0_2_1_0 = (Keyword)cGroup_0_2_1.eContents().get(0);
+		private final Assignment cTypeAssignment_0_2_1_1 = (Assignment)cGroup_0_2_1.eContents().get(1);
+		private final RuleCall cTypeSlangTypeParserRuleCall_0_2_1_1_0 = (RuleCall)cTypeAssignment_0_2_1_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cPatternsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -2333,71 +2412,75 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cPatternsSlangTPatternParserRuleCall_1_2_1_0 = (RuleCall)cPatternsAssignment_1_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword c_Keyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
-		private final Keyword cColonKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cTypeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cTypeSlangTypeParserRuleCall_2_1_1_0 = (RuleCall)cTypeAssignment_2_1_1.eContents().get(0);
+		private final Action cSlangTPatternAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword c_Keyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cColonKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cTypeAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cTypeSlangTypeParserRuleCall_2_2_1_0 = (RuleCall)cTypeAssignment_2_2_1.eContents().get(0);
 		
-		//SlangTPattern
-		//    : ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
+		//SlangTPattern:
+		//      {SlangTPattern} ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
 		//    | '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
-		//    | '_' ( ':' type=SlangType )?
+		//    | {SlangTPattern} '_' ( ':' type=SlangType )?
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
-		//   | '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
-		//   | '_' ( ':' type=SlangType )?
+		//  {SlangTPattern} ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
+		//| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
+		//| {SlangTPattern} '_' ( ':' type=SlangType )?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
+		//{SlangTPattern} ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
 		public Group getGroup_0() { return cGroup_0; }
 		
+		//{SlangTPattern}
+		public Action getSlangTPatternAction_0_0() { return cSlangTPatternAction_0_0; }
+		
 		//ID
-		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
+		public RuleCall getIDTerminalRuleCall_0_1() { return cIDTerminalRuleCall_0_1; }
 		
 		//( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
-		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
+		public Alternatives getAlternatives_0_2() { return cAlternatives_0_2; }
 		
 		//'(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
-		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
+		public Group getGroup_0_2_0() { return cGroup_0_2_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_0_1_0_0() { return cLeftParenthesisKeyword_0_1_0_0; }
+		public Keyword getLeftParenthesisKeyword_0_2_0_0() { return cLeftParenthesisKeyword_0_2_0_0; }
 		
 		//patterns+=SlangTPattern
-		public Assignment getPatternsAssignment_0_1_0_1() { return cPatternsAssignment_0_1_0_1; }
+		public Assignment getPatternsAssignment_0_2_0_1() { return cPatternsAssignment_0_2_0_1; }
 		
 		//SlangTPattern
-		public RuleCall getPatternsSlangTPatternParserRuleCall_0_1_0_1_0() { return cPatternsSlangTPatternParserRuleCall_0_1_0_1_0; }
+		public RuleCall getPatternsSlangTPatternParserRuleCall_0_2_0_1_0() { return cPatternsSlangTPatternParserRuleCall_0_2_0_1_0; }
 		
 		//( ',' patterns+=SlangTPattern )*
-		public Group getGroup_0_1_0_2() { return cGroup_0_1_0_2; }
+		public Group getGroup_0_2_0_2() { return cGroup_0_2_0_2; }
 		
 		//','
-		public Keyword getCommaKeyword_0_1_0_2_0() { return cCommaKeyword_0_1_0_2_0; }
+		public Keyword getCommaKeyword_0_2_0_2_0() { return cCommaKeyword_0_2_0_2_0; }
 		
 		//patterns+=SlangTPattern
-		public Assignment getPatternsAssignment_0_1_0_2_1() { return cPatternsAssignment_0_1_0_2_1; }
+		public Assignment getPatternsAssignment_0_2_0_2_1() { return cPatternsAssignment_0_2_0_2_1; }
 		
 		//SlangTPattern
-		public RuleCall getPatternsSlangTPatternParserRuleCall_0_1_0_2_1_0() { return cPatternsSlangTPatternParserRuleCall_0_1_0_2_1_0; }
+		public RuleCall getPatternsSlangTPatternParserRuleCall_0_2_0_2_1_0() { return cPatternsSlangTPatternParserRuleCall_0_2_0_2_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_0_1_0_3() { return cRightParenthesisKeyword_0_1_0_3; }
+		public Keyword getRightParenthesisKeyword_0_2_0_3() { return cRightParenthesisKeyword_0_2_0_3; }
 		
 		//':' type=SlangType
-		public Group getGroup_0_1_1() { return cGroup_0_1_1; }
+		public Group getGroup_0_2_1() { return cGroup_0_2_1; }
 		
 		//':'
-		public Keyword getColonKeyword_0_1_1_0() { return cColonKeyword_0_1_1_0; }
+		public Keyword getColonKeyword_0_2_1_0() { return cColonKeyword_0_2_1_0; }
 		
 		//type=SlangType
-		public Assignment getTypeAssignment_0_1_1_1() { return cTypeAssignment_0_1_1_1; }
+		public Assignment getTypeAssignment_0_2_1_1() { return cTypeAssignment_0_2_1_1; }
 		
 		//SlangType
-		public RuleCall getTypeSlangTypeParserRuleCall_0_1_1_1_0() { return cTypeSlangTypeParserRuleCall_0_1_1_1_0; }
+		public RuleCall getTypeSlangTypeParserRuleCall_0_2_1_1_0() { return cTypeSlangTypeParserRuleCall_0_2_1_1_0; }
 		
 		//'(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
 		public Group getGroup_1() { return cGroup_1; }
@@ -2426,23 +2509,26 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//')'
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 		
-		//'_' ( ':' type=SlangType )?
+		//{SlangTPattern} '_' ( ':' type=SlangType )?
 		public Group getGroup_2() { return cGroup_2; }
 		
+		//{SlangTPattern}
+		public Action getSlangTPatternAction_2_0() { return cSlangTPatternAction_2_0; }
+		
 		//'_'
-		public Keyword get_Keyword_2_0() { return c_Keyword_2_0; }
+		public Keyword get_Keyword_2_1() { return c_Keyword_2_1; }
 		
 		//( ':' type=SlangType )?
-		public Group getGroup_2_1() { return cGroup_2_1; }
+		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//':'
-		public Keyword getColonKeyword_2_1_0() { return cColonKeyword_2_1_0; }
+		public Keyword getColonKeyword_2_2_0() { return cColonKeyword_2_2_0; }
 		
 		//type=SlangType
-		public Assignment getTypeAssignment_2_1_1() { return cTypeAssignment_2_1_1; }
+		public Assignment getTypeAssignment_2_2_1() { return cTypeAssignment_2_2_1; }
 		
 		//SlangType
-		public RuleCall getTypeSlangTypeParserRuleCall_2_1_1_0() { return cTypeSlangTypeParserRuleCall_2_1_1_0; }
+		public RuleCall getTypeSlangTypeParserRuleCall_2_2_1_0() { return cTypeSlangTypeParserRuleCall_2_2_1_0; }
 	}
 	public class SlangTypedVarDefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangTypedVarDef");
@@ -2450,16 +2536,18 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cSlangVarModParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final RuleCall cSlangPatternParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTypeSlangTypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Assignment cTypeNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeNameSlangTypeParserRuleCall_3_0 = (RuleCall)cTypeNameAssignment_3.eContents().get(0);
 		private final Keyword cColonEqualsSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cInitAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cInitExprParserRuleCall_5_0 = (RuleCall)cInitAssignment_5.eContents().get(0);
 		
-		//SlangTypedVarDef: SlangVarMod SlangPattern ':' type=SlangType ':=' init=Expr ;
+		//SlangTypedVarDef returns SlangVarDef:
+		//    SlangVarMod SlangPattern ':' typeName=SlangType ':=' init=Expr
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SlangVarMod SlangPattern ':' type=SlangType ':=' init=Expr
+		//SlangVarMod SlangPattern ':' typeName=SlangType ':=' init=Expr
 		public Group getGroup() { return cGroup; }
 		
 		//SlangVarMod
@@ -2471,11 +2559,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
-		//type=SlangType
-		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		//typeName=SlangType
+		public Assignment getTypeNameAssignment_3() { return cTypeNameAssignment_3; }
 		
 		//SlangType
-		public RuleCall getTypeSlangTypeParserRuleCall_3_0() { return cTypeSlangTypeParserRuleCall_3_0; }
+		public RuleCall getTypeNameSlangTypeParserRuleCall_3_0() { return cTypeNameSlangTypeParserRuleCall_3_0; }
 		
 		//':='
 		public Keyword getColonEqualsSignKeyword_4() { return cColonEqualsSignKeyword_4; }
@@ -2493,16 +2581,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cSlangPatternParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cTypeSlangTypeParserRuleCall_2_1_0 = (RuleCall)cTypeAssignment_2_1.eContents().get(0);
+		private final Assignment cTypeNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cTypeNameSlangTypeParserRuleCall_2_1_0 = (RuleCall)cTypeNameAssignment_2_1.eContents().get(0);
 		private final Keyword cColonEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cInitAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cInitExprParserRuleCall_4_0 = (RuleCall)cInitAssignment_4.eContents().get(0);
 		
-		//SlangVarDef: SlangVarMod SlangPattern ( ':' type=SlangType )? ':=' init=Expr ;
+		//SlangVarDef: SlangVarMod SlangPattern ( ':' typeName=SlangType )? ':=' init=Expr ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SlangVarMod SlangPattern ( ':' type=SlangType )? ':=' init=Expr
+		//SlangVarMod SlangPattern ( ':' typeName=SlangType )? ':=' init=Expr
 		public Group getGroup() { return cGroup; }
 		
 		//SlangVarMod
@@ -2511,17 +2599,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//SlangPattern
 		public RuleCall getSlangPatternParserRuleCall_1() { return cSlangPatternParserRuleCall_1; }
 		
-		//( ':' type=SlangType )?
+		//( ':' typeName=SlangType )?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//':'
 		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
 		
-		//type=SlangType
-		public Assignment getTypeAssignment_2_1() { return cTypeAssignment_2_1; }
+		//typeName=SlangType
+		public Assignment getTypeNameAssignment_2_1() { return cTypeNameAssignment_2_1; }
 		
 		//SlangType
-		public RuleCall getTypeSlangTypeParserRuleCall_2_1_0() { return cTypeSlangTypeParserRuleCall_2_1_0; }
+		public RuleCall getTypeNameSlangTypeParserRuleCall_2_1_0() { return cTypeNameSlangTypeParserRuleCall_2_1_0; }
 		
 		//':='
 		public Keyword getColonEqualsSignKeyword_3() { return cColonEqualsSignKeyword_3; }
@@ -2535,60 +2623,58 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class SlangVarDeclDefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangVarDeclDef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSlangVarDeclDefAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cSlangVarModParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Keyword cSpecKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cTypeNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTypeNameSlangTypeParserRuleCall_5_0 = (RuleCall)cTypeNameAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cColonEqualsSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cInitAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cInitExprParserRuleCall_6_1_0 = (RuleCall)cInitAssignment_6_1.eContents().get(0);
+		private final RuleCall cSlangVarModParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cSpecKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTypeNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypeNameSlangTypeParserRuleCall_4_0 = (RuleCall)cTypeNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cColonEqualsSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cInitAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cInitExprParserRuleCall_5_1_0 = (RuleCall)cInitAssignment_5_1.eContents().get(0);
 		
-		//SlangVarDeclDef: {SlangVarDeclDef} SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )? ;
+		//SlangVarDeclDef returns SlangVarDef:
+		//    SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )?
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SlangVarDeclDef} SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )?
+		//SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )?
 		public Group getGroup() { return cGroup; }
 		
-		//{SlangVarDeclDef}
-		public Action getSlangVarDeclDefAction_0() { return cSlangVarDeclDefAction_0; }
-		
 		//SlangVarMod
-		public RuleCall getSlangVarModParserRuleCall_1() { return cSlangVarModParserRuleCall_1; }
+		public RuleCall getSlangVarModParserRuleCall_0() { return cSlangVarModParserRuleCall_0; }
 		
 		//'spec'?
-		public Keyword getSpecKeyword_2() { return cSpecKeyword_2; }
+		public Keyword getSpecKeyword_1() { return cSpecKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//':'
-		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
 		//typeName=SlangType
-		public Assignment getTypeNameAssignment_5() { return cTypeNameAssignment_5; }
+		public Assignment getTypeNameAssignment_4() { return cTypeNameAssignment_4; }
 		
 		//SlangType
-		public RuleCall getTypeNameSlangTypeParserRuleCall_5_0() { return cTypeNameSlangTypeParserRuleCall_5_0; }
+		public RuleCall getTypeNameSlangTypeParserRuleCall_4_0() { return cTypeNameSlangTypeParserRuleCall_4_0; }
 		
 		//( ':=' init=Expr )?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//':='
-		public Keyword getColonEqualsSignKeyword_6_0() { return cColonEqualsSignKeyword_6_0; }
+		public Keyword getColonEqualsSignKeyword_5_0() { return cColonEqualsSignKeyword_5_0; }
 		
 		//init=Expr
-		public Assignment getInitAssignment_6_1() { return cInitAssignment_6_1; }
+		public Assignment getInitAssignment_5_1() { return cInitAssignment_5_1; }
 		
 		//Expr
-		public RuleCall getInitExprParserRuleCall_6_1_0() { return cInitExprParserRuleCall_6_1_0; }
+		public RuleCall getInitExprParserRuleCall_5_1_0() { return cInitExprParserRuleCall_5_1_0; }
 	}
 	public class SlangVarModElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangVarMod");
@@ -3695,28 +3781,38 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final RuleCall cINTEGER_LITTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cREAL_LITTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cINT_IDFTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cHEXTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cBINTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cREAL_LITTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cSLANG_STRINGTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cREAL_IDFTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cMSTRINGTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		
 		//SlangLit
 		//    : 'true'
 		//    | 'false'
-		//    | INTEGER_LIT//INT
-		////    | HEX
-		////    | BIN
-		//    | REAL_LIT//REAL
-		//    | /*SLANG_*/STRING
-		////    | MSTRING
+		//    | INTEGER_LIT
+		//    | INT_IDF
+		//    | HEX
+		//    | BIN
+		//    | REAL_LIT
+		//    | SLANG_STRING
+		//    | REAL_IDF
+		//    | MSTRING
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		// 'true'
-		//    | 'false'
-		//    | INTEGER_LIT//INT
-		////    | HEX
-		////    | BIN
-		//    | REAL_LIT//REAL
-		//    | /*SLANG_*/STRING
+		//'true'
+		//   | 'false'
+		//   | INTEGER_LIT
+		//   | INT_IDF
+		//   | HEX
+		//   | BIN
+		//   | REAL_LIT
+		//   | SLANG_STRING
+		//   | REAL_IDF
+		//   | MSTRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'true'
@@ -3728,11 +3824,26 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//INTEGER_LIT
 		public RuleCall getINTEGER_LITTerminalRuleCall_2() { return cINTEGER_LITTerminalRuleCall_2; }
 		
-		//REAL_LIT
-		public RuleCall getREAL_LITTerminalRuleCall_3() { return cREAL_LITTerminalRuleCall_3; }
+		//INT_IDF
+		public RuleCall getINT_IDFTerminalRuleCall_3() { return cINT_IDFTerminalRuleCall_3; }
 		
-		///*SLANG_*/STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		//HEX
+		public RuleCall getHEXTerminalRuleCall_4() { return cHEXTerminalRuleCall_4; }
+		
+		//BIN
+		public RuleCall getBINTerminalRuleCall_5() { return cBINTerminalRuleCall_5; }
+		
+		//REAL_LIT
+		public RuleCall getREAL_LITTerminalRuleCall_6() { return cREAL_LITTerminalRuleCall_6; }
+		
+		//SLANG_STRING
+		public RuleCall getSLANG_STRINGTerminalRuleCall_7() { return cSLANG_STRINGTerminalRuleCall_7; }
+		
+		//REAL_IDF
+		public RuleCall getREAL_IDFTerminalRuleCall_8() { return cREAL_IDFTerminalRuleCall_8; }
+		
+		//MSTRING
+		public RuleCall getMSTRINGTerminalRuleCall_9() { return cMSTRINGTerminalRuleCall_9; }
 	}
 	public class SlangInterpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangInterp");
@@ -3829,7 +3940,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cPlusMinusParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSTARParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		////terminal DEFOP: ':' OPSYM* '=' ;
 		////
 		//Operator: OP | PlusMinus | STAR;
 		@Override public ParserRule getRule() { return rule; }
@@ -3924,16 +4034,25 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final SlangLitElements pSlangLit;
 	private final SlangInterpElements pSlangInterp;
 	private final SlangMInterpElements pSlangMInterp;
+	private final TerminalRule tSLANG_STRING;
+	private final TerminalRule tMSTRING;
 	private final TerminalRule tMSP;
 	private final TerminalRule tMSPB;
 	private final TerminalRule tMSPM;
 	private final TerminalRule tMSPE;
+	private final TerminalRule tDEFOP;
 	private final OperatorElements pOperator;
 	private final TerminalRule tOP;
+	private final TerminalRule tHEX;
+	private final TerminalRule tBIN;
+	private final TerminalRule tINT_IDF;
+	private final TerminalRule tREAL_IDF;
 	private final TerminalRule tIDF;
 	private final TerminalRule tMSPI;
 	private final TerminalRule tLETTER;
 	private final TerminalRule tOPSYM;
+	private final TerminalRule tESC_SEQ;
+	private final TerminalRule tUNICODE_ESC;
 	
 	private final Grammar grammar;
 	
@@ -4020,16 +4139,25 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pSlangLit = new SlangLitElements();
 		this.pSlangInterp = new SlangInterpElements();
 		this.pSlangMInterp = new SlangMInterpElements();
+		this.tSLANG_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+		this.tMSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSTRING");
 		this.tMSP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSP");
 		this.tMSPB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPB");
 		this.tMSPM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPM");
 		this.tMSPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPE");
+		this.tDEFOP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.DEFOP");
 		this.pOperator = new OperatorElements();
 		this.tOP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.OP");
+		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.HEX");
+		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BIN");
+		this.tINT_IDF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.INT_IDF");
+		this.tREAL_IDF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.REAL_IDF");
 		this.tIDF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.IDF");
 		this.tMSPI = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPI");
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.LETTER");
 		this.tOPSYM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.OPSYM");
+		this.tESC_SEQ = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ESC_SEQ");
+		this.tUNICODE_ESC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.UNICODE_ESC");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -4106,9 +4234,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getGumboSubclauseAccess().getRule();
 	}
 	
-	//SpecSection:
-	////    ComputationalModel
-	////|    Flows
+	//SpecSection: {SpecSection}
 	//    (state = State)?
 	//    (functions = Functions)?
 	//    (invariants = Invariants)?
@@ -4124,25 +4250,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSpecSectionAccess().getRule();
 	}
 	
-	////ComputationalModel:
-	////    'computational_model' (
-	////        {PeriodicComputationalModel} 'periodic'
-	////    |    {HyperperiodComputationalModel} 'hyperperiod' 'with'
-	////        (constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
-	////    )
-	////;
-	////Flows:
-	////    'flows' (flows+=Flow)+
-	////;
-	////
-	////Flow returns Flow:
-	////    =>    flowId=ID ':'
-	////        srcPorts+=FeatureElement (',' srcPorts+=FeatureElement)* '-fun->'
-	////        dstPorts+=FeatureElement (',' dstPorts+=FeatureElement)*
-	////;
-	////Contract:
-	////    'contracts' (specs+=SpecStatement)+
-	////;
 	//State:
 	//    'state' (decls += StateVarDecl)+
 	//;
@@ -4182,7 +4289,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//InvSpec:
-	//    'inv' displayName=STRING ':' expr=Expr ';'
+	//    'inv' displayName=SLANG_STRING ':' expr=Expr ';'
 	//;
 	public InvSpecElements getInvSpecAccess() {
 		return pInvSpec;
@@ -4240,7 +4347,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//CaseStatementClause:
-	//    'case' displayName=STRING ':'
+	//    'case' displayName=SLANG_STRING ':'
 	//           // in case clauses, we must have both an assume clause and a guarantee clause
 	//           // but they don't have a display name (they will "inherit" the name from the case name).
 	//           assumeStatement = AnonAssumeStatement
@@ -4267,7 +4374,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//AssumeStatement:
-	//    'assume' displayName=STRING ':' expr=Expr ';'
+	//    'assume' displayName=SLANG_STRING ':' expr=Expr ';'
 	//;
 	public AssumeStatementElements getAssumeStatementAccess() {
 		return pAssumeStatement;
@@ -4289,7 +4396,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//GuaranteeStatement:
-	//    'guarantee' displayName=STRING ':' expr=Expr ';'
+	//    'guarantee' displayName=SLANG_STRING ':' expr=Expr ';'
 	//;
 	public GuaranteeStatementElements getGuaranteeStatementAccess() {
 		return pGuaranteeStatement;
@@ -4310,11 +4417,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getAnonGuaranteeStatementAccess().getRule();
 	}
 	
-	////SpecStatement:
-	////    {AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
-	////        assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
-	////|    {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
-	////;
 	//PREDICATE: // TODO
 	//    ID
 	//;
@@ -4326,30 +4428,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getPREDICATEAccess().getRule();
 	}
 	
-	////AtomicExpr returns Expr:
-	////  Need to figure out how to reference difference types of IDs, including cross references
-	////  to port names, state variables, etc.
-	////  Alternatively can the grammar be parameterized by the kinds of IDs to be supported?
-	////  For example, invariants should only reference state variables.
-	////    {IdExpr} id=[aadl2::NamedElement | QCREF]
-	////    {StateVarRef} 'var' stateVar=[StateVarDecl|ID] ('.' ref=OtherDataRef)?
-	////|   {PortRef} 'port' port=ContainmentPathElement
-	////   {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=CallSuffix?
-	////| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
-	////| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
-	////|    {IntLit} value=INTEGER_LIT  // use int lit syntax from AADL properties file
-	////|   {RealLitExpr} val=REAL_LIT
-	////|   {BoolLitExpr} val=BooleanLiteral
-	////|   {FloorCast} 'floor' '(' expr=Expr ')'
-	////|   {RealCast}  'real' '(' expr=Expr ')'
-	////|   ID CallSuffix
-	////|   '(' Expr ')'
-	////;
 	//OtherDataRef:
 	//    (
 	//        (
 	//            namedElement=[aadl2::NamedElement|ID]
-	////             (arrayRange+=ArrayRange)*
+	//             (arrayRange+=ArrayRange)*
 	//        )
 	//        ('.' path=OtherDataRef)?
 	////     |      'annex' namedElement=[aadl2::NamedElement|ID]
@@ -4396,9 +4479,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSubcomponentElementAccess().getRule();
 	}
 	
-	////FeatureElement returns FeatureElement:
-	////    feature=[aadl2::NamedElement|ID]
-	////;
 	//Functions:
 	//    'functions' (specs+=FuncSpec)+
 	//;
@@ -4523,7 +4603,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangDefContractAccess().getRule();
 	}
 	
-	//SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING req=SlangRequires? ens=SlangEnsures? ;
+	//SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/SLANG_STRING req=SlangRequires? ens=SlangEnsures? ;
 	public SlangDefContractCaseElements getSlangDefContractCaseAccess() {
 		return pSlangDefContractCase;
 	}
@@ -4541,7 +4621,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangSuprsAccess().getRule();
 	}
 	
-	//SlangSupr: SlangName SlangTypeArgs? ;
+	//SlangSupr: name=SlangName args=SlangTypeArgs? ;
 	public SlangSuprElements getSlangSuprAccess() {
 		return pSlangSupr;
 	}
@@ -4616,18 +4696,19 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//SlangStmt
 	//    : {SlangVarDef} d=SlangVarDef
 	//    | {SlangIfStmt} 'if' cond=Expr b=SlangBlock e=SlangElse?
-	////    | {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
-	////    | {SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )* l=SlangLoopContract b=SlangBlock
+	//    | {SlangWhileStmt} 'while' cond=Expr l=SlangLoopContract b=SlangBlock
+	////    | ({SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )*) l=SlangLoopContract b=SlangBlock
 	//    | {SlangMatchStmt} 'match' testExpr=Expr '{' c+=SlangCase* '}'
 	//    | {SlangSpecStmt} 'spec' b=SlangBlock
-	//    | {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/STRING?
-	//    | {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/STRING?
-	//    | {SlangHaltStmt} 'halt' /*SLANG_*/STRING?
+	//    | {SlangAssumeStmt} 'assume' e=Expr /*SLANG_*/SLANG_STRING?
+	//    | {SlangAssertStmt} 'assert' e=Expr /*SLANG_*/SLANG_STRING?
+	//    | {SlangHaltStmt} 'halt' /*SLANG_*/SLANG_STRING?
 	//    | {SlangDoStmt} 'do' e=Expr
-	////    | {SlangIdStmt} ID
-	////      ( ':'
-	////      | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
-	////      )
+	//    // FIXME: This causes a "multiple alternatives" warning.
+	//    | {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
+	//      ( ':'
+	//      | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+	//      )
 	//    ;
 	public SlangStmtElements getSlangStmtAccess() {
 		return pSlangStmt;
@@ -4681,8 +4762,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangCaseAccess().getRule();
 	}
 	
-	//SlangPattern
-	//    : ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
+	//SlangPattern: {SlangPattern}
+	//      ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
 	//    | '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
 	//    ;
 	public SlangPatternElements getSlangPatternAccess() {
@@ -4693,10 +4774,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangPatternAccess().getRule();
 	}
 	
-	//SlangTPattern
-	//    : ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
+	//SlangTPattern:
+	//      {SlangTPattern} ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
 	//    | '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
-	//    | '_' ( ':' type=SlangType )?
+	//    | {SlangTPattern} '_' ( ':' type=SlangType )?
 	//    ;
 	public SlangTPatternElements getSlangTPatternAccess() {
 		return pSlangTPattern;
@@ -4706,7 +4787,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangTPatternAccess().getRule();
 	}
 	
-	//SlangTypedVarDef: SlangVarMod SlangPattern ':' type=SlangType ':=' init=Expr ;
+	//SlangTypedVarDef returns SlangVarDef:
+	//    SlangVarMod SlangPattern ':' typeName=SlangType ':=' init=Expr
+	//;
 	public SlangTypedVarDefElements getSlangTypedVarDefAccess() {
 		return pSlangTypedVarDef;
 	}
@@ -4715,7 +4798,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangTypedVarDefAccess().getRule();
 	}
 	
-	//SlangVarDef: SlangVarMod SlangPattern ( ':' type=SlangType )? ':=' init=Expr ;
+	//SlangVarDef: SlangVarMod SlangPattern ( ':' typeName=SlangType )? ':=' init=Expr ;
 	public SlangVarDefElements getSlangVarDefAccess() {
 		return pSlangVarDef;
 	}
@@ -4724,7 +4807,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangVarDefAccess().getRule();
 	}
 	
-	//SlangVarDeclDef: {SlangVarDeclDef} SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )? ;
+	//SlangVarDeclDef returns SlangVarDef:
+	//    SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=Expr )?
+	//;
 	public SlangVarDeclDefElements getSlangVarDeclDefAccess() {
 		return pSlangVarDeclDef;
 	}
@@ -4910,12 +4995,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//SlangLit
 	//    : 'true'
 	//    | 'false'
-	//    | INTEGER_LIT//INT
-	////    | HEX
-	////    | BIN
-	//    | REAL_LIT//REAL
-	//    | /*SLANG_*/STRING
-	////    | MSTRING
+	//    | INTEGER_LIT
+	//    | INT_IDF
+	//    | HEX
+	//    | BIN
+	//    | REAL_LIT
+	//    | SLANG_STRING
+	//    | REAL_IDF
+	//    | MSTRING
 	//    ;
 	public SlangLitElements getSlangLitAccess() {
 		return pSlangLit;
@@ -4948,9 +5035,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangMInterpAccess().getRule();
 	}
 	
-	////terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
-	////terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
-	////
+	//terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
+	public TerminalRule getSLANG_STRINGRule() {
+		return tSLANG_STRING;
+	}
+	
+	//terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
+	public TerminalRule getMSTRINGRule() {
+		return tMSTRING;
+	}
+	
 	//terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
 	public TerminalRule getMSPRule() {
 		return tMSP;
@@ -4971,7 +5065,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return tMSPE;
 	}
 	
-	////terminal DEFOP: ':' OPSYM* '=' ;
+	//terminal DEFOP: ':' OPSYM* '=' ;
+	public TerminalRule getDEFOPRule() {
+		return tDEFOP;
+	}
+	
 	////
 	//Operator: OP | PlusMinus | STAR;
 	public OperatorElements getOperatorAccess() {
@@ -4993,15 +5091,32 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////    | '1'..'9' DIGIT* IDF_NOU?
 	////    ;
 	////
-	////terminal HEX: '0x' EXTENDED_DIGIT+ ( '.' IDF )? ;
-	////
-	////terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
+	//terminal HEX: '0x' EXTENDED_DIGIT+ ( '.' IDF )? ;
+	public TerminalRule getHEXRule() {
+		return tHEX;
+	}
+	
+	//terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
+	public TerminalRule getBINRule() {
+		return tBIN;
+	}
+	
 	////terminal REAL
 	////    : DIGIT+ '.' DIGIT+ EXPONENT? REALIDF?
 	////    | '.' DIGIT+ EXPONENT? REALIDF?
 	////    | DIGIT+ EXPONENT REALIDF?
 	////    ;
 	////terminal CHAR: '\'' ( ESC_SEQ | !('\''|'\\') ) '\'' ;
+	//terminal INT_IDF: INTEGER_LIT IDF;
+	public TerminalRule getINT_IDFRule() {
+		return tINT_IDF;
+	}
+	
+	//terminal REAL_IDF: REAL_LIT IDF;
+	public TerminalRule getREAL_IDFRule() {
+		return tREAL_IDF;
+	}
+	
 	//terminal fragment IDF: ( LETTER | '_' ) ( LETTER | DIGIT )* ;
 	public TerminalRule getIDFRule() {
 		return tIDF;
@@ -5032,6 +5147,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    ;
 	public TerminalRule getOPSYMRule() {
 		return tOPSYM;
+	}
+	
+	//terminal fragment ESC_SEQ: '\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\' ) | UNICODE_ESC ;
+	public TerminalRule getESC_SEQRule() {
+		return tESC_SEQ;
+	}
+	
+	//terminal fragment UNICODE_ESC: '\\' 'u' EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT ;
+	public TerminalRule getUNICODE_ESCRule() {
+		return tUNICODE_ESC;
 	}
 	
 	//PModel returns aadl2::Element:
