@@ -175,6 +175,26 @@ public class SlangBlockTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
+         GumboFactory.eINSTANCE.createSlangAccess()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add
@@ -276,36 +296,6 @@ public class SlangBlockTermItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK_TERM__R,
          GumboFactory.eINSTANCE.createSlangRet()));
-  }
-
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == GumboPackage.Literals.EXPR__TERM ||
-      childFeature == GumboPackage.Literals.EXPR__THEN_EXPR ||
-      childFeature == GumboPackage.Literals.EXPR__ELSE_EXPR ||
-      childFeature == GumboPackage.Literals.EXPR__QUANTIFIED_EXPR ||
-      childFeature == GumboPackage.Literals.EXPR__T ||
-      childFeature == GumboPackage.Literals.EXPR__M ||
-      childFeature == GumboPackage.Literals.SLANG_BLOCK_TERM__E;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
   }
 
 }

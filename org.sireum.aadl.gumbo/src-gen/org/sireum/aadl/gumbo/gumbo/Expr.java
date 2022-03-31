@@ -13,164 +13,18 @@
  */
 package org.sireum.aadl.gumbo.gumbo;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Expr</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Expr#getTerm <em>Term</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Expr#getThenExpr <em>Then Expr</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Expr#getElseExpr <em>Else Expr</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Expr#getQVar <em>QVar</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Expr#getQuantifiedExpr <em>Quantified Expr</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Expr#getT <em>T</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Expr#getM <em>M</em>}</li>
- * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr()
  * @model
  * @generated
  */
-public interface Expr extends SlangMInterp
+public interface Expr extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Term</b></em>' containment reference list.
-   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.Expr}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Term</em>' containment reference list.
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr_Term()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Expr> getTerm();
-
-  /**
-   * Returns the value of the '<em><b>Then Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Then Expr</em>' containment reference.
-   * @see #setThenExpr(Expr)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr_ThenExpr()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getThenExpr();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.Expr#getThenExpr <em>Then Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Then Expr</em>' containment reference.
-   * @see #getThenExpr()
-   * @generated
-   */
-  void setThenExpr(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>Else Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Else Expr</em>' containment reference.
-   * @see #setElseExpr(Expr)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr_ElseExpr()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getElseExpr();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.Expr#getElseExpr <em>Else Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Else Expr</em>' containment reference.
-   * @see #getElseExpr()
-   * @generated
-   */
-  void setElseExpr(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>QVar</b></em>' containment reference list.
-   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>QVar</em>' containment reference list.
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr_QVar()
-   * @model containment="true"
-   * @generated
-   */
-  EList<SlangQuantVar> getQVar();
-
-  /**
-   * Returns the value of the '<em><b>Quantified Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Quantified Expr</em>' containment reference.
-   * @see #setQuantifiedExpr(Expr)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr_QuantifiedExpr()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getQuantifiedExpr();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.Expr#getQuantifiedExpr <em>Quantified Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Quantified Expr</em>' containment reference.
-   * @see #getQuantifiedExpr()
-   * @generated
-   */
-  void setQuantifiedExpr(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>T</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>T</em>' containment reference.
-   * @see #setT(Expr)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr_T()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getT();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.Expr#getT <em>T</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>T</em>' containment reference.
-   * @see #getT()
-   * @generated
-   */
-  void setT(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>M</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>M</em>' containment reference.
-   * @see #setM(SlangMInterp)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getExpr_M()
-   * @model containment="true"
-   * @generated
-   */
-  SlangMInterp getM();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.Expr#getM <em>M</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>M</em>' containment reference.
-   * @see #getM()
-   * @generated
-   */
-  void setM(SlangMInterp value);
-
 } // Expr

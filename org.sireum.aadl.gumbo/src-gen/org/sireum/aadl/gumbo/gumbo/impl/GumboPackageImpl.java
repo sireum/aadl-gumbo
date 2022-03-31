@@ -26,6 +26,9 @@ import org.osate.aadl2.Aadl2Package;
 import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
+import org.sireum.aadl.gumbo.gumbo.BasicExp;
+import org.sireum.aadl.gumbo.gumbo.BinLit;
+import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
@@ -40,13 +43,21 @@ import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.HexLit;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
+import org.sireum.aadl.gumbo.gumbo.IntIdfLit;
+import org.sireum.aadl.gumbo.gumbo.IntegerLit;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.Invariants;
+import org.sireum.aadl.gumbo.gumbo.MStringLit;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
+import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
+import org.sireum.aadl.gumbo.gumbo.RealIdfLit;
+import org.sireum.aadl.gumbo.gumbo.RealLit;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
+import org.sireum.aadl.gumbo.gumbo.SlangAccess;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangBlock;
@@ -77,6 +88,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangInterpTerm;
 import org.sireum.aadl.gumbo.gumbo.SlangInvariant;
 import org.sireum.aadl.gumbo.gumbo.SlangLHSSuffix;
+import org.sireum.aadl.gumbo.gumbo.SlangLit;
 import org.sireum.aadl.gumbo.gumbo.SlangLitTerm;
 import org.sireum.aadl.gumbo.gumbo.SlangLoopContract;
 import org.sireum.aadl.gumbo.gumbo.SlangMInterp;
@@ -92,6 +104,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangRequires;
 import org.sireum.aadl.gumbo.gumbo.SlangRet;
 import org.sireum.aadl.gumbo.gumbo.SlangSpecStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangStmt;
+import org.sireum.aadl.gumbo.gumbo.SlangStringLit;
 import org.sireum.aadl.gumbo.gumbo.SlangSupr;
 import org.sireum.aadl.gumbo.gumbo.SlangSuprs;
 import org.sireum.aadl.gumbo.gumbo.SlangTPattern;
@@ -105,6 +118,7 @@ import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
+import org.sireum.aadl.gumbo.gumbo.UnaryExp;
 
 /**
  * <!-- begin-user-doc -->
@@ -532,6 +546,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass slangLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass slangInterpEClass = null;
 
   /**
@@ -623,6 +644,34 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass basicExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass quantifiedExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass slangLitTermEClass = null;
 
   /**
@@ -673,6 +722,69 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass slangBlockTermEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass integerLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass intIdfLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass hexLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass binLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass realLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangStringLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass realIdfLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mStringLitEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -1014,6 +1126,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EClass getInitializeSpecStatement()
   {
     return initializeSpecStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInitializeSpecStatement_GuaranteeStatement()
+  {
+    return (EReference)initializeSpecStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2221,83 +2344,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getExpr_Term()
-  {
-    return (EReference)exprEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpr_ThenExpr()
-  {
-    return (EReference)exprEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpr_ElseExpr()
-  {
-    return (EReference)exprEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpr_QVar()
-  {
-    return (EReference)exprEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpr_QuantifiedExpr()
-  {
-    return (EReference)exprEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpr_T()
-  {
-    return (EReference)exprEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpr_M()
-  {
-    return (EReference)exprEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getSlangQuantVar()
   {
     return slangQuantVarEClass;
@@ -2606,6 +2652,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getSlangLit()
+  {
+    return slangLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSlangLit_Value()
+  {
+    return (EAttribute)slangLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSlangInterp()
   {
     return slangInterpEClass;
@@ -2620,6 +2688,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EClass getSlangMInterp()
   {
     return slangMInterpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangMInterp_E()
+  {
+    return (EReference)slangMInterpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangMInterp_M()
+  {
+    return (EReference)slangMInterpEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2914,9 +3004,163 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getBasicExp()
+  {
+    return basicExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBasicExp_Terms()
+  {
+    return (EReference)basicExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBasicExp_Ops()
+  {
+    return (EAttribute)basicExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBasicExp_ThenExpr()
+  {
+    return (EReference)basicExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBasicExp_ElseExpr()
+  {
+    return (EReference)basicExpEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getQuantifiedExp()
+  {
+    return quantifiedExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getQuantifiedExp_QVar()
+  {
+    return (EReference)quantifiedExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getQuantifiedExp_QuantifiedExpr()
+  {
+    return (EReference)quantifiedExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUnaryExp()
+  {
+    return unaryExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUnaryExp_Op()
+  {
+    return (EAttribute)unaryExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUnaryExp_AccessExp()
+  {
+    return (EReference)unaryExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangAccess()
+  {
+    return slangAccessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangAccess_T()
+  {
+    return (EReference)slangAccessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSlangLitTerm()
   {
     return slangLitTermEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangLitTerm_Lit()
+  {
+    return (EReference)slangLitTermEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3189,6 +3433,105 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getBooleanLit()
+  {
+    return booleanLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIntegerLit()
+  {
+    return integerLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIntIdfLit()
+  {
+    return intIdfLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getHexLit()
+  {
+    return hexLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBinLit()
+  {
+    return binLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRealLit()
+  {
+    return realLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangStringLit()
+  {
+    return slangStringLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRealIdfLit()
+  {
+    return realIdfLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMStringLit()
+  {
+    return mStringLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public GumboFactory getGumboFactory()
   {
     return (GumboFactory)getEFactoryInstance();
@@ -3248,6 +3591,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(initializeEClass, INITIALIZE__SPECS);
 
     initializeSpecStatementEClass = createEClass(INITIALIZE_SPEC_STATEMENT);
+    createEReference(initializeSpecStatementEClass, INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT);
 
     computeEClass = createEClass(COMPUTE);
     createEReference(computeEClass, COMPUTE__CASES);
@@ -3395,13 +3739,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(slangVarDefEClass, SLANG_VAR_DEF__INIT);
 
     exprEClass = createEClass(EXPR);
-    createEReference(exprEClass, EXPR__TERM);
-    createEReference(exprEClass, EXPR__THEN_EXPR);
-    createEReference(exprEClass, EXPR__ELSE_EXPR);
-    createEReference(exprEClass, EXPR__QVAR);
-    createEReference(exprEClass, EXPR__QUANTIFIED_EXPR);
-    createEReference(exprEClass, EXPR__T);
-    createEReference(exprEClass, EXPR__M);
 
     slangQuantVarEClass = createEClass(SLANG_QUANT_VAR);
     createEReference(slangQuantVarEClass, SLANG_QUANT_VAR__E);
@@ -3442,9 +3779,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangTypeArgsEClass = createEClass(SLANG_TYPE_ARGS);
     createEReference(slangTypeArgsEClass, SLANG_TYPE_ARGS__TYPES);
 
+    slangLitEClass = createEClass(SLANG_LIT);
+    createEAttribute(slangLitEClass, SLANG_LIT__VALUE);
+
     slangInterpEClass = createEClass(SLANG_INTERP);
 
     slangMInterpEClass = createEClass(SLANG_MINTERP);
+    createEReference(slangMInterpEClass, SLANG_MINTERP__E);
+    createEReference(slangMInterpEClass, SLANG_MINTERP__M);
 
     slangIfStmtEClass = createEClass(SLANG_IF_STMT);
     createEReference(slangIfStmtEClass, SLANG_IF_STMT__COND);
@@ -3483,7 +3825,25 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangMethodCallEClass = createEClass(SLANG_METHOD_CALL);
     createEReference(slangMethodCallEClass, SLANG_METHOD_CALL__EXPRS);
 
+    basicExpEClass = createEClass(BASIC_EXP);
+    createEReference(basicExpEClass, BASIC_EXP__TERMS);
+    createEAttribute(basicExpEClass, BASIC_EXP__OPS);
+    createEReference(basicExpEClass, BASIC_EXP__THEN_EXPR);
+    createEReference(basicExpEClass, BASIC_EXP__ELSE_EXPR);
+
+    quantifiedExpEClass = createEClass(QUANTIFIED_EXP);
+    createEReference(quantifiedExpEClass, QUANTIFIED_EXP__QVAR);
+    createEReference(quantifiedExpEClass, QUANTIFIED_EXP__QUANTIFIED_EXPR);
+
+    unaryExpEClass = createEClass(UNARY_EXP);
+    createEAttribute(unaryExpEClass, UNARY_EXP__OP);
+    createEReference(unaryExpEClass, UNARY_EXP__ACCESS_EXP);
+
+    slangAccessEClass = createEClass(SLANG_ACCESS);
+    createEReference(slangAccessEClass, SLANG_ACCESS__T);
+
     slangLitTermEClass = createEClass(SLANG_LIT_TERM);
+    createEReference(slangLitTermEClass, SLANG_LIT_TERM__LIT);
 
     slangInterpTermEClass = createEClass(SLANG_INTERP_TERM);
     createEReference(slangInterpTermEClass, SLANG_INTERP_TERM__I);
@@ -3515,6 +3875,24 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(slangBlockTermEClass, SLANG_BLOCK_TERM__E);
     createEReference(slangBlockTermEClass, SLANG_BLOCK_TERM__STMT);
     createEReference(slangBlockTermEClass, SLANG_BLOCK_TERM__R);
+
+    booleanLitEClass = createEClass(BOOLEAN_LIT);
+
+    integerLitEClass = createEClass(INTEGER_LIT);
+
+    intIdfLitEClass = createEClass(INT_IDF_LIT);
+
+    hexLitEClass = createEClass(HEX_LIT);
+
+    binLitEClass = createEClass(BIN_LIT);
+
+    realLitEClass = createEClass(REAL_LIT);
+
+    slangStringLitEClass = createEClass(SLANG_STRING_LIT);
+
+    realIdfLitEClass = createEClass(REAL_IDF_LIT);
+
+    mStringLitEClass = createEClass(MSTRING_LIT);
   }
 
   /**
@@ -3553,12 +3931,10 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     gumboLibraryEClass.getESuperTypes().add(theAadl2Package.getAnnexLibrary());
     gumboSubclauseEClass.getESuperTypes().add(theAadl2Package.getAnnexSubclause());
     assumeStatementEClass.getESuperTypes().add(this.getSpecStatement());
-    guaranteeStatementEClass.getESuperTypes().add(this.getInitializeSpecStatement());
     guaranteeStatementEClass.getESuperTypes().add(this.getSpecStatement());
     slangDefDefEClass.getESuperTypes().add(this.getFuncSpec());
     slangPatternEClass.getESuperTypes().add(this.getSlangVarDef());
     slangVarDefEClass.getESuperTypes().add(this.getSlangStmt());
-    exprEClass.getESuperTypes().add(this.getSlangMInterp());
     slangBlockEClass.getESuperTypes().add(this.getSlangElse());
     slangMInterpEClass.getESuperTypes().add(this.getSlangInterp());
     slangIfStmtEClass.getESuperTypes().add(this.getSlangStmt());
@@ -3572,6 +3948,10 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangIdStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangFieldLookupEClass.getESuperTypes().add(this.getSlangLHSSuffix());
     slangMethodCallEClass.getESuperTypes().add(this.getSlangLHSSuffix());
+    basicExpEClass.getESuperTypes().add(this.getExpr());
+    quantifiedExpEClass.getESuperTypes().add(this.getExpr());
+    unaryExpEClass.getESuperTypes().add(this.getExpr());
+    slangAccessEClass.getESuperTypes().add(this.getExpr());
     slangLitTermEClass.getESuperTypes().add(this.getExpr());
     slangInterpTermEClass.getESuperTypes().add(this.getExpr());
     enumLitExprEClass.getESuperTypes().add(this.getExpr());
@@ -3580,6 +3960,15 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangTupleTermEClass.getESuperTypes().add(this.getExpr());
     slangForTermEClass.getESuperTypes().add(this.getExpr());
     slangBlockTermEClass.getESuperTypes().add(this.getExpr());
+    booleanLitEClass.getESuperTypes().add(this.getSlangLit());
+    integerLitEClass.getESuperTypes().add(this.getSlangLit());
+    intIdfLitEClass.getESuperTypes().add(this.getSlangLit());
+    hexLitEClass.getESuperTypes().add(this.getSlangLit());
+    binLitEClass.getESuperTypes().add(this.getSlangLit());
+    realLitEClass.getESuperTypes().add(this.getSlangLit());
+    slangStringLitEClass.getESuperTypes().add(this.getSlangLit());
+    realIdfLitEClass.getESuperTypes().add(this.getSlangLit());
+    mStringLitEClass.getESuperTypes().add(this.getSlangLit());
 
     // Initialize classes and features; add operations and parameters
     initEClass(gumboLibraryEClass, GumboLibrary.class, "GumboLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3616,6 +4005,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getInitialize_Specs(), this.getInitializeSpecStatement(), null, "specs", null, 0, -1, Initialize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initializeSpecStatementEClass, InitializeSpecStatement.class, "InitializeSpecStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInitializeSpecStatement_GuaranteeStatement(), this.getGuaranteeStatement(), null, "guaranteeStatement", null, 0, 1, InitializeSpecStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(computeEClass, Compute.class, "Compute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3763,13 +4153,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getSlangVarDef_Init(), this.getExpr(), null, "init", null, 0, 1, SlangVarDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpr_Term(), this.getExpr(), null, "term", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_ThenExpr(), this.getExpr(), null, "thenExpr", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_ElseExpr(), this.getExpr(), null, "elseExpr", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_QVar(), this.getSlangQuantVar(), null, "qVar", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_QuantifiedExpr(), this.getExpr(), null, "quantifiedExpr", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_T(), this.getExpr(), null, "t", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_M(), this.getSlangMInterp(), null, "m", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangQuantVarEClass, SlangQuantVar.class, "SlangQuantVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangQuantVar_E(), this.getExpr(), null, "e", null, 0, 1, SlangQuantVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3810,9 +4193,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(slangTypeArgsEClass, SlangTypeArgs.class, "SlangTypeArgs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangTypeArgs_Types(), this.getSlangType(), null, "types", null, 0, -1, SlangTypeArgs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(slangLitEClass, SlangLit.class, "SlangLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSlangLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, SlangLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(slangInterpEClass, SlangInterp.class, "SlangInterp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(slangMInterpEClass, SlangMInterp.class, "SlangMInterp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangMInterp_E(), this.getExpr(), null, "e", null, 0, 1, SlangMInterp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangMInterp_M(), this.getSlangMInterp(), null, "m", null, 0, 1, SlangMInterp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangIfStmtEClass, SlangIfStmt.class, "SlangIfStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangIfStmt_Cond(), this.getExpr(), null, "cond", null, 0, 1, SlangIfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3851,7 +4239,25 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(slangMethodCallEClass, SlangMethodCall.class, "SlangMethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangMethodCall_Exprs(), this.getExpr(), null, "exprs", null, 0, -1, SlangMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(basicExpEClass, BasicExp.class, "BasicExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBasicExp_Terms(), this.getExpr(), null, "terms", null, 0, -1, BasicExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicExp_Ops(), theEcorePackage.getEString(), "ops", null, 0, -1, BasicExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicExp_ThenExpr(), this.getExpr(), null, "thenExpr", null, 0, 1, BasicExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicExp_ElseExpr(), this.getExpr(), null, "elseExpr", null, 0, 1, BasicExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(quantifiedExpEClass, QuantifiedExp.class, "QuantifiedExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getQuantifiedExp_QVar(), this.getSlangQuantVar(), null, "qVar", null, 0, -1, QuantifiedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuantifiedExp_QuantifiedExpr(), this.getExpr(), null, "quantifiedExpr", null, 0, 1, QuantifiedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryExpEClass, UnaryExp.class, "UnaryExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnaryExp_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExp_AccessExp(), this.getExpr(), null, "accessExp", null, 0, 1, UnaryExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(slangAccessEClass, SlangAccess.class, "SlangAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangAccess_T(), this.getExpr(), null, "t", null, 0, 1, SlangAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(slangLitTermEClass, SlangLitTerm.class, "SlangLitTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangLitTerm_Lit(), this.getSlangLit(), null, "lit", null, 0, 1, SlangLitTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangInterpTermEClass, SlangInterpTerm.class, "SlangInterpTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangInterpTerm_I(), this.getSlangInterp(), null, "i", null, 0, 1, SlangInterpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3883,6 +4289,24 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getSlangBlockTerm_E(), this.getExpr(), null, "e", null, 0, 1, SlangBlockTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSlangBlockTerm_Stmt(), this.getSlangStmt(), null, "stmt", null, 0, -1, SlangBlockTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSlangBlockTerm_R(), this.getSlangRet(), null, "r", null, 0, 1, SlangBlockTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanLitEClass, BooleanLit.class, "BooleanLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(integerLitEClass, IntegerLit.class, "IntegerLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(intIdfLitEClass, IntIdfLit.class, "IntIdfLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(hexLitEClass, HexLit.class, "HexLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(binLitEClass, BinLit.class, "BinLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(realLitEClass, RealLit.class, "RealLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(slangStringLitEClass, SlangStringLit.class, "SlangStringLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(realIdfLitEClass, RealIdfLit.class, "RealIdfLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(mStringLitEClass, MStringLit.class, "MStringLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

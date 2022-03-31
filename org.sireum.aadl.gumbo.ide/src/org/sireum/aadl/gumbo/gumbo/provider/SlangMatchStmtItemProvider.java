@@ -166,6 +166,26 @@ public class SlangMatchStmtItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_MATCH_STMT__TEST_EXPR,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_MATCH_STMT__TEST_EXPR,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_MATCH_STMT__TEST_EXPR,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_MATCH_STMT__TEST_EXPR,
+         GumboFactory.eINSTANCE.createSlangAccess()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_MATCH_STMT__TEST_EXPR,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add

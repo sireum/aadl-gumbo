@@ -157,6 +157,10 @@ EqualsSign : '=';
 
 QuestionMark : '?';
 
+F : ('F'|'f');
+
+T : ('T'|'t');
+
 LeftSquareBracket : '[';
 
 RightSquareBracket : ']';

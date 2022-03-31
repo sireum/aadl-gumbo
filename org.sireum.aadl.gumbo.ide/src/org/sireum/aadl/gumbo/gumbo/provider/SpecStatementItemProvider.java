@@ -211,6 +211,26 @@ public class SpecStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createSlangAccess()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SPEC_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add

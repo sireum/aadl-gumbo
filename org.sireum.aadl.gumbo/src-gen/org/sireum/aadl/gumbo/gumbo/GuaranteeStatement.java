@@ -24,6 +24,6 @@ package org.sireum.aadl.gumbo.gumbo;
  * @model
  * @generated
  */
-public interface GuaranteeStatement extends InitializeSpecStatement, SpecStatement
+public interface GuaranteeStatement extends SpecStatement
 {
 } // GuaranteeStatement

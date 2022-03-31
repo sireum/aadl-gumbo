@@ -179,6 +179,26 @@ public class AnonGuaranteeStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createSlangAccess()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add

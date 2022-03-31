@@ -32,7 +32,7 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3;
+	protected AbstractElementAlias match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3;
 	protected AbstractElementAlias match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDecl_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDef_SlangDefModsParserRuleCall_1_q;
@@ -55,7 +55,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
-		match_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExprAccess().getAllKeyword_1_0_0()), new TokenAlias(false, false, grammarAccess.getExprAccess().getForAllKeyword_1_0_2()), new TokenAlias(false, false, grammarAccess.getExprAccess().getSomeKeyword_1_0_1()), new TokenAlias(false, false, grammarAccess.getExprAccess().getThereExistsKeyword_1_0_3()));
+		match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExprAccess().getAllKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getExprAccess().getForAllKeyword_1_1_2()), new TokenAlias(false, false, grammarAccess.getExprAccess().getSomeKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getExprAccess().getThereExistsKeyword_1_1_3()));
 		match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclDefAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangDefDecl_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangDefDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDefAccess().getSlangDefModsParserRuleCall_1());
@@ -96,14 +96,10 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 			return getMSPEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getMSPMRule())
 			return getMSPMToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getOperatorRule())
-			return getOperatorToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSLANG_STRINGRule())
 			return getSLANG_STRINGToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSlangDefModsRule())
 			return getSlangDefModsToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSlangLitRule())
-			return getSlangLitToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSlangNameRule())
 			return getSlangNameToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSlangVarModRule())
@@ -203,15 +199,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	}
 	
 	/**
-	 * Operator: OP | PlusMinus | STAR;
-	 */
-	protected String getOperatorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "/";
-	}
-	
-	/**
 	 * terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 	 */
 	protected String getSLANG_STRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -227,26 +214,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		if (node != null)
 			return getTokenText(node);
 		return "strict";
-	}
-	
-	/**
-	 * SlangLit
-	 * 	: 'true'
-	 * 	| 'false'
-	 * 	| INTEGER_LIT
-	 * 	| INT_IDF
-	 * 	| HEX
-	 * 	| BIN
-	 * 	| REAL_LIT
-	 * 	| SLANG_STRING
-	 * 	| REAL_IDF
-	 * 	| MSTRING
-	 * 	;
-	 */
-	protected String getSlangLitToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "true";
 	}
 	
 	/**
@@ -273,8 +240,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3.equals(syntax))
-				emit_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3.equals(syntax))
+				emit_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q.equals(syntax))
 				emit_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDecl_SlangDefModsParserRuleCall_1_q.equals(syntax))
@@ -320,11 +287,9 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     '\all' | '\some' | '∀' | '∃'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '{' (ambiguity) qVar+=SlangQuantVar
 	 *     (rule start) (ambiguity) qVar+=SlangQuantVar
-	 *     (rule start) MSPB '{' (ambiguity) qVar+=SlangQuantVar
 	 */
-	protected void emit_Expr_AllKeyword_1_0_0_or_ForAllKeyword_1_0_2_or_SomeKeyword_1_0_1_or_ThereExistsKeyword_1_0_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

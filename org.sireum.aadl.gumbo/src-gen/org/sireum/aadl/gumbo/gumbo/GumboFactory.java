@@ -565,6 +565,15 @@ public interface GumboFactory extends EFactory
   SlangTypeArgs createSlangTypeArgs();
 
   /**
+   * Returns a new object of class '<em>Slang Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Lit</em>'.
+   * @generated
+   */
+  SlangLit createSlangLit();
+
+  /**
    * Returns a new object of class '<em>Slang Interp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -682,6 +691,42 @@ public interface GumboFactory extends EFactory
   SlangMethodCall createSlangMethodCall();
 
   /**
+   * Returns a new object of class '<em>Basic Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Basic Exp</em>'.
+   * @generated
+   */
+  BasicExp createBasicExp();
+
+  /**
+   * Returns a new object of class '<em>Quantified Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Quantified Exp</em>'.
+   * @generated
+   */
+  QuantifiedExp createQuantifiedExp();
+
+  /**
+   * Returns a new object of class '<em>Unary Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Exp</em>'.
+   * @generated
+   */
+  UnaryExp createUnaryExp();
+
+  /**
+   * Returns a new object of class '<em>Slang Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Access</em>'.
+   * @generated
+   */
+  SlangAccess createSlangAccess();
+
+  /**
    * Returns a new object of class '<em>Slang Lit Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -752,6 +797,87 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangBlockTerm createSlangBlockTerm();
+
+  /**
+   * Returns a new object of class '<em>Boolean Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Lit</em>'.
+   * @generated
+   */
+  BooleanLit createBooleanLit();
+
+  /**
+   * Returns a new object of class '<em>Integer Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Integer Lit</em>'.
+   * @generated
+   */
+  IntegerLit createIntegerLit();
+
+  /**
+   * Returns a new object of class '<em>Int Idf Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Idf Lit</em>'.
+   * @generated
+   */
+  IntIdfLit createIntIdfLit();
+
+  /**
+   * Returns a new object of class '<em>Hex Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hex Lit</em>'.
+   * @generated
+   */
+  HexLit createHexLit();
+
+  /**
+   * Returns a new object of class '<em>Bin Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bin Lit</em>'.
+   * @generated
+   */
+  BinLit createBinLit();
+
+  /**
+   * Returns a new object of class '<em>Real Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Real Lit</em>'.
+   * @generated
+   */
+  RealLit createRealLit();
+
+  /**
+   * Returns a new object of class '<em>Slang String Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang String Lit</em>'.
+   * @generated
+   */
+  SlangStringLit createSlangStringLit();
+
+  /**
+   * Returns a new object of class '<em>Real Idf Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Real Idf Lit</em>'.
+   * @generated
+   */
+  RealIdfLit createRealIdfLit();
+
+  /**
+   * Returns a new object of class '<em>MString Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>MString Lit</em>'.
+   * @generated
+   */
+  MStringLit createMStringLit();
 
   /**
    * Returns the package supported by this factory.

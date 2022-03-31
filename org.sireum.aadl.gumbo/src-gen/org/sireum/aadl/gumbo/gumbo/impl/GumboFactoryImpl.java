@@ -134,6 +134,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_ID_EXP: return createSlangIDExp();
       case GumboPackage.SLANG_TYPE: return createSlangType();
       case GumboPackage.SLANG_TYPE_ARGS: return createSlangTypeArgs();
+      case GumboPackage.SLANG_LIT: return createSlangLit();
       case GumboPackage.SLANG_INTERP: return createSlangInterp();
       case GumboPackage.SLANG_MINTERP: return createSlangMInterp();
       case GumboPackage.SLANG_IF_STMT: return createSlangIfStmt();
@@ -147,6 +148,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_ID_STMT: return createSlangIdStmt();
       case GumboPackage.SLANG_FIELD_LOOKUP: return createSlangFieldLookup();
       case GumboPackage.SLANG_METHOD_CALL: return createSlangMethodCall();
+      case GumboPackage.BASIC_EXP: return createBasicExp();
+      case GumboPackage.QUANTIFIED_EXP: return createQuantifiedExp();
+      case GumboPackage.UNARY_EXP: return createUnaryExp();
+      case GumboPackage.SLANG_ACCESS: return createSlangAccess();
       case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
       case GumboPackage.SLANG_INTERP_TERM: return createSlangInterpTerm();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
@@ -155,6 +160,15 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_TUPLE_TERM: return createSlangTupleTerm();
       case GumboPackage.SLANG_FOR_TERM: return createSlangForTerm();
       case GumboPackage.SLANG_BLOCK_TERM: return createSlangBlockTerm();
+      case GumboPackage.BOOLEAN_LIT: return createBooleanLit();
+      case GumboPackage.INTEGER_LIT: return createIntegerLit();
+      case GumboPackage.INT_IDF_LIT: return createIntIdfLit();
+      case GumboPackage.HEX_LIT: return createHexLit();
+      case GumboPackage.BIN_LIT: return createBinLit();
+      case GumboPackage.REAL_LIT: return createRealLit();
+      case GumboPackage.SLANG_STRING_LIT: return createSlangStringLit();
+      case GumboPackage.REAL_IDF_LIT: return createRealIdfLit();
+      case GumboPackage.MSTRING_LIT: return createMStringLit();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -874,6 +888,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public SlangLit createSlangLit()
+  {
+    SlangLitImpl slangLit = new SlangLitImpl();
+    return slangLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SlangInterp createSlangInterp()
   {
     SlangInterpImpl slangInterp = new SlangInterpImpl();
@@ -1030,6 +1056,54 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public BasicExp createBasicExp()
+  {
+    BasicExpImpl basicExp = new BasicExpImpl();
+    return basicExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public QuantifiedExp createQuantifiedExp()
+  {
+    QuantifiedExpImpl quantifiedExp = new QuantifiedExpImpl();
+    return quantifiedExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UnaryExp createUnaryExp()
+  {
+    UnaryExpImpl unaryExp = new UnaryExpImpl();
+    return unaryExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangAccess createSlangAccess()
+  {
+    SlangAccessImpl slangAccess = new SlangAccessImpl();
+    return slangAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SlangLitTerm createSlangLitTerm()
   {
     SlangLitTermImpl slangLitTerm = new SlangLitTermImpl();
@@ -1118,6 +1192,114 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangBlockTermImpl slangBlockTerm = new SlangBlockTermImpl();
     return slangBlockTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BooleanLit createBooleanLit()
+  {
+    BooleanLitImpl booleanLit = new BooleanLitImpl();
+    return booleanLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntegerLit createIntegerLit()
+  {
+    IntegerLitImpl integerLit = new IntegerLitImpl();
+    return integerLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntIdfLit createIntIdfLit()
+  {
+    IntIdfLitImpl intIdfLit = new IntIdfLitImpl();
+    return intIdfLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HexLit createHexLit()
+  {
+    HexLitImpl hexLit = new HexLitImpl();
+    return hexLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BinLit createBinLit()
+  {
+    BinLitImpl binLit = new BinLitImpl();
+    return binLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RealLit createRealLit()
+  {
+    RealLitImpl realLit = new RealLitImpl();
+    return realLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangStringLit createSlangStringLit()
+  {
+    SlangStringLitImpl slangStringLit = new SlangStringLitImpl();
+    return slangStringLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RealIdfLit createRealIdfLit()
+  {
+    RealIdfLitImpl realIdfLit = new RealIdfLitImpl();
+    return realIdfLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MStringLit createMStringLit()
+  {
+    MStringLitImpl mStringLit = new MStringLitImpl();
+    return mStringLit;
   }
 
   /**

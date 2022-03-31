@@ -20,6 +20,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Initialize Spec Statement</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement#getGuaranteeStatement <em>Guarantee Statement</em>}</li>
+ * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getInitializeSpecStatement()
  * @model
@@ -27,4 +33,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface InitializeSpecStatement extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Guarantee Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Guarantee Statement</em>' containment reference.
+   * @see #setGuaranteeStatement(GuaranteeStatement)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getInitializeSpecStatement_GuaranteeStatement()
+   * @model containment="true"
+   * @generated
+   */
+  GuaranteeStatement getGuaranteeStatement();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement#getGuaranteeStatement <em>Guarantee Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Guarantee Statement</em>' containment reference.
+   * @see #getGuaranteeStatement()
+   * @generated
+   */
+  void setGuaranteeStatement(GuaranteeStatement value);
+
 } // InitializeSpecStatement

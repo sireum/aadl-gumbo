@@ -175,11 +175,6 @@ public class InitializeItemProvider
       (createChildParameter
         (GumboPackage.Literals.INITIALIZE__SPECS,
          GumboFactory.eINSTANCE.createInitializeSpecStatement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.INITIALIZE__SPECS,
-         GumboFactory.eINSTANCE.createGuaranteeStatement()));
   }
 
   /**

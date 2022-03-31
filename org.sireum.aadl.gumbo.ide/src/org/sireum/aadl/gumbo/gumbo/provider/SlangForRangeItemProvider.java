@@ -183,6 +183,26 @@ public class SlangForRangeItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__E,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__E,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__E,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__E,
+         GumboFactory.eINSTANCE.createSlangAccess()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__E,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add
@@ -224,6 +244,26 @@ public class SlangForRangeItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
          GumboFactory.eINSTANCE.createExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
+         GumboFactory.eINSTANCE.createSlangAccess()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -269,6 +309,26 @@ public class SlangForRangeItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
          GumboFactory.eINSTANCE.createExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
+         GumboFactory.eINSTANCE.createSlangAccess()));
 
     newChildDescriptors.add
       (createChildParameter

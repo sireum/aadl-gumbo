@@ -65,7 +65,7 @@ Initialize:
 ;
 
 InitializeSpecStatement:
-  GuaranteeStatement   	
+  guaranteeStatement = GuaranteeStatement   	
 ;
 
 Compute:
@@ -244,24 +244,25 @@ SlangVarDeclDef returns SlangVarDef:
 SlangVarMod: 'val' | 'var' ;
 
 Expr
-	: term+=SlangAccess ( 
-	  ( Operator term+=SlangAccess )* 
+	: {BasicExp} terms+=SlangAccess ( 
+	  ( ops+=Operator terms+=SlangAccess )* 
 	  | '?' thenExpr=Expr ':' elseExpr=Expr
 	  )
-	| ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=Expr
-	| Operator SlangAccess
+	| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=Expr
+	| {UnaryExp} op=Operator accessExp=SlangAccess
 	;
 	
 SlangQuantVar: ID ':' e=Expr ( ( '..' | '..<' ) upperBound=Expr )? ;
 
 SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
 	
-SlangAccess returns Expr: t=SlangTerm ;//suf+=SlangAccessSuffix* ;
+SlangAccess returns Expr
+	: {SlangAccess} t=SlangTerm ; //suf+=SlangAccessSuffix* ;
 
 //SlangAccessSuffix: {SlangAccessSuffix} '.' ID cs=SlangCallSuffix? ;
 
 SlangTerm returns Expr
-	: {SlangLitTerm} SlangLit
+	: {SlangLitTerm} lit=SlangLit
 	| {SlangInterpTerm} i=SlangInterp
 	| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
@@ -304,17 +305,16 @@ SlangBaseType returns SlangType
 
 SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
 
-SlangLit
-	: 'true'
-	| 'false'
-	| INTEGER_LIT
-	| INT_IDF
-	| HEX
-	| BIN
-	| REAL_LIT
-	| SLANG_STRING
-	| REAL_IDF
-	| MSTRING
+SlangLit 
+	: {BooleanLit} value=('T' | 'F')
+	| {IntegerLit} value=INTEGER_LIT
+	| {IntIdfLit} value=INT_IDF
+	| {HexLit} value=HEX
+	| {BinLit} value=BIN
+	| {RealLit} value=REAL_LIT
+	| {SlangStringLit} value=SLANG_STRING
+	| {RealIdfLit} value=REAL_IDF
+	| {MStringLit} value=MSTRING
 	;
 
 SlangInterp	: {SlangInterp}
@@ -323,7 +323,7 @@ SlangInterp	: {SlangInterp}
 	;
 
 SlangMInterp
-	: '{' Expr '}' ( MSPM m=SlangMInterp | MSPE )
+	: '{' e=Expr '}' ( MSPM m=SlangMInterp | MSPE )
 	;
 	
 terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;

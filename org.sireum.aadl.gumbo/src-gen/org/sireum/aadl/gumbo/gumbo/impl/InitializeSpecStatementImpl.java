@@ -13,10 +13,16 @@
  */
 package org.sireum.aadl.gumbo.gumbo.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 
@@ -24,11 +30,27 @@ import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Initialize Spec Statement</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.InitializeSpecStatementImpl#getGuaranteeStatement <em>Guarantee Statement</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class InitializeSpecStatementImpl extends MinimalEObjectImpl.Container implements InitializeSpecStatement
 {
+  /**
+   * The cached value of the '{@link #getGuaranteeStatement() <em>Guarantee Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGuaranteeStatement()
+   * @generated
+   * @ordered
+   */
+  protected GuaranteeStatement guaranteeStatement;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,6 +70,138 @@ public class InitializeSpecStatementImpl extends MinimalEObjectImpl.Container im
   protected EClass eStaticClass()
   {
     return GumboPackage.Literals.INITIALIZE_SPEC_STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GuaranteeStatement getGuaranteeStatement()
+  {
+    return guaranteeStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetGuaranteeStatement(GuaranteeStatement newGuaranteeStatement, NotificationChain msgs)
+  {
+    GuaranteeStatement oldGuaranteeStatement = guaranteeStatement;
+    guaranteeStatement = newGuaranteeStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT, oldGuaranteeStatement, newGuaranteeStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setGuaranteeStatement(GuaranteeStatement newGuaranteeStatement)
+  {
+    if (newGuaranteeStatement != guaranteeStatement)
+    {
+      NotificationChain msgs = null;
+      if (guaranteeStatement != null)
+        msgs = ((InternalEObject)guaranteeStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT, null, msgs);
+      if (newGuaranteeStatement != null)
+        msgs = ((InternalEObject)newGuaranteeStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT, null, msgs);
+      msgs = basicSetGuaranteeStatement(newGuaranteeStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT, newGuaranteeStatement, newGuaranteeStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT:
+        return basicSetGuaranteeStatement(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT:
+        return getGuaranteeStatement();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT:
+        setGuaranteeStatement((GuaranteeStatement)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT:
+        setGuaranteeStatement((GuaranteeStatement)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT:
+        return guaranteeStatement != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //InitializeSpecStatementImpl

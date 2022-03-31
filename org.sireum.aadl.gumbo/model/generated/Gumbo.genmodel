@@ -40,7 +40,9 @@
     <genClasses ecoreClass="Gumbo.ecore#//Initialize">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/specs"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//InitializeSpecStatement"/>
+    <genClasses ecoreClass="Gumbo.ecore#//InitializeSpecStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//InitializeSpecStatement/guaranteeStatement"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Compute">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/cases"/>
     </genClasses>
@@ -181,15 +183,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangVarDef/typeName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangVarDef/init"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Expr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/term"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/thenExpr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/elseExpr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/qVar"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/quantifiedExpr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/t"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Expr/m"/>
-    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//Expr"/>
     <genClasses ecoreClass="Gumbo.ecore#//SlangQuantVar">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/e"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/upperBound"/>
@@ -229,8 +223,14 @@
     <genClasses ecoreClass="Gumbo.ecore#//SlangTypeArgs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTypeArgs/types"/>
     </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangLit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangLit/value"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangInterp"/>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangMInterp"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangMInterp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangMInterp/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangMInterp/m"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangIfStmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIfStmt/cond"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIfStmt/b"/>
@@ -266,7 +266,26 @@
     <genClasses ecoreClass="Gumbo.ecore#//SlangMethodCall">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangMethodCall/exprs"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangLitTerm"/>
+    <genClasses ecoreClass="Gumbo.ecore#//BasicExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BasicExp/terms"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BasicExp/ops"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BasicExp/thenExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BasicExp/elseExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//QuantifiedExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantifiedExp/qVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantifiedExp/quantifiedExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//UnaryExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//UnaryExp/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//UnaryExp/accessExp"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangAccess/t"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangLitTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangLitTerm/lit"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangInterpTerm">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangInterpTerm/i"/>
     </genClasses>
@@ -298,5 +317,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlockTerm/stmt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlockTerm/r"/>
     </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//BooleanLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//IntegerLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//IntIdfLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//HexLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//BinLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//RealLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangStringLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//RealIdfLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//MStringLit"/>
   </genPackages>
 </genmodel:GenModel>

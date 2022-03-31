@@ -20,9 +20,14 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.SlangLitTerm;
 
 /**
  * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLitTerm} object.
@@ -61,6 +66,39 @@ public class SlangLitTermItemProvider extends ExprItemProvider
   }
 
   /**
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  {
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_LIT_TERM__LIT);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
+  }
+
+  /**
    * This returns SlangLitTerm.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -96,6 +134,13 @@ public class SlangLitTermItemProvider extends ExprItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(SlangLitTerm.class))
+    {
+      case GumboPackage.SLANG_LIT_TERM__LIT:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+        return;
+    }
     super.notifyChanged(notification);
   }
 
@@ -110,35 +155,56 @@ public class SlangLitTermItemProvider extends ExprItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
 
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createSlangLit()));
 
-    boolean qualify =
-      childFeature == GumboPackage.Literals.EXPR__TERM ||
-      childFeature == GumboPackage.Literals.EXPR__THEN_EXPR ||
-      childFeature == GumboPackage.Literals.EXPR__ELSE_EXPR ||
-      childFeature == GumboPackage.Literals.EXPR__QUANTIFIED_EXPR ||
-      childFeature == GumboPackage.Literals.EXPR__T ||
-      childFeature == GumboPackage.Literals.EXPR__M;
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createBooleanLit()));
 
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createIntegerLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createIntIdfLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createHexLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createBinLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createRealLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createSlangStringLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createRealIdfLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createMStringLit()));
   }
 
 }

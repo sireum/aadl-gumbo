@@ -1560,6 +1560,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangLitItemProvider slangLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangLitAdapter()
+  {
+    if (slangLitItemProvider == null)
+    {
+      slangLitItemProvider = new SlangLitItemProvider(this);
+    }
+
+    return slangLitItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangInterp} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1885,6 +1910,106 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BasicExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BasicExpItemProvider basicExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BasicExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBasicExpAdapter()
+  {
+    if (basicExpItemProvider == null)
+    {
+      basicExpItemProvider = new BasicExpItemProvider(this);
+    }
+
+    return basicExpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.QuantifiedExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected QuantifiedExpItemProvider quantifiedExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.QuantifiedExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createQuantifiedExpAdapter()
+  {
+    if (quantifiedExpItemProvider == null)
+    {
+      quantifiedExpItemProvider = new QuantifiedExpItemProvider(this);
+    }
+
+    return quantifiedExpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.UnaryExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UnaryExpItemProvider unaryExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.UnaryExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUnaryExpAdapter()
+  {
+    if (unaryExpItemProvider == null)
+    {
+      unaryExpItemProvider = new UnaryExpItemProvider(this);
+    }
+
+    return unaryExpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangAccess} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangAccessItemProvider slangAccessItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangAccess}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangAccessAdapter()
+  {
+    if (slangAccessItemProvider == null)
+    {
+      slangAccessItemProvider = new SlangAccessItemProvider(this);
+    }
+
+    return slangAccessItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangLitTerm} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2085,6 +2210,231 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BooleanLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BooleanLitItemProvider booleanLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BooleanLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBooleanLitAdapter()
+  {
+    if (booleanLitItemProvider == null)
+    {
+      booleanLitItemProvider = new BooleanLitItemProvider(this);
+    }
+
+    return booleanLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IntegerLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected IntegerLitItemProvider integerLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.IntegerLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createIntegerLitAdapter()
+  {
+    if (integerLitItemProvider == null)
+    {
+      integerLitItemProvider = new IntegerLitItemProvider(this);
+    }
+
+    return integerLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IntIdfLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected IntIdfLitItemProvider intIdfLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.IntIdfLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createIntIdfLitAdapter()
+  {
+    if (intIdfLitItemProvider == null)
+    {
+      intIdfLitItemProvider = new IntIdfLitItemProvider(this);
+    }
+
+    return intIdfLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.HexLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HexLitItemProvider hexLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.HexLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createHexLitAdapter()
+  {
+    if (hexLitItemProvider == null)
+    {
+      hexLitItemProvider = new HexLitItemProvider(this);
+    }
+
+    return hexLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BinLitItemProvider binLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBinLitAdapter()
+  {
+    if (binLitItemProvider == null)
+    {
+      binLitItemProvider = new BinLitItemProvider(this);
+    }
+
+    return binLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RealLitItemProvider realLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRealLitAdapter()
+  {
+    if (realLitItemProvider == null)
+    {
+      realLitItemProvider = new RealLitItemProvider(this);
+    }
+
+    return realLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangStringLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangStringLitItemProvider slangStringLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangStringLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangStringLitAdapter()
+  {
+    if (slangStringLitItemProvider == null)
+    {
+      slangStringLitItemProvider = new SlangStringLitItemProvider(this);
+    }
+
+    return slangStringLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealIdfLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RealIdfLitItemProvider realIdfLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealIdfLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRealIdfLitAdapter()
+  {
+    if (realIdfLitItemProvider == null)
+    {
+      realIdfLitItemProvider = new RealIdfLitItemProvider(this);
+    }
+
+    return realIdfLitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.MStringLit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MStringLitItemProvider mStringLitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.MStringLit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMStringLitAdapter()
+  {
+    if (mStringLitItemProvider == null)
+    {
+      mStringLitItemProvider = new MStringLitItemProvider(this);
+    }
+
+    return mStringLitItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2260,6 +2610,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangIDExpItemProvider != null) slangIDExpItemProvider.dispose();
     if (slangTypeItemProvider != null) slangTypeItemProvider.dispose();
     if (slangTypeArgsItemProvider != null) slangTypeArgsItemProvider.dispose();
+    if (slangLitItemProvider != null) slangLitItemProvider.dispose();
     if (slangInterpItemProvider != null) slangInterpItemProvider.dispose();
     if (slangMInterpItemProvider != null) slangMInterpItemProvider.dispose();
     if (slangIfStmtItemProvider != null) slangIfStmtItemProvider.dispose();
@@ -2273,6 +2624,10 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangIdStmtItemProvider != null) slangIdStmtItemProvider.dispose();
     if (slangFieldLookupItemProvider != null) slangFieldLookupItemProvider.dispose();
     if (slangMethodCallItemProvider != null) slangMethodCallItemProvider.dispose();
+    if (basicExpItemProvider != null) basicExpItemProvider.dispose();
+    if (quantifiedExpItemProvider != null) quantifiedExpItemProvider.dispose();
+    if (unaryExpItemProvider != null) unaryExpItemProvider.dispose();
+    if (slangAccessItemProvider != null) slangAccessItemProvider.dispose();
     if (slangLitTermItemProvider != null) slangLitTermItemProvider.dispose();
     if (slangInterpTermItemProvider != null) slangInterpTermItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
@@ -2281,6 +2636,15 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangTupleTermItemProvider != null) slangTupleTermItemProvider.dispose();
     if (slangForTermItemProvider != null) slangForTermItemProvider.dispose();
     if (slangBlockTermItemProvider != null) slangBlockTermItemProvider.dispose();
+    if (booleanLitItemProvider != null) booleanLitItemProvider.dispose();
+    if (integerLitItemProvider != null) integerLitItemProvider.dispose();
+    if (intIdfLitItemProvider != null) intIdfLitItemProvider.dispose();
+    if (hexLitItemProvider != null) hexLitItemProvider.dispose();
+    if (binLitItemProvider != null) binLitItemProvider.dispose();
+    if (realLitItemProvider != null) realLitItemProvider.dispose();
+    if (slangStringLitItemProvider != null) slangStringLitItemProvider.dispose();
+    if (realIdfLitItemProvider != null) realIdfLitItemProvider.dispose();
+    if (mStringLitItemProvider != null) mStringLitItemProvider.dispose();
   }
 
 }

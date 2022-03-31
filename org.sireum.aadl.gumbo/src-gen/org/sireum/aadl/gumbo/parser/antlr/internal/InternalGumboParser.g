@@ -625,14 +625,25 @@ ruleInitializeSpecStatement returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getInitializeSpecStatementAccess().getGuaranteeStatementParserRuleCall());
-	}
-	this_GuaranteeStatement_0=ruleGuaranteeStatement
-	{
-		$current = $this_GuaranteeStatement_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getInitializeSpecStatementAccess().getGuaranteeStatementGuaranteeStatementParserRuleCall_0());
+			}
+			lv_guaranteeStatement_0_0=ruleGuaranteeStatement
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getInitializeSpecStatementRule());
+				}
+				set(
+					$current,
+					"guaranteeStatement",
+					lv_guaranteeStatement_0_0,
+					"org.sireum.aadl.gumbo.Gumbo.GuaranteeStatement");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)
 ;
 
 // Entry rule entryRuleCompute
@@ -3789,19 +3800,26 @@ ruleExpr returns [EObject current=null]
 	(
 		(
 			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getExprAccess().getBasicExpAction_0_0(),
+						$current);
+				}
+			)
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExprAccess().getTermSlangAccessParserRuleCall_0_0_0());
+						newCompositeNode(grammarAccess.getExprAccess().getTermsSlangAccessParserRuleCall_0_1_0());
 					}
-					lv_term_0_0=ruleSlangAccess
+					lv_terms_1_0=ruleSlangAccess
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExprRule());
 						}
 						add(
 							$current,
-							"term",
-							lv_term_0_0,
+							"terms",
+							lv_terms_1_0,
 							"org.sireum.aadl.gumbo.Gumbo.SlangAccess");
 						afterParserOrEnumRuleCall();
 					}
@@ -3809,27 +3827,39 @@ ruleExpr returns [EObject current=null]
 			)
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getExprAccess().getOperatorParserRuleCall_0_1_0_0());
-					}
-					ruleOperator
-					{
-						afterParserOrEnumRuleCall();
-					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getExprAccess().getTermSlangAccessParserRuleCall_0_1_0_1_0());
+								newCompositeNode(grammarAccess.getExprAccess().getOpsOperatorParserRuleCall_0_2_0_0_0());
 							}
-							lv_term_2_0=ruleSlangAccess
+							lv_ops_2_0=ruleOperator
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getExprRule());
 								}
 								add(
 									$current,
-									"term",
-									lv_term_2_0,
+									"ops",
+									lv_ops_2_0,
+									"org.sireum.aadl.gumbo.Gumbo.Operator");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getExprAccess().getTermsSlangAccessParserRuleCall_0_2_0_1_0());
+							}
+							lv_terms_3_0=ruleSlangAccess
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getExprRule());
+								}
+								add(
+									$current,
+									"terms",
+									lv_terms_3_0,
 									"org.sireum.aadl.gumbo.Gumbo.SlangAccess");
 								afterParserOrEnumRuleCall();
 							}
@@ -3838,16 +3868,16 @@ ruleExpr returns [EObject current=null]
 				)*
 				    |
 				(
-					otherlv_3=QuestionMark
+					otherlv_4=QuestionMark
 					{
-						newLeafNode(otherlv_3, grammarAccess.getExprAccess().getQuestionMarkKeyword_0_1_1_0());
+						newLeafNode(otherlv_4, grammarAccess.getExprAccess().getQuestionMarkKeyword_0_2_1_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getExprAccess().getThenExprExprParserRuleCall_0_1_1_1_0());
+								newCompositeNode(grammarAccess.getExprAccess().getThenExprExprParserRuleCall_0_2_1_1_0());
 							}
-							lv_thenExpr_4_0=ruleExpr
+							lv_thenExpr_5_0=ruleExpr
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getExprRule());
@@ -3855,22 +3885,22 @@ ruleExpr returns [EObject current=null]
 								set(
 									$current,
 									"thenExpr",
-									lv_thenExpr_4_0,
+									lv_thenExpr_5_0,
 									"org.sireum.aadl.gumbo.Gumbo.Expr");
 								afterParserOrEnumRuleCall();
 							}
 						)
 					)
-					otherlv_5=Colon
+					otherlv_6=Colon
 					{
-						newLeafNode(otherlv_5, grammarAccess.getExprAccess().getColonKeyword_0_1_1_2());
+						newLeafNode(otherlv_6, grammarAccess.getExprAccess().getColonKeyword_0_2_1_2());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getExprAccess().getElseExprExprParserRuleCall_0_1_1_3_0());
+								newCompositeNode(grammarAccess.getExprAccess().getElseExprExprParserRuleCall_0_2_1_3_0());
 							}
-							lv_elseExpr_6_0=ruleExpr
+							lv_elseExpr_7_0=ruleExpr
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getExprRule());
@@ -3878,7 +3908,7 @@ ruleExpr returns [EObject current=null]
 								set(
 									$current,
 									"elseExpr",
-									lv_elseExpr_6_0,
+									lv_elseExpr_7_0,
 									"org.sireum.aadl.gumbo.Gumbo.Expr");
 								afterParserOrEnumRuleCall();
 							}
@@ -3890,32 +3920,39 @@ ruleExpr returns [EObject current=null]
 		    |
 		(
 			(
-				otherlv_7=All
 				{
-					newLeafNode(otherlv_7, grammarAccess.getExprAccess().getAllKeyword_1_0_0());
+					$current = forceCreateModelElement(
+						grammarAccess.getExprAccess().getQuantifiedExpAction_1_0(),
+						$current);
+				}
+			)
+			(
+				otherlv_9=All
+				{
+					newLeafNode(otherlv_9, grammarAccess.getExprAccess().getAllKeyword_1_1_0());
 				}
 				    |
-				otherlv_8=Some
+				otherlv_10=Some
 				{
-					newLeafNode(otherlv_8, grammarAccess.getExprAccess().getSomeKeyword_1_0_1());
+					newLeafNode(otherlv_10, grammarAccess.getExprAccess().getSomeKeyword_1_1_1());
 				}
 				    |
-				otherlv_9=ForAll
+				otherlv_11=ForAll
 				{
-					newLeafNode(otherlv_9, grammarAccess.getExprAccess().getForAllKeyword_1_0_2());
+					newLeafNode(otherlv_11, grammarAccess.getExprAccess().getForAllKeyword_1_1_2());
 				}
 				    |
-				otherlv_10=ThereExists
+				otherlv_12=ThereExists
 				{
-					newLeafNode(otherlv_10, grammarAccess.getExprAccess().getThereExistsKeyword_1_0_3());
+					newLeafNode(otherlv_12, grammarAccess.getExprAccess().getThereExistsKeyword_1_1_3());
 				}
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExprAccess().getQVarSlangQuantVarParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getExprAccess().getQVarSlangQuantVarParserRuleCall_1_2_0());
 					}
-					lv_qVar_11_0=ruleSlangQuantVar
+					lv_qVar_13_0=ruleSlangQuantVar
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExprRule());
@@ -3923,23 +3960,23 @@ ruleExpr returns [EObject current=null]
 						add(
 							$current,
 							"qVar",
-							lv_qVar_11_0,
+							lv_qVar_13_0,
 							"org.sireum.aadl.gumbo.Gumbo.SlangQuantVar");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_12=Comma
+				otherlv_14=Comma
 				{
-					newLeafNode(otherlv_12, grammarAccess.getExprAccess().getCommaKeyword_1_2_0());
+					newLeafNode(otherlv_14, grammarAccess.getExprAccess().getCommaKeyword_1_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getExprAccess().getQVarSlangQuantVarParserRuleCall_1_2_1_0());
+							newCompositeNode(grammarAccess.getExprAccess().getQVarSlangQuantVarParserRuleCall_1_3_1_0());
 						}
-						lv_qVar_13_0=ruleSlangQuantVar
+						lv_qVar_15_0=ruleSlangQuantVar
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getExprRule());
@@ -3947,23 +3984,23 @@ ruleExpr returns [EObject current=null]
 							add(
 								$current,
 								"qVar",
-								lv_qVar_13_0,
+								lv_qVar_15_0,
 								"org.sireum.aadl.gumbo.Gumbo.SlangQuantVar");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_14=EqualsSignGreaterThanSign
+			otherlv_16=EqualsSignGreaterThanSign
 			{
-				newLeafNode(otherlv_14, grammarAccess.getExprAccess().getEqualsSignGreaterThanSignKeyword_1_3());
+				newLeafNode(otherlv_16, grammarAccess.getExprAccess().getEqualsSignGreaterThanSignKeyword_1_4());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExprAccess().getQuantifiedExprExprParserRuleCall_1_4_0());
+						newCompositeNode(grammarAccess.getExprAccess().getQuantifiedExprExprParserRuleCall_1_5_0());
 					}
-					lv_quantifiedExpr_15_0=ruleExpr
+					lv_quantifiedExpr_17_0=ruleExpr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExprRule());
@@ -3971,7 +4008,7 @@ ruleExpr returns [EObject current=null]
 						set(
 							$current,
 							"quantifiedExpr",
-							lv_quantifiedExpr_15_0,
+							lv_quantifiedExpr_17_0,
 							"org.sireum.aadl.gumbo.Gumbo.Expr");
 						afterParserOrEnumRuleCall();
 					}
@@ -3980,21 +4017,51 @@ ruleExpr returns [EObject current=null]
 		)
 		    |
 		(
-			{
-				newCompositeNode(grammarAccess.getExprAccess().getOperatorParserRuleCall_2_0());
-			}
-			ruleOperator
-			{
-				afterParserOrEnumRuleCall();
-			}
-			{
-				newCompositeNode(grammarAccess.getExprAccess().getSlangAccessParserRuleCall_2_1());
-			}
-			this_SlangAccess_17=ruleSlangAccess
-			{
-				$current = $this_SlangAccess_17.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getExprAccess().getUnaryExpAction_2_0(),
+						$current);
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprAccess().getOpOperatorParserRuleCall_2_1_0());
+					}
+					lv_op_19_0=ruleOperator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprRule());
+						}
+						set(
+							$current,
+							"op",
+							lv_op_19_0,
+							"org.sireum.aadl.gumbo.Gumbo.Operator");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprAccess().getAccessExpSlangAccessParserRuleCall_2_2_0());
+					}
+					lv_accessExp_20_0=ruleSlangAccess
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprRule());
+						}
+						set(
+							$current,
+							"accessExp",
+							lv_accessExp_20_0,
+							"org.sireum.aadl.gumbo.Gumbo.SlangAccess");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 	)
 ;
@@ -4167,20 +4234,29 @@ ruleSlangAccess returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getSlangAccessAccess().getTSlangTermParserRuleCall_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getSlangAccessAccess().getSlangAccessAction_0(),
+					$current);
 			}
-			lv_t_0_0=ruleSlangTerm
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getSlangAccessRule());
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSlangAccessAccess().getTSlangTermParserRuleCall_1_0());
 				}
-				set(
-					$current,
-					"t",
-					lv_t_0_0,
-					"org.sireum.aadl.gumbo.Gumbo.SlangTerm");
-				afterParserOrEnumRuleCall();
-			}
+				lv_t_1_0=ruleSlangTerm
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSlangAccessRule());
+					}
+					set(
+						$current,
+						"t",
+						lv_t_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.SlangTerm");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 	)
 ;
@@ -4209,13 +4285,25 @@ ruleSlangTerm returns [EObject current=null]
 						$current);
 				}
 			)
-			{
-				newCompositeNode(grammarAccess.getSlangTermAccess().getSlangLitParserRuleCall_0_1());
-			}
-			ruleSlangLit
-			{
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSlangTermAccess().getLitSlangLitParserRuleCall_0_1_0());
+					}
+					lv_lit_1_0=ruleSlangLit
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSlangTermRule());
+						}
+						set(
+							$current,
+							"lit",
+							lv_lit_1_0,
+							"org.sireum.aadl.gumbo.Gumbo.SlangLit");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 		    |
 		(
@@ -5467,14 +5555,14 @@ ruleSlangTypeArgs returns [EObject current=null]
 ;
 
 // Entry rule entryRuleSlangLit
-entryRuleSlangLit returns [String current=null]:
+entryRuleSlangLit returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getSlangLitRule()); }
 	iv_ruleSlangLit=ruleSlangLit
-	{ $current=$iv_ruleSlangLit.current.getText(); }
+	{ $current=$iv_ruleSlangLit.current; }
 	EOF;
 
 // Rule SlangLit
-ruleSlangLit returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleSlangLit returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -5482,81 +5570,266 @@ ruleSlangLit returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 	leaveRule();
 }:
 	(
-		kw=True
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getSlangLitAccess().getTrueKeyword_0());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getBooleanLitAction_0_0(),
+						$current);
+				}
+			)
+			(
+				(
+					(
+						lv_value_1_1=T
+						{
+							newLeafNode(lv_value_1_1, grammarAccess.getSlangLitAccess().getValueTKeyword_0_1_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSlangLitRule());
+							}
+							setWithLastConsumed($current, "value", lv_value_1_1, null);
+						}
+						    |
+						lv_value_1_2=F
+						{
+							newLeafNode(lv_value_1_2, grammarAccess.getSlangLitAccess().getValueFKeyword_0_1_0_1());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSlangLitRule());
+							}
+							setWithLastConsumed($current, "value", lv_value_1_2, null);
+						}
+					)
+				)
+			)
+		)
 		    |
-		kw=False
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getSlangLitAccess().getFalseKeyword_1());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getIntegerLitAction_1_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_3_0=RULE_INTEGER_LIT
+					{
+						newLeafNode(lv_value_3_0, grammarAccess.getSlangLitAccess().getValueINTEGER_LITTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_3_0,
+							"org.osate.xtext.aadl2.properties.Properties.INTEGER_LIT");
+					}
+				)
+			)
+		)
 		    |
-		this_INTEGER_LIT_2=RULE_INTEGER_LIT
-		{
-			$current.merge(this_INTEGER_LIT_2);
-		}
-		{
-			newLeafNode(this_INTEGER_LIT_2, grammarAccess.getSlangLitAccess().getINTEGER_LITTerminalRuleCall_2());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getIntIdfLitAction_2_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_5_0=RULE_INT_IDF
+					{
+						newLeafNode(lv_value_5_0, grammarAccess.getSlangLitAccess().getValueINT_IDFTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_5_0,
+							"org.sireum.aadl.gumbo.Gumbo.INT_IDF");
+					}
+				)
+			)
+		)
 		    |
-		this_INT_IDF_3=RULE_INT_IDF
-		{
-			$current.merge(this_INT_IDF_3);
-		}
-		{
-			newLeafNode(this_INT_IDF_3, grammarAccess.getSlangLitAccess().getINT_IDFTerminalRuleCall_3());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getHexLitAction_3_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_7_0=RULE_HEX
+					{
+						newLeafNode(lv_value_7_0, grammarAccess.getSlangLitAccess().getValueHEXTerminalRuleCall_3_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_7_0,
+							"org.sireum.aadl.gumbo.Gumbo.HEX");
+					}
+				)
+			)
+		)
 		    |
-		this_HEX_4=RULE_HEX
-		{
-			$current.merge(this_HEX_4);
-		}
-		{
-			newLeafNode(this_HEX_4, grammarAccess.getSlangLitAccess().getHEXTerminalRuleCall_4());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getBinLitAction_4_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_9_0=RULE_BIN
+					{
+						newLeafNode(lv_value_9_0, grammarAccess.getSlangLitAccess().getValueBINTerminalRuleCall_4_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_9_0,
+							"org.sireum.aadl.gumbo.Gumbo.BIN");
+					}
+				)
+			)
+		)
 		    |
-		this_BIN_5=RULE_BIN
-		{
-			$current.merge(this_BIN_5);
-		}
-		{
-			newLeafNode(this_BIN_5, grammarAccess.getSlangLitAccess().getBINTerminalRuleCall_5());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getRealLitAction_5_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_11_0=RULE_REAL_LIT
+					{
+						newLeafNode(lv_value_11_0, grammarAccess.getSlangLitAccess().getValueREAL_LITTerminalRuleCall_5_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_11_0,
+							"org.osate.xtext.aadl2.properties.Properties.REAL_LIT");
+					}
+				)
+			)
+		)
 		    |
-		this_REAL_LIT_6=RULE_REAL_LIT
-		{
-			$current.merge(this_REAL_LIT_6);
-		}
-		{
-			newLeafNode(this_REAL_LIT_6, grammarAccess.getSlangLitAccess().getREAL_LITTerminalRuleCall_6());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getSlangStringLitAction_6_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_13_0=RULE_SLANG_STRING
+					{
+						newLeafNode(lv_value_13_0, grammarAccess.getSlangLitAccess().getValueSLANG_STRINGTerminalRuleCall_6_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_13_0,
+							"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+					}
+				)
+			)
+		)
 		    |
-		this_SLANG_STRING_7=RULE_SLANG_STRING
-		{
-			$current.merge(this_SLANG_STRING_7);
-		}
-		{
-			newLeafNode(this_SLANG_STRING_7, grammarAccess.getSlangLitAccess().getSLANG_STRINGTerminalRuleCall_7());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getRealIdfLitAction_7_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_15_0=RULE_REAL_IDF
+					{
+						newLeafNode(lv_value_15_0, grammarAccess.getSlangLitAccess().getValueREAL_IDFTerminalRuleCall_7_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_15_0,
+							"org.sireum.aadl.gumbo.Gumbo.REAL_IDF");
+					}
+				)
+			)
+		)
 		    |
-		this_REAL_IDF_8=RULE_REAL_IDF
-		{
-			$current.merge(this_REAL_IDF_8);
-		}
-		{
-			newLeafNode(this_REAL_IDF_8, grammarAccess.getSlangLitAccess().getREAL_IDFTerminalRuleCall_8());
-		}
-		    |
-		this_MSTRING_9=RULE_MSTRING
-		{
-			$current.merge(this_MSTRING_9);
-		}
-		{
-			newLeafNode(this_MSTRING_9, grammarAccess.getSlangLitAccess().getMSTRINGTerminalRuleCall_9());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getMStringLitAction_8_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_17_0=RULE_MSTRING
+					{
+						newLeafNode(lv_value_17_0, grammarAccess.getSlangLitAccess().getValueMSTRINGTerminalRuleCall_8_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_17_0,
+							"org.sireum.aadl.gumbo.Gumbo.MSTRING");
+					}
+				)
+			)
+		)
 	)
 ;
 
@@ -5627,14 +5900,25 @@ ruleSlangMInterp returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getSlangMInterpAccess().getLeftCurlyBracketKeyword_0());
 		}
-		{
-			newCompositeNode(grammarAccess.getSlangMInterpAccess().getExprParserRuleCall_1());
-		}
-		this_Expr_1=ruleExpr
-		{
-			$current = $this_Expr_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSlangMInterpAccess().getEExprParserRuleCall_1_0());
+				}
+				lv_e_1_0=ruleExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSlangMInterpRule());
+					}
+					set(
+						$current,
+						"e",
+						lv_e_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.Expr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		otherlv_2=RightCurlyBracket
 		{
 			newLeafNode(otherlv_2, grammarAccess.getSlangMInterpAccess().getRightCurlyBracketKeyword_2());
