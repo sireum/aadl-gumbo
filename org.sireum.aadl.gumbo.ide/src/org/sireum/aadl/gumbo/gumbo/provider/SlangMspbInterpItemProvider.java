@@ -20,37 +20,24 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.SlangMInterp;
+import org.sireum.aadl.gumbo.gumbo.SlangMspbInterp;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangMInterp} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangMspbInterp} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangMInterpItemProvider 
-  extends ItemProviderAdapter
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
+public class SlangMspbInterpItemProvider extends SlangInterpItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -58,7 +45,7 @@ public class SlangMInterpItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public SlangMInterpItemProvider(AdapterFactory adapterFactory)
+  public SlangMspbInterpItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -76,8 +63,32 @@ public class SlangMInterpItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addMspbPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Mspb feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addMspbPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SlangMspbInterp_mspb_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SlangMspbInterp_mspb_feature", "_UI_SlangMspbInterp_type"),
+         GumboPackage.Literals.SLANG_MSPB_INTERP__MSPB,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -94,8 +105,7 @@ public class SlangMInterpItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_MINTERP__E);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_MINTERP__M);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_MSPB_INTERP__MINTERP);
     }
     return childrenFeatures;
   }
@@ -115,7 +125,7 @@ public class SlangMInterpItemProvider
   }
 
   /**
-   * This returns SlangMInterp.gif.
+   * This returns SlangMspbInterp.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -123,7 +133,7 @@ public class SlangMInterpItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangMInterp"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangMspbInterp"));
   }
 
   /**
@@ -135,7 +145,10 @@ public class SlangMInterpItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_SlangMInterp_type");
+    String label = ((SlangMspbInterp)object).getMspb();
+    return label == null || label.length() == 0 ?
+      getString("_UI_SlangMspbInterp_type") :
+      getString("_UI_SlangMspbInterp_type") + " " + label;
   }
 
 
@@ -151,10 +164,12 @@ public class SlangMInterpItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(SlangMInterp.class))
+    switch (notification.getFeatureID(SlangMspbInterp.class))
     {
-      case GumboPackage.SLANG_MINTERP__E:
-      case GumboPackage.SLANG_MINTERP__M:
+      case GumboPackage.SLANG_MSPB_INTERP__MSPB:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+      case GumboPackage.SLANG_MSPB_INTERP__MINTERP:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -175,85 +190,8 @@ public class SlangMInterpItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createBasicExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createQuantifiedExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createUnaryExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createSlangAccess()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createSlangLitTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createSlangInterpTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createSlangForTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__E,
-         GumboFactory.eINSTANCE.createSlangBlockTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_MINTERP__M,
+        (GumboPackage.Literals.SLANG_MSPB_INTERP__MINTERP,
          GumboFactory.eINSTANCE.createSlangMInterp()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return GumboEditPlugin.INSTANCE;
   }
 
 }

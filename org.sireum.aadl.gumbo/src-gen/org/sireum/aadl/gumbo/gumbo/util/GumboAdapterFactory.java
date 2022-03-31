@@ -562,6 +562,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createMStringLitAdapter();
       }
       @Override
+      public Adapter caseSlangMspInterp(SlangMspInterp object)
+      {
+        return createSlangMspInterpAdapter();
+      }
+      @Override
+      public Adapter caseSlangLiteralInterp(SlangLiteralInterp object)
+      {
+        return createSlangLiteralInterpAdapter();
+      }
+      @Override
+      public Adapter caseSlangMspbInterp(SlangMspbInterp object)
+      {
+        return createSlangMspbInterpAdapter();
+      }
+      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
@@ -2014,6 +2029,51 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMStringLitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangMspInterp <em>Slang Msp Interp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMspInterp
+   * @generated
+   */
+  public Adapter createSlangMspInterpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp <em>Slang Literal Interp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp
+   * @generated
+   */
+  public Adapter createSlangLiteralInterpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangMspbInterp <em>Slang Mspb Interp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMspbInterp
+   * @generated
+   */
+  public Adapter createSlangMspbInterpAdapter()
   {
     return null;
   }

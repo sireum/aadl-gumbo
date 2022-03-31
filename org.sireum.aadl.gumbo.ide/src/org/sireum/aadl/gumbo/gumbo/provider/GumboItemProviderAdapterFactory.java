@@ -2435,6 +2435,81 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangMspInterp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangMspInterpItemProvider slangMspInterpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangMspInterp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangMspInterpAdapter()
+  {
+    if (slangMspInterpItemProvider == null)
+    {
+      slangMspInterpItemProvider = new SlangMspInterpItemProvider(this);
+    }
+
+    return slangMspInterpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangLiteralInterpItemProvider slangLiteralInterpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangLiteralInterpAdapter()
+  {
+    if (slangLiteralInterpItemProvider == null)
+    {
+      slangLiteralInterpItemProvider = new SlangLiteralInterpItemProvider(this);
+    }
+
+    return slangLiteralInterpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangMspbInterp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangMspbInterpItemProvider slangMspbInterpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangMspbInterp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangMspbInterpAdapter()
+  {
+    if (slangMspbInterpItemProvider == null)
+    {
+      slangMspbInterpItemProvider = new SlangMspbInterpItemProvider(this);
+    }
+
+    return slangMspbInterpItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2645,6 +2720,9 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangStringLitItemProvider != null) slangStringLitItemProvider.dispose();
     if (realIdfLitItemProvider != null) realIdfLitItemProvider.dispose();
     if (mStringLitItemProvider != null) mStringLitItemProvider.dispose();
+    if (slangMspInterpItemProvider != null) slangMspInterpItemProvider.dispose();
+    if (slangLiteralInterpItemProvider != null) slangLiteralInterpItemProvider.dispose();
+    if (slangMspbInterpItemProvider != null) slangMspbInterpItemProvider.dispose();
   }
 
 }

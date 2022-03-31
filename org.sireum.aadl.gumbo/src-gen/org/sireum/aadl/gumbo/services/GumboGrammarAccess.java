@@ -4000,41 +4000,73 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangInterp");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cSlangInterpAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final RuleCall cMSPTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Action cSlangMspInterpAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cMspAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cMspMSPTerminalRuleCall_0_1_0 = (RuleCall)cMspAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final RuleCall cMSPBTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final RuleCall cSlangMInterpParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Action cSlangLiteralInterpAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cSliAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cSliSLITerminalRuleCall_1_1_0 = (RuleCall)cSliAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cSlangMspbInterpAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cMspbAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cMspbMSPBTerminalRuleCall_2_1_0 = (RuleCall)cMspbAssignment_2_1.eContents().get(0);
+		private final Assignment cMinterpAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cMinterpSlangMInterpParserRuleCall_2_2_0 = (RuleCall)cMinterpAssignment_2_2.eContents().get(0);
 		
-		//SlangInterp    : {SlangInterp}
-		//      MSP
-		//    | MSPB SlangMInterp
+		//SlangInterp
+		//    : {SlangMspInterp} msp=MSP
+		//    | {SlangLiteralInterp} sli=SLI
+		//    | {SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SlangInterp}
-		//     MSP
-		//   | MSPB SlangMInterp
+		//{SlangMspInterp} msp=MSP
+		//   | {SlangLiteralInterp} sli=SLI
+		//   | {SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{SlangInterp}
-		//     MSP
+		//{SlangMspInterp} msp=MSP
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//{SlangInterp}
-		public Action getSlangInterpAction_0_0() { return cSlangInterpAction_0_0; }
+		//{SlangMspInterp}
+		public Action getSlangMspInterpAction_0_0() { return cSlangMspInterpAction_0_0; }
+		
+		//msp=MSP
+		public Assignment getMspAssignment_0_1() { return cMspAssignment_0_1; }
 		
 		//MSP
-		public RuleCall getMSPTerminalRuleCall_0_1() { return cMSPTerminalRuleCall_0_1; }
+		public RuleCall getMspMSPTerminalRuleCall_0_1_0() { return cMspMSPTerminalRuleCall_0_1_0; }
 		
-		//MSPB SlangMInterp
+		//{SlangLiteralInterp} sli=SLI
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//{SlangLiteralInterp}
+		public Action getSlangLiteralInterpAction_1_0() { return cSlangLiteralInterpAction_1_0; }
+		
+		//sli=SLI
+		public Assignment getSliAssignment_1_1() { return cSliAssignment_1_1; }
+		
+		//SLI
+		public RuleCall getSliSLITerminalRuleCall_1_1_0() { return cSliSLITerminalRuleCall_1_1_0; }
+		
+		//{SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{SlangMspbInterp}
+		public Action getSlangMspbInterpAction_2_0() { return cSlangMspbInterpAction_2_0; }
+		
+		//mspb=MSPB
+		public Assignment getMspbAssignment_2_1() { return cMspbAssignment_2_1; }
+		
 		//MSPB
-		public RuleCall getMSPBTerminalRuleCall_1_0() { return cMSPBTerminalRuleCall_1_0; }
+		public RuleCall getMspbMSPBTerminalRuleCall_2_1_0() { return cMspbMSPBTerminalRuleCall_2_1_0; }
+		
+		//minterp=SlangMInterp
+		public Assignment getMinterpAssignment_2_2() { return cMinterpAssignment_2_2; }
 		
 		//SlangMInterp
-		public RuleCall getSlangMInterpParserRuleCall_1_1() { return cSlangMInterpParserRuleCall_1_1; }
+		public RuleCall getMinterpSlangMInterpParserRuleCall_2_2_0() { return cMinterpSlangMInterpParserRuleCall_2_2_0; }
 	}
 	public class SlangMInterpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangMInterp");
@@ -4192,6 +4224,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final TerminalRule tSLANG_STRING;
 	private final TerminalRule tMSTRING;
 	private final TerminalRule tMSP;
+	private final TerminalRule tSLI;
 	private final TerminalRule tMSPB;
 	private final TerminalRule tMSPM;
 	private final TerminalRule tMSPE;
@@ -4297,6 +4330,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.tSLANG_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
 		this.tMSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSTRING");
 		this.tMSP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSP");
+		this.tSLI = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SLI");
 		this.tMSPB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPB");
 		this.tMSPM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPM");
 		this.tMSPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPE");
@@ -5167,9 +5201,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangLitAccess().getRule();
 	}
 	
-	//SlangInterp    : {SlangInterp}
-	//      MSP
-	//    | MSPB SlangMInterp
+	//SlangInterp
+	//    : {SlangMspInterp} msp=MSP
+	//    | {SlangLiteralInterp} sli=SLI
+	//    | {SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
 	//    ;
 	public SlangInterpElements getSlangInterpAccess() {
 		return pSlangInterp;
@@ -5203,6 +5238,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
 	public TerminalRule getMSPRule() {
 		return tMSP;
+	}
+	
+	//terminal SLI: IDF '"' DIGIT (DIGIT* ('.' DIGIT*)? ) '"' ;
+	public TerminalRule getSLIRule() {
+		return tSLI;
 	}
 	
 	//terminal MSPB: IDF '"""' MSPI* '$' ;

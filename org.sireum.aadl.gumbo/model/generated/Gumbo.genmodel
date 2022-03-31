@@ -326,5 +326,15 @@
     <genClasses ecoreClass="Gumbo.ecore#//SlangStringLit"/>
     <genClasses ecoreClass="Gumbo.ecore#//RealIdfLit"/>
     <genClasses ecoreClass="Gumbo.ecore#//MStringLit"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangMspInterp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangMspInterp/msp"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangLiteralInterp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangLiteralInterp/sli"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangMspbInterp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangMspbInterp/mspb"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangMspbInterp/minterp"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

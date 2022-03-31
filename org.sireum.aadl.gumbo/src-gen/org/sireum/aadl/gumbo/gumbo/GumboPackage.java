@@ -2388,7 +2388,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_MINTERP__E = SLANG_INTERP_FEATURE_COUNT + 0;
+  int SLANG_MINTERP__E = 0;
 
   /**
    * The feature id for the '<em><b>M</b></em>' containment reference.
@@ -2397,7 +2397,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_MINTERP__M = SLANG_INTERP_FEATURE_COUNT + 1;
+  int SLANG_MINTERP__M = 1;
 
   /**
    * The number of structural features of the '<em>Slang MInterp</em>' class.
@@ -2406,7 +2406,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_MINTERP_FEATURE_COUNT = SLANG_INTERP_FEATURE_COUNT + 2;
+  int SLANG_MINTERP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangIfStmtImpl <em>Slang If Stmt</em>}' class.
@@ -3474,6 +3474,99 @@ public interface GumboPackage extends EPackage
    * @ordered
    */
   int MSTRING_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangMspInterpImpl <em>Slang Msp Interp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangMspInterpImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspInterp()
+   * @generated
+   */
+  int SLANG_MSP_INTERP = 94;
+
+  /**
+   * The feature id for the '<em><b>Msp</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_MSP_INTERP__MSP = SLANG_INTERP_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Slang Msp Interp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_MSP_INTERP_FEATURE_COUNT = SLANG_INTERP_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangLiteralInterpImpl <em>Slang Literal Interp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangLiteralInterpImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLiteralInterp()
+   * @generated
+   */
+  int SLANG_LITERAL_INTERP = 95;
+
+  /**
+   * The feature id for the '<em><b>Sli</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_LITERAL_INTERP__SLI = SLANG_INTERP_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Slang Literal Interp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_LITERAL_INTERP_FEATURE_COUNT = SLANG_INTERP_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangMspbInterpImpl <em>Slang Mspb Interp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangMspbInterpImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspbInterp()
+   * @generated
+   */
+  int SLANG_MSPB_INTERP = 96;
+
+  /**
+   * The feature id for the '<em><b>Mspb</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_MSPB_INTERP__MSPB = SLANG_INTERP_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Minterp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_MSPB_INTERP__MINTERP = SLANG_INTERP_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Slang Mspb Interp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_MSPB_INTERP_FEATURE_COUNT = SLANG_INTERP_FEATURE_COUNT + 2;
 
 
   /**
@@ -6056,6 +6149,80 @@ public interface GumboPackage extends EPackage
   EClass getMStringLit();
 
   /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangMspInterp <em>Slang Msp Interp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Slang Msp Interp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMspInterp
+   * @generated
+   */
+  EClass getSlangMspInterp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangMspInterp#getMsp <em>Msp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Msp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMspInterp#getMsp()
+   * @see #getSlangMspInterp()
+   * @generated
+   */
+  EAttribute getSlangMspInterp_Msp();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp <em>Slang Literal Interp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Slang Literal Interp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp
+   * @generated
+   */
+  EClass getSlangLiteralInterp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp#getSli <em>Sli</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sli</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp#getSli()
+   * @see #getSlangLiteralInterp()
+   * @generated
+   */
+  EAttribute getSlangLiteralInterp_Sli();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangMspbInterp <em>Slang Mspb Interp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Slang Mspb Interp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMspbInterp
+   * @generated
+   */
+  EClass getSlangMspbInterp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangMspbInterp#getMspb <em>Mspb</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mspb</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMspbInterp#getMspb()
+   * @see #getSlangMspbInterp()
+   * @generated
+   */
+  EAttribute getSlangMspbInterp_Mspb();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangMspbInterp#getMinterp <em>Minterp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Minterp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangMspbInterp#getMinterp()
+   * @see #getSlangMspbInterp()
+   * @generated
+   */
+  EReference getSlangMspbInterp_Minterp();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8209,6 +8376,68 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EClass MSTRING_LIT = eINSTANCE.getMStringLit();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangMspInterpImpl <em>Slang Msp Interp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangMspInterpImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspInterp()
+     * @generated
+     */
+    EClass SLANG_MSP_INTERP = eINSTANCE.getSlangMspInterp();
+
+    /**
+     * The meta object literal for the '<em><b>Msp</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SLANG_MSP_INTERP__MSP = eINSTANCE.getSlangMspInterp_Msp();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangLiteralInterpImpl <em>Slang Literal Interp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangLiteralInterpImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLiteralInterp()
+     * @generated
+     */
+    EClass SLANG_LITERAL_INTERP = eINSTANCE.getSlangLiteralInterp();
+
+    /**
+     * The meta object literal for the '<em><b>Sli</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SLANG_LITERAL_INTERP__SLI = eINSTANCE.getSlangLiteralInterp_Sli();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangMspbInterpImpl <em>Slang Mspb Interp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangMspbInterpImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspbInterp()
+     * @generated
+     */
+    EClass SLANG_MSPB_INTERP = eINSTANCE.getSlangMspbInterp();
+
+    /**
+     * The meta object literal for the '<em><b>Mspb</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SLANG_MSPB_INTERP__MSPB = eINSTANCE.getSlangMspbInterp_Mspb();
+
+    /**
+     * The meta object literal for the '<em><b>Minterp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_MSPB_INTERP__MINTERP = eINSTANCE.getSlangMspbInterp_Minterp();
 
   }
 

@@ -181,6 +181,8 @@ RULE_MSTRING : '"""' (~('"')|'"' ~('"')|'""' ~('"'))* ('"""'|'""""'|'"""""');
 
 RULE_MSP : RULE_IDF '"""' RULE_MSPI* ('"""'|'""""'|'"""""');
 
+RULE_SLI : RULE_IDF '"' RULE_DIGIT RULE_DIGIT* ('.' RULE_DIGIT*)? '"';
+
 RULE_MSPB : RULE_IDF '"""' RULE_MSPI* '$';
 
 RULE_MSPM : '$' RULE_MSPI* '$';

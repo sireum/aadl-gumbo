@@ -534,7 +534,6 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SlangMInterp slangMInterp = (SlangMInterp)theEObject;
         T result = caseSlangMInterp(slangMInterp);
-        if (result == null) result = caseSlangInterp(slangMInterp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -791,6 +790,30 @@ public class GumboSwitch<T> extends Switch<T>
         MStringLit mStringLit = (MStringLit)theEObject;
         T result = caseMStringLit(mStringLit);
         if (result == null) result = caseSlangLit(mStringLit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_MSP_INTERP:
+      {
+        SlangMspInterp slangMspInterp = (SlangMspInterp)theEObject;
+        T result = caseSlangMspInterp(slangMspInterp);
+        if (result == null) result = caseSlangInterp(slangMspInterp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_LITERAL_INTERP:
+      {
+        SlangLiteralInterp slangLiteralInterp = (SlangLiteralInterp)theEObject;
+        T result = caseSlangLiteralInterp(slangLiteralInterp);
+        if (result == null) result = caseSlangInterp(slangLiteralInterp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_MSPB_INTERP:
+      {
+        SlangMspbInterp slangMspbInterp = (SlangMspbInterp)theEObject;
+        T result = caseSlangMspbInterp(slangMspbInterp);
+        if (result == null) result = caseSlangInterp(slangMspbInterp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2298,6 +2321,54 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMStringLit(MStringLit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Msp Interp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Msp Interp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangMspInterp(SlangMspInterp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Literal Interp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Literal Interp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangLiteralInterp(SlangLiteralInterp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Mspb Interp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Mspb Interp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangMspbInterp(SlangMspbInterp object)
   {
     return null;
   }

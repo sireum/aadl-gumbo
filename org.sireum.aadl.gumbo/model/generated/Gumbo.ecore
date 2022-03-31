@@ -291,7 +291,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangInterp"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangMInterp" eSuperTypes="#//SlangInterp">
+  <eClassifiers xsi:type="ecore:EClass" name="SlangMInterp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="m" eType="#//SlangMInterp"
         containment="true"/>
@@ -422,4 +422,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="SlangStringLit" eSuperTypes="#//SlangLit"/>
   <eClassifiers xsi:type="ecore:EClass" name="RealIdfLit" eSuperTypes="#//SlangLit"/>
   <eClassifiers xsi:type="ecore:EClass" name="MStringLit" eSuperTypes="#//SlangLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangMspInterp" eSuperTypes="#//SlangInterp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="msp" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangLiteralInterp" eSuperTypes="#//SlangInterp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sli" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangMspbInterp" eSuperTypes="#//SlangInterp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mspb" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minterp" eType="#//SlangMInterp"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

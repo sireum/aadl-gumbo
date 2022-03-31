@@ -169,6 +169,9 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_STRING_LIT: return createSlangStringLit();
       case GumboPackage.REAL_IDF_LIT: return createRealIdfLit();
       case GumboPackage.MSTRING_LIT: return createMStringLit();
+      case GumboPackage.SLANG_MSP_INTERP: return createSlangMspInterp();
+      case GumboPackage.SLANG_LITERAL_INTERP: return createSlangLiteralInterp();
+      case GumboPackage.SLANG_MSPB_INTERP: return createSlangMspbInterp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -1300,6 +1303,42 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     MStringLitImpl mStringLit = new MStringLitImpl();
     return mStringLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangMspInterp createSlangMspInterp()
+  {
+    SlangMspInterpImpl slangMspInterp = new SlangMspInterpImpl();
+    return slangMspInterp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangLiteralInterp createSlangLiteralInterp()
+  {
+    SlangLiteralInterpImpl slangLiteralInterp = new SlangLiteralInterpImpl();
+    return slangLiteralInterp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangMspbInterp createSlangMspbInterp()
+  {
+    SlangMspbInterpImpl slangMspbInterp = new SlangMspbInterpImpl();
+    return slangMspbInterp;
   }
 
   /**

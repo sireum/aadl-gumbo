@@ -88,10 +88,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 			return getInBindingKeywordsToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getInModesKeywordsRule())
 			return getInModesKeywordsToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getMSPRule())
-			return getMSPToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getMSPBRule())
-			return getMSPBToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getMSPERule())
 			return getMSPEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getMSPMRule())
@@ -160,24 +156,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		if (node != null)
 			return getTokenText(node);
 		return "in modes";
-	}
-	
-	/**
-	 * terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
-	 */
-	protected String getMSPToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"\"\"\"\"";
-	}
-	
-	/**
-	 * terminal MSPB: IDF '"""' MSPI* '$' ;
-	 */
-	protected String getMSPBToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"\"$";
 	}
 	
 	/**

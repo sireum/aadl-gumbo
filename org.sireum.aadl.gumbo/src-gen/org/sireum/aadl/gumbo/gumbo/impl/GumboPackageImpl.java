@@ -90,11 +90,14 @@ import org.sireum.aadl.gumbo.gumbo.SlangInvariant;
 import org.sireum.aadl.gumbo.gumbo.SlangLHSSuffix;
 import org.sireum.aadl.gumbo.gumbo.SlangLit;
 import org.sireum.aadl.gumbo.gumbo.SlangLitTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangLoopContract;
 import org.sireum.aadl.gumbo.gumbo.SlangMInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangMatchStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangMethodCall;
 import org.sireum.aadl.gumbo.gumbo.SlangModifies;
+import org.sireum.aadl.gumbo.gumbo.SlangMspInterp;
+import org.sireum.aadl.gumbo.gumbo.SlangMspbInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangParam;
 import org.sireum.aadl.gumbo.gumbo.SlangParams;
 import org.sireum.aadl.gumbo.gumbo.SlangPattern;
@@ -785,6 +788,27 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass mStringLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangMspInterpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangLiteralInterpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass slangMspbInterpEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -3532,6 +3556,83 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getSlangMspInterp()
+  {
+    return slangMspInterpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSlangMspInterp_Msp()
+  {
+    return (EAttribute)slangMspInterpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangLiteralInterp()
+  {
+    return slangLiteralInterpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSlangLiteralInterp_Sli()
+  {
+    return (EAttribute)slangLiteralInterpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangMspbInterp()
+  {
+    return slangMspbInterpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSlangMspbInterp_Mspb()
+  {
+    return (EAttribute)slangMspbInterpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangMspbInterp_Minterp()
+  {
+    return (EReference)slangMspbInterpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public GumboFactory getGumboFactory()
   {
     return (GumboFactory)getEFactoryInstance();
@@ -3893,6 +3994,16 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     realIdfLitEClass = createEClass(REAL_IDF_LIT);
 
     mStringLitEClass = createEClass(MSTRING_LIT);
+
+    slangMspInterpEClass = createEClass(SLANG_MSP_INTERP);
+    createEAttribute(slangMspInterpEClass, SLANG_MSP_INTERP__MSP);
+
+    slangLiteralInterpEClass = createEClass(SLANG_LITERAL_INTERP);
+    createEAttribute(slangLiteralInterpEClass, SLANG_LITERAL_INTERP__SLI);
+
+    slangMspbInterpEClass = createEClass(SLANG_MSPB_INTERP);
+    createEAttribute(slangMspbInterpEClass, SLANG_MSPB_INTERP__MSPB);
+    createEReference(slangMspbInterpEClass, SLANG_MSPB_INTERP__MINTERP);
   }
 
   /**
@@ -3936,7 +4047,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangPatternEClass.getESuperTypes().add(this.getSlangVarDef());
     slangVarDefEClass.getESuperTypes().add(this.getSlangStmt());
     slangBlockEClass.getESuperTypes().add(this.getSlangElse());
-    slangMInterpEClass.getESuperTypes().add(this.getSlangInterp());
     slangIfStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangWhileStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangMatchStmtEClass.getESuperTypes().add(this.getSlangStmt());
@@ -3969,6 +4079,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangStringLitEClass.getESuperTypes().add(this.getSlangLit());
     realIdfLitEClass.getESuperTypes().add(this.getSlangLit());
     mStringLitEClass.getESuperTypes().add(this.getSlangLit());
+    slangMspInterpEClass.getESuperTypes().add(this.getSlangInterp());
+    slangLiteralInterpEClass.getESuperTypes().add(this.getSlangInterp());
+    slangMspbInterpEClass.getESuperTypes().add(this.getSlangInterp());
 
     // Initialize classes and features; add operations and parameters
     initEClass(gumboLibraryEClass, GumboLibrary.class, "GumboLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4307,6 +4420,16 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(realIdfLitEClass, RealIdfLit.class, "RealIdfLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(mStringLitEClass, MStringLit.class, "MStringLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(slangMspInterpEClass, SlangMspInterp.class, "SlangMspInterp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSlangMspInterp_Msp(), theEcorePackage.getEString(), "msp", null, 0, 1, SlangMspInterp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(slangLiteralInterpEClass, SlangLiteralInterp.class, "SlangLiteralInterp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSlangLiteralInterp_Sli(), theEcorePackage.getEString(), "sli", null, 0, 1, SlangLiteralInterp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(slangMspbInterpEClass, SlangMspbInterp.class, "SlangMspbInterp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSlangMspbInterp_Mspb(), theEcorePackage.getEString(), "mspb", null, 0, 1, SlangMspbInterp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangMspbInterp_Minterp(), this.getSlangMInterp(), null, "minterp", null, 0, 1, SlangMspbInterp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

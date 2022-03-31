@@ -880,6 +880,33 @@ public interface GumboFactory extends EFactory
   MStringLit createMStringLit();
 
   /**
+   * Returns a new object of class '<em>Slang Msp Interp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Msp Interp</em>'.
+   * @generated
+   */
+  SlangMspInterp createSlangMspInterp();
+
+  /**
+   * Returns a new object of class '<em>Slang Literal Interp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Literal Interp</em>'.
+   * @generated
+   */
+  SlangLiteralInterp createSlangLiteralInterp();
+
+  /**
+   * Returns a new object of class '<em>Slang Mspb Interp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Mspb Interp</em>'.
+   * @generated
+   */
+  SlangMspbInterp createSlangMspbInterp();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

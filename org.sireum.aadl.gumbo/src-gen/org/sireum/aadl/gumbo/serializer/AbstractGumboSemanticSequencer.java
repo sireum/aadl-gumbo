@@ -101,15 +101,17 @@ import org.sireum.aadl.gumbo.gumbo.SlangHaltStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangIDExp;
 import org.sireum.aadl.gumbo.gumbo.SlangIdStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangIfStmt;
-import org.sireum.aadl.gumbo.gumbo.SlangInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangInterpTerm;
 import org.sireum.aadl.gumbo.gumbo.SlangInvariant;
 import org.sireum.aadl.gumbo.gumbo.SlangLitTerm;
+import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangLoopContract;
 import org.sireum.aadl.gumbo.gumbo.SlangMInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangMatchStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangMethodCall;
 import org.sireum.aadl.gumbo.gumbo.SlangModifies;
+import org.sireum.aadl.gumbo.gumbo.SlangMspInterp;
+import org.sireum.aadl.gumbo.gumbo.SlangMspbInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangParam;
 import org.sireum.aadl.gumbo.gumbo.SlangParams;
 import org.sireum.aadl.gumbo.gumbo.SlangPattern;
@@ -416,9 +418,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.SLANG_IF_STMT:
 				sequence_SlangStmt(context, (SlangIfStmt) semanticObject); 
 				return; 
-			case GumboPackage.SLANG_INTERP:
-				sequence_SlangInterp(context, (SlangInterp) semanticObject); 
-				return; 
 			case GumboPackage.SLANG_INTERP_TERM:
 				sequence_SlangTerm(context, (SlangInterpTerm) semanticObject); 
 				return; 
@@ -427,6 +426,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.SLANG_LIT_TERM:
 				sequence_SlangTerm(context, (SlangLitTerm) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_LITERAL_INTERP:
+				sequence_SlangInterp(context, (SlangLiteralInterp) semanticObject); 
 				return; 
 			case GumboPackage.SLANG_LOOP_CONTRACT:
 				sequence_SlangLoopContract(context, (SlangLoopContract) semanticObject); 
@@ -442,6 +444,12 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.SLANG_MODIFIES:
 				sequence_SlangModifies(context, (SlangModifies) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_MSP_INTERP:
+				sequence_SlangInterp(context, (SlangMspInterp) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_MSPB_INTERP:
+				sequence_SlangInterp(context, (SlangMspbInterp) semanticObject); 
 				return; 
 			case GumboPackage.SLANG_PARAM:
 				sequence_SlangParam(context, (SlangParam) semanticObject); 
@@ -1149,13 +1157,58 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     SlangInterp returns SlangInterp
+	 *     SlangInterp returns SlangLiteralInterp
 	 *
 	 * Constraint:
-	 *     {SlangInterp}
+	 *     sli=SLI
 	 */
-	protected void sequence_SlangInterp(ISerializationContext context, SlangInterp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_SlangInterp(ISerializationContext context, SlangLiteralInterp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_LITERAL_INTERP__SLI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_LITERAL_INTERP__SLI));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangInterpAccess().getSliSLITerminalRuleCall_1_1_0(), semanticObject.getSli());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangInterp returns SlangMspInterp
+	 *
+	 * Constraint:
+	 *     msp=MSP
+	 */
+	protected void sequence_SlangInterp(ISerializationContext context, SlangMspInterp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_MSP_INTERP__MSP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_MSP_INTERP__MSP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangInterpAccess().getMspMSPTerminalRuleCall_0_1_0(), semanticObject.getMsp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SlangInterp returns SlangMspbInterp
+	 *
+	 * Constraint:
+	 *     (mspb=MSPB minterp=SlangMInterp)
+	 */
+	protected void sequence_SlangInterp(ISerializationContext context, SlangMspbInterp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_MSPB_INTERP__MSPB) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_MSPB_INTERP__MSPB));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_MSPB_INTERP__MINTERP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_MSPB_INTERP__MINTERP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangInterpAccess().getMspbMSPBTerminalRuleCall_2_1_0(), semanticObject.getMspb());
+		feeder.accept(grammarAccess.getSlangInterpAccess().getMinterpSlangMInterpParserRuleCall_2_2_0(), semanticObject.getMinterp());
+		feeder.finish();
 	}
 	
 	
@@ -1365,7 +1418,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	/**
 	 * Contexts:
-	 *     SlangInterp returns SlangMInterp
 	 *     SlangMInterp returns SlangMInterp
 	 *
 	 * Constraint:

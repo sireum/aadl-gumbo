@@ -5853,29 +5853,103 @@ ruleSlangInterp returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getSlangInterpAccess().getSlangInterpAction_0_0(),
+						grammarAccess.getSlangInterpAccess().getSlangMspInterpAction_0_0(),
 						$current);
 				}
 			)
-			this_MSP_1=RULE_MSP
-			{
-				newLeafNode(this_MSP_1, grammarAccess.getSlangInterpAccess().getMSPTerminalRuleCall_0_1());
-			}
+			(
+				(
+					lv_msp_1_0=RULE_MSP
+					{
+						newLeafNode(lv_msp_1_0, grammarAccess.getSlangInterpAccess().getMspMSPTerminalRuleCall_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangInterpRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"msp",
+							lv_msp_1_0,
+							"org.sireum.aadl.gumbo.Gumbo.MSP");
+					}
+				)
+			)
 		)
 		    |
 		(
-			this_MSPB_2=RULE_MSPB
-			{
-				newLeafNode(this_MSPB_2, grammarAccess.getSlangInterpAccess().getMSPBTerminalRuleCall_1_0());
-			}
-			{
-				newCompositeNode(grammarAccess.getSlangInterpAccess().getSlangMInterpParserRuleCall_1_1());
-			}
-			this_SlangMInterp_3=ruleSlangMInterp
-			{
-				$current = $this_SlangMInterp_3.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangInterpAccess().getSlangLiteralInterpAction_1_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_sli_3_0=RULE_SLI
+					{
+						newLeafNode(lv_sli_3_0, grammarAccess.getSlangInterpAccess().getSliSLITerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangInterpRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"sli",
+							lv_sli_3_0,
+							"org.sireum.aadl.gumbo.Gumbo.SLI");
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangInterpAccess().getSlangMspbInterpAction_2_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_mspb_5_0=RULE_MSPB
+					{
+						newLeafNode(lv_mspb_5_0, grammarAccess.getSlangInterpAccess().getMspbMSPBTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangInterpRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"mspb",
+							lv_mspb_5_0,
+							"org.sireum.aadl.gumbo.Gumbo.MSPB");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSlangInterpAccess().getMinterpSlangMInterpParserRuleCall_2_2_0());
+					}
+					lv_minterp_6_0=ruleSlangMInterp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSlangInterpRule());
+						}
+						set(
+							$current,
+							"minterp",
+							lv_minterp_6_0,
+							"org.sireum.aadl.gumbo.Gumbo.SlangMInterp");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 	)
 ;

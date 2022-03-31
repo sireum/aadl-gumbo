@@ -317,9 +317,10 @@ SlangLit
 	| {MStringLit} value=MSTRING
 	;
 
-SlangInterp	: {SlangInterp}
-	  MSP
-	| MSPB SlangMInterp
+SlangInterp	
+	: {SlangMspInterp} msp=MSP
+	| {SlangLiteralInterp} sli=SLI
+	| {SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
 	;
 
 SlangMInterp
@@ -331,6 +332,8 @@ terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
 
 terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
+
+terminal SLI: IDF '"' DIGIT (DIGIT* ('.' DIGIT*)? ) '"' ;
 
 terminal MSPB: IDF '"""' MSPI* '$' ;
 
