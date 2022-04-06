@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Gumbo
+Bundle-SymbolicName: org.sireum.aadl.osate.gumbo
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.sireum.aadl.osate.gumbo
+Require-Bundle: org.osate.aadl2,
+ org.eclipse.xtext.ecore;bundle-version="2.25.0",
+ org.sireum.aadl.osate;bundle-version="1.2022.1051723",
+ org.sireum.aadl.gumbo;bundle-version="1.0.0"
+Bundle-ClassPath: .,
+ bin/,
+ external:$org.sireum.home$/bin/sireum.jar
