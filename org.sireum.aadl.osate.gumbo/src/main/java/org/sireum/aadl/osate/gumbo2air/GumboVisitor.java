@@ -1,4 +1,4 @@
-package org.sireum.aadl.osate.gumbo;
+package org.sireum.aadl.osate.gumbo2air;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ import org.sireum.aadl.gumbo.gumbo.util.GumboSwitch;
 import org.sireum.aadl.osate.architecture.AnnexVisitor;
 import org.sireum.aadl.osate.architecture.Visitor;
 import org.sireum.aadl.osate.architecture.VisitorUtil;
-import org.sireum.aadl.osate.gumbo.GumboUtils.UnaryOp;
+import org.sireum.aadl.osate.gumbo2air.GumboUtils.UnaryOp;
 import org.sireum.aadl.osate.util.SlangUtils;
 import org.sireum.hamr.ir.Annex;
 import org.sireum.hamr.ir.Annex$;

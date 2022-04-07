@@ -1,4 +1,4 @@
-package org.sireum.aadl.osate.gumbo;
+package org.sireum.aadl.osate.gumbo2air;
 
 import java.util.List;
 
@@ -11,12 +11,10 @@ import org.sireum.hamr.ir.AadlASTFactory;
 import org.sireum.hamr.ir.Name;
 import org.sireum.lang.ast.Attr;
 import org.sireum.lang.ast.Attr$;
-import org.sireum.lang.ast.Exp;
 import org.sireum.lang.ast.ResolvedAttr;
 import org.sireum.lang.ast.ResolvedAttr$;
 import org.sireum.lang.ast.TypedAttr;
 import org.sireum.lang.ast.TypedAttr$;
-import org.sireum.lang.tipe.JSON;
 import org.sireum.message.FlatPos;
 import org.sireum.message.FlatPos$;
 import org.sireum.message.Position;
@@ -168,10 +166,6 @@ public class GumboUtils {
 
 	public static ResolvedAttr buildResolvedAttr(Option<Position> p) {
 		return ResolvedAttr$.MODULE$.apply(p, SlangUtils.toNone(), SlangUtils.toNone());
-	}
-
-	public static String toString(Exp e) {
-		return JSON.from_astExp(e, true);
 	}
 
 	public static TypedAttr buildTypedAttr(EObject object) {
