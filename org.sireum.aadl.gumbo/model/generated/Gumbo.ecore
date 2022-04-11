@@ -41,6 +41,8 @@
         eType="#//SpecStatement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Initialize">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modifies" eType="#//SlangModifies"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specs" upperBound="-1"
         eType="#//InitializeSpecStatement" containment="true"/>
   </eClassifiers>
@@ -49,6 +51,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Compute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modifies" eType="#//SlangModifies"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cases" upperBound="-1"
         eType="#//CaseStatementClause" containment="true"/>
   </eClassifiers>

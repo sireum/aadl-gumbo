@@ -591,9 +591,28 @@ ruleInitialize returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getInitializeAccess().getSpecsInitializeSpecStatementParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getInitializeAccess().getModifiesSlangModifiesParserRuleCall_1_0());
 				}
-				lv_specs_1_0=ruleInitializeSpecStatement
+				lv_modifies_1_0=ruleSlangModifies
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInitializeRule());
+					}
+					set(
+						$current,
+						"modifies",
+						lv_modifies_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.SlangModifies");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInitializeAccess().getSpecsInitializeSpecStatementParserRuleCall_2_0());
+				}
+				lv_specs_2_0=ruleInitializeSpecStatement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getInitializeRule());
@@ -601,7 +620,7 @@ ruleInitialize returns [EObject current=null]
 					add(
 						$current,
 						"specs",
-						lv_specs_1_0,
+						lv_specs_2_0,
 						"org.sireum.aadl.gumbo.Gumbo.InitializeSpecStatement");
 					afterParserOrEnumRuleCall();
 				}
@@ -669,9 +688,28 @@ ruleCompute returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getComputeAccess().getCasesCaseStatementClauseParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getComputeAccess().getModifiesSlangModifiesParserRuleCall_1_0());
 				}
-				lv_cases_1_0=ruleCaseStatementClause
+				lv_modifies_1_0=ruleSlangModifies
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComputeRule());
+					}
+					set(
+						$current,
+						"modifies",
+						lv_modifies_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.SlangModifies");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComputeAccess().getCasesCaseStatementClauseParserRuleCall_2_0());
+				}
+				lv_cases_2_0=ruleCaseStatementClause
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getComputeRule());
@@ -679,7 +717,7 @@ ruleCompute returns [EObject current=null]
 					add(
 						$current,
 						"cases",
-						lv_cases_1_0,
+						lv_cases_2_0,
 						"org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
 					afterParserOrEnumRuleCall();
 				}

@@ -15,6 +15,7 @@ package org.sireum.aadl.gumbo.gumbo.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -22,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.SlangModifies;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +42,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getModifies <em>Modifies</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getCases <em>Cases</em>}</li>
  * </ul>
  *
@@ -46,6 +50,16 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  */
 public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
 {
+  /**
+   * The cached value of the '{@link #getModifies() <em>Modifies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getModifies()
+   * @generated
+   * @ordered
+   */
+  protected SlangModifies modifies;
+
   /**
    * The cached value of the '{@link #getCases() <em>Cases</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -83,6 +97,56 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @generated
    */
   @Override
+  public SlangModifies getModifies()
+  {
+    return modifies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetModifies(SlangModifies newModifies, NotificationChain msgs)
+  {
+    SlangModifies oldModifies = modifies;
+    modifies = newModifies;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.COMPUTE__MODIFIES, oldModifies, newModifies);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setModifies(SlangModifies newModifies)
+  {
+    if (newModifies != modifies)
+    {
+      NotificationChain msgs = null;
+      if (modifies != null)
+        msgs = ((InternalEObject)modifies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.COMPUTE__MODIFIES, null, msgs);
+      if (newModifies != null)
+        msgs = ((InternalEObject)newModifies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.COMPUTE__MODIFIES, null, msgs);
+      msgs = basicSetModifies(newModifies, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.COMPUTE__MODIFIES, newModifies, newModifies));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<CaseStatementClause> getCases()
   {
     if (cases == null)
@@ -102,6 +166,8 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
   {
     switch (featureID)
     {
+      case GumboPackage.COMPUTE__MODIFIES:
+        return basicSetModifies(null, msgs);
       case GumboPackage.COMPUTE__CASES:
         return ((InternalEList<?>)getCases()).basicRemove(otherEnd, msgs);
     }
@@ -118,6 +184,8 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
   {
     switch (featureID)
     {
+      case GumboPackage.COMPUTE__MODIFIES:
+        return getModifies();
       case GumboPackage.COMPUTE__CASES:
         return getCases();
     }
@@ -135,6 +203,9 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
   {
     switch (featureID)
     {
+      case GumboPackage.COMPUTE__MODIFIES:
+        setModifies((SlangModifies)newValue);
+        return;
       case GumboPackage.COMPUTE__CASES:
         getCases().clear();
         getCases().addAll((Collection<? extends CaseStatementClause>)newValue);
@@ -153,6 +224,9 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
   {
     switch (featureID)
     {
+      case GumboPackage.COMPUTE__MODIFIES:
+        setModifies((SlangModifies)null);
+        return;
       case GumboPackage.COMPUTE__CASES:
         getCases().clear();
         return;
@@ -170,6 +244,8 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
   {
     switch (featureID)
     {
+      case GumboPackage.COMPUTE__MODIFIES:
+        return modifies != null;
       case GumboPackage.COMPUTE__CASES:
         return cases != null && !cases.isEmpty();
     }

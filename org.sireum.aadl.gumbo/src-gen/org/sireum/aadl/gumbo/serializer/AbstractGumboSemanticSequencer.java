@@ -627,7 +627,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Compute returns Compute
 	 *
 	 * Constraint:
-	 *     cases+=CaseStatementClause+
+	 *     (modifies=SlangModifies? cases+=CaseStatementClause+)
 	 */
 	protected void sequence_Compute(ISerializationContext context, Compute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -804,7 +804,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Initialize returns Initialize
 	 *
 	 * Constraint:
-	 *     specs+=InitializeSpecStatement+
+	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement+)
 	 */
 	protected void sequence_Initialize(ISerializationContext context, Initialize semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

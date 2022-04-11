@@ -363,25 +363,37 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Initialize");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cInitializeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cSpecsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cSpecsInitializeSpecStatementParserRuleCall_1_0 = (RuleCall)cSpecsAssignment_1.eContents().get(0);
+		private final Assignment cModifiesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cModifiesSlangModifiesParserRuleCall_1_0 = (RuleCall)cModifiesAssignment_1.eContents().get(0);
+		private final Assignment cSpecsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSpecsInitializeSpecStatementParserRuleCall_2_0 = (RuleCall)cSpecsAssignment_2.eContents().get(0);
 		
 		//Initialize:
-		//    'initialize' (specs+=InitializeSpecStatement)+
+		//    'initialize'
+		//      (modifies=SlangModifies)?
+		//      (specs+=InitializeSpecStatement)+
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'initialize' (specs+=InitializeSpecStatement)+
+		//'initialize'
+		//  (modifies=SlangModifies)?
+		//  (specs+=InitializeSpecStatement)+
 		public Group getGroup() { return cGroup; }
 		
 		//'initialize'
 		public Keyword getInitializeKeyword_0() { return cInitializeKeyword_0; }
 		
+		//(modifies=SlangModifies)?
+		public Assignment getModifiesAssignment_1() { return cModifiesAssignment_1; }
+		
+		//SlangModifies
+		public RuleCall getModifiesSlangModifiesParserRuleCall_1_0() { return cModifiesSlangModifiesParserRuleCall_1_0; }
+		
 		//(specs+=InitializeSpecStatement)+
-		public Assignment getSpecsAssignment_1() { return cSpecsAssignment_1; }
+		public Assignment getSpecsAssignment_2() { return cSpecsAssignment_2; }
 		
 		//InitializeSpecStatement
-		public RuleCall getSpecsInitializeSpecStatementParserRuleCall_1_0() { return cSpecsInitializeSpecStatementParserRuleCall_1_0; }
+		public RuleCall getSpecsInitializeSpecStatementParserRuleCall_2_0() { return cSpecsInitializeSpecStatementParserRuleCall_2_0; }
 	}
 	public class InitializeSpecStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InitializeSpecStatement");
@@ -403,11 +415,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Compute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cComputeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cCasesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCasesCaseStatementClauseParserRuleCall_1_0 = (RuleCall)cCasesAssignment_1.eContents().get(0);
+		private final Assignment cModifiesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cModifiesSlangModifiesParserRuleCall_1_0 = (RuleCall)cModifiesAssignment_1.eContents().get(0);
+		private final Assignment cCasesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCasesCaseStatementClauseParserRuleCall_2_0 = (RuleCall)cCasesAssignment_2.eContents().get(0);
 		
 		//Compute:
 		//    'compute'
+		//      (modifies=SlangModifies)?
 		//      // for now, just set the grammar to have a collection of case statements.
 		//      // Eventually allow arbitrary assume/guarantees around an aggregated case statement
 		//       (cases+=CaseStatementClause)+
@@ -415,6 +430,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'compute'
+		//  (modifies=SlangModifies)?
 		//  // for now, just set the grammar to have a collection of case statements.
 		//  // Eventually allow arbitrary assume/guarantees around an aggregated case statement
 		//   (cases+=CaseStatementClause)+
@@ -423,13 +439,19 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'compute'
 		public Keyword getComputeKeyword_0() { return cComputeKeyword_0; }
 		
+		//(modifies=SlangModifies)?
+		public Assignment getModifiesAssignment_1() { return cModifiesAssignment_1; }
+		
+		//SlangModifies
+		public RuleCall getModifiesSlangModifiesParserRuleCall_1_0() { return cModifiesSlangModifiesParserRuleCall_1_0; }
+		
 		//// for now, just set the grammar to have a collection of case statements.
 		//// Eventually allow arbitrary assume/guarantees around an aggregated case statement
 		// (cases+=CaseStatementClause)+
-		public Assignment getCasesAssignment_1() { return cCasesAssignment_1; }
+		public Assignment getCasesAssignment_2() { return cCasesAssignment_2; }
 		
 		//CaseStatementClause
-		public RuleCall getCasesCaseStatementClauseParserRuleCall_1_0() { return cCasesCaseStatementClauseParserRuleCall_1_0; }
+		public RuleCall getCasesCaseStatementClauseParserRuleCall_2_0() { return cCasesCaseStatementClauseParserRuleCall_2_0; }
 	}
 	public class CaseStatementClauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
@@ -4500,7 +4522,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Initialize:
-	//    'initialize' (specs+=InitializeSpecStatement)+
+	//    'initialize'
+	//      (modifies=SlangModifies)?
+	//      (specs+=InitializeSpecStatement)+
 	//;
 	public InitializeElements getInitializeAccess() {
 		return pInitialize;
@@ -4523,6 +4547,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//Compute:
 	//    'compute'
+	//      (modifies=SlangModifies)?
 	//      // for now, just set the grammar to have a collection of case statements.
 	//      // Eventually allow arbitrary assume/guarantees around an aggregated case statement
 	//       (cases+=CaseStatementClause)+

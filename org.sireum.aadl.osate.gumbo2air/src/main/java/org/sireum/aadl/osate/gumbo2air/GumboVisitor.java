@@ -63,6 +63,8 @@ import org.sireum.hamr.ir.GclCompute;
 import org.sireum.hamr.ir.GclCompute$;
 import org.sireum.hamr.ir.GclGuarantee;
 import org.sireum.hamr.ir.GclGuarantee$;
+import org.sireum.hamr.ir.GclInitialize;
+import org.sireum.hamr.ir.GclInitialize$;
 import org.sireum.hamr.ir.GclIntegration;
 import org.sireum.hamr.ir.GclIntegration$;
 import org.sireum.hamr.ir.GclInvariant;
@@ -179,13 +181,26 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			_integration = SlangUtils.toSome(pop());
 		}
 
-		List<GclGuarantee> _initializes = new ArrayList<>();
+		Option<GclInitialize> _initializes = SlangUtils.toNone();
 		if (object.getSpecs().getInitialize() != null) {
+
 			Initialize i = object.getSpecs().getInitialize();
+			List<Exp> modifies = new ArrayList<>();
+			if (i.getModifies() != null) {
+				for (Expr e : i.getModifies().getExprs()) {
+					visit(e);
+					modifies.add(pop());
+				}
+			}
+
+			List<GclGuarantee> guarantees = new ArrayList<>();
 			for (InitializeSpecStatement iss : i.getSpecs()) {
 				visit(iss.getGuaranteeStatement());
-				_initializes.add(pop());
+				guarantees.add(pop());
 			}
+
+			_initializes = SlangUtils
+					.toSome(GclInitialize$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees)));
 		}
 
 		Option<GclCompute> _compute = SlangUtils.toNone();
@@ -194,14 +209,21 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			_compute = SlangUtils.toSome(pop());
 		}
 
-		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_invariants),
-				VisitorUtil.toISZ(_initializes), _integration, _compute));
+		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_invariants), _initializes,
+				_integration, _compute));
 
 		return false;
 	}
 
 	@Override
 	public Boolean caseCompute(Compute object) {
+
+		List<Exp> modifies = new ArrayList<>();
+		for (Expr e : object.getModifies().getExprs()) {
+			visit(e);
+			modifies.add(pop());
+		}
+
 		List<GclCaseStatement> caseStatements = new ArrayList<>();
 		for (CaseStatementClause css : object.getCases()) {
 			String name = GumboUtils.getSlangString(css.getDisplayName());
@@ -215,7 +237,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			caseStatements.add(GclCaseStatement$.MODULE$.apply(name, assumes, guarantees));
 		}
 
-		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(caseStatements)));
+		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements)));
 
 		return false;
 	}

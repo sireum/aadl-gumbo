@@ -1136,9 +1136,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getInitialize_Specs()
+  public EReference getInitialize_Modifies()
   {
     return (EReference)initializeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInitialize_Specs()
+  {
+    return (EReference)initializeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1180,9 +1191,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getCompute_Cases()
+  public EReference getCompute_Modifies()
   {
     return (EReference)computeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCompute_Cases()
+  {
+    return (EReference)computeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3689,12 +3711,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(integrationEClass, INTEGRATION__SPECS);
 
     initializeEClass = createEClass(INITIALIZE);
+    createEReference(initializeEClass, INITIALIZE__MODIFIES);
     createEReference(initializeEClass, INITIALIZE__SPECS);
 
     initializeSpecStatementEClass = createEClass(INITIALIZE_SPEC_STATEMENT);
     createEReference(initializeSpecStatementEClass, INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT);
 
     computeEClass = createEClass(COMPUTE);
+    createEReference(computeEClass, COMPUTE__MODIFIES);
     createEReference(computeEClass, COMPUTE__CASES);
 
     caseStatementClauseEClass = createEClass(CASE_STATEMENT_CLAUSE);
@@ -4115,12 +4139,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getIntegration_Specs(), this.getSpecStatement(), null, "specs", null, 0, -1, Integration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initializeEClass, Initialize.class, "Initialize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInitialize_Modifies(), this.getSlangModifies(), null, "modifies", null, 0, 1, Initialize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInitialize_Specs(), this.getInitializeSpecStatement(), null, "specs", null, 0, -1, Initialize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initializeSpecStatementEClass, InitializeSpecStatement.class, "InitializeSpecStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitializeSpecStatement_GuaranteeStatement(), this.getGuaranteeStatement(), null, "guaranteeStatement", null, 0, 1, InitializeSpecStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(computeEClass, Compute.class, "Compute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCompute_Modifies(), this.getSlangModifies(), null, "modifies", null, 0, 1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(caseStatementClauseEClass, CaseStatementClause.class, "CaseStatementClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

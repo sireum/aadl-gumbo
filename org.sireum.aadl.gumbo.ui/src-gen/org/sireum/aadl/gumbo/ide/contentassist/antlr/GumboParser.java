@@ -288,9 +288,11 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getInvSpecAccess().getDisplayNameAssignment_1(), "rule__InvSpec__DisplayNameAssignment_1");
 			builder.put(grammarAccess.getInvSpecAccess().getExprAssignment_3(), "rule__InvSpec__ExprAssignment_3");
 			builder.put(grammarAccess.getIntegrationAccess().getSpecsAssignment_1(), "rule__Integration__SpecsAssignment_1");
-			builder.put(grammarAccess.getInitializeAccess().getSpecsAssignment_1(), "rule__Initialize__SpecsAssignment_1");
+			builder.put(grammarAccess.getInitializeAccess().getModifiesAssignment_1(), "rule__Initialize__ModifiesAssignment_1");
+			builder.put(grammarAccess.getInitializeAccess().getSpecsAssignment_2(), "rule__Initialize__SpecsAssignment_2");
 			builder.put(grammarAccess.getInitializeSpecStatementAccess().getGuaranteeStatementAssignment(), "rule__InitializeSpecStatement__GuaranteeStatementAssignment");
-			builder.put(grammarAccess.getComputeAccess().getCasesAssignment_1(), "rule__Compute__CasesAssignment_1");
+			builder.put(grammarAccess.getComputeAccess().getModifiesAssignment_1(), "rule__Compute__ModifiesAssignment_1");
+			builder.put(grammarAccess.getComputeAccess().getCasesAssignment_2(), "rule__Compute__CasesAssignment_2");
 			builder.put(grammarAccess.getCaseStatementClauseAccess().getDisplayNameAssignment_1(), "rule__CaseStatementClause__DisplayNameAssignment_1");
 			builder.put(grammarAccess.getCaseStatementClauseAccess().getAssumeStatementAssignment_3(), "rule__CaseStatementClause__AssumeStatementAssignment_3");
 			builder.put(grammarAccess.getCaseStatementClauseAccess().getGuaranteeStatementAssignment_4(), "rule__CaseStatementClause__GuaranteeStatementAssignment_4");

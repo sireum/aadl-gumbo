@@ -94,6 +94,7 @@ public class InitializeItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.INITIALIZE__MODIFIES);
       childrenFeatures.add(GumboPackage.Literals.INITIALIZE__SPECS);
     }
     return childrenFeatures;
@@ -152,6 +153,7 @@ public class InitializeItemProvider
 
     switch (notification.getFeatureID(Initialize.class))
     {
+      case GumboPackage.INITIALIZE__MODIFIES:
       case GumboPackage.INITIALIZE__SPECS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -170,6 +172,11 @@ public class InitializeItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.INITIALIZE__MODIFIES,
+         GumboFactory.eINSTANCE.createSlangModifies()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -94,6 +94,7 @@ public class ComputeItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.COMPUTE__MODIFIES);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__CASES);
     }
     return childrenFeatures;
@@ -152,6 +153,7 @@ public class ComputeItemProvider
 
     switch (notification.getFeatureID(Compute.class))
     {
+      case GumboPackage.COMPUTE__MODIFIES:
       case GumboPackage.COMPUTE__CASES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -170,6 +172,11 @@ public class ComputeItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.COMPUTE__MODIFIES,
+         GumboFactory.eINSTANCE.createSlangModifies()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -38,12 +38,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Integration/specs"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Initialize">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/modifies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/specs"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//InitializeSpecStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//InitializeSpecStatement/guaranteeStatement"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Compute">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/modifies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/cases"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//CaseStatementClause">

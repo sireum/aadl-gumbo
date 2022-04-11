@@ -457,13 +457,22 @@ public interface GumboPackage extends EPackage
   int INITIALIZE = 8;
 
   /**
+   * The feature id for the '<em><b>Modifies</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIALIZE__MODIFIES = 0;
+
+  /**
    * The feature id for the '<em><b>Specs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INITIALIZE__SPECS = 0;
+  int INITIALIZE__SPECS = 1;
 
   /**
    * The number of structural features of the '<em>Initialize</em>' class.
@@ -472,7 +481,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INITIALIZE_FEATURE_COUNT = 1;
+  int INITIALIZE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.InitializeSpecStatementImpl <em>Initialize Spec Statement</em>}' class.
@@ -513,13 +522,22 @@ public interface GumboPackage extends EPackage
   int COMPUTE = 10;
 
   /**
+   * The feature id for the '<em><b>Modifies</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPUTE__MODIFIES = 0;
+
+  /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPUTE__CASES = 0;
+  int COMPUTE__CASES = 1;
 
   /**
    * The number of structural features of the '<em>Compute</em>' class.
@@ -528,7 +546,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPUTE_FEATURE_COUNT = 1;
+  int COMPUTE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.CaseStatementClauseImpl <em>Case Statement Clause</em>}' class.
@@ -3814,6 +3832,17 @@ public interface GumboPackage extends EPackage
   EClass getInitialize();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.Initialize#getModifies <em>Modifies</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Modifies</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Initialize#getModifies()
+   * @see #getInitialize()
+   * @generated
+   */
+  EReference getInitialize_Modifies();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.Initialize#getSpecs <em>Specs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3854,6 +3883,17 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EClass getCompute();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.Compute#getModifies <em>Modifies</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Modifies</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Compute#getModifies()
+   * @see #getCompute()
+   * @generated
+   */
+  EReference getCompute_Modifies();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.Compute#getCases <em>Cases</em>}'.
@@ -6448,6 +6488,14 @@ public interface GumboPackage extends EPackage
     EClass INITIALIZE = eINSTANCE.getInitialize();
 
     /**
+     * The meta object literal for the '<em><b>Modifies</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INITIALIZE__MODIFIES = eINSTANCE.getInitialize_Modifies();
+
+    /**
      * The meta object literal for the '<em><b>Specs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6482,6 +6530,14 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EClass COMPUTE = eINSTANCE.getCompute();
+
+    /**
+     * The meta object literal for the '<em><b>Modifies</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPUTE__MODIFIES = eINSTANCE.getCompute_Modifies();
 
     /**
      * The meta object literal for the '<em><b>Cases</b></em>' containment reference list feature.

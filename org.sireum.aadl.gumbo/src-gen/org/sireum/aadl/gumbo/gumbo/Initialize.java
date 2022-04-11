@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.Initialize#getModifies <em>Modifies</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Initialize#getSpecs <em>Specs</em>}</li>
  * </ul>
  *
@@ -35,6 +36,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Initialize extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Modifies</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Modifies</em>' containment reference.
+   * @see #setModifies(SlangModifies)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getInitialize_Modifies()
+   * @model containment="true"
+   * @generated
+   */
+  SlangModifies getModifies();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.Initialize#getModifies <em>Modifies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Modifies</em>' containment reference.
+   * @see #getModifies()
+   * @generated
+   */
+  void setModifies(SlangModifies value);
+
   /**
    * Returns the value of the '<em><b>Specs</b></em>' containment reference list.
    * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement}.

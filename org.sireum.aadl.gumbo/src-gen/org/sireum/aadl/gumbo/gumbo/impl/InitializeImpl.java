@@ -15,6 +15,7 @@ package org.sireum.aadl.gumbo.gumbo.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -22,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
+import org.sireum.aadl.gumbo.gumbo.SlangModifies;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +42,7 @@ import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.InitializeImpl#getModifies <em>Modifies</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.InitializeImpl#getSpecs <em>Specs</em>}</li>
  * </ul>
  *
@@ -46,6 +50,16 @@ import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
  */
 public class InitializeImpl extends MinimalEObjectImpl.Container implements Initialize
 {
+  /**
+   * The cached value of the '{@link #getModifies() <em>Modifies</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getModifies()
+   * @generated
+   * @ordered
+   */
+  protected SlangModifies modifies;
+
   /**
    * The cached value of the '{@link #getSpecs() <em>Specs</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -83,6 +97,56 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
    * @generated
    */
   @Override
+  public SlangModifies getModifies()
+  {
+    return modifies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetModifies(SlangModifies newModifies, NotificationChain msgs)
+  {
+    SlangModifies oldModifies = modifies;
+    modifies = newModifies;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.INITIALIZE__MODIFIES, oldModifies, newModifies);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setModifies(SlangModifies newModifies)
+  {
+    if (newModifies != modifies)
+    {
+      NotificationChain msgs = null;
+      if (modifies != null)
+        msgs = ((InternalEObject)modifies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.INITIALIZE__MODIFIES, null, msgs);
+      if (newModifies != null)
+        msgs = ((InternalEObject)newModifies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.INITIALIZE__MODIFIES, null, msgs);
+      msgs = basicSetModifies(newModifies, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.INITIALIZE__MODIFIES, newModifies, newModifies));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<InitializeSpecStatement> getSpecs()
   {
     if (specs == null)
@@ -102,6 +166,8 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
   {
     switch (featureID)
     {
+      case GumboPackage.INITIALIZE__MODIFIES:
+        return basicSetModifies(null, msgs);
       case GumboPackage.INITIALIZE__SPECS:
         return ((InternalEList<?>)getSpecs()).basicRemove(otherEnd, msgs);
     }
@@ -118,6 +184,8 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
   {
     switch (featureID)
     {
+      case GumboPackage.INITIALIZE__MODIFIES:
+        return getModifies();
       case GumboPackage.INITIALIZE__SPECS:
         return getSpecs();
     }
@@ -135,6 +203,9 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
   {
     switch (featureID)
     {
+      case GumboPackage.INITIALIZE__MODIFIES:
+        setModifies((SlangModifies)newValue);
+        return;
       case GumboPackage.INITIALIZE__SPECS:
         getSpecs().clear();
         getSpecs().addAll((Collection<? extends InitializeSpecStatement>)newValue);
@@ -153,6 +224,9 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
   {
     switch (featureID)
     {
+      case GumboPackage.INITIALIZE__MODIFIES:
+        setModifies((SlangModifies)null);
+        return;
       case GumboPackage.INITIALIZE__SPECS:
         getSpecs().clear();
         return;
@@ -170,6 +244,8 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
   {
     switch (featureID)
     {
+      case GumboPackage.INITIALIZE__MODIFIES:
+        return modifies != null;
       case GumboPackage.INITIALIZE__SPECS:
         return specs != null && !specs.isEmpty();
     }

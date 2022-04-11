@@ -61,7 +61,9 @@ Integration:
 ;
 
 Initialize:
-	'initialize' (specs+=InitializeSpecStatement)+
+	'initialize'
+	  (modifies=SlangModifies)? 
+	  (specs+=InitializeSpecStatement)+
 ;
 
 InitializeSpecStatement:
@@ -69,7 +71,8 @@ InitializeSpecStatement:
 ;
 
 Compute:
-	'compute' 
+	'compute'
+	  (modifies=SlangModifies)?
 	  // for now, just set the grammar to have a collection of case statements.  
 	  // Eventually allow arbitrary assume/guarantees around an aggregated case statement
 	   (cases+=CaseStatementClause)+
