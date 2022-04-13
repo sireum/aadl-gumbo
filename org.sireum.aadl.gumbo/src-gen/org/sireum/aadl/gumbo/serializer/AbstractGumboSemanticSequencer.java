@@ -541,11 +541,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	}
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     AnonAssumeStatement returns AnonAssumeStatement
 	 *
 	 * Constraint:
 	 *     expr=Expr
+	 * </pre>
 	 */
 	protected void sequence_AnonAssumeStatement(ISerializationContext context, AnonAssumeStatement semanticObject) {
 		if (errorAcceptor != null) {
@@ -559,11 +561,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     AnonGuaranteeStatement returns AnonGuaranteeStatement
 	 *
 	 * Constraint:
 	 *     expr=Expr
+	 * </pre>
 	 */
 	protected void sequence_AnonGuaranteeStatement(ISerializationContext context, AnonGuaranteeStatement semanticObject) {
 		if (errorAcceptor != null) {
@@ -577,12 +581,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SpecStatement returns AssumeStatement
 	 *     AssumeStatement returns AssumeStatement
 	 *
 	 * Constraint:
 	 *     (displayName=SLANG_STRING expr=Expr)
+	 * </pre>
 	 */
 	protected void sequence_AssumeStatement(ISerializationContext context, AssumeStatement semanticObject) {
 		if (errorAcceptor != null) {
@@ -599,11 +605,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     CaseStatementClause returns CaseStatementClause
 	 *
 	 * Constraint:
 	 *     (displayName=SLANG_STRING assumeStatement=AnonAssumeStatement guaranteeStatement=AnonGuaranteeStatement)
+	 * </pre>
 	 */
 	protected void sequence_CaseStatementClause(ISerializationContext context, CaseStatementClause semanticObject) {
 		if (errorAcceptor != null) {
@@ -623,11 +631,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Compute returns Compute
 	 *
 	 * Constraint:
 	 *     (modifies=SlangModifies? cases+=CaseStatementClause+)
+	 * </pre>
 	 */
 	protected void sequence_Compute(ISerializationContext context, Compute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -635,11 +645,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     DataElement returns DataElement
 	 *
 	 * Constraint:
 	 *     dataElement=[DataSubcomponentType|QCREF]
+	 * </pre>
 	 */
 	protected void sequence_DataElement(ISerializationContext context, DataElement semanticObject) {
 		if (errorAcceptor != null) {
@@ -653,11 +665,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     DoubleDotRef returns DoubleDotRef
 	 *
 	 * Constraint:
 	 *     elm=[NamedElement|QCREF]
+	 * </pre>
 	 */
 	protected void sequence_DoubleDotRef(ISerializationContext context, DoubleDotRef semanticObject) {
 		if (errorAcceptor != null) {
@@ -671,11 +685,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Expr returns BasicExp
 	 *
 	 * Constraint:
 	 *     (terms+=SlangAccess ((ops+=Operator terms+=SlangAccess)+ | (thenExpr=Expr elseExpr=Expr))?)
+	 * </pre>
 	 */
 	protected void sequence_Expr(ISerializationContext context, BasicExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -683,11 +699,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Expr returns QuantifiedExp
 	 *
 	 * Constraint:
 	 *     (qVar+=SlangQuantVar qVar+=SlangQuantVar* quantifiedExpr=Expr)
+	 * </pre>
 	 */
 	protected void sequence_Expr(ISerializationContext context, QuantifiedExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -695,11 +713,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Expr returns UnaryExp
 	 *
 	 * Constraint:
 	 *     (op=Operator accessExp=SlangAccess)
+	 * </pre>
 	 */
 	protected void sequence_Expr(ISerializationContext context, UnaryExp semanticObject) {
 		if (errorAcceptor != null) {
@@ -716,11 +736,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Functions returns Functions
 	 *
 	 * Constraint:
 	 *     specs+=FuncSpec+
+	 * </pre>
 	 */
 	protected void sequence_Functions(ISerializationContext context, Functions semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -728,12 +750,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SpecStatement returns GuaranteeStatement
 	 *     GuaranteeStatement returns GuaranteeStatement
 	 *
 	 * Constraint:
 	 *     (displayName=SLANG_STRING expr=Expr)
+	 * </pre>
 	 */
 	protected void sequence_GuaranteeStatement(ISerializationContext context, GuaranteeStatement semanticObject) {
 		if (errorAcceptor != null) {
@@ -750,12 +774,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     AnnexLibrary returns GumboLibrary
 	 *     GumboLibrary returns GumboLibrary
 	 *
 	 * Constraint:
 	 *     {GumboLibrary}
+	 * </pre>
 	 */
 	protected void sequence_GumboLibrary(ISerializationContext context, GumboLibrary semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -763,12 +789,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     AnnexSubclause returns GumboSubclause
 	 *     GumboSubclause returns GumboSubclause
 	 *
 	 * Constraint:
 	 *     specs=SpecSection
+	 * </pre>
 	 */
 	protected void sequence_GumboSubclause(ISerializationContext context, GumboSubclause semanticObject) {
 		if (errorAcceptor != null) {
@@ -782,11 +810,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     InitializeSpecStatement returns InitializeSpecStatement
 	 *
 	 * Constraint:
 	 *     guaranteeStatement=GuaranteeStatement
+	 * </pre>
 	 */
 	protected void sequence_InitializeSpecStatement(ISerializationContext context, InitializeSpecStatement semanticObject) {
 		if (errorAcceptor != null) {
@@ -800,11 +830,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Initialize returns Initialize
 	 *
 	 * Constraint:
 	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement+)
+	 * </pre>
 	 */
 	protected void sequence_Initialize(ISerializationContext context, Initialize semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -812,11 +844,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Integration returns Integration
 	 *
 	 * Constraint:
 	 *     specs+=SpecStatement+
+	 * </pre>
 	 */
 	protected void sequence_Integration(ISerializationContext context, Integration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -824,11 +858,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     InvSpec returns InvSpec
 	 *
 	 * Constraint:
 	 *     (displayName=SLANG_STRING expr=Expr)
+	 * </pre>
 	 */
 	protected void sequence_InvSpec(ISerializationContext context, InvSpec semanticObject) {
 		if (errorAcceptor != null) {
@@ -845,11 +881,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     Invariants returns Invariants
 	 *
 	 * Constraint:
 	 *     specs+=InvSpec+
+	 * </pre>
 	 */
 	protected void sequence_Invariants(ISerializationContext context, Invariants semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -857,11 +895,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     OtherDataRef returns OtherDataRef
 	 *
 	 * Constraint:
 	 *     (namedElement=[NamedElement|ID] arrayRange+=ArrayRange* path=OtherDataRef?)
+	 * </pre>
 	 */
 	protected void sequence_OtherDataRef(ISerializationContext context, OtherDataRef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -869,11 +909,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangAccess returns SlangAccess
 	 *
 	 * Constraint:
 	 *     t=SlangTerm
+	 * </pre>
 	 */
 	protected void sequence_SlangAccess(ISerializationContext context, SlangAccess semanticObject) {
 		if (errorAcceptor != null) {
@@ -887,12 +929,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangType returns SlangType
 	 *     SlangBaseType returns SlangType
 	 *
 	 * Constraint:
 	 *     typeName=[DataSubcomponentType|QCREF]
+	 * </pre>
 	 */
 	protected void sequence_SlangBaseType(ISerializationContext context, SlangType semanticObject) {
 		if (errorAcceptor != null) {
@@ -906,12 +950,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangElse returns SlangBlock
 	 *     SlangBlock returns SlangBlock
 	 *
 	 * Constraint:
 	 *     (stmts+=SlangStmt* r=SlangRet?)
+	 * </pre>
 	 */
 	protected void sequence_SlangBlock(ISerializationContext context, SlangBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -919,11 +965,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangCallArgs returns SlangCallArgs
 	 *
 	 * Constraint:
 	 *     (arg+=SlangIDExp arg+=SlangIDExp*)?
+	 * </pre>
 	 */
 	protected void sequence_SlangCallArgs(ISerializationContext context, SlangCallArgs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -931,11 +979,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangCallSuffix returns SlangCallSuffix
 	 *
 	 * Constraint:
 	 *     ((ta=SlangTypeArgs ca=SlangCallArgs?) | ca=SlangCallArgs)
+	 * </pre>
 	 */
 	protected void sequence_SlangCallSuffix(ISerializationContext context, SlangCallSuffix semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -943,11 +993,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangCase returns SlangCase
 	 *
 	 * Constraint:
 	 *     (pattern=SlangPattern e=Expr? s+=SlangStmt*)
+	 * </pre>
 	 */
 	protected void sequence_SlangCase(ISerializationContext context, SlangCase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -955,11 +1007,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangDefContractCase returns SlangDefContractCase
 	 *
 	 * Constraint:
 	 *     (req=SlangRequires? ens=SlangEnsures?)
+	 * </pre>
 	 */
 	protected void sequence_SlangDefContractCase(ISerializationContext context, SlangDefContractCase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -967,6 +1021,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangDefContract returns SlangDefContract
 	 *
@@ -975,6 +1030,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         (rea=SlangReads? req=SlangRequires? mod=SlangModifies? ens=SlangEnsures?) | 
 	 *         (contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?)
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_SlangDefContract(ISerializationContext context, SlangDefContract semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -982,6 +1038,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangDefDeclDef returns SlangDefDeclDef
 	 *
@@ -995,6 +1052,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         c=SlangDefContract? 
 	 *         e=Expr?
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_SlangDefDeclDef(ISerializationContext context, SlangDefDeclDef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1002,6 +1060,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangDefDecl returns SlangDefDecl
 	 *
@@ -1014,6 +1073,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         type=SlangType 
 	 *         c=SlangDefContract?
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_SlangDefDecl(ISerializationContext context, SlangDefDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1021,6 +1081,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     FuncSpec returns SlangDefDef
 	 *     SlangDefDef returns SlangDefDef
@@ -1035,6 +1096,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         c=SlangDefContract? 
 	 *         e=Expr
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_SlangDefDef(ISerializationContext context, SlangDefDef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1042,11 +1104,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangDefExt returns SlangDefExt
 	 *
 	 * Constraint:
 	 *     (name=ID typeName=SlangType)
+	 * </pre>
 	 */
 	protected void sequence_SlangDefExt(ISerializationContext context, SlangDefExt semanticObject) {
 		if (errorAcceptor != null) {
@@ -1063,11 +1127,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangDefParam returns SlangDefParam
 	 *
 	 * Constraint:
 	 *     (name=ID typeName=SlangType)
+	 * </pre>
 	 */
 	protected void sequence_SlangDefParam(ISerializationContext context, SlangDefParam semanticObject) {
 		if (errorAcceptor != null) {
@@ -1084,11 +1150,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangDefParams returns SlangDefParams
 	 *
 	 * Constraint:
 	 *     (params+=SlangDefParam params+=SlangDefParam?)
+	 * </pre>
 	 */
 	protected void sequence_SlangDefParams(ISerializationContext context, SlangDefParams semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1096,11 +1164,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangElse returns SlangElse
 	 *
 	 * Constraint:
 	 *     (cond=Expr b=SlangBlock e=SlangElse?)
+	 * </pre>
 	 */
 	protected void sequence_SlangElse(ISerializationContext context, SlangElse semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1108,11 +1178,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangEnsures returns SlangEnsures
 	 *
 	 * Constraint:
 	 *     (exprs+=Expr exprs+=Expr*)
+	 * </pre>
 	 */
 	protected void sequence_SlangEnsures(ISerializationContext context, SlangEnsures semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1120,11 +1192,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangExt returns SlangExt
 	 *
 	 * Constraint:
 	 *     decl+=SlangDefDecl*
+	 * </pre>
 	 */
 	protected void sequence_SlangExt(ISerializationContext context, SlangExt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1132,11 +1206,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangForRange returns SlangForRange
 	 *
 	 * Constraint:
 	 *     (e=Expr (upper=Expr step=Expr?)?)
+	 * </pre>
 	 */
 	protected void sequence_SlangForRange(ISerializationContext context, SlangForRange semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1144,11 +1220,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangIDExp returns SlangIDExp
 	 *
 	 * Constraint:
 	 *     (e+=Expr e+=Expr?)
+	 * </pre>
 	 */
 	protected void sequence_SlangIDExp(ISerializationContext context, SlangIDExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1156,11 +1234,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangInterp returns SlangLiteralInterp
 	 *
 	 * Constraint:
 	 *     sli=SLI
+	 * </pre>
 	 */
 	protected void sequence_SlangInterp(ISerializationContext context, SlangLiteralInterp semanticObject) {
 		if (errorAcceptor != null) {
@@ -1174,11 +1254,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangInterp returns SlangMspInterp
 	 *
 	 * Constraint:
 	 *     msp=MSP
+	 * </pre>
 	 */
 	protected void sequence_SlangInterp(ISerializationContext context, SlangMspInterp semanticObject) {
 		if (errorAcceptor != null) {
@@ -1192,11 +1274,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangInterp returns SlangMspbInterp
 	 *
 	 * Constraint:
 	 *     (mspb=MSPB minterp=SlangMInterp)
+	 * </pre>
 	 */
 	protected void sequence_SlangInterp(ISerializationContext context, SlangMspbInterp semanticObject) {
 		if (errorAcceptor != null) {
@@ -1213,11 +1297,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangInvariant returns SlangInvariant
 	 *
 	 * Constraint:
 	 *     (exprs+=Expr exprs+=Expr*)
+	 * </pre>
 	 */
 	protected void sequence_SlangInvariant(ISerializationContext context, SlangInvariant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1225,11 +1311,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLHSSuffix returns SlangFieldLookup
 	 *
 	 * Constraint:
 	 *     {SlangFieldLookup}
+	 * </pre>
 	 */
 	protected void sequence_SlangLHSSuffix(ISerializationContext context, SlangFieldLookup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1237,11 +1325,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLHSSuffix returns SlangMethodCall
 	 *
 	 * Constraint:
 	 *     (exprs+=Expr exprs+=Expr*)?
+	 * </pre>
 	 */
 	protected void sequence_SlangLHSSuffix(ISerializationContext context, SlangMethodCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1249,11 +1339,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns BinLit
 	 *
 	 * Constraint:
 	 *     value=BIN
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, BinLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1267,11 +1359,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns BooleanLit
 	 *
 	 * Constraint:
 	 *     (value='T' | value='F')
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, BooleanLit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1279,11 +1373,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns HexLit
 	 *
 	 * Constraint:
 	 *     value=HEX
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, HexLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1297,11 +1393,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns IntIdfLit
 	 *
 	 * Constraint:
 	 *     value=INT_IDF
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, IntIdfLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1315,11 +1413,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns IntegerLit
 	 *
 	 * Constraint:
 	 *     value=INTEGER_LIT
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, IntegerLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1333,11 +1433,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns MStringLit
 	 *
 	 * Constraint:
 	 *     value=MSTRING
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, MStringLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1351,11 +1453,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns RealIdfLit
 	 *
 	 * Constraint:
 	 *     value=REAL_IDF
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, RealIdfLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1369,11 +1473,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns RealLit
 	 *
 	 * Constraint:
 	 *     value=REAL_LIT
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, RealLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1387,11 +1493,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLit returns SlangStringLit
 	 *
 	 * Constraint:
 	 *     value=SLANG_STRING
+	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, SlangStringLit semanticObject) {
 		if (errorAcceptor != null) {
@@ -1405,11 +1513,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangLoopContract returns SlangLoopContract
 	 *
 	 * Constraint:
 	 *     (inv=SlangInvariant? mod=SlangModifies?)
+	 * </pre>
 	 */
 	protected void sequence_SlangLoopContract(ISerializationContext context, SlangLoopContract semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1417,11 +1527,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangMInterp returns SlangMInterp
 	 *
 	 * Constraint:
 	 *     (e=Expr m=SlangMInterp?)
+	 * </pre>
 	 */
 	protected void sequence_SlangMInterp(ISerializationContext context, SlangMInterp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1429,11 +1541,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangModifies returns SlangModifies
 	 *
 	 * Constraint:
 	 *     (exprs+=Expr exprs+=Expr*)
+	 * </pre>
 	 */
 	protected void sequence_SlangModifies(ISerializationContext context, SlangModifies semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1441,11 +1555,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangParam returns SlangParam
 	 *
 	 * Constraint:
 	 *     (name=ID typeName=SlangType)
+	 * </pre>
 	 */
 	protected void sequence_SlangParam(ISerializationContext context, SlangParam semanticObject) {
 		if (errorAcceptor != null) {
@@ -1462,11 +1578,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangParams returns SlangParams
 	 *
 	 * Constraint:
 	 *     (params+=SlangParam params+=SlangParam?)
+	 * </pre>
 	 */
 	protected void sequence_SlangParams(ISerializationContext context, SlangParams semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1474,11 +1592,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangPattern returns SlangPattern
 	 *
 	 * Constraint:
 	 *     ((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*))?
+	 * </pre>
 	 */
 	protected void sequence_SlangPattern(ISerializationContext context, SlangPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1486,11 +1606,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTypedVarDef returns SlangPattern
 	 *
 	 * Constraint:
 	 *     (((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*))? typeName=SlangType init=Expr)
+	 * </pre>
 	 */
 	protected void sequence_SlangPattern_SlangTypedVarDef(ISerializationContext context, SlangPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1498,11 +1620,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangVarDef returns SlangPattern
 	 *
 	 * Constraint:
 	 *     (((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*))? typeName=SlangType? init=Expr)
+	 * </pre>
 	 */
 	protected void sequence_SlangPattern_SlangVarDef(ISerializationContext context, SlangPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1510,11 +1634,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangQuantVar returns SlangQuantVar
 	 *
 	 * Constraint:
 	 *     (e=Expr upperBound=Expr?)
+	 * </pre>
 	 */
 	protected void sequence_SlangQuantVar(ISerializationContext context, SlangQuantVar semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1522,11 +1648,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangReads returns SlangReads
 	 *
 	 * Constraint:
 	 *     (exprs+=Expr exprs+=Expr*)
+	 * </pre>
 	 */
 	protected void sequence_SlangReads(ISerializationContext context, SlangReads semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1534,11 +1662,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangRequires returns SlangRequires
 	 *
 	 * Constraint:
 	 *     (exprs+=Expr exprs+=Expr*)
+	 * </pre>
 	 */
 	protected void sequence_SlangRequires(ISerializationContext context, SlangRequires semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1546,11 +1676,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangRet returns SlangRet
 	 *
 	 * Constraint:
 	 *     e=Expr?
+	 * </pre>
 	 */
 	protected void sequence_SlangRet(ISerializationContext context, SlangRet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1558,11 +1690,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangAssertStmt
 	 *
 	 * Constraint:
 	 *     e=Expr
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangAssertStmt semanticObject) {
 		if (errorAcceptor != null) {
@@ -1576,11 +1710,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangAssumeStmt
 	 *
 	 * Constraint:
 	 *     e=Expr
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangAssumeStmt semanticObject) {
 		if (errorAcceptor != null) {
@@ -1594,11 +1730,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangDoStmt
 	 *
 	 * Constraint:
 	 *     e=Expr
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangDoStmt semanticObject) {
 		if (errorAcceptor != null) {
@@ -1612,11 +1750,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangHaltStmt
 	 *
 	 * Constraint:
 	 *     {SlangHaltStmt}
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangHaltStmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1624,11 +1764,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangIdStmt
 	 *
 	 * Constraint:
 	 *     (portOrSubcomponentOrStateVar=[EObject|ID] e=Expr?)
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangIdStmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1636,11 +1778,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangIfStmt
 	 *
 	 * Constraint:
 	 *     (cond=Expr b=SlangBlock e=SlangElse?)
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangIfStmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1648,11 +1792,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangMatchStmt
 	 *
 	 * Constraint:
 	 *     (testExpr=Expr c+=SlangCase*)
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangMatchStmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1660,11 +1806,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangSpecStmt
 	 *
 	 * Constraint:
 	 *     b=SlangBlock
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangSpecStmt semanticObject) {
 		if (errorAcceptor != null) {
@@ -1678,11 +1826,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangVarDef
 	 *
 	 * Constraint:
 	 *     d=SlangVarDef
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangVarDef semanticObject) {
 		if (errorAcceptor != null) {
@@ -1696,11 +1846,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangStmt returns SlangWhileStmt
 	 *
 	 * Constraint:
 	 *     (cond=Expr l=SlangLoopContract b=SlangBlock)
+	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangWhileStmt semanticObject) {
 		if (errorAcceptor != null) {
@@ -1720,11 +1872,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangSupr returns SlangSupr
 	 *
 	 * Constraint:
 	 *     (name=SlangName args=SlangTypeArgs?)
+	 * </pre>
 	 */
 	protected void sequence_SlangSupr(ISerializationContext context, SlangSupr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1732,11 +1886,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangSuprs returns SlangSuprs
 	 *
 	 * Constraint:
 	 *     (superTypes+=SlangSupr superTypes+=SlangSupr*)
+	 * </pre>
 	 */
 	protected void sequence_SlangSuprs(ISerializationContext context, SlangSuprs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1744,11 +1900,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTPattern returns SlangTPattern
 	 *
 	 * Constraint:
 	 *     ((patterns+=SlangTPattern patterns+=SlangTPattern*) | type=SlangType | (patterns+=SlangTPattern patterns+=SlangTPattern*) | type=SlangType)?
+	 * </pre>
 	 */
 	protected void sequence_SlangTPattern(ISerializationContext context, SlangTPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1756,11 +1914,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns DataRefExpr
 	 *
 	 * Constraint:
 	 *     (portOrSubcomponentOrStateVar=[EObject|ID] ref=OtherDataRef? cs=SlangCallSuffix?)
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, DataRefExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1768,11 +1928,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns EnumLitExpr
 	 *
 	 * Constraint:
 	 *     (enumType=DataElement value=[StringLiteral|ID])
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, EnumLitExpr semanticObject) {
 		if (errorAcceptor != null) {
@@ -1789,11 +1951,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns RecordLitExpr
 	 *
 	 * Constraint:
 	 *     (recordType=DataElement args+=[NamedElement|ID] argExpr+=Expr (args+=[NamedElement|ID] argExpr+=Expr)*)
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, RecordLitExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1801,11 +1965,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns SlangBlockTerm
 	 *
 	 * Constraint:
 	 *     ((p=SlangParams? e=Expr) | (stmt+=SlangStmt* r=SlangRet?))
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, SlangBlockTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1813,11 +1979,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns SlangForTerm
 	 *
 	 * Constraint:
 	 *     (r+=SlangForRange r+=SlangForRange* (b=SlangBlock | e=Expr))
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, SlangForTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1825,11 +1993,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns SlangInterpTerm
 	 *
 	 * Constraint:
 	 *     i=SlangInterp
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, SlangInterpTerm semanticObject) {
 		if (errorAcceptor != null) {
@@ -1843,11 +2013,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns SlangLitTerm
 	 *
 	 * Constraint:
 	 *     lit=SlangLit
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, SlangLitTerm semanticObject) {
 		if (errorAcceptor != null) {
@@ -1861,11 +2033,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTerm returns SlangTupleTerm
 	 *
 	 * Constraint:
 	 *     (e+=Expr e+=Expr*)
+	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, SlangTupleTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1873,11 +2047,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangTypeArgs returns SlangTypeArgs
 	 *
 	 * Constraint:
 	 *     (types+=SlangType types+=SlangType*)
+	 * </pre>
 	 */
 	protected void sequence_SlangTypeArgs(ISerializationContext context, SlangTypeArgs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1885,11 +2061,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SlangVarDeclDef returns SlangVarDef
 	 *
 	 * Constraint:
 	 *     (name=ID typeName=SlangType init=Expr?)
+	 * </pre>
 	 */
 	protected void sequence_SlangVarDeclDef(ISerializationContext context, SlangVarDef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1897,6 +2075,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SpecSection returns SpecSection
 	 *
@@ -1909,6 +2088,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         initialize=Initialize? 
 	 *         compute=Compute?
 	 *     )
+	 * </pre>
 	 */
 	protected void sequence_SpecSection(ISerializationContext context, SpecSection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1916,11 +2096,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     StateVarDecl returns StateVarDecl
 	 *
 	 * Constraint:
 	 *     (name=ID typeName=[DataSubcomponentType|QCREF])
+	 * </pre>
 	 */
 	protected void sequence_StateVarDecl(ISerializationContext context, StateVarDecl semanticObject) {
 		if (errorAcceptor != null) {
@@ -1937,11 +2119,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     State returns State
 	 *
 	 * Constraint:
 	 *     decls+=StateVarDecl+
+	 * </pre>
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1949,11 +2133,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	
 	
 	/**
+	 * <pre>
 	 * Contexts:
 	 *     SubcomponentElement returns SubcomponentElement
 	 *
 	 * Constraint:
 	 *     subcomponent=[Subcomponent|ID]
+	 * </pre>
 	 */
 	protected void sequence_SubcomponentElement(ISerializationContext context, SubcomponentElement semanticObject) {
 		if (errorAcceptor != null) {

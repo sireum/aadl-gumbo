@@ -261,213 +261,270 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	}
 
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     '\all' | '\some' | '∀' | '∃'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) qVar+=SlangQuantVar
+	 
+	 * </pre>
 	 */
 	protected void emit_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     SlangDefMods?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'def' (ambiguity) name=SlangDefID
 	 *     (rule start) 'def' (ambiguity) sde=SlangDefExt
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     SlangDefMods?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'def' (ambiguity) name=SlangDefID
 	 *     (rule start) 'def' (ambiguity) sde=SlangDefExt
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangDefDecl_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     SlangDefMods?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'def' (ambiguity) name=SlangDefID
 	 *     (rule start) 'def' (ambiguity) sde=SlangDefExt
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangDefDef_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     '*'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     typeName=SlangType (ambiguity) (rule end)
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangDefParam_AsteriskKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
-	 *     '=>'?
+	 *     '=&gt;'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ID ':' (ambiguity) typeName=SlangType
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     ('for' SlangName)?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'extension' ID (ambiguity) '{' '}' (rule start)
 	 *     (rule start) 'extension' ID (ambiguity) '{' decl+=SlangDefDecl
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
-	 *     '..' | '..<'
+	 *     '..' | '..&lt;'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     e=Expr (ambiguity) upper=Expr
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     '*'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     typeName=SlangType (ambiguity) (rule end)
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangParam_AsteriskKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
-	 *     '=>'?
+	 *     '=&gt;'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ID ':' (ambiguity) typeName=SlangType
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangParam_EqualsSignGreaterThanSignKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'var'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) name=ID
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangParam_VarKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
-	 *     '..' | '..<'
+	 *     '..' | '..&lt;'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     e=Expr (ambiguity) upperBound=Expr
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     ':=' | DEFOP
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     portOrSubcomponentOrStateVar=[EObject|ID] (ambiguity) e=Expr
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangStmt_ColonEqualsSignKeyword_9_2_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     ':'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     portOrSubcomponentOrStateVar=[EObject|ID] (ambiguity) (rule end)
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangStmt_ColonKeyword_9_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     SLANG_STRING?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     e=Expr (ambiguity) (rule end)
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     SLANG_STRING?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     e=Expr (ambiguity) (rule end)
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     SLANG_STRING?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'halt' (ambiguity) (rule start)
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangStmt_SLANG_STRINGTerminalRuleCall_7_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     ID | '_'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangTPattern_IDTerminalRuleCall_0_1_or__Keyword_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
+	 * <pre>
 	 * Ambiguous syntax:
 	 *     'spec'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) SlangVarMod (ambiguity) name=ID
+	 
+	 * </pre>
 	 */
 	protected void emit_SlangVarDeclDef_SpecKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
