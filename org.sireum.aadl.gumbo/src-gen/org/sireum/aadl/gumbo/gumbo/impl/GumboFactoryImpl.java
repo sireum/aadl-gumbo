@@ -154,6 +154,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_ACCESS: return createSlangAccess();
       case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
       case GumboPackage.SLANG_INTERP_TERM: return createSlangInterpTerm();
+      case GumboPackage.STATE_REF_EXPR: return createStateRefExpr();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
       case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
@@ -1123,6 +1124,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangInterpTermImpl slangInterpTerm = new SlangInterpTermImpl();
     return slangInterpTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public StateRefExpr createStateRefExpr()
+  {
+    StateRefExprImpl stateRefExpr = new StateRefExprImpl();
+    return stateRefExpr;
   }
 
   /**

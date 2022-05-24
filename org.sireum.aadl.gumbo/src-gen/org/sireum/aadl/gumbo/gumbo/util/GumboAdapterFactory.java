@@ -487,6 +487,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangInterpTermAdapter();
       }
       @Override
+      public Adapter caseStateRefExpr(StateRefExpr object)
+      {
+        return createStateRefExprAdapter();
+      }
+      @Override
       public Adapter caseEnumLitExpr(EnumLitExpr object)
       {
         return createEnumLitExprAdapter();
@@ -1804,6 +1809,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSlangInterpTermAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.StateRefExpr <em>State Ref Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.StateRefExpr
+   * @generated
+   */
+  public Adapter createStateRefExprAdapter()
   {
     return null;
   }

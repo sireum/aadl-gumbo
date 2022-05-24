@@ -267,6 +267,7 @@ SlangAccess returns Expr
 SlangTerm returns Expr
 	: {SlangLitTerm} lit=SlangLit
 	| {SlangInterpTerm} i=SlangInterp
+	| => ({StateRefExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
 	| => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=SlangCallSuffix?

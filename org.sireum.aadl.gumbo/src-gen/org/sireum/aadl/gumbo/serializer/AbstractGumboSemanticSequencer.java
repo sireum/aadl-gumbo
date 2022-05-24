@@ -131,6 +131,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangVarDef;
 import org.sireum.aadl.gumbo.gumbo.SlangWhileStmt;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.State;
+import org.sireum.aadl.gumbo.gumbo.StateRefExpr;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
 import org.sireum.aadl.gumbo.gumbo.UnaryExp;
@@ -525,6 +526,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
+				return; 
+			case GumboPackage.STATE_REF_EXPR:
+				sequence_SlangTerm(context, (StateRefExpr) semanticObject); 
 				return; 
 			case GumboPackage.STATE_VAR_DECL:
 				sequence_StateVarDecl(context, (StateVarDecl) semanticObject); 
@@ -1944,8 +1948,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataElementParserRuleCall_2_1_0(), semanticObject.getEnumType());
-		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_2_3_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataElementParserRuleCall_3_1_0(), semanticObject.getEnumType());
+		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_3_3_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
 		feeder.finish();
 	}
 	
@@ -2043,6 +2047,26 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, SlangTupleTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SlangTerm returns StateRefExpr
+	 *
+	 * Constraint:
+	 *     stateVar=[StateVarDecl|ID]
+	 * </pre>
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, StateRefExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.STATE_REF_EXPR__STATE_VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.STATE_REF_EXPR__STATE_VAR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangTermAccess().getStateVarStateVarDeclIDTerminalRuleCall_2_1_0_1(), semanticObject.eGet(GumboPackage.Literals.STATE_REF_EXPR__STATE_VAR, false));
+		feeder.finish();
 	}
 	
 	

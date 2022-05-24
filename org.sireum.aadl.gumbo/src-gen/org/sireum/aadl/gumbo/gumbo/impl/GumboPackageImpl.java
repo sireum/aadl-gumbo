@@ -119,6 +119,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangWhileStmt;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 import org.sireum.aadl.gumbo.gumbo.State;
+import org.sireum.aadl.gumbo.gumbo.StateRefExpr;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
 import org.sireum.aadl.gumbo.gumbo.UnaryExp;
@@ -683,6 +684,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass slangInterpTermEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateRefExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3237,6 +3245,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getStateRefExpr()
+  {
+    return stateRefExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getStateRefExpr_StateVar()
+  {
+    return (EReference)stateRefExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEnumLitExpr()
   {
     return enumLitExprEClass;
@@ -3973,6 +4003,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangInterpTermEClass = createEClass(SLANG_INTERP_TERM);
     createEReference(slangInterpTermEClass, SLANG_INTERP_TERM__I);
 
+    stateRefExprEClass = createEClass(STATE_REF_EXPR);
+    createEReference(stateRefExprEClass, STATE_REF_EXPR__STATE_VAR);
+
     enumLitExprEClass = createEClass(ENUM_LIT_EXPR);
     createEReference(enumLitExprEClass, ENUM_LIT_EXPR__ENUM_TYPE);
     createEReference(enumLitExprEClass, ENUM_LIT_EXPR__VALUE);
@@ -4088,6 +4121,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangAccessEClass.getESuperTypes().add(this.getExpr());
     slangLitTermEClass.getESuperTypes().add(this.getExpr());
     slangInterpTermEClass.getESuperTypes().add(this.getExpr());
+    stateRefExprEClass.getESuperTypes().add(this.getExpr());
     enumLitExprEClass.getESuperTypes().add(this.getExpr());
     recordLitExprEClass.getESuperTypes().add(this.getExpr());
     dataRefExprEClass.getESuperTypes().add(this.getExpr());
@@ -4400,6 +4434,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(slangInterpTermEClass, SlangInterpTerm.class, "SlangInterpTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangInterpTerm_I(), this.getSlangInterp(), null, "i", null, 0, 1, SlangInterpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateRefExprEClass, StateRefExpr.class, "StateRefExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStateRefExpr_StateVar(), this.getStateVarDecl(), null, "stateVar", null, 0, 1, StateRefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLitExprEClass, EnumLitExpr.class, "EnumLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumLitExpr_EnumType(), this.getDataElement(), null, "enumType", null, 0, 1, EnumLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

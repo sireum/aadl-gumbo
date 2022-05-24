@@ -673,6 +673,14 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.STATE_REF_EXPR:
+      {
+        StateRefExpr stateRefExpr = (StateRefExpr)theEObject;
+        T result = caseStateRefExpr(stateRefExpr);
+        if (result == null) result = caseExpr(stateRefExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.ENUM_LIT_EXPR:
       {
         EnumLitExpr enumLitExpr = (EnumLitExpr)theEObject;
@@ -2081,6 +2089,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangInterpTerm(SlangInterpTerm object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Ref Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Ref Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateRefExpr(StateRefExpr object)
   {
     return null;
   }

@@ -56,6 +56,9 @@ import org.sireum.aadl.gumbo.gumbo.SlangDefDef
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam
 import org.sireum.aadl.gumbo.gumbo.SlangType
 import org.sireum.aadl.gumbo.gumbo.SlangIdStmt
+import org.sireum.aadl.gumbo.gumbo.StateRefExpr
+import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
+import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -145,6 +148,20 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		var annexScope = decls.empty ? varScope : decls.scopeFor(varScope)
 		val scope = context.getContainerOfType(SlangDefDef)?.params?.params?.scopeFor(annexScope) ?: annexScope
 		scope		
+	}
+
+	def scope_StateRefExpr_stateVar(StateRefExpr context, EReference reference) {
+		val decls = new BasicEList<EObject>()
+		val stateVarDeclsA = context.getContainerOfType(GuaranteeStatement)?.getContainerOfType(SpecSection)?.state?.decls
+		if (stateVarDeclsA !== null) {
+			decls.addAll(stateVarDeclsA)
+		}
+		val stateVarDeclsB = context.getContainerOfType(AnonGuaranteeStatement)?.getContainerOfType(SpecSection)?.state?.decls
+		if (stateVarDeclsB !== null) {
+			decls.addAll(stateVarDeclsB)
+		}
+		val scope = decls.empty ? IScope::NULLSCOPE : decls.scopeFor
+		scope
 	}
 	
 	def scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {

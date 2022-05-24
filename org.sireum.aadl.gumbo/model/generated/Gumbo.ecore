@@ -376,6 +376,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="i" eType="#//SlangInterp"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateRefExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateVar" eType="#//StateVarDecl"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLitExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumType" eType="#//DataElement"
         containment="true"/>

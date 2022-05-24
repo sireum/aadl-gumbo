@@ -2060,6 +2060,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.StateRefExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected StateRefExprItemProvider stateRefExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.StateRefExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createStateRefExprAdapter()
+  {
+    if (stateRefExprItemProvider == null)
+    {
+      stateRefExprItemProvider = new StateRefExprItemProvider(this);
+    }
+
+    return stateRefExprItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2705,6 +2730,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangAccessItemProvider != null) slangAccessItemProvider.dispose();
     if (slangLitTermItemProvider != null) slangLitTermItemProvider.dispose();
     if (slangInterpTermItemProvider != null) slangInterpTermItemProvider.dispose();
+    if (stateRefExprItemProvider != null) stateRefExprItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
     if (recordLitExprItemProvider != null) recordLitExprItemProvider.dispose();
     if (dataRefExprItemProvider != null) dataRefExprItemProvider.dispose();
