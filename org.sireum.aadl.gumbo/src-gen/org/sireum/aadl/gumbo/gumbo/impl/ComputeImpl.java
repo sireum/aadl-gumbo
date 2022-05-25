@@ -32,6 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.HandlerClause;
+import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
 import org.sireum.aadl.gumbo.gumbo.SlangModifies;
 
 /**
@@ -44,6 +46,8 @@ import org.sireum.aadl.gumbo.gumbo.SlangModifies;
  * <ul>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getModifies <em>Modifies</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getCases <em>Cases</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getImplications <em>Implications</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getHandlers <em>Handlers</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +73,26 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @ordered
    */
   protected EList<CaseStatementClause> cases;
+
+  /**
+   * The cached value of the '{@link #getImplications() <em>Implications</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImplications()
+   * @generated
+   * @ordered
+   */
+  protected EList<ImplicationStatement> implications;
+
+  /**
+   * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHandlers()
+   * @generated
+   * @ordered
+   */
+  protected EList<HandlerClause> handlers;
 
   /**
    * <!-- begin-user-doc -->
@@ -162,6 +186,36 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @generated
    */
   @Override
+  public EList<ImplicationStatement> getImplications()
+  {
+    if (implications == null)
+    {
+      implications = new EObjectContainmentEList<ImplicationStatement>(ImplicationStatement.class, this, GumboPackage.COMPUTE__IMPLICATIONS);
+    }
+    return implications;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<HandlerClause> getHandlers()
+  {
+    if (handlers == null)
+    {
+      handlers = new EObjectContainmentEList<HandlerClause>(HandlerClause.class, this, GumboPackage.COMPUTE__HANDLERS);
+    }
+    return handlers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -170,6 +224,10 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         return basicSetModifies(null, msgs);
       case GumboPackage.COMPUTE__CASES:
         return ((InternalEList<?>)getCases()).basicRemove(otherEnd, msgs);
+      case GumboPackage.COMPUTE__IMPLICATIONS:
+        return ((InternalEList<?>)getImplications()).basicRemove(otherEnd, msgs);
+      case GumboPackage.COMPUTE__HANDLERS:
+        return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -188,6 +246,10 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         return getModifies();
       case GumboPackage.COMPUTE__CASES:
         return getCases();
+      case GumboPackage.COMPUTE__IMPLICATIONS:
+        return getImplications();
+      case GumboPackage.COMPUTE__HANDLERS:
+        return getHandlers();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -210,6 +272,14 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         getCases().clear();
         getCases().addAll((Collection<? extends CaseStatementClause>)newValue);
         return;
+      case GumboPackage.COMPUTE__IMPLICATIONS:
+        getImplications().clear();
+        getImplications().addAll((Collection<? extends ImplicationStatement>)newValue);
+        return;
+      case GumboPackage.COMPUTE__HANDLERS:
+        getHandlers().clear();
+        getHandlers().addAll((Collection<? extends HandlerClause>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -230,6 +300,12 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
       case GumboPackage.COMPUTE__CASES:
         getCases().clear();
         return;
+      case GumboPackage.COMPUTE__IMPLICATIONS:
+        getImplications().clear();
+        return;
+      case GumboPackage.COMPUTE__HANDLERS:
+        getHandlers().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -248,6 +324,10 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         return modifies != null;
       case GumboPackage.COMPUTE__CASES:
         return cases != null && !cases.isEmpty();
+      case GumboPackage.COMPUTE__IMPLICATIONS:
+        return implications != null && !implications.isEmpty();
+      case GumboPackage.COMPUTE__HANDLERS:
+        return handlers != null && !handlers.isEmpty();
     }
     return super.eIsSet(featureID);
   }

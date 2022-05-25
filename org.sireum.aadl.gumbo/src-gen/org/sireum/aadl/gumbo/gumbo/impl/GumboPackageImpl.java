@@ -43,7 +43,9 @@ import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
+import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
@@ -216,6 +218,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass handlerClauseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass caseStatementClauseEClass = null;
 
   /**
@@ -245,6 +254,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass guaranteeStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass implicationStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1105,7 +1121,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getInvSpec_DisplayName()
+  public EAttribute getInvSpec_Id()
   {
     return (EAttribute)invSpecEClass.getEStructuralFeatures().get(0);
   }
@@ -1116,9 +1132,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EAttribute getInvSpec_Descriptor()
+  {
+    return (EAttribute)invSpecEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getInvSpec_Expr()
   {
-    return (EReference)invSpecEClass.getEStructuralFeatures().get(1);
+    return (EReference)invSpecEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1237,6 +1264,72 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EReference getCompute_Implications()
+  {
+    return (EReference)computeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCompute_Handlers()
+  {
+    return (EReference)computeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getHandlerClause()
+  {
+    return handlerClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getHandlerClause_Id()
+  {
+    return (EReference)handlerClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getHandlerClause_Modifies()
+  {
+    return (EReference)handlerClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getHandlerClause_Guarantees()
+  {
+    return (EReference)handlerClauseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCaseStatementClause()
   {
     return caseStatementClauseEClass;
@@ -1248,7 +1341,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getCaseStatementClause_DisplayName()
+  public EAttribute getCaseStatementClause_Id()
   {
     return (EAttribute)caseStatementClauseEClass.getEStructuralFeatures().get(0);
   }
@@ -1259,9 +1352,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EAttribute getCaseStatementClause_Descriptor()
+  {
+    return (EAttribute)caseStatementClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getCaseStatementClause_AssumeStatement()
   {
-    return (EReference)caseStatementClauseEClass.getEStructuralFeatures().get(1);
+    return (EReference)caseStatementClauseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1272,7 +1376,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   @Override
   public EReference getCaseStatementClause_GuaranteeStatement()
   {
-    return (EReference)caseStatementClauseEClass.getEStructuralFeatures().get(2);
+    return (EReference)caseStatementClauseEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1292,7 +1396,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getSpecStatement_DisplayName()
+  public EAttribute getSpecStatement_Id()
   {
     return (EAttribute)specStatementEClass.getEStructuralFeatures().get(0);
   }
@@ -1303,9 +1407,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EAttribute getSpecStatement_Descriptor()
+  {
+    return (EAttribute)specStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getSpecStatement_Expr()
   {
-    return (EReference)specStatementEClass.getEStructuralFeatures().get(1);
+    return (EReference)specStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1350,6 +1465,61 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EClass getGuaranteeStatement()
   {
     return guaranteeStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getImplicationStatement()
+  {
+    return implicationStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getImplicationStatement_Id()
+  {
+    return (EAttribute)implicationStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getImplicationStatement_Descriptor()
+  {
+    return (EAttribute)implicationStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getImplicationStatement_Antecedent()
+  {
+    return (EReference)implicationStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getImplicationStatement_Consequent()
+  {
+    return (EReference)implicationStatementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3794,7 +3964,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(invariantsEClass, INVARIANTS__SPECS);
 
     invSpecEClass = createEClass(INV_SPEC);
-    createEAttribute(invSpecEClass, INV_SPEC__DISPLAY_NAME);
+    createEAttribute(invSpecEClass, INV_SPEC__ID);
+    createEAttribute(invSpecEClass, INV_SPEC__DESCRIPTOR);
     createEReference(invSpecEClass, INV_SPEC__EXPR);
 
     integrationEClass = createEClass(INTEGRATION);
@@ -3810,14 +3981,23 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     computeEClass = createEClass(COMPUTE);
     createEReference(computeEClass, COMPUTE__MODIFIES);
     createEReference(computeEClass, COMPUTE__CASES);
+    createEReference(computeEClass, COMPUTE__IMPLICATIONS);
+    createEReference(computeEClass, COMPUTE__HANDLERS);
+
+    handlerClauseEClass = createEClass(HANDLER_CLAUSE);
+    createEReference(handlerClauseEClass, HANDLER_CLAUSE__ID);
+    createEReference(handlerClauseEClass, HANDLER_CLAUSE__MODIFIES);
+    createEReference(handlerClauseEClass, HANDLER_CLAUSE__GUARANTEES);
 
     caseStatementClauseEClass = createEClass(CASE_STATEMENT_CLAUSE);
-    createEAttribute(caseStatementClauseEClass, CASE_STATEMENT_CLAUSE__DISPLAY_NAME);
+    createEAttribute(caseStatementClauseEClass, CASE_STATEMENT_CLAUSE__ID);
+    createEAttribute(caseStatementClauseEClass, CASE_STATEMENT_CLAUSE__DESCRIPTOR);
     createEReference(caseStatementClauseEClass, CASE_STATEMENT_CLAUSE__ASSUME_STATEMENT);
     createEReference(caseStatementClauseEClass, CASE_STATEMENT_CLAUSE__GUARANTEE_STATEMENT);
 
     specStatementEClass = createEClass(SPEC_STATEMENT);
-    createEAttribute(specStatementEClass, SPEC_STATEMENT__DISPLAY_NAME);
+    createEAttribute(specStatementEClass, SPEC_STATEMENT__ID);
+    createEAttribute(specStatementEClass, SPEC_STATEMENT__DESCRIPTOR);
     createEReference(specStatementEClass, SPEC_STATEMENT__EXPR);
 
     assumeStatementEClass = createEClass(ASSUME_STATEMENT);
@@ -3826,6 +4006,12 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(anonAssumeStatementEClass, ANON_ASSUME_STATEMENT__EXPR);
 
     guaranteeStatementEClass = createEClass(GUARANTEE_STATEMENT);
+
+    implicationStatementEClass = createEClass(IMPLICATION_STATEMENT);
+    createEAttribute(implicationStatementEClass, IMPLICATION_STATEMENT__ID);
+    createEAttribute(implicationStatementEClass, IMPLICATION_STATEMENT__DESCRIPTOR);
+    createEReference(implicationStatementEClass, IMPLICATION_STATEMENT__ANTECEDENT);
+    createEReference(implicationStatementEClass, IMPLICATION_STATEMENT__CONSEQUENT);
 
     anonGuaranteeStatementEClass = createEClass(ANON_GUARANTEE_STATEMENT);
     createEReference(anonGuaranteeStatementEClass, ANON_GUARANTEE_STATEMENT__EXPR);
@@ -4234,7 +4420,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getInvariants_Specs(), this.getInvSpec(), null, "specs", null, 0, -1, Invariants.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(invSpecEClass, InvSpec.class, "InvSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInvSpec_DisplayName(), theEcorePackage.getEString(), "displayName", null, 0, 1, InvSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInvSpec_Id(), theEcorePackage.getEString(), "id", null, 0, 1, InvSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInvSpec_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, InvSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInvSpec_Expr(), this.getExpr(), null, "expr", null, 0, 1, InvSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(integrationEClass, Integration.class, "Integration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4250,14 +4437,23 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(computeEClass, Compute.class, "Compute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCompute_Modifies(), this.getSlangModifies(), null, "modifies", null, 0, 1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompute_Implications(), this.getImplicationStatement(), null, "implications", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompute_Handlers(), this.getHandlerClause(), null, "handlers", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(handlerClauseEClass, HandlerClause.class, "HandlerClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getHandlerClause_Id(), theAadl2Package.getPort(), null, "id", null, 0, 1, HandlerClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHandlerClause_Modifies(), this.getSlangModifies(), null, "modifies", null, 0, 1, HandlerClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHandlerClause_Guarantees(), this.getGuaranteeStatement(), null, "guarantees", null, 0, -1, HandlerClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(caseStatementClauseEClass, CaseStatementClause.class, "CaseStatementClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCaseStatementClause_DisplayName(), theEcorePackage.getEString(), "displayName", null, 0, 1, CaseStatementClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCaseStatementClause_Id(), theEcorePackage.getEString(), "id", null, 0, 1, CaseStatementClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCaseStatementClause_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, CaseStatementClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCaseStatementClause_AssumeStatement(), this.getAnonAssumeStatement(), null, "assumeStatement", null, 0, 1, CaseStatementClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCaseStatementClause_GuaranteeStatement(), this.getAnonGuaranteeStatement(), null, "guaranteeStatement", null, 0, 1, CaseStatementClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(specStatementEClass, SpecStatement.class, "SpecStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSpecStatement_DisplayName(), theEcorePackage.getEString(), "displayName", null, 0, 1, SpecStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSpecStatement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, SpecStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSpecStatement_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, SpecStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecStatement_Expr(), this.getExpr(), null, "expr", null, 0, 1, SpecStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assumeStatementEClass, AssumeStatement.class, "AssumeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4266,6 +4462,12 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getAnonAssumeStatement_Expr(), this.getExpr(), null, "expr", null, 0, 1, AnonAssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(guaranteeStatementEClass, GuaranteeStatement.class, "GuaranteeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(implicationStatementEClass, ImplicationStatement.class, "ImplicationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImplicationStatement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImplicationStatement_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImplicationStatement_Antecedent(), this.getExpr(), null, "antecedent", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImplicationStatement_Consequent(), this.getExpr(), null, "consequent", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(anonGuaranteeStatementEClass, AnonGuaranteeStatement.class, "AnonGuaranteeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnonGuaranteeStatement_Expr(), this.getExpr(), null, "expr", null, 0, 1, AnonGuaranteeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

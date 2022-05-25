@@ -32,10 +32,7 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_AssumeStatement_IDTerminalRuleCall_1_q;
-	protected AbstractElementAlias match_CaseStatementClause_IDTerminalRuleCall_1_q;
 	protected AbstractElementAlias match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3;
-	protected AbstractElementAlias match_GuaranteeStatement_IDTerminalRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDecl_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDef_SlangDefModsParserRuleCall_1_q;
@@ -58,10 +55,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
-		match_AssumeStatement_IDTerminalRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getAssumeStatementAccess().getIDTerminalRuleCall_1());
-		match_CaseStatementClause_IDTerminalRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getCaseStatementClauseAccess().getIDTerminalRuleCall_1());
 		match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExprAccess().getAllKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getExprAccess().getForAllKeyword_1_1_2()), new TokenAlias(false, false, grammarAccess.getExprAccess().getSomeKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getExprAccess().getThereExistsKeyword_1_1_3()));
-		match_GuaranteeStatement_IDTerminalRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getGuaranteeStatementAccess().getIDTerminalRuleCall_1());
 		match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclDefAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangDefDecl_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangDefDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDefAccess().getSlangDefModsParserRuleCall_1());
@@ -224,14 +218,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_AssumeStatement_IDTerminalRuleCall_1_q.equals(syntax))
-				emit_AssumeStatement_IDTerminalRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_CaseStatementClause_IDTerminalRuleCall_1_q.equals(syntax))
-				emit_CaseStatementClause_IDTerminalRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3.equals(syntax))
+			if (match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3.equals(syntax))
 				emit_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_GuaranteeStatement_IDTerminalRuleCall_1_q.equals(syntax))
-				emit_GuaranteeStatement_IDTerminalRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q.equals(syntax))
 				emit_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDecl_SlangDefModsParserRuleCall_1_q.equals(syntax))
@@ -275,36 +263,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     ID?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'assume' (ambiguity) ':' expr=Expr
-	 *     (rule start) 'assume' (ambiguity) displayName=SLANG_STRING
-	 
-	 * </pre>
-	 */
-	protected void emit_AssumeStatement_IDTerminalRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     ID?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'case' (ambiguity) ':' assumeStatement=AnonAssumeStatement
-	 *     (rule start) 'case' (ambiguity) displayName=SLANG_STRING
-	 
-	 * </pre>
-	 */
-	protected void emit_CaseStatementClause_IDTerminalRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
 	 *     '\all' | '\some' | '∀' | '∃'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -313,21 +271,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 * </pre>
 	 */
 	protected void emit_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     ID?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'guarantee' (ambiguity) ':' expr=Expr
-	 *     (rule start) 'guarantee' (ambiguity) displayName=SLANG_STRING
-	 
-	 * </pre>
-	 */
-	protected void emit_GuaranteeStatement_IDTerminalRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

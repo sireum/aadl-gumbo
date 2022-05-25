@@ -78,26 +78,50 @@ public class InvSpecItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addDisplayNamePropertyDescriptor(object);
+      addIdPropertyDescriptor(object);
+      addDescriptorPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Display Name feature.
+   * This adds a property descriptor for the Id feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addDisplayNamePropertyDescriptor(Object object)
+  protected void addIdPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_InvSpec_displayName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_InvSpec_displayName_feature", "_UI_InvSpec_type"),
-         GumboPackage.Literals.INV_SPEC__DISPLAY_NAME,
+         getString("_UI_InvSpec_id_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InvSpec_id_feature", "_UI_InvSpec_type"),
+         GumboPackage.Literals.INV_SPEC__ID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Descriptor feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDescriptorPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_InvSpec_descriptor_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InvSpec_descriptor_feature", "_UI_InvSpec_type"),
+         GumboPackage.Literals.INV_SPEC__DESCRIPTOR,
          true,
          false,
          false,
@@ -160,7 +184,7 @@ public class InvSpecItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((InvSpec)object).getDisplayName();
+    String label = ((InvSpec)object).getId();
     return label == null || label.length() == 0 ?
       getString("_UI_InvSpec_type") :
       getString("_UI_InvSpec_type") + " " + label;
@@ -181,7 +205,8 @@ public class InvSpecItemProvider
 
     switch (notification.getFeatureID(InvSpec.class))
     {
-      case GumboPackage.INV_SPEC__DISPLAY_NAME:
+      case GumboPackage.INV_SPEC__ID:
+      case GumboPackage.INV_SPEC__DESCRIPTOR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case GumboPackage.INV_SPEC__EXPR:

@@ -81,7 +81,7 @@ public class GuaranteeStatementItemProvider extends SpecStatementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((GuaranteeStatement)object).getDisplayName();
+    String label = ((GuaranteeStatement)object).getId();
     return label == null || label.length() == 0 ?
       getString("_UI_GuaranteeStatement_type") :
       getString("_UI_GuaranteeStatement_type") + " " + label;

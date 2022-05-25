@@ -34,7 +34,8 @@ import org.sireum.aadl.gumbo.gumbo.SpecStatement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl#getDisplayName <em>Display Name</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl#getDescriptor <em>Descriptor</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecStatementImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
@@ -43,24 +44,44 @@ import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 public class SpecStatementImpl extends MinimalEObjectImpl.Container implements SpecStatement
 {
   /**
-   * The default value of the '{@link #getDisplayName() <em>Display Name</em>}' attribute.
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDisplayName()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected static final String DISPLAY_NAME_EDEFAULT = null;
+  protected static final String ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDisplayName() <em>Display Name</em>}' attribute.
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDisplayName()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected String displayName = DISPLAY_NAME_EDEFAULT;
+  protected String id = ID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDescriptor() <em>Descriptor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescriptor()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescriptor() <em>Descriptor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescriptor()
+   * @generated
+   * @ordered
+   */
+  protected String descriptor = DESCRIPTOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -99,9 +120,9 @@ public class SpecStatementImpl extends MinimalEObjectImpl.Container implements S
    * @generated
    */
   @Override
-  public String getDisplayName()
+  public String getId()
   {
-    return displayName;
+    return id;
   }
 
   /**
@@ -110,12 +131,37 @@ public class SpecStatementImpl extends MinimalEObjectImpl.Container implements S
    * @generated
    */
   @Override
-  public void setDisplayName(String newDisplayName)
+  public void setId(String newId)
   {
-    String oldDisplayName = displayName;
-    displayName = newDisplayName;
+    String oldId = id;
+    id = newId;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_STATEMENT__DISPLAY_NAME, oldDisplayName, displayName));
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_STATEMENT__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getDescriptor()
+  {
+    return descriptor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDescriptor(String newDescriptor)
+  {
+    String oldDescriptor = descriptor;
+    descriptor = newDescriptor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_STATEMENT__DESCRIPTOR, oldDescriptor, descriptor));
   }
 
   /**
@@ -194,8 +240,10 @@ public class SpecStatementImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case GumboPackage.SPEC_STATEMENT__DISPLAY_NAME:
-        return getDisplayName();
+      case GumboPackage.SPEC_STATEMENT__ID:
+        return getId();
+      case GumboPackage.SPEC_STATEMENT__DESCRIPTOR:
+        return getDescriptor();
       case GumboPackage.SPEC_STATEMENT__EXPR:
         return getExpr();
     }
@@ -212,8 +260,11 @@ public class SpecStatementImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case GumboPackage.SPEC_STATEMENT__DISPLAY_NAME:
-        setDisplayName((String)newValue);
+      case GumboPackage.SPEC_STATEMENT__ID:
+        setId((String)newValue);
+        return;
+      case GumboPackage.SPEC_STATEMENT__DESCRIPTOR:
+        setDescriptor((String)newValue);
         return;
       case GumboPackage.SPEC_STATEMENT__EXPR:
         setExpr((Expr)newValue);
@@ -232,8 +283,11 @@ public class SpecStatementImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case GumboPackage.SPEC_STATEMENT__DISPLAY_NAME:
-        setDisplayName(DISPLAY_NAME_EDEFAULT);
+      case GumboPackage.SPEC_STATEMENT__ID:
+        setId(ID_EDEFAULT);
+        return;
+      case GumboPackage.SPEC_STATEMENT__DESCRIPTOR:
+        setDescriptor(DESCRIPTOR_EDEFAULT);
         return;
       case GumboPackage.SPEC_STATEMENT__EXPR:
         setExpr((Expr)null);
@@ -252,8 +306,10 @@ public class SpecStatementImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case GumboPackage.SPEC_STATEMENT__DISPLAY_NAME:
-        return DISPLAY_NAME_EDEFAULT == null ? displayName != null : !DISPLAY_NAME_EDEFAULT.equals(displayName);
+      case GumboPackage.SPEC_STATEMENT__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case GumboPackage.SPEC_STATEMENT__DESCRIPTOR:
+        return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
       case GumboPackage.SPEC_STATEMENT__EXPR:
         return expr != null;
     }
@@ -271,8 +327,10 @@ public class SpecStatementImpl extends MinimalEObjectImpl.Container implements S
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (displayName: ");
-    result.append(displayName);
+    result.append(" (id: ");
+    result.append(id);
+    result.append(", descriptor: ");
+    result.append(descriptor);
     result.append(')');
     return result.toString();
   }

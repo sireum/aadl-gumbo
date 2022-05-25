@@ -78,26 +78,50 @@ public class SpecStatementItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addDisplayNamePropertyDescriptor(object);
+      addIdPropertyDescriptor(object);
+      addDescriptorPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Display Name feature.
+   * This adds a property descriptor for the Id feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addDisplayNamePropertyDescriptor(Object object)
+  protected void addIdPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_SpecStatement_displayName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SpecStatement_displayName_feature", "_UI_SpecStatement_type"),
-         GumboPackage.Literals.SPEC_STATEMENT__DISPLAY_NAME,
+         getString("_UI_SpecStatement_id_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SpecStatement_id_feature", "_UI_SpecStatement_type"),
+         GumboPackage.Literals.SPEC_STATEMENT__ID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Descriptor feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDescriptorPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SpecStatement_descriptor_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SpecStatement_descriptor_feature", "_UI_SpecStatement_type"),
+         GumboPackage.Literals.SPEC_STATEMENT__DESCRIPTOR,
          true,
          false,
          false,
@@ -160,7 +184,7 @@ public class SpecStatementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SpecStatement)object).getDisplayName();
+    String label = ((SpecStatement)object).getId();
     return label == null || label.length() == 0 ?
       getString("_UI_SpecStatement_type") :
       getString("_UI_SpecStatement_type") + " " + label;
@@ -181,7 +205,8 @@ public class SpecStatementItemProvider
 
     switch (notification.getFeatureID(SpecStatement.class))
     {
-      case GumboPackage.SPEC_STATEMENT__DISPLAY_NAME:
+      case GumboPackage.SPEC_STATEMENT__ID:
+      case GumboPackage.SPEC_STATEMENT__DESCRIPTOR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case GumboPackage.SPEC_STATEMENT__EXPR:

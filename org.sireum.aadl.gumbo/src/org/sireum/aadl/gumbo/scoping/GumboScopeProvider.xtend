@@ -63,8 +63,10 @@ import org.sireum.aadl.gumbo.gumbo.MaySendExpr
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr
 import org.osate.aadl2.Port
 import org.osate.aadl2.DirectionType
-import org.osate.aadl2.EventPort
 import org.osate.aadl2.PortCategory
+import org.sireum.aadl.gumbo.gumbo.ImplicationStatement
+import org.sireum.aadl.gumbo.gumbo.HandlerClause
+import java.util.List
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -166,11 +168,15 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		if (stateVarDeclsB !== null) {
 			decls.addAll(stateVarDeclsB)
 		}
+		val stateVarDeclsC = context.getContainerOfType(ImplicationStatement)?.getContainerOfType(SpecSection)?.state?.decls
+		if (stateVarDeclsC !== null) {
+			decls.addAll(stateVarDeclsC)
+		}
 		val scope = decls.empty ? IScope::NULLSCOPE : decls.scopeFor
 		scope
 	}
 	
-	def getEventPortRef(EObject context, EReference reference) {
+	def getEventPortRef(EObject context, EReference reference, List<DirectionType> directions) {
 		if (context === null) {
 			return IScope::NULLSCOPE
 		}
@@ -184,7 +190,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		})
 		.filter(Port)
 		.filter([ x | x.category == PortCategory.EVENT || x.category == PortCategory.EVENT_DATA ])
-		.filter([ x | x.direction == DirectionType.OUT || x.direction == DirectionType.IN_OUT ])
+		.filter([ x | directions.contains(x.direction) ])
 		
 		val scope = scopeMembers.scopeFor
 		
@@ -194,13 +200,17 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 	
 	def scope_MaySendExpr_eventPort(MaySendExpr context, EReference reference) {
-		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference)
+		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference, #[DirectionType.OUT, DirectionType.IN_OUT])
 	}
 
 	def scope_MustSendExpr_eventPort(MustSendExpr context, EReference reference) {
-		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference)
+		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference, #[DirectionType.OUT, DirectionType.IN_OUT])
 	}
 	
+	def scope_HandlerClause_id(HandlerClause context, EReference reference) {
+		return getEventPortRef(context, reference, #[DirectionType.IN, DirectionType.IN_OUT])
+	}
+
 	def scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {
 		return getVariableCrossRef(context, reference)
 	}

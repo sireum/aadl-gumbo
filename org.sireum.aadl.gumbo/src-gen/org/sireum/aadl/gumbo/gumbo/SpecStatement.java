@@ -24,7 +24,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecStatement#getDisplayName <em>Display Name</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecStatement#getId <em>Id</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecStatement#getDescriptor <em>Descriptor</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecStatement#getExpr <em>Expr</em>}</li>
  * </ul>
  *
@@ -35,26 +36,48 @@ import org.eclipse.emf.ecore.EObject;
 public interface SpecStatement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Display Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Display Name</em>' attribute.
-   * @see #setDisplayName(String)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecStatement_DisplayName()
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecStatement_Id()
    * @model
    * @generated
    */
-  String getDisplayName();
+  String getId();
 
   /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecStatement#getDisplayName <em>Display Name</em>}' attribute.
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecStatement#getId <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Display Name</em>' attribute.
-   * @see #getDisplayName()
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
    * @generated
    */
-  void setDisplayName(String value);
+  void setId(String value);
+
+  /**
+   * Returns the value of the '<em><b>Descriptor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Descriptor</em>' attribute.
+   * @see #setDescriptor(String)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecStatement_Descriptor()
+   * @model
+   * @generated
+   */
+  String getDescriptor();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecStatement#getDescriptor <em>Descriptor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Descriptor</em>' attribute.
+   * @see #getDescriptor()
+   * @generated
+   */
+  void setDescriptor(String value);
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.

@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getModifies <em>Modifies</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getCases <em>Cases</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getImplications <em>Implications</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getHandlers <em>Handlers</em>}</li>
  * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute()
@@ -69,5 +71,29 @@ public interface Compute extends EObject
    * @generated
    */
   EList<CaseStatementClause> getCases();
+
+  /**
+   * Returns the value of the '<em><b>Implications</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.ImplicationStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Implications</em>' containment reference list.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute_Implications()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ImplicationStatement> getImplications();
+
+  /**
+   * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.HandlerClause}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Handlers</em>' containment reference list.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute_Handlers()
+   * @model containment="true"
+   * @generated
+   */
+  EList<HandlerClause> getHandlers();
 
 } // Compute

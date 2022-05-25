@@ -81,7 +81,7 @@ public class AssumeStatementItemProvider extends SpecStatementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((AssumeStatement)object).getDisplayName();
+    String label = ((AssumeStatement)object).getId();
     return label == null || label.length() == 0 ?
       getString("_UI_AssumeStatement_type") :
       getString("_UI_AssumeStatement_type") + " " + label;

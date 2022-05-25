@@ -65,11 +65,15 @@ Assert : ('A'|'a')('S'|'s')('S'|'s')('E'|'e')('R'|'r')('T'|'t');
 
 Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
 
+Handle : ('H'|'h')('A'|'a')('N'|'n')('D'|'d')('L'|'l')('E'|'e');
+
 Return : ('R'|'r')('E'|'e')('T'|'t')('U'|'u')('R'|'r')('N'|'n');
 
 Strict : ('S'|'s')('T'|'t')('R'|'r')('I'|'i')('C'|'c')('T'|'t');
 
 Some : '\\'('S'|'s')('O'|'o')('M'|'m')('E'|'e');
+
+Cases : ('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s');
 
 Delta : ('D'|'d')('E'|'e')('L'|'l')('T'|'t')('A'|'a');
 
@@ -104,6 +108,8 @@ Spec : ('S'|'s')('P'|'p')('E'|'e')('C'|'c');
 True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
 
 PlusSignEqualsSignGreaterThanSign : '+''=''>';
+
+HyphenMinusGreaterThanSignColon : '-''>'':';
 
 FullStopFullStopLessThanSign : '.''.''<';
 

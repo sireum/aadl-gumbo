@@ -53,7 +53,7 @@ Invariants:
 ;
 
 InvSpec:
-	'inv' displayName=SLANG_STRING ':' expr=Expr ';'
+	'inv' id=ID descriptor=SLANG_STRING? ':' expr=Expr ';'
 ;
 
 Integration:
@@ -75,11 +75,18 @@ Compute:
 	  (modifies=SlangModifies ';')?
 	  // for now, just set the grammar to have a collection of case statements.  
 	  // Eventually allow arbitrary assume/guarantees around an aggregated case statement
-	   (cases+=CaseStatementClause)+
+	   (('cases' (cases+=CaseStatementClause)+) | (implications+=ImplicationStatement)+)
+	   (handlers+=HandlerClause)*
+;
+
+HandlerClause:
+	'handle' id=[aadl2::Port|ID] ':'
+	(modifies=SlangModifies ';')?
+	(guarantees+=GuaranteeStatement)+
 ;
 
 CaseStatementClause:
-	'case' ID? displayName=SLANG_STRING? ':' 
+	'case' id=ID descriptor=SLANG_STRING? ':' 
 	       // in case clauses, we must have both an assume clause and a guarantee clause
 	       // but they don't have a display name (they will "inherit" the name from the case name).
 	       assumeStatement = AnonAssumeStatement
@@ -88,12 +95,12 @@ CaseStatementClause:
 
 SpecStatement:
     AssumeStatement
-  | GuaranteeStatement   	
+  | GuaranteeStatement  	
 ;
 
 
 AssumeStatement: 
-	'assume' ID? displayName=SLANG_STRING? ':' expr=Expr ';'
+	'assume' id=ID descriptor=SLANG_STRING? ':' expr=Expr ';'
 ;
 
 AnonAssumeStatement:  
@@ -101,7 +108,11 @@ AnonAssumeStatement:
 ;
 
 GuaranteeStatement: 
-	'guarantee' ID? displayName=SLANG_STRING? ':' expr=Expr ';'
+	'guarantee' id=ID descriptor=SLANG_STRING? ':' expr=Expr ';'
+;
+
+ImplicationStatement: 
+	'guarantee' id=ID descriptor=SLANG_STRING? ':' antecedent=Expr '->:' consequent=Expr ';'
 ;
 
 AnonGuaranteeStatement: 

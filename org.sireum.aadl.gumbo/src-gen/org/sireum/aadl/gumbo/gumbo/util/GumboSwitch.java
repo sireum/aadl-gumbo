@@ -173,6 +173,13 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.HANDLER_CLAUSE:
+      {
+        HandlerClause handlerClause = (HandlerClause)theEObject;
+        T result = caseHandlerClause(handlerClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.CASE_STATEMENT_CLAUSE:
       {
         CaseStatementClause caseStatementClause = (CaseStatementClause)theEObject;
@@ -207,6 +214,13 @@ public class GumboSwitch<T> extends Switch<T>
         GuaranteeStatement guaranteeStatement = (GuaranteeStatement)theEObject;
         T result = caseGuaranteeStatement(guaranteeStatement);
         if (result == null) result = caseSpecStatement(guaranteeStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.IMPLICATION_STATEMENT:
+      {
+        ImplicationStatement implicationStatement = (ImplicationStatement)theEObject;
+        T result = caseImplicationStatement(implicationStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1022,6 +1036,22 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Handler Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Handler Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHandlerClause(HandlerClause object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Case Statement Clause</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1097,6 +1127,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGuaranteeStatement(GuaranteeStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Implication Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Implication Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImplicationStatement(ImplicationStatement object)
   {
     return null;
   }

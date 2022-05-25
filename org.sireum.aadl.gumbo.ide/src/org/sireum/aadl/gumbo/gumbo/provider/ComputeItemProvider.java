@@ -96,6 +96,8 @@ public class ComputeItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__MODIFIES);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__CASES);
+      childrenFeatures.add(GumboPackage.Literals.COMPUTE__IMPLICATIONS);
+      childrenFeatures.add(GumboPackage.Literals.COMPUTE__HANDLERS);
     }
     return childrenFeatures;
   }
@@ -155,6 +157,8 @@ public class ComputeItemProvider
     {
       case GumboPackage.COMPUTE__MODIFIES:
       case GumboPackage.COMPUTE__CASES:
+      case GumboPackage.COMPUTE__IMPLICATIONS:
+      case GumboPackage.COMPUTE__HANDLERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -182,6 +186,16 @@ public class ComputeItemProvider
       (createChildParameter
         (GumboPackage.Literals.COMPUTE__CASES,
          GumboFactory.eINSTANCE.createCaseStatementClause()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.COMPUTE__IMPLICATIONS,
+         GumboFactory.eINSTANCE.createImplicationStatement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.COMPUTE__HANDLERS,
+         GumboFactory.eINSTANCE.createHandlerClause()));
   }
 
   /**

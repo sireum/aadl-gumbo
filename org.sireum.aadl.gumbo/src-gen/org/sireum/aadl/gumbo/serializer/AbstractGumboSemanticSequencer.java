@@ -60,7 +60,9 @@ import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
+import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
@@ -298,8 +300,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.GUMBO_SUBCLAUSE:
 				sequence_GumboSubclause(context, (GumboSubclause) semanticObject); 
 				return; 
+			case GumboPackage.HANDLER_CLAUSE:
+				sequence_HandlerClause(context, (HandlerClause) semanticObject); 
+				return; 
 			case GumboPackage.HEX_LIT:
 				sequence_SlangLit(context, (HexLit) semanticObject); 
+				return; 
+			case GumboPackage.IMPLICATION_STATEMENT:
+				sequence_ImplicationStatement(context, (ImplicationStatement) semanticObject); 
 				return; 
 			case GumboPackage.IN_STATE_EXPR:
 				sequence_SlangTerm(context, (InStateExpr) semanticObject); 
@@ -599,7 +607,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     AssumeStatement returns AssumeStatement
 	 *
 	 * Constraint:
-	 *     (displayName=SLANG_STRING? expr=Expr)
+	 *     (id=ID descriptor=SLANG_STRING? expr=Expr)
 	 * </pre>
 	 */
 	protected void sequence_AssumeStatement(ISerializationContext context, AssumeStatement semanticObject) {
@@ -613,7 +621,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     CaseStatementClause returns CaseStatementClause
 	 *
 	 * Constraint:
-	 *     (displayName=SLANG_STRING? assumeStatement=AnonAssumeStatement guaranteeStatement=AnonGuaranteeStatement)
+	 *     (id=ID descriptor=SLANG_STRING? assumeStatement=AnonAssumeStatement guaranteeStatement=AnonGuaranteeStatement)
 	 * </pre>
 	 */
 	protected void sequence_CaseStatementClause(ISerializationContext context, CaseStatementClause semanticObject) {
@@ -627,7 +635,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Compute returns Compute
 	 *
 	 * Constraint:
-	 *     (modifies=SlangModifies? cases+=CaseStatementClause+)
+	 *     (modifies=SlangModifies? (cases+=CaseStatementClause+ | implications+=ImplicationStatement+) handlers+=HandlerClause*)
 	 * </pre>
 	 */
 	protected void sequence_Compute(ISerializationContext context, Compute semanticObject) {
@@ -747,7 +755,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     GuaranteeStatement returns GuaranteeStatement
 	 *
 	 * Constraint:
-	 *     (displayName=SLANG_STRING? expr=Expr)
+	 *     (id=ID descriptor=SLANG_STRING? expr=Expr)
 	 * </pre>
 	 */
 	protected void sequence_GuaranteeStatement(ISerializationContext context, GuaranteeStatement semanticObject) {
@@ -788,6 +796,34 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGumboSubclauseAccess().getSpecsSpecSectionParserRuleCall_1_0(), semanticObject.getSpecs());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     HandlerClause returns HandlerClause
+	 *
+	 * Constraint:
+	 *     (id=[Port|ID] modifies=SlangModifies? guarantees+=GuaranteeStatement+)
+	 * </pre>
+	 */
+	protected void sequence_HandlerClause(ISerializationContext context, HandlerClause semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ImplicationStatement returns ImplicationStatement
+	 *
+	 * Constraint:
+	 *     (id=ID descriptor=SLANG_STRING? antecedent=Expr consequent=Expr)
+	 * </pre>
+	 */
+	protected void sequence_ImplicationStatement(ISerializationContext context, ImplicationStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -845,20 +881,11 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     InvSpec returns InvSpec
 	 *
 	 * Constraint:
-	 *     (displayName=SLANG_STRING expr=Expr)
+	 *     (id=ID descriptor=SLANG_STRING? expr=Expr)
 	 * </pre>
 	 */
 	protected void sequence_InvSpec(ISerializationContext context, InvSpec semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.INV_SPEC__DISPLAY_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.INV_SPEC__DISPLAY_NAME));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.INV_SPEC__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.INV_SPEC__EXPR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInvSpecAccess().getDisplayNameSLANG_STRINGTerminalRuleCall_1_0(), semanticObject.getDisplayName());
-		feeder.accept(grammarAccess.getInvSpecAccess().getExprExprParserRuleCall_3_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
