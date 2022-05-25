@@ -198,7 +198,17 @@ public class SlangWhileStmtItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
-         GumboFactory.eINSTANCE.createStateRefExpr()));
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_WHILE_STMT__COND,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter

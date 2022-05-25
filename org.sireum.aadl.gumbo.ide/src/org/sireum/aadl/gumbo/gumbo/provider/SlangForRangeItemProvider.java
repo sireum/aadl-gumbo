@@ -213,7 +213,17 @@ public class SlangForRangeItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__E,
-         GumboFactory.eINSTANCE.createStateRefExpr()));
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__E,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__E,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -283,7 +293,17 @@ public class SlangForRangeItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
-         GumboFactory.eINSTANCE.createStateRefExpr()));
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -353,7 +373,17 @@ public class SlangForRangeItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
-         GumboFactory.eINSTANCE.createStateRefExpr()));
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter

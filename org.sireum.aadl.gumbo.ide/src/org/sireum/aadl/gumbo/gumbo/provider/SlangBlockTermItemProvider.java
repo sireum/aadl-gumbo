@@ -205,7 +205,17 @@ public class SlangBlockTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
-         GumboFactory.eINSTANCE.createStateRefExpr()));
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__E,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter

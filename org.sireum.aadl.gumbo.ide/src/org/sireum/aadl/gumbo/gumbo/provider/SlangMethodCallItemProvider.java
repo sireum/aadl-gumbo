@@ -194,7 +194,17 @@ public class SlangMethodCallItemProvider extends SlangLHSSuffixItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_METHOD_CALL__EXPRS,
-         GumboFactory.eINSTANCE.createStateRefExpr()));
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_METHOD_CALL__EXPRS,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_METHOD_CALL__EXPRS,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter

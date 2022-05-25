@@ -241,7 +241,17 @@ public class InvSpecItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
-         GumboFactory.eINSTANCE.createStateRefExpr()));
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.INV_SPEC__EXPR,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.INV_SPEC__EXPR,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter

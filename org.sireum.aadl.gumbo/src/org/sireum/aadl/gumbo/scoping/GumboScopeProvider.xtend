@@ -56,9 +56,15 @@ import org.sireum.aadl.gumbo.gumbo.SlangDefDef
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam
 import org.sireum.aadl.gumbo.gumbo.SlangType
 import org.sireum.aadl.gumbo.gumbo.SlangIdStmt
-import org.sireum.aadl.gumbo.gumbo.StateRefExpr
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement
+import org.sireum.aadl.gumbo.gumbo.InStateExpr
+import org.sireum.aadl.gumbo.gumbo.MaySendExpr
+import org.sireum.aadl.gumbo.gumbo.MustSendExpr
+import org.osate.aadl2.Port
+import org.osate.aadl2.DirectionType
+import org.osate.aadl2.EventPort
+import org.osate.aadl2.PortCategory
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -150,7 +156,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		scope		
 	}
 
-	def scope_StateRefExpr_stateVar(StateRefExpr context, EReference reference) {
+	def scope_InStateExpr_stateVar(InStateExpr context, EReference reference) {
 		val decls = new BasicEList<EObject>()
 		val stateVarDeclsA = context.getContainerOfType(GuaranteeStatement)?.getContainerOfType(SpecSection)?.state?.decls
 		if (stateVarDeclsA !== null) {
@@ -162,6 +168,37 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		}
 		val scope = decls.empty ? IScope::NULLSCOPE : decls.scopeFor
 		scope
+	}
+	
+	def getEventPortRef(EObject context, EReference reference) {
+		if (context === null) {
+			return IScope::NULLSCOPE
+		}
+		
+		val classifier = context.getContainerOfType(Classifier)
+
+		var scopeMembers = (classifier.getAllFeatures + if (classifier instanceof ComponentImplementation) {
+			classifier.allInternalFeatures
+		} else {
+			emptyList
+		})
+		.filter(Port)
+		.filter([ x | x.category == PortCategory.EVENT || x.category == PortCategory.EVENT_DATA ])
+		.filter([ x | x.direction == DirectionType.OUT || x.direction == DirectionType.IN_OUT ])
+		
+		val scope = scopeMembers.scopeFor
+		
+		//println(scope)
+		
+		scope		
+	}
+	
+	def scope_MaySendExpr_eventPort(MaySendExpr context, EReference reference) {
+		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference)
+	}
+
+	def scope_MustSendExpr_eventPort(MustSendExpr context, EReference reference) {
+		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference)
 	}
 	
 	def scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {

@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.StateRefExpr} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.InStateExpr} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class StateRefExprItemProvider extends ExprItemProvider
+public class InStateExprItemProvider extends ExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -39,7 +39,7 @@ public class StateRefExprItemProvider extends ExprItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateRefExprItemProvider(AdapterFactory adapterFactory)
+  public InStateExprItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -74,9 +74,9 @@ public class StateRefExprItemProvider extends ExprItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_StateRefExpr_stateVar_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_StateRefExpr_stateVar_feature", "_UI_StateRefExpr_type"),
-         GumboPackage.Literals.STATE_REF_EXPR__STATE_VAR,
+         getString("_UI_InStateExpr_stateVar_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InStateExpr_stateVar_feature", "_UI_InStateExpr_type"),
+         GumboPackage.Literals.IN_STATE_EXPR__STATE_VAR,
          true,
          false,
          true,
@@ -86,7 +86,7 @@ public class StateRefExprItemProvider extends ExprItemProvider
   }
 
   /**
-   * This returns StateRefExpr.gif.
+   * This returns InStateExpr.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -94,7 +94,7 @@ public class StateRefExprItemProvider extends ExprItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/StateRefExpr"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/InStateExpr"));
   }
 
   /**
@@ -106,7 +106,7 @@ public class StateRefExprItemProvider extends ExprItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_StateRefExpr_type");
+    return getString("_UI_InStateExpr_type");
   }
 
 

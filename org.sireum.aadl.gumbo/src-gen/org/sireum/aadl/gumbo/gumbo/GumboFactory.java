@@ -745,13 +745,31 @@ public interface GumboFactory extends EFactory
   SlangInterpTerm createSlangInterpTerm();
 
   /**
-   * Returns a new object of class '<em>State Ref Expr</em>'.
+   * Returns a new object of class '<em>In State Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>State Ref Expr</em>'.
+   * @return a new object of class '<em>In State Expr</em>'.
    * @generated
    */
-  StateRefExpr createStateRefExpr();
+  InStateExpr createInStateExpr();
+
+  /**
+   * Returns a new object of class '<em>May Send Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>May Send Expr</em>'.
+   * @generated
+   */
+  MaySendExpr createMaySendExpr();
+
+  /**
+   * Returns a new object of class '<em>Must Send Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Must Send Expr</em>'.
+   * @generated
+   */
+  MustSendExpr createMustSendExpr();
 
   /**
    * Returns a new object of class '<em>Enum Lit Expr</em>'.

@@ -673,11 +673,27 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.STATE_REF_EXPR:
+      case GumboPackage.IN_STATE_EXPR:
       {
-        StateRefExpr stateRefExpr = (StateRefExpr)theEObject;
-        T result = caseStateRefExpr(stateRefExpr);
-        if (result == null) result = caseExpr(stateRefExpr);
+        InStateExpr inStateExpr = (InStateExpr)theEObject;
+        T result = caseInStateExpr(inStateExpr);
+        if (result == null) result = caseExpr(inStateExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.MAY_SEND_EXPR:
+      {
+        MaySendExpr maySendExpr = (MaySendExpr)theEObject;
+        T result = caseMaySendExpr(maySendExpr);
+        if (result == null) result = caseExpr(maySendExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.MUST_SEND_EXPR:
+      {
+        MustSendExpr mustSendExpr = (MustSendExpr)theEObject;
+        T result = caseMustSendExpr(mustSendExpr);
+        if (result == null) result = caseExpr(mustSendExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2094,17 +2110,49 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>State Ref Expr</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>In State Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State Ref Expr</em>'.
+   * @return the result of interpreting the object as an instance of '<em>In State Expr</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStateRefExpr(StateRefExpr object)
+  public T caseInStateExpr(InStateExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>May Send Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>May Send Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMaySendExpr(MaySendExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Must Send Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Must Send Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMustSendExpr(MustSendExpr object)
   {
     return null;
   }

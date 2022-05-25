@@ -487,9 +487,19 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangInterpTermAdapter();
       }
       @Override
-      public Adapter caseStateRefExpr(StateRefExpr object)
+      public Adapter caseInStateExpr(InStateExpr object)
       {
-        return createStateRefExprAdapter();
+        return createInStateExprAdapter();
+      }
+      @Override
+      public Adapter caseMaySendExpr(MaySendExpr object)
+      {
+        return createMaySendExprAdapter();
+      }
+      @Override
+      public Adapter caseMustSendExpr(MustSendExpr object)
+      {
+        return createMustSendExprAdapter();
       }
       @Override
       public Adapter caseEnumLitExpr(EnumLitExpr object)
@@ -1814,16 +1824,46 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.StateRefExpr <em>State Ref Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.InStateExpr <em>In State Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.StateRefExpr
+   * @see org.sireum.aadl.gumbo.gumbo.InStateExpr
    * @generated
    */
-  public Adapter createStateRefExprAdapter()
+  public Adapter createInStateExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.MaySendExpr <em>May Send Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.MaySendExpr
+   * @generated
+   */
+  public Adapter createMaySendExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.MustSendExpr <em>Must Send Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.MustSendExpr
+   * @generated
+   */
+  public Adapter createMustSendExprAdapter()
   {
     return null;
   }

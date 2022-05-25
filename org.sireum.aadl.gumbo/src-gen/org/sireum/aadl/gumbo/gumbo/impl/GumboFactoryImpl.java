@@ -154,7 +154,9 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_ACCESS: return createSlangAccess();
       case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
       case GumboPackage.SLANG_INTERP_TERM: return createSlangInterpTerm();
-      case GumboPackage.STATE_REF_EXPR: return createStateRefExpr();
+      case GumboPackage.IN_STATE_EXPR: return createInStateExpr();
+      case GumboPackage.MAY_SEND_EXPR: return createMaySendExpr();
+      case GumboPackage.MUST_SEND_EXPR: return createMustSendExpr();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
       case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
@@ -1132,10 +1134,34 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public StateRefExpr createStateRefExpr()
+  public InStateExpr createInStateExpr()
   {
-    StateRefExprImpl stateRefExpr = new StateRefExprImpl();
-    return stateRefExpr;
+    InStateExprImpl inStateExpr = new InStateExprImpl();
+    return inStateExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MaySendExpr createMaySendExpr()
+  {
+    MaySendExprImpl maySendExpr = new MaySendExprImpl();
+    return maySendExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MustSendExpr createMustSendExpr()
+  {
+    MustSendExprImpl mustSendExpr = new MustSendExprImpl();
+    return mustSendExpr;
   }
 
   /**

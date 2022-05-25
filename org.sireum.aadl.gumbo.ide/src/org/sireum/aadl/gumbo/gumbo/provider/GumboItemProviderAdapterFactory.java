@@ -2060,28 +2060,78 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.StateRefExpr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.InStateExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StateRefExprItemProvider stateRefExprItemProvider;
+  protected InStateExprItemProvider inStateExprItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.StateRefExpr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.InStateExpr}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createStateRefExprAdapter()
+  public Adapter createInStateExprAdapter()
   {
-    if (stateRefExprItemProvider == null)
+    if (inStateExprItemProvider == null)
     {
-      stateRefExprItemProvider = new StateRefExprItemProvider(this);
+      inStateExprItemProvider = new InStateExprItemProvider(this);
     }
 
-    return stateRefExprItemProvider;
+    return inStateExprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.MaySendExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MaySendExprItemProvider maySendExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.MaySendExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMaySendExprAdapter()
+  {
+    if (maySendExprItemProvider == null)
+    {
+      maySendExprItemProvider = new MaySendExprItemProvider(this);
+    }
+
+    return maySendExprItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.MustSendExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MustSendExprItemProvider mustSendExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.MustSendExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMustSendExprAdapter()
+  {
+    if (mustSendExprItemProvider == null)
+    {
+      mustSendExprItemProvider = new MustSendExprItemProvider(this);
+    }
+
+    return mustSendExprItemProvider;
   }
 
   /**
@@ -2730,7 +2780,9 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangAccessItemProvider != null) slangAccessItemProvider.dispose();
     if (slangLitTermItemProvider != null) slangLitTermItemProvider.dispose();
     if (slangInterpTermItemProvider != null) slangInterpTermItemProvider.dispose();
-    if (stateRefExprItemProvider != null) stateRefExprItemProvider.dispose();
+    if (inStateExprItemProvider != null) inStateExprItemProvider.dispose();
+    if (maySendExprItemProvider != null) maySendExprItemProvider.dispose();
+    if (mustSendExprItemProvider != null) mustSendExprItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
     if (recordLitExprItemProvider != null) recordLitExprItemProvider.dispose();
     if (dataRefExprItemProvider != null) dataRefExprItemProvider.dispose();
