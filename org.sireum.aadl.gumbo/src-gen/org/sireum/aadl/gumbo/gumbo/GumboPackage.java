@@ -3195,13 +3195,22 @@ public interface GumboPackage extends EPackage
   int MAY_SEND_EXPR__EVENT_PORT = EXPR_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAY_SEND_EXPR__VALUE = EXPR_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>May Send Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAY_SEND_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+  int MAY_SEND_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.MustSendExprImpl <em>Must Send Expr</em>}' class.
@@ -3223,13 +3232,22 @@ public interface GumboPackage extends EPackage
   int MUST_SEND_EXPR__EVENT_PORT = EXPR_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUST_SEND_EXPR__VALUE = EXPR_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Must Send Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUST_SEND_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+  int MUST_SEND_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EnumLitExprImpl <em>Enum Lit Expr</em>}' class.
@@ -6305,6 +6323,17 @@ public interface GumboPackage extends EPackage
   EReference getMaySendExpr_EventPort();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.MaySendExpr#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.MaySendExpr#getValue()
+   * @see #getMaySendExpr()
+   * @generated
+   */
+  EReference getMaySendExpr_Value();
+
+  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.MustSendExpr <em>Must Send Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6324,6 +6353,17 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getMustSendExpr_EventPort();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.MustSendExpr#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.MustSendExpr#getValue()
+   * @see #getMustSendExpr()
+   * @generated
+   */
+  EReference getMustSendExpr_Value();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr <em>Enum Lit Expr</em>}'.
@@ -8771,6 +8811,14 @@ public interface GumboPackage extends EPackage
     EReference MAY_SEND_EXPR__EVENT_PORT = eINSTANCE.getMaySendExpr_EventPort();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAY_SEND_EXPR__VALUE = eINSTANCE.getMaySendExpr_Value();
+
+    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.MustSendExprImpl <em>Must Send Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8787,6 +8835,14 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference MUST_SEND_EXPR__EVENT_PORT = eINSTANCE.getMustSendExpr_EventPort();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MUST_SEND_EXPR__VALUE = eINSTANCE.getMustSendExpr_Value();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EnumLitExprImpl <em>Enum Lit Expr</em>}' class.

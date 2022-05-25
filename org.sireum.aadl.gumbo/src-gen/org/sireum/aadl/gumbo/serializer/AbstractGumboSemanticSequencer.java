@@ -1985,16 +1985,19 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangTerm returns MaySendExpr
 	 *
 	 * Constraint:
-	 *     eventPort=[Port|ID]
+	 *     (eventPort=[Port|ID] value=Expr)
 	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, MaySendExpr semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__EVENT_PORT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__EVENT_PORT));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSlangTermAccess().getEventPortPortIDTerminalRuleCall_3_1_0_1(), semanticObject.eGet(GumboPackage.Literals.MAY_SEND_EXPR__EVENT_PORT, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_3_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -2005,16 +2008,19 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangTerm returns MustSendExpr
 	 *
 	 * Constraint:
-	 *     eventPort=[Port|ID]
+	 *     (eventPort=[Port|ID] value=Expr)
 	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, MustSendExpr semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__EVENT_PORT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__EVENT_PORT));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSlangTermAccess().getEventPortPortIDTerminalRuleCall_4_1_0_1(), semanticObject.eGet(GumboPackage.Literals.MUST_SEND_EXPR__EVENT_PORT, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_4_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

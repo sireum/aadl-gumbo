@@ -12592,6 +12592,7 @@ rule__SlangTerm__Group_3__2
 	}
 :
 	rule__SlangTerm__Group_3__2__Impl
+	rule__SlangTerm__Group_3__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -12603,9 +12604,62 @@ rule__SlangTerm__Group_3__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_3_2()); }
+	{ before(grammarAccess.getSlangTermAccess().getCommaKeyword_3_2()); }
+	Comma
+	{ after(grammarAccess.getSlangTermAccess().getCommaKeyword_3_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_3__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SlangTerm__Group_3__3__Impl
+	rule__SlangTerm__Group_3__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_3__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSlangTermAccess().getValueAssignment_3_3()); }
+	(rule__SlangTerm__ValueAssignment_3_3)
+	{ after(grammarAccess.getSlangTermAccess().getValueAssignment_3_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_3__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SlangTerm__Group_3__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_3__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_3_4()); }
 	RightParenthesis
-	{ after(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_3_2()); }
+	{ after(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_3_4()); }
 )
 ;
 finally {
@@ -12781,6 +12835,7 @@ rule__SlangTerm__Group_4__2
 	}
 :
 	rule__SlangTerm__Group_4__2__Impl
+	rule__SlangTerm__Group_4__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -12792,9 +12847,62 @@ rule__SlangTerm__Group_4__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_4_2()); }
+	{ before(grammarAccess.getSlangTermAccess().getCommaKeyword_4_2()); }
+	Comma
+	{ after(grammarAccess.getSlangTermAccess().getCommaKeyword_4_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_4__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SlangTerm__Group_4__3__Impl
+	rule__SlangTerm__Group_4__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_4__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSlangTermAccess().getValueAssignment_4_3()); }
+	(rule__SlangTerm__ValueAssignment_4_3)
+	{ after(grammarAccess.getSlangTermAccess().getValueAssignment_4_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_4__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SlangTerm__Group_4__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__Group_4__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_4_4()); }
 	RightParenthesis
-	{ after(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_4_2()); }
+	{ after(grammarAccess.getSlangTermAccess().getRightParenthesisKeyword_4_4()); }
 )
 ;
 finally {
@@ -21471,6 +21579,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__SlangTerm__ValueAssignment_3_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_3_3_0()); }
+		ruleExpr
+		{ after(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_3_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__SlangTerm__EventPortAssignment_4_1
 	@init {
 		int stackSize = keepStackSize();
@@ -21484,6 +21607,21 @@ rule__SlangTerm__EventPortAssignment_4_1
 			{ after(grammarAccess.getSlangTermAccess().getEventPortPortIDTerminalRuleCall_4_1_0_1()); }
 		)
 		{ after(grammarAccess.getSlangTermAccess().getEventPortPortCrossReference_4_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangTerm__ValueAssignment_4_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_4_3_0()); }
+		ruleExpr
+		{ after(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_4_3_0()); }
 	)
 ;
 finally {

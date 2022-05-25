@@ -3243,7 +3243,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cEventPortAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final CrossReference cEventPortPortCrossReference_3_1_0 = (CrossReference)cEventPortAssignment_3_1.eContents().get(0);
 		private final RuleCall cEventPortPortIDTerminalRuleCall_3_1_0_1 = (RuleCall)cEventPortPortCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Keyword cCommaKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cValueAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cValueExprParserRuleCall_3_3_0 = (RuleCall)cValueAssignment_3_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
 		private final Group cGroup_4_0 = (Group)cGroup_4.eContents().get(0);
 		private final Group cGroup_4_0_0 = (Group)cGroup_4_0.eContents().get(0);
@@ -3253,7 +3256,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cEventPortAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final CrossReference cEventPortPortCrossReference_4_1_0 = (CrossReference)cEventPortAssignment_4_1.eContents().get(0);
 		private final RuleCall cEventPortPortIDTerminalRuleCall_4_1_0_1 = (RuleCall)cEventPortPortCrossReference_4_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Keyword cCommaKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cValueAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cValueExprParserRuleCall_4_3_0 = (RuleCall)cValueAssignment_4_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
 		private final Group cGroup_5_0 = (Group)cGroup_5.eContents().get(0);
 		private final Group cGroup_5_0_0 = (Group)cGroup_5_0.eContents().get(0);
@@ -3353,8 +3359,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    : {SlangLitTerm} lit=SlangLit
 		//    | {SlangInterpTerm} i=SlangInterp
 		//    | => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
-		//    | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ')'
-		//    | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ')'
+		//    | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
+		//    | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
 		//    | => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		//    | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//    | {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=SlangCallSuffix?
@@ -3370,8 +3376,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//{SlangLitTerm} lit=SlangLit
 		//   | {SlangInterpTerm} i=SlangInterp
 		//   | => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
-		//   | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ')'
-		//   | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ')'
+		//   | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
+		//   | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
 		//   | => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		//   | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//   | {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=SlangCallSuffix?
@@ -3437,7 +3443,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//')'
 		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 		
-		//=> ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ')'
+		//=> ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//=> ({MaySendExpr} 'MaySend' '(')
@@ -3464,10 +3470,19 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getEventPortPortIDTerminalRuleCall_3_1_0_1() { return cEventPortPortIDTerminalRuleCall_3_1_0_1; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+		//','
+		public Keyword getCommaKeyword_3_2() { return cCommaKeyword_3_2; }
 		
-		//=> ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ')'
+		//value=Expr
+		public Assignment getValueAssignment_3_3() { return cValueAssignment_3_3; }
+		
+		//Expr
+		public RuleCall getValueExprParserRuleCall_3_3_0() { return cValueExprParserRuleCall_3_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3_4() { return cRightParenthesisKeyword_3_4; }
+		
+		//=> ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//=> ({MustSendExpr} 'MustSend' '(')
@@ -3494,8 +3509,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getEventPortPortIDTerminalRuleCall_4_1_0_1() { return cEventPortPortIDTerminalRuleCall_4_1_0_1; }
 		
+		//','
+		public Keyword getCommaKeyword_4_2() { return cCommaKeyword_4_2; }
+		
+		//value=Expr
+		public Assignment getValueAssignment_4_3() { return cValueAssignment_4_3; }
+		
+		//Expr
+		public RuleCall getValueExprParserRuleCall_4_3_0() { return cValueExprParserRuleCall_4_3_0; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+		public Keyword getRightParenthesisKeyword_4_4() { return cRightParenthesisKeyword_4_4; }
 		
 		//=> ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 		public Group getGroup_5() { return cGroup_5; }
@@ -5444,8 +5468,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    : {SlangLitTerm} lit=SlangLit
 	//    | {SlangInterpTerm} i=SlangInterp
 	//    | => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
-	//    | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ')'
-	//    | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ')'
+	//    | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
+	//    | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')'
 	//    | => ({EnumLitExpr} 'enum' '(') enumType=DataElement ',' value=[aadl2::StringLiteral|ID] ')'
 	//    | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 	//    | {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=SlangCallSuffix?

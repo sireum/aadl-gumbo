@@ -312,9 +312,11 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//MaySendExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//MaySendExpr/eventPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//MaySendExpr/value"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//MustSendExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//MustSendExpr/eventPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//MustSendExpr/value"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//EnumLitExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//EnumLitExpr/enumType"/>

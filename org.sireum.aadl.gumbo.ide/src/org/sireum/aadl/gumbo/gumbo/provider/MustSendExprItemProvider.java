@@ -20,10 +20,15 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 
 /**
  * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.MustSendExpr} object.
@@ -86,6 +91,39 @@ public class MustSendExprItemProvider extends ExprItemProvider
   }
 
   /**
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  {
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.MUST_SEND_EXPR__VALUE);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
+  }
+
+  /**
    * This returns MustSendExpr.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -121,6 +159,13 @@ public class MustSendExprItemProvider extends ExprItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(MustSendExpr.class))
+    {
+      case GumboPackage.MUST_SEND_EXPR__VALUE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+        return;
+    }
     super.notifyChanged(notification);
   }
 
@@ -135,6 +180,86 @@ public class MustSendExprItemProvider extends ExprItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createUnaryExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createSlangAccess()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createDataRefExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createSlangForTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
 }

@@ -200,11 +200,11 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 	
 	def scope_MaySendExpr_eventPort(MaySendExpr context, EReference reference) {
-		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference, #[DirectionType.OUT, DirectionType.IN_OUT])
+		return getEventPortRef(context, reference, #[DirectionType.OUT, DirectionType.IN_OUT])
 	}
 
 	def scope_MustSendExpr_eventPort(MustSendExpr context, EReference reference) {
-		return getEventPortRef(context.getContainerOfType(GuaranteeStatement), reference, #[DirectionType.OUT, DirectionType.IN_OUT])
+		return getEventPortRef(context, reference, #[DirectionType.OUT, DirectionType.IN_OUT])
 	}
 	
 	def scope_HandlerClause_id(HandlerClause context, EReference reference) {

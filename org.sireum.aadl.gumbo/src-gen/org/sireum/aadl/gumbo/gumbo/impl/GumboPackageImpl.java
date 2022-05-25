@@ -3475,6 +3475,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EReference getMaySendExpr_Value()
+  {
+    return (EReference)maySendExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getMustSendExpr()
   {
     return mustSendExprEClass;
@@ -3489,6 +3500,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getMustSendExpr_EventPort()
   {
     return (EReference)mustSendExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMustSendExpr_Value()
+  {
+    return (EReference)mustSendExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4254,9 +4276,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     maySendExprEClass = createEClass(MAY_SEND_EXPR);
     createEReference(maySendExprEClass, MAY_SEND_EXPR__EVENT_PORT);
+    createEReference(maySendExprEClass, MAY_SEND_EXPR__VALUE);
 
     mustSendExprEClass = createEClass(MUST_SEND_EXPR);
     createEReference(mustSendExprEClass, MUST_SEND_EXPR__EVENT_PORT);
+    createEReference(mustSendExprEClass, MUST_SEND_EXPR__VALUE);
 
     enumLitExprEClass = createEClass(ENUM_LIT_EXPR);
     createEReference(enumLitExprEClass, ENUM_LIT_EXPR__ENUM_TYPE);
@@ -4710,9 +4734,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(maySendExprEClass, MaySendExpr.class, "MaySendExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMaySendExpr_EventPort(), theAadl2Package.getPort(), null, "eventPort", null, 0, 1, MaySendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMaySendExpr_Value(), this.getExpr(), null, "value", null, 0, 1, MaySendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mustSendExprEClass, MustSendExpr.class, "MustSendExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMustSendExpr_EventPort(), theAadl2Package.getPort(), null, "eventPort", null, 0, 1, MustSendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMustSendExpr_Value(), this.getExpr(), null, "value", null, 0, 1, MustSendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLitExprEClass, EnumLitExpr.class, "EnumLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumLitExpr_EnumType(), this.getDataElement(), null, "enumType", null, 0, 1, EnumLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

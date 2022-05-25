@@ -449,7 +449,9 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangTermAccess().getIAssignment_1_1(), "rule__SlangTerm__IAssignment_1_1");
 			builder.put(grammarAccess.getSlangTermAccess().getStateVarAssignment_2_1(), "rule__SlangTerm__StateVarAssignment_2_1");
 			builder.put(grammarAccess.getSlangTermAccess().getEventPortAssignment_3_1(), "rule__SlangTerm__EventPortAssignment_3_1");
+			builder.put(grammarAccess.getSlangTermAccess().getValueAssignment_3_3(), "rule__SlangTerm__ValueAssignment_3_3");
 			builder.put(grammarAccess.getSlangTermAccess().getEventPortAssignment_4_1(), "rule__SlangTerm__EventPortAssignment_4_1");
+			builder.put(grammarAccess.getSlangTermAccess().getValueAssignment_4_3(), "rule__SlangTerm__ValueAssignment_4_3");
 			builder.put(grammarAccess.getSlangTermAccess().getEnumTypeAssignment_5_1(), "rule__SlangTerm__EnumTypeAssignment_5_1");
 			builder.put(grammarAccess.getSlangTermAccess().getValueAssignment_5_3(), "rule__SlangTerm__ValueAssignment_5_3");
 			builder.put(grammarAccess.getSlangTermAccess().getRecordTypeAssignment_6_0_0_1(), "rule__SlangTerm__RecordTypeAssignment_6_0_0_1");
