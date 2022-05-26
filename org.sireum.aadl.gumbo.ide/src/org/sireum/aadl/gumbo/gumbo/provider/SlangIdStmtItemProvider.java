@@ -104,6 +104,7 @@ public class SlangIdStmtItemProvider extends SlangStmtItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_ID_STMT__L);
       childrenFeatures.add(GumboPackage.Literals.SLANG_ID_STMT__E);
     }
     return childrenFeatures;
@@ -162,6 +163,7 @@ public class SlangIdStmtItemProvider extends SlangStmtItemProvider
 
     switch (notification.getFeatureID(SlangIdStmt.class))
     {
+      case GumboPackage.SLANG_ID_STMT__L:
       case GumboPackage.SLANG_ID_STMT__E:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -180,6 +182,21 @@ public class SlangIdStmtItemProvider extends SlangStmtItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ID_STMT__L,
+         GumboFactory.eINSTANCE.createSlangLHSSuffix()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ID_STMT__L,
+         GumboFactory.eINSTANCE.createSlangFieldLookup()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ID_STMT__L,
+         GumboFactory.eINSTANCE.createSlangMethodCall()));
 
     newChildDescriptors.add
       (createChildParameter

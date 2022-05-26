@@ -278,6 +278,7 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangIdStmt">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIdStmt/portOrSubcomponentOrStateVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIdStmt/l"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIdStmt/e"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangFieldLookup"/>

@@ -48,7 +48,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangDefContractAccess().getAlternatives_2(), "rule__SlangDefContract__Alternatives_2");
 			builder.put(grammarAccess.getSlangStmtAccess().getAlternatives(), "rule__SlangStmt__Alternatives");
 			builder.put(grammarAccess.getSlangStmtAccess().getAlternatives_9_2(), "rule__SlangStmt__Alternatives_9_2");
-			builder.put(grammarAccess.getSlangStmtAccess().getAlternatives_9_2_1_0(), "rule__SlangStmt__Alternatives_9_2_1_0");
+			builder.put(grammarAccess.getSlangStmtAccess().getAlternatives_9_2_1_1_0(), "rule__SlangStmt__Alternatives_9_2_1_1_0");
 			builder.put(grammarAccess.getSlangElseAccess().getAlternatives_1(), "rule__SlangElse__Alternatives_1");
 			builder.put(grammarAccess.getSlangLHSSuffixAccess().getAlternatives(), "rule__SlangLHSSuffix__Alternatives");
 			builder.put(grammarAccess.getSlangPatternAccess().getAlternatives(), "rule__SlangPattern__Alternatives");
@@ -147,6 +147,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangStmtAccess().getGroup_8(), "rule__SlangStmt__Group_8__0");
 			builder.put(grammarAccess.getSlangStmtAccess().getGroup_9(), "rule__SlangStmt__Group_9__0");
 			builder.put(grammarAccess.getSlangStmtAccess().getGroup_9_2_1(), "rule__SlangStmt__Group_9_2_1__0");
+			builder.put(grammarAccess.getSlangStmtAccess().getGroup_9_2_1_1(), "rule__SlangStmt__Group_9_2_1_1__0");
 			builder.put(grammarAccess.getSlangElseAccess().getGroup(), "rule__SlangElse__Group__0");
 			builder.put(grammarAccess.getSlangElseAccess().getGroup_1_0(), "rule__SlangElse__Group_1_0__0");
 			builder.put(grammarAccess.getSlangLoopContractAccess().getGroup(), "rule__SlangLoopContract__Group__0");
@@ -402,7 +403,8 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangStmtAccess().getEAssignment_6_2(), "rule__SlangStmt__EAssignment_6_2");
 			builder.put(grammarAccess.getSlangStmtAccess().getEAssignment_8_2(), "rule__SlangStmt__EAssignment_8_2");
 			builder.put(grammarAccess.getSlangStmtAccess().getPortOrSubcomponentOrStateVarAssignment_9_1(), "rule__SlangStmt__PortOrSubcomponentOrStateVarAssignment_9_1");
-			builder.put(grammarAccess.getSlangStmtAccess().getEAssignment_9_2_1_1(), "rule__SlangStmt__EAssignment_9_2_1_1");
+			builder.put(grammarAccess.getSlangStmtAccess().getLAssignment_9_2_1_0(), "rule__SlangStmt__LAssignment_9_2_1_0");
+			builder.put(grammarAccess.getSlangStmtAccess().getEAssignment_9_2_1_1_1(), "rule__SlangStmt__EAssignment_9_2_1_1_1");
 			builder.put(grammarAccess.getSlangElseAccess().getCondAssignment_1_0_1(), "rule__SlangElse__CondAssignment_1_0_1");
 			builder.put(grammarAccess.getSlangElseAccess().getBAssignment_1_0_2(), "rule__SlangElse__BAssignment_1_0_2");
 			builder.put(grammarAccess.getSlangElseAccess().getEAssignment_1_0_3(), "rule__SlangElse__EAssignment_1_0_3");

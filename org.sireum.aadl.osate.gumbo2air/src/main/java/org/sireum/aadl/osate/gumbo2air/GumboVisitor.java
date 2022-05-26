@@ -169,7 +169,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<GclInvariant> _invariants = new ArrayList<>();
 		if (object.getSpecs().getInvariants() != null) {
 			for (InvSpec s : object.getSpecs().getInvariants().getSpecs()) {
-				String displayName = GumboUtils.getSlangString(s.getId());
+				String displayName = GumboUtils.getSlangString(s.getDescriptor());
 				visit(s.getExpr());
 				_invariants.add(GclInvariant$.MODULE$.apply(displayName, pop()));
 			}
@@ -226,7 +226,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		List<GclCaseStatement> caseStatements = new ArrayList<>();
 		for (CaseStatementClause css : object.getCases()) {
-			String name = GumboUtils.getSlangString(css.getId());
+			String name = GumboUtils.getSlangString(css.getDescriptor());
 
 			visit(css.getAssumeStatement().getExpr());
 			Exp assumes = pop();
@@ -267,7 +267,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	@Override
 	public Boolean caseAssumeStatement(AssumeStatement object) {
-		String name = GumboUtils.getSlangString(object.getId());
+		String name = GumboUtils.getSlangString(object.getDescriptor());
 		visit(object.getExpr());
 		push(GclAssume$.MODULE$.apply(name, pop()));
 
@@ -276,7 +276,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	@Override
 	public Boolean caseGuaranteeStatement(GuaranteeStatement object) {
-		String name = GumboUtils.getSlangString(object.getId());
+		String name = GumboUtils.getSlangString(object.getDescriptor());
 		visit(object.getExpr());
 		push(GclGuarantee$.MODULE$.apply(name, pop()));
 

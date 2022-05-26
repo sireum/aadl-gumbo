@@ -3200,9 +3200,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangIdStmt_E()
+  public EReference getSlangIdStmt_L()
   {
     return (EReference)slangIdStmtEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangIdStmt_E()
+  {
+    return (EReference)slangIdStmtEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4241,6 +4252,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     slangIdStmtEClass = createEClass(SLANG_ID_STMT);
     createEReference(slangIdStmtEClass, SLANG_ID_STMT__PORT_OR_SUBCOMPONENT_OR_STATE_VAR);
+    createEReference(slangIdStmtEClass, SLANG_ID_STMT__L);
     createEReference(slangIdStmtEClass, SLANG_ID_STMT__E);
 
     slangFieldLookupEClass = createEClass(SLANG_FIELD_LOOKUP);
@@ -4699,6 +4711,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(slangIdStmtEClass, SlangIdStmt.class, "SlangIdStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangIdStmt_PortOrSubcomponentOrStateVar(), theEcorePackage.getEObject(), null, "portOrSubcomponentOrStateVar", null, 0, 1, SlangIdStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSlangIdStmt_L(), this.getSlangLHSSuffix(), null, "l", null, 0, -1, SlangIdStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSlangIdStmt_E(), this.getExpr(), null, "e", null, 0, 1, SlangIdStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangFieldLookupEClass, SlangFieldLookup.class, "SlangFieldLookup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -359,6 +359,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="SlangIdStmt" eSuperTypes="#//SlangStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="portOrSubcomponentOrStateVar"
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" upperBound="-1" eType="#//SlangLHSSuffix"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangFieldLookup" eSuperTypes="#//SlangLHSSuffix"/>

@@ -1778,7 +1778,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangStmt returns SlangIdStmt
 	 *
 	 * Constraint:
-	 *     (portOrSubcomponentOrStateVar=[EObject|ID] e=Expr?)
+	 *     (portOrSubcomponentOrStateVar=[EObject|ID] l+=SlangLHSSuffix* e=Expr?)
 	 * </pre>
 	 */
 	protected void sequence_SlangStmt(ISerializationContext context, SlangIdStmt semanticObject) {

@@ -44,7 +44,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q;
 	protected AbstractElementAlias match_SlangParam_VarKeyword_0_q;
 	protected AbstractElementAlias match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
-	protected AbstractElementAlias match_SlangStmt_ColonEqualsSignKeyword_9_2_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_0_1;
+	protected AbstractElementAlias match_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1;
 	protected AbstractElementAlias match_SlangStmt_ColonKeyword_9_2_0_q;
 	protected AbstractElementAlias match_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q;
 	protected AbstractElementAlias match_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q;
@@ -67,7 +67,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getEqualsSignGreaterThanSignKeyword_3());
 		match_SlangParam_VarKeyword_0_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getVarKeyword_0());
 		match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangQuantVarAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangQuantVarAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
-		match_SlangStmt_ColonEqualsSignKeyword_9_2_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangStmtAccess().getColonEqualsSignKeyword_9_2_1_0_0()), new TokenAlias(false, false, grammarAccess.getSlangStmtAccess().getDEFOPTerminalRuleCall_9_2_1_0_1()));
+		match_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangStmtAccess().getColonEqualsSignKeyword_9_2_1_1_0_0()), new TokenAlias(false, false, grammarAccess.getSlangStmtAccess().getDEFOPTerminalRuleCall_9_2_1_1_0_1()));
 		match_SlangStmt_ColonKeyword_9_2_0_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getColonKeyword_9_2_0());
 		match_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_5_3());
 		match_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_6_3());
@@ -242,8 +242,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 				emit_SlangParam_VarKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1.equals(syntax))
 				emit_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangStmt_ColonEqualsSignKeyword_9_2_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_0_1.equals(syntax))
-				emit_SlangStmt_ColonEqualsSignKeyword_9_2_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1.equals(syntax))
+				emit_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangStmt_ColonKeyword_9_2_0_q.equals(syntax))
 				emit_SlangStmt_ColonKeyword_9_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q.equals(syntax))
@@ -438,11 +438,12 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     ':=' | DEFOP
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     l+=SlangLHSSuffix (ambiguity) e=Expr
 	 *     portOrSubcomponentOrStateVar=[EObject|ID] (ambiguity) e=Expr
 	 
 	 * </pre>
 	 */
-	protected void emit_SlangStmt_ColonEqualsSignKeyword_9_2_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

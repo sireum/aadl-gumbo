@@ -46,7 +46,14 @@ class GumboPackageTest extends XtextTest {
 						port3: out event data port;
 					annex gumbo {**
 						initialize
-						  guarantee "can just be a portRef" : port3;
+						  guarantee A1_b_0 "can just be a portRef" : port3 > 1;
+						  
+						  guarantee A2_no_desc : port3 > 5;
+						  
+						  guarantee A3 "multi
+						                line?" : port3 > 0;
+						                
+						  guarantee A4 : { port3 > 0 };
 					**};
 				end systemA;
 				

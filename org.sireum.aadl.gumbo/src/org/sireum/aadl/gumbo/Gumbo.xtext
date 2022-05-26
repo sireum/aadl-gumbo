@@ -214,7 +214,7 @@ SlangStmt
 	// FIXME: This causes a "multiple alternatives" warning.
 	| {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID] 
 	  ( ':'
-	  | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+	  | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
 	  )
 	;
 	

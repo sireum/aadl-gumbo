@@ -16,6 +16,7 @@ parser grammar InternalGumboParser;
 options {
 	tokenVocab=InternalGumboLexer;
 	superClass=AbstractInternalAntlrParser;
+	backtrack=true;
 }
 
 @header {
@@ -35,6 +36,11 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 }
 
 @members {
+
+/*
+  This grammar contains a lot of empty actions to work around a bug in ANTLR.
+  Otherwise the ANTLR tool will create synpreds that cannot be compiled in some rare cases.
+*/
 
  	private GumboGrammarAccess grammarAccess;
 
@@ -79,6 +85,9 @@ ruleAnnexLibrary returns [EObject current=null]
 	leaveRule();
 }:
 	{
+		/* */
+	}
+	{
 		newCompositeNode(grammarAccess.getAnnexLibraryAccess().getGumboLibraryParserRuleCall());
 	}
 	this_GumboLibrary_0=ruleGumboLibrary
@@ -105,6 +114,9 @@ ruleGumboLibrary returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getGumboLibraryAccess().getGumboLibraryAction_0(),
@@ -143,6 +155,9 @@ ruleGumboSubclause returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getGumboSubclauseAccess().getGumboSubclauseAction_0(),
@@ -188,6 +203,9 @@ ruleSpecSection returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSpecSectionAccess().getSpecSectionAction_0(),
@@ -395,6 +413,9 @@ ruleStateVarDecl returns [EObject current=null]
 		)
 		(
 			(
+				{
+					/* */
+				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getStateVarDeclRule());
@@ -826,6 +847,9 @@ ruleHandlerClause returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getHandlerClauseRule());
 					}
@@ -1005,6 +1029,9 @@ ruleSpecStatement returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getSpecStatementAccess().getAssumeStatementParserRuleCall_0());
 		}
 		this_AssumeStatement_0=ruleAssumeStatement
@@ -1013,6 +1040,9 @@ ruleSpecStatement returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getSpecStatementAccess().getGuaranteeStatementParserRuleCall_1());
 		}
@@ -1417,6 +1447,9 @@ ruleOtherDataRef returns [EObject current=null]
 			(
 				(
 					{
+						/* */
+					}
+					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getOtherDataRefRule());
 						}
@@ -1493,6 +1526,9 @@ ruleDataElement returns [EObject current=null]
 	(
 		(
 			{
+				/* */
+			}
+			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getDataElementRule());
 				}
@@ -1567,6 +1603,9 @@ ruleFuncSpec returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getFuncSpecAccess().getSlangDefDefParserRuleCall_0());
 		}
 		this_SlangDefDef_0=ruleSlangDefDef
@@ -1602,6 +1641,9 @@ ruleSlangDefDecl returns [EObject current=null]
 			newLeafNode(otherlv_0, grammarAccess.getSlangDefDeclAccess().getDefKeyword_0());
 		}
 		(
+			{
+				/* */
+			}
 			{
 				newCompositeNode(grammarAccess.getSlangDefDeclAccess().getSlangDefModsParserRuleCall_1());
 			}
@@ -1752,6 +1794,9 @@ ruleSlangDefDef returns [EObject current=null]
 			newLeafNode(otherlv_0, grammarAccess.getSlangDefDefAccess().getDefKeyword_0());
 		}
 		(
+			{
+				/* */
+			}
 			{
 				newCompositeNode(grammarAccess.getSlangDefDefAccess().getSlangDefModsParserRuleCall_1());
 			}
@@ -2301,6 +2346,9 @@ ruleSlangDefContract returns [EObject current=null]
 	(
 		(
 			{
+				/* */
+			}
+			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSlangDefContractAccess().getSlangDefContractAction_0(),
 					$current);
@@ -2470,6 +2518,9 @@ ruleSlangDefContractCase returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSlangDefContractCaseAccess().getSlangDefContractCaseAction_0(),
@@ -2976,6 +3027,9 @@ ruleSlangStmt returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangVarDefAction_0_0(),
 						$current);
@@ -3004,6 +3058,9 @@ ruleSlangStmt returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangIfStmtAction_1_0(),
@@ -3076,6 +3133,9 @@ ruleSlangStmt returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangWhileStmtAction_2_0(),
 						$current);
@@ -3147,6 +3207,9 @@ ruleSlangStmt returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangMatchStmtAction_3_0(),
 						$current);
@@ -3207,6 +3270,9 @@ ruleSlangStmt returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangSpecStmtAction_4_0(),
 						$current);
@@ -3239,6 +3305,9 @@ ruleSlangStmt returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangAssumeStmtAction_5_0(),
@@ -3279,6 +3348,9 @@ ruleSlangStmt returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangAssertStmtAction_6_0(),
 						$current);
@@ -3318,6 +3390,9 @@ ruleSlangStmt returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangHaltStmtAction_7_0(),
 						$current);
@@ -3337,6 +3412,9 @@ ruleSlangStmt returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangDoStmtAction_8_0(),
@@ -3371,6 +3449,9 @@ ruleSlangStmt returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangStmtAccess().getSlangIdStmtAction_9_0(),
 						$current);
@@ -3378,6 +3459,9 @@ ruleSlangStmt returns [EObject current=null]
 			)
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getSlangStmtRule());
@@ -3397,36 +3481,57 @@ ruleSlangStmt returns [EObject current=null]
 				    |
 				(
 					(
-						otherlv_38=ColonEqualsSign
-						{
-							newLeafNode(otherlv_38, grammarAccess.getSlangStmtAccess().getColonEqualsSignKeyword_9_2_1_0_0());
-						}
-						    |
-						this_DEFOP_39=RULE_DEFOP
-						{
-							newLeafNode(this_DEFOP_39, grammarAccess.getSlangStmtAccess().getDEFOPTerminalRuleCall_9_2_1_0_1());
-						}
-					)
-					(
 						(
 							{
-								newCompositeNode(grammarAccess.getSlangStmtAccess().getEExprParserRuleCall_9_2_1_1_0());
+								newCompositeNode(grammarAccess.getSlangStmtAccess().getLSlangLHSSuffixParserRuleCall_9_2_1_0_0());
 							}
-							lv_e_40_0=ruleExpr
+							lv_l_38_0=ruleSlangLHSSuffix
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getSlangStmtRule());
 								}
-								set(
+								add(
 									$current,
-									"e",
-									lv_e_40_0,
-									"org.sireum.aadl.gumbo.Gumbo.Expr");
+									"l",
+									lv_l_38_0,
+									"org.sireum.aadl.gumbo.Gumbo.SlangLHSSuffix");
 								afterParserOrEnumRuleCall();
 							}
 						)
-					)
-				)?
+					)*
+					(
+						(
+							otherlv_39=ColonEqualsSign
+							{
+								newLeafNode(otherlv_39, grammarAccess.getSlangStmtAccess().getColonEqualsSignKeyword_9_2_1_1_0_0());
+							}
+							    |
+							this_DEFOP_40=RULE_DEFOP
+							{
+								newLeafNode(this_DEFOP_40, grammarAccess.getSlangStmtAccess().getDEFOPTerminalRuleCall_9_2_1_1_0_1());
+							}
+						)
+						(
+							(
+								{
+									newCompositeNode(grammarAccess.getSlangStmtAccess().getEExprParserRuleCall_9_2_1_1_1_0());
+								}
+								lv_e_41_0=ruleExpr
+								{
+									if ($current==null) {
+										$current = createModelElementForParent(grammarAccess.getSlangStmtRule());
+									}
+									set(
+										$current,
+										"e",
+										lv_e_41_0,
+										"org.sireum.aadl.gumbo.Gumbo.Expr");
+									afterParserOrEnumRuleCall();
+								}
+							)
+						)
+					)?
+				)
 			)
 		)
 	)
@@ -3518,6 +3623,9 @@ ruleSlangElse returns [EObject current=null]
 			)
 			    |
 			{
+				/* */
+			}
+			{
 				newCompositeNode(grammarAccess.getSlangElseAccess().getSlangBlockParserRuleCall_1_1());
 			}
 			this_SlangBlock_5=ruleSlangBlock
@@ -3546,6 +3654,9 @@ ruleSlangLoopContract returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSlangLoopContractAccess().getSlangLoopContractAction_0(),
@@ -3590,6 +3701,112 @@ ruleSlangLoopContract returns [EObject current=null]
 				}
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleSlangLHSSuffix
+entryRuleSlangLHSSuffix returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSlangLHSSuffixRule()); }
+	iv_ruleSlangLHSSuffix=ruleSlangLHSSuffix
+	{ $current=$iv_ruleSlangLHSSuffix.current; }
+	EOF;
+
+// Rule SlangLHSSuffix
+ruleSlangLHSSuffix returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLHSSuffixAccess().getSlangFieldLookupAction_0_0(),
+						$current);
+				}
+			)
+			otherlv_1=FullStop
+			{
+				newLeafNode(otherlv_1, grammarAccess.getSlangLHSSuffixAccess().getFullStopKeyword_0_1());
+			}
+			this_ID_2=RULE_ID
+			{
+				newLeafNode(this_ID_2, grammarAccess.getSlangLHSSuffixAccess().getIDTerminalRuleCall_0_2());
+			}
+		)
+		    |
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLHSSuffixAccess().getSlangMethodCallAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_4=LeftParenthesis
+			{
+				newLeafNode(otherlv_4, grammarAccess.getSlangLHSSuffixAccess().getLeftParenthesisKeyword_1_1());
+			}
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getSlangLHSSuffixAccess().getExprsExprParserRuleCall_1_2_0_0());
+						}
+						lv_exprs_5_0=ruleExpr
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSlangLHSSuffixRule());
+							}
+							add(
+								$current,
+								"exprs",
+								lv_exprs_5_0,
+								"org.sireum.aadl.gumbo.Gumbo.Expr");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					otherlv_6=Comma
+					{
+						newLeafNode(otherlv_6, grammarAccess.getSlangLHSSuffixAccess().getCommaKeyword_1_2_1_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getSlangLHSSuffixAccess().getExprsExprParserRuleCall_1_2_1_1_0());
+							}
+							lv_exprs_7_0=ruleExpr
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getSlangLHSSuffixRule());
+								}
+								add(
+									$current,
+									"exprs",
+									lv_exprs_7_0,
+									"org.sireum.aadl.gumbo.Gumbo.Expr");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)*
+			)?
+			otherlv_8=RightParenthesis
+			{
+				newLeafNode(otherlv_8, grammarAccess.getSlangLHSSuffixAccess().getRightParenthesisKeyword_1_3());
+			}
+		)
 	)
 ;
 
@@ -3701,6 +3918,9 @@ ruleSlangPattern returns [EObject current=null]
 	(
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangPatternAccess().getSlangPatternAction_0_0(),
@@ -3842,6 +4062,9 @@ ruleSlangTPattern returns [EObject current=null]
 	(
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTPatternAccess().getSlangTPatternAction_0_0(),
@@ -3994,6 +4217,9 @@ ruleSlangTPattern returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTPatternAccess().getSlangTPatternAction_2_0(),
 						$current);
@@ -4049,11 +4275,17 @@ ruleSlangVarDef returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getSlangVarDefAccess().getSlangVarModParserRuleCall_0());
 		}
 		ruleSlangVarMod
 		{
 			afterParserOrEnumRuleCall();
+		}
+		{
+			/* */
 		}
 		{
 			newCompositeNode(grammarAccess.getSlangVarDefAccess().getSlangPatternParserRuleCall_1());
@@ -4162,6 +4394,9 @@ ruleExpr returns [EObject current=null]
 	(
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getExprAccess().getBasicExpAction_0_0(),
@@ -4283,6 +4518,9 @@ ruleExpr returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getExprAccess().getQuantifiedExpAction_1_0(),
 						$current);
@@ -4380,6 +4618,9 @@ ruleExpr returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getExprAccess().getUnaryExpAction_2_0(),
@@ -4524,6 +4765,9 @@ ruleSlangBlock returns [EObject current=null]
 	(
 		(
 			{
+				/* */
+			}
+			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSlangBlockAccess().getSlangBlockAction_0(),
 					$current);
@@ -4596,6 +4840,9 @@ ruleSlangAccess returns [EObject current=null]
 	(
 		(
 			{
+				/* */
+			}
+			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSlangAccessAccess().getSlangAccessAction_0(),
 					$current);
@@ -4642,6 +4889,9 @@ ruleSlangTerm returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTermAccess().getSlangLitTermAction_0_0(),
 						$current);
@@ -4670,6 +4920,9 @@ ruleSlangTerm returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTermAccess().getSlangInterpTermAction_1_0(),
@@ -4709,6 +4962,9 @@ ruleSlangTerm returns [EObject current=null]
 				(
 					(
 						{
+							/* */
+						}
+						{
 							$current = forceCreateModelElement(
 								grammarAccess.getSlangTermAccess().getInStateExprAction_2_0_0_0(),
 								$current);
@@ -4726,6 +4982,9 @@ ruleSlangTerm returns [EObject current=null]
 			)
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getSlangTermRule());
@@ -4755,6 +5014,9 @@ ruleSlangTerm returns [EObject current=null]
 				(
 					(
 						{
+							/* */
+						}
+						{
 							$current = forceCreateModelElement(
 								grammarAccess.getSlangTermAccess().getMaySendExprAction_3_0_0_0(),
 								$current);
@@ -4772,6 +5034,9 @@ ruleSlangTerm returns [EObject current=null]
 			)
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getSlangTermRule());
@@ -4824,6 +5089,9 @@ ruleSlangTerm returns [EObject current=null]
 				(
 					(
 						{
+							/* */
+						}
+						{
 							$current = forceCreateModelElement(
 								grammarAccess.getSlangTermAccess().getMustSendExprAction_4_0_0_0(),
 								$current);
@@ -4841,6 +5109,9 @@ ruleSlangTerm returns [EObject current=null]
 			)
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getSlangTermRule());
@@ -4893,6 +5164,9 @@ ruleSlangTerm returns [EObject current=null]
 				(
 					(
 						{
+							/* */
+						}
+						{
 							$current = forceCreateModelElement(
 								grammarAccess.getSlangTermAccess().getEnumLitExprAction_5_0_0_0(),
 								$current);
@@ -4934,6 +5208,9 @@ ruleSlangTerm returns [EObject current=null]
 			(
 				(
 					{
+						/* */
+					}
+					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getSlangTermRule());
 						}
@@ -4972,6 +5249,9 @@ ruleSlangTerm returns [EObject current=null]
 				(
 					(
 						{
+							/* */
+						}
+						{
 							$current = forceCreateModelElement(
 								grammarAccess.getSlangTermAccess().getRecordLitExprAction_6_0_0_0(),
 								$current);
@@ -5002,6 +5282,9 @@ ruleSlangTerm returns [EObject current=null]
 					}
 					(
 						(
+							{
+								/* */
+							}
 							{
 								if ($current==null) {
 									$current = createModelElement(grammarAccess.getSlangTermRule());
@@ -5046,6 +5329,9 @@ ruleSlangTerm returns [EObject current=null]
 				(
 					(
 						{
+							/* */
+						}
+						{
 							if ($current==null) {
 								$current = createModelElement(grammarAccess.getSlangTermRule());
 							}
@@ -5089,6 +5375,9 @@ ruleSlangTerm returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTermAccess().getDataRefExprAction_7_0(),
 						$current);
@@ -5096,6 +5385,9 @@ ruleSlangTerm returns [EObject current=null]
 			)
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getSlangTermRule());
@@ -5155,6 +5447,9 @@ ruleSlangTerm returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTermAccess().getSlangTupleTermAction_8_0(),
@@ -5217,6 +5512,9 @@ ruleSlangTerm returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTermAccess().getSlangForTermAction_9_0(),
@@ -5330,6 +5628,9 @@ ruleSlangTerm returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangTermAccess().getSlangBlockTermAction_10_0(),
@@ -5711,6 +6012,9 @@ ruleSlangRet returns [EObject current=null]
 	(
 		(
 			{
+				/* */
+			}
+			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSlangRetAccess().getSlangRetAction_0(),
 					$current);
@@ -5760,6 +6064,9 @@ ruleSlangCallSuffix returns [EObject current=null]
 	(
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangCallSuffixAccess().getSlangCallSuffixAction_0_0(),
@@ -5845,6 +6152,9 @@ ruleSlangCallArgs returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getSlangCallArgsAccess().getSlangCallArgsAction_0(),
@@ -5987,6 +6297,9 @@ ruleSlangType returns [EObject current=null]
 	leaveRule();
 }:
 	{
+		/* */
+	}
+	{
 		newCompositeNode(grammarAccess.getSlangTypeAccess().getSlangBaseTypeParserRuleCall());
 	}
 	this_SlangBaseType_0=ruleSlangBaseType
@@ -6013,6 +6326,9 @@ ruleSlangBaseType returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getSlangBaseTypeRule());
@@ -6119,6 +6435,9 @@ ruleSlangLit returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getBooleanLitAction_0_0(),
 						$current);
@@ -6156,6 +6475,9 @@ ruleSlangLit returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getIntegerLitAction_1_0(),
 						$current);
@@ -6183,6 +6505,9 @@ ruleSlangLit returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getIntIdfLitAction_2_0(),
@@ -6212,6 +6537,9 @@ ruleSlangLit returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getHexLitAction_3_0(),
 						$current);
@@ -6239,6 +6567,9 @@ ruleSlangLit returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getBinLitAction_4_0(),
@@ -6268,6 +6599,9 @@ ruleSlangLit returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getRealLitAction_5_0(),
 						$current);
@@ -6295,6 +6629,9 @@ ruleSlangLit returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getSlangStringLitAction_6_0(),
@@ -6324,6 +6661,9 @@ ruleSlangLit returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getRealIdfLitAction_7_0(),
 						$current);
@@ -6351,6 +6691,9 @@ ruleSlangLit returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangLitAccess().getMStringLitAction_8_0(),
@@ -6398,6 +6741,9 @@ ruleSlangInterp returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangInterpAccess().getSlangMspInterpAction_0_0(),
 						$current);
@@ -6426,6 +6772,9 @@ ruleSlangInterp returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangInterpAccess().getSlangLiteralInterpAction_1_0(),
 						$current);
@@ -6453,6 +6802,9 @@ ruleSlangInterp returns [EObject current=null]
 		    |
 		(
 			(
+				{
+					/* */
+				}
 				{
 					$current = forceCreateModelElement(
 						grammarAccess.getSlangInterpAccess().getSlangMspbInterpAction_2_0(),
@@ -6645,6 +6997,9 @@ ruleContainedPropertyAssociation returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getContainedPropertyAssociationRule());
 					}
@@ -6741,6 +7096,9 @@ ruleContainedPropertyAssociation returns [EObject current=null]
 		)
 		(
 			{
+				/* */
+			}
+			{
 				newCompositeNode(grammarAccess.getContainedPropertyAssociationAccess().getAppliesToKeywordsParserRuleCall_4_0());
 			}
 			ruleAppliesToKeywords
@@ -6794,6 +7152,9 @@ ruleContainedPropertyAssociation returns [EObject current=null]
 		)?
 		(
 			{
+				/* */
+			}
+			{
 				newCompositeNode(grammarAccess.getContainedPropertyAssociationAccess().getInBindingKeywordsParserRuleCall_5_0());
 			}
 			ruleInBindingKeywords
@@ -6806,6 +7167,9 @@ ruleContainedPropertyAssociation returns [EObject current=null]
 			}
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getContainedPropertyAssociationRule());
@@ -6905,6 +7269,9 @@ ruleOptionalModalPropertyValue returns [EObject current=null]
 		)
 		(
 			{
+				/* */
+			}
+			{
 				newCompositeNode(grammarAccess.getOptionalModalPropertyValueAccess().getInModesKeywordsParserRuleCall_1_0());
 			}
 			ruleInModesKeywords
@@ -6917,6 +7284,9 @@ ruleOptionalModalPropertyValue returns [EObject current=null]
 			}
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getOptionalModalPropertyValueRule());
@@ -6935,6 +7305,9 @@ ruleOptionalModalPropertyValue returns [EObject current=null]
 				}
 				(
 					(
+						{
+							/* */
+						}
 						{
 							if ($current==null) {
 								$current = createModelElement(grammarAccess.getOptionalModalPropertyValueRule());
@@ -7008,6 +7381,9 @@ rulePropertyExpression returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getRecordTermParserRuleCall_0());
 		}
 		this_RecordTerm_0=ruleRecordTerm
@@ -7016,6 +7392,9 @@ rulePropertyExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getReferenceTermParserRuleCall_1());
 		}
@@ -7026,6 +7405,9 @@ rulePropertyExpression returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getComponentClassifierTermParserRuleCall_2());
 		}
 		this_ComponentClassifierTerm_2=ruleComponentClassifierTerm
@@ -7034,6 +7416,9 @@ rulePropertyExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getComputedTermParserRuleCall_3());
 		}
@@ -7044,6 +7429,9 @@ rulePropertyExpression returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getStringTermParserRuleCall_4());
 		}
 		this_StringTerm_4=ruleStringTerm
@@ -7052,6 +7440,9 @@ rulePropertyExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getNumericRangeTermParserRuleCall_5());
 		}
@@ -7062,6 +7453,9 @@ rulePropertyExpression returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getRealTermParserRuleCall_6());
 		}
 		this_RealTerm_6=ruleRealTerm
@@ -7070,6 +7464,9 @@ rulePropertyExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getIntegerTermParserRuleCall_7());
 		}
@@ -7080,6 +7477,9 @@ rulePropertyExpression returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getListTermParserRuleCall_8());
 		}
 		this_ListTerm_8=ruleListTerm
@@ -7089,6 +7489,9 @@ rulePropertyExpression returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getBooleanLiteralParserRuleCall_9());
 		}
 		this_BooleanLiteral_9=ruleBooleanLiteral
@@ -7097,6 +7500,9 @@ rulePropertyExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getPropertyExpressionAccess().getLiteralorReferenceTermParserRuleCall_10());
 		}
@@ -7125,6 +7531,9 @@ ruleLiteralorReferenceTerm returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getLiteralorReferenceTermRule());
@@ -7158,6 +7567,9 @@ ruleBooleanLiteral returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getBooleanLiteralAccess().getBooleanLiteralAction_0(),
@@ -7205,6 +7617,9 @@ ruleConstantValue returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				if ($current==null) {
 					$current = createModelElement(grammarAccess.getConstantValueRule());
@@ -7393,6 +7808,9 @@ ruleComponentClassifierTerm returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getComponentClassifierTermRule());
 					}
@@ -7430,6 +7848,9 @@ ruleListTerm returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getListTermAccess().getListValueAction_0(),
@@ -7512,6 +7933,9 @@ ruleFieldPropertyAssociation returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getFieldPropertyAssociationRule());
 					}
@@ -7571,6 +7995,9 @@ ruleContainmentPathElement returns [EObject current=null]
 		(
 			(
 				(
+					{
+						/* */
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getContainmentPathElementRule());
@@ -7738,6 +8165,9 @@ ruleArrayRange returns [EObject current=null]
 	(
 		(
 			{
+				/* */
+			}
+			{
 				$current = forceCreateModelElement(
 					grammarAccess.getArrayRangeAccess().getArrayRangeAction_0(),
 					$current);
@@ -7893,6 +8323,9 @@ ruleIntegerTerm returns [EObject current=null]
 		(
 			(
 				{
+					/* */
+				}
+				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getIntegerTermRule());
 					}
@@ -7982,6 +8415,9 @@ ruleRealTerm returns [EObject current=null]
 		)
 		(
 			(
+				{
+					/* */
+				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getRealTermRule());
@@ -8138,6 +8574,9 @@ ruleNumAlt returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getNumAltAccess().getRealTermParserRuleCall_0());
 		}
 		this_RealTerm_0=ruleRealTerm
@@ -8146,6 +8585,9 @@ ruleNumAlt returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getNumAltAccess().getIntegerTermParserRuleCall_1());
 		}
@@ -8156,6 +8598,9 @@ ruleNumAlt returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getNumAltAccess().getSignedConstantParserRuleCall_2());
 		}
 		this_SignedConstant_2=ruleSignedConstant
@@ -8164,6 +8609,9 @@ ruleNumAlt returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getNumAltAccess().getConstantValueParserRuleCall_3());
 		}

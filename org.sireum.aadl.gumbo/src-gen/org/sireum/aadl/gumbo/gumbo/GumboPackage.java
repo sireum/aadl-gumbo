@@ -2870,13 +2870,22 @@ public interface GumboPackage extends EPackage
   int SLANG_ID_STMT__PORT_OR_SUBCOMPONENT_OR_STATE_VAR = SLANG_STMT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>L</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_ID_STMT__L = SLANG_STMT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SLANG_ID_STMT__E = SLANG_STMT_FEATURE_COUNT + 1;
+  int SLANG_ID_STMT__E = SLANG_STMT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Slang Id Stmt</em>' class.
@@ -2885,7 +2894,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_ID_STMT_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 2;
+  int SLANG_ID_STMT_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangFieldLookupImpl <em>Slang Field Lookup</em>}' class.
@@ -6058,6 +6067,17 @@ public interface GumboPackage extends EPackage
   EReference getSlangIdStmt_PortOrSubcomponentOrStateVar();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.SlangIdStmt#getL <em>L</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>L</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangIdStmt#getL()
+   * @see #getSlangIdStmt()
+   * @generated
+   */
+  EReference getSlangIdStmt_L();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SlangIdStmt#getE <em>E</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8589,6 +8609,14 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference SLANG_ID_STMT__PORT_OR_SUBCOMPONENT_OR_STATE_VAR = eINSTANCE.getSlangIdStmt_PortOrSubcomponentOrStateVar();
+
+    /**
+     * The meta object literal for the '<em><b>L</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_ID_STMT__L = eINSTANCE.getSlangIdStmt_L();
 
     /**
      * The meta object literal for the '<em><b>E</b></em>' containment reference feature.

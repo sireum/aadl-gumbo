@@ -2031,11 +2031,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Alternatives cAlternatives_9_2 = (Alternatives)cGroup_9.eContents().get(2);
 		private final Keyword cColonKeyword_9_2_0 = (Keyword)cAlternatives_9_2.eContents().get(0);
 		private final Group cGroup_9_2_1 = (Group)cAlternatives_9_2.eContents().get(1);
-		private final Alternatives cAlternatives_9_2_1_0 = (Alternatives)cGroup_9_2_1.eContents().get(0);
-		private final Keyword cColonEqualsSignKeyword_9_2_1_0_0 = (Keyword)cAlternatives_9_2_1_0.eContents().get(0);
-		private final RuleCall cDEFOPTerminalRuleCall_9_2_1_0_1 = (RuleCall)cAlternatives_9_2_1_0.eContents().get(1);
-		private final Assignment cEAssignment_9_2_1_1 = (Assignment)cGroup_9_2_1.eContents().get(1);
-		private final RuleCall cEExprParserRuleCall_9_2_1_1_0 = (RuleCall)cEAssignment_9_2_1_1.eContents().get(0);
+		private final Assignment cLAssignment_9_2_1_0 = (Assignment)cGroup_9_2_1.eContents().get(0);
+		private final RuleCall cLSlangLHSSuffixParserRuleCall_9_2_1_0_0 = (RuleCall)cLAssignment_9_2_1_0.eContents().get(0);
+		private final Group cGroup_9_2_1_1 = (Group)cGroup_9_2_1.eContents().get(1);
+		private final Alternatives cAlternatives_9_2_1_1_0 = (Alternatives)cGroup_9_2_1_1.eContents().get(0);
+		private final Keyword cColonEqualsSignKeyword_9_2_1_1_0_0 = (Keyword)cAlternatives_9_2_1_1_0.eContents().get(0);
+		private final RuleCall cDEFOPTerminalRuleCall_9_2_1_1_0_1 = (RuleCall)cAlternatives_9_2_1_1_0.eContents().get(1);
+		private final Assignment cEAssignment_9_2_1_1_1 = (Assignment)cGroup_9_2_1_1.eContents().get(1);
+		private final RuleCall cEExprParserRuleCall_9_2_1_1_1_0 = (RuleCall)cEAssignment_9_2_1_1_1.eContents().get(0);
 		
 		//SlangStmt
 		//    : {SlangVarDef} d=SlangVarDef
@@ -2051,7 +2054,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    // FIXME: This causes a "multiple alternatives" warning.
 		//    | {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
 		//      ( ':'
-		//      | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//      | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
 		//      )
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
@@ -2069,7 +2072,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    // FIXME: This causes a "multiple alternatives" warning.
 		//    | {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
 		//      ( ':'
-		//      | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//      | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
 		//      )
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -2246,7 +2249,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//{SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
 		//     ( ':'
-		//     | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//     | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
 		//     )
 		public Group getGroup_9() { return cGroup_9; }
 		
@@ -2263,30 +2266,39 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		public RuleCall getPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_9_1_0_1() { return cPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_9_1_0_1; }
 		
 		//( ':'
-		//| /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//| l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
 		//)
 		public Alternatives getAlternatives_9_2() { return cAlternatives_9_2; }
 		
 		//':'
 		public Keyword getColonKeyword_9_2_0() { return cColonKeyword_9_2_0; }
 		
-		///*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+		//l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
 		public Group getGroup_9_2_1() { return cGroup_9_2_1; }
 		
+		//l+=SlangLHSSuffix*
+		public Assignment getLAssignment_9_2_1_0() { return cLAssignment_9_2_1_0; }
+		
+		//SlangLHSSuffix
+		public RuleCall getLSlangLHSSuffixParserRuleCall_9_2_1_0_0() { return cLSlangLHSSuffixParserRuleCall_9_2_1_0_0; }
+		
+		//( ( ':=' | DEFOP ) e=Expr )?
+		public Group getGroup_9_2_1_1() { return cGroup_9_2_1_1; }
+		
 		//( ':=' | DEFOP )
-		public Alternatives getAlternatives_9_2_1_0() { return cAlternatives_9_2_1_0; }
+		public Alternatives getAlternatives_9_2_1_1_0() { return cAlternatives_9_2_1_1_0; }
 		
 		//':='
-		public Keyword getColonEqualsSignKeyword_9_2_1_0_0() { return cColonEqualsSignKeyword_9_2_1_0_0; }
+		public Keyword getColonEqualsSignKeyword_9_2_1_1_0_0() { return cColonEqualsSignKeyword_9_2_1_1_0_0; }
 		
 		//DEFOP
-		public RuleCall getDEFOPTerminalRuleCall_9_2_1_0_1() { return cDEFOPTerminalRuleCall_9_2_1_0_1; }
+		public RuleCall getDEFOPTerminalRuleCall_9_2_1_1_0_1() { return cDEFOPTerminalRuleCall_9_2_1_1_0_1; }
 		
 		//e=Expr
-		public Assignment getEAssignment_9_2_1_1() { return cEAssignment_9_2_1_1; }
+		public Assignment getEAssignment_9_2_1_1_1() { return cEAssignment_9_2_1_1_1; }
 		
 		//Expr
-		public RuleCall getEExprParserRuleCall_9_2_1_1_0() { return cEExprParserRuleCall_9_2_1_1_0; }
+		public RuleCall getEExprParserRuleCall_9_2_1_1_1_0() { return cEExprParserRuleCall_9_2_1_1_1_0; }
 	}
 	public class SlangElseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangElse");
@@ -5298,7 +5310,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    // FIXME: This causes a "multiple alternatives" warning.
 	//    | {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID]
 	//      ( ':'
-	//      | /*l+=SlangLHSSuffix**/ ( ( ':=' | DEFOP ) e=Expr )?
+	//      | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=Expr )?
 	//      )
 	//    ;
 	public SlangStmtElements getSlangStmtAccess() {

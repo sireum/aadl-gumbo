@@ -132,6 +132,7 @@ Workflow {
 				options = {
 					classSplitting = true
 					ignoreCase = true
+					backtrack=true
 				}
 			}
 			//fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 {}
