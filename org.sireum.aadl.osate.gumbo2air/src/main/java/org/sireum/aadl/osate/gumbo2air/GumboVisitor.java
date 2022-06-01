@@ -34,6 +34,7 @@ import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 import org.sireum.aadl.gumbo.gumbo.IntegerLit;
@@ -63,6 +64,8 @@ import org.sireum.hamr.ir.GclCompute;
 import org.sireum.hamr.ir.GclCompute$;
 import org.sireum.hamr.ir.GclGuarantee;
 import org.sireum.hamr.ir.GclGuarantee$;
+import org.sireum.hamr.ir.GclHandle;
+import org.sireum.hamr.ir.GclHandle$;
 import org.sireum.hamr.ir.GclInitialize;
 import org.sireum.hamr.ir.GclInitialize$;
 import org.sireum.hamr.ir.GclIntegration;
@@ -169,9 +172,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<GclInvariant> _invariants = new ArrayList<>();
 		if (object.getSpecs().getInvariants() != null) {
 			for (InvSpec s : object.getSpecs().getInvariants().getSpecs()) {
-				String displayName = GumboUtils.getSlangString(s.getDescriptor());
+				java.lang.String id = s.getId();
+
+				Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(s.getDescriptor());
+
 				visit(s.getExpr());
-				_invariants.add(GclInvariant$.MODULE$.apply(displayName, pop()));
+
+				_invariants.add(GclInvariant$.MODULE$.apply(id, descriptor, pop()));
 			}
 		}
 
@@ -224,9 +231,18 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			modifies.add(pop());
 		}
 
+		List<GclHandle> handlers = new ArrayList<>();
+		for (HandlerClause hc : object.getHandlers()) {
+			visit(hc);
+			handlers.add(pop());
+		}
+
 		List<GclCaseStatement> caseStatements = new ArrayList<>();
 		for (CaseStatementClause css : object.getCases()) {
-			String name = GumboUtils.getSlangString(css.getDescriptor());
+
+			java.lang.String id = css.getId();
+
+			Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(css.getDescriptor());
 
 			visit(css.getAssumeStatement().getExpr());
 			Exp assumes = pop();
@@ -234,10 +250,43 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			visit(css.getGuaranteeStatement().getExpr());
 			Exp guarantees = pop();
 
-			caseStatements.add(GclCaseStatement$.MODULE$.apply(name, assumes, guarantees));
+			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees));
 		}
 
-		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements)));
+		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements),
+				VisitorUtil.toISZ(handlers)));
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseHandlerClause(HandlerClause object) {
+
+		Option<Position> clausePos = GumboUtils.buildPosInfo(object);
+
+		Port p = object.getId();
+
+		org.sireum.lang.ast.Id portId = Id$.MODULE$.apply(p.getName(),
+				GumboUtils.buildAttr(GumboUtils.shrinkPos(clausePos, p.getName().length())));
+
+		Ident slangExp = Ident$.MODULE$.apply(portId,
+				GumboUtils.buildResolvedAttr(GumboUtils.shrinkPos(clausePos, p.getName().length())));
+
+		List<Exp> modifies = new ArrayList<>();
+		if (object.getModifies() != null) {
+			for (Expr e : object.getModifies().getExprs()) {
+				visit(e);
+				modifies.add(pop());
+			}
+		}
+
+		List<GclGuarantee> guarantees = new ArrayList<>();
+		for (GuaranteeStatement gs : object.getGuarantees()) {
+			visit(gs);
+			guarantees.add(pop());
+		}
+
+		push(GclHandle$.MODULE$.apply(slangExp, VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees)));
 
 		return false;
 	}
@@ -267,18 +316,26 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	@Override
 	public Boolean caseAssumeStatement(AssumeStatement object) {
-		String name = GumboUtils.getSlangString(object.getDescriptor());
+		java.lang.String id = object.getId();
+
+		Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(object.getDescriptor());
+
 		visit(object.getExpr());
-		push(GclAssume$.MODULE$.apply(name, pop()));
+
+		push(GclAssume$.MODULE$.apply(id, descriptor, pop()));
 
 		return false;
 	}
 
 	@Override
 	public Boolean caseGuaranteeStatement(GuaranteeStatement object) {
-		String name = GumboUtils.getSlangString(object.getDescriptor());
+		java.lang.String id = object.getId();
+
+		Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(object.getDescriptor());
+
 		visit(object.getExpr());
-		push(GclGuarantee$.MODULE$.apply(name, pop()));
+
+		push(GclGuarantee$.MODULE$.apply(id, descriptor, pop()));
 
 		return false;
 	}
@@ -496,7 +553,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseSlangStringLit(SlangStringLit object) {
 
-		push(Exp.LitString$.MODULE$.apply(GumboUtils.getSlangString(object.getValue()), GumboUtils.buildAttr(object)));
+		push(Exp.LitString$.MODULE$.apply(GumboUtils.getSlangString(object.getValue()).string(),
+				GumboUtils.buildAttr(object)));
 
 		return false;
 	}

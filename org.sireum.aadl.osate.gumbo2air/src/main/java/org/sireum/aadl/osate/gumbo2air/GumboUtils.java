@@ -192,8 +192,12 @@ public class GumboUtils {
 		}
 	}
 
-	public static String getSlangString(String s) {
-		return s.substring(1, s.length() - 1);
+	public static Option<org.sireum.String> getOptionalSlangString(String s) {
+		return s == null ? SlangUtils.toNone() : SlangUtils.toSome(getSlangString(s));
+	}
+
+	public static org.sireum.String getSlangString(String s) {
+		return new org.sireum.String(s.substring(1, s.length() - 1)); // remove quotes
 	}
 
 	public static Option<Position> shrinkPos(Option<Position> o, int newLength) {
