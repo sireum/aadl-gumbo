@@ -454,8 +454,8 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangTermAccess().getValueAssignment_3_3(), "rule__SlangTerm__ValueAssignment_3_3");
 			builder.put(grammarAccess.getSlangTermAccess().getEventPortAssignment_4_1(), "rule__SlangTerm__EventPortAssignment_4_1");
 			builder.put(grammarAccess.getSlangTermAccess().getValueAssignment_4_3(), "rule__SlangTerm__ValueAssignment_4_3");
-			builder.put(grammarAccess.getSlangTermAccess().getEnumTypeAssignment_5_1(), "rule__SlangTerm__EnumTypeAssignment_5_1");
-			builder.put(grammarAccess.getSlangTermAccess().getValueAssignment_5_3(), "rule__SlangTerm__ValueAssignment_5_3");
+			builder.put(grammarAccess.getSlangTermAccess().getEnumTypeAssignment_5_0_0_1(), "rule__SlangTerm__EnumTypeAssignment_5_0_0_1");
+			builder.put(grammarAccess.getSlangTermAccess().getValueAssignment_5_1(), "rule__SlangTerm__ValueAssignment_5_1");
 			builder.put(grammarAccess.getSlangTermAccess().getRecordTypeAssignment_6_0_0_1(), "rule__SlangTerm__RecordTypeAssignment_6_0_0_1");
 			builder.put(grammarAccess.getSlangTermAccess().getArgsAssignment_6_0_0_3(), "rule__SlangTerm__ArgsAssignment_6_0_0_3");
 			builder.put(grammarAccess.getSlangTermAccess().getArgExprAssignment_6_1(), "rule__SlangTerm__ArgExprAssignment_6_1");
