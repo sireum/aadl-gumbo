@@ -299,7 +299,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 
 	def scope_EnumLitExpr_value(EnumLitExpr context, EReference reference) {
-		val elm = context.enumType.dataElement
+		val elm = context.enumType
 		if (elm instanceof DataType) {
 			val propAssocs = elm.ownedPropertyAssociations
 			val dataRepProperty = propAssocs.

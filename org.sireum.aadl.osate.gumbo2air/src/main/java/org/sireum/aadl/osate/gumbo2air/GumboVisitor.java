@@ -28,7 +28,6 @@ import org.sireum.aadl.gumbo.gumbo.BasicExp;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
-import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
@@ -562,8 +561,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseEnumLitExpr(EnumLitExpr object) {
 
-		DataElement de = object.getEnumType();
-		String name = de.getDataElement().getName();
+		DataSubcomponentType de = object.getEnumType();
+		String name = de.getName();
 
 		Option<Position> selectPos = GumboUtils.buildPosInfo(object);
 

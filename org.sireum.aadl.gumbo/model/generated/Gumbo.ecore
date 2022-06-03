@@ -414,8 +414,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLitExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enumType" eType="#//DataElement"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataSubcomponentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//StringLiteral"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RecordLitExpr" eSuperTypes="#//Expr">
