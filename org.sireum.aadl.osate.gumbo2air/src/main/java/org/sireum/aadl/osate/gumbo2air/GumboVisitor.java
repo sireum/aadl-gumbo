@@ -88,7 +88,6 @@ import org.sireum.lang.ast.Exp.LitString;
 import org.sireum.lang.ast.Exp.LitString$;
 import org.sireum.lang.ast.Exp.LitZ$;
 import org.sireum.lang.ast.Exp.Select;
-import org.sireum.lang.ast.Exp.Select$;
 import org.sireum.lang.ast.Exp.StringInterpolate$;
 import org.sireum.lang.ast.Exp.Unary;
 import org.sireum.lang.ast.Exp.Unary$;
@@ -307,8 +306,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseStateVarDecl(StateVarDecl object) {
 		String name = object.getName();
 		DataSubcomponentType t = object.getTypeName();
-
-		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName(), Option.none()));
+		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName(), GumboUtils.buildPosInfo(object)));
 
 		return false;
 	}
@@ -478,28 +476,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				ref = ref.getPath();
 			}
 
-			while (names.size() > 1) {
-				Object a = names.pop();
-				Id b = (Id) names.pop();
-
-				if (a instanceof Id) {
-					Id aAsId = (Id) a;
-					Option<Position> optPos = GumboUtils.mergePositions(aAsId.getAttr().getPosOpt(),
-							b.attr().getPosOpt());
-					Ident ident = Ident$.MODULE$.apply(aAsId,
-							GumboUtils.buildResolvedAttr(aAsId.getAttr().getPosOpt()));
-					names.push(Select$.MODULE$.apply(SlangUtils.toSome(ident), b, VisitorUtil.toISZ(),
-							GumboUtils.buildResolvedAttr(optPos)));
-				} else {
-					Select aAsSelect = (Select) a;
-					Option<Position> optPos = GumboUtils.mergePositions(aAsSelect.getAttr().getPosOpt(),
-							b.attr().getPosOpt());
-					names.push(Select$.MODULE$.apply(SlangUtils.toSome((Select) a), b, VisitorUtil.toISZ(),
-							GumboUtils.buildResolvedAttr(optPos)));
-				}
-			}
-
-			Select slangExp = (Select) names.pop();
+			Select slangExp = GumboUtils.convertIdStackToSelect(names);
 
 			push(slangExp);
 
@@ -563,17 +540,15 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		DataSubcomponentType de = object.getEnumType();
 		String name = de.getName();
+		String[] segments = name.split("::");
 
-		Option<Position> selectPos = GumboUtils.buildPosInfo(object);
+		Stack<Object> names = new Stack<>();
+		for(int i = 0; i < segments.length; i++) {
+			names.add(0, Id$.MODULE$.apply(segments[i], GumboUtils.buildAttr(object)));
+		}
+		names.add(0, Id$.MODULE$.apply(object.getValue().getValue(), GumboUtils.buildAttr(object)));
 
-		Option<Position> enumPos = GumboUtils.shrinkPos(selectPos, name.length());
-		Id slangEnumId = Id$.MODULE$.apply(name, GumboUtils.buildAttr(enumPos));
-		Ident slangIdent = Ident$.MODULE$.apply(slangEnumId, GumboUtils.buildResolvedAttr(enumPos));
-
-		Id slangEnumValue = Id$.MODULE$.apply(object.getValue().getValue(), GumboUtils.buildAttr(object.getValue()));
-
-		Select slangSelect = Select$.MODULE$.apply(SlangUtils.toSome(slangIdent), slangEnumValue, VisitorUtil.toISZ(),
-				GumboUtils.buildResolvedAttr(selectPos));
+		Select slangSelect = GumboUtils.convertIdStackToSelect(names);
 
 		push(slangSelect);
 

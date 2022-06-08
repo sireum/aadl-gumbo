@@ -1,6 +1,7 @@
 package org.sireum.aadl.osate.gumbo2air;
 
 import java.util.List;
+import java.util.Stack;
 
 import org.eclipse.emf.ecore.EObject;
 import org.osate.aadl2.Port;
@@ -11,6 +12,11 @@ import org.sireum.hamr.ir.AadlASTFactory;
 import org.sireum.hamr.ir.Name;
 import org.sireum.lang.ast.Attr;
 import org.sireum.lang.ast.Attr$;
+import org.sireum.lang.ast.Exp.Ident;
+import org.sireum.lang.ast.Exp.Ident$;
+import org.sireum.lang.ast.Exp.Select;
+import org.sireum.lang.ast.Exp.Select$;
+import org.sireum.lang.ast.Id;
 import org.sireum.lang.ast.ResolvedAttr;
 import org.sireum.lang.ast.ResolvedAttr$;
 import org.sireum.lang.ast.TypedAttr;
@@ -181,7 +187,7 @@ public class GumboUtils {
 		} else {
 			FlatPos af = (FlatPos) a.get();
 			FlatPos bf = (FlatPos) b.get();
-			assert af.getOffset32() < bf.getOffset32() : af.getOffset32() + " vs " + bf.getOffset32();
+			assert af.getOffset32() <= bf.getOffset32() : af.getOffset32() + " vs " + bf.getOffset32();
 
 			int length = (bf.getOffset32() - af.getOffset32()) + bf.length32();
 			return SlangUtils.toSome(FlatPos$.MODULE$.apply(af.getUriOpt(), //
@@ -214,5 +220,30 @@ public class GumboUtils {
 					fp.offset32(), //
 					newLength));
 		}
+	}
+
+	public static Select convertIdStackToSelect(Stack<Object> names) {
+		assert (names.size() >= 2);
+
+		while (names.size() > 1) {
+			Object a = names.pop();
+			Id b = (Id) names.pop();
+
+			if (a instanceof Id) {
+				Id aAsId = (Id) a;
+				Option<Position> optPos = GumboUtils.mergePositions(aAsId.getAttr().getPosOpt(), b.attr().getPosOpt());
+				Ident ident = Ident$.MODULE$.apply(aAsId, GumboUtils.buildResolvedAttr(aAsId.getAttr().getPosOpt()));
+				names.push(Select$.MODULE$.apply(SlangUtils.toSome(ident), b, VisitorUtil.toISZ(),
+						GumboUtils.buildResolvedAttr(optPos)));
+			} else {
+				Select aAsSelect = (Select) a;
+				Option<Position> optPos = GumboUtils.mergePositions(aAsSelect.getAttr().getPosOpt(),
+						b.attr().getPosOpt());
+				names.push(Select$.MODULE$.apply(SlangUtils.toSome((Select) a), b, VisitorUtil.toISZ(),
+						GumboUtils.buildResolvedAttr(optPos)));
+			}
+		}
+
+		return (Select) names.pop();
 	}
 }
