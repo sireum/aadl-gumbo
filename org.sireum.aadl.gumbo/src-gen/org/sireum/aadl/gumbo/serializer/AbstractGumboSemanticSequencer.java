@@ -1942,7 +1942,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangTerm returns EnumLitExpr
 	 *
 	 * Constraint:
-	 *     (enumType=[DataSubcomponentType|QCLREF] value=[StringLiteral|ID])
+	 *     (enumType=[DataClassifier|QCLREF] value=[StringLiteral|ID])
 	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, EnumLitExpr semanticObject) {
@@ -1953,7 +1953,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeQCLREFParserRuleCall_5_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_5_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
 		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_5_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
 		feeder.finish();
 	}

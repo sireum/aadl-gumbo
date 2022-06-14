@@ -281,7 +281,7 @@ SlangTerm returns Expr
 	| => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
 	| => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')' 
 	| => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] ',' value=Expr ')' 
-	| => ({EnumLitExpr} enumType=[aadl2::DataSubcomponentType|QCLREF] '.') value=[aadl2::StringLiteral|ID]
+	| => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=SlangCallSuffix?
 	| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
