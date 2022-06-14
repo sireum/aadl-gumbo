@@ -22100,13 +22100,13 @@ rule__SlangTerm__EnumTypeAssignment_5_0_0_1
 	}
 :
 	(
-		{ before(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeCrossReference_5_0_0_1_0()); }
+		{ before(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierCrossReference_5_0_0_1_0()); }
 		(
-			{ before(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeQCLREFParserRuleCall_5_0_0_1_0_1()); }
+			{ before(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_5_0_0_1_0_1()); }
 			ruleQCLREF
-			{ after(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeQCLREFParserRuleCall_5_0_0_1_0_1()); }
+			{ after(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_5_0_0_1_0_1()); }
 		)
-		{ after(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeCrossReference_5_0_0_1_0()); }
+		{ after(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierCrossReference_5_0_0_1_0()); }
 	)
 ;
 finally {

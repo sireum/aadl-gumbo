@@ -278,19 +278,19 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 	
 	def scope_EnumLitExpr_enumType(EnumLitExpr context, EReference reference) {
-    	val pkg = context.getContainerOfType(AadlPackage)
-    	val elem = context.getContainerOfType(PackageSection).ownedMembers.filter([x | x instanceof DataImplementation]) +
+    	//val pkg = context.getContainerOfType(AadlPackage)
+    	val elem = context.getContainerOfType(PackageSection).ownedMembers.filter([x | x instanceof DataClassifier]) +
     	           context.getContainerOfType(PackageSection).
     	           importedUnits.
     	           filter(AadlPackage).
-    	           map([x | x.ownedPublicSection.ownedMembers.filter([y | y instanceof DataImplementation])]).
+    	           map([x | x.ownedPublicSection.ownedMembers.filter([y | y instanceof DataClassifier])]).
     	           flatten
     	val scope = elem.scopeFor(
     		[{ 
     			val String[] splitName = name.split("\\.")
-    			if(getContainerOfType(AadlPackage) !== pkg) {
+    			//if(getContainerOfType(AadlPackage) !== pkg) {
     				splitName.set(0, getContainerOfType(AadlPackage).name + "::" + splitName.get(0))
-    			}
+    			//}
     			QualifiedName::create(splitName)
     		}],
     		IScope::NULLSCOPE

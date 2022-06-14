@@ -5187,7 +5187,7 @@ ruleSlangTerm returns [EObject current=null]
 								}
 							}
 							{
-								newCompositeNode(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeCrossReference_5_0_0_1_0());
+								newCompositeNode(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierCrossReference_5_0_0_1_0());
 							}
 							ruleQCLREF
 							{

@@ -71373,13 +71373,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:22103:3: ( ruleQCLREF )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeCrossReference_5_0_0_1_0()); 
+               before(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierCrossReference_5_0_0_1_0()); 
             }
             // InternalGumboParser.g:22104:3: ( ruleQCLREF )
             // InternalGumboParser.g:22105:4: ruleQCLREF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeQCLREFParserRuleCall_5_0_0_1_0_1()); 
+               before(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_5_0_0_1_0_1()); 
             }
             pushFollow(FollowSets000.FOLLOW_2);
             ruleQCLREF();
@@ -71387,13 +71387,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeQCLREFParserRuleCall_5_0_0_1_0_1()); 
+               after(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_5_0_0_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeCrossReference_5_0_0_1_0()); 
+               after(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierCrossReference_5_0_0_1_0()); 
             }
 
             }

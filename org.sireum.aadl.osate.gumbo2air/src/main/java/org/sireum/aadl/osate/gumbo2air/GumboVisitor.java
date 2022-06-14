@@ -308,7 +308,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		String name = object.getName();
 		DataSubcomponentType t = object.getTypeName();
 
-		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName()));
+		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName(), Option.none()));
 
 		return false;
 	}

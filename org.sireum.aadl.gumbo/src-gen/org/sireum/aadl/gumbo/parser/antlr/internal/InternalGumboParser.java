@@ -14301,7 +14301,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     }
                     if ( state.backtracking==0 ) {
 
-                      								newCompositeNode(grammarAccess.getSlangTermAccess().getEnumTypeDataSubcomponentTypeCrossReference_5_0_0_1_0());
+                      								newCompositeNode(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierCrossReference_5_0_0_1_0());
                       							
                     }
                     pushFollow(FollowSets000.FOLLOW_82);
