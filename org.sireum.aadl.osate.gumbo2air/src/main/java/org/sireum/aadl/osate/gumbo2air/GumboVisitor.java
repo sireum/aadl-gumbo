@@ -35,11 +35,15 @@ import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
+import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
+import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 import org.sireum.aadl.gumbo.gumbo.IntegerLit;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
+import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
+import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.RealLit;
 import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
@@ -77,6 +81,7 @@ import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
 import org.sireum.hamr.ir.GclSubclause$;
 import org.sireum.lang.ast.Exp;
+import org.sireum.lang.ast.Exp.*;
 import org.sireum.lang.ast.Exp.Binary;
 import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Exp.Ident;
@@ -177,7 +182,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 				visit(s.getExpr());
 
-				_invariants.add(GclInvariant$.MODULE$.apply(id, descriptor, pop()));
+				_invariants.add(GclInvariant$.MODULE$.apply(id, descriptor, pop(), GumboUtils.buildPosInfo(s)));
 			}
 		}
 
@@ -237,6 +242,23 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		List<GclCaseStatement> caseStatements = new ArrayList<>();
+		for (ImplicationStatement impl : object.getImplications()) {
+			java.lang.String id = impl.getId();
+
+			Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(impl.getDescriptor());
+
+			visit(impl.getAntecedent());
+			Exp assumes = pop();
+
+			visit(impl.getConsequent());
+			Exp guarantees = pop();
+
+			caseStatements.add(
+					GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
+							GumboUtils.buildPosInfo(impl)));
+		}
+
+
 		for (CaseStatementClause css : object.getCases()) {
 
 			java.lang.String id = css.getId();
@@ -249,7 +271,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			visit(css.getGuaranteeStatement().getExpr());
 			Exp guarantees = pop();
 
-			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees));
+			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
+					GumboUtils.buildPosInfo(css)));
 		}
 
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements),
@@ -321,7 +344,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		visit(object.getExpr());
 
-		push(GclAssume$.MODULE$.apply(id, descriptor, pop()));
+		push(GclAssume$.MODULE$.apply(id, descriptor, pop(), GumboUtils.buildPosInfo(object)));
 
 		return false;
 	}
@@ -334,10 +357,77 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		visit(object.getExpr());
 
-		push(GclGuarantee$.MODULE$.apply(id, descriptor, pop()));
+		push(GclGuarantee$.MODULE$.apply(id, descriptor, pop(), GumboUtils.buildPosInfo(object)));
 
 		return false;
 	}
+
+	@Override
+	public Boolean caseInStateExpr(InStateExpr object) {
+
+		Id inUifId = Id$.MODULE$.apply("In", GumboUtils.buildAttr(object));
+		Ident inUifIdent = Ident$.MODULE$.apply(inUifId, GumboUtils.buildResolvedAttr(object));
+
+		Id slangId = Id$.MODULE$.apply(object.getStateVar().getName(), GumboUtils.buildAttr(object));
+		Ident slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtils.buildResolvedAttr(object));
+
+		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), inUifIdent, VisitorUtil.toISZ(),
+				VisitorUtil.toISZ(slangIdIdent),
+				GumboUtils.buildResolvedAttr(object));
+
+		push(invoke);
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseMaySendExpr(MaySendExpr object) {
+
+		Id maySendUifId = Id$.MODULE$.apply("MaySend", GumboUtils.buildAttr(object));
+		Ident maySendUifIdent = Ident$.MODULE$.apply(maySendUifId, GumboUtils.buildResolvedAttr(object));
+
+		List<Exp> args = new ArrayList<>();
+
+		Id portId = Id$.MODULE$.apply(object.getEventPort().getName(), GumboUtils.buildAttr(object));
+		args.add(Ident$.MODULE$.apply(portId, GumboUtils.buildResolvedAttr(object)));
+
+		if (object.getValue() != null) {
+			visit(object.getValue());
+			args.add(pop());
+		}
+
+		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), maySendUifIdent, VisitorUtil.toISZ(),
+				VisitorUtil.toISZ(args), GumboUtils.buildResolvedAttr(object));
+
+		push(invoke);
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseMustSendExpr(MustSendExpr object) {
+
+		Id mustSendUifId = Id$.MODULE$.apply("MustSend", GumboUtils.buildAttr(object));
+		Ident mustSendUifIdent = Ident$.MODULE$.apply(mustSendUifId, GumboUtils.buildResolvedAttr(object));
+
+		List<Exp> args = new ArrayList<>();
+
+		Id portId = Id$.MODULE$.apply(object.getEventPort().getName(), GumboUtils.buildAttr(object));
+		args.add(Ident$.MODULE$.apply(portId, GumboUtils.buildResolvedAttr(object)));
+
+		if (object.getValue() != null) {
+			visit(object.getValue());
+			args.add(pop());
+		}
+
+		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), mustSendUifIdent, VisitorUtil.toISZ(),
+				VisitorUtil.toISZ(args), GumboUtils.buildResolvedAttr(object));
+
+		push(invoke);
+
+		return false;
+	}
+
 
 	@Override
 	public Boolean caseBasicExp(BasicExp object) {
