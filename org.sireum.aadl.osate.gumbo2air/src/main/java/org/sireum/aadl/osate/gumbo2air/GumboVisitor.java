@@ -253,11 +253,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			visit(impl.getConsequent());
 			Exp guarantees = pop();
 
-			caseStatements.add(
-					GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-							GumboUtils.buildPosInfo(impl)));
+			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
+					GumboUtils.buildPosInfo(impl)));
 		}
-
 
 		for (CaseStatementClause css : object.getCases()) {
 
@@ -271,8 +269,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			visit(css.getGuaranteeStatement().getExpr());
 			Exp guarantees = pop();
 
-			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-					GumboUtils.buildPosInfo(css)));
+			caseStatements.add(
+					GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees, GumboUtils.buildPosInfo(css)));
 		}
 
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements),
@@ -372,8 +370,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Ident slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtils.buildResolvedAttr(object));
 
 		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), inUifIdent, VisitorUtil.toISZ(),
-				VisitorUtil.toISZ(slangIdIdent),
-				GumboUtils.buildResolvedAttr(object));
+				VisitorUtil.toISZ(slangIdIdent), GumboUtils.buildResolvedAttr(object));
 
 		push(invoke);
 
@@ -427,7 +424,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		return false;
 	}
-
 
 	@Override
 	public Boolean caseBasicExp(BasicExp object) {
@@ -635,7 +631,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		String[] segments = name.split("::");
 
 		Stack<Object> names = new Stack<>();
-		for(int i = 0; i < segments.length; i++) {
+		for (int i = 0; i < segments.length; i++) {
 			names.add(0, Id$.MODULE$.apply(segments[i], GumboUtils.buildAttr(object)));
 		}
 		names.add(0, Id$.MODULE$.apply(object.getValue().getValue(), GumboUtils.buildAttr(object)));
