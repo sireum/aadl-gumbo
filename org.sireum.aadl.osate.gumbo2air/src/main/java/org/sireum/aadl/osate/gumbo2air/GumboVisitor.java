@@ -28,7 +28,6 @@ import org.sireum.aadl.gumbo.gumbo.BasicExp;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
-import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
@@ -81,13 +80,14 @@ import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
 import org.sireum.hamr.ir.GclSubclause$;
 import org.sireum.lang.ast.Exp;
-import org.sireum.lang.ast.Exp.*;
 import org.sireum.lang.ast.Exp.Binary;
 import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.If;
 import org.sireum.lang.ast.Exp.If$;
+import org.sireum.lang.ast.Exp.Invoke;
+import org.sireum.lang.ast.Exp.Invoke$;
 import org.sireum.lang.ast.Exp.LitB$;
 import org.sireum.lang.ast.Exp.LitR$;
 import org.sireum.lang.ast.Exp.LitString;
@@ -630,8 +630,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseEnumLitExpr(EnumLitExpr object) {
 
-		DataElement de = object.getEnumType();
-		String name = de.getDataElement().getQualifiedName();
+		DataSubcomponentType de = object.getEnumType();
+		String name = de.getQualifiedName();
 		String[] segments = name.split("::");
 
 		Stack<Object> names = new Stack<>();
