@@ -80,13 +80,14 @@ import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
 import org.sireum.hamr.ir.GclSubclause$;
 import org.sireum.lang.ast.Exp;
-import org.sireum.lang.ast.Exp.*;
 import org.sireum.lang.ast.Exp.Binary;
 import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.If;
 import org.sireum.lang.ast.Exp.If$;
+import org.sireum.lang.ast.Exp.Invoke;
+import org.sireum.lang.ast.Exp.Invoke$;
 import org.sireum.lang.ast.Exp.LitB$;
 import org.sireum.lang.ast.Exp.LitR$;
 import org.sireum.lang.ast.Exp.LitString;
@@ -252,11 +253,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			visit(impl.getConsequent());
 			Exp guarantees = pop();
 
-			caseStatements.add(
-					GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-							GumboUtils.buildPosInfo(impl)));
+			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
+					GumboUtils.buildPosInfo(impl)));
 		}
-
 
 		for (CaseStatementClause css : object.getCases()) {
 
@@ -270,8 +269,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			visit(css.getGuaranteeStatement().getExpr());
 			Exp guarantees = pop();
 
-			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-					GumboUtils.buildPosInfo(css)));
+			caseStatements.add(
+					GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees, GumboUtils.buildPosInfo(css)));
 		}
 
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements),
@@ -329,6 +328,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseStateVarDecl(StateVarDecl object) {
 		String name = object.getName();
 		DataSubcomponentType t = object.getTypeName();
+
 		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName(), GumboUtils.buildPosInfo(object)));
 
 		return false;
@@ -370,8 +370,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Ident slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtils.buildResolvedAttr(object));
 
 		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), inUifIdent, VisitorUtil.toISZ(),
-				VisitorUtil.toISZ(slangIdIdent),
-				GumboUtils.buildResolvedAttr(object));
+				VisitorUtil.toISZ(slangIdIdent), GumboUtils.buildResolvedAttr(object));
 
 		push(invoke);
 
@@ -425,7 +424,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		return false;
 	}
-
 
 	@Override
 	public Boolean caseBasicExp(BasicExp object) {
@@ -629,11 +627,11 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseEnumLitExpr(EnumLitExpr object) {
 
 		DataSubcomponentType de = object.getEnumType();
-		String name = de.getName();
+		String name = de.getQualifiedName();
 		String[] segments = name.split("::");
 
 		Stack<Object> names = new Stack<>();
-		for(int i = 0; i < segments.length; i++) {
+		for (int i = 0; i < segments.length; i++) {
 			names.add(0, Id$.MODULE$.apply(segments[i], GumboUtils.buildAttr(object)));
 		}
 		names.add(0, Id$.MODULE$.apply(object.getValue().getValue(), GumboUtils.buildAttr(object)));
