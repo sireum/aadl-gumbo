@@ -25,7 +25,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalGumboLexer extends Lexer {
     public static final int Val=53;
-    public static final int RULE_HEX=100;
+    public static final int RULE_HEX=99;
     public static final int EqualsSignGreaterThanSign=59;
     public static final int Var=54;
     public static final int False=32;
@@ -36,31 +36,31 @@ public class InternalGumboLexer extends Lexer {
     public static final int LeftParenthesis=65;
     public static final int RULE_MSTRING=87;
     public static final int RULE_SLANG_STRING=86;
-    public static final int RULE_OP=98;
-    public static final int RULE_BIN=101;
+    public static final int RULE_OP=97;
+    public static final int RULE_BIN=100;
     public static final int RULE_ESC_SEQ=85;
     public static final int RULE_ID=113;
-    public static final int RULE_DIGIT=91;
+    public static final int RULE_DIGIT=106;
     public static final int Handle=26;
     public static final int ColonColon=56;
     public static final int Some=29;
-    public static final int RULE_REAL_IDF=105;
+    public static final int RULE_REAL_IDF=104;
     public static final int PlusSign=68;
     public static final int LeftSquareBracket=78;
     public static final int If=62;
     public static final int Halt=43;
     public static final int F=76;
     public static final int ThereExists=84;
-    public static final int RULE_REAL_LIT=104;
+    public static final int RULE_REAL_LIT=103;
     public static final int Classifier=5;
     public static final int Case=41;
     public static final int Comma=69;
     public static final int HyphenMinus=70;
     public static final int T=77;
-    public static final int RULE_MSPE=95;
+    public static final int RULE_MSPE=94;
     public static final int Guarantee=10;
     public static final int RightCurlyBracket=82;
-    public static final int RULE_MSPB=93;
+    public static final int RULE_MSPB=92;
     public static final int Modes=35;
     public static final int FullStop=71;
     public static final int HyphenMinusGreaterThanSignColon=47;
@@ -69,15 +69,15 @@ public class InternalGumboLexer extends Lexer {
     public static final int Functions=9;
     public static final int KW__=80;
     public static final int Semicolon=73;
-    public static final int RULE_LETTER=106;
+    public static final int RULE_LETTER=105;
     public static final int RULE_EXPONENT=109;
     public static final int Delta=31;
     public static final int QuestionMark=75;
-    public static final int RULE_SLI=92;
+    public static final int RULE_SLI=91;
     public static final int Memoize=23;
     public static final int By=60;
     public static final int Else=42;
-    public static final int RULE_EXTENDED_DIGIT=99;
+    public static final int RULE_EXTENDED_DIGIT=98;
     public static final int Yield=39;
     public static final int All=40;
     public static final int True=45;
@@ -92,8 +92,8 @@ public class InternalGumboLexer extends Lexer {
     public static final int RULE_BASED_INTEGER=111;
     public static final int RightSquareBracket=79;
     public static final int Binding=19;
-    public static final int RULE_MSPM=94;
-    public static final int RULE_DEFOP=97;
+    public static final int RULE_MSPM=93;
+    public static final int RULE_DEFOP=96;
     public static final int RULE_MSPI=89;
     public static final int Requires=16;
     public static final int For=50;
@@ -105,7 +105,7 @@ public class InternalGumboLexer extends Lexer {
     public static final int State=37;
     public static final int Assume=25;
     public static final int Library=22;
-    public static final int RULE_INTEGER_LIT=102;
+    public static final int RULE_INTEGER_LIT=101;
     public static final int Invariant=11;
     public static final int Constant=14;
     public static final int RULE_STRING=112;
@@ -120,12 +120,12 @@ public class InternalGumboLexer extends Lexer {
     public static final int EOF=-1;
     public static final int Asterisk=67;
     public static final int Integration=4;
-    public static final int RULE_OPSYM=96;
+    public static final int RULE_OPSYM=95;
     public static final int Return=27;
     public static final int Def=49;
     public static final int RULE_WS=114;
     public static final int LeftCurlyBracket=81;
-    public static final int RULE_INT_IDF=103;
+    public static final int RULE_INT_IDF=102;
     public static final int MustSend=13;
     public static final int While=38;
     public static final int Extension=8;
@@ -4849,28 +4849,45 @@ public class InternalGumboLexer extends Lexer {
         try {
             int _type = RULE_SLI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGumboLexer.g:192:10: ( RULE_IDF '\"' RULE_DIGIT ( RULE_DIGIT )* ( '.' ( RULE_DIGIT )* )? '\"' )
-            // InternalGumboLexer.g:192:12: RULE_IDF '\"' RULE_DIGIT ( RULE_DIGIT )* ( '.' ( RULE_DIGIT )* )? '\"'
+            // InternalGumboLexer.g:192:10: ( RULE_IDF '\"' ( RULE_ESC_SEQ | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalGumboLexer.g:192:12: RULE_IDF '\"' ( RULE_ESC_SEQ | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             mRULE_IDF(); 
             match('\"'); 
-            mRULE_DIGIT(); 
-            // InternalGumboLexer.g:192:36: ( RULE_DIGIT )*
+            // InternalGumboLexer.g:192:25: ( RULE_ESC_SEQ | ~ ( ( '\\\\' | '\"' ) ) )*
             loop6:
             do {
-                int alt6=2;
+                int alt6=3;
                 int LA6_0 = input.LA(1);
 
-                if ( ((LA6_0>='0' && LA6_0<='9')) ) {
+                if ( (LA6_0=='\\') ) {
                     alt6=1;
+                }
+                else if ( ((LA6_0>='\u0000' && LA6_0<='!')||(LA6_0>='#' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFF')) ) {
+                    alt6=2;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalGumboLexer.g:192:36: RULE_DIGIT
+            	    // InternalGumboLexer.g:192:26: RULE_ESC_SEQ
             	    {
-            	    mRULE_DIGIT(); 
+            	    mRULE_ESC_SEQ(); 
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalGumboLexer.g:192:39: ~ ( ( '\\\\' | '\"' ) )
+            	    {
+            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
 
             	    }
             	    break;
@@ -4879,49 +4896,6 @@ public class InternalGumboLexer extends Lexer {
             	    break loop6;
                 }
             } while (true);
-
-            // InternalGumboLexer.g:192:48: ( '.' ( RULE_DIGIT )* )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
-
-            if ( (LA8_0=='.') ) {
-                alt8=1;
-            }
-            switch (alt8) {
-                case 1 :
-                    // InternalGumboLexer.g:192:49: '.' ( RULE_DIGIT )*
-                    {
-                    match('.'); 
-                    // InternalGumboLexer.g:192:53: ( RULE_DIGIT )*
-                    loop7:
-                    do {
-                        int alt7=2;
-                        int LA7_0 = input.LA(1);
-
-                        if ( ((LA7_0>='0' && LA7_0<='9')) ) {
-                            alt7=1;
-                        }
-
-
-                        switch (alt7) {
-                    	case 1 :
-                    	    // InternalGumboLexer.g:192:53: RULE_DIGIT
-                    	    {
-                    	    mRULE_DIGIT(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop7;
-                        }
-                    } while (true);
-
-
-                    }
-                    break;
-
-            }
 
             match('\"'); 
 
@@ -4947,26 +4921,26 @@ public class InternalGumboLexer extends Lexer {
             match("\"\"\""); 
 
             // InternalGumboLexer.g:194:28: ( RULE_MSPI )*
-            loop9:
+            loop7:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA9_0=='$') ) {
-                    int LA9_1 = input.LA(2);
+                if ( (LA7_0=='$') ) {
+                    int LA7_1 = input.LA(2);
 
-                    if ( (LA9_1=='$') ) {
-                        alt9=1;
+                    if ( (LA7_1=='$') ) {
+                        alt7=1;
                     }
 
 
                 }
-                else if ( ((LA9_0>='\u0000' && LA9_0<='#')||(LA9_0>='%' && LA9_0<='\uFFFF')) ) {
-                    alt9=1;
+                else if ( ((LA7_0>='\u0000' && LA7_0<='#')||(LA7_0>='%' && LA7_0<='\uFFFF')) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt7) {
             	case 1 :
             	    // InternalGumboLexer.g:194:28: RULE_MSPI
             	    {
@@ -4976,7 +4950,7 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop7;
                 }
             } while (true);
 
@@ -5002,26 +4976,26 @@ public class InternalGumboLexer extends Lexer {
             {
             match('$'); 
             // InternalGumboLexer.g:196:17: ( RULE_MSPI )*
-            loop10:
+            loop8:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA10_0=='$') ) {
-                    int LA10_1 = input.LA(2);
+                if ( (LA8_0=='$') ) {
+                    int LA8_1 = input.LA(2);
 
-                    if ( (LA10_1=='$') ) {
-                        alt10=1;
+                    if ( (LA8_1=='$') ) {
+                        alt8=1;
                     }
 
 
                 }
-                else if ( ((LA10_0>='\u0000' && LA10_0<='#')||(LA10_0>='%' && LA10_0<='\uFFFF')) ) {
-                    alt10=1;
+                else if ( ((LA8_0>='\u0000' && LA8_0<='#')||(LA8_0>='%' && LA8_0<='\uFFFF')) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt8) {
             	case 1 :
             	    // InternalGumboLexer.g:196:17: RULE_MSPI
             	    {
@@ -5031,7 +5005,7 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop8;
                 }
             } while (true);
 
@@ -5057,35 +5031,35 @@ public class InternalGumboLexer extends Lexer {
             {
             match('$'); 
             // InternalGumboLexer.g:198:17: ( RULE_MSPI )*
-            loop11:
+            loop9:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA11_0=='\"') ) {
-                    int LA11_1 = input.LA(2);
+                if ( (LA9_0=='\"') ) {
+                    int LA9_1 = input.LA(2);
 
-                    if ( (LA11_1=='\"') ) {
-                        int LA11_3 = input.LA(3);
+                    if ( (LA9_1=='\"') ) {
+                        int LA9_3 = input.LA(3);
 
-                        if ( ((LA11_3>='\u0000' && LA11_3<='!')||(LA11_3>='#' && LA11_3<='\uFFFF')) ) {
-                            alt11=1;
+                        if ( ((LA9_3>='\u0000' && LA9_3<='!')||(LA9_3>='#' && LA9_3<='\uFFFF')) ) {
+                            alt9=1;
                         }
 
 
                     }
-                    else if ( ((LA11_1>='\u0000' && LA11_1<='!')||(LA11_1>='#' && LA11_1<='\uFFFF')) ) {
-                        alt11=1;
+                    else if ( ((LA9_1>='\u0000' && LA9_1<='!')||(LA9_1>='#' && LA9_1<='\uFFFF')) ) {
+                        alt9=1;
                     }
 
 
                 }
-                else if ( ((LA11_0>='\u0000' && LA11_0<='!')||(LA11_0>='#' && LA11_0<='\uFFFF')) ) {
-                    alt11=1;
+                else if ( ((LA9_0>='\u0000' && LA9_0<='!')||(LA9_0>='#' && LA9_0<='\uFFFF')) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt9) {
             	case 1 :
             	    // InternalGumboLexer.g:198:17: RULE_MSPI
             	    {
@@ -5095,56 +5069,56 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop9;
                 }
             } while (true);
 
             // InternalGumboLexer.g:198:28: ( '\"\"\"' | '\"\"\"\"' | '\"\"\"\"\"' )
-            int alt12=3;
-            int LA12_0 = input.LA(1);
+            int alt10=3;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA12_0=='\"') ) {
-                int LA12_1 = input.LA(2);
+            if ( (LA10_0=='\"') ) {
+                int LA10_1 = input.LA(2);
 
-                if ( (LA12_1=='\"') ) {
-                    int LA12_2 = input.LA(3);
+                if ( (LA10_1=='\"') ) {
+                    int LA10_2 = input.LA(3);
 
-                    if ( (LA12_2=='\"') ) {
-                        int LA12_3 = input.LA(4);
+                    if ( (LA10_2=='\"') ) {
+                        int LA10_3 = input.LA(4);
 
-                        if ( (LA12_3=='\"') ) {
-                            int LA12_4 = input.LA(5);
+                        if ( (LA10_3=='\"') ) {
+                            int LA10_4 = input.LA(5);
 
-                            if ( (LA12_4=='\"') ) {
-                                alt12=3;
+                            if ( (LA10_4=='\"') ) {
+                                alt10=3;
                             }
                             else {
-                                alt12=2;}
+                                alt10=2;}
                         }
                         else {
-                            alt12=1;}
+                            alt10=1;}
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 12, 2, input);
+                            new NoViableAltException("", 10, 2, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 12, 1, input);
+                        new NoViableAltException("", 10, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt12) {
+            switch (alt10) {
                 case 1 :
                     // InternalGumboLexer.g:198:29: '\"\"\"'
                     {
@@ -5193,26 +5167,26 @@ public class InternalGumboLexer extends Lexer {
             {
             match(':'); 
             // InternalGumboLexer.g:200:18: ( RULE_OPSYM )*
-            loop13:
+            loop11:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA13_0=='=') ) {
-                    int LA13_1 = input.LA(2);
+                if ( (LA11_0=='=') ) {
+                    int LA11_1 = input.LA(2);
 
-                    if ( (LA13_1=='!'||(LA13_1>='%' && LA13_1<='&')||LA13_1=='/'||(LA13_1>='<' && LA13_1<='>')||LA13_1=='^'||LA13_1=='|'||LA13_1=='~'||(LA13_1>='\u2200' && LA13_1<='\u22FF')||(LA13_1>='\u27C0' && LA13_1<='\u27EF')||(LA13_1>='\u2980' && LA13_1<='\u2AFF')) ) {
-                        alt13=1;
+                    if ( (LA11_1=='!'||(LA11_1>='%' && LA11_1<='&')||LA11_1=='/'||(LA11_1>='<' && LA11_1<='>')||LA11_1=='^'||LA11_1=='|'||LA11_1=='~'||(LA11_1>='\u2200' && LA11_1<='\u22FF')||(LA11_1>='\u27C0' && LA11_1<='\u27EF')||(LA11_1>='\u2980' && LA11_1<='\u2AFF')) ) {
+                        alt11=1;
                     }
 
 
                 }
-                else if ( (LA13_0=='!'||(LA13_0>='%' && LA13_0<='&')||LA13_0=='/'||LA13_0=='<'||LA13_0=='>'||LA13_0=='^'||LA13_0=='|'||LA13_0=='~'||(LA13_0>='\u2200' && LA13_0<='\u22FF')||(LA13_0>='\u27C0' && LA13_0<='\u27EF')||(LA13_0>='\u2980' && LA13_0<='\u2AFF')) ) {
-                    alt13=1;
+                else if ( (LA11_0=='!'||(LA11_0>='%' && LA11_0<='&')||LA11_0=='/'||LA11_0=='<'||LA11_0=='>'||LA11_0=='^'||LA11_0=='|'||LA11_0=='~'||(LA11_0>='\u2200' && LA11_0<='\u22FF')||(LA11_0>='\u27C0' && LA11_0<='\u27EF')||(LA11_0>='\u2980' && LA11_0<='\u2AFF')) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt11) {
             	case 1 :
             	    // InternalGumboLexer.g:200:18: RULE_OPSYM
             	    {
@@ -5222,7 +5196,7 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop11;
                 }
             } while (true);
 
@@ -5247,38 +5221,38 @@ public class InternalGumboLexer extends Lexer {
             // InternalGumboLexer.g:202:11: ( ( RULE_OPSYM )+ | '\\\\' RULE_IDF )
             {
             // InternalGumboLexer.g:202:11: ( ( RULE_OPSYM )+ | '\\\\' RULE_IDF )
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA15_0=='!'||(LA15_0>='%' && LA15_0<='&')||LA15_0=='/'||(LA15_0>='<' && LA15_0<='>')||LA15_0=='^'||LA15_0=='|'||LA15_0=='~'||(LA15_0>='\u2200' && LA15_0<='\u22FF')||(LA15_0>='\u27C0' && LA15_0<='\u27EF')||(LA15_0>='\u2980' && LA15_0<='\u2AFF')) ) {
-                alt15=1;
+            if ( (LA13_0=='!'||(LA13_0>='%' && LA13_0<='&')||LA13_0=='/'||(LA13_0>='<' && LA13_0<='>')||LA13_0=='^'||LA13_0=='|'||LA13_0=='~'||(LA13_0>='\u2200' && LA13_0<='\u22FF')||(LA13_0>='\u27C0' && LA13_0<='\u27EF')||(LA13_0>='\u2980' && LA13_0<='\u2AFF')) ) {
+                alt13=1;
             }
-            else if ( (LA15_0=='\\') ) {
-                alt15=2;
+            else if ( (LA13_0=='\\') ) {
+                alt13=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
-            switch (alt15) {
+            switch (alt13) {
                 case 1 :
                     // InternalGumboLexer.g:202:12: ( RULE_OPSYM )+
                     {
                     // InternalGumboLexer.g:202:12: ( RULE_OPSYM )+
-                    int cnt14=0;
-                    loop14:
+                    int cnt12=0;
+                    loop12:
                     do {
-                        int alt14=2;
-                        int LA14_0 = input.LA(1);
+                        int alt12=2;
+                        int LA12_0 = input.LA(1);
 
-                        if ( (LA14_0=='!'||(LA14_0>='%' && LA14_0<='&')||LA14_0=='/'||(LA14_0>='<' && LA14_0<='>')||LA14_0=='^'||LA14_0=='|'||LA14_0=='~'||(LA14_0>='\u2200' && LA14_0<='\u22FF')||(LA14_0>='\u27C0' && LA14_0<='\u27EF')||(LA14_0>='\u2980' && LA14_0<='\u2AFF')) ) {
-                            alt14=1;
+                        if ( (LA12_0=='!'||(LA12_0>='%' && LA12_0<='&')||LA12_0=='/'||(LA12_0>='<' && LA12_0<='>')||LA12_0=='^'||LA12_0=='|'||LA12_0=='~'||(LA12_0>='\u2200' && LA12_0<='\u22FF')||(LA12_0>='\u27C0' && LA12_0<='\u27EF')||(LA12_0>='\u2980' && LA12_0<='\u2AFF')) ) {
+                            alt12=1;
                         }
 
 
-                        switch (alt14) {
+                        switch (alt12) {
                     	case 1 :
                     	    // InternalGumboLexer.g:202:12: RULE_OPSYM
                     	    {
@@ -5288,12 +5262,12 @@ public class InternalGumboLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt14 >= 1 ) break loop14;
+                    	    if ( cnt12 >= 1 ) break loop12;
                                 EarlyExitException eee =
-                                    new EarlyExitException(14, input);
+                                    new EarlyExitException(12, input);
                                 throw eee;
                         }
-                        cnt14++;
+                        cnt12++;
                     } while (true);
 
 
@@ -5332,18 +5306,18 @@ public class InternalGumboLexer extends Lexer {
             match("0x"); 
 
             // InternalGumboLexer.g:204:17: ( RULE_EXTENDED_DIGIT )+
-            int cnt16=0;
-            loop16:
+            int cnt14=0;
+            loop14:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( ((LA16_0>='0' && LA16_0<='9')||(LA16_0>='A' && LA16_0<='F')||(LA16_0>='a' && LA16_0<='f')) ) {
-                    alt16=1;
+                if ( ((LA14_0>='0' && LA14_0<='9')||(LA14_0>='A' && LA14_0<='F')||(LA14_0>='a' && LA14_0<='f')) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt14) {
             	case 1 :
             	    // InternalGumboLexer.g:204:17: RULE_EXTENDED_DIGIT
             	    {
@@ -5353,22 +5327,22 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt16 >= 1 ) break loop16;
+            	    if ( cnt14 >= 1 ) break loop14;
                         EarlyExitException eee =
-                            new EarlyExitException(16, input);
+                            new EarlyExitException(14, input);
                         throw eee;
                 }
-                cnt16++;
+                cnt14++;
             } while (true);
 
             // InternalGumboLexer.g:204:38: ( '.' RULE_IDF )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA17_0=='.') ) {
-                alt17=1;
+            if ( (LA15_0=='.') ) {
+                alt15=1;
             }
-            switch (alt17) {
+            switch (alt15) {
                 case 1 :
                     // InternalGumboLexer.g:204:39: '.' RULE_IDF
                     {
@@ -5402,18 +5376,18 @@ public class InternalGumboLexer extends Lexer {
             match("0b"); 
 
             // InternalGumboLexer.g:206:17: ( '0' | '1' | '_' )+
-            int cnt18=0;
-            loop18:
+            int cnt16=0;
+            loop16:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( ((LA18_0>='0' && LA18_0<='1')||LA18_0=='_') ) {
-                    alt18=1;
+                if ( ((LA16_0>='0' && LA16_0<='1')||LA16_0=='_') ) {
+                    alt16=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt16) {
             	case 1 :
             	    // InternalGumboLexer.g:
             	    {
@@ -5431,22 +5405,22 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt18 >= 1 ) break loop18;
+            	    if ( cnt16 >= 1 ) break loop16;
                         EarlyExitException eee =
-                            new EarlyExitException(18, input);
+                            new EarlyExitException(16, input);
                         throw eee;
                 }
-                cnt18++;
+                cnt16++;
             } while (true);
 
             // InternalGumboLexer.g:206:32: ( '.' RULE_IDF )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA19_0=='.') ) {
-                alt19=1;
+            if ( (LA17_0=='.') ) {
+                alt17=1;
             }
-            switch (alt19) {
+            switch (alt17) {
                 case 1 :
                     // InternalGumboLexer.g:206:33: '.' RULE_IDF
                     {
@@ -5527,17 +5501,17 @@ public class InternalGumboLexer extends Lexer {
                 throw mse;}
 
             // InternalGumboLexer.g:212:39: ( RULE_LETTER | RULE_DIGIT )*
-            loop20:
+            loop18:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( ((LA20_0>='0' && LA20_0<='9')||(LA20_0>='A' && LA20_0<='Z')||(LA20_0>='a' && LA20_0<='z')) ) {
-                    alt20=1;
+                if ( ((LA18_0>='0' && LA18_0<='9')||(LA18_0>='A' && LA18_0<='Z')||(LA18_0>='a' && LA18_0<='z')) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt18) {
             	case 1 :
             	    // InternalGumboLexer.g:
             	    {
@@ -5555,7 +5529,7 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop18;
                 }
             } while (true);
 
@@ -5575,38 +5549,38 @@ public class InternalGumboLexer extends Lexer {
             // InternalGumboLexer.g:214:22: (~ ( ( '\"' | '$' ) ) | '$$' | '\"' ~ ( '\"' ) | '\"\"' ~ ( '\"' ) )
             {
             // InternalGumboLexer.g:214:22: (~ ( ( '\"' | '$' ) ) | '$$' | '\"' ~ ( '\"' ) | '\"\"' ~ ( '\"' ) )
-            int alt21=4;
-            int LA21_0 = input.LA(1);
+            int alt19=4;
+            int LA19_0 = input.LA(1);
 
-            if ( ((LA21_0>='\u0000' && LA21_0<='!')||LA21_0=='#'||(LA21_0>='%' && LA21_0<='\uFFFF')) ) {
-                alt21=1;
+            if ( ((LA19_0>='\u0000' && LA19_0<='!')||LA19_0=='#'||(LA19_0>='%' && LA19_0<='\uFFFF')) ) {
+                alt19=1;
             }
-            else if ( (LA21_0=='$') ) {
-                alt21=2;
+            else if ( (LA19_0=='$') ) {
+                alt19=2;
             }
-            else if ( (LA21_0=='\"') ) {
-                int LA21_3 = input.LA(2);
+            else if ( (LA19_0=='\"') ) {
+                int LA19_3 = input.LA(2);
 
-                if ( ((LA21_3>='\u0000' && LA21_3<='!')||(LA21_3>='#' && LA21_3<='\uFFFF')) ) {
-                    alt21=3;
+                if ( ((LA19_3>='\u0000' && LA19_3<='!')||(LA19_3>='#' && LA19_3<='\uFFFF')) ) {
+                    alt19=3;
                 }
-                else if ( (LA21_3=='\"') ) {
-                    alt21=4;
+                else if ( (LA19_3=='\"') ) {
+                    alt19=4;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 21, 3, input);
+                        new NoViableAltException("", 19, 3, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 19, 0, input);
 
                 throw nvae;
             }
-            switch (alt21) {
+            switch (alt19) {
                 case 1 :
                     // InternalGumboLexer.g:214:23: ~ ( ( '\"' | '$' ) )
                     {
@@ -5730,32 +5704,32 @@ public class InternalGumboLexer extends Lexer {
             // InternalGumboLexer.g:220:25: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | RULE_UNICODE_ESC )
             {
             // InternalGumboLexer.g:220:25: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | RULE_UNICODE_ESC )
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA22_0=='\\') ) {
-                int LA22_1 = input.LA(2);
+            if ( (LA20_0=='\\') ) {
+                int LA20_1 = input.LA(2);
 
-                if ( (LA22_1=='\"'||LA22_1=='\''||LA22_1=='\\'||LA22_1=='b'||LA22_1=='f'||LA22_1=='n'||LA22_1=='r'||LA22_1=='t') ) {
-                    alt22=1;
+                if ( (LA20_1=='\"'||LA20_1=='\''||LA20_1=='\\'||LA20_1=='b'||LA20_1=='f'||LA20_1=='n'||LA20_1=='r'||LA20_1=='t') ) {
+                    alt20=1;
                 }
-                else if ( (LA22_1=='u') ) {
-                    alt22=2;
+                else if ( (LA20_1=='u') ) {
+                    alt20=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 22, 1, input);
+                        new NoViableAltException("", 20, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
-            switch (alt22) {
+            switch (alt20) {
                 case 1 :
                     // InternalGumboLexer.g:220:26: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     {
@@ -5823,17 +5797,17 @@ public class InternalGumboLexer extends Lexer {
             match("--"); 
 
             // InternalGumboLexer.g:224:24: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop23:
+            loop21:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( ((LA23_0>='\u0000' && LA23_0<='\t')||(LA23_0>='\u000B' && LA23_0<='\f')||(LA23_0>='\u000E' && LA23_0<='\uFFFF')) ) {
-                    alt23=1;
+                if ( ((LA21_0>='\u0000' && LA21_0<='\t')||(LA21_0>='\u000B' && LA21_0<='\f')||(LA21_0>='\u000E' && LA21_0<='\uFFFF')) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt21) {
             	case 1 :
             	    // InternalGumboLexer.g:224:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
@@ -5851,29 +5825,29 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop21;
                 }
             } while (true);
 
             // InternalGumboLexer.g:224:40: ( ( '\\r' )? '\\n' )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA25_0=='\n'||LA25_0=='\r') ) {
-                alt25=1;
+            if ( (LA23_0=='\n'||LA23_0=='\r') ) {
+                alt23=1;
             }
-            switch (alt25) {
+            switch (alt23) {
                 case 1 :
                     // InternalGumboLexer.g:224:41: ( '\\r' )? '\\n'
                     {
                     // InternalGumboLexer.g:224:41: ( '\\r' )?
-                    int alt24=2;
-                    int LA24_0 = input.LA(1);
+                    int alt22=2;
+                    int LA22_0 = input.LA(1);
 
-                    if ( (LA24_0=='\r') ) {
-                        alt24=1;
+                    if ( (LA22_0=='\r') ) {
+                        alt22=1;
                     }
-                    switch (alt24) {
+                    switch (alt22) {
                         case 1 :
                             // InternalGumboLexer.g:224:41: '\\r'
                             {
@@ -5918,13 +5892,13 @@ public class InternalGumboLexer extends Lexer {
                 throw mse;}
 
             // InternalGumboLexer.g:226:36: ( '+' | '-' )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA26_0=='+'||LA26_0=='-') ) {
-                alt26=1;
+            if ( (LA24_0=='+'||LA24_0=='-') ) {
+                alt24=1;
             }
-            switch (alt26) {
+            switch (alt24) {
                 case 1 :
                     // InternalGumboLexer.g:
                     {
@@ -5944,18 +5918,18 @@ public class InternalGumboLexer extends Lexer {
             }
 
             // InternalGumboLexer.g:226:47: ( RULE_DIGIT )+
-            int cnt27=0;
-            loop27:
+            int cnt25=0;
+            loop25:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( ((LA27_0>='0' && LA27_0<='9')) ) {
-                    alt27=1;
+                if ( ((LA25_0>='0' && LA25_0<='9')) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt25) {
             	case 1 :
             	    // InternalGumboLexer.g:226:47: RULE_DIGIT
             	    {
@@ -5965,12 +5939,12 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt27 >= 1 ) break loop27;
+            	    if ( cnt25 >= 1 ) break loop25;
                         EarlyExitException eee =
-                            new EarlyExitException(27, input);
+                            new EarlyExitException(25, input);
                         throw eee;
                 }
-                cnt27++;
+                cnt25++;
             } while (true);
 
 
@@ -5998,13 +5972,13 @@ public class InternalGumboLexer extends Lexer {
                 throw mse;}
 
             // InternalGumboLexer.g:228:40: ( '+' )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA28_0=='+') ) {
-                alt28=1;
+            if ( (LA26_0=='+') ) {
+                alt26=1;
             }
-            switch (alt28) {
+            switch (alt26) {
                 case 1 :
                     // InternalGumboLexer.g:228:40: '+'
                     {
@@ -6016,18 +5990,18 @@ public class InternalGumboLexer extends Lexer {
             }
 
             // InternalGumboLexer.g:228:45: ( RULE_DIGIT )+
-            int cnt29=0;
-            loop29:
+            int cnt27=0;
+            loop27:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( ((LA29_0>='0' && LA29_0<='9')) ) {
-                    alt29=1;
+                if ( ((LA27_0>='0' && LA27_0<='9')) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt27) {
             	case 1 :
             	    // InternalGumboLexer.g:228:45: RULE_DIGIT
             	    {
@@ -6037,12 +6011,12 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt29 >= 1 ) break loop29;
+            	    if ( cnt27 >= 1 ) break loop27;
                         EarlyExitException eee =
-                            new EarlyExitException(29, input);
+                            new EarlyExitException(27, input);
                         throw eee;
                 }
-                cnt29++;
+                cnt27++;
             } while (true);
 
 
@@ -6063,18 +6037,18 @@ public class InternalGumboLexer extends Lexer {
             // InternalGumboLexer.g:230:17: ( RULE_DIGIT )+ ( '_' ( RULE_DIGIT )+ )* '.' ( RULE_DIGIT )+ ( '_' ( RULE_DIGIT )+ )* ( RULE_EXPONENT )?
             {
             // InternalGumboLexer.g:230:17: ( RULE_DIGIT )+
-            int cnt30=0;
-            loop30:
+            int cnt28=0;
+            loop28:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( ((LA30_0>='0' && LA30_0<='9')) ) {
-                    alt30=1;
+                if ( ((LA28_0>='0' && LA28_0<='9')) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt28) {
             	case 1 :
             	    // InternalGumboLexer.g:230:17: RULE_DIGIT
             	    {
@@ -6084,43 +6058,43 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt30 >= 1 ) break loop30;
+            	    if ( cnt28 >= 1 ) break loop28;
                         EarlyExitException eee =
-                            new EarlyExitException(30, input);
+                            new EarlyExitException(28, input);
                         throw eee;
                 }
-                cnt30++;
+                cnt28++;
             } while (true);
 
             // InternalGumboLexer.g:230:29: ( '_' ( RULE_DIGIT )+ )*
-            loop32:
+            loop30:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA32_0=='_') ) {
-                    alt32=1;
+                if ( (LA30_0=='_') ) {
+                    alt30=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt30) {
             	case 1 :
             	    // InternalGumboLexer.g:230:30: '_' ( RULE_DIGIT )+
             	    {
             	    match('_'); 
             	    // InternalGumboLexer.g:230:34: ( RULE_DIGIT )+
-            	    int cnt31=0;
-            	    loop31:
+            	    int cnt29=0;
+            	    loop29:
             	    do {
-            	        int alt31=2;
-            	        int LA31_0 = input.LA(1);
+            	        int alt29=2;
+            	        int LA29_0 = input.LA(1);
 
-            	        if ( ((LA31_0>='0' && LA31_0<='9')) ) {
-            	            alt31=1;
+            	        if ( ((LA29_0>='0' && LA29_0<='9')) ) {
+            	            alt29=1;
             	        }
 
 
-            	        switch (alt31) {
+            	        switch (alt29) {
             	    	case 1 :
             	    	    // InternalGumboLexer.g:230:34: RULE_DIGIT
             	    	    {
@@ -6130,12 +6104,12 @@ public class InternalGumboLexer extends Lexer {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt31 >= 1 ) break loop31;
+            	    	    if ( cnt29 >= 1 ) break loop29;
             	                EarlyExitException eee =
-            	                    new EarlyExitException(31, input);
+            	                    new EarlyExitException(29, input);
             	                throw eee;
             	        }
-            	        cnt31++;
+            	        cnt29++;
             	    } while (true);
 
 
@@ -6143,24 +6117,24 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop32;
+            	    break loop30;
                 }
             } while (true);
 
             match('.'); 
             // InternalGumboLexer.g:230:52: ( RULE_DIGIT )+
-            int cnt33=0;
-            loop33:
+            int cnt31=0;
+            loop31:
             do {
-                int alt33=2;
-                int LA33_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( ((LA33_0>='0' && LA33_0<='9')) ) {
-                    alt33=1;
+                if ( ((LA31_0>='0' && LA31_0<='9')) ) {
+                    alt31=1;
                 }
 
 
-                switch (alt33) {
+                switch (alt31) {
             	case 1 :
             	    // InternalGumboLexer.g:230:52: RULE_DIGIT
             	    {
@@ -6170,43 +6144,43 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt33 >= 1 ) break loop33;
+            	    if ( cnt31 >= 1 ) break loop31;
                         EarlyExitException eee =
-                            new EarlyExitException(33, input);
+                            new EarlyExitException(31, input);
                         throw eee;
                 }
-                cnt33++;
+                cnt31++;
             } while (true);
 
             // InternalGumboLexer.g:230:64: ( '_' ( RULE_DIGIT )+ )*
-            loop35:
+            loop33:
             do {
-                int alt35=2;
-                int LA35_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA35_0=='_') ) {
-                    alt35=1;
+                if ( (LA33_0=='_') ) {
+                    alt33=1;
                 }
 
 
-                switch (alt35) {
+                switch (alt33) {
             	case 1 :
             	    // InternalGumboLexer.g:230:65: '_' ( RULE_DIGIT )+
             	    {
             	    match('_'); 
             	    // InternalGumboLexer.g:230:69: ( RULE_DIGIT )+
-            	    int cnt34=0;
-            	    loop34:
+            	    int cnt32=0;
+            	    loop32:
             	    do {
-            	        int alt34=2;
-            	        int LA34_0 = input.LA(1);
+            	        int alt32=2;
+            	        int LA32_0 = input.LA(1);
 
-            	        if ( ((LA34_0>='0' && LA34_0<='9')) ) {
-            	            alt34=1;
+            	        if ( ((LA32_0>='0' && LA32_0<='9')) ) {
+            	            alt32=1;
             	        }
 
 
-            	        switch (alt34) {
+            	        switch (alt32) {
             	    	case 1 :
             	    	    // InternalGumboLexer.g:230:69: RULE_DIGIT
             	    	    {
@@ -6216,12 +6190,12 @@ public class InternalGumboLexer extends Lexer {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt34 >= 1 ) break loop34;
+            	    	    if ( cnt32 >= 1 ) break loop32;
             	                EarlyExitException eee =
-            	                    new EarlyExitException(34, input);
+            	                    new EarlyExitException(32, input);
             	                throw eee;
             	        }
-            	        cnt34++;
+            	        cnt32++;
             	    } while (true);
 
 
@@ -6229,18 +6203,18 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop35;
+            	    break loop33;
                 }
             } while (true);
 
             // InternalGumboLexer.g:230:83: ( RULE_EXPONENT )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA36_0=='E'||LA36_0=='e') ) {
-                alt36=1;
+            if ( (LA34_0=='E'||LA34_0=='e') ) {
+                alt34=1;
             }
-            switch (alt36) {
+            switch (alt34) {
                 case 1 :
                     // InternalGumboLexer.g:230:83: RULE_EXPONENT
                     {
@@ -6271,18 +6245,18 @@ public class InternalGumboLexer extends Lexer {
             // InternalGumboLexer.g:232:20: ( RULE_DIGIT )+ ( '_' ( RULE_DIGIT )+ )* ( '#' RULE_BASED_INTEGER '#' ( RULE_INT_EXPONENT )? | ( RULE_INT_EXPONENT )? )
             {
             // InternalGumboLexer.g:232:20: ( RULE_DIGIT )+
-            int cnt37=0;
-            loop37:
+            int cnt35=0;
+            loop35:
             do {
-                int alt37=2;
-                int LA37_0 = input.LA(1);
+                int alt35=2;
+                int LA35_0 = input.LA(1);
 
-                if ( ((LA37_0>='0' && LA37_0<='9')) ) {
-                    alt37=1;
+                if ( ((LA35_0>='0' && LA35_0<='9')) ) {
+                    alt35=1;
                 }
 
 
-                switch (alt37) {
+                switch (alt35) {
             	case 1 :
             	    // InternalGumboLexer.g:232:20: RULE_DIGIT
             	    {
@@ -6292,43 +6266,43 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt37 >= 1 ) break loop37;
+            	    if ( cnt35 >= 1 ) break loop35;
                         EarlyExitException eee =
-                            new EarlyExitException(37, input);
+                            new EarlyExitException(35, input);
                         throw eee;
                 }
-                cnt37++;
+                cnt35++;
             } while (true);
 
             // InternalGumboLexer.g:232:32: ( '_' ( RULE_DIGIT )+ )*
-            loop39:
+            loop37:
             do {
-                int alt39=2;
-                int LA39_0 = input.LA(1);
+                int alt37=2;
+                int LA37_0 = input.LA(1);
 
-                if ( (LA39_0=='_') ) {
-                    alt39=1;
+                if ( (LA37_0=='_') ) {
+                    alt37=1;
                 }
 
 
-                switch (alt39) {
+                switch (alt37) {
             	case 1 :
             	    // InternalGumboLexer.g:232:33: '_' ( RULE_DIGIT )+
             	    {
             	    match('_'); 
             	    // InternalGumboLexer.g:232:37: ( RULE_DIGIT )+
-            	    int cnt38=0;
-            	    loop38:
+            	    int cnt36=0;
+            	    loop36:
             	    do {
-            	        int alt38=2;
-            	        int LA38_0 = input.LA(1);
+            	        int alt36=2;
+            	        int LA36_0 = input.LA(1);
 
-            	        if ( ((LA38_0>='0' && LA38_0<='9')) ) {
-            	            alt38=1;
+            	        if ( ((LA36_0>='0' && LA36_0<='9')) ) {
+            	            alt36=1;
             	        }
 
 
-            	        switch (alt38) {
+            	        switch (alt36) {
             	    	case 1 :
             	    	    // InternalGumboLexer.g:232:37: RULE_DIGIT
             	    	    {
@@ -6338,12 +6312,12 @@ public class InternalGumboLexer extends Lexer {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt38 >= 1 ) break loop38;
+            	    	    if ( cnt36 >= 1 ) break loop36;
             	                EarlyExitException eee =
-            	                    new EarlyExitException(38, input);
+            	                    new EarlyExitException(36, input);
             	                throw eee;
             	        }
-            	        cnt38++;
+            	        cnt36++;
             	    } while (true);
 
 
@@ -6351,20 +6325,20 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop39;
+            	    break loop37;
                 }
             } while (true);
 
             // InternalGumboLexer.g:232:51: ( '#' RULE_BASED_INTEGER '#' ( RULE_INT_EXPONENT )? | ( RULE_INT_EXPONENT )? )
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA42_0=='#') ) {
-                alt42=1;
+            if ( (LA40_0=='#') ) {
+                alt40=1;
             }
             else {
-                alt42=2;}
-            switch (alt42) {
+                alt40=2;}
+            switch (alt40) {
                 case 1 :
                     // InternalGumboLexer.g:232:52: '#' RULE_BASED_INTEGER '#' ( RULE_INT_EXPONENT )?
                     {
@@ -6372,13 +6346,13 @@ public class InternalGumboLexer extends Lexer {
                     mRULE_BASED_INTEGER(); 
                     match('#'); 
                     // InternalGumboLexer.g:232:79: ( RULE_INT_EXPONENT )?
-                    int alt40=2;
-                    int LA40_0 = input.LA(1);
+                    int alt38=2;
+                    int LA38_0 = input.LA(1);
 
-                    if ( (LA40_0=='E'||LA40_0=='e') ) {
-                        alt40=1;
+                    if ( (LA38_0=='E'||LA38_0=='e') ) {
+                        alt38=1;
                     }
-                    switch (alt40) {
+                    switch (alt38) {
                         case 1 :
                             // InternalGumboLexer.g:232:79: RULE_INT_EXPONENT
                             {
@@ -6396,13 +6370,13 @@ public class InternalGumboLexer extends Lexer {
                     // InternalGumboLexer.g:232:98: ( RULE_INT_EXPONENT )?
                     {
                     // InternalGumboLexer.g:232:98: ( RULE_INT_EXPONENT )?
-                    int alt41=2;
-                    int LA41_0 = input.LA(1);
+                    int alt39=2;
+                    int LA39_0 = input.LA(1);
 
-                    if ( (LA41_0=='E'||LA41_0=='e') ) {
-                        alt41=1;
+                    if ( (LA39_0=='E'||LA39_0=='e') ) {
+                        alt39=1;
                     }
-                    switch (alt41) {
+                    switch (alt39) {
                         case 1 :
                             // InternalGumboLexer.g:232:98: RULE_INT_EXPONENT
                             {
@@ -6478,28 +6452,28 @@ public class InternalGumboLexer extends Lexer {
             {
             mRULE_EXTENDED_DIGIT(); 
             // InternalGumboLexer.g:238:51: ( ( '_' )? RULE_EXTENDED_DIGIT )*
-            loop44:
+            loop42:
             do {
-                int alt44=2;
-                int LA44_0 = input.LA(1);
+                int alt42=2;
+                int LA42_0 = input.LA(1);
 
-                if ( ((LA44_0>='0' && LA44_0<='9')||(LA44_0>='A' && LA44_0<='F')||LA44_0=='_'||(LA44_0>='a' && LA44_0<='f')) ) {
-                    alt44=1;
+                if ( ((LA42_0>='0' && LA42_0<='9')||(LA42_0>='A' && LA42_0<='F')||LA42_0=='_'||(LA42_0>='a' && LA42_0<='f')) ) {
+                    alt42=1;
                 }
 
 
-                switch (alt44) {
+                switch (alt42) {
             	case 1 :
             	    // InternalGumboLexer.g:238:52: ( '_' )? RULE_EXTENDED_DIGIT
             	    {
             	    // InternalGumboLexer.g:238:52: ( '_' )?
-            	    int alt43=2;
-            	    int LA43_0 = input.LA(1);
+            	    int alt41=2;
+            	    int LA41_0 = input.LA(1);
 
-            	    if ( (LA43_0=='_') ) {
-            	        alt43=1;
+            	    if ( (LA41_0=='_') ) {
+            	        alt41=1;
             	    }
-            	    switch (alt43) {
+            	    switch (alt41) {
             	        case 1 :
             	            // InternalGumboLexer.g:238:52: '_'
             	            {
@@ -6516,7 +6490,7 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop44;
+            	    break loop42;
                 }
             } while (true);
 
@@ -6538,41 +6512,41 @@ public class InternalGumboLexer extends Lexer {
             // InternalGumboLexer.g:240:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
             // InternalGumboLexer.g:240:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA47_0=='\"') ) {
-                alt47=1;
+            if ( (LA45_0=='\"') ) {
+                alt45=1;
             }
-            else if ( (LA47_0=='\'') ) {
-                alt47=2;
+            else if ( (LA45_0=='\'') ) {
+                alt45=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 47, 0, input);
+                    new NoViableAltException("", 45, 0, input);
 
                 throw nvae;
             }
-            switch (alt47) {
+            switch (alt45) {
                 case 1 :
                     // InternalGumboLexer.g:240:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
                     // InternalGumboLexer.g:240:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop45:
+                    loop43:
                     do {
-                        int alt45=3;
-                        int LA45_0 = input.LA(1);
+                        int alt43=3;
+                        int LA43_0 = input.LA(1);
 
-                        if ( (LA45_0=='\\') ) {
-                            alt45=1;
+                        if ( (LA43_0=='\\') ) {
+                            alt43=1;
                         }
-                        else if ( ((LA45_0>='\u0000' && LA45_0<='!')||(LA45_0>='#' && LA45_0<='[')||(LA45_0>=']' && LA45_0<='\uFFFF')) ) {
-                            alt45=2;
+                        else if ( ((LA43_0>='\u0000' && LA43_0<='!')||(LA43_0>='#' && LA43_0<='[')||(LA43_0>=']' && LA43_0<='\uFFFF')) ) {
+                            alt43=2;
                         }
 
 
-                        switch (alt45) {
+                        switch (alt43) {
                     	case 1 :
                     	    // InternalGumboLexer.g:240:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
@@ -6606,7 +6580,7 @@ public class InternalGumboLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop45;
+                    	    break loop43;
                         }
                     } while (true);
 
@@ -6619,20 +6593,20 @@ public class InternalGumboLexer extends Lexer {
                     {
                     match('\''); 
                     // InternalGumboLexer.g:240:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop46:
+                    loop44:
                     do {
-                        int alt46=3;
-                        int LA46_0 = input.LA(1);
+                        int alt44=3;
+                        int LA44_0 = input.LA(1);
 
-                        if ( (LA46_0=='\\') ) {
-                            alt46=1;
+                        if ( (LA44_0=='\\') ) {
+                            alt44=1;
                         }
-                        else if ( ((LA46_0>='\u0000' && LA46_0<='&')||(LA46_0>='(' && LA46_0<='[')||(LA46_0>=']' && LA46_0<='\uFFFF')) ) {
-                            alt46=2;
+                        else if ( ((LA44_0>='\u0000' && LA44_0<='&')||(LA44_0>='(' && LA44_0<='[')||(LA44_0>=']' && LA44_0<='\uFFFF')) ) {
+                            alt44=2;
                         }
 
 
-                        switch (alt46) {
+                        switch (alt44) {
                     	case 1 :
                     	    // InternalGumboLexer.g:240:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
@@ -6666,7 +6640,7 @@ public class InternalGumboLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop46;
+                    	    break loop44;
                         }
                     } while (true);
 
@@ -6706,28 +6680,28 @@ public class InternalGumboLexer extends Lexer {
                 throw mse;}
 
             // InternalGumboLexer.g:242:31: ( ( '_' )? ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' ) )*
-            loop49:
+            loop47:
             do {
-                int alt49=2;
-                int LA49_0 = input.LA(1);
+                int alt47=2;
+                int LA47_0 = input.LA(1);
 
-                if ( ((LA49_0>='0' && LA49_0<='9')||(LA49_0>='A' && LA49_0<='Z')||LA49_0=='_'||(LA49_0>='a' && LA49_0<='z')) ) {
-                    alt49=1;
+                if ( ((LA47_0>='0' && LA47_0<='9')||(LA47_0>='A' && LA47_0<='Z')||LA47_0=='_'||(LA47_0>='a' && LA47_0<='z')) ) {
+                    alt47=1;
                 }
 
 
-                switch (alt49) {
+                switch (alt47) {
             	case 1 :
             	    // InternalGumboLexer.g:242:32: ( '_' )? ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )
             	    {
             	    // InternalGumboLexer.g:242:32: ( '_' )?
-            	    int alt48=2;
-            	    int LA48_0 = input.LA(1);
+            	    int alt46=2;
+            	    int LA46_0 = input.LA(1);
 
-            	    if ( (LA48_0=='_') ) {
-            	        alt48=1;
+            	    if ( (LA46_0=='_') ) {
+            	        alt46=1;
             	    }
-            	    switch (alt48) {
+            	    switch (alt46) {
             	        case 1 :
             	            // InternalGumboLexer.g:242:32: '_'
             	            {
@@ -6752,7 +6726,7 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop49;
+            	    break loop47;
                 }
             } while (true);
 
@@ -6776,18 +6750,18 @@ public class InternalGumboLexer extends Lexer {
             // InternalGumboLexer.g:244:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
             // InternalGumboLexer.g:244:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt50=0;
-            loop50:
+            int cnt48=0;
+            loop48:
             do {
-                int alt50=2;
-                int LA50_0 = input.LA(1);
+                int alt48=2;
+                int LA48_0 = input.LA(1);
 
-                if ( ((LA50_0>='\t' && LA50_0<='\n')||LA50_0=='\r'||LA50_0==' ') ) {
-                    alt50=1;
+                if ( ((LA48_0>='\t' && LA48_0<='\n')||LA48_0=='\r'||LA48_0==' ') ) {
+                    alt48=1;
                 }
 
 
-                switch (alt50) {
+                switch (alt48) {
             	case 1 :
             	    // InternalGumboLexer.g:
             	    {
@@ -6805,12 +6779,12 @@ public class InternalGumboLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt50 >= 1 ) break loop50;
+            	    if ( cnt48 >= 1 ) break loop48;
                         EarlyExitException eee =
-                            new EarlyExitException(50, input);
+                            new EarlyExitException(48, input);
                         throw eee;
                 }
-                cnt50++;
+                cnt48++;
             } while (true);
 
 
@@ -6826,9 +6800,9 @@ public class InternalGumboLexer extends Lexer {
 
     public void mTokens() throws RecognitionException {
         // InternalGumboLexer.g:1:8: ( Integration | Classifier | Initialize | Invariants | Extension | Functions | Guarantee | Invariant | Reference | MustSend | Constant | Modifies | Requires | MaySend | Applies | Binding | Compute | Ensures | Library | Memoize | Assert | Assume | Handle | Return | Strict | Some | Cases | Delta | False | Gumbo | Match | Modes | Reads | State | While | Yield | All | Case | Else | Halt | Spec | True | PlusSignEqualsSignGreaterThanSign | HyphenMinusGreaterThanSignColon | FullStopFullStopLessThanSign | Def | For | Inv | Mut | Val | Var | FullStopFullStop | ColonColon | ColonEqualsSign | LessThanSignColon | EqualsSignGreaterThanSign | By | Do | If | In_1 | To | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Colon | Semicolon | EqualsSign | QuestionMark | F | T | LeftSquareBracket | RightSquareBracket | KW__ | LeftCurlyBracket | RightCurlyBracket | ForAll | ThereExists | RULE_SLANG_STRING | RULE_MSTRING | RULE_MSP | RULE_SLI | RULE_MSPB | RULE_MSPM | RULE_MSPE | RULE_DEFOP | RULE_OP | RULE_HEX | RULE_BIN | RULE_INT_IDF | RULE_REAL_IDF | RULE_SL_COMMENT | RULE_REAL_LIT | RULE_INTEGER_LIT | RULE_STRING | RULE_ID | RULE_WS )
-        int alt51=100;
-        alt51 = dfa51.predict(input);
-        switch (alt51) {
+        int alt49=100;
+        alt49 = dfa49.predict(input);
+        switch (alt49) {
             case 1 :
                 // InternalGumboLexer.g:1:10: Integration
                 {
@@ -7535,22 +7509,22 @@ public class InternalGumboLexer extends Lexer {
     }
 
 
-    protected DFA51 dfa51 = new DFA51(this);
-    static final String DFA51_eotS =
-        "\1\uffff\3\61\1\74\10\61\1\uffff\3\61\1\123\1\125\1\130\1\132\1\61\1\136\1\51\1\142\10\uffff\1\144\2\uffff\1\145\1\146\1\uffff\1\61\2\uffff\2\157\2\uffff\1\170\1\171\1\61\2\uffff\11\61\1\uffff\11\61\1\u0095\4\61\2\51\1\61\1\u00a0\3\61\1\u00a4\6\uffff\1\u00a6\1\uffff\1\61\1\uffff\1\u00a9\3\uffff\1\u00aa\5\uffff\1\u00ac\3\uffff\1\u00b1\1\uffff\2\163\1\uffff\1\163\1\uffff\1\163\2\uffff\2\61\1\u00bf\4\uffff\11\61\1\u00ca\7\61\1\u00d2\7\61\1\uffff\6\61\2\51\1\61\1\u00e5\1\uffff\3\61\3\uffff\1\u00e9\1\u00ea\13\uffff\1\u00ee\1\u00b6\1\uffff\1\163\2\uffff\1\163\1\u00f4\3\61\2\uffff\3\61\1\u0102\2\61\1\u0105\2\61\1\uffff\7\61\1\uffff\13\61\1\u011a\2\61\1\u011d\1\51\1\u011f\1\61\1\uffff\2\61\1\u0123\6\uffff\1\163\2\uffff\2\157\1\uffff\2\u00f7\1\uffff\3\61\1\uffff\1\u012d\1\uffff\3\61\1\u0133\1\uffff\2\61\1\uffff\1\61\1\u0137\1\61\1\u0139\3\61\1\u013d\2\61\1\u0140\1\61\1\u0142\7\61\1\uffff\1\61\1\u014b\1\uffff\1\u014c\1\uffff\1\u014d\1\u014e\1\u014f\2\uffff\1\163\1\u00f7\1\uffff\1\u00f7\3\61\4\uffff\3\61\1\uffff\3\61\1\uffff\1\61\1\uffff\2\61\1\u0163\1\uffff\2\61\1\uffff\1\61\1\uffff\2\61\1\u0169\1\u016a\2\61\1\u016d\1\u016e\6\uffff\1\163\1\uffff\1\u00f7\1\u00f4\3\61\2\uffff\2\61\1\u0176\1\61\1\u0178\4\61\1\uffff\2\61\1\u017f\1\u0180\1\u0181\2\uffff\1\u0182\1\u0183\3\uffff\1\157\4\61\1\u0188\1\uffff\1\61\1\uffff\3\61\1\u018d\1\u018e\1\u018f\5\uffff\2\61\1\u0193\1\61\1\uffff\1\u0195\1\u0196\1\u0197\1\u0198\3\uffff\1\61\1\u019a\1\u019b\1\uffff\1\u019c\4\uffff\1\u019d\4\uffff";
-    static final String DFA51_eofS =
+    protected DFA49 dfa49 = new DFA49(this);
+    static final String DFA49_eotS =
+        "\1\uffff\3\61\1\74\10\61\1\uffff\3\61\1\123\1\125\1\130\1\132\1\61\1\136\1\51\1\142\10\uffff\1\143\2\uffff\1\145\1\146\1\uffff\1\61\2\uffff\2\157\2\uffff\1\170\1\171\1\61\2\uffff\11\61\1\uffff\11\61\1\u0095\4\61\2\51\1\61\1\u00a0\3\61\1\u00a4\6\uffff\1\u00a6\1\uffff\1\61\1\uffff\1\u00a9\3\uffff\1\u00aa\5\uffff\1\u00ac\3\uffff\1\u00b1\1\uffff\2\164\1\uffff\1\164\1\uffff\1\164\2\uffff\2\61\1\u00bf\2\uffff\1\173\1\uffff\11\61\1\u00ca\7\61\1\u00d2\7\61\1\uffff\6\61\2\51\1\61\1\u00e5\1\uffff\3\61\3\uffff\1\u00e9\1\u00ea\13\uffff\1\u00ee\1\u00b6\1\uffff\1\164\2\uffff\1\164\1\u00f4\3\61\2\uffff\3\61\1\u0102\2\61\1\u0105\2\61\1\uffff\7\61\1\uffff\13\61\1\u011a\2\61\1\u011d\1\51\1\u011f\1\61\1\uffff\2\61\1\u0123\6\uffff\1\164\2\uffff\2\157\1\uffff\2\u00f7\1\uffff\3\61\1\uffff\1\u012d\1\uffff\3\61\1\u0133\1\uffff\2\61\1\uffff\1\61\1\u0137\1\61\1\u0139\3\61\1\u013d\2\61\1\u0140\1\61\1\u0142\7\61\1\uffff\1\61\1\u014b\1\uffff\1\u014c\1\uffff\1\u014d\1\u014e\1\u014f\2\uffff\1\164\1\u00f7\1\uffff\1\u00f7\3\61\4\uffff\3\61\1\uffff\3\61\1\uffff\1\61\1\uffff\2\61\1\u0163\1\uffff\2\61\1\uffff\1\61\1\uffff\2\61\1\u0169\1\u016a\2\61\1\u016d\1\u016e\7\uffff\1\164\1\u00f7\1\u00f4\3\61\2\uffff\2\61\1\u0176\1\61\1\u0178\4\61\1\uffff\2\61\1\u017f\1\u0180\1\u0181\2\uffff\1\u0182\1\u0183\3\uffff\1\157\4\61\1\u0188\1\uffff\1\61\1\uffff\3\61\1\u018d\1\u018e\1\u018f\5\uffff\2\61\1\u0193\1\61\1\uffff\1\u0195\1\u0196\1\u0197\1\u0198\3\uffff\1\61\1\u019a\1\u019b\1\uffff\1\u019c\4\uffff\1\u019d\4\uffff";
+    static final String DFA49_eofS =
         "\u019e\uffff";
-    static final String DFA51_minS =
-        "\1\11\14\42\1\101\4\42\1\75\1\55\1\56\1\42\1\41\1\72\1\41\10\uffff\1\42\2\uffff\2\41\1\0\1\42\1\0\1\uffff\2\43\2\uffff\3\42\1\uffff\12\42\1\uffff\16\42\1\117\1\114\6\42\6\uffff\1\74\1\uffff\1\42\1\uffff\1\41\3\uffff\1\41\1\uffff\1\42\3\uffff\2\42\2\0\1\44\1\0\2\60\1\uffff\2\60\1\53\1\uffff\1\60\3\42\2\uffff\1\42\1\uffff\31\42\1\uffff\6\42\1\115\1\114\2\42\1\uffff\3\42\3\uffff\2\42\4\uffff\2\0\1\uffff\1\0\1\uffff\2\0\2\60\1\uffff\2\43\3\60\3\42\1\uffff\1\0\11\42\1\uffff\7\42\1\uffff\17\42\1\105\1\60\1\42\1\uffff\3\42\2\uffff\2\0\2\uffff\1\53\1\60\1\43\1\101\1\60\1\uffff\1\60\1\53\1\uffff\3\42\1\0\1\44\1\0\4\42\1\uffff\2\42\1\uffff\24\42\1\uffff\2\42\1\uffff\1\60\1\uffff\3\42\1\uffff\1\0\1\53\3\60\3\42\1\0\1\uffff\2\0\3\42\1\uffff\3\42\1\uffff\1\42\1\uffff\3\42\1\uffff\2\42\1\uffff\1\42\1\uffff\10\42\5\uffff\1\0\2\60\1\53\1\60\3\42\1\0\1\uffff\11\42\1\uffff\5\42\2\uffff\2\42\2\uffff\1\0\1\60\5\42\1\uffff\1\42\1\uffff\6\42\5\uffff\4\42\1\uffff\4\42\3\uffff\3\42\1\uffff\1\42\4\uffff\1\42\4\uffff";
-    static final String DFA51_maxS =
-        "\1\u2aff\21\172\1\75\1\76\1\56\1\172\1\u2aff\1\72\1\u2aff\10\uffff\1\172\2\uffff\2\u2aff\1\uffff\1\172\1\uffff\1\uffff\2\172\2\uffff\3\172\1\uffff\1\71\11\172\1\uffff\16\172\1\157\1\154\6\172\6\uffff\1\74\1\uffff\1\172\1\uffff\1\u2aff\3\uffff\1\u2aff\1\uffff\1\172\3\uffff\1\42\1\165\2\uffff\1\44\1\uffff\1\146\1\137\1\uffff\1\71\1\146\1\71\1\uffff\1\71\3\172\2\uffff\1\42\1\uffff\31\172\1\uffff\6\172\1\155\1\154\2\172\1\uffff\3\172\3\uffff\2\172\4\uffff\2\uffff\1\uffff\1\uffff\1\uffff\2\uffff\2\172\1\uffff\1\145\1\146\2\71\4\172\1\uffff\1\uffff\11\172\1\uffff\7\172\1\uffff\17\172\1\145\2\172\1\uffff\3\172\2\uffff\2\uffff\2\uffff\1\71\2\146\2\172\1\uffff\2\71\1\uffff\3\172\1\uffff\1\44\1\uffff\4\172\1\uffff\2\172\1\uffff\24\172\1\uffff\2\172\1\uffff\1\172\1\uffff\3\172\1\uffff\1\uffff\1\71\1\145\2\71\3\172\1\uffff\1\uffff\2\uffff\3\172\1\uffff\3\172\1\uffff\1\172\1\uffff\3\172\1\uffff\2\172\1\uffff\1\172\1\uffff\10\172\5\uffff\1\uffff\3\71\4\172\1\uffff\1\uffff\11\172\1\uffff\5\172\2\uffff\2\172\2\uffff\1\uffff\6\172\1\uffff\1\172\1\uffff\6\172\5\uffff\4\172\1\uffff\4\172\3\uffff\3\172\1\uffff\1\172\4\uffff\1\172\4\uffff";
-    static final String DFA51_acceptS =
-        "\31\uffff\1\76\1\77\1\100\1\102\1\106\1\110\1\113\1\114\1\uffff\1\116\1\117\5\uffff\1\132\2\uffff\1\142\1\144\3\uffff\1\143\12\uffff\1\111\26\uffff\1\112\1\53\1\101\1\54\1\137\1\103\1\uffff\1\104\1\uffff\1\65\1\uffff\1\105\1\131\1\67\1\uffff\1\107\1\uffff\1\115\1\120\1\121\10\uffff\1\141\3\uffff\1\135\4\uffff\1\74\1\73\1\uffff\1\125\31\uffff\1\71\12\uffff\1\72\3\uffff\1\75\1\55\1\64\2\uffff\1\66\1\70\1\123\1\122\2\uffff\1\122\1\uffff\1\127\4\uffff\1\134\10\uffff\1\60\12\uffff\1\57\7\uffff\1\61\22\uffff\1\56\3\uffff\1\62\1\63\2\uffff\1\130\1\133\5\uffff\1\140\2\uffff\1\136\12\uffff\1\46\2\uffff\1\47\24\uffff\1\50\2\uffff\1\51\1\uffff\1\45\3\uffff\1\52\11\uffff\1\126\5\uffff\1\33\3\uffff\1\35\1\uffff\1\36\3\uffff\1\41\2\uffff\1\40\1\uffff\1\37\10\uffff\1\42\1\32\1\34\1\43\1\44\11\uffff\1\124\11\uffff\1\30\5\uffff\1\25\1\26\2\uffff\1\27\1\31\7\uffff\1\21\1\uffff\1\22\6\uffff\1\16\1\24\1\17\1\20\1\23\4\uffff\1\13\4\uffff\1\15\1\12\1\14\3\uffff\1\10\1\uffff\1\5\1\6\1\7\1\11\1\uffff\1\3\1\4\1\2\1\1";
-    static final String DFA51_specialS =
-        "\46\uffff\1\22\1\uffff\1\2\100\uffff\1\0\1\4\1\uffff\1\23\100\uffff\1\25\1\17\1\uffff\1\7\1\uffff\1\10\1\16\14\uffff\1\24\52\uffff\1\3\1\11\16\uffff\1\12\1\uffff\1\21\46\uffff\1\5\7\uffff\1\13\1\uffff\1\14\1\1\40\uffff\1\6\7\uffff\1\15\26\uffff\1\20\56\uffff}>";
-    static final String[] DFA51_transitionS = DFA51_transitionS_.DFA51_transitionS;
-    private static final class DFA51_transitionS_ {
-        static final String[] DFA51_transitionS = {
+    static final String DFA49_minS =
+        "\1\11\14\42\1\101\4\42\1\75\1\55\1\56\1\42\1\41\1\72\1\41\10\uffff\1\42\2\uffff\2\41\1\0\1\42\1\0\1\uffff\2\43\2\uffff\3\42\1\uffff\1\0\11\42\1\uffff\16\42\1\117\1\114\6\42\6\uffff\1\74\1\uffff\1\42\1\uffff\1\41\3\uffff\1\41\2\uffff\1\42\2\uffff\2\42\2\0\1\44\1\0\2\60\1\uffff\2\60\1\53\1\60\1\uffff\3\42\2\uffff\1\42\1\uffff\31\42\1\uffff\6\42\1\115\1\114\2\42\1\uffff\3\42\3\uffff\2\42\4\uffff\2\0\1\uffff\1\0\1\uffff\2\0\2\60\1\uffff\2\43\3\60\3\42\1\uffff\1\0\11\42\1\uffff\7\42\1\uffff\17\42\1\105\1\60\1\42\1\uffff\3\42\2\uffff\2\0\2\uffff\1\53\1\60\1\43\1\101\1\60\1\uffff\1\60\1\53\1\uffff\3\42\1\0\1\44\1\0\4\42\1\uffff\2\42\1\uffff\24\42\1\uffff\2\42\1\uffff\1\60\1\uffff\3\42\1\uffff\1\0\1\53\3\60\3\42\1\0\1\uffff\2\0\3\42\1\uffff\3\42\1\uffff\1\42\1\uffff\3\42\1\uffff\2\42\1\uffff\1\42\1\uffff\10\42\5\uffff\1\0\2\60\1\53\1\60\3\42\1\0\1\uffff\11\42\1\uffff\5\42\2\uffff\2\42\2\uffff\1\0\1\60\5\42\1\uffff\1\42\1\uffff\6\42\5\uffff\4\42\1\uffff\4\42\3\uffff\3\42\1\uffff\1\42\4\uffff\1\42\4\uffff";
+    static final String DFA49_maxS =
+        "\1\u2aff\21\172\1\75\1\76\1\56\1\172\1\u2aff\1\72\1\u2aff\10\uffff\1\172\2\uffff\2\u2aff\1\uffff\1\172\1\uffff\1\uffff\2\172\2\uffff\3\172\1\uffff\1\uffff\11\172\1\uffff\16\172\1\157\1\154\6\172\6\uffff\1\74\1\uffff\1\172\1\uffff\1\u2aff\3\uffff\1\u2aff\2\uffff\1\172\2\uffff\1\42\1\165\2\uffff\1\44\1\uffff\1\146\1\137\1\uffff\1\71\1\146\2\71\1\uffff\3\172\2\uffff\1\42\1\uffff\31\172\1\uffff\6\172\1\155\1\154\2\172\1\uffff\3\172\3\uffff\2\172\4\uffff\2\uffff\1\uffff\1\uffff\1\uffff\2\uffff\2\172\1\uffff\1\145\1\146\2\71\4\172\1\uffff\1\uffff\11\172\1\uffff\7\172\1\uffff\17\172\1\145\2\172\1\uffff\3\172\2\uffff\2\uffff\2\uffff\1\71\2\146\2\172\1\uffff\2\71\1\uffff\3\172\1\uffff\1\44\1\uffff\4\172\1\uffff\2\172\1\uffff\24\172\1\uffff\2\172\1\uffff\1\172\1\uffff\3\172\1\uffff\1\uffff\1\71\1\145\2\71\3\172\1\uffff\1\uffff\2\uffff\3\172\1\uffff\3\172\1\uffff\1\172\1\uffff\3\172\1\uffff\2\172\1\uffff\1\172\1\uffff\10\172\5\uffff\1\uffff\3\71\4\172\1\uffff\1\uffff\11\172\1\uffff\5\172\2\uffff\2\172\2\uffff\1\uffff\6\172\1\uffff\1\172\1\uffff\6\172\5\uffff\4\172\1\uffff\4\172\3\uffff\3\172\1\uffff\1\172\4\uffff\1\172\4\uffff";
+    static final String DFA49_acceptS =
+        "\31\uffff\1\76\1\77\1\100\1\102\1\106\1\110\1\113\1\114\1\uffff\1\116\1\117\5\uffff\1\132\2\uffff\1\142\1\144\3\uffff\1\143\12\uffff\1\111\26\uffff\1\112\1\53\1\101\1\54\1\137\1\103\1\uffff\1\104\1\uffff\1\65\1\uffff\1\105\1\131\1\67\1\uffff\1\107\1\115\1\uffff\1\120\1\121\10\uffff\1\141\4\uffff\1\135\3\uffff\1\74\1\73\1\uffff\1\125\31\uffff\1\71\12\uffff\1\72\3\uffff\1\75\1\55\1\64\2\uffff\1\66\1\70\1\123\1\122\2\uffff\1\122\1\uffff\1\127\4\uffff\1\134\10\uffff\1\60\12\uffff\1\57\7\uffff\1\61\22\uffff\1\56\3\uffff\1\62\1\63\2\uffff\1\130\1\133\5\uffff\1\140\2\uffff\1\136\12\uffff\1\46\2\uffff\1\47\24\uffff\1\50\2\uffff\1\51\1\uffff\1\45\3\uffff\1\52\11\uffff\1\126\5\uffff\1\33\3\uffff\1\35\1\uffff\1\36\3\uffff\1\41\2\uffff\1\40\1\uffff\1\37\10\uffff\1\42\1\32\1\34\1\43\1\44\11\uffff\1\124\11\uffff\1\30\5\uffff\1\25\1\26\2\uffff\1\27\1\31\7\uffff\1\21\1\uffff\1\22\6\uffff\1\16\1\24\1\17\1\20\1\23\4\uffff\1\13\4\uffff\1\15\1\12\1\14\3\uffff\1\10\1\uffff\1\5\1\6\1\7\1\11\1\uffff\1\3\1\4\1\2\1\1";
+    static final String DFA49_specialS =
+        "\46\uffff\1\14\1\uffff\1\17\11\uffff\1\13\66\uffff\1\26\1\22\1\uffff\1\20\100\uffff\1\21\1\10\1\uffff\1\23\1\uffff\1\24\1\11\14\uffff\1\16\52\uffff\1\1\1\25\16\uffff\1\0\1\uffff\1\15\46\uffff\1\2\7\uffff\1\3\1\uffff\1\6\1\5\40\uffff\1\4\7\uffff\1\7\26\uffff\1\12\56\uffff}>";
+    static final String[] DFA49_transitionS = DFA49_transitionS_.DFA49_transitionS;
+    private static final class DFA49_transitionS_ {
+        static final String[] DFA49_transitionS = {
                 "\2\55\2\uffff\1\55\22\uffff\1\55\1\51\1\46\1\uffff\1\50\2\51\1\54\1\31\1\32\1\33\1\22\1\34\1\23\1\24\1\51\1\52\11\53\1\26\1\35\1\27\1\30\1\51\1\36\1\uffff\1\10\1\11\1\2\1\16\1\3\1\4\1\5\1\13\1\1\2\47\1\12\1\7\4\47\1\6\1\14\1\21\1\47\1\25\1\17\1\47\1\20\1\47\1\37\1\15\1\40\1\51\1\41\1\uffff\1\10\1\11\1\2\1\16\1\3\1\4\1\5\1\13\1\1\2\47\1\12\1\7\4\47\1\6\1\14\1\21\1\47\1\25\1\17\1\47\1\20\1\47\1\42\1\51\1\43\1\51\u2181\uffff\1\44\2\51\1\45\u00fc\51\u04c0\uffff\60\51\u0190\uffff\u0180\51",
                 "\1\62\15\uffff\12\60\7\uffff\5\60\1\57\7\60\1\56\14\60\6\uffff\5\60\1\57\7\60\1\56\14\60",
                 "\1\62\15\uffff\12\60\7\uffff\1\65\12\60\1\63\2\60\1\64\13\60\6\uffff\1\65\12\60\1\63\2\60\1\64\13\60",
@@ -7584,7 +7558,7 @@ public class InternalGumboLexer extends Lexer {
                 "",
                 "",
                 "",
-                "\1\62\15\uffff\12\143\7\uffff\32\143\6\uffff\32\143",
+                "\1\62\15\uffff\12\144\7\uffff\32\144\6\uffff\32\144",
                 "",
                 "",
                 "\1\51\3\uffff\2\51\10\uffff\1\51\14\uffff\3\51\37\uffff\1\51\35\uffff\1\51\1\uffff\1\51\u2181\uffff\u0100\51\u04c0\uffff\60\51\u0190\uffff\u0180\51",
@@ -7593,15 +7567,15 @@ public class InternalGumboLexer extends Lexer {
                 "\1\62\15\uffff\12\60\7\uffff\32\60\6\uffff\32\60",
                 "\42\152\1\154\1\152\1\153\uffdb\152",
                 "",
-                "\1\161\12\uffff\1\164\1\uffff\12\53\7\uffff\4\163\1\162\25\163\4\uffff\1\160\1\uffff\1\163\1\156\2\163\1\162\22\163\1\155\2\163",
-                "\1\161\12\uffff\1\164\1\uffff\12\53\7\uffff\4\163\1\162\25\163\4\uffff\1\160\1\uffff\4\163\1\162\25\163",
+                "\1\161\12\uffff\1\163\1\uffff\12\53\7\uffff\4\164\1\162\25\164\4\uffff\1\160\1\uffff\1\164\1\156\2\164\1\162\22\164\1\155\2\164",
+                "\1\161\12\uffff\1\163\1\uffff\12\53\7\uffff\4\164\1\162\25\164\4\uffff\1\160\1\uffff\4\164\1\162\25\164",
                 "",
                 "",
                 "\1\62\15\uffff\12\60\7\uffff\10\60\1\166\12\60\1\165\1\60\1\167\4\60\4\uffff\1\61\1\uffff\10\60\1\166\12\60\1\165\1\60\1\167\4\60",
                 "\1\62\15\uffff\12\60\7\uffff\32\60\4\uffff\1\61\1\uffff\32\60",
                 "\1\62\15\uffff\12\60\7\uffff\32\60\6\uffff\32\60",
                 "",
-                "\1\172\15\uffff\12\173",
+                "\42\173\1\172\uffdd\173",
                 "\1\62\15\uffff\12\60\7\uffff\1\174\31\60\6\uffff\1\174\31\60",
                 "\1\62\15\uffff\12\60\7\uffff\14\60\1\176\1\175\14\60\6\uffff\14\60\1\176\1\175\14\60",
                 "\1\62\15\uffff\12\60\7\uffff\22\60\1\177\7\60\6\uffff\22\60\1\177\7\60",
@@ -7650,8 +7624,8 @@ public class InternalGumboLexer extends Lexer {
                 "",
                 "\1\51\3\uffff\2\51\10\uffff\1\51\14\uffff\3\51\37\uffff\1\51\35\uffff\1\51\1\uffff\1\51\u2181\uffff\u0100\51\u04c0\uffff\60\51\u0190\uffff\u0180\51",
                 "",
-                "\1\62\15\uffff\12\143\7\uffff\32\143\6\uffff\32\143",
                 "",
+                "\1\62\15\uffff\12\144\7\uffff\32\144\6\uffff\32\144",
                 "",
                 "",
                 "\1\u00ab",
@@ -7666,8 +7640,8 @@ public class InternalGumboLexer extends Lexer {
                 "\12\u00b7",
                 "\12\u00b8\7\uffff\6\u00b8\32\uffff\6\u00b8",
                 "\1\u00b9\4\uffff\12\u00ba",
-                "",
                 "\12\u00bb",
+                "",
                 "\1\62\15\uffff\12\60\7\uffff\4\60\1\u00bc\25\60\6\uffff\4\60\1\u00bc\25\60",
                 "\1\62\15\uffff\12\60\7\uffff\23\60\1\u00bd\6\60\6\uffff\23\60\1\u00bd\6\60",
                 "\1\62\15\uffff\12\60\7\uffff\1\u00be\31\60\4\uffff\1\61\1\uffff\1\u00be\31\60",
@@ -7731,10 +7705,10 @@ public class InternalGumboLexer extends Lexer {
                 "",
                 "\42\152\1\154\1\152\1\153\uffdb\152",
                 "\42\u00ec\1\u00ed\uffdd\u00ec",
-                "\12\u00b4\7\uffff\6\u00b4\24\163\6\uffff\6\u00b4\24\163",
-                "\2\u00b5\10\163\7\uffff\32\163\6\uffff\32\163",
+                "\12\u00b4\7\uffff\6\u00b4\24\164\6\uffff\6\u00b4\24\164",
+                "\2\u00b5\10\164\7\uffff\32\164\6\uffff\32\164",
                 "",
-                "\1\161\12\uffff\1\164\1\uffff\12\u00b7\13\uffff\1\u00ef\31\uffff\1\160\5\uffff\1\u00ef",
+                "\1\161\12\uffff\1\163\1\uffff\12\u00b7\13\uffff\1\u00ef\31\uffff\1\160\5\uffff\1\u00ef",
                 "\1\u00f2\14\uffff\12\u00f1\7\uffff\6\u00f1\30\uffff\1\u00f0\1\uffff\6\u00f1",
                 "\12\u00f3",
                 "\12\u00ba",
@@ -7793,8 +7767,8 @@ public class InternalGumboLexer extends Lexer {
                 "\1\u00b9\4\uffff\12\u00ba",
                 "\12\u00f1\7\uffff\6\u00f1\32\uffff\6\u00f1",
                 "\1\u00f2\14\uffff\12\u00f1\7\uffff\6\u00f1\30\uffff\1\u00f0\1\uffff\6\u00f1",
-                "\4\163\1\u0125\25\163\4\uffff\1\163\1\uffff\4\163\1\u0125\25\163",
-                "\12\u00f3\7\uffff\32\163\4\uffff\1\163\1\uffff\32\163",
+                "\4\164\1\u0125\25\164\4\uffff\1\164\1\uffff\4\164\1\u0125\25\164",
+                "\12\u00f3\7\uffff\32\164\4\uffff\1\164\1\uffff\32\164",
                 "",
                 "\12\u0126",
                 "\1\u0127\1\uffff\1\u0127\2\uffff\12\u0128",
@@ -7844,7 +7818,7 @@ public class InternalGumboLexer extends Lexer {
                 "\1\62\15\uffff\12\60\7\uffff\32\60\4\uffff\1\61\1\uffff\32\60",
                 "",
                 "\60\54\12\u0150\7\54\6\u0150\32\54\6\u0150\uff99\54",
-                "\1\u0152\4\uffff\12\u0151",
+                "\1\u0151\4\uffff\12\u0152",
                 "\12\u0126\13\uffff\1\u0153\31\uffff\1\u00f5\5\uffff\1\u0153",
                 "\12\u0154",
                 "\12\u0128",
@@ -7888,8 +7862,8 @@ public class InternalGumboLexer extends Lexer {
                 "",
                 "",
                 "\60\54\12\u016f\7\54\6\u016f\32\54\6\u016f\uff99\54",
-                "\12\u0151",
                 "\12\u0170",
+                "\12\u0152",
                 "\1\u0127\1\uffff\1\u0127\2\uffff\12\u0128",
                 "\12\u0154\7\uffff\32\u00f7\4\uffff\1\u00f7\1\uffff\32\u00f7",
                 "\1\62\15\uffff\12\60\7\uffff\23\60\1\u0171\6\60\6\uffff\23\60\1\u0171\6\60",
@@ -7919,7 +7893,7 @@ public class InternalGumboLexer extends Lexer {
                 "",
                 "",
                 "\42\151\1\u00af\71\151\1\150\uffa3\151",
-                "\12\u0170\7\uffff\32\163\4\uffff\1\163\1\uffff\32\163",
+                "\12\u0170\7\uffff\32\164\4\uffff\1\164\1\uffff\32\164",
                 "\1\62\15\uffff\12\60\7\uffff\10\60\1\u0184\21\60\6\uffff\10\60\1\u0184\21\60",
                 "\1\62\15\uffff\12\60\7\uffff\31\60\1\u0185\6\uffff\31\60\1\u0185",
                 "\1\62\15\uffff\12\60\7\uffff\23\60\1\u0186\6\60\6\uffff\23\60\1\u0186\6\60",
@@ -7968,34 +7942,34 @@ public class InternalGumboLexer extends Lexer {
         };
     }
 
-    static final short[] DFA51_eot = DFA.unpackEncodedString(DFA51_eotS);
-    static final short[] DFA51_eof = DFA.unpackEncodedString(DFA51_eofS);
-    static final char[] DFA51_min = DFA.unpackEncodedStringToUnsignedChars(DFA51_minS);
-    static final char[] DFA51_max = DFA.unpackEncodedStringToUnsignedChars(DFA51_maxS);
-    static final short[] DFA51_accept = DFA.unpackEncodedString(DFA51_acceptS);
-    static final short[] DFA51_special = DFA.unpackEncodedString(DFA51_specialS);
-    static final short[][] DFA51_transition;
+    static final short[] DFA49_eot = DFA.unpackEncodedString(DFA49_eotS);
+    static final short[] DFA49_eof = DFA.unpackEncodedString(DFA49_eofS);
+    static final char[] DFA49_min = DFA.unpackEncodedStringToUnsignedChars(DFA49_minS);
+    static final char[] DFA49_max = DFA.unpackEncodedStringToUnsignedChars(DFA49_maxS);
+    static final short[] DFA49_accept = DFA.unpackEncodedString(DFA49_acceptS);
+    static final short[] DFA49_special = DFA.unpackEncodedString(DFA49_specialS);
+    static final short[][] DFA49_transition;
 
     static {
-        int numStates = DFA51_transitionS.length;
-        DFA51_transition = new short[numStates][];
+        int numStates = DFA49_transitionS.length;
+        DFA49_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA51_transition[i] = DFA.unpackEncodedString(DFA51_transitionS[i]);
+            DFA49_transition[i] = DFA.unpackEncodedString(DFA49_transitionS[i]);
         }
     }
 
-    static class DFA51 extends DFA {
+    static class DFA49 extends DFA {
 
-        public DFA51(BaseRecognizer recognizer) {
+        public DFA49(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 51;
-            this.eot = DFA51_eot;
-            this.eof = DFA51_eof;
-            this.min = DFA51_min;
-            this.max = DFA51_max;
-            this.accept = DFA51_accept;
-            this.special = DFA51_special;
-            this.transition = DFA51_transition;
+            this.decisionNumber = 49;
+            this.eot = DFA49_eot;
+            this.eof = DFA49_eof;
+            this.min = DFA49_min;
+            this.max = DFA49_max;
+            this.accept = DFA49_accept;
+            this.special = DFA49_special;
+            this.transition = DFA49_transition;
         }
         public String getDescription() {
             return "1:1: Tokens : ( Integration | Classifier | Initialize | Invariants | Extension | Functions | Guarantee | Invariant | Reference | MustSend | Constant | Modifies | Requires | MaySend | Applies | Binding | Compute | Ensures | Library | Memoize | Assert | Assume | Handle | Return | Strict | Some | Cases | Delta | False | Gumbo | Match | Modes | Reads | State | While | Yield | All | Case | Else | Halt | Spec | True | PlusSignEqualsSignGreaterThanSign | HyphenMinusGreaterThanSignColon | FullStopFullStopLessThanSign | Def | For | Inv | Mut | Val | Var | FullStopFullStop | ColonColon | ColonEqualsSign | LessThanSignColon | EqualsSignGreaterThanSign | By | Do | If | In_1 | To | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Colon | Semicolon | EqualsSign | QuestionMark | F | T | LeftSquareBracket | RightSquareBracket | KW__ | LeftCurlyBracket | RightCurlyBracket | ForAll | ThereExists | RULE_SLANG_STRING | RULE_MSTRING | RULE_MSP | RULE_SLI | RULE_MSPB | RULE_MSPM | RULE_MSPE | RULE_DEFOP | RULE_OP | RULE_HEX | RULE_BIN | RULE_INT_IDF | RULE_REAL_IDF | RULE_SL_COMMENT | RULE_REAL_LIT | RULE_INTEGER_LIT | RULE_STRING | RULE_ID | RULE_WS );";
@@ -8005,256 +7979,266 @@ public class InternalGumboLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA51_105 = input.LA(1);
+                        int LA49_251 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_105=='\"') ) {s = 175;}
+                        if ( (LA49_251=='$') ) {s = 252;}
 
-                        else if ( (LA51_105=='\\') ) {s = 104;}
+                        else if ( ((LA49_251>='\u0000' && LA49_251<='!')||LA49_251=='#'||(LA49_251>='%' && LA49_251<='\uFFFF')) ) {s = 251;}
 
-                        else if ( ((LA51_105>='\u0000' && LA51_105<='!')||(LA51_105>='#' && LA51_105<='[')||(LA51_105>=']' && LA51_105<='\uFFFF')) ) {s = 105;}
+                        else if ( (LA49_251=='\"') ) {s = 253;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA51_303 = input.LA(1);
+                        int LA49_235 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_303>='\u0000' && LA51_303<='!')||(LA51_303>='#' && LA51_303<='\uFFFF')) ) {s = 344;}
+                        if ( ((LA49_235>='\u0000' && LA49_235<='/')||(LA49_235>=':' && LA49_235<='@')||(LA49_235>='G' && LA49_235<='`')||(LA49_235>='g' && LA49_235<='\uFFFF')) ) {s = 44;}
 
-                        else if ( (LA51_303=='\"') ) {s = 345;}
+                        else if ( ((LA49_235>='0' && LA49_235<='9')||(LA49_235>='A' && LA49_235<='F')||(LA49_235>='a' && LA49_235<='f')) ) {s = 292;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA51_40 = input.LA(1);
+                        int LA49_292 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_40>='\u0000' && LA51_40<='!')||LA51_40=='#'||(LA51_40>='%' && LA51_40<='\uFFFF')) ) {s = 106;}
+                        if ( ((LA49_292>='\u0000' && LA49_292<='/')||(LA49_292>=':' && LA49_292<='@')||(LA49_292>='G' && LA49_292<='`')||(LA49_292>='g' && LA49_292<='\uFFFF')) ) {s = 44;}
 
-                        else if ( (LA51_40=='$') ) {s = 107;}
-
-                        else if ( (LA51_40=='\"') ) {s = 108;}
+                        else if ( ((LA49_292>='0' && LA49_292<='9')||(LA49_292>='A' && LA49_292<='F')||(LA49_292>='a' && LA49_292<='f')) ) {s = 336;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA51_235 = input.LA(1);
+                        int LA49_300 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_235>='0' && LA51_235<='9')||(LA51_235>='A' && LA51_235<='F')||(LA51_235>='a' && LA51_235<='f')) ) {s = 292;}
+                        if ( (LA49_300=='\"') ) {s = 253;}
 
-                        else if ( ((LA51_235>='\u0000' && LA51_235<='/')||(LA51_235>=':' && LA51_235<='@')||(LA51_235>='G' && LA51_235<='`')||(LA51_235>='g' && LA51_235<='\uFFFF')) ) {s = 44;}
+                        else if ( ((LA49_300>='\u0000' && LA49_300<='!')||LA49_300=='#'||(LA49_300>='%' && LA49_300<='\uFFFF')) ) {s = 251;}
+
+                        else if ( (LA49_300=='$') ) {s = 252;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA51_106 = input.LA(1);
+                        int LA49_336 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_106=='\"') ) {s = 108;}
+                        if ( ((LA49_336>='\u0000' && LA49_336<='/')||(LA49_336>=':' && LA49_336<='@')||(LA49_336>='G' && LA49_336<='`')||(LA49_336>='g' && LA49_336<='\uFFFF')) ) {s = 44;}
 
-                        else if ( ((LA51_106>='\u0000' && LA51_106<='!')||LA51_106=='#'||(LA51_106>='%' && LA51_106<='\uFFFF')) ) {s = 106;}
-
-                        else if ( (LA51_106=='$') ) {s = 107;}
+                        else if ( ((LA49_336>='0' && LA49_336<='9')||(LA49_336>='A' && LA49_336<='F')||(LA49_336>='a' && LA49_336<='f')) ) {s = 367;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA51_292 = input.LA(1);
+                        int LA49_303 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_292>='0' && LA51_292<='9')||(LA51_292>='A' && LA51_292<='F')||(LA51_292>='a' && LA51_292<='f')) ) {s = 336;}
+                        if ( ((LA49_303>='\u0000' && LA49_303<='!')||(LA49_303>='#' && LA49_303<='\uFFFF')) ) {s = 344;}
 
-                        else if ( ((LA51_292>='\u0000' && LA51_292<='/')||(LA51_292>=':' && LA51_292<='@')||(LA51_292>='G' && LA51_292<='`')||(LA51_292>='g' && LA51_292<='\uFFFF')) ) {s = 44;}
+                        else if ( (LA49_303=='\"') ) {s = 345;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA51_336 = input.LA(1);
+                        int LA49_302 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_336>='\u0000' && LA51_336<='/')||(LA51_336>=':' && LA51_336<='@')||(LA51_336>='G' && LA51_336<='`')||(LA51_336>='g' && LA51_336<='\uFFFF')) ) {s = 44;}
+                        if ( (LA49_302=='$') ) {s = 252;}
 
-                        else if ( ((LA51_336>='0' && LA51_336<='9')||(LA51_336>='A' && LA51_336<='F')||(LA51_336>='a' && LA51_336<='f')) ) {s = 367;}
+                        else if ( ((LA49_302>='\u0000' && LA49_302<='!')||LA49_302=='#'||(LA49_302>='%' && LA49_302<='\uFFFF')) ) {s = 251;}
+
+                        else if ( (LA49_302=='\"') ) {s = 253;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA51_176 = input.LA(1);
+                        int LA49_344 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_176=='\"') ) {s = 108;}
+                        if ( (LA49_344=='$') ) {s = 252;}
 
-                        else if ( ((LA51_176>='\u0000' && LA51_176<='!')||LA51_176=='#'||(LA51_176>='%' && LA51_176<='\uFFFF')) ) {s = 106;}
+                        else if ( ((LA49_344>='\u0000' && LA49_344<='!')||LA49_344=='#'||(LA49_344>='%' && LA49_344<='\uFFFF')) ) {s = 251;}
 
-                        else if ( (LA51_176=='$') ) {s = 107;}
+                        else if ( (LA49_344=='\"') ) {s = 253;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA51_178 = input.LA(1);
+                        int LA49_174 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_178=='\"') ) {s = 108;}
+                        if ( ((LA49_174>='0' && LA49_174<='9')||(LA49_174>='A' && LA49_174<='F')||(LA49_174>='a' && LA49_174<='f')) ) {s = 235;}
 
-                        else if ( ((LA51_178>='\u0000' && LA51_178<='!')||LA51_178=='#'||(LA51_178>='%' && LA51_178<='\uFFFF')) ) {s = 106;}
-
-                        else if ( (LA51_178=='$') ) {s = 107;}
+                        else if ( ((LA49_174>='\u0000' && LA49_174<='/')||(LA49_174>=':' && LA49_174<='@')||(LA49_174>='G' && LA49_174<='`')||(LA49_174>='g' && LA49_174<='\uFFFF')) ) {s = 44;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA51_236 = input.LA(1);
+                        int LA49_179 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_236=='\"') ) {s = 108;}
+                        if ( ((LA49_179>='\u0000' && LA49_179<='!')||(LA49_179>='#' && LA49_179<='\uFFFF')) ) {s = 236;}
 
-                        else if ( ((LA51_236>='\u0000' && LA51_236<='!')||LA51_236=='#'||(LA51_236>='%' && LA51_236<='\uFFFF')) ) {s = 106;}
-
-                        else if ( (LA51_236=='$') ) {s = 107;}
+                        else if ( (LA49_179=='\"') ) {s = 237;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA51_251 = input.LA(1);
+                        int LA49_367 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_251=='\"') ) {s = 253;}
+                        if ( (LA49_367=='\"') ) {s = 175;}
 
-                        else if ( ((LA51_251>='\u0000' && LA51_251<='!')||LA51_251=='#'||(LA51_251>='%' && LA51_251<='\uFFFF')) ) {s = 251;}
+                        else if ( (LA49_367=='\\') ) {s = 104;}
 
-                        else if ( (LA51_251=='$') ) {s = 252;}
+                        else if ( ((LA49_367>='\u0000' && LA49_367<='!')||(LA49_367>='#' && LA49_367<='[')||(LA49_367>=']' && LA49_367<='\uFFFF')) ) {s = 105;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA51_300 = input.LA(1);
+                        int LA49_50 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_300=='\"') ) {s = 253;}
+                        if ( (LA49_50=='\"') ) {s = 122;}
 
-                        else if ( ((LA51_300>='\u0000' && LA51_300<='!')||LA51_300=='#'||(LA51_300>='%' && LA51_300<='\uFFFF')) ) {s = 251;}
-
-                        else if ( (LA51_300=='$') ) {s = 252;}
+                        else if ( ((LA49_50>='\u0000' && LA49_50<='!')||(LA49_50>='#' && LA49_50<='\uFFFF')) ) {s = 123;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA51_302 = input.LA(1);
+                        int LA49_38 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_302=='\"') ) {s = 253;}
+                        if ( (LA49_38=='\"') ) {s = 103;}
 
-                        else if ( ((LA51_302>='\u0000' && LA51_302<='!')||LA51_302=='#'||(LA51_302>='%' && LA51_302<='\uFFFF')) ) {s = 251;}
+                        else if ( (LA49_38=='\\') ) {s = 104;}
 
-                        else if ( (LA51_302=='$') ) {s = 252;}
+                        else if ( ((LA49_38>='\u0000' && LA49_38<='!')||(LA49_38>='#' && LA49_38<='[')||(LA49_38>=']' && LA49_38<='\uFFFF')) ) {s = 105;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA51_344 = input.LA(1);
+                        int LA49_253 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_344=='\"') ) {s = 253;}
+                        if ( ((LA49_253>='\u0000' && LA49_253<='!')||(LA49_253>='#' && LA49_253<='\uFFFF')) ) {s = 302;}
 
-                        else if ( ((LA51_344>='\u0000' && LA51_344<='!')||LA51_344=='#'||(LA51_344>='%' && LA51_344<='\uFFFF')) ) {s = 251;}
-
-                        else if ( (LA51_344=='$') ) {s = 252;}
+                        else if ( (LA49_253=='\"') ) {s = 303;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA51_179 = input.LA(1);
+                        int LA49_192 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_179>='\u0000' && LA51_179<='!')||(LA51_179>='#' && LA51_179<='\uFFFF')) ) {s = 236;}
+                        if ( ((LA49_192>='\u0000' && LA49_192<='!')||LA49_192=='#'||(LA49_192>='%' && LA49_192<='\uFFFF')) ) {s = 251;}
 
-                        else if ( (LA51_179=='\"') ) {s = 237;}
+                        else if ( (LA49_192=='$') ) {s = 252;}
+
+                        else if ( (LA49_192=='\"') ) {s = 253;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA51_174 = input.LA(1);
+                        int LA49_40 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_174>='\u0000' && LA51_174<='/')||(LA51_174>=':' && LA51_174<='@')||(LA51_174>='G' && LA51_174<='`')||(LA51_174>='g' && LA51_174<='\uFFFF')) ) {s = 44;}
+                        if ( ((LA49_40>='\u0000' && LA49_40<='!')||LA49_40=='#'||(LA49_40>='%' && LA49_40<='\uFFFF')) ) {s = 106;}
 
-                        else if ( ((LA51_174>='0' && LA51_174<='9')||(LA51_174>='A' && LA51_174<='F')||(LA51_174>='a' && LA51_174<='f')) ) {s = 235;}
+                        else if ( (LA49_40=='$') ) {s = 107;}
+
+                        else if ( (LA49_40=='\"') ) {s = 108;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 16 : 
-                        int LA51_367 = input.LA(1);
+                        int LA49_108 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_367=='\"') ) {s = 175;}
+                        if ( ((LA49_108>='\u0000' && LA49_108<='!')||(LA49_108>='#' && LA49_108<='\uFFFF')) ) {s = 178;}
 
-                        else if ( (LA51_367=='\\') ) {s = 104;}
-
-                        else if ( ((LA51_367>='\u0000' && LA51_367<='!')||(LA51_367>='#' && LA51_367<='[')||(LA51_367>=']' && LA51_367<='\uFFFF')) ) {s = 105;}
+                        else if ( (LA49_108=='\"') ) {s = 179;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 17 : 
-                        int LA51_253 = input.LA(1);
+                        int LA49_173 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_253>='\u0000' && LA51_253<='!')||(LA51_253>='#' && LA51_253<='\uFFFF')) ) {s = 302;}
+                        if ( (LA49_173=='\"') ) {s = 175;}
 
-                        else if ( (LA51_253=='\"') ) {s = 303;}
+                        else if ( (LA49_173=='\\') ) {s = 104;}
+
+                        else if ( ((LA49_173>='\u0000' && LA49_173<='!')||(LA49_173>='#' && LA49_173<='[')||(LA49_173>=']' && LA49_173<='\uFFFF')) ) {s = 105;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 18 : 
-                        int LA51_38 = input.LA(1);
+                        int LA49_106 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_38=='\"') ) {s = 103;}
+                        if ( (LA49_106=='\"') ) {s = 108;}
 
-                        else if ( (LA51_38=='\\') ) {s = 104;}
+                        else if ( ((LA49_106>='\u0000' && LA49_106<='!')||LA49_106=='#'||(LA49_106>='%' && LA49_106<='\uFFFF')) ) {s = 106;}
 
-                        else if ( ((LA51_38>='\u0000' && LA51_38<='!')||(LA51_38>='#' && LA51_38<='[')||(LA51_38>=']' && LA51_38<='\uFFFF')) ) {s = 105;}
+                        else if ( (LA49_106=='$') ) {s = 107;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 19 : 
-                        int LA51_108 = input.LA(1);
+                        int LA49_176 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_108>='\u0000' && LA51_108<='!')||(LA51_108>='#' && LA51_108<='\uFFFF')) ) {s = 178;}
+                        if ( (LA49_176=='\"') ) {s = 108;}
 
-                        else if ( (LA51_108=='\"') ) {s = 179;}
+                        else if ( ((LA49_176>='\u0000' && LA49_176<='!')||LA49_176=='#'||(LA49_176>='%' && LA49_176<='\uFFFF')) ) {s = 106;}
+
+                        else if ( (LA49_176=='$') ) {s = 107;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 20 : 
-                        int LA51_192 = input.LA(1);
+                        int LA49_178 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA51_192>='\u0000' && LA51_192<='!')||LA51_192=='#'||(LA51_192>='%' && LA51_192<='\uFFFF')) ) {s = 251;}
+                        if ( (LA49_178=='\"') ) {s = 108;}
 
-                        else if ( (LA51_192=='$') ) {s = 252;}
+                        else if ( ((LA49_178>='\u0000' && LA49_178<='!')||LA49_178=='#'||(LA49_178>='%' && LA49_178<='\uFFFF')) ) {s = 106;}
 
-                        else if ( (LA51_192=='\"') ) {s = 253;}
+                        else if ( (LA49_178=='$') ) {s = 107;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 21 : 
-                        int LA51_173 = input.LA(1);
+                        int LA49_236 = input.LA(1);
 
                         s = -1;
-                        if ( (LA51_173=='\"') ) {s = 175;}
+                        if ( (LA49_236=='\"') ) {s = 108;}
 
-                        else if ( (LA51_173=='\\') ) {s = 104;}
+                        else if ( ((LA49_236>='\u0000' && LA49_236<='!')||LA49_236=='#'||(LA49_236>='%' && LA49_236<='\uFFFF')) ) {s = 106;}
 
-                        else if ( ((LA51_173>='\u0000' && LA51_173<='!')||(LA51_173>='#' && LA51_173<='[')||(LA51_173>=']' && LA51_173<='\uFFFF')) ) {s = 105;}
+                        else if ( (LA49_236=='$') ) {s = 107;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA49_105 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA49_105=='\"') ) {s = 175;}
+
+                        else if ( (LA49_105=='\\') ) {s = 104;}
+
+                        else if ( ((LA49_105>='\u0000' && LA49_105<='!')||(LA49_105>='#' && LA49_105<='[')||(LA49_105>=']' && LA49_105<='\uFFFF')) ) {s = 105;}
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 51, _s, input);
+                new NoViableAltException(getDescription(), 49, _s, input);
             error(nvae);
             throw nvae;
         }

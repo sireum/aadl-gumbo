@@ -189,7 +189,7 @@ RULE_MSTRING : '"""' (~('"')|'"' ~('"')|'""' ~('"'))* ('"""'|'""""'|'"""""');
 
 RULE_MSP : RULE_IDF '"""' RULE_MSPI* ('"""'|'""""'|'"""""');
 
-RULE_SLI : RULE_IDF '"' RULE_DIGIT RULE_DIGIT* ('.' RULE_DIGIT*)? '"';
+RULE_SLI : RULE_IDF '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
 
 RULE_MSPB : RULE_IDF '"""' RULE_MSPI* '$';
 

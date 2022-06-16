@@ -350,7 +350,7 @@ terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""
 
 terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
 
-terminal SLI: IDF '"' DIGIT (DIGIT* ('.' DIGIT*)? ) '"' ;
+terminal SLI: IDF '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 
 terminal MSPB: IDF '"""' MSPI* '$' ;
 

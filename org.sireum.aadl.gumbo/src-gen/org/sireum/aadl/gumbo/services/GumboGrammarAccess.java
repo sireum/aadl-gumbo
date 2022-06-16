@@ -5649,7 +5649,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return tMSP;
 	}
 	
-	//terminal SLI: IDF '"' DIGIT (DIGIT* ('.' DIGIT*)? ) '"' ;
+	//terminal SLI: IDF '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 	public TerminalRule getSLIRule() {
 		return tSLI;
 	}
