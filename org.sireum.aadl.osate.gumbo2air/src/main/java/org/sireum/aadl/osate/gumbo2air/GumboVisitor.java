@@ -230,47 +230,55 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseCompute(Compute object) {
 
 		List<Exp> modifies = new ArrayList<>();
-		for (Expr e : object.getModifies().getExprs()) {
-			visit(e);
-			modifies.add(pop());
+		if (object.getModifies() != null) {
+			for (Expr e : object.getModifies().getExprs()) {
+				visit(e);
+				modifies.add(pop());
+			}
 		}
 
 		List<GclHandle> handlers = new ArrayList<>();
-		for (HandlerClause hc : object.getHandlers()) {
-			visit(hc);
-			handlers.add(pop());
+		if (object.getHandlers() != null) {
+			for (HandlerClause hc : object.getHandlers()) {
+				visit(hc);
+				handlers.add(pop());
+			}
 		}
 
 		List<GclCaseStatement> caseStatements = new ArrayList<>();
-		for (ImplicationStatement impl : object.getImplications()) {
-			java.lang.String id = impl.getId();
+		if (object.getImplications() != null) {
+			for (ImplicationStatement impl : object.getImplications()) {
+				java.lang.String id = impl.getId();
 
-			Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(impl.getDescriptor());
+				Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(impl.getDescriptor());
 
-			visit(impl.getAntecedent());
-			Exp assumes = pop();
+				visit(impl.getAntecedent());
+				Exp assumes = pop();
 
-			visit(impl.getConsequent());
-			Exp guarantees = pop();
+				visit(impl.getConsequent());
+				Exp guarantees = pop();
 
-			caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-					GumboUtils.buildPosInfo(impl)));
+				caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
+						GumboUtils.buildPosInfo(impl)));
+			}
 		}
 
-		for (CaseStatementClause css : object.getCases()) {
+		if (object.getCases() != null) {
+			for (CaseStatementClause css : object.getCases()) {
 
-			java.lang.String id = css.getId();
+				java.lang.String id = css.getId();
 
-			Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(css.getDescriptor());
+				Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(css.getDescriptor());
 
-			visit(css.getAssumeStatement().getExpr());
-			Exp assumes = pop();
+				visit(css.getAssumeStatement().getExpr());
+				Exp assumes = pop();
 
-			visit(css.getGuaranteeStatement().getExpr());
-			Exp guarantees = pop();
+				visit(css.getGuaranteeStatement().getExpr());
+				Exp guarantees = pop();
 
-			caseStatements.add(
-					GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees, GumboUtils.buildPosInfo(css)));
+				caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
+						GumboUtils.buildPosInfo(css)));
+			}
 		}
 
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements),
