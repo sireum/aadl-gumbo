@@ -45,7 +45,6 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
-import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
@@ -254,13 +253,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass guaranteeStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass implicationStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1253,7 +1245,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getCompute_Cases()
+  public EReference getCompute_Specs()
   {
     return (EReference)computeEClass.getEStructuralFeatures().get(1);
   }
@@ -1264,7 +1256,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getCompute_Implications()
+  public EReference getCompute_Cases()
   {
     return (EReference)computeEClass.getEStructuralFeatures().get(2);
   }
@@ -1465,61 +1457,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EClass getGuaranteeStatement()
   {
     return guaranteeStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getImplicationStatement()
-  {
-    return implicationStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getImplicationStatement_Id()
-  {
-    return (EAttribute)implicationStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getImplicationStatement_Descriptor()
-  {
-    return (EAttribute)implicationStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getImplicationStatement_Antecedent()
-  {
-    return (EReference)implicationStatementEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getImplicationStatement_Consequent()
-  {
-    return (EReference)implicationStatementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4013,8 +3950,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     computeEClass = createEClass(COMPUTE);
     createEReference(computeEClass, COMPUTE__MODIFIES);
+    createEReference(computeEClass, COMPUTE__SPECS);
     createEReference(computeEClass, COMPUTE__CASES);
-    createEReference(computeEClass, COMPUTE__IMPLICATIONS);
     createEReference(computeEClass, COMPUTE__HANDLERS);
 
     handlerClauseEClass = createEClass(HANDLER_CLAUSE);
@@ -4039,12 +3976,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(anonAssumeStatementEClass, ANON_ASSUME_STATEMENT__EXPR);
 
     guaranteeStatementEClass = createEClass(GUARANTEE_STATEMENT);
-
-    implicationStatementEClass = createEClass(IMPLICATION_STATEMENT);
-    createEAttribute(implicationStatementEClass, IMPLICATION_STATEMENT__ID);
-    createEAttribute(implicationStatementEClass, IMPLICATION_STATEMENT__DESCRIPTOR);
-    createEReference(implicationStatementEClass, IMPLICATION_STATEMENT__ANTECEDENT);
-    createEReference(implicationStatementEClass, IMPLICATION_STATEMENT__CONSEQUENT);
 
     anonGuaranteeStatementEClass = createEClass(ANON_GUARANTEE_STATEMENT);
     createEReference(anonGuaranteeStatementEClass, ANON_GUARANTEE_STATEMENT__EXPR);
@@ -4472,8 +4403,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(computeEClass, Compute.class, "Compute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCompute_Modifies(), this.getSlangModifies(), null, "modifies", null, 0, 1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompute_Specs(), this.getSpecStatement(), null, "specs", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCompute_Implications(), this.getImplicationStatement(), null, "implications", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Handlers(), this.getHandlerClause(), null, "handlers", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(handlerClauseEClass, HandlerClause.class, "HandlerClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4498,12 +4429,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getAnonAssumeStatement_Expr(), this.getExpr(), null, "expr", null, 0, 1, AnonAssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(guaranteeStatementEClass, GuaranteeStatement.class, "GuaranteeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(implicationStatementEClass, ImplicationStatement.class, "ImplicationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImplicationStatement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getImplicationStatement_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getImplicationStatement_Antecedent(), this.getExpr(), null, "antecedent", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getImplicationStatement_Consequent(), this.getExpr(), null, "consequent", null, 0, 1, ImplicationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(anonGuaranteeStatementEClass, AnonGuaranteeStatement.class, "AnonGuaranteeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnonGuaranteeStatement_Expr(), this.getExpr(), null, "expr", null, 0, 1, AnonGuaranteeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

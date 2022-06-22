@@ -92,7 +92,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.ASSUME_STATEMENT: return createAssumeStatement();
       case GumboPackage.ANON_ASSUME_STATEMENT: return createAnonAssumeStatement();
       case GumboPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
-      case GumboPackage.IMPLICATION_STATEMENT: return createImplicationStatement();
       case GumboPackage.ANON_GUARANTEE_STATEMENT: return createAnonGuaranteeStatement();
       case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
       case GumboPackage.DOUBLE_DOT_REF: return createDoubleDotRef();
@@ -384,18 +383,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     GuaranteeStatementImpl guaranteeStatement = new GuaranteeStatementImpl();
     return guaranteeStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ImplicationStatement createImplicationStatement()
-  {
-    ImplicationStatementImpl implicationStatement = new ImplicationStatementImpl();
-    return implicationStatement;
   }
 
   /**

@@ -64,7 +64,6 @@ import org.sireum.aadl.gumbo.gumbo.MustSendExpr
 import org.osate.aadl2.Port
 import org.osate.aadl2.DirectionType
 import org.osate.aadl2.PortCategory
-import org.sireum.aadl.gumbo.gumbo.ImplicationStatement
 import org.sireum.aadl.gumbo.gumbo.HandlerClause
 import java.util.List
 
@@ -167,10 +166,6 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		val stateVarDeclsB = context.getContainerOfType(AnonGuaranteeStatement)?.getContainerOfType(SpecSection)?.state?.decls
 		if (stateVarDeclsB !== null) {
 			decls.addAll(stateVarDeclsB)
-		}
-		val stateVarDeclsC = context.getContainerOfType(ImplicationStatement)?.getContainerOfType(SpecSection)?.state?.decls
-		if (stateVarDeclsC !== null) {
-			decls.addAll(stateVarDeclsC)
 		}
 		val scope = decls.empty ? IScope::NULLSCOPE : decls.scopeFor
 		scope

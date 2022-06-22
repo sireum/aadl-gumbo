@@ -47,8 +47,8 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Compute">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/modifies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/specs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/cases"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/implications"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/handlers"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//HandlerClause">
@@ -72,12 +72,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AnonAssumeStatement/expr"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//GuaranteeStatement"/>
-    <genClasses ecoreClass="Gumbo.ecore#//ImplicationStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//ImplicationStatement/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//ImplicationStatement/descriptor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ImplicationStatement/antecedent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ImplicationStatement/consequent"/>
-    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//AnonGuaranteeStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AnonGuaranteeStatement/expr"/>
     </genClasses>

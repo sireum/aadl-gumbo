@@ -34,7 +34,6 @@ import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
-import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
@@ -65,6 +64,7 @@ import org.sireum.hamr.ir.GclCaseStatement;
 import org.sireum.hamr.ir.GclCaseStatement$;
 import org.sireum.hamr.ir.GclCompute;
 import org.sireum.hamr.ir.GclCompute$;
+import org.sireum.hamr.ir.GclComputeSpec;
 import org.sireum.hamr.ir.GclGuarantee;
 import org.sireum.hamr.ir.GclGuarantee$;
 import org.sireum.hamr.ir.GclHandle;
@@ -237,6 +237,16 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
+		// TODO is preserving ordering important?
+
+		List<GclComputeSpec> specs = new ArrayList<>();
+		if(object.getSpecs() != null) {
+			for (SpecStatement spec : object.getSpecs()) {
+				visit(spec);
+				specs.add(pop());
+			}
+		}
+
 		List<GclHandle> handlers = new ArrayList<>();
 		if (object.getHandlers() != null) {
 			for (HandlerClause hc : object.getHandlers()) {
@@ -246,23 +256,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		List<GclCaseStatement> caseStatements = new ArrayList<>();
-		if (object.getImplications() != null) {
-			for (ImplicationStatement impl : object.getImplications()) {
-				java.lang.String id = impl.getId();
-
-				Option<org.sireum.String> descriptor = GumboUtils.getOptionalSlangString(impl.getDescriptor());
-
-				visit(impl.getAntecedent());
-				Exp assumes = pop();
-
-				visit(impl.getConsequent());
-				Exp guarantees = pop();
-
-				caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-						GumboUtils.buildPosInfo(impl)));
-			}
-		}
-
 		if (object.getCases() != null) {
 			for (CaseStatementClause css : object.getCases()) {
 
@@ -281,7 +274,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
-		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(caseStatements),
+		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(specs),
+				VisitorUtil.toISZ(caseStatements),
 				VisitorUtil.toISZ(handlers)));
 
 		return false;

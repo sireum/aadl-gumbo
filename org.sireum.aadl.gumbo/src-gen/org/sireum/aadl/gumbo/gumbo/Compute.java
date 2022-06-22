@@ -27,8 +27,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getModifies <em>Modifies</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getSpecs <em>Specs</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getCases <em>Cases</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getImplications <em>Implications</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getHandlers <em>Handlers</em>}</li>
  * </ul>
  *
@@ -61,6 +61,18 @@ public interface Compute extends EObject
   void setModifies(SlangModifies value);
 
   /**
+   * Returns the value of the '<em><b>Specs</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.SpecStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Specs</em>' containment reference list.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute_Specs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<SpecStatement> getSpecs();
+
+  /**
    * Returns the value of the '<em><b>Cases</b></em>' containment reference list.
    * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.CaseStatementClause}.
    * <!-- begin-user-doc -->
@@ -71,18 +83,6 @@ public interface Compute extends EObject
    * @generated
    */
   EList<CaseStatementClause> getCases();
-
-  /**
-   * Returns the value of the '<em><b>Implications</b></em>' containment reference list.
-   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.ImplicationStatement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Implications</em>' containment reference list.
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute_Implications()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ImplicationStatement> getImplications();
 
   /**
    * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.

@@ -71,17 +71,27 @@ InitializeSpecStatement:
 ;
 
 Compute:
-	'compute'
+	{Compute} 'compute'
 	  (modifies=SlangModifies ';')?
-	  // for now, just set the grammar to have a collection of case statements.  
-	  // Eventually allow arbitrary assume/guarantees around an aggregated case statement
-	   (('cases' (cases+=CaseStatementClause)+) | (implications+=ImplicationStatement)+)
-	   (handlers+=HandlerClause)*
+
+	  // allow the following to occur in any order?
+	  // is ordering important?
+	  // TODO: causes antlr to freeze
+	  //( 
+	  //	  (specs+=SpecStatement)* // assume and/or guarantees
+	  //	| ('cases' (cases+=CaseStatementClause)+)*
+	  //	| (handlers+=HandlerClause)*
+	  //)+
+	  
+	  (specs+=SpecStatement)* // assume and/or guarantees
+	  ('cases' (cases+=CaseStatementClause)+)*
+	  (handlers+=HandlerClause)*
 ;
 
 HandlerClause:
 	'handle' id=[aadl2::Port|ID] ':'
 	(modifies=SlangModifies ';')?
+	// belt: can hanlders have assume statements?
 	(guarantees+=GuaranteeStatement)+
 ;
 
@@ -109,10 +119,6 @@ AnonAssumeStatement:
 
 GuaranteeStatement: 
 	'guarantee' id=ID descriptor=SLANG_STRING? ':' expr=Expr ';'
-;
-
-ImplicationStatement: 
-	'guarantee' id=ID descriptor=SLANG_STRING? ':' antecedent=Expr '->:' consequent=Expr ';'
 ;
 
 AnonGuaranteeStatement: 
@@ -361,7 +367,11 @@ terminal MSPE: '$' MSPI* ( '"""' | '""""' | '"""""' ) ;
 terminal DEFOP: ':' OPSYM* '=' ;
 //
 
-Operator: OP | PlusMinus | STAR;
+terminal IMPLIES: '-' '>' ':';
+
+terminal SIMPLIES: '-' '-' '>' ':'; // short circuit implies
+
+Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
 
 terminal OP: ( OPSYM+ | '\\' IDF ) ;
 //

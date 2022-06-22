@@ -107,8 +107,6 @@ True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
 
 PlusSignEqualsSignGreaterThanSign : '+''=''>';
 
-HyphenMinusGreaterThanSignColon : '-''>'':';
-
 FullStopFullStopLessThanSign : '.''.''<';
 
 Def : ('D'|'d')('E'|'e')('F'|'f');
@@ -198,6 +196,10 @@ RULE_MSPM : '$' RULE_MSPI* '$';
 RULE_MSPE : '$' RULE_MSPI* ('"""'|'""""'|'"""""');
 
 RULE_DEFOP : ':' RULE_OPSYM* '=';
+
+RULE_IMPLIES : '-' '>' ':';
+
+RULE_SIMPLIES : '-' '-' '>' ':';
 
 RULE_OP : (RULE_OPSYM+|'\\' RULE_IDF);
 

@@ -62,7 +62,6 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
-import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
@@ -305,9 +304,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.HEX_LIT:
 				sequence_SlangLit(context, (HexLit) semanticObject); 
-				return; 
-			case GumboPackage.IMPLICATION_STATEMENT:
-				sequence_ImplicationStatement(context, (ImplicationStatement) semanticObject); 
 				return; 
 			case GumboPackage.IN_STATE_EXPR:
 				sequence_SlangTerm(context, (InStateExpr) semanticObject); 
@@ -635,7 +631,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Compute returns Compute
 	 *
 	 * Constraint:
-	 *     (modifies=SlangModifies? (cases+=CaseStatementClause+ | implications+=ImplicationStatement+) handlers+=HandlerClause*)
+	 *     (modifies=SlangModifies? specs+=SpecStatement* cases+=CaseStatementClause* handlers+=HandlerClause*)
 	 * </pre>
 	 */
 	protected void sequence_Compute(ISerializationContext context, Compute semanticObject) {
@@ -809,20 +805,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_HandlerClause(ISerializationContext context, HandlerClause semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     ImplicationStatement returns ImplicationStatement
-	 *
-	 * Constraint:
-	 *     (id=ID descriptor=SLANG_STRING? antecedent=Expr consequent=Expr)
-	 * </pre>
-	 */
-	protected void sequence_ImplicationStatement(ISerializationContext context, ImplicationStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -177,11 +177,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createGuaranteeStatementAdapter();
       }
       @Override
-      public Adapter caseImplicationStatement(ImplicationStatement object)
-      {
-        return createImplicationStatementAdapter();
-      }
-      @Override
       public Adapter caseAnonGuaranteeStatement(AnonGuaranteeStatement object)
       {
         return createAnonGuaranteeStatementAdapter();
@@ -899,21 +894,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGuaranteeStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ImplicationStatement <em>Implication Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.ImplicationStatement
-   * @generated
-   */
-  public Adapter createImplicationStatementAdapter()
   {
     return null;
   }

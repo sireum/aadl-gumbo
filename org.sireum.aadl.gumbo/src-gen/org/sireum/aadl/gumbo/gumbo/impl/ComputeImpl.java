@@ -33,8 +33,8 @@ import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
-import org.sireum.aadl.gumbo.gumbo.ImplicationStatement;
 import org.sireum.aadl.gumbo.gumbo.SlangModifies;
+import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,8 +45,8 @@ import org.sireum.aadl.gumbo.gumbo.SlangModifies;
  * </p>
  * <ul>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getModifies <em>Modifies</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getSpecs <em>Specs</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getCases <em>Cases</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getImplications <em>Implications</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getHandlers <em>Handlers</em>}</li>
  * </ul>
  *
@@ -65,6 +65,16 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
   protected SlangModifies modifies;
 
   /**
+   * The cached value of the '{@link #getSpecs() <em>Specs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSpecs()
+   * @generated
+   * @ordered
+   */
+  protected EList<SpecStatement> specs;
+
+  /**
    * The cached value of the '{@link #getCases() <em>Cases</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -73,16 +83,6 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @ordered
    */
   protected EList<CaseStatementClause> cases;
-
-  /**
-   * The cached value of the '{@link #getImplications() <em>Implications</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImplications()
-   * @generated
-   * @ordered
-   */
-  protected EList<ImplicationStatement> implications;
 
   /**
    * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
@@ -171,13 +171,13 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @generated
    */
   @Override
-  public EList<CaseStatementClause> getCases()
+  public EList<SpecStatement> getSpecs()
   {
-    if (cases == null)
+    if (specs == null)
     {
-      cases = new EObjectContainmentEList<CaseStatementClause>(CaseStatementClause.class, this, GumboPackage.COMPUTE__CASES);
+      specs = new EObjectContainmentEList<SpecStatement>(SpecStatement.class, this, GumboPackage.COMPUTE__SPECS);
     }
-    return cases;
+    return specs;
   }
 
   /**
@@ -186,13 +186,13 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @generated
    */
   @Override
-  public EList<ImplicationStatement> getImplications()
+  public EList<CaseStatementClause> getCases()
   {
-    if (implications == null)
+    if (cases == null)
     {
-      implications = new EObjectContainmentEList<ImplicationStatement>(ImplicationStatement.class, this, GumboPackage.COMPUTE__IMPLICATIONS);
+      cases = new EObjectContainmentEList<CaseStatementClause>(CaseStatementClause.class, this, GumboPackage.COMPUTE__CASES);
     }
-    return implications;
+    return cases;
   }
 
   /**
@@ -222,10 +222,10 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
     {
       case GumboPackage.COMPUTE__MODIFIES:
         return basicSetModifies(null, msgs);
+      case GumboPackage.COMPUTE__SPECS:
+        return ((InternalEList<?>)getSpecs()).basicRemove(otherEnd, msgs);
       case GumboPackage.COMPUTE__CASES:
         return ((InternalEList<?>)getCases()).basicRemove(otherEnd, msgs);
-      case GumboPackage.COMPUTE__IMPLICATIONS:
-        return ((InternalEList<?>)getImplications()).basicRemove(otherEnd, msgs);
       case GumboPackage.COMPUTE__HANDLERS:
         return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
     }
@@ -244,10 +244,10 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
     {
       case GumboPackage.COMPUTE__MODIFIES:
         return getModifies();
+      case GumboPackage.COMPUTE__SPECS:
+        return getSpecs();
       case GumboPackage.COMPUTE__CASES:
         return getCases();
-      case GumboPackage.COMPUTE__IMPLICATIONS:
-        return getImplications();
       case GumboPackage.COMPUTE__HANDLERS:
         return getHandlers();
     }
@@ -268,13 +268,13 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
       case GumboPackage.COMPUTE__MODIFIES:
         setModifies((SlangModifies)newValue);
         return;
+      case GumboPackage.COMPUTE__SPECS:
+        getSpecs().clear();
+        getSpecs().addAll((Collection<? extends SpecStatement>)newValue);
+        return;
       case GumboPackage.COMPUTE__CASES:
         getCases().clear();
         getCases().addAll((Collection<? extends CaseStatementClause>)newValue);
-        return;
-      case GumboPackage.COMPUTE__IMPLICATIONS:
-        getImplications().clear();
-        getImplications().addAll((Collection<? extends ImplicationStatement>)newValue);
         return;
       case GumboPackage.COMPUTE__HANDLERS:
         getHandlers().clear();
@@ -297,11 +297,11 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
       case GumboPackage.COMPUTE__MODIFIES:
         setModifies((SlangModifies)null);
         return;
+      case GumboPackage.COMPUTE__SPECS:
+        getSpecs().clear();
+        return;
       case GumboPackage.COMPUTE__CASES:
         getCases().clear();
-        return;
-      case GumboPackage.COMPUTE__IMPLICATIONS:
-        getImplications().clear();
         return;
       case GumboPackage.COMPUTE__HANDLERS:
         getHandlers().clear();
@@ -322,10 +322,10 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
     {
       case GumboPackage.COMPUTE__MODIFIES:
         return modifies != null;
+      case GumboPackage.COMPUTE__SPECS:
+        return specs != null && !specs.isEmpty();
       case GumboPackage.COMPUTE__CASES:
         return cases != null && !cases.isEmpty();
-      case GumboPackage.COMPUTE__IMPLICATIONS:
-        return implications != null && !implications.isEmpty();
       case GumboPackage.COMPUTE__HANDLERS:
         return handlers != null && !handlers.isEmpty();
     }

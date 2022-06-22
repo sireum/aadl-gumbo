@@ -187,15 +187,6 @@ public interface GumboFactory extends EFactory
   GuaranteeStatement createGuaranteeStatement();
 
   /**
-   * Returns a new object of class '<em>Implication Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Implication Statement</em>'.
-   * @generated
-   */
-  ImplicationStatement createImplicationStatement();
-
-  /**
    * Returns a new object of class '<em>Anon Guarantee Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

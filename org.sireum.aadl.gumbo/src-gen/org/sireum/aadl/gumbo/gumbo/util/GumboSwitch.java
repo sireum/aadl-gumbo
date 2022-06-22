@@ -217,13 +217,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.IMPLICATION_STATEMENT:
-      {
-        ImplicationStatement implicationStatement = (ImplicationStatement)theEObject;
-        T result = caseImplicationStatement(implicationStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.ANON_GUARANTEE_STATEMENT:
       {
         AnonGuaranteeStatement anonGuaranteeStatement = (AnonGuaranteeStatement)theEObject;
@@ -1127,22 +1120,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGuaranteeStatement(GuaranteeStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Implication Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Implication Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseImplicationStatement(ImplicationStatement object)
   {
     return null;
   }

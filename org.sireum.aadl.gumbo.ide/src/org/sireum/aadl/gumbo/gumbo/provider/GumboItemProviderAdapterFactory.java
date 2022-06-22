@@ -510,31 +510,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ImplicationStatement} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ImplicationStatementItemProvider implicationStatementItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ImplicationStatement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createImplicationStatementAdapter()
-  {
-    if (implicationStatementItemProvider == null)
-    {
-      implicationStatementItemProvider = new ImplicationStatementItemProvider(this);
-    }
-
-    return implicationStatementItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2768,7 +2743,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (assumeStatementItemProvider != null) assumeStatementItemProvider.dispose();
     if (anonAssumeStatementItemProvider != null) anonAssumeStatementItemProvider.dispose();
     if (guaranteeStatementItemProvider != null) guaranteeStatementItemProvider.dispose();
-    if (implicationStatementItemProvider != null) implicationStatementItemProvider.dispose();
     if (anonGuaranteeStatementItemProvider != null) anonGuaranteeStatementItemProvider.dispose();
     if (otherDataRefItemProvider != null) otherDataRefItemProvider.dispose();
     if (doubleDotRefItemProvider != null) doubleDotRefItemProvider.dispose();

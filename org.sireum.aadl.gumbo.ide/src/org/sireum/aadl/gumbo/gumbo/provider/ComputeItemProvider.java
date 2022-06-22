@@ -95,8 +95,8 @@ public class ComputeItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__MODIFIES);
+      childrenFeatures.add(GumboPackage.Literals.COMPUTE__SPECS);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__CASES);
-      childrenFeatures.add(GumboPackage.Literals.COMPUTE__IMPLICATIONS);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__HANDLERS);
     }
     return childrenFeatures;
@@ -156,8 +156,8 @@ public class ComputeItemProvider
     switch (notification.getFeatureID(Compute.class))
     {
       case GumboPackage.COMPUTE__MODIFIES:
+      case GumboPackage.COMPUTE__SPECS:
       case GumboPackage.COMPUTE__CASES:
-      case GumboPackage.COMPUTE__IMPLICATIONS:
       case GumboPackage.COMPUTE__HANDLERS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -184,13 +184,23 @@ public class ComputeItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.COMPUTE__CASES,
-         GumboFactory.eINSTANCE.createCaseStatementClause()));
+        (GumboPackage.Literals.COMPUTE__SPECS,
+         GumboFactory.eINSTANCE.createSpecStatement()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.COMPUTE__IMPLICATIONS,
-         GumboFactory.eINSTANCE.createImplicationStatement()));
+        (GumboPackage.Literals.COMPUTE__SPECS,
+         GumboFactory.eINSTANCE.createAssumeStatement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.COMPUTE__SPECS,
+         GumboFactory.eINSTANCE.createGuaranteeStatement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.COMPUTE__CASES,
+         GumboFactory.eINSTANCE.createCaseStatementClause()));
 
     newChildDescriptors.add
       (createChildParameter
