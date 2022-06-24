@@ -66,6 +66,7 @@ import org.osate.aadl2.DirectionType
 import org.osate.aadl2.PortCategory
 import org.sireum.aadl.gumbo.gumbo.HandlerClause
 import java.util.List
+import org.sireum.aadl.gumbo.gumbo.NoSendExpr
 
 // import org.sireum.aadl.gumbo.gumbo.HyperperiodComputationalModel
 
@@ -199,6 +200,10 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 
 	def scope_MustSendExpr_eventPort(MustSendExpr context, EReference reference) {
+		return getEventPortRef(context, reference, #[DirectionType.OUT, DirectionType.IN_OUT])
+	}
+	
+	def scope_NoSendExpr_eventPort(NoSendExpr context, EReference reference) {
 		return getEventPortRef(context, reference, #[DirectionType.OUT, DirectionType.IN_OUT])
 	}
 	

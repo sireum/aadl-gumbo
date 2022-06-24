@@ -2160,6 +2160,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.NoSendExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected NoSendExprItemProvider noSendExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.NoSendExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createNoSendExprAdapter()
+  {
+    if (noSendExprItemProvider == null)
+    {
+      noSendExprItemProvider = new NoSendExprItemProvider(this);
+    }
+
+    return noSendExprItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2809,6 +2834,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (inStateExprItemProvider != null) inStateExprItemProvider.dispose();
     if (maySendExprItemProvider != null) maySendExprItemProvider.dispose();
     if (mustSendExprItemProvider != null) mustSendExprItemProvider.dispose();
+    if (noSendExprItemProvider != null) noSendExprItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
     if (recordLitExprItemProvider != null) recordLitExprItemProvider.dispose();
     if (dataRefExprItemProvider != null) dataRefExprItemProvider.dispose();

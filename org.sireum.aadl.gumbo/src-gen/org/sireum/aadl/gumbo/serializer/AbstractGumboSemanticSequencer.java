@@ -73,6 +73,7 @@ import org.sireum.aadl.gumbo.gumbo.Invariants;
 import org.sireum.aadl.gumbo.gumbo.MStringLit;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RealIdfLit;
@@ -337,6 +338,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.MUST_SEND_EXPR:
 				sequence_SlangTerm(context, (MustSendExpr) semanticObject); 
+				return; 
+			case GumboPackage.NO_SEND_EXPR:
+				sequence_SlangTerm(context, (NoSendExpr) semanticObject); 
 				return; 
 			case GumboPackage.OTHER_DATA_REF:
 				sequence_OtherDataRef(context, (OtherDataRef) semanticObject); 
@@ -1935,8 +1939,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_5_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
-		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_5_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_6_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_6_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
 		feeder.finish();
 	}
 	
@@ -1967,20 +1971,11 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangTerm returns MaySendExpr
 	 *
 	 * Constraint:
-	 *     (eventPort=[Port|ID] value=Expr)
+	 *     (eventPort=[Port|ID] value=Expr?)
 	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, MaySendExpr semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__EVENT_PORT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__EVENT_PORT));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MAY_SEND_EXPR__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getEventPortPortIDTerminalRuleCall_3_1_0_1(), semanticObject.eGet(GumboPackage.Literals.MAY_SEND_EXPR__EVENT_PORT, false));
-		feeder.accept(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_3_3_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1990,19 +1985,30 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangTerm returns MustSendExpr
 	 *
 	 * Constraint:
-	 *     (eventPort=[Port|ID] value=Expr)
+	 *     (eventPort=[Port|ID] value=Expr?)
 	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, MustSendExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SlangTerm returns NoSendExpr
+	 *
+	 * Constraint:
+	 *     eventPort=[Port|ID]
+	 * </pre>
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, NoSendExpr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__EVENT_PORT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__EVENT_PORT));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MUST_SEND_EXPR__VALUE));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.NO_SEND_EXPR__EVENT_PORT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.NO_SEND_EXPR__EVENT_PORT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getEventPortPortIDTerminalRuleCall_4_1_0_1(), semanticObject.eGet(GumboPackage.Literals.MUST_SEND_EXPR__EVENT_PORT, false));
-		feeder.accept(grammarAccess.getSlangTermAccess().getValueExprParserRuleCall_4_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSlangTermAccess().getEventPortPortIDTerminalRuleCall_5_1_0_1(), semanticObject.eGet(GumboPackage.Literals.NO_SEND_EXPR__EVENT_PORT, false));
 		feeder.finish();
 	}
 	

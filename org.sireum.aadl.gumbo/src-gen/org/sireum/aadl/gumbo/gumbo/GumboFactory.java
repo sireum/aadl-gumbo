@@ -781,6 +781,15 @@ public interface GumboFactory extends EFactory
   MustSendExpr createMustSendExpr();
 
   /**
+   * Returns a new object of class '<em>No Send Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>No Send Expr</em>'.
+   * @generated
+   */
+  NoSendExpr createNoSendExpr();
+
+  /**
    * Returns a new object of class '<em>Enum Lit Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

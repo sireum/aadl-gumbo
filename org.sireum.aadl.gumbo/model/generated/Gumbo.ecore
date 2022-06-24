@@ -405,6 +405,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expr"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NoSendExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventPort" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLitExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataClassifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//StringLiteral"/>

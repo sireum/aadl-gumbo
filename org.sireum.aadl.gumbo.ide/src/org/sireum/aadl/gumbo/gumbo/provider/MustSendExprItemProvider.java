@@ -234,6 +234,11 @@ public class MustSendExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

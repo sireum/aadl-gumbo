@@ -61,6 +61,8 @@ Library : ('L'|'l')('I'|'i')('B'|'b')('R'|'r')('A'|'a')('R'|'r')('Y'|'y');
 
 Memoize : ('M'|'m')('E'|'e')('M'|'m')('O'|'o')('I'|'i')('Z'|'z')('E'|'e');
 
+NoSend : ('N'|'n')('O'|'o')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
+
 Assert : ('A'|'a')('S'|'s')('S'|'s')('E'|'e')('R'|'r')('T'|'t');
 
 Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
@@ -197,9 +199,9 @@ RULE_MSPE : '$' RULE_MSPI* ('"""'|'""""'|'"""""');
 
 RULE_DEFOP : ':' RULE_OPSYM* '=';
 
-RULE_IMPLIES : '-' '>' ':';
+RULE_IMPLIES : ('-'|'~') '>' ':';
 
-RULE_SIMPLIES : '-' '-' '>' ':';
+RULE_SIMPLIES : '~' '~' '>' ':';
 
 RULE_OP : (RULE_OPSYM+|'\\' RULE_IDF);
 

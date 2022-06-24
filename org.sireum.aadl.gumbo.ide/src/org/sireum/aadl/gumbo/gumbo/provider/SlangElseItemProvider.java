@@ -228,6 +228,11 @@ public class SlangElseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

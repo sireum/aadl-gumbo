@@ -3204,6 +3204,34 @@ public interface GumboPackage extends EPackage
   int MUST_SEND_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.NoSendExprImpl <em>No Send Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.NoSendExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getNoSendExpr()
+   * @generated
+   */
+  int NO_SEND_EXPR = 83;
+
+  /**
+   * The feature id for the '<em><b>Event Port</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NO_SEND_EXPR__EVENT_PORT = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>No Send Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NO_SEND_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EnumLitExprImpl <em>Enum Lit Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3211,7 +3239,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEnumLitExpr()
    * @generated
    */
-  int ENUM_LIT_EXPR = 83;
+  int ENUM_LIT_EXPR = 84;
 
   /**
    * The feature id for the '<em><b>Enum Type</b></em>' reference.
@@ -3248,7 +3276,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRecordLitExpr()
    * @generated
    */
-  int RECORD_LIT_EXPR = 84;
+  int RECORD_LIT_EXPR = 85;
 
   /**
    * The feature id for the '<em><b>Record Type</b></em>' containment reference.
@@ -3294,7 +3322,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDataRefExpr()
    * @generated
    */
-  int DATA_REF_EXPR = 85;
+  int DATA_REF_EXPR = 86;
 
   /**
    * The feature id for the '<em><b>Port Or Subcomponent Or State Var</b></em>' reference.
@@ -3340,7 +3368,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangTupleTerm()
    * @generated
    */
-  int SLANG_TUPLE_TERM = 86;
+  int SLANG_TUPLE_TERM = 87;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference list.
@@ -3368,7 +3396,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangForTerm()
    * @generated
    */
-  int SLANG_FOR_TERM = 87;
+  int SLANG_FOR_TERM = 88;
 
   /**
    * The feature id for the '<em><b>R</b></em>' containment reference list.
@@ -3414,7 +3442,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangBlockTerm()
    * @generated
    */
-  int SLANG_BLOCK_TERM = 88;
+  int SLANG_BLOCK_TERM = 89;
 
   /**
    * The feature id for the '<em><b>P</b></em>' containment reference.
@@ -3469,7 +3497,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBooleanLit()
    * @generated
    */
-  int BOOLEAN_LIT = 89;
+  int BOOLEAN_LIT = 90;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3497,7 +3525,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIntegerLit()
    * @generated
    */
-  int INTEGER_LIT = 90;
+  int INTEGER_LIT = 91;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3525,7 +3553,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIntIdfLit()
    * @generated
    */
-  int INT_IDF_LIT = 91;
+  int INT_IDF_LIT = 92;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3553,7 +3581,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHexLit()
    * @generated
    */
-  int HEX_LIT = 92;
+  int HEX_LIT = 93;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3581,7 +3609,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinLit()
    * @generated
    */
-  int BIN_LIT = 93;
+  int BIN_LIT = 94;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3609,7 +3637,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealLit()
    * @generated
    */
-  int REAL_LIT = 94;
+  int REAL_LIT = 95;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3637,7 +3665,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangStringLit()
    * @generated
    */
-  int SLANG_STRING_LIT = 95;
+  int SLANG_STRING_LIT = 96;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3665,7 +3693,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealIdfLit()
    * @generated
    */
-  int REAL_IDF_LIT = 96;
+  int REAL_IDF_LIT = 97;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3693,7 +3721,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMStringLit()
    * @generated
    */
-  int MSTRING_LIT = 97;
+  int MSTRING_LIT = 98;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3721,7 +3749,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspInterp()
    * @generated
    */
-  int SLANG_MSP_INTERP = 98;
+  int SLANG_MSP_INTERP = 99;
 
   /**
    * The feature id for the '<em><b>Msp</b></em>' attribute.
@@ -3749,7 +3777,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLiteralInterp()
    * @generated
    */
-  int SLANG_LITERAL_INTERP = 99;
+  int SLANG_LITERAL_INTERP = 100;
 
   /**
    * The feature id for the '<em><b>Sli</b></em>' attribute.
@@ -3777,7 +3805,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspbInterp()
    * @generated
    */
-  int SLANG_MSPB_INTERP = 100;
+  int SLANG_MSPB_INTERP = 101;
 
   /**
    * The feature id for the '<em><b>Mspb</b></em>' attribute.
@@ -6277,6 +6305,27 @@ public interface GumboPackage extends EPackage
   EReference getMustSendExpr_Value();
 
   /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.NoSendExpr <em>No Send Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>No Send Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.NoSendExpr
+   * @generated
+   */
+  EClass getNoSendExpr();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.NoSendExpr#getEventPort <em>Event Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Event Port</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.NoSendExpr#getEventPort()
+   * @see #getNoSendExpr()
+   * @generated
+   */
+  EReference getNoSendExpr_EventPort();
+
+  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr <em>Enum Lit Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8720,6 +8769,24 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference MUST_SEND_EXPR__VALUE = eINSTANCE.getMustSendExpr_Value();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.NoSendExprImpl <em>No Send Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.NoSendExprImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getNoSendExpr()
+     * @generated
+     */
+    EClass NO_SEND_EXPR = eINSTANCE.getNoSendExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Event Port</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NO_SEND_EXPR__EVENT_PORT = eINSTANCE.getNoSendExpr_EventPort();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EnumLitExprImpl <em>Enum Lit Expr</em>}' class.

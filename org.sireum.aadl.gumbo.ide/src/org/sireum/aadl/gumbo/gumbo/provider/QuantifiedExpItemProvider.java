@@ -216,6 +216,11 @@ public class QuantifiedExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

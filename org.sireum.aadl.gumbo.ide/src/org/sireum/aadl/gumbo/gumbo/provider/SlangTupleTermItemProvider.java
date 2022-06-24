@@ -209,6 +209,11 @@ public class SlangTupleTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_TUPLE_TERM__E,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_TUPLE_TERM__E,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

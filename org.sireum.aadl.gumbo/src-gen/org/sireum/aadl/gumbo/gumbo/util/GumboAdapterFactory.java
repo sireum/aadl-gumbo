@@ -507,6 +507,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createMustSendExprAdapter();
       }
       @Override
+      public Adapter caseNoSendExpr(NoSendExpr object)
+      {
+        return createNoSendExprAdapter();
+      }
+      @Override
       public Adapter caseEnumLitExpr(EnumLitExpr object)
       {
         return createEnumLitExprAdapter();
@@ -1884,6 +1889,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMustSendExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.NoSendExpr <em>No Send Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.NoSendExpr
+   * @generated
+   */
+  public Adapter createNoSendExprAdapter()
   {
     return null;
   }

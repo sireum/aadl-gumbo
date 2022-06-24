@@ -704,6 +704,14 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.NO_SEND_EXPR:
+      {
+        NoSendExpr noSendExpr = (NoSendExpr)theEObject;
+        T result = caseNoSendExpr(noSendExpr);
+        if (result == null) result = caseExpr(noSendExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.ENUM_LIT_EXPR:
       {
         EnumLitExpr enumLitExpr = (EnumLitExpr)theEObject;
@@ -2176,6 +2184,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMustSendExpr(MustSendExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>No Send Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>No Send Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNoSendExpr(NoSendExpr object)
   {
     return null;
   }

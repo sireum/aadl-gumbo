@@ -281,6 +281,11 @@ public class InvSpecItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.INV_SPEC__EXPR,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

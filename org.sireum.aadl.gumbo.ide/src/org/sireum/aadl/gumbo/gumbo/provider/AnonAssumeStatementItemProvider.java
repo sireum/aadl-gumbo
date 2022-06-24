@@ -224,6 +224,11 @@ public class AnonAssumeStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

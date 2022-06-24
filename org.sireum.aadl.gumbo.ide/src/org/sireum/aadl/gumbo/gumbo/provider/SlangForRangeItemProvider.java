@@ -228,6 +228,11 @@ public class SlangForRangeItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__E,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__E,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
@@ -308,6 +313,11 @@ public class SlangForRangeItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__UPPER,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
@@ -384,6 +394,11 @@ public class SlangForRangeItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
          GumboFactory.eINSTANCE.createMustSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_RANGE__STEP,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter

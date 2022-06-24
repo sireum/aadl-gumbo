@@ -56,6 +56,7 @@ import org.sireum.aadl.gumbo.gumbo.Invariants;
 import org.sireum.aadl.gumbo.gumbo.MStringLit;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RealIdfLit;
@@ -715,6 +716,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass mustSendExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass noSendExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3467,6 +3475,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getNoSendExpr()
+  {
+    return noSendExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNoSendExpr_EventPort()
+  {
+    return (EReference)noSendExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEnumLitExpr()
   {
     return enumLitExprEClass;
@@ -4225,6 +4255,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(mustSendExprEClass, MUST_SEND_EXPR__EVENT_PORT);
     createEReference(mustSendExprEClass, MUST_SEND_EXPR__VALUE);
 
+    noSendExprEClass = createEClass(NO_SEND_EXPR);
+    createEReference(noSendExprEClass, NO_SEND_EXPR__EVENT_PORT);
+
     enumLitExprEClass = createEClass(ENUM_LIT_EXPR);
     createEReference(enumLitExprEClass, ENUM_LIT_EXPR__ENUM_TYPE);
     createEReference(enumLitExprEClass, ENUM_LIT_EXPR__VALUE);
@@ -4343,6 +4376,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     inStateExprEClass.getESuperTypes().add(this.getExpr());
     maySendExprEClass.getESuperTypes().add(this.getExpr());
     mustSendExprEClass.getESuperTypes().add(this.getExpr());
+    noSendExprEClass.getESuperTypes().add(this.getExpr());
     enumLitExprEClass.getESuperTypes().add(this.getExpr());
     recordLitExprEClass.getESuperTypes().add(this.getExpr());
     dataRefExprEClass.getESuperTypes().add(this.getExpr());
@@ -4677,6 +4711,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(mustSendExprEClass, MustSendExpr.class, "MustSendExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMustSendExpr_EventPort(), theAadl2Package.getPort(), null, "eventPort", null, 0, 1, MustSendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMustSendExpr_Value(), this.getExpr(), null, "value", null, 0, 1, MustSendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(noSendExprEClass, NoSendExpr.class, "NoSendExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNoSendExpr_EventPort(), theAadl2Package.getPort(), null, "eventPort", null, 0, 1, NoSendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLitExprEClass, EnumLitExpr.class, "EnumLitExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumLitExpr_EnumType(), theAadl2Package.getDataClassifier(), null, "enumType", null, 0, 1, EnumLitExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

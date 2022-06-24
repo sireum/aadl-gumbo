@@ -158,6 +158,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.IN_STATE_EXPR: return createInStateExpr();
       case GumboPackage.MAY_SEND_EXPR: return createMaySendExpr();
       case GumboPackage.MUST_SEND_EXPR: return createMustSendExpr();
+      case GumboPackage.NO_SEND_EXPR: return createNoSendExpr();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
       case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
@@ -1175,6 +1176,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     MustSendExprImpl mustSendExpr = new MustSendExprImpl();
     return mustSendExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NoSendExpr createNoSendExpr()
+  {
+    NoSendExprImpl noSendExpr = new NoSendExprImpl();
+    return noSendExpr;
   }
 
   /**

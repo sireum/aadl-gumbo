@@ -242,6 +242,11 @@ public class BasicExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__TERMS,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BASIC_EXP__TERMS,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
@@ -322,6 +327,11 @@ public class BasicExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
@@ -398,6 +408,11 @@ public class BasicExpItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
          GumboFactory.eINSTANCE.createMustSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
