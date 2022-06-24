@@ -42,6 +42,7 @@ import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.RealLit;
 import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
@@ -86,6 +87,8 @@ import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.If;
 import org.sireum.lang.ast.Exp.If$;
+import org.sireum.lang.ast.Exp.Input;
+import org.sireum.lang.ast.Exp.Input$;
 import org.sireum.lang.ast.Exp.Invoke;
 import org.sireum.lang.ast.Exp.Invoke$;
 import org.sireum.lang.ast.Exp.LitB$;
@@ -371,10 +374,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Id slangId = Id$.MODULE$.apply(object.getStateVar().getName(), GumboUtils.buildAttr(object));
 		Ident slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtils.buildResolvedAttr(object));
 
-		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), inUifIdent, VisitorUtil.toISZ(),
-				VisitorUtil.toISZ(slangIdIdent), GumboUtils.buildResolvedAttr(object));
+		Input input = Input$.MODULE$.apply(slangIdIdent, GumboUtils.buildAttr(object));
 
-		push(invoke);
+		push(input);
 
 		return false;
 	}
@@ -406,7 +408,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseMustSendExpr(MustSendExpr object) {
 
-		Id mustSendUifId = Id$.MODULE$.apply("MustSend", GumboUtils.buildAttr(object));
+		String uifName = object.getValue() == null ? "MustSendEvent" : "MustSendEventData";
+
+		Id mustSendUifId = Id$.MODULE$.apply(uifName, GumboUtils.buildAttr(object));
 		Ident mustSendUifIdent = Ident$.MODULE$.apply(mustSendUifId, GumboUtils.buildResolvedAttr(object));
 
 		List<Exp> args = new ArrayList<>();
@@ -420,6 +424,25 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), mustSendUifIdent, VisitorUtil.toISZ(),
+				VisitorUtil.toISZ(args), GumboUtils.buildResolvedAttr(object));
+
+		push(invoke);
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseNoSendExpr(NoSendExpr object) {
+
+		Id noSendUifId = Id$.MODULE$.apply("NoSend", GumboUtils.buildAttr(object));
+		Ident noSendUifIdent = Ident$.MODULE$.apply(noSendUifId, GumboUtils.buildResolvedAttr(object));
+
+		List<Exp> args = new ArrayList<>();
+
+		Id portId = Id$.MODULE$.apply(object.getEventPort().getName(), GumboUtils.buildAttr(object));
+		args.add(Ident$.MODULE$.apply(portId, GumboUtils.buildResolvedAttr(object)));
+
+		Invoke invoke = Invoke$.MODULE$.apply(SlangUtils.toNone(), noSendUifIdent, VisitorUtil.toISZ(),
 				VisitorUtil.toISZ(args), GumboUtils.buildResolvedAttr(object));
 
 		push(invoke);

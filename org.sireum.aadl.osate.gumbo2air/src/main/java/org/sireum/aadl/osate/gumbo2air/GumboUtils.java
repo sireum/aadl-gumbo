@@ -61,10 +61,10 @@ public class GumboUtils {
 	 */
 
 	public static String toSlangBinaryOp(String op) {
-		if (op.equalsIgnoreCase("->:")) {
+		if (op.equalsIgnoreCase("->:") || op.equalsIgnoreCase("~>:")) {
 			return "->:";
 		} //
-		else if (op.equalsIgnoreCase("-->:")) {
+		else if (op.equalsIgnoreCase("~~>:")) {
 			return "-->:";
 		} //
 		else if (op.equalsIgnoreCase("|")) {
