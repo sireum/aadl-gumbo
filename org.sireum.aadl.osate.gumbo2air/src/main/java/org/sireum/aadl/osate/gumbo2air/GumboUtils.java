@@ -25,94 +25,35 @@ import org.sireum.message.FlatPos;
 import org.sireum.message.FlatPos$;
 import org.sireum.message.Position;
 
+import scala.Function1;
+import scala.Tuple2;
+
 public class GumboUtils {
 
 	protected final static AadlASTFactory factory = new AadlASTFactory();
 
-	/*
-	 * val Add: String = "+"
-	 * val Sub: String = "-"
-	 * val Mul: String = "*"
-	 * val Div: String = "/"
-	 * val Rem: String = "%"
-	 * val Eq: String = "=="
-	 * val Eq3: String = "==="
-	 * val Ne: String = "!="
-	 * val Ne3: String = "=!="
-	 * val Shl: String = "<<"
-	 * val Shr: String = ">>"
-	 * val Ushr: String = ">>>"
-	 * val Lt: String = "<"
-	 * val Le: String = "<="
-	 * val Gt: String = ">"
-	 * val Ge: String = ">="
-	 * val And: String = "&"
-	 * val Or: String = "|"
-	 * val Xor: String = "|^"
-	 * val Imply: String = "->:"
-	 * val CondAnd: String = "&&"
-	 * val CondOr: String = "||"
-	 * val CondImply: String = "-->:"
-	 * val Append: String = ":+"
-	 * val Prepend: String = "+:"
-	 * val AppendAll: String = "++"
-	 * val RemoveAll: String = "--"
-	 * val MapsTo: String = "~>"
-	 */
+	// refer to BinaryOp defined in
+	// https://github.com/sireum/slang/blob/0e73b8bf13022f876bf6961c442c65022cbaecfc/ast/shared/src/main/scala/org/sireum/lang/ast/AST.scala#L1264
+	final static org.sireum.Map<String, String> binaryOps = //
+			(org.sireum.Map$.MODULE$.apply(VisitorUtil.toISZ( //
+					"+", "-", "*", "/", "%", //
+					"==", "===", "!=", "=!=", //
+					"<<", ">>", ">>>", //
+					"<", "<=", ">", ">=", "&", "|", "|^", //
+					"->:", "&&", "||", //
+					// "-->:" invalid symbol in AADL
+					":+", "+:", "++", "--", //
+					"~>").map((Function1<String, Tuple2<String, String>>) (String key) -> {
+						return Tuple2.apply(key, key);
+					}))) //
+					.$plus(Tuple2.apply("~>:", "->:")) // also allow non-standard '~>:' variant
+					.$plus(Tuple2.apply("~~>:", "-->:")); // can't use '-->:' since '--' is and aadl comment
 
 	public static String toSlangBinaryOp(String op) {
-		if (op.equalsIgnoreCase("->:") || op.equalsIgnoreCase("~>:")) {
-			return "->:";
-		} //
-		else if (op.equalsIgnoreCase("~~>:")) {
-			return "-->:";
-		} //
-		else if (op.equalsIgnoreCase("|")) {
-			return "|";
-		} //
-		else if (op.equalsIgnoreCase("||")) {
-			return "||";
-		} //
-		else if (op.equalsIgnoreCase("&")) {
-			return "&";
-		} //
-		else if (op.equalsIgnoreCase("&&")) {
-			return "&&";
-		} //
-		else if (op.equalsIgnoreCase("<")) {
-			return "<";
-		} //
-		else if (op.equalsIgnoreCase("<=")) {
-			return "<=";
-		} //
-		else if (op.equalsIgnoreCase(">")) {
-			return ">";
-		} //
-		else if (op.equalsIgnoreCase(">=")) {
-			return ">=";
-		} //
-		else if (op.equalsIgnoreCase("==")) {
-			return "==";
-		} //
-		else if (op.equalsIgnoreCase("!=")) {
-			return "!=";
-		} //
-		else if (op.equalsIgnoreCase("+")) {
-			return "+";
-		} //
-		else if (op.equalsIgnoreCase("-")) {
-			return "-";
-		} //
-		else if (op.equalsIgnoreCase("*")) {
-			return "*";
-		} //
-		else if (op.equalsIgnoreCase("/")) {
-			return "/";
-		} //
-		else if (op.equalsIgnoreCase("%")) {
-			return "%";
-		} //
-
+		String lop = op.toLowerCase();
+		if (binaryOps.contains(lop)) {
+			return binaryOps.get(lop).get();
+		}
 		throw new RuntimeException("Binary operator '" + op + "' not supported");
 	}
 
