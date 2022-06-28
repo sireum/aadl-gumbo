@@ -2,7 +2,7 @@
 <feature
       id="org.sireum.aadl.osate.gumbo2air.feature"
       label="Sireum GUMBO to AIR Plugin"
-      version="1.2022.06242122.qualifier"
+      version="1.2022.06282118.qualifier"
       provider-name="SAnToS">
 
    <description>
