@@ -1,8 +1,10 @@
 package org.sireum.aadl.osate.gumbo2air;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -10,6 +12,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.EcoreUtil2;
 import org.osate.aadl2.AadlPackage;
+import org.osate.aadl2.AnnexLibrary;
 import org.osate.aadl2.Classifier;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.ComponentType;
@@ -17,9 +20,12 @@ import org.osate.aadl2.DataClassifier;
 import org.osate.aadl2.DataSubcomponent;
 import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Element;
+import org.osate.aadl2.ModelUnit;
 import org.osate.aadl2.Port;
 import org.osate.aadl2.ProcessSubcomponent;
 import org.osate.aadl2.instance.ComponentInstance;
+import org.osate.aadl2.modelsupport.util.AadlUtil;
+import org.osate.annexsupport.AnnexUtil;
 import org.sireum.Option;
 import org.sireum.R;
 import org.sireum.Z;
@@ -31,7 +37,10 @@ import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
+import org.sireum.aadl.gumbo.gumbo.FuncSpec;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
+import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
+import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
@@ -45,8 +54,11 @@ import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.RealLit;
+import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
+import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
 import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangStringLit;
+import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
@@ -76,10 +88,13 @@ import org.sireum.hamr.ir.GclIntegration;
 import org.sireum.hamr.ir.GclIntegration$;
 import org.sireum.hamr.ir.GclInvariant;
 import org.sireum.hamr.ir.GclInvariant$;
+import org.sireum.hamr.ir.GclLibrary$;
 import org.sireum.hamr.ir.GclSpec;
 import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
 import org.sireum.hamr.ir.GclSubclause$;
+import org.sireum.lang.ast.Body;
+import org.sireum.lang.ast.Body$;
 import org.sireum.lang.ast.Exp;
 import org.sireum.lang.ast.Exp.Binary;
 import org.sireum.lang.ast.Exp.Binary$;
@@ -102,6 +117,18 @@ import org.sireum.lang.ast.Exp.Unary;
 import org.sireum.lang.ast.Exp.Unary$;
 import org.sireum.lang.ast.Id;
 import org.sireum.lang.ast.Id$;
+import org.sireum.lang.ast.MethodContract;
+import org.sireum.lang.ast.MethodSig;
+import org.sireum.lang.ast.MethodSig$;
+import org.sireum.lang.ast.Param;
+import org.sireum.lang.ast.Param$;
+import org.sireum.lang.ast.Purity$;
+import org.sireum.lang.ast.Stmt;
+import org.sireum.lang.ast.Stmt.Method;
+import org.sireum.lang.ast.Stmt.Method$;
+import org.sireum.lang.ast.Type;
+import org.sireum.lang.ast.TypeParam;
+import org.sireum.lang.ast.TypeParam$;
 import org.sireum.message.Position;
 
 public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
@@ -116,6 +143,48 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	public GumboVisitor(Visitor v) {
 		this.v = v;
+	}
+
+	@Override
+	public List<AnnexLib> buildAnnexLibraries(Element e) {
+
+		List<AnnexLib> ret = new ArrayList<>();
+
+		List<ComponentImplementation> ais = AadlUtil.getAllComponentImpl();
+
+		List<ModelUnit> aps = new ArrayList<>(ais.stream()
+				.flatMap(it -> AadlUtil.getContainingPackage(it).getPublicSection().getImportedUnits().stream())
+				.collect(Collectors.toSet()));
+		Collections.sort(aps, (o1, o2) -> o1.qualifiedName().compareTo(o2.qualifiedName()));
+
+		for (ModelUnit mu : aps) {
+
+			if (mu != null && mu instanceof AadlPackage) {
+				AadlPackage parent = (AadlPackage) mu;
+				List<AnnexLibrary> gals = AnnexUtil.getAllActualAnnexLibraries(parent,
+						GumboPackage.eINSTANCE.getGumboLibrary());
+				if (!gals.isEmpty()) {
+					assert gals.size() == 1 : "AADL should disallow this";
+
+					GumboLibrary gl = (GumboLibrary) gals.get(0);
+					visit(gl);
+
+					List<Method> methods = pop();
+
+					List<org.sireum.String> segs = new ArrayList<>();
+					for (String seg : parent.getQualifiedName().split("::")) {
+						segs.add(new org.sireum.String(seg));
+					}
+
+					org.sireum.hamr.ir.Name containingPackage = org.sireum.hamr.ir.Name$.MODULE$
+							.apply(VisitorUtil.toISZ(segs), SlangUtils.toNone());
+
+					ret.add(GclLibrary$.MODULE$.apply(containingPackage, VisitorUtil.toISZ(methods)));
+				}
+			}
+		}
+
+		return ret;
 	}
 
 	@Override
@@ -163,6 +232,73 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				v.processDataType((DataClassifier) c);
 			}
 		}
+	}
+
+	@Override
+	public Boolean caseGumboLibrary(GumboLibrary object) {
+		List<Method> ret = new ArrayList<>();
+		if (object.getFunctions() != null) {
+			for (FuncSpec fs : object.getFunctions().getSpecs()) {
+				visit(fs);
+				ret.add(pop());
+			}
+		}
+		push(ret);
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseSlangDefDef(SlangDefDef object) {
+		assert object.getDefMods() == null : "Not handling def mods yet: " + object.getDefMods();
+		assert object.getSde() == null : "Not handling def extensions yet: " + object.getSde();
+
+		List<TypeParam> typeParams = new ArrayList<>();
+		if (object.getTypeParams() != null) {
+			for (SlangTypeParam stp : object.getTypeParams().getTypeParam()) {
+				assert !stp.isIsMut() : "Not handling mut attribute for type params yet";
+				Id id = Id$.MODULE$.apply(stp.getTypeName(), GumboUtils.buildAttr(stp));
+				typeParams.add(TypeParam$.MODULE$.apply(id));
+			}
+		}
+
+		Id methodId = Id$.MODULE$.apply(object.getMethodName(), GumboUtils.buildAttr(object));
+
+		List<Param> params = new ArrayList<>();
+		if (object.getParams() != null) {
+			for (SlangDefParam sdp : object.getParams().getParams()) {
+
+				boolean isHidden = false;
+				Id paramId = Id$.MODULE$.apply(sdp.getParamName(), GumboUtils.buildAttr(object));
+				Type.Named paramType = GumboUtils.buildTypeNamed(sdp.getTypeName().getTypeName(), object);
+
+				params.add(Param$.MODULE$.apply(isHidden, paramId, paramType));
+			}
+		}
+
+		Type.Named returnType = GumboUtils.buildTypeNamed(object.getType().getTypeName(), object);
+
+		boolean isPure = true;
+		boolean hasParams = params.isEmpty();
+
+		MethodSig sig = MethodSig$.MODULE$.apply(isPure, methodId, VisitorUtil.toISZ(typeParams), hasParams,
+				VisitorUtil.toISZ(params), returnType);
+
+		visit(object.getBody());
+		Stmt ret = Stmt.Return$.MODULE$.apply(SlangUtils.toSome(pop()), returnType.attr());
+		Body body = Body$.MODULE$.apply(VisitorUtil.toISZ(ret), VisitorUtil.toISZ());
+
+		boolean typeChecked = false;
+		boolean hasOverride = false;
+		boolean isHelper = false;
+
+		assert object.getMethodContract() == null : "Not handling method contracts yet: " + object.getMethodContract();
+		MethodContract mcontract = MethodContract.Simple$.MODULE$.empty();
+
+		push(Method$.MODULE$.apply(typeChecked, Purity$.MODULE$.byName("StrictPure").get(), hasOverride, isHelper, sig,
+				mcontract, SlangUtils.toSome(body), GumboUtils.buildResolvedAttr(object)));
+
+		return false;
 	}
 
 	@Override
@@ -243,7 +379,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		// TODO is preserving ordering important?
 
 		List<GclComputeSpec> specs = new ArrayList<>();
-		if(object.getSpecs() != null) {
+		if (object.getSpecs() != null) {
 			for (SpecStatement spec : object.getSpecs()) {
 				visit(spec);
 				specs.add(pop());
@@ -278,8 +414,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(specs),
-				VisitorUtil.toISZ(caseStatements),
-				VisitorUtil.toISZ(handlers)));
+				VisitorUtil.toISZ(caseStatements), VisitorUtil.toISZ(handlers)));
 
 		return false;
 	}
@@ -758,10 +893,5 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			System.err.println(e.getMessage() + ": " + ste);
 		}
-	}
-
-	@Override
-	public List<AnnexLib> buildAnnexLibraries(Element arg0) {
-		return VisitorUtil.iList();
 	}
 }

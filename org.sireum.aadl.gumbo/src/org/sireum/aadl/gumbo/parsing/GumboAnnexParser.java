@@ -33,8 +33,9 @@ public class GumboAnnexParser implements AnnexParser {
 	@Override
 	public AnnexLibrary parseAnnexLibrary(String annexName, String source, String filename, int line, int column,
 			ParseErrorReporter errReporter) throws RecognitionException {
-		// TODO Auto-generated method stub
-		return null;
+		AnnexLibrary gal = (AnnexLibrary) AnnexParseUtil.parse(gumboParser, source,
+				getGrammarAccess().getAnnexLibraryRule(), filename, line, column, errReporter);
+		return gal;
 	}
 
 	@Override

@@ -1,9 +1,11 @@
 package org.sireum.aadl.osate.gumbo2air;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 import org.eclipse.emf.ecore.EObject;
+import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Port;
 import org.sireum.Option;
 import org.sireum.aadl.osate.architecture.VisitorUtil;
@@ -17,8 +19,11 @@ import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.Select;
 import org.sireum.lang.ast.Exp.Select$;
 import org.sireum.lang.ast.Id;
+import org.sireum.lang.ast.Id$;
+import org.sireum.lang.ast.Name$;
 import org.sireum.lang.ast.ResolvedAttr;
 import org.sireum.lang.ast.ResolvedAttr$;
+import org.sireum.lang.ast.Type;
 import org.sireum.lang.ast.TypedAttr;
 import org.sireum.lang.ast.TypedAttr$;
 import org.sireum.message.FlatPos;
@@ -189,5 +194,17 @@ public class GumboUtils {
 		}
 
 		return (Select) names.pop();
+	}
+
+	public static Type.Named buildTypeNamed(DataSubcomponentType typ, EObject object) {
+		List<Id> retTypeIds = new ArrayList<>();
+		for (String seg : typ.getQualifiedName().split("::")) {
+			retTypeIds.add(Id$.MODULE$.apply(seg, GumboUtils.buildAttr(object)));
+		}
+		org.sireum.lang.ast.Name retTypeName = Name$.MODULE$.apply(VisitorUtil.toISZ(retTypeIds),
+				GumboUtils.buildAttr(object));
+		List<Type> retTypeArgs = new ArrayList<>();
+		TypedAttr retTypedAttr = TypedAttr$.MODULE$.apply(GumboUtils.buildPosInfo(object), SlangUtils.toNone());
+		return Type.Named$.MODULE$.apply(retTypeName, VisitorUtil.toISZ(retTypeArgs), retTypedAttr);
 	}
 }

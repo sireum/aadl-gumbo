@@ -17,7 +17,7 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 
 GumboLibrary returns GumboLibrary:
 	{GumboLibrary}
-	'library' 'for' 'gumbo'
+	(functions = Functions)?
 ;
 
 GumboSubclause returns GumboSubclause:
@@ -162,7 +162,11 @@ SlangDefDeclDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams
 
 SlangDefDecl: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ;
 	
-SlangDefDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ':=' e=Expr ;
+SlangDefDef: 
+	'def' defMods=SlangDefMods? sde=SlangDefExt? methodName=SlangDefID 
+		typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType 
+		methodContract=SlangDefContract? ':=' body=Expr
+;
 
 SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
 
@@ -172,12 +176,12 @@ SlangDefID: ID | Operator ;
 
 SlangDefParams: '(' params+=SlangDefParam ( ',' params+=SlangDefParam )? ')' ;
 	
-SlangDefParam: name=ID ':' ( '=>' )? typeName=SlangType '*'? ;
+SlangDefParam: paramName=ID ':' (isMethodDef ?= '=>'?) typeName=SlangType (isVarArg ?= '*'?) ;
 
 
-SlangTypeParams: '[' SlangTypeParam (  ',' SlangTypeParam )* ']' ;
+SlangTypeParams: '[' typeParam+=SlangTypeParam (  ',' typeParam+=SlangTypeParam )* ']' ;
 
-SlangTypeParam: 'mut'? ID ;
+SlangTypeParam: isMut ?= 'mut'? typeName=ID ;
 
 SlangDefContract
 	: {SlangDefContract} 'spec'
