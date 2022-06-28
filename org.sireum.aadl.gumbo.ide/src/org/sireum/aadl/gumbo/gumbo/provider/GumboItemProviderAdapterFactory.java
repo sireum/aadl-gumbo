@@ -835,6 +835,56 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangTypeParams} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangTypeParamsItemProvider slangTypeParamsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTypeParams}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangTypeParamsAdapter()
+  {
+    if (slangTypeParamsItemProvider == null)
+    {
+      slangTypeParamsItemProvider = new SlangTypeParamsItemProvider(this);
+    }
+
+    return slangTypeParamsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangTypeParam} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangTypeParamItemProvider slangTypeParamItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTypeParam}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangTypeParamAdapter()
+  {
+    if (slangTypeParamItemProvider == null)
+    {
+      slangTypeParamItemProvider = new SlangTypeParamItemProvider(this);
+    }
+
+    return slangTypeParamItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangDefContract} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2781,6 +2831,8 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangDefExtItemProvider != null) slangDefExtItemProvider.dispose();
     if (slangDefParamsItemProvider != null) slangDefParamsItemProvider.dispose();
     if (slangDefParamItemProvider != null) slangDefParamItemProvider.dispose();
+    if (slangTypeParamsItemProvider != null) slangTypeParamsItemProvider.dispose();
+    if (slangTypeParamItemProvider != null) slangTypeParamItemProvider.dispose();
     if (slangDefContractItemProvider != null) slangDefContractItemProvider.dispose();
     if (slangDefContractCaseItemProvider != null) slangDefContractCaseItemProvider.dispose();
     if (slangSuprsItemProvider != null) slangSuprsItemProvider.dispose();

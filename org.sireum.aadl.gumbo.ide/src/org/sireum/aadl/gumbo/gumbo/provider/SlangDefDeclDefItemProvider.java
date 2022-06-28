@@ -79,7 +79,6 @@ public class SlangDefDeclDefItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addTypeParamsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -108,29 +107,6 @@ public class SlangDefDeclDefItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Type Params feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addTypeParamsPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_SlangDefDeclDef_typeParams_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangDefDeclDef_typeParams_feature", "_UI_SlangDefDeclDef_type"),
-         GumboPackage.Literals.SLANG_DEF_DECL_DEF__TYPE_PARAMS,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -145,6 +121,7 @@ public class SlangDefDeclDefItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL_DEF__SDE);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL_DEF__TYPE_PARAMS);
       childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL_DEF__PARAMS);
       childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL_DEF__TYPE);
       childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL_DEF__C);
@@ -210,10 +187,10 @@ public class SlangDefDeclDefItemProvider
     switch (notification.getFeatureID(SlangDefDeclDef.class))
     {
       case GumboPackage.SLANG_DEF_DECL_DEF__NAME:
-      case GumboPackage.SLANG_DEF_DECL_DEF__TYPE_PARAMS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case GumboPackage.SLANG_DEF_DECL_DEF__SDE:
+      case GumboPackage.SLANG_DEF_DECL_DEF__TYPE_PARAMS:
       case GumboPackage.SLANG_DEF_DECL_DEF__PARAMS:
       case GumboPackage.SLANG_DEF_DECL_DEF__TYPE:
       case GumboPackage.SLANG_DEF_DECL_DEF__C:
@@ -240,6 +217,11 @@ public class SlangDefDeclDefItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_DEF_DECL_DEF__SDE,
          GumboFactory.eINSTANCE.createSlangDefExt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_DEF_DECL_DEF__TYPE_PARAMS,
+         GumboFactory.eINSTANCE.createSlangTypeParams()));
 
     newChildDescriptors.add
       (createChildParameter

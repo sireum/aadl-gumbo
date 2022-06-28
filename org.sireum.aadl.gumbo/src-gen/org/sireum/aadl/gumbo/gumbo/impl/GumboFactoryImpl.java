@@ -105,6 +105,8 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_DEF_EXT: return createSlangDefExt();
       case GumboPackage.SLANG_DEF_PARAMS: return createSlangDefParams();
       case GumboPackage.SLANG_DEF_PARAM: return createSlangDefParam();
+      case GumboPackage.SLANG_TYPE_PARAMS: return createSlangTypeParams();
+      case GumboPackage.SLANG_TYPE_PARAM: return createSlangTypeParam();
       case GumboPackage.SLANG_DEF_CONTRACT: return createSlangDefContract();
       case GumboPackage.SLANG_DEF_CONTRACT_CASE: return createSlangDefContractCase();
       case GumboPackage.SLANG_SUPRS: return createSlangSuprs();
@@ -540,6 +542,30 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangDefParamImpl slangDefParam = new SlangDefParamImpl();
     return slangDefParam;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTypeParams createSlangTypeParams()
+  {
+    SlangTypeParamsImpl slangTypeParams = new SlangTypeParamsImpl();
+    return slangTypeParams;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTypeParam createSlangTypeParam()
+  {
+    SlangTypeParamImpl slangTypeParam = new SlangTypeParamImpl();
+    return slangTypeParam;
   }
 
   /**

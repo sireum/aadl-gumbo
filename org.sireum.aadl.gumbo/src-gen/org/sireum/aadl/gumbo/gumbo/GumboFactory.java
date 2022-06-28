@@ -304,6 +304,24 @@ public interface GumboFactory extends EFactory
   SlangDefParam createSlangDefParam();
 
   /**
+   * Returns a new object of class '<em>Slang Type Params</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Type Params</em>'.
+   * @generated
+   */
+  SlangTypeParams createSlangTypeParams();
+
+  /**
+   * Returns a new object of class '<em>Slang Type Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Type Param</em>'.
+   * @generated
+   */
+  SlangTypeParam createSlangTypeParam();
+
+  /**
    * Returns a new object of class '<em>Slang Def Contract</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

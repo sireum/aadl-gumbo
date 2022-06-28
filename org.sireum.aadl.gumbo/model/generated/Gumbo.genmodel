@@ -8,7 +8,9 @@
     runtimeVersion="2.20" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/org.osate.aadl2/model/aadl2.genmodel#//aadl2">
   <genPackages prefix="Gumbo" basePackage="org.sireum.aadl.gumbo" disposableProviderFactory="true"
       fileExtensions="gumbo" ecorePackage="Gumbo.ecore#/">
-    <genClasses ecoreClass="Gumbo.ecore#//GumboLibrary"/>
+    <genClasses ecoreClass="Gumbo.ecore#//GumboLibrary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboLibrary/functions"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//GumboSubclause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboSubclause/specs"/>
     </genClasses>
@@ -96,7 +98,7 @@
     <genClasses ecoreClass="Gumbo.ecore#//SlangDefDeclDef">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/sde"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDeclDef/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDeclDef/typeParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/typeParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDeclDef/c"/>
@@ -105,19 +107,20 @@
     <genClasses ecoreClass="Gumbo.ecore#//SlangDefDecl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/sde"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDecl/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDecl/typeParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/typeParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDecl/c"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangDefDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/defMods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/sde"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/typeParams"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/methodName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/typeParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/c"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/methodContract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/body"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangDefExt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefExt/name"/>
@@ -127,8 +130,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefParams/params"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangDefParam">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefParam/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefParam/paramName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefParam/isMethodDef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefParam/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefParam/isVarArg"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangTypeParams">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTypeParams/typeParam"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangTypeParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangTypeParam/isMut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangTypeParam/typeName"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangDefContract">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefContract/rea"/>

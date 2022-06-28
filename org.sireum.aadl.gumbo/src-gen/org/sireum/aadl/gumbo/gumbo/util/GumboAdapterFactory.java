@@ -242,6 +242,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangDefParamAdapter();
       }
       @Override
+      public Adapter caseSlangTypeParams(SlangTypeParams object)
+      {
+        return createSlangTypeParamsAdapter();
+      }
+      @Override
+      public Adapter caseSlangTypeParam(SlangTypeParam object)
+      {
+        return createSlangTypeParamAdapter();
+      }
+      @Override
       public Adapter caseSlangDefContract(SlangDefContract object)
       {
         return createSlangDefContractAdapter();
@@ -1094,6 +1104,36 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSlangDefParamAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypeParams <em>Slang Type Params</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTypeParams
+   * @generated
+   */
+  public Adapter createSlangTypeParamsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypeParam <em>Slang Type Param</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTypeParam
+   * @generated
+   */
+  public Adapter createSlangTypeParamAdapter()
   {
     return null;
   }

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gumbo" nsURI="http://www.sireum.org/aadl/gumbo/Gumbo" nsPrefix="gumbo">
-  <eClassifiers xsi:type="ecore:EClass" name="GumboLibrary" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexLibrary"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GumboLibrary" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" eType="#//Functions"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GumboSubclause" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
     <eStructuralFeatures xsi:type="ecore:EReference" name="specs" eType="#//SpecSection"
         containment="true"/>
@@ -115,7 +118,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParams" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParams" eType="#//SlangTypeParams"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
@@ -128,7 +132,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParams" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParams" eType="#//SlangTypeParams"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
@@ -137,17 +142,19 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangDefDef" eSuperTypes="#//FuncSpec">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defMods" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParams" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParams" eType="#//SlangTypeParams"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="c" eType="#//SlangDefContract"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodContract" eType="#//SlangDefContract"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangDefExt">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -159,9 +166,19 @@
         eType="#//SlangDefParam" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangDefParam">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMethodDef" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVarArg" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangTypeParams">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParam" upperBound="-1"
+        eType="#//SlangTypeParam" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangTypeParam">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMut" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangDefContract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rea" eType="#//SlangReads"

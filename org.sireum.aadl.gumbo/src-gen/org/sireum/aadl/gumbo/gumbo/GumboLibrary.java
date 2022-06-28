@@ -22,6 +22,12 @@ import org.osate.aadl2.AnnexLibrary;
  * A representation of the model object '<em><b>Library</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.GumboLibrary#getFunctions <em>Functions</em>}</li>
+ * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getGumboLibrary()
  * @model
@@ -29,4 +35,26 @@ import org.osate.aadl2.AnnexLibrary;
  */
 public interface GumboLibrary extends EObject, AnnexLibrary
 {
+  /**
+   * Returns the value of the '<em><b>Functions</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Functions</em>' containment reference.
+   * @see #setFunctions(Functions)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getGumboLibrary_Functions()
+   * @model containment="true"
+   * @generated
+   */
+  Functions getFunctions();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.GumboLibrary#getFunctions <em>Functions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Functions</em>' containment reference.
+   * @see #getFunctions()
+   * @generated
+   */
+  void setFunctions(Functions value);
+
 } // GumboLibrary

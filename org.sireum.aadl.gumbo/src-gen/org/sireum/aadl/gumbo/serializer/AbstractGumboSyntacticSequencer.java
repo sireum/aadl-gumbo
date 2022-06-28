@@ -36,9 +36,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3;
 	protected AbstractElementAlias match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDecl_SlangDefModsParserRuleCall_1_q;
-	protected AbstractElementAlias match_SlangDefDef_SlangDefModsParserRuleCall_1_q;
-	protected AbstractElementAlias match_SlangDefParam_AsteriskKeyword_4_q;
-	protected AbstractElementAlias match_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q;
 	protected AbstractElementAlias match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q;
 	protected AbstractElementAlias match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
 	protected AbstractElementAlias match_SlangParam_AsteriskKeyword_5_q;
@@ -60,9 +57,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		match_Expr_AllKeyword_1_1_0_or_ForAllKeyword_1_1_2_or_SomeKeyword_1_1_1_or_ThereExistsKeyword_1_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExprAccess().getAllKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getExprAccess().getForAllKeyword_1_1_2()), new TokenAlias(false, false, grammarAccess.getExprAccess().getSomeKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getExprAccess().getThereExistsKeyword_1_1_3()));
 		match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclDefAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangDefDecl_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclAccess().getSlangDefModsParserRuleCall_1());
-		match_SlangDefDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDefAccess().getSlangDefModsParserRuleCall_1());
-		match_SlangDefParam_AsteriskKeyword_4_q = new TokenAlias(false, true, grammarAccess.getSlangDefParamAccess().getAsteriskKeyword_4());
-		match_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q = new TokenAlias(false, true, grammarAccess.getSlangDefParamAccess().getEqualsSignGreaterThanSignKeyword_2());
 		match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSlangExtAccess().getForKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getSlangExtAccess().getSlangNameParserRuleCall_3_1()));
 		match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
 		match_SlangParam_AsteriskKeyword_5_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getAsteriskKeyword_5());
@@ -228,12 +222,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 				emit_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDecl_SlangDefModsParserRuleCall_1_q.equals(syntax))
 				emit_SlangDefDecl_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangDefDef_SlangDefModsParserRuleCall_1_q.equals(syntax))
-				emit_SlangDefDef_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangDefParam_AsteriskKeyword_4_q.equals(syntax))
-				emit_SlangDefParam_AsteriskKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q.equals(syntax))
-				emit_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q.equals(syntax))
 				emit_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1.equals(syntax))
@@ -319,49 +307,6 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 * </pre>
 	 */
 	protected void emit_SlangDefDecl_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     SlangDefMods?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'def' (ambiguity) name=SlangDefID
-	 *     (rule start) 'def' (ambiguity) sde=SlangDefExt
-	 
-	 * </pre>
-	 */
-	protected void emit_SlangDefDef_SlangDefModsParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     '*'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     typeName=SlangType (ambiguity) (rule end)
-	 
-	 * </pre>
-	 */
-	protected void emit_SlangDefParam_AsteriskKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     '=&gt;'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name=ID ':' (ambiguity) typeName=SlangType
-	 
-	 * </pre>
-	 */
-	protected void emit_SlangDefParam_EqualsSignGreaterThanSignKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

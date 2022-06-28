@@ -24,28 +24,26 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.SlangDefDecl;
+import org.sireum.aadl.gumbo.gumbo.SlangTypeParams;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangDefDecl} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangTypeParams} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangDefDeclItemProvider 
+public class SlangTypeParamsItemProvider 
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -60,7 +58,7 @@ public class SlangDefDeclItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public SlangDefDeclItemProvider(AdapterFactory adapterFactory)
+  public SlangTypeParamsItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -78,32 +76,8 @@ public class SlangDefDeclItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_SlangDefDecl_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangDefDecl_name_feature", "_UI_SlangDefDecl_type"),
-         GumboPackage.Literals.SLANG_DEF_DECL__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -120,11 +94,7 @@ public class SlangDefDeclItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL__SDE);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL__TYPE_PARAMS);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL__PARAMS);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL__TYPE);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_DECL__C);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_TYPE_PARAMS__TYPE_PARAM);
     }
     return childrenFeatures;
   }
@@ -144,7 +114,7 @@ public class SlangDefDeclItemProvider
   }
 
   /**
-   * This returns SlangDefDecl.gif.
+   * This returns SlangTypeParams.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -152,7 +122,7 @@ public class SlangDefDeclItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangDefDecl"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangTypeParams"));
   }
 
   /**
@@ -164,10 +134,7 @@ public class SlangDefDeclItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SlangDefDecl)object).getName();
-    return label == null || label.length() == 0 ?
-      getString("_UI_SlangDefDecl_type") :
-      getString("_UI_SlangDefDecl_type") + " " + label;
+    return getString("_UI_SlangTypeParams_type");
   }
 
 
@@ -183,16 +150,9 @@ public class SlangDefDeclItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(SlangDefDecl.class))
+    switch (notification.getFeatureID(SlangTypeParams.class))
     {
-      case GumboPackage.SLANG_DEF_DECL__NAME:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case GumboPackage.SLANG_DEF_DECL__SDE:
-      case GumboPackage.SLANG_DEF_DECL__TYPE_PARAMS:
-      case GumboPackage.SLANG_DEF_DECL__PARAMS:
-      case GumboPackage.SLANG_DEF_DECL__TYPE:
-      case GumboPackage.SLANG_DEF_DECL__C:
+      case GumboPackage.SLANG_TYPE_PARAMS__TYPE_PARAM:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -213,28 +173,8 @@ public class SlangDefDeclItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_DECL__SDE,
-         GumboFactory.eINSTANCE.createSlangDefExt()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_DECL__TYPE_PARAMS,
-         GumboFactory.eINSTANCE.createSlangTypeParams()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_DECL__PARAMS,
-         GumboFactory.eINSTANCE.createSlangDefParams()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_DECL__TYPE,
-         GumboFactory.eINSTANCE.createSlangType()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_DECL__C,
-         GumboFactory.eINSTANCE.createSlangDefContract()));
+        (GumboPackage.Literals.SLANG_TYPE_PARAMS__TYPE_PARAM,
+         GumboFactory.eINSTANCE.createSlangTypeParam()));
   }
 
   /**

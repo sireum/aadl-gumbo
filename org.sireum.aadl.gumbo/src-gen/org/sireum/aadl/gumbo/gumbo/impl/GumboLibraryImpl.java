@@ -13,10 +13,17 @@
  */
 package org.sireum.aadl.gumbo.gumbo.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.osate.aadl2.impl.AnnexLibraryImpl;
 
+import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 
@@ -24,11 +31,27 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Library</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.GumboLibraryImpl#getFunctions <em>Functions</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class GumboLibraryImpl extends AnnexLibraryImpl implements GumboLibrary
 {
+  /**
+   * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctions()
+   * @generated
+   * @ordered
+   */
+  protected Functions functions;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,6 +71,138 @@ public class GumboLibraryImpl extends AnnexLibraryImpl implements GumboLibrary
   protected EClass eStaticClass()
   {
     return GumboPackage.Literals.GUMBO_LIBRARY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Functions getFunctions()
+  {
+    return functions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunctions(Functions newFunctions, NotificationChain msgs)
+  {
+    Functions oldFunctions = functions;
+    functions = newFunctions;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.GUMBO_LIBRARY__FUNCTIONS, oldFunctions, newFunctions);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFunctions(Functions newFunctions)
+  {
+    if (newFunctions != functions)
+    {
+      NotificationChain msgs = null;
+      if (functions != null)
+        msgs = ((InternalEObject)functions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.GUMBO_LIBRARY__FUNCTIONS, null, msgs);
+      if (newFunctions != null)
+        msgs = ((InternalEObject)newFunctions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.GUMBO_LIBRARY__FUNCTIONS, null, msgs);
+      msgs = basicSetFunctions(newFunctions, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.GUMBO_LIBRARY__FUNCTIONS, newFunctions, newFunctions));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.GUMBO_LIBRARY__FUNCTIONS:
+        return basicSetFunctions(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.GUMBO_LIBRARY__FUNCTIONS:
+        return getFunctions();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.GUMBO_LIBRARY__FUNCTIONS:
+        setFunctions((Functions)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.GUMBO_LIBRARY__FUNCTIONS:
+        setFunctions((Functions)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GumboPackage.GUMBO_LIBRARY__FUNCTIONS:
+        return functions != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //GumboLibraryImpl

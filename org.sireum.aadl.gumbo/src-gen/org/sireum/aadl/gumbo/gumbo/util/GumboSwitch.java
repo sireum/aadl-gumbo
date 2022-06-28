@@ -309,6 +309,20 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.SLANG_TYPE_PARAMS:
+      {
+        SlangTypeParams slangTypeParams = (SlangTypeParams)theEObject;
+        T result = caseSlangTypeParams(slangTypeParams);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_TYPE_PARAM:
+      {
+        SlangTypeParam slangTypeParam = (SlangTypeParam)theEObject;
+        T result = caseSlangTypeParam(slangTypeParam);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.SLANG_DEF_CONTRACT:
       {
         SlangDefContract slangDefContract = (SlangDefContract)theEObject;
@@ -1336,6 +1350,38 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangDefParam(SlangDefParam object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Type Params</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Type Params</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangTypeParams(SlangTypeParams object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Type Param</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Type Param</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangTypeParam(SlangTypeParam object)
   {
     return null;
   }

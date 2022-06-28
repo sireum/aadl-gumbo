@@ -132,6 +132,8 @@ import org.sireum.aadl.gumbo.gumbo.SlangTPattern;
 import org.sireum.aadl.gumbo.gumbo.SlangTupleTerm;
 import org.sireum.aadl.gumbo.gumbo.SlangType;
 import org.sireum.aadl.gumbo.gumbo.SlangTypeArgs;
+import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
+import org.sireum.aadl.gumbo.gumbo.SlangTypeParams;
 import org.sireum.aadl.gumbo.gumbo.SlangVarDef;
 import org.sireum.aadl.gumbo.gumbo.SlangWhileStmt;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
@@ -527,6 +529,12 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.SLANG_TYPE_ARGS:
 				sequence_SlangTypeArgs(context, (SlangTypeArgs) semanticObject); 
 				return; 
+			case GumboPackage.SLANG_TYPE_PARAM:
+				sequence_SlangTypeParam(context, (SlangTypeParam) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_TYPE_PARAMS:
+				sequence_SlangTypeParams(context, (SlangTypeParams) semanticObject); 
+				return; 
 			case GumboPackage.SLANG_VAR_DEF:
 				if (rule == grammarAccess.getSlangStmtRule()) {
 					sequence_SlangStmt(context, (SlangVarDef) semanticObject); 
@@ -770,7 +778,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     GumboLibrary returns GumboLibrary
 	 *
 	 * Constraint:
-	 *     {GumboLibrary}
+	 *     functions=Functions?
 	 * </pre>
 	 */
 	protected void sequence_GumboLibrary(ISerializationContext context, GumboLibrary semanticObject) {
@@ -1083,13 +1091,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *
 	 * Constraint:
 	 *     (
+	 *         defMods=SlangDefMods? 
 	 *         sde=SlangDefExt? 
-	 *         name=SlangDefID 
+	 *         methodName=SlangDefID 
 	 *         typeParams=SlangTypeParams? 
 	 *         params=SlangDefParams? 
 	 *         type=SlangType 
-	 *         c=SlangDefContract? 
-	 *         e=Expr
+	 *         methodContract=SlangDefContract? 
+	 *         body=Expr
 	 *     )
 	 * </pre>
 	 */
@@ -1127,20 +1136,11 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangDefParam returns SlangDefParam
 	 *
 	 * Constraint:
-	 *     (name=ID typeName=SlangType)
+	 *     (paramName=ID isMethodDef?='=&gt;'? typeName=SlangType isVarArg?='*'?)
 	 * </pre>
 	 */
 	protected void sequence_SlangDefParam(ISerializationContext context, SlangDefParam semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__NAME));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__TYPE_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_DEF_PARAM__TYPE_NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangDefParamAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getSlangDefParamAccess().getTypeNameSlangTypeParserRuleCall_3_0(), semanticObject.getTypeName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -2119,6 +2119,34 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_SlangTypeArgs(ISerializationContext context, SlangTypeArgs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SlangTypeParam returns SlangTypeParam
+	 *
+	 * Constraint:
+	 *     (isMut?='mut'? typeName=ID)
+	 * </pre>
+	 */
+	protected void sequence_SlangTypeParam(ISerializationContext context, SlangTypeParam semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SlangTypeParams returns SlangTypeParams
+	 *
+	 * Constraint:
+	 *     (typeParam+=SlangTypeParam typeParam+=SlangTypeParam*)
+	 * </pre>
+	 */
+	protected void sequence_SlangTypeParams(ISerializationContext context, SlangTypeParams semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
