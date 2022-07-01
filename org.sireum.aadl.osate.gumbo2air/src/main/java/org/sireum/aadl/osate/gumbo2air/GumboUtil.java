@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Port;
 import org.sireum.Option;
-import org.sireum.aadl.osate.architecture.VisitorUtil;
-import org.sireum.aadl.osate.util.SlangUtils;
+import org.sireum.aadl.osate.util.SlangUtil;
+import org.sireum.aadl.osate.util.VisitorUtil;
 import org.sireum.hamr.ir.AadlASTFactory;
 import org.sireum.hamr.ir.Name;
 import org.sireum.lang.ast.Attr;
@@ -33,7 +33,7 @@ import org.sireum.message.Position;
 import scala.Function1;
 import scala.Tuple2;
 
-public class GumboUtils {
+public class GumboUtil {
 
 	protected final static AadlASTFactory factory = new AadlASTFactory();
 
@@ -100,14 +100,9 @@ public class GumboUtils {
 		return toName(VisitorUtil.iList());
 	}
 
-	public static Option<Position> buildPosInfo(EObject object) {
-		Position p = VisitorUtil.buildPosInfo(object);
-		return p == null ? SlangUtils.toNone() : SlangUtils.toSome(p);
-	}
-
 	public static Attr buildAttr(EObject object) {
-		Position p = VisitorUtil.buildPosInfo(object);
-		return buildAttr(p == null ? SlangUtils.toNone() : SlangUtils.toSome(p));
+		Position p = VisitorUtil.buildPosition(object);
+		return buildAttr(p == null ? SlangUtil.toNone() : SlangUtil.toSome(p));
 	}
 
 	public static Attr buildAttr(Option<Position> p) {
@@ -115,17 +110,17 @@ public class GumboUtils {
 	}
 
 	public static ResolvedAttr buildResolvedAttr(EObject object) {
-		Position p = VisitorUtil.buildPosInfo(object);
-		return buildResolvedAttr(p == null ? SlangUtils.toNone() : SlangUtils.toSome(p));
+		Position p = VisitorUtil.buildPosition(object);
+		return buildResolvedAttr(p == null ? SlangUtil.toNone() : SlangUtil.toSome(p));
 	}
 
 	public static ResolvedAttr buildResolvedAttr(Option<Position> p) {
-		return ResolvedAttr$.MODULE$.apply(p, SlangUtils.toNone(), SlangUtils.toNone());
+		return ResolvedAttr$.MODULE$.apply(p, SlangUtil.toNone(), SlangUtil.toNone());
 	}
 
 	public static TypedAttr buildTypedAttr(EObject object) {
-		Position p = VisitorUtil.buildPosInfo(object);
-		return TypedAttr$.MODULE$.apply(p == null ? SlangUtils.toNone() : SlangUtils.toSome(p), SlangUtils.toNone());
+		Position p = VisitorUtil.buildPosition(object);
+		return TypedAttr$.MODULE$.apply(p == null ? SlangUtil.toNone() : SlangUtil.toSome(p), SlangUtil.toNone());
 	}
 
 	public static Option<Position> mergePositions(Option<Position> a, Option<Position> b) {
@@ -139,7 +134,7 @@ public class GumboUtils {
 			assert af.getOffset32() <= bf.getOffset32() : af.getOffset32() + " vs " + bf.getOffset32();
 
 			int length = (bf.getOffset32() - af.getOffset32()) + bf.length32();
-			return SlangUtils.toSome(FlatPos$.MODULE$.apply(af.getUriOpt(), //
+			return SlangUtil.toSome(FlatPos$.MODULE$.apply(af.getUriOpt(), //
 					af.getBeginLine32(), af.getBeginColumn32(), //
 					bf.getEndLine32(), bf.getEndColumn32(), //
 					af.getOffset32(), //
@@ -148,7 +143,7 @@ public class GumboUtils {
 	}
 
 	public static Option<org.sireum.String> getOptionalSlangString(String s) {
-		return s == null ? SlangUtils.toNone() : SlangUtils.toSome(getSlangString(s));
+		return s == null ? SlangUtil.toNone() : SlangUtil.toSome(getSlangString(s));
 	}
 
 	public static org.sireum.String getSlangString(String s) {
@@ -163,7 +158,7 @@ public class GumboUtils {
 
 			assert fp.getBeginColumn32() + newLength <= fp.getEndColumn32();
 
-			return SlangUtils.toSome(FlatPos$.MODULE$.apply(fp.getUriOpt(), //
+			return SlangUtil.toSome(FlatPos$.MODULE$.apply(fp.getUriOpt(), //
 					fp.getBeginLine32(), fp.getBeginColumn32(), //
 					fp.getBeginLine32(), fp.getBeginColumn32() + newLength, //
 					fp.offset32(), //
@@ -180,16 +175,16 @@ public class GumboUtils {
 
 			if (a instanceof Id) {
 				Id aAsId = (Id) a;
-				Option<Position> optPos = GumboUtils.mergePositions(aAsId.getAttr().getPosOpt(), b.attr().getPosOpt());
-				Ident ident = Ident$.MODULE$.apply(aAsId, GumboUtils.buildResolvedAttr(aAsId.getAttr().getPosOpt()));
-				names.push(Select$.MODULE$.apply(SlangUtils.toSome(ident), b, VisitorUtil.toISZ(),
-						GumboUtils.buildResolvedAttr(optPos)));
+				Option<Position> optPos = GumboUtil.mergePositions(aAsId.getAttr().getPosOpt(), b.attr().getPosOpt());
+				Ident ident = Ident$.MODULE$.apply(aAsId, GumboUtil.buildResolvedAttr(aAsId.getAttr().getPosOpt()));
+				names.push(Select$.MODULE$.apply(SlangUtil.toSome(ident), b, VisitorUtil.toISZ(),
+						GumboUtil.buildResolvedAttr(optPos)));
 			} else {
 				Select aAsSelect = (Select) a;
-				Option<Position> optPos = GumboUtils.mergePositions(aAsSelect.getAttr().getPosOpt(),
+				Option<Position> optPos = GumboUtil.mergePositions(aAsSelect.getAttr().getPosOpt(),
 						b.attr().getPosOpt());
-				names.push(Select$.MODULE$.apply(SlangUtils.toSome((Select) a), b, VisitorUtil.toISZ(),
-						GumboUtils.buildResolvedAttr(optPos)));
+				names.push(Select$.MODULE$.apply(SlangUtil.toSome((Select) a), b, VisitorUtil.toISZ(),
+						GumboUtil.buildResolvedAttr(optPos)));
 			}
 		}
 
@@ -199,12 +194,12 @@ public class GumboUtils {
 	public static Type.Named buildTypeNamed(DataSubcomponentType typ, EObject object) {
 		List<Id> retTypeIds = new ArrayList<>();
 		for (String seg : typ.getQualifiedName().split("::")) {
-			retTypeIds.add(Id$.MODULE$.apply(seg, GumboUtils.buildAttr(object)));
+			retTypeIds.add(Id$.MODULE$.apply(seg, GumboUtil.buildAttr(object)));
 		}
 		org.sireum.lang.ast.Name retTypeName = Name$.MODULE$.apply(VisitorUtil.toISZ(retTypeIds),
-				GumboUtils.buildAttr(object));
+				GumboUtil.buildAttr(object));
 		List<Type> retTypeArgs = new ArrayList<>();
-		TypedAttr retTypedAttr = TypedAttr$.MODULE$.apply(GumboUtils.buildPosInfo(object), SlangUtils.toNone());
+		TypedAttr retTypedAttr = TypedAttr$.MODULE$.apply(VisitorUtil.buildPositionOpt(object), SlangUtil.toNone());
 		return Type.Named$.MODULE$.apply(retTypeName, VisitorUtil.toISZ(retTypeArgs), retTypedAttr);
 	}
 }
