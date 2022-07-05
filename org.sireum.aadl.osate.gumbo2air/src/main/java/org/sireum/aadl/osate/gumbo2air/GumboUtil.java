@@ -175,14 +175,17 @@ public class GumboUtil {
 
 			if (a instanceof Id) {
 				Id aAsId = (Id) a;
-				Option<Position> optPos = GumboUtil.mergePositions(aAsId.getAttr().getPosOpt(), b.attr().getPosOpt());
+				Option<Position> optPos = (a != null && b != null)
+						? GumboUtil.mergePositions(aAsId.getAttr().getPosOpt(), b.attr().getPosOpt())
+						: SlangUtil.toNone();
 				Ident ident = Ident$.MODULE$.apply(aAsId, GumboUtil.buildResolvedAttr(aAsId.getAttr().getPosOpt()));
 				names.push(Select$.MODULE$.apply(SlangUtil.toSome(ident), b, VisitorUtil.toISZ(),
 						GumboUtil.buildResolvedAttr(optPos)));
 			} else {
 				Select aAsSelect = (Select) a;
-				Option<Position> optPos = GumboUtil.mergePositions(aAsSelect.getAttr().getPosOpt(),
-						b.attr().getPosOpt());
+				Option<Position> optPos = (a != null && b != null)
+						? GumboUtil.mergePositions(aAsSelect.getAttr().getPosOpt(), b.attr().getPosOpt())
+						: SlangUtil.toNone();
 				names.push(Select$.MODULE$.apply(SlangUtil.toSome((Select) a), b, VisitorUtil.toISZ(),
 						GumboUtil.buildResolvedAttr(optPos)));
 			}

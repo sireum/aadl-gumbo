@@ -148,6 +148,16 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
+	public String getVisitorName() {
+		return "GUMBO Visitor";
+	}
+
+	@Override
+	public List<String> getHandledAnnexes() {
+		return VisitorUtil.toIList(ANNEX_TYPE);
+	}
+
+	@Override
 	public List<AnnexLib> buildAnnexLibraries(Element e, Reporter reporter) {
 		this.reporter = reporter;
 		List<AnnexLib> ret = new ArrayList<>();
@@ -622,7 +632,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					Exp lhs = exps.pop();
 					Exp rhs = exps.pop();
 					String op = GumboUtil.toSlangBinaryOp(object.getOps().get(i++));
-					Option<Position> optPos = GumboUtil.mergePositions(lhs.posOpt(), rhs.posOpt());
+					Option<Position> optPos = (lhs != null && rhs != null)
+							? GumboUtil.mergePositions(lhs.posOpt(), rhs.posOpt())
+							: SlangUtil.toNone();
 					Binary b = Binary$.MODULE$.apply(lhs, op, rhs, GumboUtil.buildResolvedAttr(optPos));
 					exps.push(b);
 				}
