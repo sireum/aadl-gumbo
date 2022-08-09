@@ -5,6 +5,7 @@ import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.osate.aadl2.AadlPackage;
 import org.osate.aadl2.NamedElement;
+import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 
 public class GumboQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
@@ -12,7 +13,7 @@ public class GumboQualifiedNameProvider extends DefaultDeclarativeQualifiedNameP
 	// Duplicates checking only applies to global items
 	@Override
 	public QualifiedName getFullyQualifiedName(final EObject obj) {
-		if (obj instanceof GumboSubclause) {
+		if (obj instanceof GumboSubclause || obj instanceof GumboLibrary) {
 			/*
 			 * It is important that we return null if obj is not in an
 			 * AadlPackage or in a EMV2Root. This happens when serializing an
@@ -22,10 +23,14 @@ public class GumboQualifiedNameProvider extends DefaultDeclarativeQualifiedNameP
 			 */
 			NamedElement namedElement = (NamedElement) obj;
 			NamedElement root = namedElement.getElementRoot();
-			if (namedElement.getName() == null || !(root instanceof AadlPackage) || (obj instanceof GumboSubclause)) {
+			if (namedElement.getName() == null || !(root instanceof AadlPackage) || //
+					(obj instanceof GumboSubclause) || //
+					(obj instanceof GumboLibrary)) {
 				return null;
 			}
-			return getConverter().toQualifiedName(getTheName(namedElement));
+
+			QualifiedName qn = getConverter().toQualifiedName(getTheName(namedElement));
+			return qn;
 		}
 		if (obj instanceof AadlPackage) {
 			return getConverter().toQualifiedName(((AadlPackage) obj).getName());

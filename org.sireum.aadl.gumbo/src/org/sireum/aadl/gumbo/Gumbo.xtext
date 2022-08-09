@@ -163,25 +163,26 @@ SlangDefDeclDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams
 SlangDefDecl: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ;
 	
 SlangDefDef: 
-	'def' defMods=SlangDefMods? sde=SlangDefExt? methodName=SlangDefID 
-		typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType 
+	 defMods=SlangDefMods? 'def' sde=SlangDefExt? name=SlangDefID 
+		typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
 		methodContract=SlangDefContract? ':=' body=Expr
 ;
 
-SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
+//SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
+SlangDefMods: '@strictpure';
 
 SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
 	
 SlangDefID: ID | Operator ;
 
-SlangDefParams: '(' params+=SlangDefParam ( ',' params+=SlangDefParam )? ')' ;
+SlangDefParams: '(' (params+=SlangDefParam ( ',' params+=SlangDefParam )* )? ')' ;
 	
-SlangDefParam: paramName=ID ':' (isMethodDef ?= '=>'?) typeName=SlangType (isVarArg ?= '*'?) ;
+SlangDefParam: name=ID ':' (isMethodDef ?= '=>'?) typeName=SlangType (isVarArg ?= '*'?) ;
 
 
 SlangTypeParams: '[' typeParam+=SlangTypeParam (  ',' typeParam+=SlangTypeParam )* ']' ;
 
-SlangTypeParam: isMut ?= 'mut'? typeName=ID ;
+SlangTypeParam: isMut ?= 'mut'? name=ID ;
 
 SlangDefContract
 	: {SlangDefContract} 'spec'
@@ -281,20 +282,21 @@ SlangQuantVar: ID ':' e=Expr ( ( '..' | '..<' ) upperBound=Expr )? ;
 SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
 	
 SlangAccess returns Expr
-	: {SlangAccess} t=SlangTerm ; //suf+=SlangAccessSuffix* ;
+	: {SlangAccess} t=SlangTerm ( suffixes+=SlangAccessSuffix )* ;
 
-//SlangAccessSuffix: {SlangAccessSuffix} '.' ID cs=SlangCallSuffix? ;
+SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID cs=SlangCallSuffix? ;
 
 SlangTerm returns Expr
 	: {SlangLitTerm} lit=SlangLit
 	| {SlangInterpTerm} i=SlangInterp
 	| => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
 	| => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')' 
-	| => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
-	| => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')' 
+  | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
+	| => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
+  | => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
 	| => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
-	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)? cs=SlangCallSuffix?
+	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
 	| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
 	| {SlangForTerm} 'for' r+=SlangForRange ( ',' r+=SlangForRange )*  'yield' ( b=SlangBlock |  '(' e=Expr ')' )
 	| {SlangBlockTerm} '{'
@@ -313,7 +315,7 @@ SlangForRange: ID ':' e=Expr ( ( '..' |  '..<' ) upper=Expr ( 'by' step=Expr )? 
 SlangRet: {SlangRet} 'return' e=Expr? ;
 
 SlangCallSuffix: {SlangCallSuffix}
-	ta=SlangTypeArgs ca=SlangCallArgs?
+	ta=SlangTypeArgs ca=SlangCallArgs // TODO: add back ? for call args when support for no param methods is added
 	| ca=SlangCallArgs
 	;
 	
