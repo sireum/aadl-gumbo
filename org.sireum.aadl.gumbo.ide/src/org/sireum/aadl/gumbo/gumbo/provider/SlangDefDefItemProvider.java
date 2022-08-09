@@ -64,7 +64,7 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
       super.getPropertyDescriptors(object);
 
       addDefModsPropertyDescriptor(object);
-      addMethodNamePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -93,20 +93,20 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Method Name feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addMethodNamePropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_SlangDefDef_methodName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangDefDef_methodName_feature", "_UI_SlangDefDef_type"),
-         GumboPackage.Literals.SLANG_DEF_DEF__METHOD_NAME,
+         getString("_UI_SlangDefDef_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SlangDefDef_name_feature", "_UI_SlangDefDef_type"),
+         GumboPackage.Literals.SLANG_DEF_DEF__NAME,
          true,
          false,
          false,
@@ -174,7 +174,7 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SlangDefDef)object).getMethodName();
+    String label = ((SlangDefDef)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_SlangDefDef_type") :
       getString("_UI_SlangDefDef_type") + " " + label;
@@ -196,7 +196,7 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
     switch (notification.getFeatureID(SlangDefDef.class))
     {
       case GumboPackage.SLANG_DEF_DEF__DEF_MODS:
-      case GumboPackage.SLANG_DEF_DEF__METHOD_NAME:
+      case GumboPackage.SLANG_DEF_DEF__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case GumboPackage.SLANG_DEF_DEF__SDE:
@@ -302,6 +302,11 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_DEF_DEF__BODY,
          GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_DEF_DEF__BODY,
+         GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add
       (createChildParameter

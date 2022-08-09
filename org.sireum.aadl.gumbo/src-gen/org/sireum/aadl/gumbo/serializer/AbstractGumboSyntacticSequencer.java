@@ -182,12 +182,12 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	}
 	
 	/**
-	 * SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
+	 * SlangDefMods: '@strictpure';
 	 */
 	protected String getSlangDefModsToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "strict";
+		return "@strictpure";
 	}
 	
 	/**

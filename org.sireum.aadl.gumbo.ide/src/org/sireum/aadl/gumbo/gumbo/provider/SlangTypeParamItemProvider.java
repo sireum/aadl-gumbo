@@ -76,7 +76,7 @@ public class SlangTypeParamItemProvider
       super.getPropertyDescriptors(object);
 
       addIsMutPropertyDescriptor(object);
-      addTypeNamePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -105,20 +105,20 @@ public class SlangTypeParamItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Type Name feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTypeNamePropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_SlangTypeParam_typeName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangTypeParam_typeName_feature", "_UI_SlangTypeParam_type"),
-         GumboPackage.Literals.SLANG_TYPE_PARAM__TYPE_NAME,
+         getString("_UI_SlangTypeParam_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SlangTypeParam_name_feature", "_UI_SlangTypeParam_type"),
+         GumboPackage.Literals.SLANG_TYPE_PARAM__NAME,
          true,
          false,
          false,
@@ -148,7 +148,7 @@ public class SlangTypeParamItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SlangTypeParam)object).getTypeName();
+    String label = ((SlangTypeParam)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_SlangTypeParam_type") :
       getString("_UI_SlangTypeParam_type") + " " + label;
@@ -170,7 +170,7 @@ public class SlangTypeParamItemProvider
     switch (notification.getFeatureID(SlangTypeParam.class))
     {
       case GumboPackage.SLANG_TYPE_PARAM__IS_MUT:
-      case GumboPackage.SLANG_TYPE_PARAM__TYPE_NAME:
+      case GumboPackage.SLANG_TYPE_PARAM__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

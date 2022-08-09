@@ -21,6 +21,8 @@ package org.sireum.aadl.gumbo.ide.contentassist.antlr.lexer;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 }
 
+Strictpure : '@'('S'|'s')('T'|'t')('R'|'r')('I'|'i')('C'|'c')('T'|'t')('P'|'p')('U'|'u')('R'|'r')('E'|'e');
+
 Integration : ('I'|'i')('N'|'n')('T'|'t')('E'|'e')('G'|'g')('R'|'r')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
@@ -57,8 +59,6 @@ Compute : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e');
 
 Ensures : ('E'|'e')('N'|'n')('S'|'s')('U'|'u')('R'|'r')('E'|'e')('S'|'s');
 
-Memoize : ('M'|'m')('E'|'e')('M'|'m')('O'|'o')('I'|'i')('Z'|'z')('E'|'e');
-
 NoSend : ('N'|'n')('O'|'o')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
 
 Assert : ('A'|'a')('S'|'s')('S'|'s')('E'|'e')('R'|'r')('T'|'t');
@@ -68,8 +68,6 @@ Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
 Handle : ('H'|'h')('A'|'a')('N'|'n')('D'|'d')('L'|'l')('E'|'e');
 
 Return : ('R'|'r')('E'|'e')('T'|'t')('U'|'u')('R'|'r')('N'|'n');
-
-Strict : ('S'|'s')('T'|'t')('R'|'r')('I'|'i')('C'|'c')('T'|'t');
 
 Some : '\\'('S'|'s')('O'|'o')('M'|'m')('E'|'e');
 

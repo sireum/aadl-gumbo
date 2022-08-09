@@ -78,7 +78,7 @@ public class SlangDefParamItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addParamNamePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
       addIsMethodDefPropertyDescriptor(object);
       addIsVarArgPropertyDescriptor(object);
     }
@@ -86,20 +86,20 @@ public class SlangDefParamItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Param Name feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addParamNamePropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_SlangDefParam_paramName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangDefParam_paramName_feature", "_UI_SlangDefParam_type"),
-         GumboPackage.Literals.SLANG_DEF_PARAM__PARAM_NAME,
+         getString("_UI_SlangDefParam_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SlangDefParam_name_feature", "_UI_SlangDefParam_type"),
+         GumboPackage.Literals.SLANG_DEF_PARAM__NAME,
          true,
          false,
          false,
@@ -208,7 +208,7 @@ public class SlangDefParamItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((SlangDefParam)object).getParamName();
+    String label = ((SlangDefParam)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_SlangDefParam_type") :
       getString("_UI_SlangDefParam_type") + " " + label;
@@ -229,7 +229,7 @@ public class SlangDefParamItemProvider
 
     switch (notification.getFeatureID(SlangDefParam.class))
     {
-      case GumboPackage.SLANG_DEF_PARAM__PARAM_NAME:
+      case GumboPackage.SLANG_DEF_PARAM__NAME:
       case GumboPackage.SLANG_DEF_PARAM__IS_METHOD_DEF:
       case GumboPackage.SLANG_DEF_PARAM__IS_VAR_ARG:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

@@ -231,6 +231,11 @@ public class SlangMInterpItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_MINTERP__E,
+         GumboFactory.eINSTANCE.createCallExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_MINTERP__E,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

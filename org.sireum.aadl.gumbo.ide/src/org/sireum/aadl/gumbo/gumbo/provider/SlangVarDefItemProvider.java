@@ -265,6 +265,11 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createCallExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

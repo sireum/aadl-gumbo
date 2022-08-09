@@ -511,6 +511,15 @@ public interface GumboFactory extends EFactory
   SlangBlock createSlangBlock();
 
   /**
+   * Returns a new object of class '<em>Slang Access Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Access Suffix</em>'.
+   * @generated
+   */
+  SlangAccessSuffix createSlangAccessSuffix();
+
+  /**
    * Returns a new object of class '<em>Slang Params</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -806,6 +815,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   NoSendExpr createNoSendExpr();
+
+  /**
+   * Returns a new object of class '<em>Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call Expr</em>'.
+   * @generated
+   */
+  CallExpr createCallExpr();
 
   /**
    * Returns a new object of class '<em>Enum Lit Expr</em>'.

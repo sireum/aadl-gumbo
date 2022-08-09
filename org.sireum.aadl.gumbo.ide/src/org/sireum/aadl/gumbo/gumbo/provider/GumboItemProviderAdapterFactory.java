@@ -1410,6 +1410,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangAccessSuffix} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangAccessSuffixItemProvider slangAccessSuffixItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangAccessSuffix}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangAccessSuffixAdapter()
+  {
+    if (slangAccessSuffixItemProvider == null)
+    {
+      slangAccessSuffixItemProvider = new SlangAccessSuffixItemProvider(this);
+    }
+
+    return slangAccessSuffixItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangParams} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2235,6 +2260,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.CallExpr} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CallExprItemProvider callExprItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.CallExpr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCallExprAdapter()
+  {
+    if (callExprItemProvider == null)
+    {
+      callExprItemProvider = new CallExprItemProvider(this);
+    }
+
+    return callExprItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.EnumLitExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2854,6 +2904,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (exprItemProvider != null) exprItemProvider.dispose();
     if (slangQuantVarItemProvider != null) slangQuantVarItemProvider.dispose();
     if (slangBlockItemProvider != null) slangBlockItemProvider.dispose();
+    if (slangAccessSuffixItemProvider != null) slangAccessSuffixItemProvider.dispose();
     if (slangParamsItemProvider != null) slangParamsItemProvider.dispose();
     if (slangParamItemProvider != null) slangParamItemProvider.dispose();
     if (slangForRangeItemProvider != null) slangForRangeItemProvider.dispose();
@@ -2887,6 +2938,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (maySendExprItemProvider != null) maySendExprItemProvider.dispose();
     if (mustSendExprItemProvider != null) mustSendExprItemProvider.dispose();
     if (noSendExprItemProvider != null) noSendExprItemProvider.dispose();
+    if (callExprItemProvider != null) callExprItemProvider.dispose();
     if (enumLitExprItemProvider != null) enumLitExprItemProvider.dispose();
     if (recordLitExprItemProvider != null) recordLitExprItemProvider.dispose();
     if (dataRefExprItemProvider != null) dataRefExprItemProvider.dispose();

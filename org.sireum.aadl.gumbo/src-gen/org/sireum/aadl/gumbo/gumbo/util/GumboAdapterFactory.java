@@ -357,6 +357,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangBlockAdapter();
       }
       @Override
+      public Adapter caseSlangAccessSuffix(SlangAccessSuffix object)
+      {
+        return createSlangAccessSuffixAdapter();
+      }
+      @Override
       public Adapter caseSlangParams(SlangParams object)
       {
         return createSlangParamsAdapter();
@@ -520,6 +525,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNoSendExpr(NoSendExpr object)
       {
         return createNoSendExprAdapter();
+      }
+      @Override
+      public Adapter caseCallExpr(CallExpr object)
+      {
+        return createCallExprAdapter();
       }
       @Override
       public Adapter caseEnumLitExpr(EnumLitExpr object)
@@ -1454,6 +1464,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangAccessSuffix <em>Slang Access Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangAccessSuffix
+   * @generated
+   */
+  public Adapter createSlangAccessSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangParams <em>Slang Params</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1944,6 +1969,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNoSendExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.CallExpr <em>Call Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.CallExpr
+   * @generated
+   */
+  public Adapter createCallExprAdapter()
   {
     return null;
   }

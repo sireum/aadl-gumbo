@@ -80,6 +80,7 @@ public class SlangAccessItemProvider extends ExprItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.SLANG_ACCESS__T);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_ACCESS__SUFFIXES);
     }
     return childrenFeatures;
   }
@@ -138,6 +139,7 @@ public class SlangAccessItemProvider extends ExprItemProvider
     switch (notification.getFeatureID(SlangAccess.class))
     {
       case GumboPackage.SLANG_ACCESS__T:
+      case GumboPackage.SLANG_ACCESS__SUFFIXES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -214,6 +216,11 @@ public class SlangAccessItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ACCESS__T,
+         GumboFactory.eINSTANCE.createCallExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ACCESS__T,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
@@ -240,6 +247,11 @@ public class SlangAccessItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_ACCESS__T,
          GumboFactory.eINSTANCE.createSlangBlockTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ACCESS__SUFFIXES,
+         GumboFactory.eINSTANCE.createSlangAccessSuffix()));
   }
 
 }

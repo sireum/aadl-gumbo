@@ -214,6 +214,11 @@ public class SlangAssumeStmtItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ASSUME_STMT__E,
+         GumboFactory.eINSTANCE.createCallExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ASSUME_STMT__E,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add

@@ -49,6 +49,7 @@ import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BasicExp;
 import org.sireum.aadl.gumbo.gumbo.BinLit;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
+import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
@@ -80,6 +81,7 @@ import org.sireum.aadl.gumbo.gumbo.RealIdfLit;
 import org.sireum.aadl.gumbo.gumbo.RealLit;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.SlangAccess;
+import org.sireum.aadl.gumbo.gumbo.SlangAccessSuffix;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangBlock;
@@ -272,6 +274,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.BOOLEAN_LIT:
 				sequence_SlangLit(context, (BooleanLit) semanticObject); 
 				return; 
+			case GumboPackage.CALL_EXPR:
+				sequence_SlangTerm(context, (CallExpr) semanticObject); 
+				return; 
 			case GumboPackage.CASE_STATEMENT_CLAUSE:
 				sequence_CaseStatementClause(context, (CaseStatementClause) semanticObject); 
 				return; 
@@ -361,6 +366,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.SLANG_ACCESS:
 				sequence_SlangAccess(context, (SlangAccess) semanticObject); 
+				return; 
+			case GumboPackage.SLANG_ACCESS_SUFFIX:
+				sequence_SlangAccessSuffix(context, (SlangAccessSuffix) semanticObject); 
 				return; 
 			case GumboPackage.SLANG_ASSERT_STMT:
 				sequence_SlangStmt(context, (SlangAssertStmt) semanticObject); 
@@ -914,20 +922,28 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     SlangAccessSuffix returns SlangAccessSuffix
+	 *
+	 * Constraint:
+	 *     (id=ID cs=SlangCallSuffix?)
+	 * </pre>
+	 */
+	protected void sequence_SlangAccessSuffix(ISerializationContext context, SlangAccessSuffix semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     SlangAccess returns SlangAccess
 	 *
 	 * Constraint:
-	 *     t=SlangTerm
+	 *     (t=SlangTerm suffixes+=SlangAccessSuffix*)
 	 * </pre>
 	 */
 	protected void sequence_SlangAccess(ISerializationContext context, SlangAccess semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SLANG_ACCESS__T) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_ACCESS__T));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangAccessAccess().getTSlangTermParserRuleCall_1_0(), semanticObject.getT());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -987,7 +1003,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangCallSuffix returns SlangCallSuffix
 	 *
 	 * Constraint:
-	 *     ((ta=SlangTypeArgs ca=SlangCallArgs?) | ca=SlangCallArgs)
+	 *     ((ta=SlangTypeArgs ca=SlangCallArgs) | ca=SlangCallArgs)
 	 * </pre>
 	 */
 	protected void sequence_SlangCallSuffix(ISerializationContext context, SlangCallSuffix semanticObject) {
@@ -1093,9 +1109,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     (
 	 *         defMods=SlangDefMods? 
 	 *         sde=SlangDefExt? 
-	 *         methodName=SlangDefID 
+	 *         name=SlangDefID 
 	 *         typeParams=SlangTypeParams? 
-	 *         params=SlangDefParams? 
+	 *         params=SlangDefParams 
 	 *         type=SlangType 
 	 *         methodContract=SlangDefContract? 
 	 *         body=Expr
@@ -1136,7 +1152,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangDefParam returns SlangDefParam
 	 *
 	 * Constraint:
-	 *     (paramName=ID isMethodDef?='=&gt;'? typeName=SlangType isVarArg?='*'?)
+	 *     (name=ID isMethodDef?='=&gt;'? typeName=SlangType isVarArg?='*'?)
 	 * </pre>
 	 */
 	protected void sequence_SlangDefParam(ISerializationContext context, SlangDefParam semanticObject) {
@@ -1150,7 +1166,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangDefParams returns SlangDefParams
 	 *
 	 * Constraint:
-	 *     (params+=SlangDefParam params+=SlangDefParam?)
+	 *     (params+=SlangDefParam params+=SlangDefParam*)
 	 * </pre>
 	 */
 	protected void sequence_SlangDefParams(ISerializationContext context, SlangDefParams semanticObject) {
@@ -1911,10 +1927,33 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     SlangTerm returns CallExpr
+	 *
+	 * Constraint:
+	 *     (id=[EObject|QCREF] callSuffix=SlangCallSuffix)
+	 * </pre>
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, CallExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.CALL_EXPR__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.CALL_EXPR__ID));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.CALL_EXPR__CALL_SUFFIX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.CALL_EXPR__CALL_SUFFIX));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangTermAccess().getIdEObjectQCREFParserRuleCall_6_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.CALL_EXPR__ID, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getCallSuffixSlangCallSuffixParserRuleCall_6_0_2_0(), semanticObject.getCallSuffix());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     SlangTerm returns DataRefExpr
 	 *
 	 * Constraint:
-	 *     (portOrSubcomponentOrStateVar=[EObject|ID] ref=OtherDataRef? cs=SlangCallSuffix?)
+	 *     (portOrSubcomponentOrStateVar=[EObject|ID] ref=OtherDataRef?)
 	 * </pre>
 	 */
 	protected void sequence_SlangTerm(ISerializationContext context, DataRefExpr semanticObject) {
@@ -1939,8 +1978,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_6_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
-		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_6_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_7_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_7_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
 		feeder.finish();
 	}
 	
@@ -2129,7 +2168,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangTypeParam returns SlangTypeParam
 	 *
 	 * Constraint:
-	 *     (isMut?='mut'? typeName=ID)
+	 *     (isMut?='mut'? name=ID)
 	 * </pre>
 	 */
 	protected void sequence_SlangTypeParam(ISerializationContext context, SlangTypeParam semanticObject) {

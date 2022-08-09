@@ -128,6 +128,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.EXPR: return createExpr();
       case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
       case GumboPackage.SLANG_BLOCK: return createSlangBlock();
+      case GumboPackage.SLANG_ACCESS_SUFFIX: return createSlangAccessSuffix();
       case GumboPackage.SLANG_PARAMS: return createSlangParams();
       case GumboPackage.SLANG_PARAM: return createSlangParam();
       case GumboPackage.SLANG_FOR_RANGE: return createSlangForRange();
@@ -161,6 +162,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.MAY_SEND_EXPR: return createMaySendExpr();
       case GumboPackage.MUST_SEND_EXPR: return createMustSendExpr();
       case GumboPackage.NO_SEND_EXPR: return createNoSendExpr();
+      case GumboPackage.CALL_EXPR: return createCallExpr();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
       case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
@@ -826,6 +828,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public SlangAccessSuffix createSlangAccessSuffix()
+  {
+    SlangAccessSuffixImpl slangAccessSuffix = new SlangAccessSuffixImpl();
+    return slangAccessSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SlangParams createSlangParams()
   {
     SlangParamsImpl slangParams = new SlangParamsImpl();
@@ -1214,6 +1228,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     NoSendExprImpl noSendExpr = new NoSendExprImpl();
     return noSendExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CallExpr createCallExpr()
+  {
+    CallExprImpl callExpr = new CallExprImpl();
+    return callExpr;
   }
 
   /**
