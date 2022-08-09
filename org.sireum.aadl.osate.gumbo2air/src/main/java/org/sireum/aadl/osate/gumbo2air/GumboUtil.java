@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Stack;
 
 import org.eclipse.emf.ecore.EObject;
+import org.osate.aadl2.Classifier;
+import org.osate.aadl2.ComponentImplementation;
+import org.osate.aadl2.ComponentType;
 import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Port;
 import org.sireum.Option;
@@ -14,6 +17,7 @@ import org.sireum.hamr.ir.AadlASTFactory;
 import org.sireum.hamr.ir.Name;
 import org.sireum.lang.ast.Attr;
 import org.sireum.lang.ast.Attr$;
+import org.sireum.lang.ast.Exp;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.Select;
@@ -24,6 +28,7 @@ import org.sireum.lang.ast.Name$;
 import org.sireum.lang.ast.ResolvedAttr;
 import org.sireum.lang.ast.ResolvedAttr$;
 import org.sireum.lang.ast.Type;
+import org.sireum.lang.ast.Typed;
 import org.sireum.lang.ast.TypedAttr;
 import org.sireum.lang.ast.TypedAttr$;
 import org.sireum.message.FlatPos;
@@ -166,43 +171,64 @@ public class GumboUtil {
 		}
 	}
 
-	public static Select convertIdStackToSelect(Stack<Object> names) {
-		assert (names.size() >= 2);
+	public static Exp convertIdStackToSelect(Stack<Object> names) {
+		assert (names.size() >= 1);
 
-		while (names.size() > 1) {
-			Object a = names.pop();
-			Id b = (Id) names.pop();
+		if (names.size() > 1) {
+			while (names.size() > 1) {
+				Object a = names.pop();
+				Id b = (Id) names.pop();
 
-			if (a instanceof Id) {
-				Id aAsId = (Id) a;
-				Option<Position> optPos = (a != null && b != null)
-						? GumboUtil.mergePositions(aAsId.getAttr().getPosOpt(), b.attr().getPosOpt())
-						: SlangUtil.toNone();
-				Ident ident = Ident$.MODULE$.apply(aAsId, GumboUtil.buildResolvedAttr(aAsId.getAttr().getPosOpt()));
-				names.push(Select$.MODULE$.apply(SlangUtil.toSome(ident), b, VisitorUtil.toISZ(),
-						GumboUtil.buildResolvedAttr(optPos)));
-			} else {
-				Select aAsSelect = (Select) a;
-				Option<Position> optPos = (a != null && b != null)
-						? GumboUtil.mergePositions(aAsSelect.getAttr().getPosOpt(), b.attr().getPosOpt())
-						: SlangUtil.toNone();
-				names.push(Select$.MODULE$.apply(SlangUtil.toSome((Select) a), b, VisitorUtil.toISZ(),
-						GumboUtil.buildResolvedAttr(optPos)));
+				if (a instanceof Id) {
+					Id aAsId = (Id) a;
+					Option<Position> optPos = (a != null && b != null)
+							? GumboUtil.mergePositions(aAsId.getAttr().getPosOpt(), b.attr().getPosOpt())
+							: SlangUtil.toNone();
+					Ident ident = Ident$.MODULE$.apply(aAsId, GumboUtil.buildResolvedAttr(aAsId.getAttr().getPosOpt()));
+					names.push(Select$.MODULE$.apply(SlangUtil.toSome(ident), b, VisitorUtil.toISZ(),
+							GumboUtil.buildResolvedAttr(optPos)));
+				} else {
+					Select aAsSelect = (Select) a;
+					Option<Position> optPos = (a != null && b != null)
+							? GumboUtil.mergePositions(aAsSelect.getAttr().getPosOpt(), b.attr().getPosOpt())
+							: SlangUtil.toNone();
+					names.push(Select$.MODULE$.apply(SlangUtil.toSome((Select) a), b, VisitorUtil.toISZ(),
+							GumboUtil.buildResolvedAttr(optPos)));
+				}
 			}
+			return (Select) names.pop();
+		} else {
+			Id id = (Id) names.get(0);
+			return Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(id.getAttr().getPosOpt()));
 		}
 
-		return (Select) names.pop();
 	}
 
 	public static Type.Named buildTypeNamed(DataSubcomponentType typ, EObject object) {
 		List<Id> retTypeIds = new ArrayList<>();
+		List<org.sireum.String> retTypeStrings = new ArrayList<>();
 		for (String seg : typ.getQualifiedName().split("::")) {
 			retTypeIds.add(Id$.MODULE$.apply(seg, GumboUtil.buildAttr(object)));
+			retTypeStrings.add(new org.sireum.String(seg));
 		}
 		org.sireum.lang.ast.Name retTypeName = Name$.MODULE$.apply(VisitorUtil.toISZ(retTypeIds),
 				GumboUtil.buildAttr(object));
 		List<Type> retTypeArgs = new ArrayList<>();
-		TypedAttr retTypedAttr = TypedAttr$.MODULE$.apply(VisitorUtil.buildPositionOpt(object), SlangUtil.toNone());
+
+		Typed.Name typedName = Typed.Name$.MODULE$.apply(VisitorUtil.toISZ(retTypeStrings), VisitorUtil.toISZ());
+		TypedAttr retTypedAttr = TypedAttr$.MODULE$.apply(VisitorUtil.buildPositionOpt(object),
+				SlangUtil.toSome(typedName));
+
 		return Type.Named$.MODULE$.apply(retTypeName, VisitorUtil.toISZ(retTypeArgs), retTypedAttr);
+	}
+
+	public static ComponentType getComponentType(Classifier classifier) {
+		if (classifier instanceof ComponentType) {
+			return (ComponentType) classifier;
+		} else if (classifier instanceof ComponentImplementation) {
+			return ((ComponentImplementation) classifier).getType();
+		} else {
+			return null;
+		}
 	}
 }

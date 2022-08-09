@@ -3,9 +3,11 @@ package org.sireum.aadl.osate.gumbo2air;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -32,6 +34,7 @@ import org.sireum.Z;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BasicExp;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
+import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
@@ -54,8 +57,10 @@ import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.RealLit;
+import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
+import org.sireum.aadl.gumbo.gumbo.SlangIDExp;
 import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangStringLit;
 import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
@@ -88,7 +93,9 @@ import org.sireum.hamr.ir.GclIntegration;
 import org.sireum.hamr.ir.GclIntegration$;
 import org.sireum.hamr.ir.GclInvariant;
 import org.sireum.hamr.ir.GclInvariant$;
-import org.sireum.hamr.ir.GclLibrary$;
+import org.sireum.hamr.ir.GclLib$;
+import org.sireum.hamr.ir.GclMethod;
+import org.sireum.hamr.ir.GclMethod$;
 import org.sireum.hamr.ir.GclSpec;
 import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
@@ -111,7 +118,6 @@ import org.sireum.lang.ast.Exp.LitR$;
 import org.sireum.lang.ast.Exp.LitString;
 import org.sireum.lang.ast.Exp.LitString$;
 import org.sireum.lang.ast.Exp.LitZ$;
-import org.sireum.lang.ast.Exp.Select;
 import org.sireum.lang.ast.Exp.StringInterpolate$;
 import org.sireum.lang.ast.Exp.Unary;
 import org.sireum.lang.ast.Exp.Unary$;
@@ -157,32 +163,60 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return VisitorUtil.toIList(ANNEX_TYPE);
 	}
 
+	List<ComponentImplementation> getAllComponentImpl(ResourceSet rs) {
+		// the following doesn't work from the command line so replicating its behavior
+		// by walking over the resource set directly
+		// return AadlUtil.getAllComponentImpl();
+
+		List<ComponentImplementation> result = new BasicEList<ComponentImplementation>();
+		for (Resource r : rs.getResources()) {
+			EObject o = r.getContents().get(0);
+			if (o instanceof AadlPackage) {
+				result.addAll(AadlUtil.getAllComponentImpl((AadlPackage) o));
+			}
+		}
+		return result;
+	}
+
 	@Override
 	public List<AnnexLib> buildAnnexLibraries(Element e, Reporter reporter) {
 		this.reporter = reporter;
 		List<AnnexLib> ret = new ArrayList<>();
 
-		List<ComponentImplementation> ais = AadlUtil.getAllComponentImpl();
+		List<ComponentImplementation> ais = getAllComponentImpl(e.eResource().getResourceSet());
 
 		List<ModelUnit> aps = new ArrayList<>(ais.stream()
 				.flatMap(it -> AadlUtil.getContainingPackage(it).getPublicSection().getImportedUnits().stream())
 				.collect(Collectors.toSet()));
-		Collections.sort(aps, (o1, o2) -> o1.qualifiedName().compareTo(o2.qualifiedName()));
 
+		// enforce an ordering just in case streams don't have fixed ordering under all jvms
+		Collections.sort(aps, (o1, o2) -> o1.qualifiedName() == null ? 1 //
+				: o2.qualifiedName() == null ? -1 : //
+						o1.qualifiedName().compareTo(o2.qualifiedName())
+		  );
+
+		Set<String> seenComponents = new java.util.HashSet<>();
 		for (ModelUnit mu : aps) {
 
 			if (mu != null && mu instanceof AadlPackage) {
+
 				AadlPackage parent = (AadlPackage) mu;
 				List<AnnexLibrary> gals = AnnexUtil.getAllActualAnnexLibraries(parent,
 						GumboPackage.eINSTANCE.getGumboLibrary());
-				if (!gals.isEmpty()) {
+
+				if (!gals.isEmpty() && !seenComponents.contains(parent.getQualifiedName())) {
+
+					addAllBaseTypes(e.eResource().getResourceSet());
+
+					seenComponents.add(parent.getQualifiedName());
 					reportError(gals.size() == 1, mu,
 							"Found multiple " + ANNEX_TYPE + " library annex clauses. AADL should disallow this");
 
 					GumboLibrary gl = (GumboLibrary) gals.get(0);
+
 					visit(gl);
 
-					List<Method> methods = pop();
+					List<GclMethod> methods = pop();
 
 					List<org.sireum.String> segs = new ArrayList<>();
 					for (String seg : parent.getQualifiedName().split("::")) {
@@ -192,7 +226,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					org.sireum.hamr.ir.Name containingPackage = org.sireum.hamr.ir.Name$.MODULE$
 							.apply(VisitorUtil.toISZ(segs), SlangUtil.toNone());
 
-					ret.add(GclLibrary$.MODULE$.apply(containingPackage, VisitorUtil.toISZ(methods)));
+					ret.add(GclLib$.MODULE$.apply(containingPackage, VisitorUtil.toISZ(methods)));
 				}
 			}
 		}
@@ -249,7 +283,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	@Override
 	public Boolean caseGumboLibrary(GumboLibrary object) {
-		List<Method> ret = new ArrayList<>();
+		List<GclMethod> ret = new ArrayList<>();
 		if (object.getFunctions() != null) {
 			for (FuncSpec fs : object.getFunctions().getSpecs()) {
 				visit(fs);
@@ -263,26 +297,31 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	@Override
 	public Boolean caseSlangDefDef(SlangDefDef object) {
-		reportError(object.getDefMods() == null, object, "Not handling def mods yet: " + object.getDefMods());
+
+		if(object.getDefMods() != null) {
+			reportError(object.getDefMods().equals("@strictpure"), object,
+					"Only strictpure methods are currently supported");
+		}
+
 		reportError(object.getSde() == null, object, "Not handling def extensions yet: " + object.getSde());
 
 		List<TypeParam> typeParams = new ArrayList<>();
 		if (object.getTypeParams() != null) {
 			for (SlangTypeParam stp : object.getTypeParams().getTypeParam()) {
 				reportError(!stp.isIsMut(), object, "Not handling mut attribute for type params yet");
-				Id id = Id$.MODULE$.apply(stp.getTypeName(), GumboUtil.buildAttr(stp));
+				Id id = Id$.MODULE$.apply(stp.getName(), GumboUtil.buildAttr(stp));
 				typeParams.add(TypeParam$.MODULE$.apply(id));
 			}
 		}
 
-		Id methodId = Id$.MODULE$.apply(object.getMethodName(), GumboUtil.buildAttr(object));
+		Id methodId = Id$.MODULE$.apply(object.getName(), GumboUtil.buildAttr(object));
 
 		List<Param> params = new ArrayList<>();
 		if (object.getParams() != null) {
 			for (SlangDefParam sdp : object.getParams().getParams()) {
 
 				boolean isHidden = false;
-				Id paramId = Id$.MODULE$.apply(sdp.getParamName(), GumboUtil.buildAttr(object));
+				Id paramId = Id$.MODULE$.apply(sdp.getName(), GumboUtil.buildAttr(object));
 				Type.Named paramType = GumboUtil.buildTypeNamed(sdp.getTypeName().getTypeName(), object);
 
 				params.add(Param$.MODULE$.apply(isHidden, paramId, paramType));
@@ -292,7 +331,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Type.Named returnType = GumboUtil.buildTypeNamed(object.getType().getTypeName(), object);
 
 		boolean isPure = true;
-		boolean hasParams = params.isEmpty();
+		boolean hasParams = !params.isEmpty();
 
 		MethodSig sig = MethodSig$.MODULE$.apply(isPure, methodId, VisitorUtil.toISZ(typeParams), hasParams,
 				VisitorUtil.toISZ(params), returnType);
@@ -309,8 +348,10 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				"Not handling method contracts yet: " + object.getMethodContract());
 		MethodContract mcontract = MethodContract.Simple$.MODULE$.empty();
 
-		push(Method$.MODULE$.apply(typeChecked, Purity$.MODULE$.byName("StrictPure").get(), hasOverride, isHelper, sig,
-				mcontract, SlangUtil.toSome(body), GumboUtil.buildResolvedAttr(object)));
+		Method m = Method$.MODULE$.apply(typeChecked, Purity$.MODULE$.byName("StrictPure").get(), hasOverride, isHelper,
+				sig, mcontract, SlangUtil.toSome(body), GumboUtil.buildResolvedAttr(object));
+
+		push(GclMethod$.MODULE$.apply(m));
 
 		return false;
 	}
@@ -323,6 +364,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			for (StateVarDecl svd : s.getDecls()) {
 				visit(svd);
 				_state.add(pop());
+			}
+		}
+
+		List<GclMethod> _methods = new ArrayList<>();
+		if (object.getSpecs().getFunctions() != null) {
+			for (FuncSpec fs : object.getSpecs().getFunctions().getSpecs()) {
+				visit(fs);
+				_methods.add(pop());
 			}
 		}
 
@@ -373,8 +422,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			_compute = SlangUtil.toSome(pop());
 		}
 
-		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_invariants), _initializes,
-				_integration, _compute));
+		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_methods),
+				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute));
 
 		return false;
 	}
@@ -515,6 +564,105 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
+	public Boolean caseCallExpr(CallExpr object) {
+		EObject obj = object.getId();
+
+		Option<Exp> receiverOpt = SlangUtil.toNone();
+		Ident ident = null;
+
+		if (obj instanceof SlangDefDef) {
+			SlangDefDef sdd = (SlangDefDef) obj;
+
+			boolean isInGumboSubclause = EcoreUtil2.getContainerOfType(sdd, GumboSubclause.class) != null;
+			boolean isInGumboLibrary = EcoreUtil2.getContainerOfType(sdd, GumboLibrary.class) != null;
+
+			if (isInGumboLibrary) {
+				AadlPackage aadlPackage = EcoreUtil2.getContainerOfType(sdd, AadlPackage.class);
+
+				// TODO: gcl libraries are placed in unique Slang objects called
+				// <fqn-package-name>.GUMBO__Library. It would be better to add the
+				// GUMBO__Library suffix via a rewriter
+				String name = aadlPackage.getQualifiedName() + "::" + "GUMBO__Library";
+				String[] segments = name.split("::");
+
+				Stack<Object> names = new Stack<>();
+				for (int i = 0; i < segments.length; i++) {
+					names.add(0, Id$.MODULE$.apply(segments[i], GumboUtil.buildAttr(object)));
+				}
+
+				receiverOpt = SlangUtil.toSome(GumboUtil.convertIdStackToSelect(names));
+
+				Id id = Id$.MODULE$.apply(sdd.getName(), GumboUtil.buildAttr(object));
+				ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
+
+			} else if (isInGumboSubclause) {
+				Classifier classifier = EcoreUtil2.getContainerOfType(sdd, Classifier.class);
+
+				if (classifier == null
+						|| GumboUtil.getComponentType(classifier) != GumboUtil.getComponentType(entryClassifier)) {
+					reportError(sdd, "Can only refer to enclosing GUMBO subclause methods");
+					return false;
+				}
+
+				Id id = Id$.MODULE$.apply(sdd.getName(), GumboUtil.buildAttr(object));
+				ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
+			} else {
+				reportError(object,
+						"Expecting the calling context to be either from a GUMBO subclause or a GUMBO annex library");
+
+				return false;
+			}
+
+		} else if (obj instanceof DataSubcomponentType) {
+			DataSubcomponentType dst = (DataSubcomponentType) obj;
+
+			String name = dst.getQualifiedName();
+			String[] segments = name.split("::");
+
+			Stack<Object> names = new Stack<>();
+			for (int i = 0; i < segments.length - 1; i++) {
+				names.add(0, Id$.MODULE$.apply(segments[i], GumboUtil.buildAttr(object)));
+			}
+
+			receiverOpt = SlangUtil.toSome(GumboUtil.convertIdStackToSelect(names));
+
+			Id id = Id$.MODULE$.apply(dst.getName(), GumboUtil.buildAttr(object));
+			ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
+
+		} else {
+			reportError(obj, "Not currently handling calls to " + obj.getClass().getSimpleName());
+
+			return false;
+		}
+
+		List<Type> targs = new ArrayList<>();
+		List<Exp> args = new ArrayList<>();
+
+		if (object.getCallSuffix() != null) {
+			if (object.getCallSuffix().getTa() != null) {
+				reportError(object.getCallSuffix().getTa(), "Not current handling type arguments");
+			}
+
+			SlangCallArgs callArgs = object.getCallSuffix().getCa();
+			for (SlangIDExp sie : callArgs.getArg()) {
+				if (sie.getE().size() > 1) {
+					reportError(sie, "Not currently supporting named arguments");
+				} else {
+					visit(sie.getE().get(0));
+					args.add(pop());
+				}
+			}
+		}
+
+		Invoke invoke = Invoke$.MODULE$.apply(receiverOpt, ident, VisitorUtil.toISZ(targs), VisitorUtil.toISZ(args),
+				GumboUtil.buildResolvedAttr(object));
+
+		push(invoke);
+
+		return false;
+	}
+
+	@Override
 	public Boolean caseInStateExpr(InStateExpr object) {
 
 		Id slangId = Id$.MODULE$.apply(object.getStateVar().getName(), GumboUtil.buildAttr(object));
@@ -554,7 +702,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseMustSendExpr(MustSendExpr object) {
 
-		String uifName = object.getValue() == null ? "MustSendEvent" : "MustSendEventData";
+		String uifName = object.getValue() == null ? "uif__MustSend" : "uif__MustSendWithExpectedValue";
 
 		Id mustSendUifId = Id$.MODULE$.apply(uifName, GumboUtil.buildAttr(object));
 		Ident mustSendUifIdent = Ident$.MODULE$.apply(mustSendUifId, GumboUtil.buildResolvedAttr(object));
@@ -580,7 +728,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseNoSendExpr(NoSendExpr object) {
 
-		Id noSendUifId = Id$.MODULE$.apply("NoSend", GumboUtil.buildAttr(object));
+		Id noSendUifId = Id$.MODULE$.apply("uif__NoSend", GumboUtil.buildAttr(object));
 		Ident noSendUifIdent = Ident$.MODULE$.apply(noSendUifId, GumboUtil.buildResolvedAttr(object));
 
 		List<Exp> args = new ArrayList<>();
@@ -698,6 +846,38 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			slangId = Id$.MODULE$.apply(svd.getName(),
 					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, svd.getName().length())));
+		} else if (receiver instanceof SlangDefDef) {
+			SlangDefDef sdd = (SlangDefDef) receiver;
+
+			GumboLibrary lib = EcoreUtil2.getContainerOfType(sdd, GumboLibrary.class);
+			if (lib != null) {
+
+				AadlPackage aadlPackage = EcoreUtil2.getContainerOfType(sdd, AadlPackage.class);
+
+				String name = aadlPackage.getQualifiedName() + "::" + sdd.getName();
+				String[] segments = name.split("::");
+
+				Stack<Object> names = new Stack<>();
+				for (int i = 0; i < segments.length; i++) {
+					names.add(0, Id$.MODULE$.apply(segments[i], GumboUtil.buildAttr(object)));
+				}
+
+				Exp select = GumboUtil.convertIdStackToSelect(names);
+
+				push(select);
+
+				return false;
+
+			} else {
+				slangId = Id$.MODULE$.apply(sdd.getName(),
+						GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, sdd.getName().length())));
+			}
+
+		} else if (receiver instanceof SlangDefParam) {
+			SlangDefParam sdp = (SlangDefParam) receiver;
+
+			slangId = Id$.MODULE$.apply(sdp.getName(),
+					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, sdp.getName().length())));
 		} else {
 			// FIXME: can invoke HAMR even if there are syntax errors in gumbo annexes. OSATE is likely
 			// showing the error. Use reporter instead?
@@ -737,7 +917,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				ref = ref.getPath();
 			}
 
-			Select slangExp = GumboUtil.convertIdStackToSelect(names);
+			Exp slangExp = GumboUtil.convertIdStackToSelect(names);
 
 			push(slangExp);
 
@@ -809,7 +989,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 		names.add(0, Id$.MODULE$.apply(object.getValue().getValue(), GumboUtil.buildAttr(object)));
 
-		Select slangSelect = GumboUtil.convertIdStackToSelect(names);
+		Exp slangSelect = GumboUtil.convertIdStackToSelect(names);
 
 		push(slangSelect);
 
@@ -835,7 +1015,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			break;
 		case "f32":
 			try {
-				float f32 = Float.parseFloat(parts[1]);
+				float f = Float.parseFloat(parts[1]);
+				org.sireum.F32 f32 = new org.sireum.F32(f);
 				push(Exp.LitF32$.MODULE$.apply(f32, GumboUtil.buildAttr(object)));
 			} catch (NumberFormatException v) {
 				reportError(object, "'" + parts[1] + "' is not a valid F32");
@@ -844,7 +1025,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			break;
 		case "f64":
 			try {
-				double f64 = Double.parseDouble(parts[1]);
+				double d = Double.parseDouble(parts[1]);
+				org.sireum.F64 f64 = new org.sireum.F64(d);
 				push(Exp.LitF64$.MODULE$.apply(f64, GumboUtil.buildAttr(object)));
 			} catch (NumberFormatException e) {
 				reportError(object, "'" + parts[1] + "' is not a valid F64");
