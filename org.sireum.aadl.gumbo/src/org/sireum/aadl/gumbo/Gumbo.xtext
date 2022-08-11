@@ -163,13 +163,14 @@ SlangDefDeclDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams
 SlangDefDecl: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ;
 	
 SlangDefDef: 
-	 defMods=SlangDefMods? 'def' sde=SlangDefExt? name=SlangDefID 
+	 //defMods=SlangDefMods 
+	 'def' sde=SlangDefExt? name=SlangDefID 
 		typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
-		methodContract=SlangDefContract? ':=' body=Expr
+		':=' methodContract=SlangDefContract? body=Expr
 ;
 
 //SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
-SlangDefMods: '@strictpure';
+SlangDefMods: '@strictpure' | '@pure';
 
 SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
 	
@@ -185,10 +186,12 @@ SlangTypeParams: '[' typeParam+=SlangTypeParam (  ',' typeParam+=SlangTypeParam 
 SlangTypeParam: isMut ?= 'mut'? name=ID ;
 
 SlangDefContract
-	: {SlangDefContract} 'spec'
-	  ( rea=SlangReads? req=SlangRequires? mod=SlangModifies? ens=SlangEnsures?
-	  | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
+	: {SlangDefContract} 'Contract' '('
+	  ( 
+	    reads=SlangReads? requires=SlangRequires? modifies=SlangModifies? ensures=SlangEnsures?
+	  // | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
 	  )
+	  ')'
 	;
 
 SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/SLANG_STRING req=SlangRequires? ens=SlangEnsures? ;
@@ -205,11 +208,11 @@ SlangInvariant: 'invariant' exprs+=Expr ( ',' exprs+=Expr )* ;
 
 SlangReads: 'reads' exprs+=Expr ( ',' exprs+=Expr )* ;
 
-SlangRequires: 'requires' exprs+=Expr ( ',' exprs+=Expr )* ;
+SlangRequires: 'assumes' exprs+=Expr ( ',' exprs+=Expr )* ;
 
 SlangModifies: 'modifies' exprs+=Expr ( ',' exprs+=Expr )* ;
 
-SlangEnsures: 'ensures' exprs+=Expr ( ',' exprs+=Expr )* ;
+SlangEnsures: 'guarantees'  exprs+=Expr ( ',' exprs+=Expr )* ;
 
 SlangStmt
 	: {SlangVarDef} d=SlangVarDef
@@ -269,10 +272,9 @@ SlangVarDeclDef returns SlangVarDef:
 SlangVarMod: 'val' | 'var' ;
 
 Expr
-	: {BasicExp} terms+=SlangAccess ( 
-	  ( ops+=Operator terms+=SlangAccess )* 
-	  | '?' thenExpr=Expr ':' elseExpr=Expr
-	  )
+	: {BasicExp} terms+=SlangAccess 
+	      ( ops+=Operator terms+=SlangAccess )*
+	| {IfElseExp} 'if' '(' ifCond=Expr ')' thenExpr=Expr 'else' elseExpr=Expr 
 	| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=Expr
 	| {UnaryExp} op=Operator accessExp=SlangAccess
 	;
@@ -284,7 +286,7 @@ SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
 SlangAccess returns Expr
 	: {SlangAccess} t=SlangTerm ( suffixes+=SlangAccessSuffix )* ;
 
-SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID cs=SlangCallSuffix? ;
+SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID; // cs=SlangCallSuffix? ;
 
 SlangTerm returns Expr
 	: {SlangLitTerm} lit=SlangLit
@@ -297,7 +299,8 @@ SlangTerm returns Expr
 	| => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
-	| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
+	| {ParenExpr} '(' exp=Expr ')'
+	//| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
 	| {SlangForTerm} 'for' r+=SlangForRange ( ',' r+=SlangForRange )*  'yield' ( b=SlangBlock |  '(' e=Expr ')' )
 	| {SlangBlockTerm} '{'
 	   ( (p=SlangParams '=>')? e=Expr '}'
@@ -315,13 +318,15 @@ SlangForRange: ID ':' e=Expr ( ( '..' |  '..<' ) upper=Expr ( 'by' step=Expr )? 
 SlangRet: {SlangRet} 'return' e=Expr? ;
 
 SlangCallSuffix: {SlangCallSuffix}
-	ta=SlangTypeArgs ca=SlangCallArgs // TODO: add back ? for call args when support for no param methods is added
-	| ca=SlangCallArgs
+  ca=SlangCallArgs
+	//ta=SlangTypeArgs ca=SlangCallArgs // TODO: add back ? for call args when support for no param methods is added
+	//| ca=SlangCallArgs
 	;
 	
-SlangCallArgs: {SlangCallArgs} '(' ( arg+=SlangIDExp ( ',' arg+=SlangIDExp )* )? ')' ;
+//SlangCallArgs: {SlangCallArgs} '(' ( arg+=SlangIDExp ( ',' arg+=SlangIDExp )* )? ')' ;
+SlangCallArgs: {SlangCallArgs} '(' ( arg+=Expr ( ',' arg+=Expr )* )? ')' ;
 	
-SlangIDExp: e+=Expr ( ':=' e+=Expr )? ;
+//SlangIDExp: e+=Expr ( ':=' e+=Expr )? ;
 		
 SlangType
 	: SlangBaseType// ( '=>' SlangBaseType )*
@@ -337,6 +342,7 @@ SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
 
 SlangLit 
 	: {BooleanLit} value=('T' | 'F')
+	| {ResultLit} 'res'
 	| {IntegerLit} value=INTEGER_LIT
 	| {IntIdfLit} value=INT_IDF
 	| {HexLit} value=HEX

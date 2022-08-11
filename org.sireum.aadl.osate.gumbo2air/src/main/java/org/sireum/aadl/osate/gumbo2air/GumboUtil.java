@@ -124,8 +124,13 @@ public class GumboUtil {
 	}
 
 	public static TypedAttr buildTypedAttr(EObject object) {
+		return buildTypedAttr(object, null);
+	}
+
+	public static TypedAttr buildTypedAttr(EObject object, Typed ta) {
 		Position p = VisitorUtil.buildPosition(object);
-		return TypedAttr$.MODULE$.apply(p == null ? SlangUtil.toNone() : SlangUtil.toSome(p), SlangUtil.toNone());
+		return TypedAttr$.MODULE$.apply(p == null ? SlangUtil.toNone() : SlangUtil.toSome(p),
+				ta == null ? SlangUtil.toNone() : SlangUtil.toSome(ta));
 	}
 
 	public static Option<Position> mergePositions(Option<Position> a, Option<Position> b) {

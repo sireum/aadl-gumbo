@@ -46,6 +46,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
+import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
@@ -57,10 +58,11 @@ import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.RealLit;
+import org.sireum.aadl.gumbo.gumbo.ResultLit;
+import org.sireum.aadl.gumbo.gumbo.SlangAccess;
 import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
-import org.sireum.aadl.gumbo.gumbo.SlangIDExp;
 import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangStringLit;
 import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
@@ -118,16 +120,24 @@ import org.sireum.lang.ast.Exp.LitR$;
 import org.sireum.lang.ast.Exp.LitString;
 import org.sireum.lang.ast.Exp.LitString$;
 import org.sireum.lang.ast.Exp.LitZ$;
+import org.sireum.lang.ast.Exp.Select;
+import org.sireum.lang.ast.Exp.Select$;
 import org.sireum.lang.ast.Exp.StringInterpolate$;
 import org.sireum.lang.ast.Exp.Unary;
 import org.sireum.lang.ast.Exp.Unary$;
 import org.sireum.lang.ast.Id;
 import org.sireum.lang.ast.Id$;
 import org.sireum.lang.ast.MethodContract;
+import org.sireum.lang.ast.MethodContract.Accesses;
+import org.sireum.lang.ast.MethodContract.Accesses$;
+import org.sireum.lang.ast.MethodContract.Claims;
+import org.sireum.lang.ast.MethodContract.Claims$;
+import org.sireum.lang.ast.MethodContract.Simple$;
 import org.sireum.lang.ast.MethodSig;
 import org.sireum.lang.ast.MethodSig$;
 import org.sireum.lang.ast.Param;
 import org.sireum.lang.ast.Param$;
+import org.sireum.lang.ast.Purity;
 import org.sireum.lang.ast.Purity$;
 import org.sireum.lang.ast.Stmt;
 import org.sireum.lang.ast.Stmt.Method;
@@ -135,6 +145,8 @@ import org.sireum.lang.ast.Stmt.Method$;
 import org.sireum.lang.ast.Type;
 import org.sireum.lang.ast.TypeParam;
 import org.sireum.lang.ast.TypeParam$;
+import org.sireum.lang.ast.Typed;
+import org.sireum.lang.ast.TypedAttr;
 import org.sireum.message.Position;
 import org.sireum.message.Reporter;
 
@@ -168,7 +180,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		// by walking over the resource set directly
 		// return AadlUtil.getAllComponentImpl();
 
-		List<ComponentImplementation> result = new BasicEList<ComponentImplementation>();
+		List<ComponentImplementation> result = new BasicEList<>();
 		for (Resource r : rs.getResources()) {
 			EObject o = r.getContents().get(0);
 			if (o instanceof AadlPackage) {
@@ -192,8 +204,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		// enforce an ordering just in case streams don't have fixed ordering under all jvms
 		Collections.sort(aps, (o1, o2) -> o1.qualifiedName() == null ? 1 //
 				: o2.qualifiedName() == null ? -1 : //
-						o1.qualifiedName().compareTo(o2.qualifiedName())
-		  );
+						o1.qualifiedName().compareTo(o2.qualifiedName()));
 
 		Set<String> seenComponents = new java.util.HashSet<>();
 		for (ModelUnit mu : aps) {
@@ -296,12 +307,28 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
-	public Boolean caseSlangDefDef(SlangDefDef object) {
+	public Boolean caseSlangAccess(SlangAccess object) {
+		visit(object.getT());
+		Exp e = pop();
 
-		if(object.getDefMods() != null) {
-			reportError(object.getDefMods().equals("@strictpure"), object,
-					"Only strictpure methods are currently supported");
+		if (object.getSuffixes() == null || object.getSuffixes().isEmpty()) {
+			push(e);
+		} else {
+			assert object.getSuffixes().size() == 1 : object.getSuffixes().size();
+
+			String n = object.getSuffixes().get(0).getId();
+			Id id = Id$.MODULE$.apply(n, GumboUtil.buildAttr(object));
+
+			Select select = Select$.MODULE$.apply(SlangUtil.toSome(e), id, VisitorUtil.toISZ(),
+					GumboUtil.buildResolvedAttr(object));
+
+			push(select);
 		}
+		return false;
+	}
+
+	@Override
+	public Boolean caseSlangDefDef(SlangDefDef object) {
 
 		reportError(object.getSde() == null, object, "Not handling def extensions yet: " + object.getSde());
 
@@ -344,12 +371,86 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		boolean hasOverride = false;
 		boolean isHelper = false;
 
-		reportError(object.getMethodContract() == null, object,
-				"Not handling method contracts yet: " + object.getMethodContract());
 		MethodContract mcontract = MethodContract.Simple$.MODULE$.empty();
 
-		Method m = Method$.MODULE$.apply(typeChecked, Purity$.MODULE$.byName("StrictPure").get(), hasOverride, isHelper,
-				sig, mcontract, SlangUtil.toSome(body), GumboUtil.buildResolvedAttr(object));
+		if (object.getMethodContract() != null) {
+
+			Accesses readsClause = Accesses$.MODULE$.empty();
+			if (object.getMethodContract().getReads() != null) {
+				List<Ident> idents = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getReads().getExprs().get(0));
+				for (Expr e : object.getMethodContract().getReads().getExprs()) {
+					visit(e);
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+					Exp result = pop();
+					if (result instanceof Ident) {
+						idents.add((Ident) result);
+					} else {
+						reportError(e, "Only simple names are allowed for read clauses");
+					}
+				}
+				readsClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
+			}
+
+			Claims requiresClause = Claims$.MODULE$.empty();
+			if (object.getMethodContract().getRequires() != null) {
+				List<Exp> exps = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getRequires().getExprs().get(0));
+				for (Expr e : object.getMethodContract().getRequires().getExprs()) {
+					visit(e);
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+					exps.add(pop());
+				}
+				requiresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
+			}
+
+			Accesses modifiesClause = Accesses$.MODULE$.empty();
+			if (object.getMethodContract().getModifies() != null) {
+				List<Ident> idents = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getModifies().getExprs().get(0));
+				for (Expr e : object.getMethodContract().getModifies().getExprs()) {
+					visit(e);
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+
+					Exp result = pop();
+					if (result instanceof Ident) {
+						idents.add((Ident) result);
+					} else {
+						reportError(e, "Only simple names are allowed for modifies clauses");
+					}
+				}
+				modifiesClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
+			}
+
+			Claims ensuresClause = Claims$.MODULE$.empty();
+			if (object.getMethodContract().getEnsures() != null) {
+				List<Exp> exps = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getEnsures().getExprs().get(0));
+				for (Expr e : object.getMethodContract().getEnsures().getExprs()) {
+					visit(e);
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+					exps.add(pop());
+				}
+				ensuresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
+			}
+
+			mcontract = Simple$.MODULE$.apply(readsClause, requiresClause, modifiesClause, ensuresClause,
+					GumboUtil.buildAttr(object.getMethodContract()));
+		}
+
+		Purity.Type purity = null;
+		if (object.getMethodContract() != null) {
+			purity = Purity$.MODULE$.byName("Pure").get();
+		} else {
+			purity = Purity$.MODULE$.byName("StrictPure").get();
+		}
+
+		Method m = Method$.MODULE$.apply(typeChecked, purity, hasOverride, isHelper, sig, mcontract,
+				SlangUtil.toSome(body), GumboUtil.buildResolvedAttr(object));
 
 		push(GclMethod$.MODULE$.apply(m));
 
@@ -639,18 +740,10 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<Exp> args = new ArrayList<>();
 
 		if (object.getCallSuffix() != null) {
-			if (object.getCallSuffix().getTa() != null) {
-				reportError(object.getCallSuffix().getTa(), "Not current handling type arguments");
-			}
-
 			SlangCallArgs callArgs = object.getCallSuffix().getCa();
-			for (SlangIDExp sie : callArgs.getArg()) {
-				if (sie.getE().size() > 1) {
-					reportError(sie, "Not currently supporting named arguments");
-				} else {
-					visit(sie.getE().get(0));
-					args.add(pop());
-				}
+			for (Expr arg : callArgs.getArg()) {
+				visit(arg);
+				args.add(pop());
 			}
 		}
 
@@ -745,52 +838,52 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
+	public Boolean caseIfElseExp(IfElseExp object) {
+
+		visit(object.getIfCond());
+		Exp condExp = pop();
+
+		visit(object.getThenExpr());
+		Exp thenExp = pop();
+
+		visit(object.getElseExpr());
+		Exp elseExp = pop();
+
+		If ifexp = If$.MODULE$.apply(condExp, thenExp, elseExp, GumboUtil.buildTypedAttr(object));
+		push(ifexp);
+
+		return false;
+	}
+
+	@Override
 	public Boolean caseBasicExp(BasicExp object) {
 
-		if (object.getThenExpr() != null) {
-			reportError(object.getTerms().size() == 1, object, "Expecting only one term");
-			reportError(object.getOps().isEmpty(), object, "Not expecting ops for the then part");
+		reportError(object.getTerms().size() == object.getOps().size() + 1, object,
+				"There are " + object.getOps().size() + " operators but " + object.getTerms().size() + " expressions");
 
-			visit(object.getTerms().get(0));
-			Exp condExp = pop();
-
-			visit(object.getThenExpr());
-			Exp thenExp = pop();
-
-			visit(object.getElseExpr());
-			Exp elseExp = pop();
-
-			If ifexp = If$.MODULE$.apply(condExp, thenExp, elseExp, GumboUtil.buildTypedAttr(object));
-			push(ifexp);
-
-		} else {
-			reportError(object.getTerms().size() == object.getOps().size() + 1, object, "There are "
-					+ object.getOps().size() + " operators but " + object.getTerms().size() + " expressions");
-
-			Stack<Exp> exps = new Stack<>();
-			for (Expr e : object.getTerms()) {
-				visit(e);
-				exps.add(0, pop());
-			}
-
-			if (exps.size() > 1) {
-				// TODO: rewrite tree based on operator precedence, for now use paren exp
-				int i = 0;
-				while (exps.size() > 1) {
-					Exp lhs = exps.pop();
-					Exp rhs = exps.pop();
-					String op = GumboUtil.toSlangBinaryOp(object.getOps().get(i++));
-					Option<Position> optPos = (lhs != null && rhs != null)
-							? GumboUtil.mergePositions(lhs.posOpt(), rhs.posOpt())
-							: SlangUtil.toNone();
-					Binary b = Binary$.MODULE$.apply(lhs, op, rhs, GumboUtil.buildResolvedAttr(optPos));
-					exps.push(b);
-				}
-			}
-
-			reportError(exps.size() == 1, object, "Onlye expecting a single expression");
-			push(exps.get(0));
+		Stack<Exp> exps = new Stack<>();
+		for (Expr e : object.getTerms()) {
+			visit(e);
+			exps.add(0, pop());
 		}
+
+		if (exps.size() > 1) {
+			// TODO: rewrite tree based on operator precedence, for now use paren exp
+			int i = 0;
+			while (exps.size() > 1) {
+				Exp lhs = exps.pop();
+				Exp rhs = exps.pop();
+				String op = GumboUtil.toSlangBinaryOp(object.getOps().get(i++));
+				Option<Position> optPos = (lhs != null && rhs != null)
+						? GumboUtil.mergePositions(lhs.posOpt(), rhs.posOpt())
+						: SlangUtil.toNone();
+				Binary b = Binary$.MODULE$.apply(lhs, op, rhs, GumboUtil.buildResolvedAttr(optPos));
+				exps.push(b);
+			}
+		}
+
+		reportError(exps.size() == 1, object, "Only expecting a single expression");
+		push(exps.get(0));
 
 		return false;
 	}
@@ -992,6 +1085,29 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Exp slangSelect = GumboUtil.convertIdStackToSelect(names);
 
 		push(slangSelect);
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseResultLit(ResultLit object) {
+
+		SlangDefDef def = EcoreUtil2.getContainerOfType(object, SlangDefDef.class);
+
+		DataSubcomponentType dst = def.getType().getTypeName();
+		String[] segments = dst.getQualifiedName().split("::");
+
+		List<org.sireum.String> ids = new ArrayList<>();
+		for (String s : segments) {
+			ids.add(new org.sireum.String(s));
+		}
+
+		Typed.Name name = Typed.Name$.MODULE$.apply(VisitorUtil.toISZ(ids), VisitorUtil.toISZ());
+		TypedAttr ta = GumboUtil.buildTypedAttr(object, name);
+
+		Exp.Result result = Exp.Result$.MODULE$.apply(SlangUtil.toNone(), ta);
+
+		push(result);
 
 		return false;
 	}
