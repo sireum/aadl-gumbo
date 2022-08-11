@@ -194,6 +194,11 @@ public class MustSendExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
          GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
@@ -259,7 +264,7 @@ public class MustSendExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+         GumboFactory.eINSTANCE.createParenExpr()));
 
     newChildDescriptors.add
       (createChildParameter

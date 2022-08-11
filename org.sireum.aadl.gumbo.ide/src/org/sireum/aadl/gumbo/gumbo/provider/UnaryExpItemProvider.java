@@ -201,6 +201,11 @@ public class UnaryExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_EXP__ACCESS_EXP,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXP__ACCESS_EXP,
          GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
@@ -266,7 +271,7 @@ public class UnaryExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_EXP__ACCESS_EXP,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+         GumboFactory.eINSTANCE.createParenExpr()));
 
     newChildDescriptors.add
       (createChildParameter

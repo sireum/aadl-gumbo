@@ -220,6 +220,11 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
          GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
@@ -285,7 +290,7 @@ public class SlangVarDefItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_VAR_DEF__INIT,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+         GumboFactory.eINSTANCE.createParenExpr()));
 
     newChildDescriptors.add
       (createChildParameter

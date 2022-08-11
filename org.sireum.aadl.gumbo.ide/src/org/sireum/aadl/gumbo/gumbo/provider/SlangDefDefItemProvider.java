@@ -63,33 +63,9 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addDefModsPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Def Mods feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addDefModsPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_SlangDefDef_defMods_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_SlangDefDef_defMods_feature", "_UI_SlangDefDef_type"),
-         GumboPackage.Literals.SLANG_DEF_DEF__DEF_MODS,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -195,7 +171,6 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
 
     switch (notification.getFeatureID(SlangDefDef.class))
     {
-      case GumboPackage.SLANG_DEF_DEF__DEF_MODS:
       case GumboPackage.SLANG_DEF_DEF__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
@@ -257,6 +232,11 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_DEF_DEF__BODY,
          GumboFactory.eINSTANCE.createBasicExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_DEF_DEF__BODY,
+         GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -326,7 +306,7 @@ public class SlangDefDefItemProvider extends FuncSpecItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_DEF_DEF__BODY,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+         GumboFactory.eINSTANCE.createParenExpr()));
 
     newChildDescriptors.add
       (createChildParameter

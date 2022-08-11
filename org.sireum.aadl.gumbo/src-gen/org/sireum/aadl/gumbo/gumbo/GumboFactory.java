@@ -574,15 +574,6 @@ public interface GumboFactory extends EFactory
   SlangCallArgs createSlangCallArgs();
 
   /**
-   * Returns a new object of class '<em>Slang ID Exp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang ID Exp</em>'.
-   * @generated
-   */
-  SlangIDExp createSlangIDExp();
-
-  /**
    * Returns a new object of class '<em>Slang Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -736,6 +727,15 @@ public interface GumboFactory extends EFactory
   BasicExp createBasicExp();
 
   /**
+   * Returns a new object of class '<em>If Else Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Else Exp</em>'.
+   * @generated
+   */
+  IfElseExp createIfElseExp();
+
+  /**
    * Returns a new object of class '<em>Quantified Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -853,13 +853,13 @@ public interface GumboFactory extends EFactory
   DataRefExpr createDataRefExpr();
 
   /**
-   * Returns a new object of class '<em>Slang Tuple Term</em>'.
+   * Returns a new object of class '<em>Paren Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Tuple Term</em>'.
+   * @return a new object of class '<em>Paren Expr</em>'.
    * @generated
    */
-  SlangTupleTerm createSlangTupleTerm();
+  ParenExpr createParenExpr();
 
   /**
    * Returns a new object of class '<em>Slang For Term</em>'.
@@ -887,6 +887,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   BooleanLit createBooleanLit();
+
+  /**
+   * Returns a new object of class '<em>Result Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Result Lit</em>'.
+   * @generated
+   */
+  ResultLit createResultLit();
 
   /**
    * Returns a new object of class '<em>Integer Lit</em>'.

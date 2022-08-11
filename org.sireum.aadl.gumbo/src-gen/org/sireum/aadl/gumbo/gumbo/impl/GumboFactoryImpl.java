@@ -135,7 +135,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_RET: return createSlangRet();
       case GumboPackage.SLANG_CALL_SUFFIX: return createSlangCallSuffix();
       case GumboPackage.SLANG_CALL_ARGS: return createSlangCallArgs();
-      case GumboPackage.SLANG_ID_EXP: return createSlangIDExp();
       case GumboPackage.SLANG_TYPE: return createSlangType();
       case GumboPackage.SLANG_TYPE_ARGS: return createSlangTypeArgs();
       case GumboPackage.SLANG_LIT: return createSlangLit();
@@ -153,6 +152,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_FIELD_LOOKUP: return createSlangFieldLookup();
       case GumboPackage.SLANG_METHOD_CALL: return createSlangMethodCall();
       case GumboPackage.BASIC_EXP: return createBasicExp();
+      case GumboPackage.IF_ELSE_EXP: return createIfElseExp();
       case GumboPackage.QUANTIFIED_EXP: return createQuantifiedExp();
       case GumboPackage.UNARY_EXP: return createUnaryExp();
       case GumboPackage.SLANG_ACCESS: return createSlangAccess();
@@ -166,10 +166,11 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
       case GumboPackage.DATA_REF_EXPR: return createDataRefExpr();
-      case GumboPackage.SLANG_TUPLE_TERM: return createSlangTupleTerm();
+      case GumboPackage.PAREN_EXPR: return createParenExpr();
       case GumboPackage.SLANG_FOR_TERM: return createSlangForTerm();
       case GumboPackage.SLANG_BLOCK_TERM: return createSlangBlockTerm();
       case GumboPackage.BOOLEAN_LIT: return createBooleanLit();
+      case GumboPackage.RESULT_LIT: return createResultLit();
       case GumboPackage.INTEGER_LIT: return createIntegerLit();
       case GumboPackage.INT_IDF_LIT: return createIntIdfLit();
       case GumboPackage.HEX_LIT: return createHexLit();
@@ -912,18 +913,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangIDExp createSlangIDExp()
-  {
-    SlangIDExpImpl slangIDExp = new SlangIDExpImpl();
-    return slangIDExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public SlangType createSlangType()
   {
     SlangTypeImpl slangType = new SlangTypeImpl();
@@ -1128,6 +1117,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public IfElseExp createIfElseExp()
+  {
+    IfElseExpImpl ifElseExp = new IfElseExpImpl();
+    return ifElseExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public QuantifiedExp createQuantifiedExp()
   {
     QuantifiedExpImpl quantifiedExp = new QuantifiedExpImpl();
@@ -1284,10 +1285,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangTupleTerm createSlangTupleTerm()
+  public ParenExpr createParenExpr()
   {
-    SlangTupleTermImpl slangTupleTerm = new SlangTupleTermImpl();
-    return slangTupleTerm;
+    ParenExprImpl parenExpr = new ParenExprImpl();
+    return parenExpr;
   }
 
   /**
@@ -1324,6 +1325,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     BooleanLitImpl booleanLit = new BooleanLitImpl();
     return booleanLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ResultLit createResultLit()
+  {
+    ResultLitImpl resultLit = new ResultLitImpl();
+    return resultLit;
   }
 
   /**

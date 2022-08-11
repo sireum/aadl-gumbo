@@ -169,6 +169,11 @@ public class SlangLitTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createResultLit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
          GumboFactory.eINSTANCE.createIntegerLit()));
 
     newChildDescriptors.add

@@ -94,7 +94,6 @@ public class SlangCallSuffixItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_CALL_SUFFIX__TA);
       childrenFeatures.add(GumboPackage.Literals.SLANG_CALL_SUFFIX__CA);
     }
     return childrenFeatures;
@@ -153,7 +152,6 @@ public class SlangCallSuffixItemProvider
 
     switch (notification.getFeatureID(SlangCallSuffix.class))
     {
-      case GumboPackage.SLANG_CALL_SUFFIX__TA:
       case GumboPackage.SLANG_CALL_SUFFIX__CA:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -172,11 +170,6 @@ public class SlangCallSuffixItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_CALL_SUFFIX__TA,
-         GumboFactory.eINSTANCE.createSlangTypeArgs()));
 
     newChildDescriptors.add
       (createChildParameter

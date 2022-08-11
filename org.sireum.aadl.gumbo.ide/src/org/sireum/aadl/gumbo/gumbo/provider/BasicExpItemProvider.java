@@ -106,8 +106,6 @@ public class BasicExpItemProvider extends ExprItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.BASIC_EXP__TERMS);
-      childrenFeatures.add(GumboPackage.Literals.BASIC_EXP__THEN_EXPR);
-      childrenFeatures.add(GumboPackage.Literals.BASIC_EXP__ELSE_EXPR);
     }
     return childrenFeatures;
   }
@@ -169,8 +167,6 @@ public class BasicExpItemProvider extends ExprItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case GumboPackage.BASIC_EXP__TERMS:
-      case GumboPackage.BASIC_EXP__THEN_EXPR:
-      case GumboPackage.BASIC_EXP__ELSE_EXPR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -202,6 +198,11 @@ public class BasicExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__TERMS,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BASIC_EXP__TERMS,
          GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
@@ -267,7 +268,7 @@ public class BasicExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__TERMS,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+         GumboFactory.eINSTANCE.createParenExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -278,212 +279,6 @@ public class BasicExpItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__TERMS,
          GumboFactory.eINSTANCE.createSlangBlockTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createBasicExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createQuantifiedExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createUnaryExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createSlangAccess()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createSlangLitTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createSlangInterpTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createInStateExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createMaySendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createMustSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createNoSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createCallExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createSlangForTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createSlangBlockTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createBasicExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createQuantifiedExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createUnaryExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createSlangAccess()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createSlangLitTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createSlangInterpTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createInStateExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createMaySendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createMustSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createNoSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createCallExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createSlangForTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createSlangBlockTerm()));
-  }
-
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection)
-  {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify =
-      childFeature == GumboPackage.Literals.BASIC_EXP__TERMS ||
-      childFeature == GumboPackage.Literals.BASIC_EXP__THEN_EXPR ||
-      childFeature == GumboPackage.Literals.BASIC_EXP__ELSE_EXPR;
-
-    if (qualify)
-    {
-      return getString
-        ("_UI_CreateChild_text2",
-         new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
   }
 
 }

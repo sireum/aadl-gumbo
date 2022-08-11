@@ -392,11 +392,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangCallArgsAdapter();
       }
       @Override
-      public Adapter caseSlangIDExp(SlangIDExp object)
-      {
-        return createSlangIDExpAdapter();
-      }
-      @Override
       public Adapter caseSlangType(SlangType object)
       {
         return createSlangTypeAdapter();
@@ -482,6 +477,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createBasicExpAdapter();
       }
       @Override
+      public Adapter caseIfElseExp(IfElseExp object)
+      {
+        return createIfElseExpAdapter();
+      }
+      @Override
       public Adapter caseQuantifiedExp(QuantifiedExp object)
       {
         return createQuantifiedExpAdapter();
@@ -547,9 +547,9 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createDataRefExprAdapter();
       }
       @Override
-      public Adapter caseSlangTupleTerm(SlangTupleTerm object)
+      public Adapter caseParenExpr(ParenExpr object)
       {
-        return createSlangTupleTermAdapter();
+        return createParenExprAdapter();
       }
       @Override
       public Adapter caseSlangForTerm(SlangForTerm object)
@@ -565,6 +565,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBooleanLit(BooleanLit object)
       {
         return createBooleanLitAdapter();
+      }
+      @Override
+      public Adapter caseResultLit(ResultLit object)
+      {
+        return createResultLitAdapter();
       }
       @Override
       public Adapter caseIntegerLit(IntegerLit object)
@@ -1569,21 +1574,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangIDExp <em>Slang ID Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangIDExp
-   * @generated
-   */
-  public Adapter createSlangIDExpAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangType <em>Slang Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1839,6 +1829,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IfElseExp <em>If Else Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.IfElseExp
+   * @generated
+   */
+  public Adapter createIfElseExpAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.QuantifiedExp <em>Quantified Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -2034,16 +2039,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTupleTerm <em>Slang Tuple Term</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ParenExpr <em>Paren Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangTupleTerm
+   * @see org.sireum.aadl.gumbo.gumbo.ParenExpr
    * @generated
    */
-  public Adapter createSlangTupleTermAdapter()
+  public Adapter createParenExprAdapter()
   {
     return null;
   }
@@ -2089,6 +2094,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBooleanLitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ResultLit <em>Result Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ResultLit
+   * @generated
+   */
+  public Adapter createResultLitAdapter()
   {
     return null;
   }

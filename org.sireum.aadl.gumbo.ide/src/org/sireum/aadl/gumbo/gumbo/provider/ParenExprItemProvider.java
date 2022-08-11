@@ -20,37 +20,22 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.SlangIDExp;
+import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangIDExp} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.ParenExpr} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangIDExpItemProvider 
-  extends ItemProviderAdapter
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
+public class ParenExprItemProvider extends ExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -58,7 +43,7 @@ public class SlangIDExpItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public SlangIDExpItemProvider(AdapterFactory adapterFactory)
+  public ParenExprItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -94,7 +79,7 @@ public class SlangIDExpItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_ID_EXP__E);
+      childrenFeatures.add(GumboPackage.Literals.PAREN_EXPR__EXP);
     }
     return childrenFeatures;
   }
@@ -114,7 +99,7 @@ public class SlangIDExpItemProvider
   }
 
   /**
-   * This returns SlangIDExp.gif.
+   * This returns ParenExpr.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -122,7 +107,7 @@ public class SlangIDExpItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangIDExp"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ParenExpr"));
   }
 
   /**
@@ -134,7 +119,7 @@ public class SlangIDExpItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_SlangIDExp_type");
+    return getString("_UI_ParenExpr_type");
   }
 
 
@@ -150,9 +135,9 @@ public class SlangIDExpItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(SlangIDExp.class))
+    switch (notification.getFeatureID(ParenExpr.class))
     {
-      case GumboPackage.SLANG_ID_EXP__E:
+      case GumboPackage.PAREN_EXPR__EXP:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -173,105 +158,98 @@ public class SlangIDExpItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createBasicExp()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createUnaryExp()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createSlangAccess()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createSlangInterpTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createInStateExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createMaySendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createNoSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createRecordLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
-         GumboFactory.eINSTANCE.createSlangTupleTerm()));
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
+         GumboFactory.eINSTANCE.createParenExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createSlangForTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_ID_EXP__E,
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createSlangBlockTerm()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return GumboEditPlugin.INSTANCE;
   }
 
 }

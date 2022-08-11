@@ -94,11 +94,10 @@ public class SlangDefContractItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__REA);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__REQ);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__MOD);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__ENS);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__CONTRACTS);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__READS);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__REQUIRES);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__MODIFIES);
+      childrenFeatures.add(GumboPackage.Literals.SLANG_DEF_CONTRACT__ENSURES);
     }
     return childrenFeatures;
   }
@@ -156,11 +155,10 @@ public class SlangDefContractItemProvider
 
     switch (notification.getFeatureID(SlangDefContract.class))
     {
-      case GumboPackage.SLANG_DEF_CONTRACT__REA:
-      case GumboPackage.SLANG_DEF_CONTRACT__REQ:
-      case GumboPackage.SLANG_DEF_CONTRACT__MOD:
-      case GumboPackage.SLANG_DEF_CONTRACT__ENS:
-      case GumboPackage.SLANG_DEF_CONTRACT__CONTRACTS:
+      case GumboPackage.SLANG_DEF_CONTRACT__READS:
+      case GumboPackage.SLANG_DEF_CONTRACT__REQUIRES:
+      case GumboPackage.SLANG_DEF_CONTRACT__MODIFIES:
+      case GumboPackage.SLANG_DEF_CONTRACT__ENSURES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -181,28 +179,23 @@ public class SlangDefContractItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_CONTRACT__REA,
+        (GumboPackage.Literals.SLANG_DEF_CONTRACT__READS,
          GumboFactory.eINSTANCE.createSlangReads()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_CONTRACT__REQ,
+        (GumboPackage.Literals.SLANG_DEF_CONTRACT__REQUIRES,
          GumboFactory.eINSTANCE.createSlangRequires()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_CONTRACT__MOD,
+        (GumboPackage.Literals.SLANG_DEF_CONTRACT__MODIFIES,
          GumboFactory.eINSTANCE.createSlangModifies()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_CONTRACT__ENS,
+        (GumboPackage.Literals.SLANG_DEF_CONTRACT__ENSURES,
          GumboFactory.eINSTANCE.createSlangEnsures()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_DEF_CONTRACT__CONTRACTS,
-         GumboFactory.eINSTANCE.createSlangDefContractCase()));
   }
 
   /**
