@@ -120,6 +120,7 @@ import org.sireum.lang.ast.Exp.LitR$;
 import org.sireum.lang.ast.Exp.LitString;
 import org.sireum.lang.ast.Exp.LitString$;
 import org.sireum.lang.ast.Exp.LitZ$;
+import org.sireum.lang.ast.Exp.Ref;
 import org.sireum.lang.ast.Exp.Select;
 import org.sireum.lang.ast.Exp.Select$;
 import org.sireum.lang.ast.Exp.StringInterpolate$;
@@ -335,9 +336,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<TypeParam> typeParams = new ArrayList<>();
 		if (object.getTypeParams() != null) {
 			for (SlangTypeParam stp : object.getTypeParams().getTypeParam()) {
-				reportError(!stp.isIsMut(), object, "Not handling mut attribute for type params yet");
 				Id id = Id$.MODULE$.apply(stp.getName(), GumboUtil.buildAttr(stp));
-				typeParams.add(TypeParam$.MODULE$.apply(id));
+				typeParams.add(TypeParam$.MODULE$.apply(id, stp.isIsMut()));
 			}
 		}
 
@@ -377,17 +377,17 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			Accesses readsClause = Accesses$.MODULE$.empty();
 			if (object.getMethodContract().getReads() != null) {
-				List<Ident> idents = new ArrayList<>();
+				List<Ref> idents = new ArrayList<>();
 				Option<Position> pos = VisitorUtil
 						.buildPositionOpt(object.getMethodContract().getReads().getExprs().get(0));
 				for (Expr e : object.getMethodContract().getReads().getExprs()) {
 					visit(e);
 					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
 					Exp result = pop();
-					if (result instanceof Ident) {
-						idents.add((Ident) result);
+					if (result instanceof Ref) {
+						idents.add((Ref) result);
 					} else {
-						reportError(e, "Only simple names are allowed for read clauses");
+						reportError(e, "Only select expressions or simple names are allowed for read clauses");
 					}
 				}
 				readsClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
@@ -408,7 +408,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			Accesses modifiesClause = Accesses$.MODULE$.empty();
 			if (object.getMethodContract().getModifies() != null) {
-				List<Ident> idents = new ArrayList<>();
+				List<Ref> idents = new ArrayList<>();
 				Option<Position> pos = VisitorUtil
 						.buildPositionOpt(object.getMethodContract().getModifies().getExprs().get(0));
 				for (Expr e : object.getMethodContract().getModifies().getExprs()) {
@@ -419,7 +419,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					if (result instanceof Ident) {
 						idents.add((Ident) result);
 					} else {
-						reportError(e, "Only simple names are allowed for modifies clauses");
+						reportError(e, "Only select expressions or simple names are allowed for modifies clauses");
 					}
 				}
 				modifiesClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
