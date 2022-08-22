@@ -76,6 +76,7 @@ import org.sireum.aadl.osate.architecture.Visitor;
 import org.sireum.aadl.osate.gumbo2air.GumboUtil.UnaryOp;
 import org.sireum.aadl.osate.util.SlangUtil;
 import org.sireum.aadl.osate.util.VisitorUtil;
+import org.sireum.hamr.codegen.common.util.GclUtil;
 import org.sireum.hamr.ir.Annex;
 import org.sireum.hamr.ir.Annex$;
 import org.sireum.hamr.ir.AnnexLib;
@@ -105,8 +106,6 @@ import org.sireum.hamr.ir.GclSubclause$;
 import org.sireum.lang.ast.Body;
 import org.sireum.lang.ast.Body$;
 import org.sireum.lang.ast.Exp;
-import org.sireum.lang.ast.Exp.Binary;
-import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.If;
@@ -759,7 +758,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseInStateExpr(InStateExpr object) {
 
 		Id slangId = Id$.MODULE$.apply(object.getStateVar().getName(), GumboUtil.buildAttr(object));
-		Ident slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object));
+		Exp slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object));
 
 		Input input = Input$.MODULE$.apply(slangIdIdent, GumboUtil.buildAttr(object));
 
@@ -861,29 +860,17 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		reportError(object.getTerms().size() == object.getOps().size() + 1, object,
 				"There are " + object.getOps().size() + " operators but " + object.getTerms().size() + " expressions");
 
-		Stack<Exp> exps = new Stack<>();
-		for (Expr e : object.getTerms()) {
-			visit(e);
-			exps.add(0, pop());
-		}
-
-		if (exps.size() > 1) {
-			// TODO: rewrite tree based on operator precedence, for now use paren exp
-			int i = 0;
-			while (exps.size() > 1) {
-				Exp lhs = exps.pop();
-				Exp rhs = exps.pop();
-				String op = GumboUtil.toSlangBinaryOp(object.getOps().get(i++));
-				Option<Position> optPos = (lhs != null && rhs != null)
-						? GumboUtil.mergePositions(lhs.posOpt(), rhs.posOpt())
-						: SlangUtil.toNone();
-				Binary b = Binary$.MODULE$.apply(lhs, op, rhs, GumboUtil.buildResolvedAttr(optPos));
-				exps.push(b);
+		List<Exp> exps = new ArrayList<>();
+		for (int i = 0; i < object.getTerms().size(); i++) {
+			visit(object.getTerms().get(i));
+			exps.add(pop());
+			if (i < object.getOps().size()) {
+				String op = GumboUtil.toSlangBinaryOp(object.getOps().get(i));
+				exps.add(LitString$.MODULE$.apply(op, null));
 			}
 		}
 
-		reportError(exps.size() == 1, object, "Only expecting a single expression");
-		push(exps.get(0));
+		push(GclUtil.rewriteBinary(VisitorUtil.toISZ(exps), reporter));
 
 		return false;
 	}
