@@ -3,7 +3,7 @@ Automatic-Module-Name: org.sireum.aadl.gumbo
 Bundle-ManifestVersion: 2
 Bundle-Name: org.sireum.aadl.gumbo
 Bundle-Vendor: My Company
-Bundle-Version: 1.2022.08221314.qualifier
+Bundle-Version: 1.2022.08231211.qualifier
 Bundle-SymbolicName: org.sireum.aadl.gumbo; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.apache.log4j;bundle-version="[1.2.15,2.0.0)";visibility:=reexport,
