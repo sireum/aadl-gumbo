@@ -166,7 +166,7 @@ SlangDefDef:
 	 //defMods=SlangDefMods 
 	 'def' sde=SlangDefExt? name=SlangDefID 
 		typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
-		':=' methodContract=SlangDefContract? body=Expr
+		':=' methodContract=SlangDefContract body=Expr
 ;
 
 //SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
@@ -186,12 +186,13 @@ SlangTypeParams: '[' typeParam+=SlangTypeParam (  ',' typeParam+=SlangTypeParam 
 SlangTypeParam: isMut ?= 'mut'? name=ID ;
 
 SlangDefContract
-	: {SlangDefContract} 'Contract' '('
+	: {SlangDefContract}
 	  ( 
-	    reads=SlangReads? requires=SlangRequires? modifies=SlangModifies? ensures=SlangEnsures?
-	  // | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
+	    ( reads=SlangReads ';' )? 
+	    ( requires=SlangRequires ';' )?
+	    ( modifies=SlangModifies ';' )? 
+	    ( ensures=SlangEnsures ';' )?
 	  )
-	  ')'
 	;
 
 SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/SLANG_STRING req=SlangRequires? ens=SlangEnsures? ;
@@ -206,13 +207,13 @@ SlangExt: {SlangExt} 'extension' ID ( 'for' SlangName )?  '{' decl+=SlangDefDecl
 
 SlangInvariant: 'invariant' exprs+=Expr ( ',' exprs+=Expr )* ;
 
+SlangRequires: 'assume' exprs+=Expr ( ',' exprs+=Expr )*  ;
+
 SlangReads: 'reads' exprs+=Expr ( ',' exprs+=Expr )* ;
 
-SlangRequires: 'assumes' exprs+=Expr ( ',' exprs+=Expr )* ;
+SlangModifies: 'modifies' exprs+=Expr ( ',' exprs+=Expr )*  ;
 
-SlangModifies: 'modifies' exprs+=Expr ( ',' exprs+=Expr )* ;
-
-SlangEnsures: 'guarantees'  exprs+=Expr ( ',' exprs+=Expr )* ;
+SlangEnsures: 'guarantee'  exprs+=Expr ( ',' exprs+=Expr )* ;
 
 SlangStmt
 	: {SlangVarDef} d=SlangVarDef
