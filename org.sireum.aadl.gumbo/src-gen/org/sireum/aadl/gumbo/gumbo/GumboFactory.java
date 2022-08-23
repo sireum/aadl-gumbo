@@ -376,15 +376,6 @@ public interface GumboFactory extends EFactory
   SlangInvariant createSlangInvariant();
 
   /**
-   * Returns a new object of class '<em>Slang Reads</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Reads</em>'.
-   * @generated
-   */
-  SlangReads createSlangReads();
-
-  /**
    * Returns a new object of class '<em>Slang Requires</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -392,6 +383,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangRequires createSlangRequires();
+
+  /**
+   * Returns a new object of class '<em>Slang Reads</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Reads</em>'.
+   * @generated
+   */
+  SlangReads createSlangReads();
 
   /**
    * Returns a new object of class '<em>Slang Modifies</em>'.

@@ -412,14 +412,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass slangReadsEClass = null;
+  private EClass slangRequiresEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass slangRequiresEClass = null;
+  private EClass slangReadsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2294,28 +2294,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getSlangReads()
-  {
-    return slangReadsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSlangReads_Exprs()
-  {
-    return (EReference)slangReadsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getSlangRequires()
   {
     return slangRequiresEClass;
@@ -2330,6 +2308,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getSlangRequires_Exprs()
   {
     return (EReference)slangRequiresEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSlangReads()
+  {
+    return slangReadsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangReads_Exprs()
+  {
+    return (EReference)slangReadsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4359,11 +4359,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangInvariantEClass = createEClass(SLANG_INVARIANT);
     createEReference(slangInvariantEClass, SLANG_INVARIANT__EXPRS);
 
-    slangReadsEClass = createEClass(SLANG_READS);
-    createEReference(slangReadsEClass, SLANG_READS__EXPRS);
-
     slangRequiresEClass = createEClass(SLANG_REQUIRES);
     createEReference(slangRequiresEClass, SLANG_REQUIRES__EXPRS);
+
+    slangReadsEClass = createEClass(SLANG_READS);
+    createEReference(slangReadsEClass, SLANG_READS__EXPRS);
 
     slangModifiesEClass = createEClass(SLANG_MODIFIES);
     createEReference(slangModifiesEClass, SLANG_MODIFIES__EXPRS);
@@ -4844,11 +4844,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(slangInvariantEClass, SlangInvariant.class, "SlangInvariant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangInvariant_Exprs(), this.getExpr(), null, "exprs", null, 0, -1, SlangInvariant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(slangReadsEClass, SlangReads.class, "SlangReads", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSlangReads_Exprs(), this.getExpr(), null, "exprs", null, 0, -1, SlangReads.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(slangRequiresEClass, SlangRequires.class, "SlangRequires", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangRequires_Exprs(), this.getExpr(), null, "exprs", null, 0, -1, SlangRequires.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(slangReadsEClass, SlangReads.class, "SlangReads", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlangReads_Exprs(), this.getExpr(), null, "exprs", null, 0, -1, SlangReads.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangModifiesEClass, SlangModifies.class, "SlangModifies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangModifies_Exprs(), this.getExpr(), null, "exprs", null, 0, -1, SlangModifies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

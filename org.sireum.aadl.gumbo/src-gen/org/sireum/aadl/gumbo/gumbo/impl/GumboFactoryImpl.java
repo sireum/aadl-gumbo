@@ -113,8 +113,8 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_SUPR: return createSlangSupr();
       case GumboPackage.SLANG_EXT: return createSlangExt();
       case GumboPackage.SLANG_INVARIANT: return createSlangInvariant();
-      case GumboPackage.SLANG_READS: return createSlangReads();
       case GumboPackage.SLANG_REQUIRES: return createSlangRequires();
+      case GumboPackage.SLANG_READS: return createSlangReads();
       case GumboPackage.SLANG_MODIFIES: return createSlangModifies();
       case GumboPackage.SLANG_ENSURES: return createSlangEnsures();
       case GumboPackage.SLANG_STMT: return createSlangStmt();
@@ -649,10 +649,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangReads createSlangReads()
+  public SlangRequires createSlangRequires()
   {
-    SlangReadsImpl slangReads = new SlangReadsImpl();
-    return slangReads;
+    SlangRequiresImpl slangRequires = new SlangRequiresImpl();
+    return slangRequires;
   }
 
   /**
@@ -661,10 +661,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangRequires createSlangRequires()
+  public SlangReads createSlangReads()
   {
-    SlangRequiresImpl slangRequires = new SlangRequiresImpl();
-    return slangRequires;
+    SlangReadsImpl slangReads = new SlangReadsImpl();
+    return slangReads;
   }
 
   /**

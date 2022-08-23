@@ -164,11 +164,11 @@
     <genClasses ecoreClass="Gumbo.ecore#//SlangInvariant">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangInvariant/exprs"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangReads">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangReads/exprs"/>
-    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangRequires">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangRequires/exprs"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangReads">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangReads/exprs"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangModifies">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangModifies/exprs"/>

@@ -282,14 +282,14 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangInvariantAdapter();
       }
       @Override
-      public Adapter caseSlangReads(SlangReads object)
-      {
-        return createSlangReadsAdapter();
-      }
-      @Override
       public Adapter caseSlangRequires(SlangRequires object)
       {
         return createSlangRequiresAdapter();
+      }
+      @Override
+      public Adapter caseSlangReads(SlangReads object)
+      {
+        return createSlangReadsAdapter();
       }
       @Override
       public Adapter caseSlangModifies(SlangModifies object)
@@ -1244,21 +1244,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangReads <em>Slang Reads</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangReads
-   * @generated
-   */
-  public Adapter createSlangReadsAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangRequires <em>Slang Requires</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1269,6 +1254,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSlangRequiresAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangReads <em>Slang Reads</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangReads
+   * @generated
+   */
+  public Adapter createSlangReadsAdapter()
   {
     return null;
   }

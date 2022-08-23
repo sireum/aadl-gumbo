@@ -1151,7 +1151,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         typeParams=SlangTypeParams? 
 	 *         params=SlangDefParams 
 	 *         type=SlangType 
-	 *         methodContract=SlangDefContract? 
+	 *         methodContract=SlangDefContract 
 	 *         body=Expr
 	 *     )
 	 * </pre>

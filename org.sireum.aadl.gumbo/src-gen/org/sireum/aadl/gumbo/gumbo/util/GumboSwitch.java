@@ -365,17 +365,17 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SLANG_READS:
-      {
-        SlangReads slangReads = (SlangReads)theEObject;
-        T result = caseSlangReads(slangReads);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.SLANG_REQUIRES:
       {
         SlangRequires slangRequires = (SlangRequires)theEObject;
         T result = caseSlangRequires(slangRequires);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_READS:
+      {
+        SlangReads slangReads = (SlangReads)theEObject;
+        T result = caseSlangReads(slangReads);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1507,22 +1507,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Reads</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Reads</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangReads(SlangReads object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang Requires</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1534,6 +1518,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangRequires(SlangRequires object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Reads</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Reads</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangReads(SlangReads object)
   {
     return null;
   }

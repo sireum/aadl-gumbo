@@ -1035,31 +1035,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangReads} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected SlangReadsItemProvider slangReadsItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangReads}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createSlangReadsAdapter()
-  {
-    if (slangReadsItemProvider == null)
-    {
-      slangReadsItemProvider = new SlangReadsItemProvider(this);
-    }
-
-    return slangReadsItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangRequires} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1082,6 +1057,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return slangRequiresItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangReads} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangReadsItemProvider slangReadsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangReads}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangReadsAdapter()
+  {
+    if (slangReadsItemProvider == null)
+    {
+      slangReadsItemProvider = new SlangReadsItemProvider(this);
+    }
+
+    return slangReadsItemProvider;
   }
 
   /**
@@ -2914,8 +2914,8 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangSuprItemProvider != null) slangSuprItemProvider.dispose();
     if (slangExtItemProvider != null) slangExtItemProvider.dispose();
     if (slangInvariantItemProvider != null) slangInvariantItemProvider.dispose();
-    if (slangReadsItemProvider != null) slangReadsItemProvider.dispose();
     if (slangRequiresItemProvider != null) slangRequiresItemProvider.dispose();
+    if (slangReadsItemProvider != null) slangReadsItemProvider.dispose();
     if (slangModifiesItemProvider != null) slangModifiesItemProvider.dispose();
     if (slangEnsuresItemProvider != null) slangEnsuresItemProvider.dispose();
     if (slangStmtItemProvider != null) slangStmtItemProvider.dispose();

@@ -1692,34 +1692,6 @@ public interface GumboPackage extends EPackage
   int SLANG_INVARIANT_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl <em>Slang Reads</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangReads()
-   * @generated
-   */
-  int SLANG_READS = 38;
-
-  /**
-   * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_READS__EXPRS = 0;
-
-  /**
-   * The number of structural features of the '<em>Slang Reads</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLANG_READS_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangRequiresImpl <em>Slang Requires</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1727,7 +1699,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangRequires()
    * @generated
    */
-  int SLANG_REQUIRES = 39;
+  int SLANG_REQUIRES = 38;
 
   /**
    * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
@@ -1746,6 +1718,34 @@ public interface GumboPackage extends EPackage
    * @ordered
    */
   int SLANG_REQUIRES_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl <em>Slang Reads</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangReads()
+   * @generated
+   */
+  int SLANG_READS = 39;
+
+  /**
+   * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_READS__EXPRS = 0;
+
+  /**
+   * The number of structural features of the '<em>Slang Reads</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_READS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangModifiesImpl <em>Slang Modifies</em>}' class.
@@ -5278,27 +5278,6 @@ public interface GumboPackage extends EPackage
   EReference getSlangInvariant_Exprs();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangReads <em>Slang Reads</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Slang Reads</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangReads
-   * @generated
-   */
-  EClass getSlangReads();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.SlangReads#getExprs <em>Exprs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Exprs</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangReads#getExprs()
-   * @see #getSlangReads()
-   * @generated
-   */
-  EReference getSlangReads_Exprs();
-
-  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangRequires <em>Slang Requires</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5318,6 +5297,27 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getSlangRequires_Exprs();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangReads <em>Slang Reads</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Slang Reads</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangReads
+   * @generated
+   */
+  EClass getSlangReads();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.SlangReads#getExprs <em>Exprs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Exprs</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangReads#getExprs()
+   * @see #getSlangReads()
+   * @generated
+   */
+  EReference getSlangReads_Exprs();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangModifies <em>Slang Modifies</em>}'.
@@ -8157,24 +8157,6 @@ public interface GumboPackage extends EPackage
     EReference SLANG_INVARIANT__EXPRS = eINSTANCE.getSlangInvariant_Exprs();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl <em>Slang Reads</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangReads()
-     * @generated
-     */
-    EClass SLANG_READS = eINSTANCE.getSlangReads();
-
-    /**
-     * The meta object literal for the '<em><b>Exprs</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SLANG_READS__EXPRS = eINSTANCE.getSlangReads_Exprs();
-
-    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangRequiresImpl <em>Slang Requires</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8191,6 +8173,24 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference SLANG_REQUIRES__EXPRS = eINSTANCE.getSlangRequires_Exprs();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl <em>Slang Reads</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SlangReadsImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangReads()
+     * @generated
+     */
+    EClass SLANG_READS = eINSTANCE.getSlangReads();
+
+    /**
+     * The meta object literal for the '<em><b>Exprs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLANG_READS__EXPRS = eINSTANCE.getSlangReads_Exprs();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangModifiesImpl <em>Slang Modifies</em>}' class.

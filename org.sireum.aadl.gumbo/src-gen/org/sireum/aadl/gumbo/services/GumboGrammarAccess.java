@@ -1188,14 +1188,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//     //defMods=SlangDefMods
 		//     'def' sde=SlangDefExt? name=SlangDefID
 		//        typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
-		//        ':=' methodContract=SlangDefContract? body=Expr
+		//        ':=' methodContract=SlangDefContract body=Expr
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		////defMods=SlangDefMods
 		//'def' sde=SlangDefExt? name=SlangDefID
 		//   typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
-		//   ':=' methodContract=SlangDefContract? body=Expr
+		//   ':=' methodContract=SlangDefContract body=Expr
 		public Group getGroup() { return cGroup; }
 		
 		////defMods=SlangDefMods
@@ -1239,7 +1239,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//       ':='
 		public Keyword getColonEqualsSignKeyword_7() { return cColonEqualsSignKeyword_7; }
 		
-		//methodContract=SlangDefContract?
+		//methodContract=SlangDefContract
 		public Assignment getMethodContractAssignment_8() { return cMethodContractAssignment_8; }
 		
 		//SlangDefContract
@@ -1490,78 +1490,102 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangDefContract");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSlangDefContractAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cContractKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cReadsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cReadsSlangReadsParserRuleCall_3_0_0 = (RuleCall)cReadsAssignment_3_0.eContents().get(0);
-		private final Assignment cRequiresAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cRequiresSlangRequiresParserRuleCall_3_1_0 = (RuleCall)cRequiresAssignment_3_1.eContents().get(0);
-		private final Assignment cModifiesAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cModifiesSlangModifiesParserRuleCall_3_2_0 = (RuleCall)cModifiesAssignment_3_2.eContents().get(0);
-		private final Assignment cEnsuresAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cEnsuresSlangEnsuresParserRuleCall_3_3_0 = (RuleCall)cEnsuresAssignment_3_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Assignment cReadsAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cReadsSlangReadsParserRuleCall_1_0_0_0 = (RuleCall)cReadsAssignment_1_0_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Assignment cRequiresAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cRequiresSlangRequiresParserRuleCall_1_1_0_0 = (RuleCall)cRequiresAssignment_1_1_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Assignment cModifiesAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cModifiesSlangModifiesParserRuleCall_1_2_0_0 = (RuleCall)cModifiesAssignment_1_2_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Assignment cEnsuresAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
+		private final RuleCall cEnsuresSlangEnsuresParserRuleCall_1_3_0_0 = (RuleCall)cEnsuresAssignment_1_3_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
 		
 		//SlangDefContract
-		//    : {SlangDefContract} 'Contract' '('
+		//    : {SlangDefContract}
 		//      (
-		//        reads=SlangReads? requires=SlangRequires? modifies=SlangModifies? ensures=SlangEnsures?
-		//      // | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
+		//        ( reads=SlangReads ';' )?
+		//        ( requires=SlangRequires ';' )?
+		//        ( modifies=SlangModifies ';' )?
+		//        ( ensures=SlangEnsures ';' )?
 		//      )
-		//      ')'
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SlangDefContract} 'Contract' '('
+		//{SlangDefContract}
 		//     (
-		//       reads=SlangReads? requires=SlangRequires? modifies=SlangModifies? ensures=SlangEnsures?
-		//     // | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
+		//       ( reads=SlangReads ';' )?
+		//       ( requires=SlangRequires ';' )?
+		//       ( modifies=SlangModifies ';' )?
+		//       ( ensures=SlangEnsures ';' )?
 		//     )
-		//     ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{SlangDefContract}
 		public Action getSlangDefContractAction_0() { return cSlangDefContractAction_0; }
 		
-		//'Contract'
-		public Keyword getContractKeyword_1() { return cContractKeyword_1; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
-		
 		//(
-		//  reads=SlangReads? requires=SlangRequires? modifies=SlangModifies? ensures=SlangEnsures?
-		//// | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
+		//  ( reads=SlangReads ';' )?
+		//  ( requires=SlangRequires ';' )?
+		//  ( modifies=SlangModifies ';' )?
+		//  ( ensures=SlangEnsures ';' )?
 		//)
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//reads=SlangReads?
-		public Assignment getReadsAssignment_3_0() { return cReadsAssignment_3_0; }
+		//( reads=SlangReads ';' )?
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//reads=SlangReads
+		public Assignment getReadsAssignment_1_0_0() { return cReadsAssignment_1_0_0; }
 		
 		//SlangReads
-		public RuleCall getReadsSlangReadsParserRuleCall_3_0_0() { return cReadsSlangReadsParserRuleCall_3_0_0; }
+		public RuleCall getReadsSlangReadsParserRuleCall_1_0_0_0() { return cReadsSlangReadsParserRuleCall_1_0_0_0; }
 		
-		//requires=SlangRequires?
-		public Assignment getRequiresAssignment_3_1() { return cRequiresAssignment_3_1; }
+		//';'
+		public Keyword getSemicolonKeyword_1_0_1() { return cSemicolonKeyword_1_0_1; }
+		
+		//( requires=SlangRequires ';' )?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//requires=SlangRequires
+		public Assignment getRequiresAssignment_1_1_0() { return cRequiresAssignment_1_1_0; }
 		
 		//SlangRequires
-		public RuleCall getRequiresSlangRequiresParserRuleCall_3_1_0() { return cRequiresSlangRequiresParserRuleCall_3_1_0; }
+		public RuleCall getRequiresSlangRequiresParserRuleCall_1_1_0_0() { return cRequiresSlangRequiresParserRuleCall_1_1_0_0; }
 		
-		//modifies=SlangModifies?
-		public Assignment getModifiesAssignment_3_2() { return cModifiesAssignment_3_2; }
+		//';'
+		public Keyword getSemicolonKeyword_1_1_1() { return cSemicolonKeyword_1_1_1; }
+		
+		//( modifies=SlangModifies ';' )?
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//modifies=SlangModifies
+		public Assignment getModifiesAssignment_1_2_0() { return cModifiesAssignment_1_2_0; }
 		
 		//SlangModifies
-		public RuleCall getModifiesSlangModifiesParserRuleCall_3_2_0() { return cModifiesSlangModifiesParserRuleCall_3_2_0; }
+		public RuleCall getModifiesSlangModifiesParserRuleCall_1_2_0_0() { return cModifiesSlangModifiesParserRuleCall_1_2_0_0; }
 		
-		//ensures=SlangEnsures?
-		public Assignment getEnsuresAssignment_3_3() { return cEnsuresAssignment_3_3; }
+		//';'
+		public Keyword getSemicolonKeyword_1_2_1() { return cSemicolonKeyword_1_2_1; }
+		
+		//( ensures=SlangEnsures ';' )?
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//ensures=SlangEnsures
+		public Assignment getEnsuresAssignment_1_3_0() { return cEnsuresAssignment_1_3_0; }
 		
 		//SlangEnsures
-		public RuleCall getEnsuresSlangEnsuresParserRuleCall_3_3_0() { return cEnsuresSlangEnsuresParserRuleCall_3_3_0; }
+		public RuleCall getEnsuresSlangEnsuresParserRuleCall_1_3_0_0() { return cEnsuresSlangEnsuresParserRuleCall_1_3_0_0; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		//';'
+		public Keyword getSemicolonKeyword_1_3_1() { return cSemicolonKeyword_1_3_1; }
 	}
 	public class SlangDefContractCaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangDefContractCase");
@@ -1779,189 +1803,157 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Expr
 		public RuleCall getExprsExprParserRuleCall_2_1_0() { return cExprsExprParserRuleCall_2_1_0; }
 	}
+	public class SlangRequiresElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangRequires");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAssumeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExprsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_1_0 = (RuleCall)cExprsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExprsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_2_1_0 = (RuleCall)cExprsAssignment_2_1.eContents().get(0);
+		
+		//SlangRequires: 'assume' exprs+=Expr ( ',' exprs+=Expr )*  ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'assume' exprs+=Expr ( ',' exprs+=Expr )*
+		public Group getGroup() { return cGroup; }
+		
+		//'assume'
+		public Keyword getAssumeKeyword_0() { return cAssumeKeyword_0; }
+		
+		//exprs+=Expr
+		public Assignment getExprsAssignment_1() { return cExprsAssignment_1; }
+		
+		//Expr
+		public RuleCall getExprsExprParserRuleCall_1_0() { return cExprsExprParserRuleCall_1_0; }
+		
+		//( ',' exprs+=Expr )*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+		
+		//exprs+=Expr
+		public Assignment getExprsAssignment_2_1() { return cExprsAssignment_2_1; }
+		
+		//Expr
+		public RuleCall getExprsExprParserRuleCall_2_1_0() { return cExprsExprParserRuleCall_2_1_0; }
+	}
 	public class SlangReadsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangReads");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReadsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExprsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExprsExprParserRuleCall_2_0 = (RuleCall)cExprsAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cExprsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cExprsExprParserRuleCall_3_1_0 = (RuleCall)cExprsAssignment_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cExprsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_1_0 = (RuleCall)cExprsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExprsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_2_1_0 = (RuleCall)cExprsAssignment_2_1.eContents().get(0);
 		
-		//SlangReads: 'reads'  '(' exprs+=Expr ( ',' exprs+=Expr )* ')';
+		//SlangReads: 'reads' exprs+=Expr ( ',' exprs+=Expr )* ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'reads'  '(' exprs+=Expr ( ',' exprs+=Expr )* ')'
+		//'reads' exprs+=Expr ( ',' exprs+=Expr )*
 		public Group getGroup() { return cGroup; }
 		
 		//'reads'
 		public Keyword getReadsKeyword_0() { return cReadsKeyword_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
 		//exprs+=Expr
-		public Assignment getExprsAssignment_2() { return cExprsAssignment_2; }
+		public Assignment getExprsAssignment_1() { return cExprsAssignment_1; }
 		
 		//Expr
-		public RuleCall getExprsExprParserRuleCall_2_0() { return cExprsExprParserRuleCall_2_0; }
+		public RuleCall getExprsExprParserRuleCall_1_0() { return cExprsExprParserRuleCall_1_0; }
 		
 		//( ',' exprs+=Expr )*
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 		
 		//exprs+=Expr
-		public Assignment getExprsAssignment_3_1() { return cExprsAssignment_3_1; }
+		public Assignment getExprsAssignment_2_1() { return cExprsAssignment_2_1; }
 		
 		//Expr
-		public RuleCall getExprsExprParserRuleCall_3_1_0() { return cExprsExprParserRuleCall_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
-	}
-	public class SlangRequiresElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangRequires");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAssumesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExprsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExprsExprParserRuleCall_2_0 = (RuleCall)cExprsAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cExprsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cExprsExprParserRuleCall_3_1_0 = (RuleCall)cExprsAssignment_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//SlangRequires: 'assumes' '(' exprs+=Expr ( ',' exprs+=Expr )* ')' ;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'assumes' '(' exprs+=Expr ( ',' exprs+=Expr )* ')'
-		public Group getGroup() { return cGroup; }
-		
-		//'assumes'
-		public Keyword getAssumesKeyword_0() { return cAssumesKeyword_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//exprs+=Expr
-		public Assignment getExprsAssignment_2() { return cExprsAssignment_2; }
-		
-		//Expr
-		public RuleCall getExprsExprParserRuleCall_2_0() { return cExprsExprParserRuleCall_2_0; }
-		
-		//( ',' exprs+=Expr )*
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
-		
-		//exprs+=Expr
-		public Assignment getExprsAssignment_3_1() { return cExprsAssignment_3_1; }
-		
-		//Expr
-		public RuleCall getExprsExprParserRuleCall_3_1_0() { return cExprsExprParserRuleCall_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public RuleCall getExprsExprParserRuleCall_2_1_0() { return cExprsExprParserRuleCall_2_1_0; }
 	}
 	public class SlangModifiesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangModifies");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cModifiesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExprsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExprsExprParserRuleCall_2_0 = (RuleCall)cExprsAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cExprsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cExprsExprParserRuleCall_3_1_0 = (RuleCall)cExprsAssignment_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cExprsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_1_0 = (RuleCall)cExprsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExprsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_2_1_0 = (RuleCall)cExprsAssignment_2_1.eContents().get(0);
 		
-		//SlangModifies: 'modifies' '(' exprs+=Expr ( ',' exprs+=Expr )*  ')';
+		//SlangModifies: 'modifies' exprs+=Expr ( ',' exprs+=Expr )*  ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'modifies' '(' exprs+=Expr ( ',' exprs+=Expr )*  ')'
+		//'modifies' exprs+=Expr ( ',' exprs+=Expr )*
 		public Group getGroup() { return cGroup; }
 		
 		//'modifies'
 		public Keyword getModifiesKeyword_0() { return cModifiesKeyword_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
 		//exprs+=Expr
-		public Assignment getExprsAssignment_2() { return cExprsAssignment_2; }
+		public Assignment getExprsAssignment_1() { return cExprsAssignment_1; }
 		
 		//Expr
-		public RuleCall getExprsExprParserRuleCall_2_0() { return cExprsExprParserRuleCall_2_0; }
+		public RuleCall getExprsExprParserRuleCall_1_0() { return cExprsExprParserRuleCall_1_0; }
 		
 		//( ',' exprs+=Expr )*
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 		
 		//exprs+=Expr
-		public Assignment getExprsAssignment_3_1() { return cExprsAssignment_3_1; }
+		public Assignment getExprsAssignment_2_1() { return cExprsAssignment_2_1; }
 		
 		//Expr
-		public RuleCall getExprsExprParserRuleCall_3_1_0() { return cExprsExprParserRuleCall_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public RuleCall getExprsExprParserRuleCall_2_1_0() { return cExprsExprParserRuleCall_2_1_0; }
 	}
 	public class SlangEnsuresElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangEnsures");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cGuaranteesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExprsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExprsExprParserRuleCall_2_0 = (RuleCall)cExprsAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cExprsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cExprsExprParserRuleCall_3_1_0 = (RuleCall)cExprsAssignment_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cGuaranteeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExprsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_1_0 = (RuleCall)cExprsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExprsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExprsExprParserRuleCall_2_1_0 = (RuleCall)cExprsAssignment_2_1.eContents().get(0);
 		
-		//SlangEnsures: 'guarantees'  '(' exprs+=Expr ( ',' exprs+=Expr )* ')' ;
+		//SlangEnsures: 'guarantee'  exprs+=Expr ( ',' exprs+=Expr )* ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'guarantees'  '(' exprs+=Expr ( ',' exprs+=Expr )* ')'
+		//'guarantee'  exprs+=Expr ( ',' exprs+=Expr )*
 		public Group getGroup() { return cGroup; }
 		
-		//'guarantees'
-		public Keyword getGuaranteesKeyword_0() { return cGuaranteesKeyword_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		//'guarantee'
+		public Keyword getGuaranteeKeyword_0() { return cGuaranteeKeyword_0; }
 		
 		//exprs+=Expr
-		public Assignment getExprsAssignment_2() { return cExprsAssignment_2; }
+		public Assignment getExprsAssignment_1() { return cExprsAssignment_1; }
 		
 		//Expr
-		public RuleCall getExprsExprParserRuleCall_2_0() { return cExprsExprParserRuleCall_2_0; }
+		public RuleCall getExprsExprParserRuleCall_1_0() { return cExprsExprParserRuleCall_1_0; }
 		
 		//( ',' exprs+=Expr )*
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 		
 		//exprs+=Expr
-		public Assignment getExprsAssignment_3_1() { return cExprsAssignment_3_1; }
+		public Assignment getExprsAssignment_2_1() { return cExprsAssignment_2_1; }
 		
 		//Expr
-		public RuleCall getExprsExprParserRuleCall_3_1_0() { return cExprsExprParserRuleCall_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public RuleCall getExprsExprParserRuleCall_2_1_0() { return cExprsExprParserRuleCall_2_1_0; }
 	}
 	public class SlangStmtElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangStmt");
@@ -2979,10 +2971,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//Expr
 		//    : {BasicExp} terms+=SlangAccess
-		//        (
 		//          ( ops+=Operator terms+=SlangAccess )*
-		//        //| '?' thenExpr=Expr ':' elseExpr=Expr
-		//        )
 		//    | {IfElseExp} 'if' '(' ifCond=Expr ')' thenExpr=Expr 'else' elseExpr=Expr
 		//    | {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=Expr
 		//    | {UnaryExp} op=Operator accessExp=SlangAccess
@@ -2990,20 +2979,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{BasicExp} terms+=SlangAccess
-		//       (
 		//         ( ops+=Operator terms+=SlangAccess )*
-		//       //| '?' thenExpr=Expr ':' elseExpr=Expr
-		//       )
 		//   | {IfElseExp} 'if' '(' ifCond=Expr ')' thenExpr=Expr 'else' elseExpr=Expr
 		//   | {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=Expr
 		//   | {UnaryExp} op=Operator accessExp=SlangAccess
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{BasicExp} terms+=SlangAccess
-		//       (
 		//         ( ops+=Operator terms+=SlangAccess )*
-		//       //| '?' thenExpr=Expr ':' elseExpr=Expr
-		//       )
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{BasicExp}
@@ -3015,10 +2998,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//SlangAccess
 		public RuleCall getTermsSlangAccessParserRuleCall_0_1_0() { return cTermsSlangAccessParserRuleCall_0_1_0; }
 		
-		//(
-		//  ( ops+=Operator terms+=SlangAccess )*
-		////| '?' thenExpr=Expr ':' elseExpr=Expr
-		//)
+		//( ops+=Operator terms+=SlangAccess )*
 		public Group getGroup_0_2() { return cGroup_0_2; }
 		
 		//ops+=Operator
@@ -4648,8 +4628,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final SlangNameElements pSlangName;
 	private final SlangExtElements pSlangExt;
 	private final SlangInvariantElements pSlangInvariant;
-	private final SlangReadsElements pSlangReads;
 	private final SlangRequiresElements pSlangRequires;
+	private final SlangReadsElements pSlangReads;
 	private final SlangModifiesElements pSlangModifies;
 	private final SlangEnsuresElements pSlangEnsures;
 	private final SlangStmtElements pSlangStmt;
@@ -4757,8 +4737,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pSlangName = new SlangNameElements();
 		this.pSlangExt = new SlangExtElements();
 		this.pSlangInvariant = new SlangInvariantElements();
-		this.pSlangReads = new SlangReadsElements();
 		this.pSlangRequires = new SlangRequiresElements();
+		this.pSlangReads = new SlangReadsElements();
 		this.pSlangModifies = new SlangModifiesElements();
 		this.pSlangEnsures = new SlangEnsuresElements();
 		this.pSlangStmt = new SlangStmtElements();
@@ -5200,7 +5180,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//     //defMods=SlangDefMods
 	//     'def' sde=SlangDefExt? name=SlangDefID
 	//        typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
-	//        ':=' methodContract=SlangDefContract? body=Expr
+	//        ':=' methodContract=SlangDefContract body=Expr
 	//;
 	public SlangDefDefElements getSlangDefDefAccess() {
 		return pSlangDefDef;
@@ -5275,12 +5255,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//SlangDefContract
-	//    : {SlangDefContract} 'Contract' '('
+	//    : {SlangDefContract}
 	//      (
-	//        reads=SlangReads? requires=SlangRequires? modifies=SlangModifies? ensures=SlangEnsures?
-	//      // | contracts+=SlangDefContractCase+ rea=SlangReads? mod=SlangModifies?
+	//        ( reads=SlangReads ';' )?
+	//        ( requires=SlangRequires ';' )?
+	//        ( modifies=SlangModifies ';' )?
+	//        ( ensures=SlangEnsures ';' )?
 	//      )
-	//      ')'
 	//    ;
 	public SlangDefContractElements getSlangDefContractAccess() {
 		return pSlangDefContract;
@@ -5344,16 +5325,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangInvariantAccess().getRule();
 	}
 	
-	//SlangReads: 'reads'  '(' exprs+=Expr ( ',' exprs+=Expr )* ')';
-	public SlangReadsElements getSlangReadsAccess() {
-		return pSlangReads;
-	}
-	
-	public ParserRule getSlangReadsRule() {
-		return getSlangReadsAccess().getRule();
-	}
-	
-	//SlangRequires: 'assumes' '(' exprs+=Expr ( ',' exprs+=Expr )* ')' ;
+	//SlangRequires: 'assume' exprs+=Expr ( ',' exprs+=Expr )*  ;
 	public SlangRequiresElements getSlangRequiresAccess() {
 		return pSlangRequires;
 	}
@@ -5362,7 +5334,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangRequiresAccess().getRule();
 	}
 	
-	//SlangModifies: 'modifies' '(' exprs+=Expr ( ',' exprs+=Expr )*  ')';
+	//SlangReads: 'reads' exprs+=Expr ( ',' exprs+=Expr )* ;
+	public SlangReadsElements getSlangReadsAccess() {
+		return pSlangReads;
+	}
+	
+	public ParserRule getSlangReadsRule() {
+		return getSlangReadsAccess().getRule();
+	}
+	
+	//SlangModifies: 'modifies' exprs+=Expr ( ',' exprs+=Expr )*  ;
 	public SlangModifiesElements getSlangModifiesAccess() {
 		return pSlangModifies;
 	}
@@ -5371,7 +5352,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangModifiesAccess().getRule();
 	}
 	
-	//SlangEnsures: 'guarantees'  '(' exprs+=Expr ( ',' exprs+=Expr )* ')' ;
+	//SlangEnsures: 'guarantee'  exprs+=Expr ( ',' exprs+=Expr )* ;
 	public SlangEnsuresElements getSlangEnsuresAccess() {
 		return pSlangEnsures;
 	}
@@ -5516,10 +5497,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//Expr
 	//    : {BasicExp} terms+=SlangAccess
-	//        (
 	//          ( ops+=Operator terms+=SlangAccess )*
-	//        //| '?' thenExpr=Expr ':' elseExpr=Expr
-	//        )
 	//    | {IfElseExp} 'if' '(' ifCond=Expr ')' thenExpr=Expr 'else' elseExpr=Expr
 	//    | {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=Expr
 	//    | {UnaryExp} op=Operator accessExp=SlangAccess
