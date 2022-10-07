@@ -6355,6 +6355,28 @@ ruleSlangLit returns [EObject current=null]
 							}
 							setWithLastConsumed($current, "value", lv_value_1_2, null);
 						}
+						    |
+						lv_value_1_3=True
+						{
+							newLeafNode(lv_value_1_3, grammarAccess.getSlangLitAccess().getValueTrueKeyword_0_1_0_2());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSlangLitRule());
+							}
+							setWithLastConsumed($current, "value", lv_value_1_3, null);
+						}
+						    |
+						lv_value_1_4=False
+						{
+							newLeafNode(lv_value_1_4, grammarAccess.getSlangLitAccess().getValueFalseKeyword_0_1_0_3());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSlangLitRule());
+							}
+							setWithLastConsumed($current, "value", lv_value_1_4, null);
+						}
 					)
 				)
 			)

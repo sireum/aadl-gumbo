@@ -527,6 +527,8 @@ public abstract class AbstractGumboProposalProvider extends PropertiesProposalPr
 		if (assignment.getTerminal() instanceof Alternatives) {
 			// subclasses may override
 			// subclasses may override
+			// subclasses may override
+			// subclasses may override
 		}
 		if (assignment.getTerminal() instanceof RuleCall) {
 			completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);

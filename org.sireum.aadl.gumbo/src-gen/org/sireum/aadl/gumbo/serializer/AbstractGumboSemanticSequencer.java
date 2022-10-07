@@ -1399,7 +1399,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangLit returns BooleanLit
 	 *
 	 * Constraint:
-	 *     (value='T' | value='F')
+	 *     (value='T' | value='F' | value='true' | value='false')
 	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, BooleanLit semanticObject) {

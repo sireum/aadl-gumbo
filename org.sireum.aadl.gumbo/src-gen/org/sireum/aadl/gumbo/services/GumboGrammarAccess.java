@@ -4242,6 +4242,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Alternatives cValueAlternatives_0_1_0 = (Alternatives)cValueAssignment_0_1.eContents().get(0);
 		private final Keyword cValueTKeyword_0_1_0_0 = (Keyword)cValueAlternatives_0_1_0.eContents().get(0);
 		private final Keyword cValueFKeyword_0_1_0_1 = (Keyword)cValueAlternatives_0_1_0.eContents().get(1);
+		private final Keyword cValueTrueKeyword_0_1_0_2 = (Keyword)cValueAlternatives_0_1_0.eContents().get(2);
+		private final Keyword cValueFalseKeyword_0_1_0_3 = (Keyword)cValueAlternatives_0_1_0.eContents().get(3);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cResultLitAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Keyword cResKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
@@ -4279,7 +4281,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cValueMSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cValueAssignment_9_1.eContents().get(0);
 		
 		//SlangLit
-		//    : {BooleanLit} value=('T' | 'F')
+		//    : {BooleanLit} value=('T' | 'F' | 'true' | 'false')
 		//    | {ResultLit} 'res'
 		//    | {IntegerLit} value=INTEGER_LIT
 		//    | {IntIdfLit} value=INT_IDF
@@ -4292,7 +4294,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{BooleanLit} value=('T' | 'F')
+		//{BooleanLit} value=('T' | 'F' | 'true' | 'false')
 		//   | {ResultLit} 'res'
 		//   | {IntegerLit} value=INTEGER_LIT
 		//   | {IntIdfLit} value=INT_IDF
@@ -4304,16 +4306,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//   | {MStringLit} value=MSTRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{BooleanLit} value=('T' | 'F')
+		//{BooleanLit} value=('T' | 'F' | 'true' | 'false')
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{BooleanLit}
 		public Action getBooleanLitAction_0_0() { return cBooleanLitAction_0_0; }
 		
-		//value=('T' | 'F')
+		//value=('T' | 'F' | 'true' | 'false')
 		public Assignment getValueAssignment_0_1() { return cValueAssignment_0_1; }
 		
-		//('T' | 'F')
+		//('T' | 'F' | 'true' | 'false')
 		public Alternatives getValueAlternatives_0_1_0() { return cValueAlternatives_0_1_0; }
 		
 		//'T'
@@ -4321,6 +4323,12 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'F'
 		public Keyword getValueFKeyword_0_1_0_1() { return cValueFKeyword_0_1_0_1; }
+		
+		//'true'
+		public Keyword getValueTrueKeyword_0_1_0_2() { return cValueTrueKeyword_0_1_0_2; }
+		
+		//'false'
+		public Keyword getValueFalseKeyword_0_1_0_3() { return cValueFalseKeyword_0_1_0_3; }
 		
 		//{ResultLit} 'res'
 		public Group getGroup_1() { return cGroup_1; }
@@ -5669,7 +5677,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//SlangLit
-	//    : {BooleanLit} value=('T' | 'F')
+	//    : {BooleanLit} value=('T' | 'F' | 'true' | 'false')
 	//    | {ResultLit} 'res'
 	//    | {IntegerLit} value=INTEGER_LIT
 	//    | {IntIdfLit} value=INT_IDF

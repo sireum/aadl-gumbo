@@ -3318,6 +3318,18 @@ rule__SlangLit__ValueAlternatives_0_1_0
 		F
 		{ after(grammarAccess.getSlangLitAccess().getValueFKeyword_0_1_0_1()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getSlangLitAccess().getValueTrueKeyword_0_1_0_2()); }
+		True
+		{ after(grammarAccess.getSlangLitAccess().getValueTrueKeyword_0_1_0_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getSlangLitAccess().getValueFalseKeyword_0_1_0_3()); }
+		False
+		{ after(grammarAccess.getSlangLitAccess().getValueFalseKeyword_0_1_0_3()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
