@@ -73,6 +73,7 @@ import org.eclipse.emf.common.util.EList
 import org.osate.aadl2.AnnexLibrary
 import org.osate.aadl2.DefaultAnnexLibrary
 import org.sireum.aadl.gumbo.gumbo.CallExpr
+import org.sireum.aadl.gumbo.gumbo.Compute
 
 /**
  * This class contains custom scoping description.
@@ -287,14 +288,9 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 
   def scope_InStateExpr_stateVar(InStateExpr context, EReference reference) {
     val decls = new BasicEList<EObject>()
-    val stateVarDeclsA = context.getContainerOfType(GuaranteeStatement)?.getContainerOfType(SpecSection)?.state?.decls
-    if (stateVarDeclsA !== null) {
-      decls.addAll(stateVarDeclsA)
-    }
-    val stateVarDeclsB = context.getContainerOfType(AnonGuaranteeStatement)?.getContainerOfType(SpecSection)?.state?.
-      decls
-    if (stateVarDeclsB !== null) {
-      decls.addAll(stateVarDeclsB)
+    val stateVars = context.getContainerOfType(Compute)?.getContainerOfType(SpecSection)?.state?.decls
+    if(stateVars !== null) {
+    	decls.addAll(stateVars)
     }
     val scope = decls.empty ? IScope::NULLSCOPE : decls.scopeFor
     scope

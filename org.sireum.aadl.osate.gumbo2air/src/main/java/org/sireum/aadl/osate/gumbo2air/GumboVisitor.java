@@ -1019,7 +1019,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseBooleanLit(BooleanLit object) {
 
-		Boolean b = object.getValue().equalsIgnoreCase("t"); // only other option if F
+		Boolean b = object.getValue().equalsIgnoreCase("t") || object.getValue().equalsIgnoreCase("true"); // only other cases are 'F' and 'false'
 
 		push(LitB$.MODULE$.apply(b, GumboUtil.buildAttr(object)));
 

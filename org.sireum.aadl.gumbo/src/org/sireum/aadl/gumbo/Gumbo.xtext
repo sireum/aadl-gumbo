@@ -342,7 +342,7 @@ SlangBaseType returns SlangType
 SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
 
 SlangLit 
-	: {BooleanLit} value=('T' | 'F')
+	: {BooleanLit} value=('T' | 'F' | 'true' | 'false')
 	| {ResultLit} 'res'
 	| {IntegerLit} value=INTEGER_LIT
 	| {IntIdfLit} value=INT_IDF
