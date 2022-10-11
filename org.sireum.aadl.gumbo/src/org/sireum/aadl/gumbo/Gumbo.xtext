@@ -345,12 +345,13 @@ SlangLit
 	: {BooleanLit} value=('T' | 'F' | 'true' | 'false')
 	| {ResultLit} 'res'
 	| {IntegerLit} value=INTEGER_LIT
-	| {IntIdfLit} value=INT_IDF
+	//| {IntIdfLit} value=INT_IDF
 	| {HexLit} value=HEX
 	| {BinLit} value=BIN
-	| {RealLit} value=REAL_LIT
+	| {F32Lit} value=F32_LIT
+	| {F64Lit} value=(F64_LIT | REAL_LIT)
 	| {SlangStringLit} value=SLANG_STRING
-	| {RealIdfLit} value=REAL_IDF
+	//| {RealIdfLit} value=REAL_IDF
 	| {MStringLit} value=MSTRING
 	;
 
@@ -409,7 +410,9 @@ terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
 
 terminal INT_IDF: INTEGER_LIT IDF;
 
-terminal REAL_IDF: REAL_LIT IDF;
+terminal F32_LIT: REAL_LIT 'f';
+
+terminal F64_LIT: REAL_LIT 'd';
 
 terminal fragment IDF: ( LETTER | '_' ) ( LETTER | DIGIT )* ;
 
