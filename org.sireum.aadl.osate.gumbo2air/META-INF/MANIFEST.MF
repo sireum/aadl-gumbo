@@ -7,7 +7,7 @@ Automatic-Module-Name: org.sireum.aadl.osate.gumbo
 Require-Bundle: org.osate.aadl2,
  org.osate.annexsupport,
  org.osate.xtext.aadl2.ui;bundle-version="6.2.1",
- org.sireum.aadl.osate;bundle-version="1.2022.1051723",
+ org.sireum.aadl.osate;bundle-version="1.2022.08221314",
  org.sireum.aadl.gumbo;bundle-version="1.0.0"
 Bundle-ClassPath: .,
  bin/,
