@@ -29,7 +29,6 @@ import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
 import org.osate.annexsupport.AnnexUtil;
 import org.sireum.Option;
-import org.sireum.R;
 import org.sireum.Z;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BasicExp;
@@ -40,6 +39,8 @@ import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
+import org.sireum.aadl.gumbo.gumbo.F32Lit;
+import org.sireum.aadl.gumbo.gumbo.F64Lit;
 import org.sireum.aadl.gumbo.gumbo.FuncSpec;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
@@ -57,7 +58,6 @@ import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
-import org.sireum.aadl.gumbo.gumbo.RealLit;
 import org.sireum.aadl.gumbo.gumbo.ResultLit;
 import org.sireum.aadl.gumbo.gumbo.SlangAccess;
 import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
@@ -115,7 +115,6 @@ import org.sireum.lang.ast.Exp.Input$;
 import org.sireum.lang.ast.Exp.Invoke;
 import org.sireum.lang.ast.Exp.Invoke$;
 import org.sireum.lang.ast.Exp.LitB$;
-import org.sireum.lang.ast.Exp.LitR$;
 import org.sireum.lang.ast.Exp.LitString;
 import org.sireum.lang.ast.Exp.LitString$;
 import org.sireum.lang.ast.Exp.LitZ$;
@@ -225,9 +224,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 					GumboLibrary gl = (GumboLibrary) gals.get(0);
 
-					visit(gl);
-
-					List<GclMethod> methods = pop();
+					List<GclMethod> methods = visitPop(gl);
 
 					List<org.sireum.String> segs = new ArrayList<>();
 					for (String seg : parent.getQualifiedName().split("::")) {
@@ -271,9 +268,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			addAllBaseTypes(c.eResource().getResourceSet());
 
-			visit(bas.get(0));
-
-			ret.add(Annex$.MODULE$.apply(ANNEX_TYPE, pop()));
+			ret.add(Annex$.MODULE$.apply(ANNEX_TYPE, visitPop(bas.get(0))));
 
 			entryClassifier = null;
 		}
@@ -297,8 +292,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<GclMethod> ret = new ArrayList<>();
 		if (object.getFunctions() != null) {
 			for (FuncSpec fs : object.getFunctions().getSpecs()) {
-				visit(fs);
-				ret.add(pop());
+				ret.add(visitPop(fs));
 			}
 		}
 		push(ret);
@@ -308,8 +302,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	@Override
 	public Boolean caseSlangAccess(SlangAccess object) {
-		visit(object.getT());
-		Exp e = pop();
+		Exp e = visitPop(object.getT());
 
 		if (object.getSuffixes() == null || object.getSuffixes().isEmpty()) {
 			push(e);
@@ -362,8 +355,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		MethodSig sig = MethodSig$.MODULE$.apply(isPure, methodId, VisitorUtil.toISZ(typeParams), hasParams,
 				VisitorUtil.toISZ(params), returnType);
 
-		visit(object.getBody());
-		Stmt ret = Stmt.Return$.MODULE$.apply(SlangUtil.toSome(pop()), returnType.attr());
+		Stmt ret = Stmt.Return$.MODULE$.apply(SlangUtil.toSome(visitPop(object.getBody())), returnType.attr());
 		Body body = Body$.MODULE$.apply(VisitorUtil.toISZ(ret), VisitorUtil.toISZ());
 
 		boolean typeChecked = false;
@@ -381,9 +373,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getReads().getExprs().get(0));
 			for (Expr e : object.getMethodContract().getReads().getExprs()) {
-				visit(e);
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-				Exp result = pop();
+				Exp result = visitPop(e);
 				if (result instanceof Ref) {
 					idents.add((Ref) result);
 				} else {
@@ -400,9 +391,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getRequires().getExprs().get(0));
 			for (Expr e : object.getMethodContract().getRequires().getExprs()) {
-				visit(e);
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-				exps.add(pop());
+				exps.add(visitPop(e));
 			}
 			requiresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
 		}
@@ -414,10 +404,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getModifies().getExprs().get(0));
 			for (Expr e : object.getMethodContract().getModifies().getExprs()) {
-				visit(e);
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-
-				Exp result = pop();
+				Exp result = visitPop(e);
 				if (result instanceof Ident) {
 					idents.add((Ident) result);
 				} else {
@@ -434,9 +422,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getEnsures().getExprs().get(0));
 			for (Expr e : object.getMethodContract().getEnsures().getExprs()) {
-				visit(e);
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-				exps.add(pop());
+				exps.add(visitPop(e));
 			}
 			ensuresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
 		}
@@ -467,16 +454,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		if (object.getSpecs().getState() != null) {
 			State s = object.getSpecs().getState();
 			for (StateVarDecl svd : s.getDecls()) {
-				visit(svd);
-				_state.add(pop());
+				_state.add(visitPop(svd));
 			}
 		}
 
 		List<GclMethod> _methods = new ArrayList<>();
 		if (object.getSpecs().getFunctions() != null) {
 			for (FuncSpec fs : object.getSpecs().getFunctions().getSpecs()) {
-				visit(fs);
-				_methods.add(pop());
+				_methods.add(visitPop(fs));
 			}
 		}
 
@@ -487,16 +472,15 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 				Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(s.getDescriptor());
 
-				visit(s.getExpr());
-
-				_invariants.add(GclInvariant$.MODULE$.apply(id, descriptor, pop(), VisitorUtil.buildPositionOpt(s)));
+				_invariants.add(
+						GclInvariant$.MODULE$.apply(id, descriptor, visitPop(s.getExpr()),
+								VisitorUtil.buildPositionOpt(s)));
 			}
 		}
 
 		Option<GclIntegration> _integration = SlangUtil.toNone();
 		if (object.getSpecs().getIntegration() != null) {
-			visit(object.getSpecs().getIntegration());
-			_integration = SlangUtil.toSome(pop());
+			_integration = SlangUtil.toSome(visitPop(object.getSpecs().getIntegration()));
 		}
 
 		Option<GclInitialize> _initializes = SlangUtil.toNone();
@@ -506,15 +490,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			List<Exp> modifies = new ArrayList<>();
 			if (i.getModifies() != null) {
 				for (Expr e : i.getModifies().getExprs()) {
-					visit(e);
-					modifies.add(pop());
+					modifies.add(visitPop(e));
 				}
 			}
 
 			List<GclGuarantee> guarantees = new ArrayList<>();
 			for (InitializeSpecStatement iss : i.getSpecs()) {
-				visit(iss.getGuaranteeStatement());
-				guarantees.add(pop());
+				guarantees.add(visitPop(iss.getGuaranteeStatement()));
 			}
 
 			_initializes = SlangUtil
@@ -523,8 +505,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		Option<GclCompute> _compute = SlangUtil.toNone();
 		if (object.getSpecs().getCompute() != null) {
-			visit(object.getSpecs().getCompute());
-			_compute = SlangUtil.toSome(pop());
+			_compute = SlangUtil.toSome(visitPop(object.getSpecs().getCompute()));
 		}
 
 		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_methods),
@@ -539,8 +520,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<Exp> modifies = new ArrayList<>();
 		if (object.getModifies() != null) {
 			for (Expr e : object.getModifies().getExprs()) {
-				visit(e);
-				modifies.add(pop());
+				modifies.add(visitPop(e));
 			}
 		}
 
@@ -549,16 +529,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<GclComputeSpec> specs = new ArrayList<>();
 		if (object.getSpecs() != null) {
 			for (SpecStatement spec : object.getSpecs()) {
-				visit(spec);
-				specs.add(pop());
+				specs.add(visitPop(spec));
 			}
 		}
 
 		List<GclHandle> handlers = new ArrayList<>();
 		if (object.getHandlers() != null) {
 			for (HandlerClause hc : object.getHandlers()) {
-				visit(hc);
-				handlers.add(pop());
+				handlers.add(visitPop(hc));
 			}
 		}
 
@@ -570,11 +548,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 				Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(css.getDescriptor());
 
-				visit(css.getAssumeStatement().getExpr());
-				Exp assumes = pop();
+				Exp assumes = visitPop(css.getAssumeStatement().getExpr());
 
-				visit(css.getGuaranteeStatement().getExpr());
-				Exp guarantees = pop();
+				Exp guarantees = visitPop(css.getGuaranteeStatement().getExpr());
 
 				caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
 						VisitorUtil.buildPositionOpt(css)));
@@ -603,15 +579,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		List<Exp> modifies = new ArrayList<>();
 		if (object.getModifies() != null) {
 			for (Expr e : object.getModifies().getExprs()) {
-				visit(e);
-				modifies.add(pop());
+				modifies.add(visitPop(e));
 			}
 		}
 
 		List<GclGuarantee> guarantees = new ArrayList<>();
 		for (GuaranteeStatement gs : object.getGuarantees()) {
-			visit(gs);
-			guarantees.add(pop());
+			guarantees.add(visitPop(gs));
 		}
 
 		push(GclHandle$.MODULE$.apply(slangExp, VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees)));
@@ -623,8 +597,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseIntegration(Integration object) {
 		List<GclSpec> specs = new ArrayList<>();
 		for (SpecStatement spec : object.getSpecs()) {
-			visit(spec);
-			specs.add(pop());
+			specs.add(visitPop(spec));
 		}
 
 		push(GclIntegration$.MODULE$.apply(VisitorUtil.toISZ(specs)));
@@ -648,9 +621,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(object.getDescriptor());
 
-		visit(object.getExpr());
-
-		push(GclAssume$.MODULE$.apply(id, descriptor, pop(), VisitorUtil.buildPositionOpt(object)));
+		push(GclAssume$.MODULE$.apply(id, descriptor, visitPop(object.getExpr()),
+				VisitorUtil.buildPositionOpt(object)));
 
 		return false;
 	}
@@ -661,9 +633,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(object.getDescriptor());
 
-		visit(object.getExpr());
-
-		push(GclGuarantee$.MODULE$.apply(id, descriptor, pop(), VisitorUtil.buildPositionOpt(object)));
+		push(GclGuarantee$.MODULE$.apply(id, descriptor, visitPop(object.getExpr()),
+				VisitorUtil.buildPositionOpt(object)));
 
 		return false;
 	}
@@ -746,8 +717,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		if (object.getCallSuffix() != null) {
 			SlangCallArgs callArgs = object.getCallSuffix().getCa();
 			for (Expr arg : callArgs.getArg()) {
-				visit(arg);
-				args.add(pop());
+				args.add(visitPop(arg));
 			}
 		}
 
@@ -784,8 +754,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		args.add(Ident$.MODULE$.apply(portId, GumboUtil.buildResolvedAttr(object)));
 
 		if (object.getValue() != null) {
-			visit(object.getValue());
-			args.add(pop());
+			args.add(visitPop(object.getValue()));
 		}
 
 		Invoke invoke = Invoke$.MODULE$.apply(SlangUtil.toNone(), maySendUifIdent, VisitorUtil.toISZ(),
@@ -810,8 +779,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		args.add(Ident$.MODULE$.apply(portId, GumboUtil.buildResolvedAttr(object)));
 
 		if (object.getValue() != null) {
-			visit(object.getValue());
-			args.add(pop());
+			args.add(visitPop(object.getValue()));
 		}
 
 		Invoke invoke = Invoke$.MODULE$.apply(SlangUtil.toNone(), mustSendUifIdent, VisitorUtil.toISZ(),
@@ -844,14 +812,11 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseIfElseExp(IfElseExp object) {
 
-		visit(object.getIfCond());
-		Exp condExp = pop();
+		Exp condExp = visitPop(object.getIfCond());
 
-		visit(object.getThenExpr());
-		Exp thenExp = pop();
+		Exp thenExp = visitPop(object.getThenExpr());
 
-		visit(object.getElseExpr());
-		Exp elseExp = pop();
+		Exp elseExp = visitPop(object.getElseExpr());
 
 		If ifexp = If$.MODULE$.apply(condExp, thenExp, elseExp, GumboUtil.buildTypedAttr(object));
 		push(ifexp);
@@ -867,25 +832,28 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		List<Exp> exps = new ArrayList<>();
 		for (int i = 0; i < object.getTerms().size(); i++) {
-			visit(object.getTerms().get(i));
-			exps.add(pop());
+			exps.add(visitPop(object.getTerms().get(i)));
 			if (i < object.getOps().size()) {
 				String op = GumboUtil.toSlangBinaryOp(object.getOps().get(i));
 				exps.add(LitString$.MODULE$.apply(op, null));
 			}
 		}
 
-		push(GclUtil.rewriteBinary(VisitorUtil.toISZ(exps), reporter));
+		Exp ret = null;
+		if(!reporter.hasError()) {
+			ret = GclUtil.rewriteBinary(VisitorUtil.toISZ(exps), reporter);
+		}
+
+		push(ret);
 
 		return false;
 	}
 
 	@Override
 	public Boolean caseUnaryExp(UnaryExp object) {
-		visit(object.getAccessExp());
-
 		UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
-		Unary exp = Unary$.MODULE$.apply(Exp.UnaryOp$.MODULE$.byName(slangOp.name()).get(), pop(),
+		Unary exp = Unary$.MODULE$.apply(Exp.UnaryOp$.MODULE$.byName(slangOp.name()).get(),
+				visitPop(object.getAccessExp()),
 				GumboUtil.buildResolvedAttr(object));
 
 		push(exp);
@@ -1027,25 +995,39 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
+	public Boolean caseF32Lit(F32Lit object) {
+		try {
+			float f = Float.parseFloat(object.getValue());
+			org.sireum.F32 f32 = new org.sireum.F32(f);
+			push(Exp.LitF32$.MODULE$.apply(f32, GumboUtil.buildAttr(object)));
+		} catch (NumberFormatException v) {
+			reportError(object, "'" + object.getValue() + "' is not a valid F32");
+		}
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseF64Lit(F64Lit object) {
+
+		try {
+			double d = Double.parseDouble(object.getValue());
+			org.sireum.F64 f64 = new org.sireum.F64(d);
+			push(Exp.LitF64$.MODULE$.apply(f64, GumboUtil.buildAttr(object)));
+		} catch (NumberFormatException e) {
+			reportError(object, "'" + object.getValue() + "' is not a valid F64");
+		}
+
+		return false;
+	}
+
+	@Override
 	public Boolean caseIntegerLit(IntegerLit object) {
 
 		Option<Z> z = Z.apply(object.getValue());
 		reportError(z.nonEmpty(), object, "Not a valid Z: " + object.getValue());
 
 		Exp slangExp = LitZ$.MODULE$.apply(z.get(), GumboUtil.buildAttr(object));
-
-		push(slangExp);
-
-		return false;
-	}
-
-	@Override
-	public Boolean caseRealLit(RealLit object) {
-
-		Option<R> r = R.apply(object.getValue());
-		reportError(r.nonEmpty(), object, "Not a valid R: " + object.getValue());
-
-		Exp slangExp = LitR$.MODULE$.apply(r.get().value(), GumboUtil.buildAttr(object));
 
 		push(slangExp);
 
@@ -1175,6 +1157,12 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return doSwitch(o);
 	}
 
+	public <T> T visitPop(EObject o) {
+		reportError(isSwitchFor(o.eClass().getEPackage()), o, "Internal error: GumboVisitor is not a switch for " + o);
+		doSwitch(o);
+		return pop(o);
+	}
+
 	@Override
 	public Boolean defaultCase(EObject o) {
 		for (EObject child : o.eContents()) {
@@ -1196,12 +1184,23 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		result = o;
 	}
 
-	@SuppressWarnings("unchecked")
 	<T> T pop() {
+		return pop(null);
+	}
+
+	@SuppressWarnings("unchecked")
+	<T> T pop(Object lastVisited) {
 		// only report first error
 		if (result == null && !reporter.hasError()) {
 			RuntimeException e = new RuntimeException("Internal error: visitor stack was empty while trying to pop");
-			reportError(e.getMessage() + ": " + e.getStackTrace()[1]);
+			String trace = e.getMessage() + ": " + e.getStackTrace()[1];
+
+			if(lastVisited != null && lastVisited instanceof EObject) {
+				String msg = "Encountered unexpected or unhandled GUMBO node: " + lastVisited + "\n\n" + trace;
+				reportError((EObject) lastVisited, msg);
+			} else {
+				reportError(trace);
+			}
 		}
 		T ret = (T) result;
 		result = null;
