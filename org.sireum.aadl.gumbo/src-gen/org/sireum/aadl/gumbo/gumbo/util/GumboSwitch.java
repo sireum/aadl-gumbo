@@ -814,14 +814,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.INT_IDF_LIT:
-      {
-        IntIdfLit intIdfLit = (IntIdfLit)theEObject;
-        T result = caseIntIdfLit(intIdfLit);
-        if (result == null) result = caseSlangLit(intIdfLit);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.HEX_LIT:
       {
         HexLit hexLit = (HexLit)theEObject;
@@ -838,11 +830,19 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.REAL_LIT:
+      case GumboPackage.F32_LIT:
       {
-        RealLit realLit = (RealLit)theEObject;
-        T result = caseRealLit(realLit);
-        if (result == null) result = caseSlangLit(realLit);
+        F32Lit f32Lit = (F32Lit)theEObject;
+        T result = caseF32Lit(f32Lit);
+        if (result == null) result = caseSlangLit(f32Lit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.F64_LIT:
+      {
+        F64Lit f64Lit = (F64Lit)theEObject;
+        T result = caseF64Lit(f64Lit);
+        if (result == null) result = caseSlangLit(f64Lit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -851,14 +851,6 @@ public class GumboSwitch<T> extends Switch<T>
         SlangStringLit slangStringLit = (SlangStringLit)theEObject;
         T result = caseSlangStringLit(slangStringLit);
         if (result == null) result = caseSlangLit(slangStringLit);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.REAL_IDF_LIT:
-      {
-        RealIdfLit realIdfLit = (RealIdfLit)theEObject;
-        T result = caseRealIdfLit(realIdfLit);
-        if (result == null) result = caseSlangLit(realIdfLit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2451,22 +2443,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Int Idf Lit</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Int Idf Lit</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntIdfLit(IntIdfLit object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Hex Lit</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2499,17 +2475,33 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Real Lit</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>F32 Lit</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Real Lit</em>'.
+   * @return the result of interpreting the object as an instance of '<em>F32 Lit</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRealLit(RealLit object)
+  public T caseF32Lit(F32Lit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>F64 Lit</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>F64 Lit</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseF64Lit(F64Lit object)
   {
     return null;
   }
@@ -2526,22 +2518,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangStringLit(SlangStringLit object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Real Idf Lit</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Real Idf Lit</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRealIdfLit(RealIdfLit object)
   {
     return null;
   }

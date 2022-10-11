@@ -907,15 +907,6 @@ public interface GumboFactory extends EFactory
   IntegerLit createIntegerLit();
 
   /**
-   * Returns a new object of class '<em>Int Idf Lit</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Int Idf Lit</em>'.
-   * @generated
-   */
-  IntIdfLit createIntIdfLit();
-
-  /**
    * Returns a new object of class '<em>Hex Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -934,13 +925,22 @@ public interface GumboFactory extends EFactory
   BinLit createBinLit();
 
   /**
-   * Returns a new object of class '<em>Real Lit</em>'.
+   * Returns a new object of class '<em>F32 Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Real Lit</em>'.
+   * @return a new object of class '<em>F32 Lit</em>'.
    * @generated
    */
-  RealLit createRealLit();
+  F32Lit createF32Lit();
+
+  /**
+   * Returns a new object of class '<em>F64 Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>F64 Lit</em>'.
+   * @generated
+   */
+  F64Lit createF64Lit();
 
   /**
    * Returns a new object of class '<em>Slang String Lit</em>'.
@@ -950,15 +950,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangStringLit createSlangStringLit();
-
-  /**
-   * Returns a new object of class '<em>Real Idf Lit</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Real Idf Lit</em>'.
-   * @generated
-   */
-  RealIdfLit createRealIdfLit();
 
   /**
    * Returns a new object of class '<em>MString Lit</em>'.

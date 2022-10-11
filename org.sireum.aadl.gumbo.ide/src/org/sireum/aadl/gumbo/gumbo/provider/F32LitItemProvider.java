@@ -25,16 +25,16 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.sireum.aadl.gumbo.gumbo.F32Lit;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.IntIdfLit;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.IntIdfLit} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.F32Lit} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntIdfLitItemProvider extends SlangLitItemProvider
+public class F32LitItemProvider extends SlangLitItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -42,7 +42,7 @@ public class IntIdfLitItemProvider extends SlangLitItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public IntIdfLitItemProvider(AdapterFactory adapterFactory)
+  public F32LitItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -77,9 +77,9 @@ public class IntIdfLitItemProvider extends SlangLitItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_IntIdfLit_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_IntIdfLit_value_feature", "_UI_IntIdfLit_type"),
-         GumboPackage.Literals.INT_IDF_LIT__VALUE,
+         getString("_UI_F32Lit_value_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_F32Lit_value_feature", "_UI_F32Lit_type"),
+         GumboPackage.Literals.F32_LIT__VALUE,
          true,
          false,
          false,
@@ -89,7 +89,7 @@ public class IntIdfLitItemProvider extends SlangLitItemProvider
   }
 
   /**
-   * This returns IntIdfLit.gif.
+   * This returns F32Lit.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -97,7 +97,7 @@ public class IntIdfLitItemProvider extends SlangLitItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/IntIdfLit"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/F32Lit"));
   }
 
   /**
@@ -109,10 +109,10 @@ public class IntIdfLitItemProvider extends SlangLitItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((IntIdfLit)object).getValue();
+    String label = ((F32Lit)object).getValue();
     return label == null || label.length() == 0 ?
-      getString("_UI_IntIdfLit_type") :
-      getString("_UI_IntIdfLit_type") + " " + label;
+      getString("_UI_F32Lit_type") :
+      getString("_UI_F32Lit_type") + " " + label;
   }
 
 
@@ -128,9 +128,9 @@ public class IntIdfLitItemProvider extends SlangLitItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(IntIdfLit.class))
+    switch (notification.getFeatureID(F32Lit.class))
     {
-      case GumboPackage.INT_IDF_LIT__VALUE:
+      case GumboPackage.F32_LIT__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

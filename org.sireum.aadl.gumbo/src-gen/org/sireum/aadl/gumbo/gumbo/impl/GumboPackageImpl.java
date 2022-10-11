@@ -37,6 +37,8 @@ import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.DoubleDotRef;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
+import org.sireum.aadl.gumbo.gumbo.F32Lit;
+import org.sireum.aadl.gumbo.gumbo.F64Lit;
 import org.sireum.aadl.gumbo.gumbo.FuncSpec;
 import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
@@ -50,7 +52,6 @@ import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
-import org.sireum.aadl.gumbo.gumbo.IntIdfLit;
 import org.sireum.aadl.gumbo.gumbo.IntegerLit;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
@@ -62,8 +63,6 @@ import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
-import org.sireum.aadl.gumbo.gumbo.RealIdfLit;
-import org.sireum.aadl.gumbo.gumbo.RealLit;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultLit;
 import org.sireum.aadl.gumbo.gumbo.SlangAccess;
@@ -825,13 +824,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass intIdfLitEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass hexLitEClass = null;
 
   /**
@@ -846,7 +838,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass realLitEClass = null;
+  private EClass f32LitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass f64LitEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -854,13 +853,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass slangStringLitEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass realIdfLitEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3944,28 +3936,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getIntIdfLit()
-  {
-    return intIdfLitEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getIntIdfLit_Value()
-  {
-    return (EAttribute)intIdfLitEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getHexLit()
   {
     return hexLitEClass;
@@ -4010,9 +3980,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getRealLit()
+  public EClass getF32Lit()
   {
-    return realLitEClass;
+    return f32LitEClass;
   }
 
   /**
@@ -4021,9 +3991,31 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getRealLit_Value()
+  public EAttribute getF32Lit_Value()
   {
-    return (EAttribute)realLitEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)f32LitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getF64Lit()
+  {
+    return f64LitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getF64Lit_Value()
+  {
+    return (EAttribute)f64LitEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4046,28 +4038,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EAttribute getSlangStringLit_Value()
   {
     return (EAttribute)slangStringLitEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getRealIdfLit()
-  {
-    return realIdfLitEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getRealIdfLit_Value()
-  {
-    return (EAttribute)realIdfLitEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4568,23 +4538,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     integerLitEClass = createEClass(INTEGER_LIT);
     createEAttribute(integerLitEClass, INTEGER_LIT__VALUE);
 
-    intIdfLitEClass = createEClass(INT_IDF_LIT);
-    createEAttribute(intIdfLitEClass, INT_IDF_LIT__VALUE);
-
     hexLitEClass = createEClass(HEX_LIT);
     createEAttribute(hexLitEClass, HEX_LIT__VALUE);
 
     binLitEClass = createEClass(BIN_LIT);
     createEAttribute(binLitEClass, BIN_LIT__VALUE);
 
-    realLitEClass = createEClass(REAL_LIT);
-    createEAttribute(realLitEClass, REAL_LIT__VALUE);
+    f32LitEClass = createEClass(F32_LIT);
+    createEAttribute(f32LitEClass, F32_LIT__VALUE);
+
+    f64LitEClass = createEClass(F64_LIT);
+    createEAttribute(f64LitEClass, F64_LIT__VALUE);
 
     slangStringLitEClass = createEClass(SLANG_STRING_LIT);
     createEAttribute(slangStringLitEClass, SLANG_STRING_LIT__VALUE);
-
-    realIdfLitEClass = createEClass(REAL_IDF_LIT);
-    createEAttribute(realIdfLitEClass, REAL_IDF_LIT__VALUE);
 
     mStringLitEClass = createEClass(MSTRING_LIT);
     createEAttribute(mStringLitEClass, MSTRING_LIT__VALUE);
@@ -4673,12 +4640,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     booleanLitEClass.getESuperTypes().add(this.getSlangLit());
     resultLitEClass.getESuperTypes().add(this.getSlangLit());
     integerLitEClass.getESuperTypes().add(this.getSlangLit());
-    intIdfLitEClass.getESuperTypes().add(this.getSlangLit());
     hexLitEClass.getESuperTypes().add(this.getSlangLit());
     binLitEClass.getESuperTypes().add(this.getSlangLit());
-    realLitEClass.getESuperTypes().add(this.getSlangLit());
+    f32LitEClass.getESuperTypes().add(this.getSlangLit());
+    f64LitEClass.getESuperTypes().add(this.getSlangLit());
     slangStringLitEClass.getESuperTypes().add(this.getSlangLit());
-    realIdfLitEClass.getESuperTypes().add(this.getSlangLit());
     mStringLitEClass.getESuperTypes().add(this.getSlangLit());
     slangMspInterpEClass.getESuperTypes().add(this.getSlangInterp());
     slangLiteralInterpEClass.getESuperTypes().add(this.getSlangInterp());
@@ -5053,23 +5019,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(integerLitEClass, IntegerLit.class, "IntegerLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntegerLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, IntegerLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(intIdfLitEClass, IntIdfLit.class, "IntIdfLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntIdfLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, IntIdfLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(hexLitEClass, HexLit.class, "HexLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHexLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, HexLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(binLitEClass, BinLit.class, "BinLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBinLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, BinLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(realLitEClass, RealLit.class, "RealLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRealLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, RealLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(f32LitEClass, F32Lit.class, "F32Lit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getF32Lit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, F32Lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(f64LitEClass, F64Lit.class, "F64Lit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getF64Lit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, F64Lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangStringLitEClass, SlangStringLit.class, "SlangStringLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSlangStringLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, SlangStringLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(realIdfLitEClass, RealIdfLit.class, "RealIdfLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRealIdfLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, RealIdfLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mStringLitEClass, MStringLit.class, "MStringLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMStringLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, MStringLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -577,11 +577,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createIntegerLitAdapter();
       }
       @Override
-      public Adapter caseIntIdfLit(IntIdfLit object)
-      {
-        return createIntIdfLitAdapter();
-      }
-      @Override
       public Adapter caseHexLit(HexLit object)
       {
         return createHexLitAdapter();
@@ -592,19 +587,19 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createBinLitAdapter();
       }
       @Override
-      public Adapter caseRealLit(RealLit object)
+      public Adapter caseF32Lit(F32Lit object)
       {
-        return createRealLitAdapter();
+        return createF32LitAdapter();
+      }
+      @Override
+      public Adapter caseF64Lit(F64Lit object)
+      {
+        return createF64LitAdapter();
       }
       @Override
       public Adapter caseSlangStringLit(SlangStringLit object)
       {
         return createSlangStringLitAdapter();
-      }
-      @Override
-      public Adapter caseRealIdfLit(RealIdfLit object)
-      {
-        return createRealIdfLitAdapter();
       }
       @Override
       public Adapter caseMStringLit(MStringLit object)
@@ -2129,21 +2124,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IntIdfLit <em>Int Idf Lit</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.IntIdfLit
-   * @generated
-   */
-  public Adapter createIntIdfLitAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.HexLit <em>Hex Lit</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -2174,16 +2154,31 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.RealLit <em>Real Lit</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.F32Lit <em>F32 Lit</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.RealLit
+   * @see org.sireum.aadl.gumbo.gumbo.F32Lit
    * @generated
    */
-  public Adapter createRealLitAdapter()
+  public Adapter createF32LitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.F64Lit <em>F64 Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.F64Lit
+   * @generated
+   */
+  public Adapter createF64LitAdapter()
   {
     return null;
   }
@@ -2199,21 +2194,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSlangStringLitAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.RealIdfLit <em>Real Idf Lit</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.RealIdfLit
-   * @generated
-   */
-  public Adapter createRealIdfLitAdapter()
   {
     return null;
   }

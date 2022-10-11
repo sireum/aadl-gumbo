@@ -3695,34 +3695,6 @@ public interface GumboPackage extends EPackage
   int INTEGER_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.IntIdfLitImpl <em>Int Idf Lit</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.IntIdfLitImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIntIdfLit()
-   * @generated
-   */
-  int INT_IDF_LIT = 97;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_IDF_LIT__VALUE = SLANG_LIT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Int Idf Lit</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_IDF_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.HexLitImpl <em>Hex Lit</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3730,7 +3702,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHexLit()
    * @generated
    */
-  int HEX_LIT = 98;
+  int HEX_LIT = 97;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3758,7 +3730,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinLit()
    * @generated
    */
-  int BIN_LIT = 99;
+  int BIN_LIT = 98;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3779,14 +3751,14 @@ public interface GumboPackage extends EPackage
   int BIN_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.RealLitImpl <em>Real Lit</em>}' class.
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.F32LitImpl <em>F32 Lit</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.RealLitImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealLit()
+   * @see org.sireum.aadl.gumbo.gumbo.impl.F32LitImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF32Lit()
    * @generated
    */
-  int REAL_LIT = 100;
+  int F32_LIT = 99;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3795,16 +3767,44 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REAL_LIT__VALUE = SLANG_LIT_FEATURE_COUNT + 0;
+  int F32_LIT__VALUE = SLANG_LIT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Real Lit</em>' class.
+   * The number of structural features of the '<em>F32 Lit</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REAL_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
+  int F32_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.F64LitImpl <em>F64 Lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.F64LitImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF64Lit()
+   * @generated
+   */
+  int F64_LIT = 100;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int F64_LIT__VALUE = SLANG_LIT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>F64 Lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int F64_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangStringLitImpl <em>Slang String Lit</em>}' class.
@@ -3835,34 +3835,6 @@ public interface GumboPackage extends EPackage
   int SLANG_STRING_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.RealIdfLitImpl <em>Real Idf Lit</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.RealIdfLitImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealIdfLit()
-   * @generated
-   */
-  int REAL_IDF_LIT = 102;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_IDF_LIT__VALUE = SLANG_LIT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Real Idf Lit</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_IDF_LIT_FEATURE_COUNT = SLANG_LIT_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.MStringLitImpl <em>MString Lit</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3870,7 +3842,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMStringLit()
    * @generated
    */
-  int MSTRING_LIT = 103;
+  int MSTRING_LIT = 102;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3898,7 +3870,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspInterp()
    * @generated
    */
-  int SLANG_MSP_INTERP = 104;
+  int SLANG_MSP_INTERP = 103;
 
   /**
    * The feature id for the '<em><b>Msp</b></em>' attribute.
@@ -3926,7 +3898,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLiteralInterp()
    * @generated
    */
-  int SLANG_LITERAL_INTERP = 105;
+  int SLANG_LITERAL_INTERP = 104;
 
   /**
    * The feature id for the '<em><b>Sli</b></em>' attribute.
@@ -3954,7 +3926,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMspbInterp()
    * @generated
    */
-  int SLANG_MSPB_INTERP = 106;
+  int SLANG_MSPB_INTERP = 105;
 
   /**
    * The feature id for the '<em><b>Mspb</b></em>' attribute.
@@ -6869,27 +6841,6 @@ public interface GumboPackage extends EPackage
   EAttribute getIntegerLit_Value();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.IntIdfLit <em>Int Idf Lit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Int Idf Lit</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.IntIdfLit
-   * @generated
-   */
-  EClass getIntIdfLit();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.IntIdfLit#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.IntIdfLit#getValue()
-   * @see #getIntIdfLit()
-   * @generated
-   */
-  EAttribute getIntIdfLit_Value();
-
-  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.HexLit <em>Hex Lit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6932,25 +6883,46 @@ public interface GumboPackage extends EPackage
   EAttribute getBinLit_Value();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.RealLit <em>Real Lit</em>}'.
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.F32Lit <em>F32 Lit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Real Lit</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.RealLit
+   * @return the meta object for class '<em>F32 Lit</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.F32Lit
    * @generated
    */
-  EClass getRealLit();
+  EClass getF32Lit();
 
   /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.RealLit#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.F32Lit#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.RealLit#getValue()
-   * @see #getRealLit()
+   * @see org.sireum.aadl.gumbo.gumbo.F32Lit#getValue()
+   * @see #getF32Lit()
    * @generated
    */
-  EAttribute getRealLit_Value();
+  EAttribute getF32Lit_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.F64Lit <em>F64 Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>F64 Lit</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.F64Lit
+   * @generated
+   */
+  EClass getF64Lit();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.F64Lit#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.F64Lit#getValue()
+   * @see #getF64Lit()
+   * @generated
+   */
+  EAttribute getF64Lit_Value();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SlangStringLit <em>Slang String Lit</em>}'.
@@ -6972,27 +6944,6 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EAttribute getSlangStringLit_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.RealIdfLit <em>Real Idf Lit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Real Idf Lit</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.RealIdfLit
-   * @generated
-   */
-  EClass getRealIdfLit();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.RealIdfLit#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.RealIdfLit#getValue()
-   * @see #getRealIdfLit()
-   * @generated
-   */
-  EAttribute getRealIdfLit_Value();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.MStringLit <em>MString Lit</em>}'.
@@ -9475,24 +9426,6 @@ public interface GumboPackage extends EPackage
     EAttribute INTEGER_LIT__VALUE = eINSTANCE.getIntegerLit_Value();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.IntIdfLitImpl <em>Int Idf Lit</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.IntIdfLitImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIntIdfLit()
-     * @generated
-     */
-    EClass INT_IDF_LIT = eINSTANCE.getIntIdfLit();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INT_IDF_LIT__VALUE = eINSTANCE.getIntIdfLit_Value();
-
-    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.HexLitImpl <em>Hex Lit</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9529,14 +9462,14 @@ public interface GumboPackage extends EPackage
     EAttribute BIN_LIT__VALUE = eINSTANCE.getBinLit_Value();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.RealLitImpl <em>Real Lit</em>}' class.
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.F32LitImpl <em>F32 Lit</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.RealLitImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealLit()
+     * @see org.sireum.aadl.gumbo.gumbo.impl.F32LitImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF32Lit()
      * @generated
      */
-    EClass REAL_LIT = eINSTANCE.getRealLit();
+    EClass F32_LIT = eINSTANCE.getF32Lit();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -9544,7 +9477,25 @@ public interface GumboPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REAL_LIT__VALUE = eINSTANCE.getRealLit_Value();
+    EAttribute F32_LIT__VALUE = eINSTANCE.getF32Lit_Value();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.F64LitImpl <em>F64 Lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.F64LitImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF64Lit()
+     * @generated
+     */
+    EClass F64_LIT = eINSTANCE.getF64Lit();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute F64_LIT__VALUE = eINSTANCE.getF64Lit_Value();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangStringLitImpl <em>Slang String Lit</em>}' class.
@@ -9563,24 +9514,6 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EAttribute SLANG_STRING_LIT__VALUE = eINSTANCE.getSlangStringLit_Value();
-
-    /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.RealIdfLitImpl <em>Real Idf Lit</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.RealIdfLitImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRealIdfLit()
-     * @generated
-     */
-    EClass REAL_IDF_LIT = eINSTANCE.getRealIdfLit();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute REAL_IDF_LIT__VALUE = eINSTANCE.getRealIdfLit_Value();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.MStringLitImpl <em>MString Lit</em>}' class.

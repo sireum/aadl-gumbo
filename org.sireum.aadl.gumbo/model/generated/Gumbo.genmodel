@@ -365,23 +365,20 @@
     <genClasses ecoreClass="Gumbo.ecore#//IntegerLit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//IntegerLit/value"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//IntIdfLit">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//IntIdfLit/value"/>
-    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//HexLit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//HexLit/value"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//BinLit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinLit/value"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//RealLit">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//RealLit/value"/>
+    <genClasses ecoreClass="Gumbo.ecore#//F32Lit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//F32Lit/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//F64Lit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//F64Lit/value"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangStringLit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangStringLit/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//RealIdfLit">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//RealIdfLit/value"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//MStringLit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//MStringLit/value"/>

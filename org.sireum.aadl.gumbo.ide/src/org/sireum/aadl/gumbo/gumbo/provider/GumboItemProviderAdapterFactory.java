@@ -2510,31 +2510,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IntIdfLit} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IntIdfLitItemProvider intIdfLitItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.IntIdfLit}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createIntIdfLitAdapter()
-  {
-    if (intIdfLitItemProvider == null)
-    {
-      intIdfLitItemProvider = new IntIdfLitItemProvider(this);
-    }
-
-    return intIdfLitItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.HexLit} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2585,28 +2560,53 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealLit} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.F32Lit} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RealLitItemProvider realLitItemProvider;
+  protected F32LitItemProvider f32LitItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealLit}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.F32Lit}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createRealLitAdapter()
+  public Adapter createF32LitAdapter()
   {
-    if (realLitItemProvider == null)
+    if (f32LitItemProvider == null)
     {
-      realLitItemProvider = new RealLitItemProvider(this);
+      f32LitItemProvider = new F32LitItemProvider(this);
     }
 
-    return realLitItemProvider;
+    return f32LitItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.F64Lit} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected F64LitItemProvider f64LitItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.F64Lit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createF64LitAdapter()
+  {
+    if (f64LitItemProvider == null)
+    {
+      f64LitItemProvider = new F64LitItemProvider(this);
+    }
+
+    return f64LitItemProvider;
   }
 
   /**
@@ -2632,31 +2632,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return slangStringLitItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.RealIdfLit} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected RealIdfLitItemProvider realIdfLitItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealIdfLit}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createRealIdfLitAdapter()
-  {
-    if (realIdfLitItemProvider == null)
-    {
-      realIdfLitItemProvider = new RealIdfLitItemProvider(this);
-    }
-
-    return realIdfLitItemProvider;
   }
 
   /**
@@ -2973,12 +2948,11 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (booleanLitItemProvider != null) booleanLitItemProvider.dispose();
     if (resultLitItemProvider != null) resultLitItemProvider.dispose();
     if (integerLitItemProvider != null) integerLitItemProvider.dispose();
-    if (intIdfLitItemProvider != null) intIdfLitItemProvider.dispose();
     if (hexLitItemProvider != null) hexLitItemProvider.dispose();
     if (binLitItemProvider != null) binLitItemProvider.dispose();
-    if (realLitItemProvider != null) realLitItemProvider.dispose();
+    if (f32LitItemProvider != null) f32LitItemProvider.dispose();
+    if (f64LitItemProvider != null) f64LitItemProvider.dispose();
     if (slangStringLitItemProvider != null) slangStringLitItemProvider.dispose();
-    if (realIdfLitItemProvider != null) realIdfLitItemProvider.dispose();
     if (mStringLitItemProvider != null) mStringLitItemProvider.dispose();
     if (slangMspInterpItemProvider != null) slangMspInterpItemProvider.dispose();
     if (slangLiteralInterpItemProvider != null) slangLiteralInterpItemProvider.dispose();

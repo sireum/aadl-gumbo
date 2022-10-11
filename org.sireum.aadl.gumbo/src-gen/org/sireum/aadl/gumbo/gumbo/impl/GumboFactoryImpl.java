@@ -172,12 +172,11 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.BOOLEAN_LIT: return createBooleanLit();
       case GumboPackage.RESULT_LIT: return createResultLit();
       case GumboPackage.INTEGER_LIT: return createIntegerLit();
-      case GumboPackage.INT_IDF_LIT: return createIntIdfLit();
       case GumboPackage.HEX_LIT: return createHexLit();
       case GumboPackage.BIN_LIT: return createBinLit();
-      case GumboPackage.REAL_LIT: return createRealLit();
+      case GumboPackage.F32_LIT: return createF32Lit();
+      case GumboPackage.F64_LIT: return createF64Lit();
       case GumboPackage.SLANG_STRING_LIT: return createSlangStringLit();
-      case GumboPackage.REAL_IDF_LIT: return createRealIdfLit();
       case GumboPackage.MSTRING_LIT: return createMStringLit();
       case GumboPackage.SLANG_MSP_INTERP: return createSlangMspInterp();
       case GumboPackage.SLANG_LITERAL_INTERP: return createSlangLiteralInterp();
@@ -1357,18 +1356,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public IntIdfLit createIntIdfLit()
-  {
-    IntIdfLitImpl intIdfLit = new IntIdfLitImpl();
-    return intIdfLit;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public HexLit createHexLit()
   {
     HexLitImpl hexLit = new HexLitImpl();
@@ -1393,10 +1380,22 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public RealLit createRealLit()
+  public F32Lit createF32Lit()
   {
-    RealLitImpl realLit = new RealLitImpl();
-    return realLit;
+    F32LitImpl f32Lit = new F32LitImpl();
+    return f32Lit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public F64Lit createF64Lit()
+  {
+    F64LitImpl f64Lit = new F64LitImpl();
+    return f64Lit;
   }
 
   /**
@@ -1409,18 +1408,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangStringLitImpl slangStringLit = new SlangStringLitImpl();
     return slangStringLit;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public RealIdfLit createRealIdfLit()
-  {
-    RealIdfLitImpl realIdfLit = new RealIdfLitImpl();
-    return realIdfLit;
   }
 
   /**

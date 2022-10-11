@@ -6437,15 +6437,15 @@ ruleSlangLit returns [EObject current=null]
 				}
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getIntIdfLitAction_3_0(),
+						grammarAccess.getSlangLitAccess().getHexLitAction_3_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_value_7_0=RULE_INT_IDF
+					lv_value_7_0=RULE_HEX
 					{
-						newLeafNode(lv_value_7_0, grammarAccess.getSlangLitAccess().getValueINT_IDFTerminalRuleCall_3_1_0());
+						newLeafNode(lv_value_7_0, grammarAccess.getSlangLitAccess().getValueHEXTerminalRuleCall_3_1_0());
 					}
 					{
 						if ($current==null) {
@@ -6455,37 +6455,6 @@ ruleSlangLit returns [EObject current=null]
 							$current,
 							"value",
 							lv_value_7_0,
-							"org.sireum.aadl.gumbo.Gumbo.INT_IDF");
-					}
-				)
-			)
-		)
-		    |
-		(
-			(
-				{
-					/* */
-				}
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getHexLitAction_4_0(),
-						$current);
-				}
-			)
-			(
-				(
-					lv_value_9_0=RULE_HEX
-					{
-						newLeafNode(lv_value_9_0, grammarAccess.getSlangLitAccess().getValueHEXTerminalRuleCall_4_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSlangLitRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"value",
-							lv_value_9_0,
 							"org.sireum.aadl.gumbo.Gumbo.HEX");
 					}
 				)
@@ -6499,15 +6468,15 @@ ruleSlangLit returns [EObject current=null]
 				}
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getBinLitAction_5_0(),
+						grammarAccess.getSlangLitAccess().getBinLitAction_4_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_value_11_0=RULE_BIN
+					lv_value_9_0=RULE_BIN
 					{
-						newLeafNode(lv_value_11_0, grammarAccess.getSlangLitAccess().getValueBINTerminalRuleCall_5_1_0());
+						newLeafNode(lv_value_9_0, grammarAccess.getSlangLitAccess().getValueBINTerminalRuleCall_4_1_0());
 					}
 					{
 						if ($current==null) {
@@ -6516,7 +6485,7 @@ ruleSlangLit returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"value",
-							lv_value_11_0,
+							lv_value_9_0,
 							"org.sireum.aadl.gumbo.Gumbo.BIN");
 					}
 				)
@@ -6530,15 +6499,15 @@ ruleSlangLit returns [EObject current=null]
 				}
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getRealLitAction_6_0(),
+						grammarAccess.getSlangLitAccess().getF32LitAction_5_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_value_13_0=RULE_REAL_LIT
+					lv_value_11_0=RULE_F32_LIT
 					{
-						newLeafNode(lv_value_13_0, grammarAccess.getSlangLitAccess().getValueREAL_LITTerminalRuleCall_6_1_0());
+						newLeafNode(lv_value_11_0, grammarAccess.getSlangLitAccess().getValueF32_LITTerminalRuleCall_5_1_0());
 					}
 					{
 						if ($current==null) {
@@ -6547,9 +6516,57 @@ ruleSlangLit returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"value",
-							lv_value_13_0,
-							"org.osate.xtext.aadl2.properties.Properties.REAL_LIT");
+							lv_value_11_0,
+							"org.sireum.aadl.gumbo.Gumbo.F32_LIT");
 					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getF64LitAction_6_0(),
+						$current);
+				}
+			)
+			(
+				(
+					(
+						lv_value_13_1=RULE_F64_LIT
+						{
+							newLeafNode(lv_value_13_1, grammarAccess.getSlangLitAccess().getValueF64_LITTerminalRuleCall_6_1_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSlangLitRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"value",
+								lv_value_13_1,
+								"org.sireum.aadl.gumbo.Gumbo.F64_LIT");
+						}
+						    |
+						lv_value_13_2=RULE_REAL_LIT
+						{
+							newLeafNode(lv_value_13_2, grammarAccess.getSlangLitAccess().getValueREAL_LITTerminalRuleCall_6_1_0_1());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSlangLitRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"value",
+								lv_value_13_2,
+								"org.osate.xtext.aadl2.properties.Properties.REAL_LIT");
+						}
+					)
 				)
 			)
 		)
@@ -6592,15 +6609,15 @@ ruleSlangLit returns [EObject current=null]
 				}
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getRealIdfLitAction_8_0(),
+						grammarAccess.getSlangLitAccess().getMStringLitAction_8_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_value_17_0=RULE_REAL_IDF
+					lv_value_17_0=RULE_MSTRING
 					{
-						newLeafNode(lv_value_17_0, grammarAccess.getSlangLitAccess().getValueREAL_IDFTerminalRuleCall_8_1_0());
+						newLeafNode(lv_value_17_0, grammarAccess.getSlangLitAccess().getValueMSTRINGTerminalRuleCall_8_1_0());
 					}
 					{
 						if ($current==null) {
@@ -6610,37 +6627,6 @@ ruleSlangLit returns [EObject current=null]
 							$current,
 							"value",
 							lv_value_17_0,
-							"org.sireum.aadl.gumbo.Gumbo.REAL_IDF");
-					}
-				)
-			)
-		)
-		    |
-		(
-			(
-				{
-					/* */
-				}
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getMStringLitAction_9_0(),
-						$current);
-				}
-			)
-			(
-				(
-					lv_value_19_0=RULE_MSTRING
-					{
-						newLeafNode(lv_value_19_0, grammarAccess.getSlangLitAccess().getValueMSTRINGTerminalRuleCall_9_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSlangLitRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"value",
-							lv_value_19_0,
 							"org.sireum.aadl.gumbo.Gumbo.MSTRING");
 					}
 				)

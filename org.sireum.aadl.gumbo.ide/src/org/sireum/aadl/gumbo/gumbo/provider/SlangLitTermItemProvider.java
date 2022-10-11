@@ -179,11 +179,6 @@ public class SlangLitTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createIntIdfLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
          GumboFactory.eINSTANCE.createHexLit()));
 
     newChildDescriptors.add
@@ -194,17 +189,17 @@ public class SlangLitTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createRealLit()));
+         GumboFactory.eINSTANCE.createF32Lit()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
+         GumboFactory.eINSTANCE.createF64Lit()));
 
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
          GumboFactory.eINSTANCE.createSlangStringLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createRealIdfLit()));
 
     newChildDescriptors.add
       (createChildParameter

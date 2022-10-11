@@ -25,16 +25,16 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.sireum.aadl.gumbo.gumbo.F64Lit;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.RealLit;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.RealLit} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.F64Lit} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RealLitItemProvider extends SlangLitItemProvider
+public class F64LitItemProvider extends SlangLitItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -42,7 +42,7 @@ public class RealLitItemProvider extends SlangLitItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public RealLitItemProvider(AdapterFactory adapterFactory)
+  public F64LitItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -77,9 +77,9 @@ public class RealLitItemProvider extends SlangLitItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_RealLit_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_RealLit_value_feature", "_UI_RealLit_type"),
-         GumboPackage.Literals.REAL_LIT__VALUE,
+         getString("_UI_F64Lit_value_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_F64Lit_value_feature", "_UI_F64Lit_type"),
+         GumboPackage.Literals.F64_LIT__VALUE,
          true,
          false,
          false,
@@ -89,7 +89,7 @@ public class RealLitItemProvider extends SlangLitItemProvider
   }
 
   /**
-   * This returns RealLit.gif.
+   * This returns F64Lit.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -97,7 +97,7 @@ public class RealLitItemProvider extends SlangLitItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/RealLit"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/F64Lit"));
   }
 
   /**
@@ -109,10 +109,10 @@ public class RealLitItemProvider extends SlangLitItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((RealLit)object).getValue();
+    String label = ((F64Lit)object).getValue();
     return label == null || label.length() == 0 ?
-      getString("_UI_RealLit_type") :
-      getString("_UI_RealLit_type") + " " + label;
+      getString("_UI_F64Lit_type") :
+      getString("_UI_F64Lit_type") + " " + label;
   }
 
 
@@ -128,9 +128,9 @@ public class RealLitItemProvider extends SlangLitItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(RealLit.class))
+    switch (notification.getFeatureID(F64Lit.class))
     {
-      case GumboPackage.REAL_LIT__VALUE:
+      case GumboPackage.F64_LIT__VALUE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

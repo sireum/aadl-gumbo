@@ -4252,44 +4252,43 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cValueINTEGER_LITTerminalRuleCall_2_1_0 = (RuleCall)cValueAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Action cIntIdfLitAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Action cHexLitAction_3_0 = (Action)cGroup_3.eContents().get(0);
 		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueINT_IDFTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final RuleCall cValueHEXTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Action cHexLitAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Action cBinLitAction_4_0 = (Action)cGroup_4.eContents().get(0);
 		private final Assignment cValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cValueHEXTerminalRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
+		private final RuleCall cValueBINTerminalRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cBinLitAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Action cF32LitAction_5_0 = (Action)cGroup_5.eContents().get(0);
 		private final Assignment cValueAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cValueBINTerminalRuleCall_5_1_0 = (RuleCall)cValueAssignment_5_1.eContents().get(0);
+		private final RuleCall cValueF32_LITTerminalRuleCall_5_1_0 = (RuleCall)cValueAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cRealLitAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Action cF64LitAction_6_0 = (Action)cGroup_6.eContents().get(0);
 		private final Assignment cValueAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cValueREAL_LITTerminalRuleCall_6_1_0 = (RuleCall)cValueAssignment_6_1.eContents().get(0);
+		private final Alternatives cValueAlternatives_6_1_0 = (Alternatives)cValueAssignment_6_1.eContents().get(0);
+		private final RuleCall cValueF64_LITTerminalRuleCall_6_1_0_0 = (RuleCall)cValueAlternatives_6_1_0.eContents().get(0);
+		private final RuleCall cValueREAL_LITTerminalRuleCall_6_1_0_1 = (RuleCall)cValueAlternatives_6_1_0.eContents().get(1);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
 		private final Action cSlangStringLitAction_7_0 = (Action)cGroup_7.eContents().get(0);
 		private final Assignment cValueAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final RuleCall cValueSLANG_STRINGTerminalRuleCall_7_1_0 = (RuleCall)cValueAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
-		private final Action cRealIdfLitAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final Action cMStringLitAction_8_0 = (Action)cGroup_8.eContents().get(0);
 		private final Assignment cValueAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cValueREAL_IDFTerminalRuleCall_8_1_0 = (RuleCall)cValueAssignment_8_1.eContents().get(0);
-		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
-		private final Action cMStringLitAction_9_0 = (Action)cGroup_9.eContents().get(0);
-		private final Assignment cValueAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cValueMSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cValueAssignment_9_1.eContents().get(0);
+		private final RuleCall cValueMSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cValueAssignment_8_1.eContents().get(0);
 		
 		//SlangLit
 		//    : {BooleanLit} value=('T' | 'F' | 'true' | 'false')
 		//    | {ResultLit} 'res'
 		//    | {IntegerLit} value=INTEGER_LIT
-		//    | {IntIdfLit} value=INT_IDF
+		//    //| {IntIdfLit} value=INT_IDF
 		//    | {HexLit} value=HEX
 		//    | {BinLit} value=BIN
-		//    | {RealLit} value=REAL_LIT
+		//    | {F32Lit} value=F32_LIT
+		//    | {F64Lit} value=(F64_LIT | REAL_LIT)
 		//    | {SlangStringLit} value=SLANG_STRING
-		//    | {RealIdfLit} value=REAL_IDF
+		//    //| {RealIdfLit} value=REAL_IDF
 		//    | {MStringLit} value=MSTRING
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
@@ -4297,12 +4296,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//{BooleanLit} value=('T' | 'F' | 'true' | 'false')
 		//   | {ResultLit} 'res'
 		//   | {IntegerLit} value=INTEGER_LIT
-		//   | {IntIdfLit} value=INT_IDF
+		//   //| {IntIdfLit} value=INT_IDF
 		//   | {HexLit} value=HEX
 		//   | {BinLit} value=BIN
-		//   | {RealLit} value=REAL_LIT
+		//   | {F32Lit} value=F32_LIT
+		//   | {F64Lit} value=(F64_LIT | REAL_LIT)
 		//   | {SlangStringLit} value=SLANG_STRING
-		//   | {RealIdfLit} value=REAL_IDF
+		//   //| {RealIdfLit} value=REAL_IDF
 		//   | {MStringLit} value=MSTRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -4351,53 +4351,59 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//INTEGER_LIT
 		public RuleCall getValueINTEGER_LITTerminalRuleCall_2_1_0() { return cValueINTEGER_LITTerminalRuleCall_2_1_0; }
 		
-		//{IntIdfLit} value=INT_IDF
+		//{HexLit} value=HEX
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//{IntIdfLit}
-		public Action getIntIdfLitAction_3_0() { return cIntIdfLitAction_3_0; }
-		
-		//value=INT_IDF
-		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
-		
-		//INT_IDF
-		public RuleCall getValueINT_IDFTerminalRuleCall_3_1_0() { return cValueINT_IDFTerminalRuleCall_3_1_0; }
-		
-		//{HexLit} value=HEX
-		public Group getGroup_4() { return cGroup_4; }
-		
 		//{HexLit}
-		public Action getHexLitAction_4_0() { return cHexLitAction_4_0; }
+		public Action getHexLitAction_3_0() { return cHexLitAction_3_0; }
 		
 		//value=HEX
-		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
+		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 		
 		//HEX
-		public RuleCall getValueHEXTerminalRuleCall_4_1_0() { return cValueHEXTerminalRuleCall_4_1_0; }
+		public RuleCall getValueHEXTerminalRuleCall_3_1_0() { return cValueHEXTerminalRuleCall_3_1_0; }
 		
 		//{BinLit} value=BIN
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//{BinLit}
-		public Action getBinLitAction_5_0() { return cBinLitAction_5_0; }
+		public Action getBinLitAction_4_0() { return cBinLitAction_4_0; }
 		
 		//value=BIN
-		public Assignment getValueAssignment_5_1() { return cValueAssignment_5_1; }
+		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
 		
 		//BIN
-		public RuleCall getValueBINTerminalRuleCall_5_1_0() { return cValueBINTerminalRuleCall_5_1_0; }
+		public RuleCall getValueBINTerminalRuleCall_4_1_0() { return cValueBINTerminalRuleCall_4_1_0; }
 		
-		//{RealLit} value=REAL_LIT
+		//{F32Lit} value=F32_LIT
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//{F32Lit}
+		public Action getF32LitAction_5_0() { return cF32LitAction_5_0; }
+		
+		//value=F32_LIT
+		public Assignment getValueAssignment_5_1() { return cValueAssignment_5_1; }
+		
+		//F32_LIT
+		public RuleCall getValueF32_LITTerminalRuleCall_5_1_0() { return cValueF32_LITTerminalRuleCall_5_1_0; }
+		
+		//{F64Lit} value=(F64_LIT | REAL_LIT)
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//{RealLit}
-		public Action getRealLitAction_6_0() { return cRealLitAction_6_0; }
+		//{F64Lit}
+		public Action getF64LitAction_6_0() { return cF64LitAction_6_0; }
 		
-		//value=REAL_LIT
+		//value=(F64_LIT | REAL_LIT)
 		public Assignment getValueAssignment_6_1() { return cValueAssignment_6_1; }
 		
+		//(F64_LIT | REAL_LIT)
+		public Alternatives getValueAlternatives_6_1_0() { return cValueAlternatives_6_1_0; }
+		
+		//F64_LIT
+		public RuleCall getValueF64_LITTerminalRuleCall_6_1_0_0() { return cValueF64_LITTerminalRuleCall_6_1_0_0; }
+		
 		//REAL_LIT
-		public RuleCall getValueREAL_LITTerminalRuleCall_6_1_0() { return cValueREAL_LITTerminalRuleCall_6_1_0; }
+		public RuleCall getValueREAL_LITTerminalRuleCall_6_1_0_1() { return cValueREAL_LITTerminalRuleCall_6_1_0_1; }
 		
 		//{SlangStringLit} value=SLANG_STRING
 		public Group getGroup_7() { return cGroup_7; }
@@ -4411,29 +4417,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//SLANG_STRING
 		public RuleCall getValueSLANG_STRINGTerminalRuleCall_7_1_0() { return cValueSLANG_STRINGTerminalRuleCall_7_1_0; }
 		
-		//{RealIdfLit} value=REAL_IDF
+		//{MStringLit} value=MSTRING
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//{RealIdfLit}
-		public Action getRealIdfLitAction_8_0() { return cRealIdfLitAction_8_0; }
-		
-		//value=REAL_IDF
-		public Assignment getValueAssignment_8_1() { return cValueAssignment_8_1; }
-		
-		//REAL_IDF
-		public RuleCall getValueREAL_IDFTerminalRuleCall_8_1_0() { return cValueREAL_IDFTerminalRuleCall_8_1_0; }
-		
-		//{MStringLit} value=MSTRING
-		public Group getGroup_9() { return cGroup_9; }
-		
 		//{MStringLit}
-		public Action getMStringLitAction_9_0() { return cMStringLitAction_9_0; }
+		public Action getMStringLitAction_8_0() { return cMStringLitAction_8_0; }
 		
 		//value=MSTRING
-		public Assignment getValueAssignment_9_1() { return cValueAssignment_9_1; }
+		public Assignment getValueAssignment_8_1() { return cValueAssignment_8_1; }
 		
 		//MSTRING
-		public RuleCall getValueMSTRINGTerminalRuleCall_9_1_0() { return cValueMSTRINGTerminalRuleCall_9_1_0; }
+		public RuleCall getValueMSTRINGTerminalRuleCall_8_1_0() { return cValueMSTRINGTerminalRuleCall_8_1_0; }
 	}
 	public class SlangInterpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangInterp");
@@ -4684,7 +4678,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final TerminalRule tHEX;
 	private final TerminalRule tBIN;
 	private final TerminalRule tINT_IDF;
-	private final TerminalRule tREAL_IDF;
+	private final TerminalRule tF32_LIT;
+	private final TerminalRule tF64_LIT;
 	private final TerminalRule tIDF;
 	private final TerminalRule tMSPI;
 	private final TerminalRule tLETTER;
@@ -4793,7 +4788,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.HEX");
 		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BIN");
 		this.tINT_IDF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.INT_IDF");
-		this.tREAL_IDF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.REAL_IDF");
+		this.tF32_LIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.F32_LIT");
+		this.tF64_LIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.F64_LIT");
 		this.tIDF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.IDF");
 		this.tMSPI = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MSPI");
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.LETTER");
@@ -5680,12 +5676,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    : {BooleanLit} value=('T' | 'F' | 'true' | 'false')
 	//    | {ResultLit} 'res'
 	//    | {IntegerLit} value=INTEGER_LIT
-	//    | {IntIdfLit} value=INT_IDF
+	//    //| {IntIdfLit} value=INT_IDF
 	//    | {HexLit} value=HEX
 	//    | {BinLit} value=BIN
-	//    | {RealLit} value=REAL_LIT
+	//    | {F32Lit} value=F32_LIT
+	//    | {F64Lit} value=(F64_LIT | REAL_LIT)
 	//    | {SlangStringLit} value=SLANG_STRING
-	//    | {RealIdfLit} value=REAL_IDF
+	//    //| {RealIdfLit} value=REAL_IDF
 	//    | {MStringLit} value=MSTRING
 	//    ;
 	public SlangLitElements getSlangLitAccess() {
@@ -5813,9 +5810,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return tINT_IDF;
 	}
 	
-	//terminal REAL_IDF: REAL_LIT IDF;
-	public TerminalRule getREAL_IDFRule() {
-		return tREAL_IDF;
+	//terminal F32_LIT: REAL_LIT 'f';
+	public TerminalRule getF32_LITRule() {
+		return tF32_LIT;
+	}
+	
+	//terminal F64_LIT: REAL_LIT 'd';
+	public TerminalRule getF64_LITRule() {
+		return tF64_LIT;
 	}
 	
 	//terminal fragment IDF: ( LETTER | '_' ) ( LETTER | DIGIT )* ;
