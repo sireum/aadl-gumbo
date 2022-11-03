@@ -131,6 +131,8 @@ import org.sireum.lang.ast.MethodContract.Accesses;
 import org.sireum.lang.ast.MethodContract.Accesses$;
 import org.sireum.lang.ast.MethodContract.Claims;
 import org.sireum.lang.ast.MethodContract.Claims$;
+import org.sireum.lang.ast.MethodContract.InfoFlows;
+import org.sireum.lang.ast.MethodContract.InfoFlows$;
 import org.sireum.lang.ast.MethodContract.Simple$;
 import org.sireum.lang.ast.MethodSig;
 import org.sireum.lang.ast.MethodSig$;
@@ -428,8 +430,10 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			ensuresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
 		}
 
+		InfoFlows infoFlows = InfoFlows$.MODULE$.empty();
+
 		if (hasContract) {
-			mcontract = Simple$.MODULE$.apply(readsClause, requiresClause, modifiesClause, ensuresClause,
+			mcontract = Simple$.MODULE$.apply(readsClause, requiresClause, modifiesClause, ensuresClause, infoFlows,
 					GumboUtil.buildAttr(object.getMethodContract()));
 		}
 
