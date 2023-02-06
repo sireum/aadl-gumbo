@@ -236,4 +236,12 @@ public class GumboUtil {
 			return null;
 		}
 	}
+
+	// VarKind is defined in Typed object. Its '.Type' is not
+	// accessible in Java contexts (e.g. Eclipse), but its byName(..)
+	// still works, so using Java enums with identical names so
+	// the slang enum value can be retrieved via byName
+	public enum Typed_VarKind {
+		Mutable, Immutable, Index
+	}
 }

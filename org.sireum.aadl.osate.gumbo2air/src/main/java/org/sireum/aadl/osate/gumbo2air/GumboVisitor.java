@@ -331,7 +331,10 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		if (object.getTypeParams() != null) {
 			for (SlangTypeParam stp : object.getTypeParams().getTypeParam()) {
 				Id id = Id$.MODULE$.apply(stp.getName(), GumboUtil.buildAttr(stp));
-				typeParams.add(TypeParam$.MODULE$.apply(id, stp.isIsMut()));
+				typeParams.add(TypeParam$.MODULE$.apply(id, //
+						Typed.VarKind$.MODULE$.byName(stp.isIsMut() ? //
+								GumboUtil.Typed_VarKind.Mutable.name() : //
+								GumboUtil.Typed_VarKind.Immutable.name()).get()));
 			}
 		}
 
@@ -476,9 +479,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 				Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(s.getDescriptor());
 
-				_invariants.add(
-						GclInvariant$.MODULE$.apply(id, descriptor, visitPop(s.getExpr()),
-								VisitorUtil.buildPositionOpt(s)));
+				_invariants.add(GclInvariant$.MODULE$.apply(id, descriptor, visitPop(s.getExpr()),
+						VisitorUtil.buildPositionOpt(s)));
 			}
 		}
 
@@ -844,7 +846,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		Exp ret = null;
-		if(!reporter.hasError()) {
+		if (!reporter.hasError()) {
 			ret = GclUtil.rewriteBinary(VisitorUtil.toISZ(exps), reporter);
 		}
 
@@ -857,8 +859,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseUnaryExp(UnaryExp object) {
 		UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
 		Unary exp = Unary$.MODULE$.apply(Exp.UnaryOp$.MODULE$.byName(slangOp.name()).get(),
-				visitPop(object.getAccessExp()),
-				GumboUtil.buildResolvedAttr(object));
+				visitPop(object.getAccessExp()), GumboUtil.buildResolvedAttr(object));
 
 		push(exp);
 
@@ -1199,7 +1200,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			RuntimeException e = new RuntimeException("Internal error: visitor stack was empty while trying to pop");
 			String trace = e.getMessage() + ": " + e.getStackTrace()[1];
 
-			if(lastVisited != null && lastVisited instanceof EObject) {
+			if (lastVisited != null && lastVisited instanceof EObject) {
 				String msg = "Encountered unexpected or unhandled GUMBO node: " + lastVisited + "\n\n" + trace;
 				reportError((EObject) lastVisited, msg);
 			} else {
