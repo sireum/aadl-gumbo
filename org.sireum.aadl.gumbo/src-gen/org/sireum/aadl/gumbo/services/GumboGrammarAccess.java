@@ -373,17 +373,21 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cSpecsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSpecsInitializeSpecStatementParserRuleCall_2_0 = (RuleCall)cSpecsAssignment_2.eContents().get(0);
+		private final Assignment cFlowsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cFlowsInfoFlowClauseParserRuleCall_3_0 = (RuleCall)cFlowsAssignment_3.eContents().get(0);
 		
 		//Initialize:
 		//    'initialize'
 		//      (modifies=SlangModifies ';')?
 		//      (specs+=InitializeSpecStatement)+
+		//      (flows+=InfoFlowClause)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'initialize'
 		//  (modifies=SlangModifies ';')?
 		//  (specs+=InitializeSpecStatement)+
+		//  (flows+=InfoFlowClause)*
 		public Group getGroup() { return cGroup; }
 		
 		//'initialize'
@@ -406,6 +410,12 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//InitializeSpecStatement
 		public RuleCall getSpecsInitializeSpecStatementParserRuleCall_2_0() { return cSpecsInitializeSpecStatementParserRuleCall_2_0; }
+		
+		//(flows+=InfoFlowClause)*
+		public Assignment getFlowsAssignment_3() { return cFlowsAssignment_3; }
+		
+		//InfoFlowClause
+		public RuleCall getFlowsInfoFlowClauseParserRuleCall_3_0() { return cFlowsInfoFlowClauseParserRuleCall_3_0; }
 	}
 	public class InitializeSpecStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InitializeSpecStatement");
@@ -440,6 +450,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cCasesCaseStatementClauseParserRuleCall_4_1_0 = (RuleCall)cCasesAssignment_4_1.eContents().get(0);
 		private final Assignment cHandlersAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cHandlersHandlerClauseParserRuleCall_5_0 = (RuleCall)cHandlersAssignment_5.eContents().get(0);
+		private final Assignment cFlowsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cFlowsInfoFlowClauseParserRuleCall_6_0 = (RuleCall)cFlowsAssignment_6.eContents().get(0);
 		
 		//Compute:
 		//    {Compute} 'compute'
@@ -455,6 +467,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//      (specs+=SpecStatement)* // assume and/or guarantees
 		//      ('cases' (cases+=CaseStatementClause)+)*
 		//      (handlers+=HandlerClause)*
+		//      (flows+=InfoFlowClause)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -471,6 +484,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  (specs+=SpecStatement)* // assume and/or guarantees
 		//  ('cases' (cases+=CaseStatementClause)+)*
 		//  (handlers+=HandlerClause)*
+		//  (flows+=InfoFlowClause)*
 		public Group getGroup() { return cGroup; }
 		
 		//{Compute}
@@ -523,6 +537,110 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//HandlerClause
 		public RuleCall getHandlersHandlerClauseParserRuleCall_5_0() { return cHandlersHandlerClauseParserRuleCall_5_0; }
+		
+		//(flows+=InfoFlowClause)*
+		public Assignment getFlowsAssignment_6() { return cFlowsAssignment_6; }
+		
+		//InfoFlowClause
+		public RuleCall getFlowsInfoFlowClauseParserRuleCall_6_0() { return cFlowsInfoFlowClauseParserRuleCall_6_0; }
+	}
+	public class InfoFlowClauseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInfoflowKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDescriptorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDescriptorSLANG_STRINGTerminalRuleCall_3_0 = (RuleCall)cDescriptorAssignment_3.eContents().get(0);
+		private final Keyword cFromKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cFromInPortOrStateVarAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cFromInPortOrStateVarEObjectCrossReference_6_0 = (CrossReference)cFromInPortOrStateVarAssignment_6.eContents().get(0);
+		private final RuleCall cFromInPortOrStateVarEObjectIDTerminalRuleCall_6_0_1 = (RuleCall)cFromInPortOrStateVarEObjectCrossReference_6_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cToKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cLeftParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cToOutPortAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final CrossReference cToOutPortPortCrossReference_11_0 = (CrossReference)cToOutPortAssignment_11.eContents().get(0);
+		private final RuleCall cToOutPortPortIDTerminalRuleCall_11_0_1 = (RuleCall)cToOutPortPortCrossReference_11_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cSemicolonKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		
+		//InfoFlowClause:
+		//    'infoflow' id=ID ':' descriptor=SLANG_STRING?
+		//          'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+		//          ','
+		//          'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'infoflow' id=ID ':' descriptor=SLANG_STRING?
+		//      'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+		//      ','
+		//      'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'infoflow'
+		public Keyword getInfoflowKeyword_0() { return cInfoflowKeyword_0; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		
+		//descriptor=SLANG_STRING?
+		public Assignment getDescriptorAssignment_3() { return cDescriptorAssignment_3; }
+		
+		//SLANG_STRING
+		public RuleCall getDescriptorSLANG_STRINGTerminalRuleCall_3_0() { return cDescriptorSLANG_STRINGTerminalRuleCall_3_0; }
+		
+		//'From'
+		public Keyword getFromKeyword_4() { return cFromKeyword_4; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_5() { return cLeftParenthesisKeyword_5; }
+		
+		//fromInPortOrStateVar=[ecore::EObject|ID]
+		public Assignment getFromInPortOrStateVarAssignment_6() { return cFromInPortOrStateVarAssignment_6; }
+		
+		//[ecore::EObject|ID]
+		public CrossReference getFromInPortOrStateVarEObjectCrossReference_6_0() { return cFromInPortOrStateVarEObjectCrossReference_6_0; }
+		
+		//ID
+		public RuleCall getFromInPortOrStateVarEObjectIDTerminalRuleCall_6_0_1() { return cFromInPortOrStateVarEObjectIDTerminalRuleCall_6_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+		
+		//','
+		public Keyword getCommaKeyword_8() { return cCommaKeyword_8; }
+		
+		//'To'
+		public Keyword getToKeyword_9() { return cToKeyword_9; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_10() { return cLeftParenthesisKeyword_10; }
+		
+		//toOutPort=[aadl2::Port|ID]
+		public Assignment getToOutPortAssignment_11() { return cToOutPortAssignment_11; }
+		
+		//[aadl2::Port|ID]
+		public CrossReference getToOutPortPortCrossReference_11_0() { return cToOutPortPortCrossReference_11_0; }
+		
+		//ID
+		public RuleCall getToOutPortPortIDTerminalRuleCall_11_0_1() { return cToOutPortPortIDTerminalRuleCall_11_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_12() { return cRightParenthesisKeyword_12; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_13() { return cSemicolonKeyword_13; }
 	}
 	public class HandlerClauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.HandlerClause");
@@ -4599,6 +4717,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final InitializeElements pInitialize;
 	private final InitializeSpecStatementElements pInitializeSpecStatement;
 	private final ComputeElements pCompute;
+	private final InfoFlowClauseElements pInfoFlowClause;
 	private final HandlerClauseElements pHandlerClause;
 	private final CaseStatementClauseElements pCaseStatementClause;
 	private final SpecStatementElements pSpecStatement;
@@ -4709,6 +4828,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pInitialize = new InitializeElements();
 		this.pInitializeSpecStatement = new InitializeSpecStatementElements();
 		this.pCompute = new ComputeElements();
+		this.pInfoFlowClause = new InfoFlowClauseElements();
 		this.pHandlerClause = new HandlerClauseElements();
 		this.pCaseStatementClause = new CaseStatementClauseElements();
 		this.pSpecStatement = new SpecStatementElements();
@@ -4952,6 +5072,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    'initialize'
 	//      (modifies=SlangModifies ';')?
 	//      (specs+=InitializeSpecStatement)+
+	//      (flows+=InfoFlowClause)*
 	//;
 	public InitializeElements getInitializeAccess() {
 		return pInitialize;
@@ -4986,6 +5107,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//      (specs+=SpecStatement)* // assume and/or guarantees
 	//      ('cases' (cases+=CaseStatementClause)+)*
 	//      (handlers+=HandlerClause)*
+	//      (flows+=InfoFlowClause)*
 	//;
 	public ComputeElements getComputeAccess() {
 		return pCompute;
@@ -4993,6 +5115,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getComputeRule() {
 		return getComputeAccess().getRule();
+	}
+	
+	//InfoFlowClause:
+	//    'infoflow' id=ID ':' descriptor=SLANG_STRING?
+	//          'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+	//          ','
+	//          'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
+	//;
+	public InfoFlowClauseElements getInfoFlowClauseAccess() {
+		return pInfoFlowClause;
+	}
+	
+	public ParserRule getInfoFlowClauseRule() {
+		return getInfoFlowClauseAccess().getRule();
 	}
 	
 	//HandlerClause:

@@ -50,6 +50,7 @@ import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
+import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 import org.sireum.aadl.gumbo.gumbo.IntegerLit;
@@ -216,6 +217,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass computeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass infoFlowClauseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1252,6 +1260,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EReference getInitialize_Flows()
+  {
+    return (EReference)initializeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getInitializeSpecStatement()
   {
     return initializeSpecStatementEClass;
@@ -1321,6 +1340,72 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getCompute_Handlers()
   {
     return (EReference)computeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCompute_Flows()
+  {
+    return (EReference)computeEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getInfoFlowClause()
+  {
+    return infoFlowClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInfoFlowClause_Id()
+  {
+    return (EAttribute)infoFlowClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInfoFlowClause_Descriptor()
+  {
+    return (EAttribute)infoFlowClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInfoFlowClause_FromInPortOrStateVar()
+  {
+    return (EReference)infoFlowClauseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInfoFlowClause_ToOutPort()
+  {
+    return (EReference)infoFlowClauseEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4205,6 +4290,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initializeEClass = createEClass(INITIALIZE);
     createEReference(initializeEClass, INITIALIZE__MODIFIES);
     createEReference(initializeEClass, INITIALIZE__SPECS);
+    createEReference(initializeEClass, INITIALIZE__FLOWS);
 
     initializeSpecStatementEClass = createEClass(INITIALIZE_SPEC_STATEMENT);
     createEReference(initializeSpecStatementEClass, INITIALIZE_SPEC_STATEMENT__GUARANTEE_STATEMENT);
@@ -4214,6 +4300,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(computeEClass, COMPUTE__SPECS);
     createEReference(computeEClass, COMPUTE__CASES);
     createEReference(computeEClass, COMPUTE__HANDLERS);
+    createEReference(computeEClass, COMPUTE__FLOWS);
+
+    infoFlowClauseEClass = createEClass(INFO_FLOW_CLAUSE);
+    createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__ID);
+    createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__DESCRIPTOR);
+    createEReference(infoFlowClauseEClass, INFO_FLOW_CLAUSE__FROM_IN_PORT_OR_STATE_VAR);
+    createEReference(infoFlowClauseEClass, INFO_FLOW_CLAUSE__TO_OUT_PORT);
 
     handlerClauseEClass = createEClass(HANDLER_CLAUSE);
     createEReference(handlerClauseEClass, HANDLER_CLAUSE__ID);
@@ -4686,6 +4779,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(initializeEClass, Initialize.class, "Initialize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitialize_Modifies(), this.getSlangModifies(), null, "modifies", null, 0, 1, Initialize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInitialize_Specs(), this.getInitializeSpecStatement(), null, "specs", null, 0, -1, Initialize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInitialize_Flows(), this.getInfoFlowClause(), null, "flows", null, 0, -1, Initialize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initializeSpecStatementEClass, InitializeSpecStatement.class, "InitializeSpecStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitializeSpecStatement_GuaranteeStatement(), this.getGuaranteeStatement(), null, "guaranteeStatement", null, 0, 1, InitializeSpecStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4695,6 +4789,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getCompute_Specs(), this.getSpecStatement(), null, "specs", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Handlers(), this.getHandlerClause(), null, "handlers", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompute_Flows(), this.getInfoFlowClause(), null, "flows", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(infoFlowClauseEClass, InfoFlowClause.class, "InfoFlowClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInfoFlowClause_Id(), theEcorePackage.getEString(), "id", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInfoFlowClause_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfoFlowClause_FromInPortOrStateVar(), theEcorePackage.getEObject(), null, "fromInPortOrStateVar", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfoFlowClause_ToOutPort(), theAadl2Package.getPort(), null, "toOutPort", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(handlerClauseEClass, HandlerClause.class, "HandlerClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getHandlerClause_Id(), theAadl2Package.getPort(), null, "id", null, 0, 1, HandlerClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

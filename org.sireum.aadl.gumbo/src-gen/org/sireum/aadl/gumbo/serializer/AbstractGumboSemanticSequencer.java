@@ -67,6 +67,7 @@ import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
+import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 import org.sireum.aadl.gumbo.gumbo.IntegerLit;
@@ -324,6 +325,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.IN_STATE_EXPR:
 				sequence_SlangTerm(context, (InStateExpr) semanticObject); 
+				return; 
+			case GumboPackage.INFO_FLOW_CLAUSE:
+				sequence_InfoFlowClause(context, (InfoFlowClause) semanticObject); 
 				return; 
 			case GumboPackage.INITIALIZE:
 				sequence_Initialize(context, (Initialize) semanticObject); 
@@ -651,7 +655,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Compute returns Compute
 	 *
 	 * Constraint:
-	 *     (modifies=SlangModifies? specs+=SpecStatement* cases+=CaseStatementClause* handlers+=HandlerClause*)
+	 *     (modifies=SlangModifies? specs+=SpecStatement* cases+=CaseStatementClause* handlers+=HandlerClause* flows+=InfoFlowClause*)
 	 * </pre>
 	 */
 	protected void sequence_Compute(ISerializationContext context, Compute semanticObject) {
@@ -858,6 +862,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     InfoFlowClause returns InfoFlowClause
+	 *
+	 * Constraint:
+	 *     (id=ID descriptor=SLANG_STRING? fromInPortOrStateVar=[EObject|ID] toOutPort=[Port|ID])
+	 * </pre>
+	 */
+	protected void sequence_InfoFlowClause(ISerializationContext context, InfoFlowClause semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     InitializeSpecStatement returns InitializeSpecStatement
 	 *
 	 * Constraint:
@@ -881,7 +899,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Initialize returns Initialize
 	 *
 	 * Constraint:
-	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement+)
+	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement+ flows+=InfoFlowClause*)
 	 * </pre>
 	 */
 	protected void sequence_Initialize(ISerializationContext context, Initialize semanticObject) {

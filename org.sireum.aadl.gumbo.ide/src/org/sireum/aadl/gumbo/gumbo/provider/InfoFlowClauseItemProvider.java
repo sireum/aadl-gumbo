@@ -22,28 +22,27 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.sireum.aadl.gumbo.gumbo.Compute;
-import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.Compute} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComputeItemProvider 
+public class InfoFlowClauseItemProvider 
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -58,7 +57,7 @@ public class ComputeItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComputeItemProvider(AdapterFactory adapterFactory)
+  public InfoFlowClauseItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -76,49 +75,108 @@ public class ComputeItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addIdPropertyDescriptor(object);
+      addDescriptorPropertyDescriptor(object);
+      addFromInPortOrStateVarPropertyDescriptor(object);
+      addToOutPortPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Id feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addIdPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.COMPUTE__MODIFIES);
-      childrenFeatures.add(GumboPackage.Literals.COMPUTE__SPECS);
-      childrenFeatures.add(GumboPackage.Literals.COMPUTE__CASES);
-      childrenFeatures.add(GumboPackage.Literals.COMPUTE__HANDLERS);
-      childrenFeatures.add(GumboPackage.Literals.COMPUTE__FLOWS);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_InfoFlowClause_id_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_id_feature", "_UI_InfoFlowClause_type"),
+         GumboPackage.Literals.INFO_FLOW_CLAUSE__ID,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
+   * This adds a property descriptor for the Descriptor feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
+  protected void addDescriptorPropertyDescriptor(Object object)
   {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_InfoFlowClause_descriptor_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_descriptor_feature", "_UI_InfoFlowClause_type"),
+         GumboPackage.Literals.INFO_FLOW_CLAUSE__DESCRIPTOR,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
-   * This returns Compute.gif.
+   * This adds a property descriptor for the From In Port Or State Var feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFromInPortOrStateVarPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_InfoFlowClause_fromInPortOrStateVar_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_fromInPortOrStateVar_feature", "_UI_InfoFlowClause_type"),
+         GumboPackage.Literals.INFO_FLOW_CLAUSE__FROM_IN_PORT_OR_STATE_VAR,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the To Out Port feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addToOutPortPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_InfoFlowClause_toOutPort_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_toOutPort_feature", "_UI_InfoFlowClause_type"),
+         GumboPackage.Literals.INFO_FLOW_CLAUSE__TO_OUT_PORT,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This returns InfoFlowClause.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -126,7 +184,7 @@ public class ComputeItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Compute"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/InfoFlowClause"));
   }
 
   /**
@@ -138,7 +196,10 @@ public class ComputeItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_Compute_type");
+    String label = ((InfoFlowClause)object).getId();
+    return label == null || label.length() == 0 ?
+      getString("_UI_InfoFlowClause_type") :
+      getString("_UI_InfoFlowClause_type") + " " + label;
   }
 
 
@@ -154,14 +215,11 @@ public class ComputeItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Compute.class))
+    switch (notification.getFeatureID(InfoFlowClause.class))
     {
-      case GumboPackage.COMPUTE__MODIFIES:
-      case GumboPackage.COMPUTE__SPECS:
-      case GumboPackage.COMPUTE__CASES:
-      case GumboPackage.COMPUTE__HANDLERS:
-      case GumboPackage.COMPUTE__FLOWS:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+      case GumboPackage.INFO_FLOW_CLAUSE__ID:
+      case GumboPackage.INFO_FLOW_CLAUSE__DESCRIPTOR:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
     super.notifyChanged(notification);
@@ -178,41 +236,6 @@ public class ComputeItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.COMPUTE__MODIFIES,
-         GumboFactory.eINSTANCE.createSlangModifies()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.COMPUTE__SPECS,
-         GumboFactory.eINSTANCE.createSpecStatement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.COMPUTE__SPECS,
-         GumboFactory.eINSTANCE.createAssumeStatement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.COMPUTE__SPECS,
-         GumboFactory.eINSTANCE.createGuaranteeStatement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.COMPUTE__CASES,
-         GumboFactory.eINSTANCE.createCaseStatementClause()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.COMPUTE__HANDLERS,
-         GumboFactory.eINSTANCE.createHandlerClause()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.COMPUTE__FLOWS,
-         GumboFactory.eINSTANCE.createInfoFlowClause()));
   }
 
   /**

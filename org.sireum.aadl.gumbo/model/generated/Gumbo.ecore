@@ -49,6 +49,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specs" upperBound="-1"
         eType="#//InitializeSpecStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
+        eType="#//InfoFlowClause" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitializeSpecStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="guaranteeStatement" eType="#//GuaranteeStatement"
@@ -63,6 +65,14 @@
         eType="#//CaseStatementClause" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
         eType="#//HandlerClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
+        eType="#//InfoFlowClause" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InfoFlowClause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromInPortOrStateVar" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toOutPort" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HandlerClause">
     <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>

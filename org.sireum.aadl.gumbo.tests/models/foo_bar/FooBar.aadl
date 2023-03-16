@@ -27,7 +27,7 @@ public
         high: data Base_Types::Integer;
 	      annex gumbo {**       
 	      invariants
-	        inv "SetPoint Data Invariant": low <= high;
+	        inv SDI "SetPoint Data Invariant": low <= high;
 	      **};
     end SetPoint.i;
     
@@ -57,24 +57,25 @@ public
 	   	   
 	   	   myRec1: SetPoint;
 	   	 invariants
-	   	   inv "inv1 title": myInt1 > myInt2;
-	   	   inv "inv2 title": myInt3 = 1;
+	   	   inv INV1 "inv1 title": myInt1 > myInt2;
+	   	   inv INV2 "inv2 title": myInt3 = 1;
 	   	integration
 --	   	   test comment
-	   	   assume "integration assume": myInt1 > inS1.sp.low;
-	   	   assume "test floor()": floor(myFloat1) < inC1.high;
-	   	   assume "test floor() and +": (floor(myFloat2 + 3.0) = inC1.high) <=> false; 
-	   	   assume "test real() and ^": real(inC1.low) ^ 2.0 > myFloat3;
-	   	   assume "test enum literal": myFloat1 = enum(ABCD, Integer);
-	   	   assume "test record literal": inS1.sp <> SetPoint.i { low = 1; high = 2 }; 
-	   	   guarantee "guarantee title": outC1;
+	   	   assume ASS1 "integration assume": myInt1 > inS1.sp.low;
+	   	   assume ASS2 "test floor()": floor(myFloat1) < inC1.high;
+	   	   assume ASS3 "test floor() and +": (floor(myFloat2 + 3.0) = inC1.high) <=> false; 
+	   	   assume ASS4 "test real() and ^": real(inC1.low) ^ 2.0 > myFloat3;
+	   	   assume ASS5 "test enum literal": myFloat1 = enum(ABCD, Integer);
+	   	   assume ASS6 "test record literal": inS1.sp <> SetPoint.i { low = 1; high = 2 }; 
+	   	   guarantee GUAR1 "guarantee title": outC1;
 	   	initialize
-	   	   guarantee "guarantee title": outC1 = 1;
+	   	   guarantee GUAR2 "guarantee title": outC1 = 1;
 	   	compute
-	   	   case "case1 title": 
+	   	   cases
+	   	   case C1 "case1 title": 
 	   	     assume inC1 = 100;
 	   	     guarantee outC1.low = 3 and outC1.high = 10;
-	   	   case "case2 title": 
+	   	   case C2 "case2 title": 
 	   	     assume inC1 <> 100;
 	   	     guarantee outC1.low = 4 and outC1.high = 20;
       **};

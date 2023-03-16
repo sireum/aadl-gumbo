@@ -147,14 +147,14 @@ public
         currentFanState: CoolingFan::FanCmd;
                  
       integration   
-        assume "currentTemp Range":
-           currentTemp.degrees >= -70.0 and currentTemp.degrees <= 180.0;
+        assume CTR "currentTemp Range":
+           currentTemp.degrees >= 0-70.0 & currentTemp.degrees <= 180.0;
 
       initialize
         -- modifies currentSetPoint, currentFanState;
-        guarantee "Default set point":
+        guarantee DSP "Default set point":
           currentSetPoint.low.degrees = 70.0 and currentSetPoint.high.degrees = 80.0F;
-        guarantee "Default fan state":
+        guarantee DFS "Default fan state":
           currentFanState = FanCmd.Off;
           
       compute  // behaviors for COMPUTE Entrypoint
@@ -272,7 +272,7 @@ public
       high: data TempSensor::Temperature.i;
       annex GUMBO {**       
       invariants
-        inv "SetPoint Data Invariant":
+        inv SPDI "SetPoint Data Invariant":
           low.degrees <= high.degrees;
       **};
   end SetPoint.i;

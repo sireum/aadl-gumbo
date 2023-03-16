@@ -64,6 +64,7 @@ Initialize:
 	'initialize'
 	  (modifies=SlangModifies ';')? 
 	  (specs+=InitializeSpecStatement)+
+	  (flows+=InfoFlowClause)*
 ;
 
 InitializeSpecStatement:
@@ -86,6 +87,14 @@ Compute:
 	  (specs+=SpecStatement)* // assume and/or guarantees
 	  ('cases' (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
+	  (flows+=InfoFlowClause)*
+;
+
+InfoFlowClause:
+	'infoflow' id=ID ':' descriptor=SLANG_STRING?
+		  'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+		  ','
+		  'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
 ;
 
 HandlerClause:

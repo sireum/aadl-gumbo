@@ -74,6 +74,8 @@ import org.osate.aadl2.AnnexLibrary
 import org.osate.aadl2.DefaultAnnexLibrary
 import org.sireum.aadl.gumbo.gumbo.CallExpr
 import org.sireum.aadl.gumbo.gumbo.Compute
+import org.sireum.aadl.gumbo.gumbo.InfoFlowClause
+import org.osate.aadl2.EventPort
 
 /**
  * This class contains custom scoping description.
@@ -119,6 +121,29 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 
   def scope_DefParam_typeName(SlangDefParam context, EReference reference) {
     getVariableScope(context, reference)
+  }
+  
+  def scope_InfoFlowClause_fromInPortOrStateVar(InfoFlowClause context, EReference reference) {
+      val localDecls = new BasicEList<EObject>()
+
+      val ports = getPortRef(context, reference,
+      	       #[PortCategory.EVENT, PortCategory.DATA, PortCategory.EVENT_DATA],
+      	       #[DirectionType.IN])
+
+      val stateVarDecls = context.getContainerOfType(SpecSection).state?.decls
+      if (stateVarDecls !== null) {
+        localDecls.addAll(stateVarDecls)
+      }
+      
+      return stateVarDecls.scopeFor(ports)
+  }
+
+  def scope_InfoFlowClause_toOutPort(InfoFlowClause context, EReference reference) {
+      val ports = getPortRef(context, reference,
+      	       #[PortCategory.EVENT, PortCategory.DATA, PortCategory.EVENT_DATA],
+      	       #[DirectionType.OUT])
+
+      return ports
   }
 
   def getVariableScope(EObject context, EReference reference) {
@@ -297,6 +322,11 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
   }
 
   def getEventPortRef(EObject context, EReference reference, List<DirectionType> directions) {
+  	getPortRef(context, reference, #[PortCategory.EVENT, PortCategory.EVENT_DATA], directions)
+  }
+  
+  def getPortRef(EObject context, EReference reference, List<PortCategory> categories, List<DirectionType> directions) {
+  
     if (context === null) {
       return IScope::NULLSCOPE
     }
@@ -307,7 +337,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
       classifier.allInternalFeatures
     } else {
       emptyList
-    }).filter(Port).filter([x|x.category == PortCategory.EVENT || x.category == PortCategory.EVENT_DATA]).filter([ x |
+    }).filter(Port).filter([x|categories.contains(x.category)]).filter([ x |
       directions.contains(x.direction)
     ])
 

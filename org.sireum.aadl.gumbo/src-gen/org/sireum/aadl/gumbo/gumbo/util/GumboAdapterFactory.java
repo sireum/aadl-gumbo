@@ -147,6 +147,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createComputeAdapter();
       }
       @Override
+      public Adapter caseInfoFlowClause(InfoFlowClause object)
+      {
+        return createInfoFlowClauseAdapter();
+      }
+      @Override
       public Adapter caseHandlerClause(HandlerClause object)
       {
         return createHandlerClauseAdapter();
@@ -829,6 +834,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComputeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause <em>Info Flow Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.InfoFlowClause
+   * @generated
+   */
+  public Adapter createInfoFlowClauseAdapter()
   {
     return null;
   }

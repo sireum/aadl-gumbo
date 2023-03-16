@@ -33,6 +33,7 @@ import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
+import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
 import org.sireum.aadl.gumbo.gumbo.SlangModifies;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 
@@ -48,6 +49,7 @@ import org.sireum.aadl.gumbo.gumbo.SpecStatement;
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getSpecs <em>Specs</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getCases <em>Cases</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getHandlers <em>Handlers</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.ComputeImpl#getFlows <em>Flows</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,6 +95,16 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @ordered
    */
   protected EList<HandlerClause> handlers;
+
+  /**
+   * The cached value of the '{@link #getFlows() <em>Flows</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFlows()
+   * @generated
+   * @ordered
+   */
+  protected EList<InfoFlowClause> flows;
 
   /**
    * <!-- begin-user-doc -->
@@ -216,6 +228,21 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
    * @generated
    */
   @Override
+  public EList<InfoFlowClause> getFlows()
+  {
+    if (flows == null)
+    {
+      flows = new EObjectContainmentEList<InfoFlowClause>(InfoFlowClause.class, this, GumboPackage.COMPUTE__FLOWS);
+    }
+    return flows;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -228,6 +255,8 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         return ((InternalEList<?>)getCases()).basicRemove(otherEnd, msgs);
       case GumboPackage.COMPUTE__HANDLERS:
         return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
+      case GumboPackage.COMPUTE__FLOWS:
+        return ((InternalEList<?>)getFlows()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -250,6 +279,8 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         return getCases();
       case GumboPackage.COMPUTE__HANDLERS:
         return getHandlers();
+      case GumboPackage.COMPUTE__FLOWS:
+        return getFlows();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -280,6 +311,10 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         getHandlers().clear();
         getHandlers().addAll((Collection<? extends HandlerClause>)newValue);
         return;
+      case GumboPackage.COMPUTE__FLOWS:
+        getFlows().clear();
+        getFlows().addAll((Collection<? extends InfoFlowClause>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -306,6 +341,9 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
       case GumboPackage.COMPUTE__HANDLERS:
         getHandlers().clear();
         return;
+      case GumboPackage.COMPUTE__FLOWS:
+        getFlows().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -328,6 +366,8 @@ public class ComputeImpl extends MinimalEObjectImpl.Container implements Compute
         return cases != null && !cases.isEmpty();
       case GumboPackage.COMPUTE__HANDLERS:
         return handlers != null && !handlers.isEmpty();
+      case GumboPackage.COMPUTE__FLOWS:
+        return flows != null && !flows.isEmpty();
     }
     return super.eIsSet(featureID);
   }
