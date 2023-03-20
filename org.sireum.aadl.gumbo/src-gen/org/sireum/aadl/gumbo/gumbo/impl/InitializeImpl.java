@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 import org.sireum.aadl.gumbo.gumbo.SlangModifies;
@@ -44,6 +45,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangModifies;
  * <ul>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.InitializeImpl#getModifies <em>Modifies</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.InitializeImpl#getSpecs <em>Specs</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.InitializeImpl#getFlows <em>Flows</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +71,16 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
    * @ordered
    */
   protected EList<InitializeSpecStatement> specs;
+
+  /**
+   * The cached value of the '{@link #getFlows() <em>Flows</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFlows()
+   * @generated
+   * @ordered
+   */
+  protected EList<InfoFlowClause> flows;
 
   /**
    * <!-- begin-user-doc -->
@@ -162,6 +174,21 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
    * @generated
    */
   @Override
+  public EList<InfoFlowClause> getFlows()
+  {
+    if (flows == null)
+    {
+      flows = new EObjectContainmentEList<InfoFlowClause>(InfoFlowClause.class, this, GumboPackage.INITIALIZE__FLOWS);
+    }
+    return flows;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -170,6 +197,8 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
         return basicSetModifies(null, msgs);
       case GumboPackage.INITIALIZE__SPECS:
         return ((InternalEList<?>)getSpecs()).basicRemove(otherEnd, msgs);
+      case GumboPackage.INITIALIZE__FLOWS:
+        return ((InternalEList<?>)getFlows()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -188,6 +217,8 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
         return getModifies();
       case GumboPackage.INITIALIZE__SPECS:
         return getSpecs();
+      case GumboPackage.INITIALIZE__FLOWS:
+        return getFlows();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -210,6 +241,10 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
         getSpecs().clear();
         getSpecs().addAll((Collection<? extends InitializeSpecStatement>)newValue);
         return;
+      case GumboPackage.INITIALIZE__FLOWS:
+        getFlows().clear();
+        getFlows().addAll((Collection<? extends InfoFlowClause>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -230,6 +265,9 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
       case GumboPackage.INITIALIZE__SPECS:
         getSpecs().clear();
         return;
+      case GumboPackage.INITIALIZE__FLOWS:
+        getFlows().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -248,6 +286,8 @@ public class InitializeImpl extends MinimalEObjectImpl.Container implements Init
         return modifies != null;
       case GumboPackage.INITIALIZE__SPECS:
         return specs != null && !specs.isEmpty();
+      case GumboPackage.INITIALIZE__FLOWS:
+        return flows != null && !flows.isEmpty();
     }
     return super.eIsSet(featureID);
   }

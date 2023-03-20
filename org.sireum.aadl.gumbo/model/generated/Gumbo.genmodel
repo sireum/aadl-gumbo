@@ -43,6 +43,7 @@
     <genClasses ecoreClass="Gumbo.ecore#//Initialize">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/modifies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/specs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/flows"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//InitializeSpecStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//InitializeSpecStatement/guaranteeStatement"/>
@@ -52,6 +53,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/specs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/cases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/handlers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/flows"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//InfoFlowClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//InfoFlowClause/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//InfoFlowClause/descriptor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//InfoFlowClause/fromInPortOrStateVar"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//InfoFlowClause/toOutPort"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//HandlerClause">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//HandlerClause/id"/>

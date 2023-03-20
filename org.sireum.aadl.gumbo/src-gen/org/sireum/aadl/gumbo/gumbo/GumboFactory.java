@@ -133,6 +133,15 @@ public interface GumboFactory extends EFactory
   Compute createCompute();
 
   /**
+   * Returns a new object of class '<em>Info Flow Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Info Flow Clause</em>'.
+   * @generated
+   */
+  InfoFlowClause createInfoFlowClause();
+
+  /**
    * Returns a new object of class '<em>Handler Clause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

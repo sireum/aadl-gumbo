@@ -173,6 +173,13 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.INFO_FLOW_CLAUSE:
+      {
+        InfoFlowClause infoFlowClause = (InfoFlowClause)theEObject;
+        T result = caseInfoFlowClause(infoFlowClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.HANDLER_CLAUSE:
       {
         HandlerClause handlerClause = (HandlerClause)theEObject;
@@ -1062,6 +1069,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCompute(Compute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Info Flow Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Info Flow Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInfoFlowClause(InfoFlowClause object)
   {
     return null;
   }

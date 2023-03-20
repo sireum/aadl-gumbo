@@ -360,6 +360,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InfoFlowClauseItemProvider infoFlowClauseItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInfoFlowClauseAdapter()
+  {
+    if (infoFlowClauseItemProvider == null)
+    {
+      infoFlowClauseItemProvider = new InfoFlowClauseItemProvider(this);
+    }
+
+    return infoFlowClauseItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.HandlerClause} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2862,6 +2887,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (initializeItemProvider != null) initializeItemProvider.dispose();
     if (initializeSpecStatementItemProvider != null) initializeSpecStatementItemProvider.dispose();
     if (computeItemProvider != null) computeItemProvider.dispose();
+    if (infoFlowClauseItemProvider != null) infoFlowClauseItemProvider.dispose();
     if (handlerClauseItemProvider != null) handlerClauseItemProvider.dispose();
     if (caseStatementClauseItemProvider != null) caseStatementClauseItemProvider.dispose();
     if (specStatementItemProvider != null) specStatementItemProvider.dispose();

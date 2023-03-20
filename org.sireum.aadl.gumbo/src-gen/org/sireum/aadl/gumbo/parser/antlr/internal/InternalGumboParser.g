@@ -678,6 +678,25 @@ ruleInitialize returns [EObject current=null]
 				}
 			)
 		)+
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInitializeAccess().getFlowsInfoFlowClauseParserRuleCall_3_0());
+				}
+				lv_flows_4_0=ruleInfoFlowClause
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInitializeRule());
+					}
+					add(
+						$current,
+						"flows",
+						lv_flows_4_0,
+						"org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -835,6 +854,152 @@ ruleCompute returns [EObject current=null]
 				}
 			)
 		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComputeAccess().getFlowsInfoFlowClauseParserRuleCall_6_0());
+				}
+				lv_flows_8_0=ruleInfoFlowClause
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComputeRule());
+					}
+					add(
+						$current,
+						"flows",
+						lv_flows_8_0,
+						"org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleInfoFlowClause
+entryRuleInfoFlowClause returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInfoFlowClauseRule()); }
+	iv_ruleInfoFlowClause=ruleInfoFlowClause
+	{ $current=$iv_ruleInfoFlowClause.current; }
+	EOF;
+
+// Rule InfoFlowClause
+ruleInfoFlowClause returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Infoflow
+		{
+			newLeafNode(otherlv_0, grammarAccess.getInfoFlowClauseAccess().getInfoflowKeyword_0());
+		}
+		(
+			(
+				lv_id_1_0=RULE_ID
+				{
+					newLeafNode(lv_id_1_0, grammarAccess.getInfoFlowClauseAccess().getIdIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getInfoFlowClauseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"id",
+						lv_id_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.ID");
+				}
+			)
+		)
+		otherlv_2=Colon
+		{
+			newLeafNode(otherlv_2, grammarAccess.getInfoFlowClauseAccess().getColonKeyword_2());
+		}
+		(
+			(
+				lv_descriptor_3_0=RULE_SLANG_STRING
+				{
+					newLeafNode(lv_descriptor_3_0, grammarAccess.getInfoFlowClauseAccess().getDescriptorSLANG_STRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getInfoFlowClauseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"descriptor",
+						lv_descriptor_3_0,
+						"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+				}
+			)
+		)?
+		otherlv_4=From
+		{
+			newLeafNode(otherlv_4, grammarAccess.getInfoFlowClauseAccess().getFromKeyword_4());
+		}
+		otherlv_5=LeftParenthesis
+		{
+			newLeafNode(otherlv_5, grammarAccess.getInfoFlowClauseAccess().getLeftParenthesisKeyword_5());
+		}
+		(
+			(
+				{
+					/* */
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getInfoFlowClauseRule());
+					}
+				}
+				otherlv_6=RULE_ID
+				{
+					newLeafNode(otherlv_6, grammarAccess.getInfoFlowClauseAccess().getFromInPortOrStateVarEObjectCrossReference_6_0());
+				}
+			)
+		)
+		otherlv_7=RightParenthesis
+		{
+			newLeafNode(otherlv_7, grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_7());
+		}
+		otherlv_8=Comma
+		{
+			newLeafNode(otherlv_8, grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_8());
+		}
+		otherlv_9=To_1
+		{
+			newLeafNode(otherlv_9, grammarAccess.getInfoFlowClauseAccess().getToKeyword_9());
+		}
+		otherlv_10=LeftParenthesis
+		{
+			newLeafNode(otherlv_10, grammarAccess.getInfoFlowClauseAccess().getLeftParenthesisKeyword_10());
+		}
+		(
+			(
+				{
+					/* */
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getInfoFlowClauseRule());
+					}
+				}
+				otherlv_11=RULE_ID
+				{
+					newLeafNode(otherlv_11, grammarAccess.getInfoFlowClauseAccess().getToOutPortPortCrossReference_11_0());
+				}
+			)
+		)
+		otherlv_12=RightParenthesis
+		{
+			newLeafNode(otherlv_12, grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_12());
+		}
+		otherlv_13=Semicolon
+		{
+			newLeafNode(otherlv_13, grammarAccess.getInfoFlowClauseAccess().getSemicolonKeyword_13());
+		}
 	)
 ;
 
@@ -8573,7 +8738,7 @@ ruleAppliesToKeywords returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getAppliesToKeywordsAccess().getAppliesKeyword_0());
 		}
-		kw=To
+		kw=To_1
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getAppliesToKeywordsAccess().getToKeyword_1());
