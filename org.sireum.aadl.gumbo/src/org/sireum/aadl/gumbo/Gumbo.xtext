@@ -61,9 +61,9 @@ Integration:
 ;
 
 Initialize:
-	'initialize'
+	{Initialize} 'initialize'
 	  (modifies=SlangModifies ';')? 
-	  (specs+=InitializeSpecStatement)+
+	  (specs+=InitializeSpecStatement)*
 	  (flows+=InfoFlowClause)*
 ;
 
@@ -91,10 +91,10 @@ Compute:
 ;
 
 InfoFlowClause:
-	'infoflow' id=ID ':' descriptor=SLANG_STRING?
-		  'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+	'infoflow' id=ID descriptor=SLANG_STRING? ':'
+		  'From' '(' (fromPortOrStateVar+=[ecore::EObject|ID] ( ',' fromPortOrStateVar+=[ecore::EObject|ID])* )? ')'
 		  ','
-		  'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
+		  'To' '(' (toPortOrStateVar+=[ecore::EObject|ID] ( ',' toPortOrStateVar+=[ecore::EObject|ID])* )? ')' ';'
 ;
 
 HandlerClause:

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -49,6 +50,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
+import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.InitializeSpecStatement;
 import org.sireum.aadl.gumbo.gumbo.IntegerLit;
@@ -505,8 +507,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				guarantees.add(visitPop(iss.getGuaranteeStatement()));
 			}
 
-			_initializes = SlangUtil
-					.toSome(GclInitialize$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees)));
+			List<org.sireum.hamr.ir.InfoFlowClause> flows = new ArrayList<>();
+			for (InfoFlowClause ifc : i.getFlows()) {
+				flows.add(visitPop(ifc));
+			}
+
+			_initializes = SlangUtil.toSome(GclInitialize$.MODULE$.apply(VisitorUtil.toISZ(modifies),
+					VisitorUtil.toISZ(guarantees), VisitorUtil.toISZ(flows)));
 		}
 
 		Option<GclCompute> _compute = SlangUtil.toNone();
@@ -563,8 +570,15 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
+		List<org.sireum.hamr.ir.InfoFlowClause> flows = new ArrayList<>();
+		if (object.getFlows() != null) {
+			for (InfoFlowClause ifc : object.getFlows()) {
+				flows.add(visitPop(ifc));
+			}
+		}
+
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(specs),
-				VisitorUtil.toISZ(caseStatements), VisitorUtil.toISZ(handlers)));
+				VisitorUtil.toISZ(caseStatements), VisitorUtil.toISZ(handlers), VisitorUtil.toISZ(flows)));
 
 		return false;
 	}
@@ -1156,6 +1170,44 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		return false;
 	}
+
+	@Override
+	public Boolean caseInfoFlowClause(InfoFlowClause object) {
+		Function<EObject, Exp> process = (e) -> {
+			String name = null;
+			if(e instanceof StateVarDecl) {
+				name = ((StateVarDecl) e).getName();
+			}
+			else if(e instanceof Port) {
+				name = ((Port) e).getName();
+			} else {
+				reportError(e, "Only ports and state variables are allowed in flow from/to clauses");
+			}
+			Id portId = Id$.MODULE$.apply(name, GumboUtil.buildAttr(e));
+			return Ident$.MODULE$.apply(portId, GumboUtil.buildResolvedAttr(e));
+		};
+
+		List<Exp> froms = new ArrayList<>();
+		for (EObject o : object.getFromPortOrStateVar()) {
+			froms.add(process.apply(o));
+		}
+
+		List<Exp> tos = new ArrayList<>();
+		for (EObject o : object.getToPortOrStateVar()) {
+			tos.add(process.apply(o));
+		}
+
+		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(object.getDescriptor());
+
+		push(org.sireum.hamr.ir.InfoFlowClause$.MODULE$.apply(object.getId(), descriptor, VisitorUtil.toISZ(froms),
+				VisitorUtil.toISZ(tos), VisitorUtil.buildPositionOpt(object)));
+
+		return false;
+	}
+
+	/*
+	 * Util methods below
+	 */
 
 	public Boolean visit(EObject o) {
 		reportError(isSwitchFor(o.eClass().getEPackage()), o, "Internal error: GumboVisitor is not a switch for " + o);
