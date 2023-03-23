@@ -631,22 +631,22 @@ public interface GumboPackage extends EPackage
   int INFO_FLOW_CLAUSE__DESCRIPTOR = 1;
 
   /**
-   * The feature id for the '<em><b>From In Port Or State Var</b></em>' reference.
+   * The feature id for the '<em><b>From Port Or State Var</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INFO_FLOW_CLAUSE__FROM_IN_PORT_OR_STATE_VAR = 2;
+  int INFO_FLOW_CLAUSE__FROM_PORT_OR_STATE_VAR = 2;
 
   /**
-   * The feature id for the '<em><b>To Out Port</b></em>' reference.
+   * The feature id for the '<em><b>To Port Or State Var</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INFO_FLOW_CLAUSE__TO_OUT_PORT = 3;
+  int INFO_FLOW_CLAUSE__TO_PORT_OR_STATE_VAR = 3;
 
   /**
    * The number of structural features of the '<em>Info Flow Clause</em>' class.
@@ -4447,26 +4447,26 @@ public interface GumboPackage extends EPackage
   EAttribute getInfoFlowClause_Descriptor();
 
   /**
-   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getFromInPortOrStateVar <em>From In Port Or State Var</em>}'.
+   * Returns the meta object for the reference list '{@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getFromPortOrStateVar <em>From Port Or State Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>From In Port Or State Var</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getFromInPortOrStateVar()
+   * @return the meta object for the reference list '<em>From Port Or State Var</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getFromPortOrStateVar()
    * @see #getInfoFlowClause()
    * @generated
    */
-  EReference getInfoFlowClause_FromInPortOrStateVar();
+  EReference getInfoFlowClause_FromPortOrStateVar();
 
   /**
-   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getToOutPort <em>To Out Port</em>}'.
+   * Returns the meta object for the reference list '{@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getToPortOrStateVar <em>To Port Or State Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>To Out Port</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getToOutPort()
+   * @return the meta object for the reference list '<em>To Port Or State Var</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.InfoFlowClause#getToPortOrStateVar()
    * @see #getInfoFlowClause()
    * @generated
    */
-  EReference getInfoFlowClause_ToOutPort();
+  EReference getInfoFlowClause_ToPortOrStateVar();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.HandlerClause <em>Handler Clause</em>}'.
@@ -7549,20 +7549,20 @@ public interface GumboPackage extends EPackage
     EAttribute INFO_FLOW_CLAUSE__DESCRIPTOR = eINSTANCE.getInfoFlowClause_Descriptor();
 
     /**
-     * The meta object literal for the '<em><b>From In Port Or State Var</b></em>' reference feature.
+     * The meta object literal for the '<em><b>From Port Or State Var</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference INFO_FLOW_CLAUSE__FROM_IN_PORT_OR_STATE_VAR = eINSTANCE.getInfoFlowClause_FromInPortOrStateVar();
+    EReference INFO_FLOW_CLAUSE__FROM_PORT_OR_STATE_VAR = eINSTANCE.getInfoFlowClause_FromPortOrStateVar();
 
     /**
-     * The meta object literal for the '<em><b>To Out Port</b></em>' reference feature.
+     * The meta object literal for the '<em><b>To Port Or State Var</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference INFO_FLOW_CLAUSE__TO_OUT_PORT = eINSTANCE.getInfoFlowClause_ToOutPort();
+    EReference INFO_FLOW_CLAUSE__TO_PORT_OR_STATE_VAR = eINSTANCE.getInfoFlowClause_ToPortOrStateVar();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.HandlerClauseImpl <em>Handler Clause</em>}' class.

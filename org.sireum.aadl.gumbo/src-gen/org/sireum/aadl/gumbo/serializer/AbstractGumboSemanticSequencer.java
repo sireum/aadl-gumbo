@@ -865,7 +865,12 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     InfoFlowClause returns InfoFlowClause
 	 *
 	 * Constraint:
-	 *     (id=ID descriptor=SLANG_STRING? fromInPortOrStateVar=[EObject|ID] toOutPort=[Port|ID])
+	 *     (
+	 *         id=ID 
+	 *         descriptor=SLANG_STRING? 
+	 *         (fromPortOrStateVar+=[EObject|ID] fromPortOrStateVar+=[EObject|ID]*)? 
+	 *         (toPortOrStateVar+=[EObject|ID] toPortOrStateVar+=[EObject|ID]*)?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_InfoFlowClause(ISerializationContext context, InfoFlowClause semanticObject) {
@@ -899,7 +904,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Initialize returns Initialize
 	 *
 	 * Constraint:
-	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement+ flows+=InfoFlowClause*)
+	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement* flows+=InfoFlowClause*)
 	 * </pre>
 	 */
 	protected void sequence_Initialize(ISerializationContext context, Initialize semanticObject) {

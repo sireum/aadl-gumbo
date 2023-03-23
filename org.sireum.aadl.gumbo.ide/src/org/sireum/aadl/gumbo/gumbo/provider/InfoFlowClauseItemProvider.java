@@ -77,8 +77,8 @@ public class InfoFlowClauseItemProvider
 
       addIdPropertyDescriptor(object);
       addDescriptorPropertyDescriptor(object);
-      addFromInPortOrStateVarPropertyDescriptor(object);
-      addToOutPortPropertyDescriptor(object);
+      addFromPortOrStateVarPropertyDescriptor(object);
+      addToPortOrStateVarPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -130,20 +130,20 @@ public class InfoFlowClauseItemProvider
   }
 
   /**
-   * This adds a property descriptor for the From In Port Or State Var feature.
+   * This adds a property descriptor for the From Port Or State Var feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addFromInPortOrStateVarPropertyDescriptor(Object object)
+  protected void addFromPortOrStateVarPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_InfoFlowClause_fromInPortOrStateVar_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_fromInPortOrStateVar_feature", "_UI_InfoFlowClause_type"),
-         GumboPackage.Literals.INFO_FLOW_CLAUSE__FROM_IN_PORT_OR_STATE_VAR,
+         getString("_UI_InfoFlowClause_fromPortOrStateVar_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_fromPortOrStateVar_feature", "_UI_InfoFlowClause_type"),
+         GumboPackage.Literals.INFO_FLOW_CLAUSE__FROM_PORT_OR_STATE_VAR,
          true,
          false,
          true,
@@ -153,20 +153,20 @@ public class InfoFlowClauseItemProvider
   }
 
   /**
-   * This adds a property descriptor for the To Out Port feature.
+   * This adds a property descriptor for the To Port Or State Var feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addToOutPortPropertyDescriptor(Object object)
+  protected void addToPortOrStateVarPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_InfoFlowClause_toOutPort_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_toOutPort_feature", "_UI_InfoFlowClause_type"),
-         GumboPackage.Literals.INFO_FLOW_CLAUSE__TO_OUT_PORT,
+         getString("_UI_InfoFlowClause_toPortOrStateVar_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_InfoFlowClause_toPortOrStateVar_feature", "_UI_InfoFlowClause_type"),
+         GumboPackage.Literals.INFO_FLOW_CLAUSE__TO_PORT_OR_STATE_VAR,
          true,
          false,
          true,

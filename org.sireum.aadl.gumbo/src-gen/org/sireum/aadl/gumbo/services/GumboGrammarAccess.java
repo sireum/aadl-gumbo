@@ -366,56 +366,60 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class InitializeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Initialize");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cInitializeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cModifiesAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cModifiesSlangModifiesParserRuleCall_1_0_0 = (RuleCall)cModifiesAssignment_1_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cSpecsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSpecsInitializeSpecStatementParserRuleCall_2_0 = (RuleCall)cSpecsAssignment_2.eContents().get(0);
-		private final Assignment cFlowsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFlowsInfoFlowClauseParserRuleCall_3_0 = (RuleCall)cFlowsAssignment_3.eContents().get(0);
+		private final Action cInitializeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cInitializeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cModifiesAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cModifiesSlangModifiesParserRuleCall_2_0_0 = (RuleCall)cModifiesAssignment_2_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cSpecsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSpecsInitializeSpecStatementParserRuleCall_3_0 = (RuleCall)cSpecsAssignment_3.eContents().get(0);
+		private final Assignment cFlowsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFlowsInfoFlowClauseParserRuleCall_4_0 = (RuleCall)cFlowsAssignment_4.eContents().get(0);
 		
 		//Initialize:
-		//    'initialize'
+		//    {Initialize} 'initialize'
 		//      (modifies=SlangModifies ';')?
-		//      (specs+=InitializeSpecStatement)+
+		//      (specs+=InitializeSpecStatement)*
 		//      (flows+=InfoFlowClause)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'initialize'
+		//{Initialize} 'initialize'
 		//  (modifies=SlangModifies ';')?
-		//  (specs+=InitializeSpecStatement)+
+		//  (specs+=InitializeSpecStatement)*
 		//  (flows+=InfoFlowClause)*
 		public Group getGroup() { return cGroup; }
 		
+		//{Initialize}
+		public Action getInitializeAction_0() { return cInitializeAction_0; }
+		
 		//'initialize'
-		public Keyword getInitializeKeyword_0() { return cInitializeKeyword_0; }
+		public Keyword getInitializeKeyword_1() { return cInitializeKeyword_1; }
 		
 		//(modifies=SlangModifies ';')?
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//modifies=SlangModifies
-		public Assignment getModifiesAssignment_1_0() { return cModifiesAssignment_1_0; }
+		public Assignment getModifiesAssignment_2_0() { return cModifiesAssignment_2_0; }
 		
 		//SlangModifies
-		public RuleCall getModifiesSlangModifiesParserRuleCall_1_0_0() { return cModifiesSlangModifiesParserRuleCall_1_0_0; }
+		public RuleCall getModifiesSlangModifiesParserRuleCall_2_0_0() { return cModifiesSlangModifiesParserRuleCall_2_0_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
+		public Keyword getSemicolonKeyword_2_1() { return cSemicolonKeyword_2_1; }
 		
-		//(specs+=InitializeSpecStatement)+
-		public Assignment getSpecsAssignment_2() { return cSpecsAssignment_2; }
+		//(specs+=InitializeSpecStatement)*
+		public Assignment getSpecsAssignment_3() { return cSpecsAssignment_3; }
 		
 		//InitializeSpecStatement
-		public RuleCall getSpecsInitializeSpecStatementParserRuleCall_2_0() { return cSpecsInitializeSpecStatementParserRuleCall_2_0; }
+		public RuleCall getSpecsInitializeSpecStatementParserRuleCall_3_0() { return cSpecsInitializeSpecStatementParserRuleCall_3_0; }
 		
 		//(flows+=InfoFlowClause)*
-		public Assignment getFlowsAssignment_3() { return cFlowsAssignment_3; }
+		public Assignment getFlowsAssignment_4() { return cFlowsAssignment_4; }
 		
 		//InfoFlowClause
-		public RuleCall getFlowsInfoFlowClauseParserRuleCall_3_0() { return cFlowsInfoFlowClauseParserRuleCall_3_0; }
+		public RuleCall getFlowsInfoFlowClauseParserRuleCall_4_0() { return cFlowsInfoFlowClauseParserRuleCall_4_0; }
 	}
 	public class InitializeSpecStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InitializeSpecStatement");
@@ -550,36 +554,48 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cInfoflowKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDescriptorAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDescriptorSLANG_STRINGTerminalRuleCall_3_0 = (RuleCall)cDescriptorAssignment_3.eContents().get(0);
+		private final Assignment cDescriptorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDescriptorSLANG_STRINGTerminalRuleCall_2_0 = (RuleCall)cDescriptorAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cFromKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cLeftParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cFromInPortOrStateVarAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cFromInPortOrStateVarEObjectCrossReference_6_0 = (CrossReference)cFromInPortOrStateVarAssignment_6.eContents().get(0);
-		private final RuleCall cFromInPortOrStateVarEObjectIDTerminalRuleCall_6_0_1 = (RuleCall)cFromInPortOrStateVarEObjectCrossReference_6_0.eContents().get(1);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Assignment cFromPortOrStateVarAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final CrossReference cFromPortOrStateVarEObjectCrossReference_6_0_0 = (CrossReference)cFromPortOrStateVarAssignment_6_0.eContents().get(0);
+		private final RuleCall cFromPortOrStateVarEObjectIDTerminalRuleCall_6_0_0_1 = (RuleCall)cFromPortOrStateVarEObjectCrossReference_6_0_0.eContents().get(1);
+		private final Group cGroup_6_1 = (Group)cGroup_6.eContents().get(1);
+		private final Keyword cCommaKeyword_6_1_0 = (Keyword)cGroup_6_1.eContents().get(0);
+		private final Assignment cFromPortOrStateVarAssignment_6_1_1 = (Assignment)cGroup_6_1.eContents().get(1);
+		private final CrossReference cFromPortOrStateVarEObjectCrossReference_6_1_1_0 = (CrossReference)cFromPortOrStateVarAssignment_6_1_1.eContents().get(0);
+		private final RuleCall cFromPortOrStateVarEObjectIDTerminalRuleCall_6_1_1_0_1 = (RuleCall)cFromPortOrStateVarEObjectCrossReference_6_1_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Keyword cToKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Keyword cLeftParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cToOutPortAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final CrossReference cToOutPortPortCrossReference_11_0 = (CrossReference)cToOutPortAssignment_11.eContents().get(0);
-		private final RuleCall cToOutPortPortIDTerminalRuleCall_11_0_1 = (RuleCall)cToOutPortPortCrossReference_11_0.eContents().get(1);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Assignment cToPortOrStateVarAssignment_11_0 = (Assignment)cGroup_11.eContents().get(0);
+		private final CrossReference cToPortOrStateVarEObjectCrossReference_11_0_0 = (CrossReference)cToPortOrStateVarAssignment_11_0.eContents().get(0);
+		private final RuleCall cToPortOrStateVarEObjectIDTerminalRuleCall_11_0_0_1 = (RuleCall)cToPortOrStateVarEObjectCrossReference_11_0_0.eContents().get(1);
+		private final Group cGroup_11_1 = (Group)cGroup_11.eContents().get(1);
+		private final Keyword cCommaKeyword_11_1_0 = (Keyword)cGroup_11_1.eContents().get(0);
+		private final Assignment cToPortOrStateVarAssignment_11_1_1 = (Assignment)cGroup_11_1.eContents().get(1);
+		private final CrossReference cToPortOrStateVarEObjectCrossReference_11_1_1_0 = (CrossReference)cToPortOrStateVarAssignment_11_1_1.eContents().get(0);
+		private final RuleCall cToPortOrStateVarEObjectIDTerminalRuleCall_11_1_1_0_1 = (RuleCall)cToPortOrStateVarEObjectCrossReference_11_1_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		private final Keyword cSemicolonKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//InfoFlowClause:
-		//    'infoflow' id=ID ':' descriptor=SLANG_STRING?
-		//          'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+		//    'infoflow' id=ID descriptor=SLANG_STRING? ':'
+		//          'From' '(' (fromPortOrStateVar+=[ecore::EObject|ID] ( ',' fromPortOrStateVar+=[ecore::EObject|ID])* )? ')'
 		//          ','
-		//          'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
+		//          'To' '(' (toPortOrStateVar+=[ecore::EObject|ID] ( ',' toPortOrStateVar+=[ecore::EObject|ID])* )? ')' ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'infoflow' id=ID ':' descriptor=SLANG_STRING?
-		//      'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+		//'infoflow' id=ID descriptor=SLANG_STRING? ':'
+		//      'From' '(' (fromPortOrStateVar+=[ecore::EObject|ID] ( ',' fromPortOrStateVar+=[ecore::EObject|ID])* )? ')'
 		//      ','
-		//      'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
+		//      'To' '(' (toPortOrStateVar+=[ecore::EObject|ID] ( ',' toPortOrStateVar+=[ecore::EObject|ID])* )? ')' ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'infoflow'
@@ -591,14 +607,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 		
-		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
-		
 		//descriptor=SLANG_STRING?
-		public Assignment getDescriptorAssignment_3() { return cDescriptorAssignment_3; }
+		public Assignment getDescriptorAssignment_2() { return cDescriptorAssignment_2; }
 		
 		//SLANG_STRING
-		public RuleCall getDescriptorSLANG_STRINGTerminalRuleCall_3_0() { return cDescriptorSLANG_STRINGTerminalRuleCall_3_0; }
+		public RuleCall getDescriptorSLANG_STRINGTerminalRuleCall_2_0() { return cDescriptorSLANG_STRINGTerminalRuleCall_2_0; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
 		//'From'
 		public Keyword getFromKeyword_4() { return cFromKeyword_4; }
@@ -606,14 +622,32 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'('
 		public Keyword getLeftParenthesisKeyword_5() { return cLeftParenthesisKeyword_5; }
 		
-		//fromInPortOrStateVar=[ecore::EObject|ID]
-		public Assignment getFromInPortOrStateVarAssignment_6() { return cFromInPortOrStateVarAssignment_6; }
+		//(fromPortOrStateVar+=[ecore::EObject|ID] ( ',' fromPortOrStateVar+=[ecore::EObject|ID])* )?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//fromPortOrStateVar+=[ecore::EObject|ID]
+		public Assignment getFromPortOrStateVarAssignment_6_0() { return cFromPortOrStateVarAssignment_6_0; }
 		
 		//[ecore::EObject|ID]
-		public CrossReference getFromInPortOrStateVarEObjectCrossReference_6_0() { return cFromInPortOrStateVarEObjectCrossReference_6_0; }
+		public CrossReference getFromPortOrStateVarEObjectCrossReference_6_0_0() { return cFromPortOrStateVarEObjectCrossReference_6_0_0; }
 		
 		//ID
-		public RuleCall getFromInPortOrStateVarEObjectIDTerminalRuleCall_6_0_1() { return cFromInPortOrStateVarEObjectIDTerminalRuleCall_6_0_1; }
+		public RuleCall getFromPortOrStateVarEObjectIDTerminalRuleCall_6_0_0_1() { return cFromPortOrStateVarEObjectIDTerminalRuleCall_6_0_0_1; }
+		
+		//( ',' fromPortOrStateVar+=[ecore::EObject|ID])*
+		public Group getGroup_6_1() { return cGroup_6_1; }
+		
+		//','
+		public Keyword getCommaKeyword_6_1_0() { return cCommaKeyword_6_1_0; }
+		
+		//fromPortOrStateVar+=[ecore::EObject|ID]
+		public Assignment getFromPortOrStateVarAssignment_6_1_1() { return cFromPortOrStateVarAssignment_6_1_1; }
+		
+		//[ecore::EObject|ID]
+		public CrossReference getFromPortOrStateVarEObjectCrossReference_6_1_1_0() { return cFromPortOrStateVarEObjectCrossReference_6_1_1_0; }
+		
+		//ID
+		public RuleCall getFromPortOrStateVarEObjectIDTerminalRuleCall_6_1_1_0_1() { return cFromPortOrStateVarEObjectIDTerminalRuleCall_6_1_1_0_1; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
@@ -627,14 +661,32 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'('
 		public Keyword getLeftParenthesisKeyword_10() { return cLeftParenthesisKeyword_10; }
 		
-		//toOutPort=[aadl2::Port|ID]
-		public Assignment getToOutPortAssignment_11() { return cToOutPortAssignment_11; }
+		//(toPortOrStateVar+=[ecore::EObject|ID] ( ',' toPortOrStateVar+=[ecore::EObject|ID])* )?
+		public Group getGroup_11() { return cGroup_11; }
 		
-		//[aadl2::Port|ID]
-		public CrossReference getToOutPortPortCrossReference_11_0() { return cToOutPortPortCrossReference_11_0; }
+		//toPortOrStateVar+=[ecore::EObject|ID]
+		public Assignment getToPortOrStateVarAssignment_11_0() { return cToPortOrStateVarAssignment_11_0; }
+		
+		//[ecore::EObject|ID]
+		public CrossReference getToPortOrStateVarEObjectCrossReference_11_0_0() { return cToPortOrStateVarEObjectCrossReference_11_0_0; }
 		
 		//ID
-		public RuleCall getToOutPortPortIDTerminalRuleCall_11_0_1() { return cToOutPortPortIDTerminalRuleCall_11_0_1; }
+		public RuleCall getToPortOrStateVarEObjectIDTerminalRuleCall_11_0_0_1() { return cToPortOrStateVarEObjectIDTerminalRuleCall_11_0_0_1; }
+		
+		//( ',' toPortOrStateVar+=[ecore::EObject|ID])*
+		public Group getGroup_11_1() { return cGroup_11_1; }
+		
+		//','
+		public Keyword getCommaKeyword_11_1_0() { return cCommaKeyword_11_1_0; }
+		
+		//toPortOrStateVar+=[ecore::EObject|ID]
+		public Assignment getToPortOrStateVarAssignment_11_1_1() { return cToPortOrStateVarAssignment_11_1_1; }
+		
+		//[ecore::EObject|ID]
+		public CrossReference getToPortOrStateVarEObjectCrossReference_11_1_1_0() { return cToPortOrStateVarEObjectCrossReference_11_1_1_0; }
+		
+		//ID
+		public RuleCall getToPortOrStateVarEObjectIDTerminalRuleCall_11_1_1_0_1() { return cToPortOrStateVarEObjectIDTerminalRuleCall_11_1_1_0_1; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_12() { return cRightParenthesisKeyword_12; }
@@ -5069,9 +5121,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Initialize:
-	//    'initialize'
+	//    {Initialize} 'initialize'
 	//      (modifies=SlangModifies ';')?
-	//      (specs+=InitializeSpecStatement)+
+	//      (specs+=InitializeSpecStatement)*
 	//      (flows+=InfoFlowClause)*
 	//;
 	public InitializeElements getInitializeAccess() {
@@ -5118,10 +5170,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//InfoFlowClause:
-	//    'infoflow' id=ID ':' descriptor=SLANG_STRING?
-	//          'From' '(' fromInPortOrStateVar=[ecore::EObject|ID] ')'
+	//    'infoflow' id=ID descriptor=SLANG_STRING? ':'
+	//          'From' '(' (fromPortOrStateVar+=[ecore::EObject|ID] ( ',' fromPortOrStateVar+=[ecore::EObject|ID])* )? ')'
 	//          ','
-	//          'To' '(' toOutPort=[aadl2::Port|ID] ')' ';'
+	//          'To' '(' (toPortOrStateVar+=[ecore::EObject|ID] ( ',' toPortOrStateVar+=[ecore::EObject|ID])* )? ')' ';'
 	//;
 	public InfoFlowClauseElements getInfoFlowClauseAccess() {
 		return pInfoFlowClause;

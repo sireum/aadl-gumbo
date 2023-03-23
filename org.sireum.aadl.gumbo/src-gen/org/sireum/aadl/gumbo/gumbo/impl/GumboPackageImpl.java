@@ -1392,7 +1392,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getInfoFlowClause_FromInPortOrStateVar()
+  public EReference getInfoFlowClause_FromPortOrStateVar()
   {
     return (EReference)infoFlowClauseEClass.getEStructuralFeatures().get(2);
   }
@@ -1403,7 +1403,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getInfoFlowClause_ToOutPort()
+  public EReference getInfoFlowClause_ToPortOrStateVar()
   {
     return (EReference)infoFlowClauseEClass.getEStructuralFeatures().get(3);
   }
@@ -4305,8 +4305,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     infoFlowClauseEClass = createEClass(INFO_FLOW_CLAUSE);
     createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__ID);
     createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__DESCRIPTOR);
-    createEReference(infoFlowClauseEClass, INFO_FLOW_CLAUSE__FROM_IN_PORT_OR_STATE_VAR);
-    createEReference(infoFlowClauseEClass, INFO_FLOW_CLAUSE__TO_OUT_PORT);
+    createEReference(infoFlowClauseEClass, INFO_FLOW_CLAUSE__FROM_PORT_OR_STATE_VAR);
+    createEReference(infoFlowClauseEClass, INFO_FLOW_CLAUSE__TO_PORT_OR_STATE_VAR);
 
     handlerClauseEClass = createEClass(HANDLER_CLAUSE);
     createEReference(handlerClauseEClass, HANDLER_CLAUSE__ID);
@@ -4794,8 +4794,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(infoFlowClauseEClass, InfoFlowClause.class, "InfoFlowClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfoFlowClause_Id(), theEcorePackage.getEString(), "id", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInfoFlowClause_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInfoFlowClause_FromInPortOrStateVar(), theEcorePackage.getEObject(), null, "fromInPortOrStateVar", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInfoFlowClause_ToOutPort(), theAadl2Package.getPort(), null, "toOutPort", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfoFlowClause_FromPortOrStateVar(), theEcorePackage.getEObject(), null, "fromPortOrStateVar", null, 0, -1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInfoFlowClause_ToPortOrStateVar(), theEcorePackage.getEObject(), null, "toPortOrStateVar", null, 0, -1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(handlerClauseEClass, HandlerClause.class, "HandlerClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getHandlerClause_Id(), theAadl2Package.getPort(), null, "id", null, 0, 1, HandlerClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
