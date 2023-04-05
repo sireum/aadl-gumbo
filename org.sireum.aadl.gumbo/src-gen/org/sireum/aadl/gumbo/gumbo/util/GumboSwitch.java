@@ -853,6 +853,22 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.F32_OBJ:
+      {
+        F32Obj f32Obj = (F32Obj)theEObject;
+        T result = caseF32Obj(f32Obj);
+        if (result == null) result = caseSlangLit(f32Obj);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.F64_OBJ:
+      {
+        F64Obj f64Obj = (F64Obj)theEObject;
+        T result = caseF64Obj(f64Obj);
+        if (result == null) result = caseSlangLit(f64Obj);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.SLANG_STRING_LIT:
       {
         SlangStringLit slangStringLit = (SlangStringLit)theEObject;
@@ -2525,6 +2541,38 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseF64Lit(F64Lit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>F32 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>F32 Obj</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseF32Obj(F32Obj object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>F64 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>F64 Obj</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseF64Obj(F64Obj object)
   {
     return null;
   }

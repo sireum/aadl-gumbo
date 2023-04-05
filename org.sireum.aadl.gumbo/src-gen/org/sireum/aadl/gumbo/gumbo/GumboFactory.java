@@ -952,6 +952,24 @@ public interface GumboFactory extends EFactory
   F64Lit createF64Lit();
 
   /**
+   * Returns a new object of class '<em>F32 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>F32 Obj</em>'.
+   * @generated
+   */
+  F32Obj createF32Obj();
+
+  /**
+   * Returns a new object of class '<em>F64 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>F64 Obj</em>'.
+   * @generated
+   */
+  F64Obj createF64Obj();
+
+  /**
    * Returns a new object of class '<em>Slang String Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

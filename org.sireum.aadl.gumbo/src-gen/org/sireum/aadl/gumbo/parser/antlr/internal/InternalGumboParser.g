@@ -6801,15 +6801,69 @@ ruleSlangLit returns [EObject current=null]
 				}
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getSlangStringLitAction_7_0(),
+						grammarAccess.getSlangLitAccess().getF32ObjAction_7_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_value_15_0=RULE_SLANG_STRING
+					lv_value_15_0=F32
 					{
-						newLeafNode(lv_value_15_0, grammarAccess.getSlangLitAccess().getValueSLANG_STRINGTerminalRuleCall_7_1_0());
+						newLeafNode(lv_value_15_0, grammarAccess.getSlangLitAccess().getValueF32Keyword_7_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed($current, "value", lv_value_15_0, "F32");
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getF64ObjAction_8_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_17_0=F64
+					{
+						newLeafNode(lv_value_17_0, grammarAccess.getSlangLitAccess().getValueF64Keyword_8_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSlangLitRule());
+						}
+						setWithLastConsumed($current, "value", lv_value_17_0, "F64");
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSlangLitAccess().getSlangStringLitAction_9_0(),
+						$current);
+				}
+			)
+			(
+				(
+					lv_value_19_0=RULE_SLANG_STRING
+					{
+						newLeafNode(lv_value_19_0, grammarAccess.getSlangLitAccess().getValueSLANG_STRINGTerminalRuleCall_9_1_0());
 					}
 					{
 						if ($current==null) {
@@ -6818,7 +6872,7 @@ ruleSlangLit returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"value",
-							lv_value_15_0,
+							lv_value_19_0,
 							"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
 					}
 				)
@@ -6832,15 +6886,15 @@ ruleSlangLit returns [EObject current=null]
 				}
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getSlangLitAccess().getMStringLitAction_8_0(),
+						grammarAccess.getSlangLitAccess().getMStringLitAction_10_0(),
 						$current);
 				}
 			)
 			(
 				(
-					lv_value_17_0=RULE_MSTRING
+					lv_value_21_0=RULE_MSTRING
 					{
-						newLeafNode(lv_value_17_0, grammarAccess.getSlangLitAccess().getValueMSTRINGTerminalRuleCall_8_1_0());
+						newLeafNode(lv_value_21_0, grammarAccess.getSlangLitAccess().getValueMSTRINGTerminalRuleCall_10_1_0());
 					}
 					{
 						if ($current==null) {
@@ -6849,7 +6903,7 @@ ruleSlangLit returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"value",
-							lv_value_17_0,
+							lv_value_21_0,
 							"org.sireum.aadl.gumbo.Gumbo.MSTRING");
 					}
 				)

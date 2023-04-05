@@ -3588,9 +3588,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    | {SlangInterpTerm} i=SlangInterp
 		//    | => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
 		//    | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
-		//  | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
+		//    | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
 		//    | => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
-		//  | => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
+		//    | => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
 		//    | => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 		//    | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//    | {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
@@ -3608,9 +3608,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//   | {SlangInterpTerm} i=SlangInterp
 		//   | => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
 		//   | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
-		// | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
+		//   | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
 		//   | => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
-		// | => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
+		//   | => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
 		//   | => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 		//   | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 		//   | {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
@@ -4440,13 +4440,21 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cValueF64_LITTerminalRuleCall_6_1_0_0 = (RuleCall)cValueAlternatives_6_1_0.eContents().get(0);
 		private final RuleCall cValueREAL_LITTerminalRuleCall_6_1_0_1 = (RuleCall)cValueAlternatives_6_1_0.eContents().get(1);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Action cSlangStringLitAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Action cF32ObjAction_7_0 = (Action)cGroup_7.eContents().get(0);
 		private final Assignment cValueAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cValueSLANG_STRINGTerminalRuleCall_7_1_0 = (RuleCall)cValueAssignment_7_1.eContents().get(0);
+		private final Keyword cValueF32Keyword_7_1_0 = (Keyword)cValueAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
-		private final Action cMStringLitAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final Action cF64ObjAction_8_0 = (Action)cGroup_8.eContents().get(0);
 		private final Assignment cValueAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cValueMSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cValueAssignment_8_1.eContents().get(0);
+		private final Keyword cValueF64Keyword_8_1_0 = (Keyword)cValueAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
+		private final Action cSlangStringLitAction_9_0 = (Action)cGroup_9.eContents().get(0);
+		private final Assignment cValueAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cValueSLANG_STRINGTerminalRuleCall_9_1_0 = (RuleCall)cValueAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
+		private final Action cMStringLitAction_10_0 = (Action)cGroup_10.eContents().get(0);
+		private final Assignment cValueAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cValueMSTRINGTerminalRuleCall_10_1_0 = (RuleCall)cValueAssignment_10_1.eContents().get(0);
 		
 		//SlangLit
 		//    : {BooleanLit} value=('T' | 'F' | 'true' | 'false')
@@ -4457,6 +4465,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    | {BinLit} value=BIN
 		//    | {F32Lit} value=F32_LIT
 		//    | {F64Lit} value=(F64_LIT | REAL_LIT)
+		//    | {F32Obj} value='F32'
+		//    | {F64Obj} value='F64'
 		//    | {SlangStringLit} value=SLANG_STRING
 		//    //| {RealIdfLit} value=REAL_IDF
 		//    | {MStringLit} value=MSTRING
@@ -4471,6 +4481,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//   | {BinLit} value=BIN
 		//   | {F32Lit} value=F32_LIT
 		//   | {F64Lit} value=(F64_LIT | REAL_LIT)
+		//   | {F32Obj} value='F32'
+		//   | {F64Obj} value='F64'
 		//   | {SlangStringLit} value=SLANG_STRING
 		//   //| {RealIdfLit} value=REAL_IDF
 		//   | {MStringLit} value=MSTRING
@@ -4575,29 +4587,53 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//REAL_LIT
 		public RuleCall getValueREAL_LITTerminalRuleCall_6_1_0_1() { return cValueREAL_LITTerminalRuleCall_6_1_0_1; }
 		
-		//{SlangStringLit} value=SLANG_STRING
+		//{F32Obj} value='F32'
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//{SlangStringLit}
-		public Action getSlangStringLitAction_7_0() { return cSlangStringLitAction_7_0; }
+		//{F32Obj}
+		public Action getF32ObjAction_7_0() { return cF32ObjAction_7_0; }
 		
-		//value=SLANG_STRING
+		//value='F32'
 		public Assignment getValueAssignment_7_1() { return cValueAssignment_7_1; }
 		
-		//SLANG_STRING
-		public RuleCall getValueSLANG_STRINGTerminalRuleCall_7_1_0() { return cValueSLANG_STRINGTerminalRuleCall_7_1_0; }
+		//'F32'
+		public Keyword getValueF32Keyword_7_1_0() { return cValueF32Keyword_7_1_0; }
 		
-		//{MStringLit} value=MSTRING
+		//{F64Obj} value='F64'
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//{MStringLit}
-		public Action getMStringLitAction_8_0() { return cMStringLitAction_8_0; }
+		//{F64Obj}
+		public Action getF64ObjAction_8_0() { return cF64ObjAction_8_0; }
 		
-		//value=MSTRING
+		//value='F64'
 		public Assignment getValueAssignment_8_1() { return cValueAssignment_8_1; }
 		
+		//'F64'
+		public Keyword getValueF64Keyword_8_1_0() { return cValueF64Keyword_8_1_0; }
+		
+		//{SlangStringLit} value=SLANG_STRING
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//{SlangStringLit}
+		public Action getSlangStringLitAction_9_0() { return cSlangStringLitAction_9_0; }
+		
+		//value=SLANG_STRING
+		public Assignment getValueAssignment_9_1() { return cValueAssignment_9_1; }
+		
+		//SLANG_STRING
+		public RuleCall getValueSLANG_STRINGTerminalRuleCall_9_1_0() { return cValueSLANG_STRINGTerminalRuleCall_9_1_0; }
+		
+		//{MStringLit} value=MSTRING
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//{MStringLit}
+		public Action getMStringLitAction_10_0() { return cMStringLitAction_10_0; }
+		
+		//value=MSTRING
+		public Assignment getValueAssignment_10_1() { return cValueAssignment_10_1; }
+		
 		//MSTRING
-		public RuleCall getValueMSTRINGTerminalRuleCall_8_1_0() { return cValueMSTRINGTerminalRuleCall_8_1_0; }
+		public RuleCall getValueMSTRINGTerminalRuleCall_10_1_0() { return cValueMSTRINGTerminalRuleCall_10_1_0; }
 	}
 	public class SlangInterpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SlangInterp");
@@ -5745,9 +5781,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    | {SlangInterpTerm} i=SlangInterp
 	//    | => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
 	//    | => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
-	//  | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
+	//    | => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
 	//    | => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
-	//  | => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
+	//    | => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
 	//    | => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 	//    | => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'
 	//    | {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
@@ -5869,6 +5905,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    | {BinLit} value=BIN
 	//    | {F32Lit} value=F32_LIT
 	//    | {F64Lit} value=(F64_LIT | REAL_LIT)
+	//    | {F32Obj} value='F32'
+	//    | {F64Obj} value='F64'
 	//    | {SlangStringLit} value=SLANG_STRING
 	//    //| {RealIdfLit} value=REAL_IDF
 	//    | {MStringLit} value=MSTRING

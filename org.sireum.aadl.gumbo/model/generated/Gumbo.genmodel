@@ -385,6 +385,12 @@
     <genClasses ecoreClass="Gumbo.ecore#//F64Lit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//F64Lit/value"/>
     </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//F32Obj">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//F32Obj/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//F64Obj">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//F64Obj/value"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangStringLit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangStringLit/value"/>
     </genClasses>

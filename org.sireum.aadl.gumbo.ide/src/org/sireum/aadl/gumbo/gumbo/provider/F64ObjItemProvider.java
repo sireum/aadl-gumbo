@@ -20,22 +20,21 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.sireum.aadl.gumbo.gumbo.GumboFactory;
+import org.sireum.aadl.gumbo.gumbo.F64Obj;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.SlangLitTerm;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLitTerm} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.F64Obj} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangLitTermItemProvider extends ExprItemProvider
+public class F64ObjItemProvider extends SlangLitItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -43,7 +42,7 @@ public class SlangLitTermItemProvider extends ExprItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public SlangLitTermItemProvider(AdapterFactory adapterFactory)
+  public F64ObjItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -61,45 +60,36 @@ public class SlangLitTermItemProvider extends ExprItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Value feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addValuePropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SLANG_LIT_TERM__LIT);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_F64Obj_value_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_F64Obj_value_feature", "_UI_F64Obj_type"),
+         GumboPackage.Literals.F64_OBJ__VALUE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
-  }
-
-  /**
-   * This returns SlangLitTerm.gif.
+   * This returns F64Obj.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -107,7 +97,7 @@ public class SlangLitTermItemProvider extends ExprItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/SlangLitTerm"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/F64Obj"));
   }
 
   /**
@@ -119,7 +109,10 @@ public class SlangLitTermItemProvider extends ExprItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_SlangLitTerm_type");
+    String label = ((F64Obj)object).getValue();
+    return label == null || label.length() == 0 ?
+      getString("_UI_F64Obj_type") :
+      getString("_UI_F64Obj_type") + " " + label;
   }
 
 
@@ -135,10 +128,10 @@ public class SlangLitTermItemProvider extends ExprItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(SlangLitTerm.class))
+    switch (notification.getFeatureID(F64Obj.class))
     {
-      case GumboPackage.SLANG_LIT_TERM__LIT:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+      case GumboPackage.F64_OBJ__VALUE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
     super.notifyChanged(notification);
@@ -155,66 +148,6 @@ public class SlangLitTermItemProvider extends ExprItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createSlangLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createBooleanLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createResultLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createIntegerLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createHexLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createBinLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createF32Lit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createF64Lit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createF32Obj()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createF64Obj()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createSlangStringLit()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_LIT_TERM__LIT,
-         GumboFactory.eINSTANCE.createMStringLit()));
   }
 
 }

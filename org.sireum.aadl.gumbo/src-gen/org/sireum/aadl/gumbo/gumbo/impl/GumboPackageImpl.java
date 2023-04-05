@@ -38,7 +38,9 @@ import org.sireum.aadl.gumbo.gumbo.DoubleDotRef;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.F32Lit;
+import org.sireum.aadl.gumbo.gumbo.F32Obj;
 import org.sireum.aadl.gumbo.gumbo.F64Lit;
+import org.sireum.aadl.gumbo.gumbo.F64Obj;
 import org.sireum.aadl.gumbo.gumbo.FuncSpec;
 import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
@@ -854,6 +856,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass f64LitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass f32ObjEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass f64ObjEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -4109,6 +4125,50 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getF32Obj()
+  {
+    return f32ObjEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getF32Obj_Value()
+  {
+    return (EAttribute)f32ObjEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getF64Obj()
+  {
+    return f64ObjEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getF64Obj_Value()
+  {
+    return (EAttribute)f64ObjEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSlangStringLit()
   {
     return slangStringLitEClass;
@@ -4643,6 +4703,12 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     f64LitEClass = createEClass(F64_LIT);
     createEAttribute(f64LitEClass, F64_LIT__VALUE);
 
+    f32ObjEClass = createEClass(F32_OBJ);
+    createEAttribute(f32ObjEClass, F32_OBJ__VALUE);
+
+    f64ObjEClass = createEClass(F64_OBJ);
+    createEAttribute(f64ObjEClass, F64_OBJ__VALUE);
+
     slangStringLitEClass = createEClass(SLANG_STRING_LIT);
     createEAttribute(slangStringLitEClass, SLANG_STRING_LIT__VALUE);
 
@@ -4737,6 +4803,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     binLitEClass.getESuperTypes().add(this.getSlangLit());
     f32LitEClass.getESuperTypes().add(this.getSlangLit());
     f64LitEClass.getESuperTypes().add(this.getSlangLit());
+    f32ObjEClass.getESuperTypes().add(this.getSlangLit());
+    f64ObjEClass.getESuperTypes().add(this.getSlangLit());
     slangStringLitEClass.getESuperTypes().add(this.getSlangLit());
     mStringLitEClass.getESuperTypes().add(this.getSlangLit());
     slangMspInterpEClass.getESuperTypes().add(this.getSlangInterp());
@@ -5131,6 +5199,12 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(f64LitEClass, F64Lit.class, "F64Lit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getF64Lit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, F64Lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(f32ObjEClass, F32Obj.class, "F32Obj", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getF32Obj_Value(), theEcorePackage.getEString(), "value", null, 0, 1, F32Obj.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(f64ObjEClass, F64Obj.class, "F64Obj", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getF64Obj_Value(), theEcorePackage.getEString(), "value", null, 0, 1, F64Obj.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangStringLitEClass, SlangStringLit.class, "SlangStringLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSlangStringLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, SlangStringLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

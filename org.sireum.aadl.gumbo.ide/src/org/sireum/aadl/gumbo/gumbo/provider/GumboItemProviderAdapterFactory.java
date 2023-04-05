@@ -2635,6 +2635,56 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.F32Obj} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected F32ObjItemProvider f32ObjItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.F32Obj}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createF32ObjAdapter()
+  {
+    if (f32ObjItemProvider == null)
+    {
+      f32ObjItemProvider = new F32ObjItemProvider(this);
+    }
+
+    return f32ObjItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.F64Obj} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected F64ObjItemProvider f64ObjItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.F64Obj}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createF64ObjAdapter()
+  {
+    if (f64ObjItemProvider == null)
+    {
+      f64ObjItemProvider = new F64ObjItemProvider(this);
+    }
+
+    return f64ObjItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangStringLit} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2978,6 +3028,8 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (binLitItemProvider != null) binLitItemProvider.dispose();
     if (f32LitItemProvider != null) f32LitItemProvider.dispose();
     if (f64LitItemProvider != null) f64LitItemProvider.dispose();
+    if (f32ObjItemProvider != null) f32ObjItemProvider.dispose();
+    if (f64ObjItemProvider != null) f64ObjItemProvider.dispose();
     if (slangStringLitItemProvider != null) slangStringLitItemProvider.dispose();
     if (mStringLitItemProvider != null) mStringLitItemProvider.dispose();
     if (slangMspInterpItemProvider != null) slangMspInterpItemProvider.dispose();

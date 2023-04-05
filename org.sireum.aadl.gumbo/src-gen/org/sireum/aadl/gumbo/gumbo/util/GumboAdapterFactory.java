@@ -602,6 +602,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createF64LitAdapter();
       }
       @Override
+      public Adapter caseF32Obj(F32Obj object)
+      {
+        return createF32ObjAdapter();
+      }
+      @Override
+      public Adapter caseF64Obj(F64Obj object)
+      {
+        return createF64ObjAdapter();
+      }
+      @Override
       public Adapter caseSlangStringLit(SlangStringLit object)
       {
         return createSlangStringLitAdapter();
@@ -2199,6 +2209,36 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createF64LitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.F32Obj <em>F32 Obj</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.F32Obj
+   * @generated
+   */
+  public Adapter createF32ObjAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.F64Obj <em>F64 Obj</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.F64Obj
+   * @generated
+   */
+  public Adapter createF64ObjAdapter()
   {
     return null;
   }

@@ -57,7 +57,9 @@ import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.DoubleDotRef;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.F32Lit;
+import org.sireum.aadl.gumbo.gumbo.F32Obj;
 import org.sireum.aadl.gumbo.gumbo.F64Lit;
+import org.sireum.aadl.gumbo.gumbo.F64Obj;
 import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
@@ -299,8 +301,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.F32_LIT:
 				sequence_SlangLit(context, (F32Lit) semanticObject); 
 				return; 
+			case GumboPackage.F32_OBJ:
+				sequence_SlangLit(context, (F32Obj) semanticObject); 
+				return; 
 			case GumboPackage.F64_LIT:
 				sequence_SlangLit(context, (F64Lit) semanticObject); 
+				return; 
+			case GumboPackage.F64_OBJ:
+				sequence_SlangLit(context, (F64Obj) semanticObject); 
 				return; 
 			case GumboPackage.FUNCTIONS:
 				sequence_Functions(context, (Functions) semanticObject); 
@@ -1449,6 +1457,26 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     SlangLit returns F32Obj
+	 *
+	 * Constraint:
+	 *     value='F32'
+	 * </pre>
+	 */
+	protected void sequence_SlangLit(ISerializationContext context, F32Obj semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.F32_OBJ__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.F32_OBJ__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangLitAccess().getValueF32Keyword_7_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     SlangLit returns F64Lit
 	 *
 	 * Constraint:
@@ -1457,6 +1485,26 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, F64Lit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SlangLit returns F64Obj
+	 *
+	 * Constraint:
+	 *     value='F64'
+	 * </pre>
+	 */
+	protected void sequence_SlangLit(ISerializationContext context, F64Obj semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.F64_OBJ__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.F64_OBJ__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangLitAccess().getValueF64Keyword_8_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -1515,7 +1563,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MSTRING_LIT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangLitAccess().getValueMSTRINGTerminalRuleCall_8_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSlangLitAccess().getValueMSTRINGTerminalRuleCall_10_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1549,7 +1597,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_STRING_LIT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangLitAccess().getValueSLANG_STRINGTerminalRuleCall_7_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSlangLitAccess().getValueSLANG_STRINGTerminalRuleCall_9_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

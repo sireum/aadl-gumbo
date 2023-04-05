@@ -177,6 +177,8 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.BIN_LIT: return createBinLit();
       case GumboPackage.F32_LIT: return createF32Lit();
       case GumboPackage.F64_LIT: return createF64Lit();
+      case GumboPackage.F32_OBJ: return createF32Obj();
+      case GumboPackage.F64_OBJ: return createF64Obj();
       case GumboPackage.SLANG_STRING_LIT: return createSlangStringLit();
       case GumboPackage.MSTRING_LIT: return createMStringLit();
       case GumboPackage.SLANG_MSP_INTERP: return createSlangMspInterp();
@@ -1409,6 +1411,30 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     F64LitImpl f64Lit = new F64LitImpl();
     return f64Lit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public F32Obj createF32Obj()
+  {
+    F32ObjImpl f32Obj = new F32ObjImpl();
+    return f32Obj;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public F64Obj createF64Obj()
+  {
+    F64ObjImpl f64Obj = new F64ObjImpl();
+    return f64Obj;
   }
 
   /**

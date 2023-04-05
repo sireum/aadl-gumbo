@@ -248,6 +248,8 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangLitAccess().getGroup_6(), "rule__SlangLit__Group_6__0");
 			builder.put(grammarAccess.getSlangLitAccess().getGroup_7(), "rule__SlangLit__Group_7__0");
 			builder.put(grammarAccess.getSlangLitAccess().getGroup_8(), "rule__SlangLit__Group_8__0");
+			builder.put(grammarAccess.getSlangLitAccess().getGroup_9(), "rule__SlangLit__Group_9__0");
+			builder.put(grammarAccess.getSlangLitAccess().getGroup_10(), "rule__SlangLit__Group_10__0");
 			builder.put(grammarAccess.getSlangInterpAccess().getGroup_0(), "rule__SlangInterp__Group_0__0");
 			builder.put(grammarAccess.getSlangInterpAccess().getGroup_1(), "rule__SlangInterp__Group_1__0");
 			builder.put(grammarAccess.getSlangInterpAccess().getGroup_2(), "rule__SlangInterp__Group_2__0");
@@ -518,6 +520,8 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangLitAccess().getValueAssignment_6_1(), "rule__SlangLit__ValueAssignment_6_1");
 			builder.put(grammarAccess.getSlangLitAccess().getValueAssignment_7_1(), "rule__SlangLit__ValueAssignment_7_1");
 			builder.put(grammarAccess.getSlangLitAccess().getValueAssignment_8_1(), "rule__SlangLit__ValueAssignment_8_1");
+			builder.put(grammarAccess.getSlangLitAccess().getValueAssignment_9_1(), "rule__SlangLit__ValueAssignment_9_1");
+			builder.put(grammarAccess.getSlangLitAccess().getValueAssignment_10_1(), "rule__SlangLit__ValueAssignment_10_1");
 			builder.put(grammarAccess.getSlangInterpAccess().getMspAssignment_0_1(), "rule__SlangInterp__MspAssignment_0_1");
 			builder.put(grammarAccess.getSlangInterpAccess().getSliAssignment_1_1(), "rule__SlangInterp__SliAssignment_1_1");
 			builder.put(grammarAccess.getSlangInterpAccess().getMspbAssignment_2_1(), "rule__SlangInterp__MspbAssignment_2_1");

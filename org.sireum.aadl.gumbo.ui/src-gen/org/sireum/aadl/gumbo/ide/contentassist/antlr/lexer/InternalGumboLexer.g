@@ -107,6 +107,10 @@ PlusSignEqualsSignGreaterThanSign : '+''=''>';
 
 FullStopFullStopLessThanSign : '.''.''<';
 
+F32 : ('F'|'f')'3''2';
+
+F64 : ('F'|'f')'6''4';
+
 Def : ('D'|'d')('E'|'e')('F'|'f');
 
 For : ('F'|'f')('O'|'o')('R'|'r');
