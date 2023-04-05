@@ -41,7 +41,9 @@ import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.F32Lit;
+import org.sireum.aadl.gumbo.gumbo.F32Obj;
 import org.sireum.aadl.gumbo.gumbo.F64Lit;
+import org.sireum.aadl.gumbo.gumbo.F64Obj;
 import org.sireum.aadl.gumbo.gumbo.FuncSpec;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
@@ -999,6 +1001,26 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			push(slangExp);
 		}
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseF32Obj(F32Obj object) {
+		Id slangId = Id$.MODULE$.apply("F32", GumboUtil.buildAttr(object));
+		Exp slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object));
+
+		push(slangIdIdent);
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseF64Obj(F64Obj object) {
+		Id slangId = Id$.MODULE$.apply("F64", GumboUtil.buildAttr(object));
+		Exp slangIdIdent = Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object));
+
+		push(slangIdIdent);
 
 		return false;
 	}
