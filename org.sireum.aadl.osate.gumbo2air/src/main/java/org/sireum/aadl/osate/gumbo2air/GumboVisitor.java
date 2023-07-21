@@ -50,6 +50,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
+import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
@@ -80,6 +81,7 @@ import org.sireum.aadl.osate.architecture.Visitor;
 import org.sireum.aadl.osate.gumbo2air.GumboUtil.UnaryOp;
 import org.sireum.aadl.osate.util.SlangUtil;
 import org.sireum.aadl.osate.util.VisitorUtil;
+import org.sireum.hamr.codegen.common.resolvers.GclResolver;
 import org.sireum.hamr.codegen.common.util.GclUtil;
 import org.sireum.hamr.ir.Annex;
 import org.sireum.hamr.ir.Annex$;
@@ -767,7 +769,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseMaySendExpr(MaySendExpr object) {
 
-		Id maySendUifId = Id$.MODULE$.apply("MaySend", GumboUtil.buildAttr(object));
+		Id maySendUifId = Id$.MODULE$.apply(GclResolver.uif__MaySend(), GumboUtil.buildAttr(object));
 		Ident maySendUifIdent = Ident$.MODULE$.apply(maySendUifId, GumboUtil.buildResolvedAttr(object));
 
 		List<Exp> args = new ArrayList<>();
@@ -788,9 +790,30 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
+	public Boolean caseHasEventExpr(HasEventExpr object) {
+
+		Id hasEventUifId = Id$.MODULE$.apply(GclResolver.uif__HasEvent(),
+				GumboUtil.buildAttr(object));
+		Ident hasEventUifIdent = Ident$.MODULE$.apply(hasEventUifId, GumboUtil.buildResolvedAttr(object));
+
+		List<Exp> args = new ArrayList<>();
+
+		Id portId = Id$.MODULE$.apply(object.getEventPort().getName(), GumboUtil.buildAttr(object));
+		args.add(Ident$.MODULE$.apply(portId, GumboUtil.buildResolvedAttr(object)));
+
+		Invoke invoke = Invoke$.MODULE$.apply(SlangUtil.toNone(), hasEventUifIdent, VisitorUtil.toISZ(),
+				VisitorUtil.toISZ(args), GumboUtil.buildResolvedAttr(object));
+
+		push(invoke);
+
+		return false;
+	}
+
+	@Override
 	public Boolean caseMustSendExpr(MustSendExpr object) {
 
-		String uifName = object.getValue() == null ? "uif__MustSend" : "uif__MustSendWithExpectedValue";
+		String uifName = object.getValue() == null ? GclResolver.uif__MustSend()
+				: GclResolver.uif__MustSendWithExpectedValue();
 
 		Id mustSendUifId = Id$.MODULE$.apply(uifName, GumboUtil.buildAttr(object));
 		Ident mustSendUifIdent = Ident$.MODULE$.apply(mustSendUifId, GumboUtil.buildResolvedAttr(object));
@@ -815,7 +838,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseNoSendExpr(NoSendExpr object) {
 
-		Id noSendUifId = Id$.MODULE$.apply("uif__NoSend", GumboUtil.buildAttr(object));
+		Id noSendUifId = Id$.MODULE$.apply(GclResolver.uif__NoSend(), GumboUtil.buildAttr(object));
 		Ident noSendUifIdent = Ident$.MODULE$.apply(noSendUifId, GumboUtil.buildResolvedAttr(object));
 
 		List<Exp> args = new ArrayList<>();
@@ -1197,10 +1220,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseInfoFlowClause(InfoFlowClause object) {
 		Function<EObject, Exp> process = (e) -> {
 			String name = null;
-			if(e instanceof StateVarDecl) {
+			if (e instanceof StateVarDecl) {
 				name = ((StateVarDecl) e).getName();
-			}
-			else if(e instanceof Port) {
+			} else if (e instanceof Port) {
 				name = ((Port) e).getName();
 			} else {
 				reportError(e, "Only ports and state variables are allowed in flow from/to clauses");

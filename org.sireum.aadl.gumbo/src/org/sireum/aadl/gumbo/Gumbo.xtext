@@ -305,6 +305,7 @@ SlangTerm returns Expr
 	| => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')' 
 	| => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=Expr)? ')'
 	| => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
+	| => ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
 	| => ({CallExpr} id=[ecore::EObject|QCREF] callSuffix=SlangCallSuffix )
 	| => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=Expr (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=Expr)* '}'

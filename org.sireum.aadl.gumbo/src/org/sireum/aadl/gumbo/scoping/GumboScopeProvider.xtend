@@ -76,6 +76,7 @@ import org.sireum.aadl.gumbo.gumbo.CallExpr
 import org.sireum.aadl.gumbo.gumbo.Compute
 import org.sireum.aadl.gumbo.gumbo.InfoFlowClause
 import org.osate.aadl2.EventPort
+import org.sireum.aadl.gumbo.gumbo.HasEventExpr
 
 /**
  * This class contains custom scoping description.
@@ -372,6 +373,10 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		val IScope types = getVariableScope(context, reference)
 
 		return new SimpleScope(types, vars.allElements, true)
+	}
+
+	def scope_HasEventExpr_eventPort(HasEventExpr context, EReference reference) {
+		return getEventPortRef(context, reference, #[DirectionType.IN, DirectionType.IN_OUT])
 	}
 
 	def scope_MaySendExpr_eventPort(MaySendExpr context, EReference reference) {
