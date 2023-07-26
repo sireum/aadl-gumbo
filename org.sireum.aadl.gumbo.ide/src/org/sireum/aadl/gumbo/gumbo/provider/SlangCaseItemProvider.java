@@ -243,6 +243,11 @@ public class SlangCaseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CASE__E,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__E,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

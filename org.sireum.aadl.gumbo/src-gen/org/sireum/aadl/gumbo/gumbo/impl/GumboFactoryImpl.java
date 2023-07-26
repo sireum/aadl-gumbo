@@ -163,6 +163,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.MAY_SEND_EXPR: return createMaySendExpr();
       case GumboPackage.MUST_SEND_EXPR: return createMustSendExpr();
       case GumboPackage.NO_SEND_EXPR: return createNoSendExpr();
+      case GumboPackage.HAS_EVENT_EXPR: return createHasEventExpr();
       case GumboPackage.CALL_EXPR: return createCallExpr();
       case GumboPackage.ENUM_LIT_EXPR: return createEnumLitExpr();
       case GumboPackage.RECORD_LIT_EXPR: return createRecordLitExpr();
@@ -1243,6 +1244,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     NoSendExprImpl noSendExpr = new NoSendExprImpl();
     return noSendExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HasEventExpr createHasEventExpr()
+  {
+    HasEventExprImpl hasEventExpr = new HasEventExprImpl();
+    return hasEventExpr;
   }
 
   /**

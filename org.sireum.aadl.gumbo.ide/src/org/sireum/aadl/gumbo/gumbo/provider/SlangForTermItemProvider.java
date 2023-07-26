@@ -233,6 +233,11 @@ public class SlangForTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_TERM__E,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_FOR_TERM__E,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

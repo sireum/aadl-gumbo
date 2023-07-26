@@ -234,6 +234,11 @@ public class SlangEnsuresItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ENSURES__EXPRS,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ENSURES__EXPRS,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

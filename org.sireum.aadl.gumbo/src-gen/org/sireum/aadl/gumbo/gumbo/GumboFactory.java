@@ -826,6 +826,15 @@ public interface GumboFactory extends EFactory
   NoSendExpr createNoSendExpr();
 
   /**
+   * Returns a new object of class '<em>Has Event Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Has Event Expr</em>'.
+   * @generated
+   */
+  HasEventExpr createHasEventExpr();
+
+  /**
    * Returns a new object of class '<em>Call Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

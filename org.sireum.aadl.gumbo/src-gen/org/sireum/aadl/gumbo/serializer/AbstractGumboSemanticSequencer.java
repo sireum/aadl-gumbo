@@ -66,6 +66,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
+import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
@@ -324,6 +325,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.HANDLER_CLAUSE:
 				sequence_HandlerClause(context, (HandlerClause) semanticObject); 
+				return; 
+			case GumboPackage.HAS_EVENT_EXPR:
+				sequence_SlangTerm(context, (HasEventExpr) semanticObject); 
 				return; 
 			case GumboPackage.HEX_LIT:
 				sequence_SlangLit(context, (HexLit) semanticObject); 
@@ -2020,8 +2024,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.CALL_EXPR__CALL_SUFFIX));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getIdEObjectQCREFParserRuleCall_6_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.CALL_EXPR__ID, false));
-		feeder.accept(grammarAccess.getSlangTermAccess().getCallSuffixSlangCallSuffixParserRuleCall_6_0_2_0(), semanticObject.getCallSuffix());
+		feeder.accept(grammarAccess.getSlangTermAccess().getIdEObjectQCREFParserRuleCall_7_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.CALL_EXPR__ID, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getCallSuffixSlangCallSuffixParserRuleCall_7_0_2_0(), semanticObject.getCallSuffix());
 		feeder.finish();
 	}
 	
@@ -2057,8 +2061,28 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_7_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
-		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_7_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_8_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
+		feeder.accept(grammarAccess.getSlangTermAccess().getValueStringLiteralIDTerminalRuleCall_8_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SlangTerm returns HasEventExpr
+	 *
+	 * Constraint:
+	 *     eventPort=[Port|ID]
+	 * </pre>
+	 */
+	protected void sequence_SlangTerm(ISerializationContext context, HasEventExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.HAS_EVENT_EXPR__EVENT_PORT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.HAS_EVENT_EXPR__EVENT_PORT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangTermAccess().getEventPortPortIDTerminalRuleCall_6_1_0_1(), semanticObject.eGet(GumboPackage.Literals.HAS_EVENT_EXPR__EVENT_PORT, false));
 		feeder.finish();
 	}
 	
@@ -2146,7 +2170,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.PAREN_EXPR__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangTermAccess().getExpExprParserRuleCall_10_2_0(), semanticObject.getExp());
+		feeder.accept(grammarAccess.getSlangTermAccess().getExpExprParserRuleCall_11_2_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	

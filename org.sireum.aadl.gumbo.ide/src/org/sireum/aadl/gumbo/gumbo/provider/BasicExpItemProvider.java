@@ -248,6 +248,11 @@ public class BasicExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__TERMS,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BASIC_EXP__TERMS,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

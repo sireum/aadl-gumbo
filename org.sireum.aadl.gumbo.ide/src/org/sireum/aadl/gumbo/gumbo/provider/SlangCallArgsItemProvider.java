@@ -234,6 +234,11 @@ public class SlangCallArgsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

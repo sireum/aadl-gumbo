@@ -223,6 +223,11 @@ public class IfElseExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add
@@ -318,6 +323,11 @@ public class IfElseExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add
@@ -409,6 +419,11 @@ public class IfElseExpItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR,
          GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
 
     newChildDescriptors.add
       (createChildParameter

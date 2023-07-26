@@ -234,6 +234,11 @@ public class SlangInvariantItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_INVARIANT__EXPRS,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_INVARIANT__EXPRS,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

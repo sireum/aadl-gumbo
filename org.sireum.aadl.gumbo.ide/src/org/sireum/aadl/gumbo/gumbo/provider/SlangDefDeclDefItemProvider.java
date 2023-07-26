@@ -301,6 +301,11 @@ public class SlangDefDeclDefItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_DEF_DECL_DEF__E,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_DEF_DECL_DEF__E,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

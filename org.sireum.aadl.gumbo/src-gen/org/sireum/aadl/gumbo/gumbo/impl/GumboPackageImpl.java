@@ -49,6 +49,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
+import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
@@ -758,6 +759,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass noSendExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass hasEventExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3718,6 +3726,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getHasEventExpr()
+  {
+    return hasEventExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getHasEventExpr_EventPort()
+  {
+    return (EReference)hasEventExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCallExpr()
   {
     return callExprEClass;
@@ -4652,6 +4682,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     noSendExprEClass = createEClass(NO_SEND_EXPR);
     createEReference(noSendExprEClass, NO_SEND_EXPR__EVENT_PORT);
 
+    hasEventExprEClass = createEClass(HAS_EVENT_EXPR);
+    createEReference(hasEventExprEClass, HAS_EVENT_EXPR__EVENT_PORT);
+
     callExprEClass = createEClass(CALL_EXPR);
     createEReference(callExprEClass, CALL_EXPR__ID);
     createEReference(callExprEClass, CALL_EXPR__CALL_SUFFIX);
@@ -4789,6 +4822,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     maySendExprEClass.getESuperTypes().add(this.getExpr());
     mustSendExprEClass.getESuperTypes().add(this.getExpr());
     noSendExprEClass.getESuperTypes().add(this.getExpr());
+    hasEventExprEClass.getESuperTypes().add(this.getExpr());
     callExprEClass.getESuperTypes().add(this.getExpr());
     enumLitExprEClass.getESuperTypes().add(this.getExpr());
     recordLitExprEClass.getESuperTypes().add(this.getExpr());
@@ -5148,6 +5182,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(noSendExprEClass, NoSendExpr.class, "NoSendExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNoSendExpr_EventPort(), theAadl2Package.getPort(), null, "eventPort", null, 0, 1, NoSendExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(hasEventExprEClass, HasEventExpr.class, "HasEventExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getHasEventExpr_EventPort(), theAadl2Package.getPort(), null, "eventPort", null, 0, 1, HasEventExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(callExprEClass, CallExpr.class, "CallExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCallExpr_Id(), theEcorePackage.getEObject(), null, "id", null, 0, 1, CallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

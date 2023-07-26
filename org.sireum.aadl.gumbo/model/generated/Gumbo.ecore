@@ -435,6 +435,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="NoSendExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="eventPort" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HasEventExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventPort" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CallExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callSuffix" eType="#//SlangCallSuffix"

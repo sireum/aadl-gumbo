@@ -261,6 +261,11 @@ public class SlangIdStmtItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ID_STMT__E,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ID_STMT__E,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

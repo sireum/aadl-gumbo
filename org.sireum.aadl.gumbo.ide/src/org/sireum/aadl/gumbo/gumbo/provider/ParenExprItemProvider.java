@@ -219,6 +219,11 @@ public class ParenExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PAREN_EXPR__EXP,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

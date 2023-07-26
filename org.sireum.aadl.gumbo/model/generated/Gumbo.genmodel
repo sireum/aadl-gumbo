@@ -335,6 +335,9 @@
     <genClasses ecoreClass="Gumbo.ecore#//NoSendExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NoSendExpr/eventPort"/>
     </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//HasEventExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//HasEventExpr/eventPort"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//CallExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CallExpr/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CallExpr/callSuffix"/>

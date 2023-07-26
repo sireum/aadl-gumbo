@@ -236,6 +236,11 @@ public class SlangQuantVarItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_QUANT_VAR__E,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__E,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add
@@ -327,6 +332,11 @@ public class SlangQuantVarItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
          GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_QUANT_VAR__UPPER_BOUND,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
 
     newChildDescriptors.add
       (createChildParameter

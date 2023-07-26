@@ -221,6 +221,11 @@ public class SlangAccessItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ACCESS__T,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ACCESS__T,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

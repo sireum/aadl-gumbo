@@ -234,6 +234,11 @@ public class SlangRetItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_RET__E,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_RET__E,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

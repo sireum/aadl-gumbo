@@ -376,7 +376,7 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	}
 
 	def scope_HasEventExpr_eventPort(HasEventExpr context, EReference reference) {
-		return getEventPortRef(context, reference, #[DirectionType.IN, DirectionType.IN_OUT])
+		return getEventPortRef(context, reference, #[DirectionType.IN, DirectionType.IN_OUT, DirectionType.OUT])
 	}
 
 	def scope_MaySendExpr_eventPort(MaySendExpr context, EReference reference) {

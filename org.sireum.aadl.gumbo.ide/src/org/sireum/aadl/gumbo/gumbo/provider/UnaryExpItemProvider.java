@@ -251,6 +251,11 @@ public class UnaryExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_EXP__ACCESS_EXP,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXP__ACCESS_EXP,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add

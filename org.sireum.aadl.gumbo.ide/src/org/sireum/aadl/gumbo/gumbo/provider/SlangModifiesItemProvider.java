@@ -234,6 +234,11 @@ public class SlangModifiesItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_MODIFIES__EXPRS,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_MODIFIES__EXPRS,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add
