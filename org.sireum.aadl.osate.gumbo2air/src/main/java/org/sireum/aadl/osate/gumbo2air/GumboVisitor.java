@@ -284,14 +284,18 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return ret;
 	}
 
+	private void processDatatype(Classifier c) {
+		if (!c.getName().equals("Natural")) {
+			v.processDataType((DataClassifier) c);
+		}
+	}
+
 	private void addAllBaseTypes(ResourceSet rs) {
 		URI u = URI.createURI("platform:/plugin/org.osate.contribution.sei/resources/packages/Base_Types.aadl");
 		Resource r = rs.getResource(u, true);
 		AadlPackage baseTypes = (AadlPackage) r.getContents().get(0);
 		for (org.osate.aadl2.Classifier c : baseTypes.getOwnedPublicSection().getOwnedClassifiers()) {
-			if (!c.getName().equals("Natural")) {
-				v.processDataType((DataClassifier) c);
-			}
+			processDatatype(c);
 		}
 	}
 
@@ -633,6 +637,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseStateVarDecl(StateVarDecl object) {
 		String name = object.getName();
 		DataSubcomponentType t = object.getTypeName();
+
+		processDatatype(t.getContainingClassifier());
 
 		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName(), VisitorUtil.buildPositionOpt(object)));
 
