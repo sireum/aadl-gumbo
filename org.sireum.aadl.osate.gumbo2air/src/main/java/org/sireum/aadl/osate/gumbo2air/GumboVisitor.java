@@ -29,6 +29,7 @@ import org.osate.aadl2.ProcessSubcomponent;
 import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
 import org.osate.annexsupport.AnnexUtil;
+import org.sireum.IS;
 import org.sireum.Option;
 import org.sireum.Z;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
@@ -374,8 +375,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Body body = Body$.MODULE$.apply(VisitorUtil.toISZ(ret), VisitorUtil.toISZ());
 
 		boolean typeChecked = false;
-		boolean hasOverride = false;
-		boolean isHelper = false;
+		IS<Z, org.sireum.String> modifiers = VisitorUtil.toISZ();
 
 		MethodContract mcontract = MethodContract.Simple$.MODULE$.empty();
 
@@ -457,7 +457,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			purity = Purity$.MODULE$.byName("StrictPure").get();
 		}
 
-		Method m = Method$.MODULE$.apply(typeChecked, purity, hasOverride, isHelper, sig, mcontract,
+		Method m = Method$.MODULE$.apply(typeChecked, purity, modifiers, sig, mcontract,
 				SlangUtil.toSome(body), GumboUtil.buildResolvedAttr(object));
 
 		push(GclMethod$.MODULE$.apply(m));
