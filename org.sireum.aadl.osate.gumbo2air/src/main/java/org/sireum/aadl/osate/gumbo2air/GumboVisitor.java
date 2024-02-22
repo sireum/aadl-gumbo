@@ -365,11 +365,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		Type.Named returnType = GumboUtil.buildTypeNamed(object.getType().getTypeName(), object);
 
-		boolean isPure = true;
 		boolean hasParams = !params.isEmpty();
-
-		MethodSig sig = MethodSig$.MODULE$.apply(isPure, methodId, VisitorUtil.toISZ(typeParams), hasParams,
-				VisitorUtil.toISZ(params), returnType);
 
 		Stmt ret = Stmt.Return$.MODULE$.apply(SlangUtil.toSome(visitPop(object.getBody())), returnType.attr());
 		Body body = Body$.MODULE$.apply(VisitorUtil.toISZ(ret), VisitorUtil.toISZ());
@@ -450,12 +446,16 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					GumboUtil.buildAttr(object.getMethodContract()));
 		}
 
+
 		Purity.Type purity = null;
 		if (hasContract) {
 			purity = Purity$.MODULE$.byName("Pure").get();
 		} else {
 			purity = Purity$.MODULE$.byName("StrictPure").get();
 		}
+
+		MethodSig sig = MethodSig$.MODULE$.apply(purity, methodId, VisitorUtil.toISZ(typeParams), hasParams,
+				VisitorUtil.toISZ(params), returnType);
 
 		Method m = Method$.MODULE$.apply(typeChecked, purity, modifiers, sig, mcontract,
 				SlangUtil.toSome(body), GumboUtil.buildResolvedAttr(object));

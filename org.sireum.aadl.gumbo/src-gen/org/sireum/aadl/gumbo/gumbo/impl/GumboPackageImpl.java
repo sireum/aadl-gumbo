@@ -933,7 +933,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   {
     super(eNS_URI, GumboFactory.eINSTANCE);
   }
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
