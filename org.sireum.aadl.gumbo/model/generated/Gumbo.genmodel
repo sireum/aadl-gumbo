@@ -4,8 +4,8 @@
     modelDirectory="/org.sireum.aadl.gumbo/src-gen" editDirectory="/org.sireum.aadl.gumbo.ide/src"
     modelPluginID="org.sireum.aadl.gumbo" forceOverwrite="true" modelName="Gumbo"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    complianceLevel="8.0" copyrightFields="false" editPluginID="org.sireum.aadl.gumbo.ide"
-    runtimeVersion="2.20" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/org.osate.aadl2/model/aadl2.genmodel#//aadl2">
+    complianceLevel="11.0" copyrightFields="false" editPluginID="org.sireum.aadl.gumbo.ide"
+    runtimeVersion="2.29" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/org.osate.aadl2/model/aadl2.genmodel#//aadl2">
   <genPackages prefix="Gumbo" basePackage="org.sireum.aadl.gumbo" disposableProviderFactory="true"
       fileExtensions="gumbo" ecorePackage="Gumbo.ecore#/">
     <genClasses ecoreClass="Gumbo.ecore#//GumboLibrary">
