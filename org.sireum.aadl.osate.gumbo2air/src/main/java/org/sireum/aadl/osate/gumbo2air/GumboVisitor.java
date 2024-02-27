@@ -904,7 +904,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseUnaryExp(UnaryExp object) {
 		UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
 		Unary exp = Unary$.MODULE$.apply(Exp.UnaryOp$.MODULE$.byName(slangOp.name()).get(),
-				visitPop(object.getAccessExp()), GumboUtil.buildResolvedAttr(object));
+				visitPop(object.getAccessExp()), GumboUtil.buildResolvedAttr(object), SlangUtil.toNone());
 
 		push(exp);
 

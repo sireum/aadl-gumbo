@@ -57,7 +57,7 @@ public class GumboUtil {
 						return Tuple2.apply(key, key);
 					}))) //
 					.$plus(Tuple2.apply("~>:", "->:")) // also allow non-standard '~>:' variant
-					.$plus(Tuple2.apply("~~>:", "-->:")); // can't use '-->:' since '--' is and aadl comment
+					.$plus(Tuple2.apply("~~>:", "-->:")); // can't use '-->:' since '--' is an aadl comment
 
 	public static String toSlangBinaryOp(String op) {
 		String lop = op.toLowerCase();
@@ -80,6 +80,10 @@ public class GumboUtil {
 			return UnaryOp.Minus;
 		} else if (op.equalsIgnoreCase("!")) {
 			return UnaryOp.Not;
+		} else if (op.equalsIgnoreCase("+")) {
+			return UnaryOp.Plus;
+		} else if (op.equalsIgnoreCase("~")) {
+			return UnaryOp.Complement;
 		}
 
 		throw new RuntimeException("Unary operator '" + op + "' not supported");
