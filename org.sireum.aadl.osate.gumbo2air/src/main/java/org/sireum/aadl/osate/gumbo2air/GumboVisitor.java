@@ -26,6 +26,7 @@ import org.osate.aadl2.Element;
 import org.osate.aadl2.ModelUnit;
 import org.osate.aadl2.Port;
 import org.osate.aadl2.ProcessSubcomponent;
+import org.osate.aadl2.ThreadClassifier;
 import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
 import org.osate.annexsupport.AnnexUtil;
@@ -109,6 +110,7 @@ import org.sireum.hamr.ir.GclMethod$;
 import org.sireum.hamr.ir.GclSpec;
 import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
+import org.sireum.hamr.ir.GclSubclause;
 import org.sireum.hamr.ir.GclSubclause$;
 import org.sireum.lang.ast.Body;
 import org.sireum.lang.ast.Body$;
@@ -277,7 +279,32 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			addAllBaseTypes(c.eResource().getResourceSet());
 
-			ret.add(Annex$.MODULE$.apply(ANNEX_TYPE, visitPop(bas.get(0))));
+			GclSubclause gs = visitPop(bas.get(0));
+
+			if (c instanceof DataClassifier) {
+				if (gs.state().nonEmpty()) {
+					this.reportError(c, "State variables cannot be attached to data components");
+				}
+				if (gs.methods().nonEmpty()) {
+					this.reportError(c, "Methods cannot be attached to data components");
+				}
+				if (gs.initializes().nonEmpty()) {
+					this.reportError(c, "Initialize clauses cannot be attached to data components");
+				}
+				if (gs.integration().nonEmpty()) {
+					this.reportError(c, "Integration clauses cannot be attached to data components");
+				}
+				if (gs.compute().nonEmpty()) {
+					this.reportError(c, "Compute clauses cannot be attached to data components");
+				}
+			} else if (c instanceof ThreadClassifier) {
+				if (gs.invariants().nonEmpty()) {
+					this.reportError(c, "Invariants cannot be attached to thread components");
+				}
+			} else {
+				this.reportError(c, "GUMBO subclauses can only be attached to thread and data components");
+			}
+			ret.add(Annex$.MODULE$.apply(ANNEX_TYPE, gs));
 
 			entryClassifier = null;
 		}
@@ -446,7 +473,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					GumboUtil.buildAttr(object.getMethodContract()));
 		}
 
-
 		Purity.Type purity = null;
 		if (hasContract) {
 			purity = Purity$.MODULE$.byName("Pure").get();
@@ -457,8 +483,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		MethodSig sig = MethodSig$.MODULE$.apply(purity, methodId, VisitorUtil.toISZ(typeParams), hasParams,
 				VisitorUtil.toISZ(params), returnType);
 
-		Method m = Method$.MODULE$.apply(typeChecked, purity, modifiers, sig, mcontract,
-				SlangUtil.toSome(body), GumboUtil.buildResolvedAttr(object));
+		Method m = Method$.MODULE$.apply(typeChecked, purity, modifiers, sig, mcontract, SlangUtil.toSome(body),
+				GumboUtil.buildResolvedAttr(object));
 
 		push(GclMethod$.MODULE$.apply(m));
 
@@ -798,8 +824,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseHasEventExpr(HasEventExpr object) {
 
-		Id hasEventUifId = Id$.MODULE$.apply(GclResolver.uif__HasEvent(),
-				GumboUtil.buildAttr(object));
+		Id hasEventUifId = Id$.MODULE$.apply(GclResolver.uif__HasEvent(), GumboUtil.buildAttr(object));
 		Ident hasEventUifIdent = Ident$.MODULE$.apply(hasEventUifId, GumboUtil.buildResolvedAttr(object));
 
 		List<Exp> args = new ArrayList<>();
