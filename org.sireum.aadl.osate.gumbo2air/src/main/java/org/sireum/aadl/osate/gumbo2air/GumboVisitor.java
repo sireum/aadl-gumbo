@@ -264,10 +264,15 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		List<Annex> ret = new ArrayList<>();
 
+		Classifier cWithGumbo = c;
 		List<GumboSubclause> bas = EcoreUtil2.eAllOfType(c, GumboSubclause.class);
 		if (c instanceof ComponentImplementation) {
 			ComponentImplementation ci = (ComponentImplementation) c;
-			bas.addAll(EcoreUtil2.eAllOfType(ci.getType(), GumboSubclause.class));
+			List<GumboSubclause> cands = EcoreUtil2.eAllOfType(ci.getType(), GumboSubclause.class);
+			if (!cands.isEmpty()) {
+				cWithGumbo = ci;
+			}
+			bas.addAll(cands);
 		}
 
 		reportError(bas.size() <= 1, c, "Only one " + ANNEX_TYPE + " subclause annex is allowed per component");
@@ -281,28 +286,28 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			GclSubclause gs = visitPop(bas.get(0));
 
-			if (c instanceof DataClassifier) {
+			if (cWithGumbo instanceof DataClassifier) {
 				if (gs.state().nonEmpty()) {
-					this.reportError(c, "State variables cannot be attached to data components");
+					this.reportError(cWithGumbo, "State variables cannot be attached to data components");
 				}
 				if (gs.methods().nonEmpty()) {
-					this.reportError(c, "Methods cannot be attached to data components");
+					this.reportError(cWithGumbo, "Methods cannot be attached to data components");
 				}
 				if (gs.initializes().nonEmpty()) {
-					this.reportError(c, "Initialize clauses cannot be attached to data components");
+					this.reportError(cWithGumbo, "Initialize clauses cannot be attached to data components");
 				}
 				if (gs.integration().nonEmpty()) {
-					this.reportError(c, "Integration clauses cannot be attached to data components");
+					this.reportError(cWithGumbo, "Integration clauses cannot be attached to data components");
 				}
 				if (gs.compute().nonEmpty()) {
-					this.reportError(c, "Compute clauses cannot be attached to data components");
+					this.reportError(cWithGumbo, "Compute clauses cannot be attached to data components");
 				}
-			} else if (c instanceof ThreadClassifier) {
+			} else if (cWithGumbo instanceof ThreadClassifier) {
 				if (gs.invariants().nonEmpty()) {
-					this.reportError(c, "Invariants cannot be attached to thread components");
+					this.reportError(cWithGumbo, "Invariants cannot be attached to thread components");
 				}
 			} else {
-				this.reportError(c, "GUMBO subclauses can only be attached to thread and data components");
+				this.reportError(cWithGumbo, "GUMBO subclauses can only be attached to thread and data components");
 			}
 			ret.add(Annex$.MODULE$.apply(ANNEX_TYPE, gs));
 
@@ -313,6 +318,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	private void processDatatype(Classifier c) {
+		if (c.getName() == null) {
+			System.out.println();
+		}
 		if (!c.getName().equals("Natural")) {
 			v.processDataType((DataClassifier) c);
 		}
