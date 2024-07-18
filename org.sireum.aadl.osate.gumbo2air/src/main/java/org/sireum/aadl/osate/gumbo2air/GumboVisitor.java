@@ -41,7 +41,6 @@ import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
-import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.F32Lit;
 import org.sireum.aadl.gumbo.gumbo.F32Obj;
 import org.sireum.aadl.gumbo.gumbo.F64Lit;
@@ -65,6 +64,7 @@ import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
+import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 import org.sireum.aadl.gumbo.gumbo.ResultLit;
 import org.sireum.aadl.gumbo.gumbo.SlangAccess;
 import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
@@ -418,7 +418,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			List<Ref> idents = new ArrayList<>();
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getReads().getExprs().get(0));
-			for (Expr e : object.getMethodContract().getReads().getExprs()) {
+			for (OwnedExpression e : object.getMethodContract().getReads().getExprs()) {
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
 				Exp result = visitPop(e);
 				if (result instanceof Ref) {
@@ -436,7 +436,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			List<Exp> exps = new ArrayList<>();
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getRequires().getExprs().get(0));
-			for (Expr e : object.getMethodContract().getRequires().getExprs()) {
+			for (OwnedExpression e : object.getMethodContract().getRequires().getExprs()) {
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
 				exps.add(visitPop(e));
 			}
@@ -449,7 +449,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			List<Ref> idents = new ArrayList<>();
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getModifies().getExprs().get(0));
-			for (Expr e : object.getMethodContract().getModifies().getExprs()) {
+			for (OwnedExpression e : object.getMethodContract().getModifies().getExprs()) {
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
 				Exp result = visitPop(e);
 				if (result instanceof Ident) {
@@ -467,7 +467,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			List<Exp> exps = new ArrayList<>();
 			Option<Position> pos = VisitorUtil
 					.buildPositionOpt(object.getMethodContract().getEnsures().getExprs().get(0));
-			for (Expr e : object.getMethodContract().getEnsures().getExprs()) {
+			for (OwnedExpression e : object.getMethodContract().getEnsures().getExprs()) {
 				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
 				exps.add(visitPop(e));
 			}
@@ -539,7 +539,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			Initialize i = object.getSpecs().getInitialize();
 			List<Exp> modifies = new ArrayList<>();
 			if (i.getModifies() != null) {
-				for (Expr e : i.getModifies().getExprs()) {
+				for (OwnedExpression e : i.getModifies().getExprs()) {
 					modifies.add(visitPop(e));
 				}
 			}
@@ -574,7 +574,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		List<Exp> modifies = new ArrayList<>();
 		if (object.getModifies() != null) {
-			for (Expr e : object.getModifies().getExprs()) {
+			for (OwnedExpression e : object.getModifies().getExprs()) {
 				modifies.add(visitPop(e));
 			}
 		}
@@ -640,7 +640,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		List<Exp> modifies = new ArrayList<>();
 		if (object.getModifies() != null) {
-			for (Expr e : object.getModifies().getExprs()) {
+			for (OwnedExpression e : object.getModifies().getExprs()) {
 				modifies.add(visitPop(e));
 			}
 		}
@@ -780,7 +780,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		if (object.getCallSuffix() != null) {
 			SlangCallArgs callArgs = object.getCallSuffix().getCa();
-			for (Expr arg : callArgs.getArg()) {
+			for (OwnedExpression arg : callArgs.getArg()) {
 				args.add(visitPop(arg));
 			}
 		}

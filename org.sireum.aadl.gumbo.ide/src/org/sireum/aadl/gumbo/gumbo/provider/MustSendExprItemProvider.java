@@ -184,7 +184,7 @@ public class MustSendExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createOwnedExpression()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -205,81 +205,6 @@ public class MustSendExprItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
          GumboFactory.eINSTANCE.createUnaryExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createSlangAccess()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createSlangLitTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createSlangInterpTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createInStateExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createMaySendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createMustSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createNoSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createHasEventExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createCallExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createParenExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createSlangForTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
 }

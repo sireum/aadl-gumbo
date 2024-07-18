@@ -35,7 +35,7 @@ import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
  * <!-- end-user-doc -->
  * @generated
  */
-public class QuantifiedExpItemProvider extends ExprItemProvider
+public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -166,7 +166,7 @@ public class QuantifiedExpItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createOwnedExpression()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -187,81 +187,6 @@ public class QuantifiedExpItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
          GumboFactory.eINSTANCE.createUnaryExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createSlangAccess()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createSlangLitTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createSlangInterpTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createInStateExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createMaySendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createMustSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createNoSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createHasEventExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createCallExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createParenExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createSlangForTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
 }

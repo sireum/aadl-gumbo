@@ -22,9 +22,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
+import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,7 +91,7 @@ public class InvSpecImpl extends MinimalEObjectImpl.Container implements InvSpec
    * @generated
    * @ordered
    */
-  protected Expr expr;
+  protected OwnedExpression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -170,7 +170,7 @@ public class InvSpecImpl extends MinimalEObjectImpl.Container implements InvSpec
    * @generated
    */
   @Override
-  public Expr getExpr()
+  public OwnedExpression getExpr()
   {
     return expr;
   }
@@ -180,9 +180,9 @@ public class InvSpecImpl extends MinimalEObjectImpl.Container implements InvSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(OwnedExpression newExpr, NotificationChain msgs)
   {
-    Expr oldExpr = expr;
+    OwnedExpression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -198,7 +198,7 @@ public class InvSpecImpl extends MinimalEObjectImpl.Container implements InvSpec
    * @generated
    */
   @Override
-  public void setExpr(Expr newExpr)
+  public void setExpr(OwnedExpression newExpr)
   {
     if (newExpr != expr)
     {
@@ -267,7 +267,7 @@ public class InvSpecImpl extends MinimalEObjectImpl.Container implements InvSpec
         setDescriptor((String)newValue);
         return;
       case GumboPackage.INV_SPEC__EXPR:
-        setExpr((Expr)newValue);
+        setExpr((OwnedExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -290,7 +290,7 @@ public class InvSpecImpl extends MinimalEObjectImpl.Container implements InvSpec
         setDescriptor(DESCRIPTOR_EDEFAULT);
         return;
       case GumboPackage.INV_SPEC__EXPR:
-        setExpr((Expr)null);
+        setExpr((OwnedExpression)null);
         return;
     }
     super.eUnset(featureID);

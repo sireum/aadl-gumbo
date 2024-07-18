@@ -166,26 +166,6 @@ public class SlangAccessItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ACCESS__T,
-         GumboFactory.eINSTANCE.createBasicExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_ACCESS__T,
-         GumboFactory.eINSTANCE.createIfElseExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_ACCESS__T,
-         GumboFactory.eINSTANCE.createQuantifiedExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_ACCESS__T,
-         GumboFactory.eINSTANCE.createUnaryExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_ACCESS__T,
          GumboFactory.eINSTANCE.createSlangAccess()));
 
     newChildDescriptors.add

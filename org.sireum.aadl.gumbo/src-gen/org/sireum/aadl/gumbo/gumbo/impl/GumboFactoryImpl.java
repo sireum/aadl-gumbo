@@ -126,9 +126,12 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_PATTERN: return createSlangPattern();
       case GumboPackage.SLANG_TPATTERN: return createSlangTPattern();
       case GumboPackage.SLANG_VAR_DEF: return createSlangVarDef();
-      case GumboPackage.EXPR: return createExpr();
-      case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
+      case GumboPackage.SLANG_TYPE: return createSlangType();
+      case GumboPackage.SLANG_TYPE_ARGS: return createSlangTypeArgs();
       case GumboPackage.SLANG_BLOCK: return createSlangBlock();
+      case GumboPackage.OWNED_EXPRESSION: return createOwnedExpression();
+      case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
+      case GumboPackage.EXPR: return createExpr();
       case GumboPackage.SLANG_ACCESS_SUFFIX: return createSlangAccessSuffix();
       case GumboPackage.SLANG_PARAMS: return createSlangParams();
       case GumboPackage.SLANG_PARAM: return createSlangParam();
@@ -136,8 +139,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_RET: return createSlangRet();
       case GumboPackage.SLANG_CALL_SUFFIX: return createSlangCallSuffix();
       case GumboPackage.SLANG_CALL_ARGS: return createSlangCallArgs();
-      case GumboPackage.SLANG_TYPE: return createSlangType();
-      case GumboPackage.SLANG_TYPE_ARGS: return createSlangTypeArgs();
       case GumboPackage.SLANG_LIT: return createSlangLit();
       case GumboPackage.SLANG_INTERP: return createSlangInterp();
       case GumboPackage.SLANG_MINTERP: return createSlangMInterp();
@@ -808,10 +809,46 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Expr createExpr()
+  public SlangType createSlangType()
   {
-    ExprImpl expr = new ExprImpl();
-    return expr;
+    SlangTypeImpl slangType = new SlangTypeImpl();
+    return slangType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTypeArgs createSlangTypeArgs()
+  {
+    SlangTypeArgsImpl slangTypeArgs = new SlangTypeArgsImpl();
+    return slangTypeArgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangBlock createSlangBlock()
+  {
+    SlangBlockImpl slangBlock = new SlangBlockImpl();
+    return slangBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OwnedExpression createOwnedExpression()
+  {
+    OwnedExpressionImpl ownedExpression = new OwnedExpressionImpl();
+    return ownedExpression;
   }
 
   /**
@@ -832,10 +869,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangBlock createSlangBlock()
+  public Expr createExpr()
   {
-    SlangBlockImpl slangBlock = new SlangBlockImpl();
-    return slangBlock;
+    ExprImpl expr = new ExprImpl();
+    return expr;
   }
 
   /**
@@ -920,30 +957,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangCallArgsImpl slangCallArgs = new SlangCallArgsImpl();
     return slangCallArgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangType createSlangType()
-  {
-    SlangTypeImpl slangType = new SlangTypeImpl();
-    return slangType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangTypeArgs createSlangTypeArgs()
-  {
-    SlangTypeArgsImpl slangTypeArgs = new SlangTypeArgsImpl();
-    return slangTypeArgs;
   }
 
   /**

@@ -33,7 +33,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 
 	protected GumboGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Compute_CasesKeyword_4_0_q;
-	protected AbstractElementAlias match_Expr_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3;
+	protected AbstractElementAlias match_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3;
 	protected AbstractElementAlias match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDecl_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q;
@@ -54,7 +54,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
 		match_Compute_CasesKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getComputeAccess().getCasesKeyword_4_0());
-		match_Expr_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExprAccess().getAllKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getExprAccess().getForAllKeyword_2_1_2()), new TokenAlias(false, false, grammarAccess.getExprAccess().getSomeKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getExprAccess().getThereExistsKeyword_2_1_3()));
+		match_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getAllKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getForAllKeyword_2_1_2()), new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getSomeKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getThereExistsKeyword_2_1_3()));
 		match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclDefAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangDefDecl_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangExt___ForKeyword_3_0_SlangNameParserRuleCall_3_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSlangExtAccess().getForKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getSlangExtAccess().getSlangNameParserRuleCall_3_1()));
@@ -216,8 +216,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Compute_CasesKeyword_4_0_q.equals(syntax))
 				emit_Compute_CasesKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Expr_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3.equals(syntax))
-				emit_Expr_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3.equals(syntax))
+				emit_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q.equals(syntax))
 				emit_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDecl_SlangDefModsParserRuleCall_1_q.equals(syntax))
@@ -276,7 +276,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 
 	 * </pre>
 	 */
-	protected void emit_Expr_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -331,7 +331,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     '..' | '..&lt;'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     e=Expr (ambiguity) upper=Expr
+	 *     e=OwnedExpression (ambiguity) upper=OwnedExpression
 	 
 	 * </pre>
 	 */
@@ -387,7 +387,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     '..' | '..&lt;'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     e=Expr (ambiguity) upperBound=Expr
+	 *     e=OwnedExpression (ambiguity) upperBound=OwnedExpression
 	 
 	 * </pre>
 	 */
@@ -401,8 +401,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     ':=' | DEFOP
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     l+=SlangLHSSuffix (ambiguity) e=Expr
-	 *     portOrSubcomponentOrStateVar=[EObject|ID] (ambiguity) e=Expr
+	 *     l+=SlangLHSSuffix (ambiguity) e=OwnedExpression
+	 *     portOrSubcomponentOrStateVar=[EObject|ID] (ambiguity) e=OwnedExpression
 	 
 	 * </pre>
 	 */
@@ -430,7 +430,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     SLANG_STRING?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     e=Expr (ambiguity) (rule end)
+	 *     e=OwnedExpression (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */
@@ -444,7 +444,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     SLANG_STRING?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     e=Expr (ambiguity) (rule end)
+	 *     e=OwnedExpression (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */

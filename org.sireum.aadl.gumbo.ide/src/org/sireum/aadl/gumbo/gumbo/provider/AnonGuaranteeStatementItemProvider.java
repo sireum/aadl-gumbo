@@ -174,7 +174,7 @@ public class AnonGuaranteeStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createOwnedExpression()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -195,81 +195,6 @@ public class AnonGuaranteeStatementItemProvider
       (createChildParameter
         (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
          GumboFactory.eINSTANCE.createUnaryExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createSlangAccess()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createSlangLitTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createSlangInterpTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createInStateExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createMaySendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createMustSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createNoSendExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createHasEventExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createCallExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createEnumLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createRecordLitExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createDataRefExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createParenExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createSlangForTerm()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createSlangBlockTerm()));
   }
 
   /**

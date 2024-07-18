@@ -493,13 +493,40 @@ public interface GumboFactory extends EFactory
   SlangVarDef createSlangVarDef();
 
   /**
-   * Returns a new object of class '<em>Expr</em>'.
+   * Returns a new object of class '<em>Slang Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expr</em>'.
+   * @return a new object of class '<em>Slang Type</em>'.
    * @generated
    */
-  Expr createExpr();
+  SlangType createSlangType();
+
+  /**
+   * Returns a new object of class '<em>Slang Type Args</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Type Args</em>'.
+   * @generated
+   */
+  SlangTypeArgs createSlangTypeArgs();
+
+  /**
+   * Returns a new object of class '<em>Slang Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Block</em>'.
+   * @generated
+   */
+  SlangBlock createSlangBlock();
+
+  /**
+   * Returns a new object of class '<em>Owned Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Owned Expression</em>'.
+   * @generated
+   */
+  OwnedExpression createOwnedExpression();
 
   /**
    * Returns a new object of class '<em>Slang Quant Var</em>'.
@@ -511,13 +538,13 @@ public interface GumboFactory extends EFactory
   SlangQuantVar createSlangQuantVar();
 
   /**
-   * Returns a new object of class '<em>Slang Block</em>'.
+   * Returns a new object of class '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Block</em>'.
+   * @return a new object of class '<em>Expr</em>'.
    * @generated
    */
-  SlangBlock createSlangBlock();
+  Expr createExpr();
 
   /**
    * Returns a new object of class '<em>Slang Access Suffix</em>'.
@@ -581,24 +608,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangCallArgs createSlangCallArgs();
-
-  /**
-   * Returns a new object of class '<em>Slang Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Type</em>'.
-   * @generated
-   */
-  SlangType createSlangType();
-
-  /**
-   * Returns a new object of class '<em>Slang Type Args</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Type Args</em>'.
-   * @generated
-   */
-  SlangTypeArgs createSlangTypeArgs();
 
   /**
    * Returns a new object of class '<em>Slang Lit</em>'.

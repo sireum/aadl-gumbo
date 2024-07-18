@@ -347,9 +347,24 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangVarDefAdapter();
       }
       @Override
-      public Adapter caseExpr(Expr object)
+      public Adapter caseSlangType(SlangType object)
       {
-        return createExprAdapter();
+        return createSlangTypeAdapter();
+      }
+      @Override
+      public Adapter caseSlangTypeArgs(SlangTypeArgs object)
+      {
+        return createSlangTypeArgsAdapter();
+      }
+      @Override
+      public Adapter caseSlangBlock(SlangBlock object)
+      {
+        return createSlangBlockAdapter();
+      }
+      @Override
+      public Adapter caseOwnedExpression(OwnedExpression object)
+      {
+        return createOwnedExpressionAdapter();
       }
       @Override
       public Adapter caseSlangQuantVar(SlangQuantVar object)
@@ -357,9 +372,9 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangQuantVarAdapter();
       }
       @Override
-      public Adapter caseSlangBlock(SlangBlock object)
+      public Adapter caseExpr(Expr object)
       {
-        return createSlangBlockAdapter();
+        return createExprAdapter();
       }
       @Override
       public Adapter caseSlangAccessSuffix(SlangAccessSuffix object)
@@ -395,16 +410,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSlangCallArgs(SlangCallArgs object)
       {
         return createSlangCallArgsAdapter();
-      }
-      @Override
-      public Adapter caseSlangType(SlangType object)
-      {
-        return createSlangTypeAdapter();
-      }
-      @Override
-      public Adapter caseSlangTypeArgs(SlangTypeArgs object)
-      {
-        return createSlangTypeArgsAdapter();
       }
       @Override
       public Adapter caseSlangLit(SlangLit object)
@@ -1454,16 +1459,61 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Expr <em>Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangType <em>Slang Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Expr
+   * @see org.sireum.aadl.gumbo.gumbo.SlangType
    * @generated
    */
-  public Adapter createExprAdapter()
+  public Adapter createSlangTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypeArgs <em>Slang Type Args</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTypeArgs
+   * @generated
+   */
+  public Adapter createSlangTypeArgsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangBlock <em>Slang Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangBlock
+   * @generated
+   */
+  public Adapter createSlangBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.OwnedExpression <em>Owned Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.OwnedExpression
+   * @generated
+   */
+  public Adapter createOwnedExpressionAdapter()
   {
     return null;
   }
@@ -1484,16 +1534,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangBlock <em>Slang Block</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Expr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangBlock
+   * @see org.sireum.aadl.gumbo.gumbo.Expr
    * @generated
    */
-  public Adapter createSlangBlockAdapter()
+  public Adapter createExprAdapter()
   {
     return null;
   }
@@ -1599,36 +1649,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSlangCallArgsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangType <em>Slang Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangType
-   * @generated
-   */
-  public Adapter createSlangTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypeArgs <em>Slang Type Args</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangTypeArgs
-   * @generated
-   */
-  public Adapter createSlangTypeArgsAdapter()
   {
     return null;
   }

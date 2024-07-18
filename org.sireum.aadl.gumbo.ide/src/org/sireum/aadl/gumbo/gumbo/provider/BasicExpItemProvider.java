@@ -37,7 +37,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BasicExpItemProvider extends ExprItemProvider
+public class BasicExpItemProvider extends OwnedExpressionItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -189,26 +189,6 @@ public class BasicExpItemProvider extends ExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.BASIC_EXP__TERMS,
          GumboFactory.eINSTANCE.createExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__TERMS,
-         GumboFactory.eINSTANCE.createBasicExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__TERMS,
-         GumboFactory.eINSTANCE.createIfElseExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__TERMS,
-         GumboFactory.eINSTANCE.createQuantifiedExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BASIC_EXP__TERMS,
-         GumboFactory.eINSTANCE.createUnaryExp()));
 
     newChildDescriptors.add
       (createChildParameter

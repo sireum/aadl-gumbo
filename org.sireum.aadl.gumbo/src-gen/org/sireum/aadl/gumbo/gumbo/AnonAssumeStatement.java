@@ -38,12 +38,12 @@ public interface AnonAssumeStatement extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expr)
+   * @see #setExpr(OwnedExpression)
    * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getAnonAssumeStatement_Expr()
    * @model containment="true"
    * @generated
    */
-  Expr getExpr();
+  OwnedExpression getExpr();
 
   /**
    * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement#getExpr <em>Expr</em>}' containment reference.
@@ -53,6 +53,6 @@ public interface AnonAssumeStatement extends EObject
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expr value);
+  void setExpr(OwnedExpression value);
 
 } // AnonAssumeStatement

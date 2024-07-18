@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
-import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public class AnonAssumeStatementImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected Expr expr;
+  protected OwnedExpression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,7 +78,7 @@ public class AnonAssumeStatementImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public Expr getExpr()
+  public OwnedExpression getExpr()
   {
     return expr;
   }
@@ -88,9 +88,9 @@ public class AnonAssumeStatementImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(OwnedExpression newExpr, NotificationChain msgs)
   {
-    Expr oldExpr = expr;
+    OwnedExpression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -106,7 +106,7 @@ public class AnonAssumeStatementImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public void setExpr(Expr newExpr)
+  public void setExpr(OwnedExpression newExpr)
   {
     if (newExpr != expr)
     {
@@ -165,7 +165,7 @@ public class AnonAssumeStatementImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case GumboPackage.ANON_ASSUME_STATEMENT__EXPR:
-        setExpr((Expr)newValue);
+        setExpr((OwnedExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -182,7 +182,7 @@ public class AnonAssumeStatementImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case GumboPackage.ANON_ASSUME_STATEMENT__EXPR:
-        setExpr((Expr)null);
+        setExpr((OwnedExpression)null);
         return;
     }
     super.eUnset(featureID);
