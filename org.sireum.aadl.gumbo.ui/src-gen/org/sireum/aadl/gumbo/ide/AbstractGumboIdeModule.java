@@ -27,7 +27,7 @@ import org.eclipse.xtext.ide.refactoring.IRenameStrategy2;
 import org.eclipse.xtext.ide.server.rename.IRenameService2;
 import org.eclipse.xtext.ide.server.rename.RenameService2;
 import org.sireum.aadl.gumbo.ide.contentassist.antlr.GumboParser;
-import org.sireum.aadl.gumbo.ide.contentassist.antlr.lexer.InternalGumboLexer;
+import org.sireum.aadl.gumbo.ide.contentassist.antlr.internal.InternalGumboLexer;
 
 /**
  * Manual modifications go to {@link GumboIdeModule}.
