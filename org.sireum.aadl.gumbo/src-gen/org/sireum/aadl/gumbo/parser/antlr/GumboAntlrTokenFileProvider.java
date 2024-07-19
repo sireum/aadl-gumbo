@@ -21,6 +21,6 @@ public class GumboAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-		return classLoader.getResourceAsStream("org/sireum/aadl/gumbo/parser/antlr/internal/InternalGumboParser.tokens");
+		return classLoader.getResourceAsStream("org/sireum/aadl/gumbo/parser/antlr/internal/InternalGumbo.tokens");
 	}
 }
