@@ -131,17 +131,11 @@ ruleGumboLibrary returns [EObject current=null]
 			}
 		)
 		(
-			otherlv_1='library'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getGumboLibraryAccess().getLibraryKeyword_1());
-			}
-		)?
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGumboLibraryAccess().getFunctionsFunctionsParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getGumboLibraryAccess().getFunctionsFunctionsParserRuleCall_1_0());
 				}
-				lv_functions_2_0=ruleFunctions
+				lv_functions_1_0=ruleFunctions
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGumboLibraryRule());
@@ -149,7 +143,7 @@ ruleGumboLibrary returns [EObject current=null]
 					set(
 						$current,
 						"functions",
-						lv_functions_2_0,
+						lv_functions_1_0,
 						"org.sireum.aadl.gumbo.Gumbo.Functions");
 					afterParserOrEnumRuleCall();
 				}
