@@ -18,10 +18,14 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 GumboLibrary returns GumboLibrary:
 	{GumboLibrary}
 <<<<<<< HEAD
+<<<<<<< HEAD
 		(functions = Functions)?
 =======
 	'library'? (functions = Functions)?
 >>>>>>> 6d97c75 (update)
+=======
+		(functions = Functions)?
+>>>>>>> 3c55eb6 (update)
 ;
 
 GumboSubclause returns GumboSubclause:
