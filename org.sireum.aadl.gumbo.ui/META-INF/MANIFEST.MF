@@ -23,6 +23,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.sireum.aadl.gumbo.ide.contentassist.antlr.internal,
  org.sireum.aadl.gumbo.ide.contentassist.antlr,
  org.sireum.aadl.gumbo.ui.contentassist,
- org.sireum.aadl.gumbo.ui.quickfix,
- org.sireum.aadl.gumbo.ide.contentassist.antlr.lexer
+ org.sireum.aadl.gumbo.ui.quickfix
 Bundle-Activator: org.sireum.aadl.gumbo.ui.internal.GumboActivator

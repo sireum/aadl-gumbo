@@ -131,7 +131,7 @@ Workflow {
 			fragment = parser.antlr.XtextAntlrGeneratorFragment2 {
 				options = {
 					classSplitting = true
-					ignoreCase = true
+					ignoreCase = false
 					backtrack=true
 				}
 			}
