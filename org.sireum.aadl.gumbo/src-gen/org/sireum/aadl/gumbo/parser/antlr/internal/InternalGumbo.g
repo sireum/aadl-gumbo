@@ -533,9 +533,9 @@ ruleInvSpec returns [EObject current=null]
 		)
 		(
 			(
-				lv_descriptor_2_0=RULE_SLANG_STRING
+				lv_descriptor_2_0=RULE_STRING_VALUE
 				{
-					newLeafNode(lv_descriptor_2_0, grammarAccess.getInvSpecAccess().getDescriptorSLANG_STRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_descriptor_2_0, grammarAccess.getInvSpecAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -545,7 +545,7 @@ ruleInvSpec returns [EObject current=null]
 						$current,
 						"descriptor",
 						lv_descriptor_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 				}
 			)
 		)?
@@ -933,9 +933,9 @@ ruleInfoFlowClause returns [EObject current=null]
 		)
 		(
 			(
-				lv_descriptor_2_0=RULE_SLANG_STRING
+				lv_descriptor_2_0=RULE_STRING_VALUE
 				{
-					newLeafNode(lv_descriptor_2_0, grammarAccess.getInfoFlowClauseAccess().getDescriptorSLANG_STRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_descriptor_2_0, grammarAccess.getInfoFlowClauseAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -945,7 +945,7 @@ ruleInfoFlowClause returns [EObject current=null]
 						$current,
 						"descriptor",
 						lv_descriptor_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 				}
 			)
 		)?
@@ -953,7 +953,7 @@ ruleInfoFlowClause returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getInfoFlowClauseAccess().getColonKeyword_3());
 		}
-		otherlv_4='From'
+		otherlv_4='from'
 		{
 			newLeafNode(otherlv_4, grammarAccess.getInfoFlowClauseAccess().getFromKeyword_4());
 		}
@@ -1009,7 +1009,7 @@ ruleInfoFlowClause returns [EObject current=null]
 		{
 			newLeafNode(otherlv_10, grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_8());
 		}
-		otherlv_11='To'
+		otherlv_11='to'
 		{
 			newLeafNode(otherlv_11, grammarAccess.getInfoFlowClauseAccess().getToKeyword_9());
 		}
@@ -1195,9 +1195,9 @@ ruleCaseStatementClause returns [EObject current=null]
 		)
 		(
 			(
-				lv_descriptor_2_0=RULE_SLANG_STRING
+				lv_descriptor_2_0=RULE_STRING_VALUE
 				{
-					newLeafNode(lv_descriptor_2_0, grammarAccess.getCaseStatementClauseAccess().getDescriptorSLANG_STRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_descriptor_2_0, grammarAccess.getCaseStatementClauseAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -1207,7 +1207,7 @@ ruleCaseStatementClause returns [EObject current=null]
 						$current,
 						"descriptor",
 						lv_descriptor_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 				}
 			)
 		)?
@@ -1338,9 +1338,9 @@ ruleAssumeStatement returns [EObject current=null]
 		)
 		(
 			(
-				lv_descriptor_2_0=RULE_SLANG_STRING
+				lv_descriptor_2_0=RULE_STRING_VALUE
 				{
-					newLeafNode(lv_descriptor_2_0, grammarAccess.getAssumeStatementAccess().getDescriptorSLANG_STRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_descriptor_2_0, grammarAccess.getAssumeStatementAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -1350,7 +1350,7 @@ ruleAssumeStatement returns [EObject current=null]
 						$current,
 						"descriptor",
 						lv_descriptor_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 				}
 			)
 		)?
@@ -1470,9 +1470,9 @@ ruleGuaranteeStatement returns [EObject current=null]
 		)
 		(
 			(
-				lv_descriptor_2_0=RULE_SLANG_STRING
+				lv_descriptor_2_0=RULE_STRING_VALUE
 				{
-					newLeafNode(lv_descriptor_2_0, grammarAccess.getGuaranteeStatementAccess().getDescriptorSLANG_STRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_descriptor_2_0, grammarAccess.getGuaranteeStatementAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -1482,7 +1482,7 @@ ruleGuaranteeStatement returns [EObject current=null]
 						$current,
 						"descriptor",
 						lv_descriptor_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 				}
 			)
 		)?
@@ -3383,9 +3383,9 @@ ruleSlangStmt returns [EObject current=null]
 				)
 			)
 			(
-				this_SLANG_STRING_24=RULE_SLANG_STRING
+				this_STRING_VALUE_24=RULE_STRING_VALUE
 				{
-					newLeafNode(this_SLANG_STRING_24, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_5_3());
+					newLeafNode(this_STRING_VALUE_24, grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_5_3());
 				}
 			)?
 		)
@@ -3425,9 +3425,9 @@ ruleSlangStmt returns [EObject current=null]
 				)
 			)
 			(
-				this_SLANG_STRING_28=RULE_SLANG_STRING
+				this_STRING_VALUE_28=RULE_STRING_VALUE
 				{
-					newLeafNode(this_SLANG_STRING_28, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_6_3());
+					newLeafNode(this_STRING_VALUE_28, grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_6_3());
 				}
 			)?
 		)
@@ -3448,9 +3448,9 @@ ruleSlangStmt returns [EObject current=null]
 				newLeafNode(otherlv_30, grammarAccess.getSlangStmtAccess().getHaltKeyword_7_1());
 			}
 			(
-				this_SLANG_STRING_31=RULE_SLANG_STRING
+				this_STRING_VALUE_31=RULE_STRING_VALUE
 				{
-					newLeafNode(this_SLANG_STRING_31, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_7_2());
+					newLeafNode(this_STRING_VALUE_31, grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_7_2());
 				}
 			)?
 		)
@@ -6920,9 +6920,9 @@ ruleSlangLit returns [EObject current=null]
 			)
 			(
 				(
-					lv_value_19_0=RULE_SLANG_STRING
+					lv_value_19_0=RULE_STRING_VALUE
 					{
-						newLeafNode(lv_value_19_0, grammarAccess.getSlangLitAccess().getValueSLANG_STRINGTerminalRuleCall_9_1_0());
+						newLeafNode(lv_value_19_0, grammarAccess.getSlangLitAccess().getValueSTRING_VALUETerminalRuleCall_9_1_0());
 					}
 					{
 						if ($current==null) {
@@ -6932,7 +6932,7 @@ ruleSlangLit returns [EObject current=null]
 							$current,
 							"value",
 							lv_value_19_0,
-							"org.sireum.aadl.gumbo.Gumbo.SLANG_STRING");
+							"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 					}
 				)
 			)
@@ -9180,7 +9180,7 @@ ruleSTAR returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	}
 ;
 
-RULE_SLANG_STRING : '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
+RULE_STRING_VALUE : '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
 
 RULE_MSTRING : '"""' (~('"')|'"' ~('"')|'""' ~('"'))* ('"""'|'""""'|'"""""');
 

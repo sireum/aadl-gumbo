@@ -639,7 +639,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     AssumeStatement returns AssumeStatement
 	 *
 	 * Constraint:
-	 *     (id=ID descriptor=SLANG_STRING? expr=OwnedExpression)
+	 *     (id=ID descriptor=STRING_VALUE? expr=OwnedExpression)
 	 * </pre>
 	 */
 	protected void sequence_AssumeStatement(ISerializationContext context, AssumeStatement semanticObject) {
@@ -653,7 +653,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     CaseStatementClause returns CaseStatementClause
 	 *
 	 * Constraint:
-	 *     (id=ID descriptor=SLANG_STRING? assumeStatement=AnonAssumeStatement guaranteeStatement=AnonGuaranteeStatement)
+	 *     (id=ID descriptor=STRING_VALUE? assumeStatement=AnonAssumeStatement guaranteeStatement=AnonGuaranteeStatement)
 	 * </pre>
 	 */
 	protected void sequence_CaseStatementClause(ISerializationContext context, CaseStatementClause semanticObject) {
@@ -736,7 +736,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     GuaranteeStatement returns GuaranteeStatement
 	 *
 	 * Constraint:
-	 *     (id=ID descriptor=SLANG_STRING? expr=OwnedExpression)
+	 *     (id=ID descriptor=STRING_VALUE? expr=OwnedExpression)
 	 * </pre>
 	 */
 	protected void sequence_GuaranteeStatement(ISerializationContext context, GuaranteeStatement semanticObject) {
@@ -802,7 +802,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * Constraint:
 	 *     (
 	 *         id=ID 
-	 *         descriptor=SLANG_STRING? 
+	 *         descriptor=STRING_VALUE? 
 	 *         (fromPortOrStateVar+=[EObject|ID] fromPortOrStateVar+=[EObject|ID]*)? 
 	 *         (toPortOrStateVar+=[EObject|ID] toPortOrStateVar+=[EObject|ID]*)?
 	 *     )
@@ -867,7 +867,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     InvSpec returns InvSpec
 	 *
 	 * Constraint:
-	 *     (id=ID descriptor=SLANG_STRING? expr=OwnedExpression)
+	 *     (id=ID descriptor=STRING_VALUE? expr=OwnedExpression)
 	 * </pre>
 	 */
 	protected void sequence_InvSpec(ISerializationContext context, InvSpec semanticObject) {
@@ -1592,7 +1592,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangLit returns SlangStringLit
 	 *
 	 * Constraint:
-	 *     value=SLANG_STRING
+	 *     value=STRING_VALUE
 	 * </pre>
 	 */
 	protected void sequence_SlangLit(ISerializationContext context, SlangStringLit semanticObject) {
@@ -1601,7 +1601,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SLANG_STRING_LIT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangLitAccess().getValueSLANG_STRINGTerminalRuleCall_9_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSlangLitAccess().getValueSTRING_VALUETerminalRuleCall_9_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
