@@ -288,7 +288,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQCREFAccess().getGroup(), "rule__QCREF__Group__0");
 			builder.put(grammarAccess.getQCREFAccess().getGroup_0(), "rule__QCREF__Group_0__0");
 			builder.put(grammarAccess.getQCREFAccess().getGroup_2(), "rule__QCREF__Group_2__0");
-			builder.put(grammarAccess.getGumboLibraryAccess().getFunctionsAssignment_2(), "rule__GumboLibrary__FunctionsAssignment_2");
+			builder.put(grammarAccess.getGumboLibraryAccess().getFunctionsAssignment_1(), "rule__GumboLibrary__FunctionsAssignment_1");
 			builder.put(grammarAccess.getGumboSubclauseAccess().getSpecsAssignment_1(), "rule__GumboSubclause__SpecsAssignment_1");
 			builder.put(grammarAccess.getSpecSectionAccess().getStateAssignment_1(), "rule__SpecSection__StateAssignment_1");
 			builder.put(grammarAccess.getSpecSectionAccess().getFunctionsAssignment_2(), "rule__SpecSection__FunctionsAssignment_2");
