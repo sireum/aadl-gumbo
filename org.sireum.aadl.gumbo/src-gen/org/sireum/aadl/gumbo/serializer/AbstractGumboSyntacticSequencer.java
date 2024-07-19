@@ -32,7 +32,12 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
+<<<<<<< HEAD
 	protected AbstractElementAlias match_Compute_Compute_casesKeyword_4_0_q;
+=======
+	protected AbstractElementAlias match_Compute_CasesKeyword_4_0_q;
+	protected AbstractElementAlias match_GumboLibrary_LibraryKeyword_1_q;
+>>>>>>> 6d97c75 (update)
 	protected AbstractElementAlias match_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3;
 	protected AbstractElementAlias match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q;
 	protected AbstractElementAlias match_SlangDefDecl_SlangDefModsParserRuleCall_1_q;
@@ -53,7 +58,12 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
+<<<<<<< HEAD
 		match_Compute_Compute_casesKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getComputeAccess().getCompute_casesKeyword_4_0());
+=======
+		match_Compute_CasesKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getComputeAccess().getCasesKeyword_4_0());
+		match_GumboLibrary_LibraryKeyword_1_q = new TokenAlias(false, true, grammarAccess.getGumboLibraryAccess().getLibraryKeyword_1());
+>>>>>>> 6d97c75 (update)
 		match_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getAllKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getForAllKeyword_2_1_2()), new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getSomeKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getOwnedExpressionAccess().getThereExistsKeyword_2_1_3()));
 		match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclDefAccess().getSlangDefModsParserRuleCall_1());
 		match_SlangDefDecl_SlangDefModsParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getSlangDefDeclAccess().getSlangDefModsParserRuleCall_1());
@@ -214,8 +224,15 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
+<<<<<<< HEAD
 			if (match_Compute_Compute_casesKeyword_4_0_q.equals(syntax))
 				emit_Compute_Compute_casesKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+=======
+			if (match_Compute_CasesKeyword_4_0_q.equals(syntax))
+				emit_Compute_CasesKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_GumboLibrary_LibraryKeyword_1_q.equals(syntax))
+				emit_GumboLibrary_LibraryKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+>>>>>>> 6d97c75 (update)
 			else if (match_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3.equals(syntax))
 				emit_OwnedExpression_AllKeyword_2_1_0_or_ForAllKeyword_2_1_2_or_SomeKeyword_2_1_1_or_ThereExistsKeyword_2_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangDefDeclDef_SlangDefModsParserRuleCall_1_q.equals(syntax))
@@ -263,6 +280,21 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 * </pre>
 	 */
 	protected void emit_Compute_Compute_casesKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'library'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) functions=Functions
+	 
+	 * </pre>
+	 */
+	protected void emit_GumboLibrary_LibraryKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

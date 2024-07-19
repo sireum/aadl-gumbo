@@ -62,27 +62,39 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.GumboLibrary");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cGumboLibraryAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cFunctionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFunctionsFunctionsParserRuleCall_1_0 = (RuleCall)cFunctionsAssignment_1.eContents().get(0);
+		private final Keyword cLibraryKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFunctionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFunctionsFunctionsParserRuleCall_2_0 = (RuleCall)cFunctionsAssignment_2.eContents().get(0);
 		
 		//GumboLibrary returns GumboLibrary:
 		//    {GumboLibrary}
+<<<<<<< HEAD
 		//        (functions = Functions)?
+=======
+		//    'library'? (functions = Functions)?
+>>>>>>> 6d97c75 (update)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{GumboLibrary}
+<<<<<<< HEAD
 		//    (functions = Functions)?
+=======
+		//'library'? (functions = Functions)?
+>>>>>>> 6d97c75 (update)
 		public Group getGroup() { return cGroup; }
 		
 		//{GumboLibrary}
 		public Action getGumboLibraryAction_0() { return cGumboLibraryAction_0; }
 		
+		//'library'?
+		public Keyword getLibraryKeyword_1() { return cLibraryKeyword_1; }
+		
 		//(functions = Functions)?
-		public Assignment getFunctionsAssignment_1() { return cFunctionsAssignment_1; }
+		public Assignment getFunctionsAssignment_2() { return cFunctionsAssignment_2; }
 		
 		//Functions
-		public RuleCall getFunctionsFunctionsParserRuleCall_1_0() { return cFunctionsFunctionsParserRuleCall_1_0; }
+		public RuleCall getFunctionsFunctionsParserRuleCall_2_0() { return cFunctionsFunctionsParserRuleCall_2_0; }
 	}
 	public class GumboSubclauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.GumboSubclause");
@@ -1696,6 +1708,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cEnsSlangEnsuresParserRuleCall_4_0 = (RuleCall)cEnsAssignment_4.eContents().get(0);
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1706,6 +1719,12 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//{SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures?
 >>>>>>> 1f12bcb (update)
+=======
+		//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures?
+>>>>>>> 6d97c75 (update)
 		public Group getGroup() { return cGroup; }
 		
 		//{SlangDefContractCase}
@@ -1715,10 +1734,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		public Keyword getCaseKeyword_1() { return cCaseKeyword_1; }
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//STRING_VALUE
 =======
 		///*SLANG_*/STRING_VALUE
 >>>>>>> 1f12bcb (update)
+=======
+		//STRING_VALUE
+>>>>>>> 6d97c75 (update)
 		public RuleCall getSTRING_VALUETerminalRuleCall_2() { return cSTRING_VALUETerminalRuleCall_2; }
 		
 		//req=SlangRequires?
@@ -5120,7 +5143,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//GumboLibrary returns GumboLibrary:
 	//    {GumboLibrary}
+<<<<<<< HEAD
 	//        (functions = Functions)?
+=======
+	//    'library'? (functions = Functions)?
+>>>>>>> 6d97c75 (update)
 	//;
 	public GumboLibraryElements getGumboLibraryAccess() {
 		return pGumboLibrary;
@@ -5549,10 +5576,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
 =======
 	//SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
 >>>>>>> 1f12bcb (update)
+=======
+	//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+>>>>>>> 6d97c75 (update)
 	public SlangDefContractCaseElements getSlangDefContractCaseAccess() {
 		return pSlangDefContractCase;
 	}
