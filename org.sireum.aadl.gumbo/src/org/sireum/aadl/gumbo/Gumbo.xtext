@@ -85,7 +85,7 @@ Compute:
 	  //)+
 	  
 	  (specs+=SpecStatement)* // assume and/or guarantees
-	  ('cases' (cases+=CaseStatementClause)+)*
+	  ('compute_cases' (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
 ;
