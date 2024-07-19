@@ -141,7 +141,7 @@ Workflow {
 			}
 			fragment = scoping.ImportNamespacesScopingFragment2 {
 				generateXtendStub = true
-				ignoreCase = true
+				ignoreCase = false
 			}
 			fragment = exporting.QualifiedNamesFragment2 {}
 			fragment = builder.BuilderIntegrationFragment2 {}
