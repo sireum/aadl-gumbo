@@ -17,7 +17,7 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 
 GumboLibrary returns GumboLibrary:
 	{GumboLibrary}
-	(functions = Functions)?
+	'library'? (functions = Functions)?
 ;
 
 GumboSubclause returns GumboSubclause:
@@ -138,16 +138,6 @@ PREDICATE: // TODO
 	ID
 ;
 
-OtherDataRef:
-	(
-		(
-			namedElement=[aadl2::NamedElement|ID]
-	 		(arrayRange+=ArrayRange)*
-		) 
-		('.' path=OtherDataRef)?
-//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
-	)
-;
 
 DoubleDotRef:
 	elm=[aadl2::NamedElement|QualifiedName]
@@ -183,7 +173,10 @@ SlangDefMods: '@strictpure' | '@pure';
 
 SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
 	
-SlangDefID: ID | Operator ;
+// NOTE: removing Operator as that's part of the Slang expr language and therefore will not be
+//       present in kerml's expression language. This is probably okay since, for e.g., "def + ()..." 
+//       isn't valid Slang anyway
+SlangDefID: ID; //| Operator ;
 
 SlangDefParams: '(' (params+=SlangDefParam ( ',' params+=SlangDefParam )* )? ')' ;
 	
@@ -204,7 +197,7 @@ SlangDefContract
 	  )
 	;
 
-SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
 
 SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
 
@@ -223,6 +216,24 @@ SlangReads: 'reads' exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* ;
 SlangModifies: 'modifies' exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )*  ;
 
 SlangEnsures: 'guarantee'  exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* ;
+
+
+		
+SlangType
+	: SlangBaseType// ( '=>' SlangBaseType )*
+	//| 'mut' SlangBaseType ( '=>' SlangBaseType )+
+	;
+	
+SlangBaseType returns SlangType
+	: typeName=[aadl2::DataSubcomponentType|QualifiedName]//ID SlangTypeArgs?
+	//| '(' ( SlangType ( ',' SlangType )* )? ')'
+	;
+
+SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
+
+
+
+// The following is replaced by KerML's expression language
 
 SlangStmt
 	: {SlangVarDef} d=SlangVarDef
@@ -281,23 +292,8 @@ SlangVarDeclDef returns SlangVarDef:
 
 SlangVarMod: 'val' | 'var' ;
 
-		
-SlangType
-	: SlangBaseType// ( '=>' SlangBaseType )*
-	//| 'mut' SlangBaseType ( '=>' SlangBaseType )+
-	;
-	
-SlangBaseType returns SlangType
-	: typeName=[aadl2::DataSubcomponentType|QualifiedName]//ID SlangTypeArgs?
-	//| '(' ( SlangType ( ',' SlangType )* )? ')'
-	;
-
-SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
-
 
 SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
-
-
 
 
 OwnedExpression
@@ -314,6 +310,17 @@ SlangAccess returns Expr
 	: {SlangAccess} t=SlangTerm ( suffixes+=SlangAccessSuffix )* ;
 
 SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID; // cs=SlangCallSuffix? ;
+
+OtherDataRef:
+	(
+		(
+			namedElement=[aadl2::NamedElement|ID]
+	 		(arrayRange+=ArrayRange)*
+		) 
+		('.' path=OtherDataRef)?
+//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
+	)
+;
 
 SlangTerm returns Expr
 	: {SlangLitTerm} lit=SlangLit

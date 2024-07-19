@@ -205,15 +205,6 @@ public interface GumboFactory extends EFactory
   AnonGuaranteeStatement createAnonGuaranteeStatement();
 
   /**
-   * Returns a new object of class '<em>Other Data Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Other Data Ref</em>'.
-   * @generated
-   */
-  OtherDataRef createOtherDataRef();
-
-  /**
    * Returns a new object of class '<em>Double Dot Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -421,6 +412,24 @@ public interface GumboFactory extends EFactory
   SlangEnsures createSlangEnsures();
 
   /**
+   * Returns a new object of class '<em>Slang Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Type</em>'.
+   * @generated
+   */
+  SlangType createSlangType();
+
+  /**
+   * Returns a new object of class '<em>Slang Type Args</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Type Args</em>'.
+   * @generated
+   */
+  SlangTypeArgs createSlangTypeArgs();
+
+  /**
    * Returns a new object of class '<em>Slang Stmt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -493,24 +502,6 @@ public interface GumboFactory extends EFactory
   SlangVarDef createSlangVarDef();
 
   /**
-   * Returns a new object of class '<em>Slang Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Type</em>'.
-   * @generated
-   */
-  SlangType createSlangType();
-
-  /**
-   * Returns a new object of class '<em>Slang Type Args</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Type Args</em>'.
-   * @generated
-   */
-  SlangTypeArgs createSlangTypeArgs();
-
-  /**
    * Returns a new object of class '<em>Slang Block</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -554,6 +545,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangAccessSuffix createSlangAccessSuffix();
+
+  /**
+   * Returns a new object of class '<em>Other Data Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Other Data Ref</em>'.
+   * @generated
+   */
+  OtherDataRef createOtherDataRef();
 
   /**
    * Returns a new object of class '<em>Slang Params</em>'.

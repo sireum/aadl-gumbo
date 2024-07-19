@@ -108,14 +108,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//OwnedExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OtherDataRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namedElement" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arrayRange" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ArrayRange"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//OtherDataRef"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DoubleDotRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elm" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
   </eClassifiers>
@@ -246,6 +238,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
         eType="#//OwnedExpression" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataSubcomponentType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangTypeArgs">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//SlangType" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangStmt"/>
   <eClassifiers xsi:type="ecore:EClass" name="SlangElse">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cond" eType="#//OwnedExpression"
@@ -289,13 +288,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//OwnedExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangType">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataSubcomponentType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangTypeArgs">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//SlangType" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangBlock" eSuperTypes="#//SlangElse">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stmts" upperBound="-1"
         eType="#//SlangStmt" containment="true"/>
@@ -312,6 +304,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Expr"/>
   <eClassifiers xsi:type="ecore:EClass" name="SlangAccessSuffix">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OtherDataRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedElement" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrayRange" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ArrayRange"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//OtherDataRef"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangParams">
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"

@@ -85,11 +85,6 @@
     <genClasses ecoreClass="Gumbo.ecore#//AnonGuaranteeStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AnonGuaranteeStatement/expr"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//OtherDataRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/namedElement"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/arrayRange"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/path"/>
-    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//DoubleDotRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DoubleDotRef/elm"/>
     </genClasses>
@@ -184,6 +179,12 @@
     <genClasses ecoreClass="Gumbo.ecore#//SlangEnsures">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangEnsures/exprs"/>
     </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangType/typeName"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SlangTypeArgs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTypeArgs/types"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangStmt"/>
     <genClasses ecoreClass="Gumbo.ecore#//SlangElse">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangElse/cond"/>
@@ -213,12 +214,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangVarDef/typeName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangVarDef/init"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangType/typeName"/>
-    </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangTypeArgs">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangTypeArgs/types"/>
-    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangBlock">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlock/stmts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlock/r"/>
@@ -231,6 +226,11 @@
     <genClasses ecoreClass="Gumbo.ecore#//Expr"/>
     <genClasses ecoreClass="Gumbo.ecore#//SlangAccessSuffix">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangAccessSuffix/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//OtherDataRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/namedElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/arrayRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/path"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangParams">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangParams/params"/>
