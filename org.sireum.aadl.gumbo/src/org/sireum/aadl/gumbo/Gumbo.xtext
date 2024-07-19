@@ -17,7 +17,7 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 
 GumboLibrary returns GumboLibrary:
 	{GumboLibrary}
-	'library'? (functions = Functions)?
+		(functions = Functions)?
 ;
 
 GumboSubclause returns GumboSubclause:

@@ -62,31 +62,27 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.GumboLibrary");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cGumboLibraryAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLibraryKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cFunctionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFunctionsFunctionsParserRuleCall_2_0 = (RuleCall)cFunctionsAssignment_2.eContents().get(0);
+		private final Assignment cFunctionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFunctionsFunctionsParserRuleCall_1_0 = (RuleCall)cFunctionsAssignment_1.eContents().get(0);
 		
 		//GumboLibrary returns GumboLibrary:
 		//    {GumboLibrary}
-		//    'library'? (functions = Functions)?
+		//        (functions = Functions)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{GumboLibrary}
-		//'library'? (functions = Functions)?
+		//    (functions = Functions)?
 		public Group getGroup() { return cGroup; }
 		
 		//{GumboLibrary}
 		public Action getGumboLibraryAction_0() { return cGumboLibraryAction_0; }
 		
-		//'library'?
-		public Keyword getLibraryKeyword_1() { return cLibraryKeyword_1; }
-		
 		//(functions = Functions)?
-		public Assignment getFunctionsAssignment_2() { return cFunctionsAssignment_2; }
+		public Assignment getFunctionsAssignment_1() { return cFunctionsAssignment_1; }
 		
 		//Functions
-		public RuleCall getFunctionsFunctionsParserRuleCall_2_0() { return cFunctionsFunctionsParserRuleCall_2_0; }
+		public RuleCall getFunctionsFunctionsParserRuleCall_1_0() { return cFunctionsFunctionsParserRuleCall_1_0; }
 	}
 	public class GumboSubclauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.GumboSubclause");
@@ -5113,7 +5109,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//GumboLibrary returns GumboLibrary:
 	//    {GumboLibrary}
-	//    'library'? (functions = Functions)?
+	//        (functions = Functions)?
 	//;
 	public GumboLibraryElements getGumboLibraryAccess() {
 		return pGumboLibrary;
