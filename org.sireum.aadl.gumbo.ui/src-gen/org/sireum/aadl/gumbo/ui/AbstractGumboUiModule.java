@@ -63,7 +63,7 @@ import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
 import org.sireum.aadl.gumbo.ide.contentassist.antlr.GumboParser;
-import org.sireum.aadl.gumbo.ide.contentassist.antlr.lexer.InternalGumboLexer;
+import org.sireum.aadl.gumbo.ide.contentassist.antlr.internal.InternalGumboLexer;
 import org.sireum.aadl.gumbo.ui.contentassist.GumboProposalProvider;
 import org.sireum.aadl.gumbo.ui.labeling.GumboDescriptionLabelProvider;
 import org.sireum.aadl.gumbo.ui.labeling.GumboLabelProvider;
@@ -101,7 +101,7 @@ public abstract class AbstractGumboUiModule extends DefaultUiModule {
 	public void configureHighlightingLexer(Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.HIGHLIGHTING))
-			.to(org.sireum.aadl.gumbo.parser.antlr.lexer.InternalGumboLexer.class);
+			.to(org.sireum.aadl.gumbo.parser.antlr.internal.InternalGumboLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2

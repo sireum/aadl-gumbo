@@ -38,6 +38,5 @@ Export-Package: org.sireum.aadl.gumbo.formatting2,
  org.sireum.aadl.gumbo.gumbo,
  org.sireum.aadl.gumbo.parser.antlr,
  org.sireum.aadl.gumbo.gumbo.util,
- org.sireum.aadl.gumbo.parser.antlr.lexer,
- org.sireum.aadl.gumbo
+  org.sireum.aadl.gumbo
 Import-Package: org.apache.log4j
