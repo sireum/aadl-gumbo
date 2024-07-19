@@ -197,7 +197,11 @@ SlangDefContract
 	  )
 	;
 
+<<<<<<< HEAD
 SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+=======
+SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+>>>>>>> 1f12bcb (update)
 
 SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
 

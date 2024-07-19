@@ -35,7 +35,11 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalGumboParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
+<<<<<<< HEAD
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INTEGER_LIT", "RULE_DEFOP", "RULE_F64_LIT", "RULE_REAL_LIT", "RULE_MSPE", "RULE_OP", "RULE_IMPLIES", "RULE_SIMPLIES", "RULE_STRING_VALUE", "RULE_MSPM", "RULE_HEX", "RULE_BIN", "RULE_F32_LIT", "RULE_MSTRING", "RULE_MSP", "RULE_SLI", "RULE_MSPB", "RULE_ESC_SEQ", "RULE_IDF", "RULE_MSPI", "RULE_OPSYM", "RULE_EXTENDED_DIGIT", "RULE_INT_IDF", "RULE_LETTER", "RULE_DIGIT", "RULE_UNICODE_ESC", "RULE_SL_COMMENT", "RULE_EXPONENT", "RULE_INT_EXPONENT", "RULE_BASED_INTEGER", "RULE_WS", "'*'", "'@strictpure'", "'@pure'", "':'", "':='", "'val'", "'var'", "'\\\\all'", "'\\\\some'", "'\\u2200'", "'\\u2203'", "'..'", "'..<'", "'T'", "'F'", "'true'", "'false'", "'=>'", "'+'", "'-'", "'state'", "';'", "'invariants'", "'inv'", "'integration'", "'initialize'", "'compute'", "'compute_cases'", "'infoflow'", "'from'", "'('", "')'", "','", "'to'", "'handle'", "'case'", "'assume'", "'guarantee'", "'functions'", "'def'", "'['", "']'", "'.'", "'invariant'", "'reads'", "'modifies'", "'if'", "'while'", "'match'", "'{'", "'}'", "'spec'", "'assert'", "'halt'", "'do'", "'else'", "'_'", "'In'", "'MaySend'", "'MustSend'", "'NoSend'", "'HasEvent'", "'='", "'for'", "'yield'", "'by'", "'return'", "'res'", "'reference'", "'classifier'", "'delta'", "'applies'", "'in'", "'binding'", "'modes'", "'::'", "'mut'", "'F32'", "'F64'", "'+=>'", "'constant'"
+=======
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INTEGER_LIT", "RULE_ID", "RULE_DEFOP", "RULE_F64_LIT", "RULE_REAL_LIT", "RULE_MSPE", "RULE_OP", "RULE_IMPLIES", "RULE_SIMPLIES", "RULE_STRING_VALUE", "RULE_MSPM", "RULE_HEX", "RULE_BIN", "RULE_F32_LIT", "RULE_MSTRING", "RULE_MSP", "RULE_SLI", "RULE_MSPB", "RULE_ESC_SEQ", "RULE_IDF", "RULE_MSPI", "RULE_OPSYM", "RULE_EXTENDED_DIGIT", "RULE_INT_IDF", "RULE_LETTER", "RULE_DIGIT", "RULE_UNICODE_ESC", "RULE_SL_COMMENT", "RULE_EXPONENT", "RULE_INT_EXPONENT", "RULE_BASED_INTEGER", "RULE_WS", "'*'", "'@strictpure'", "'@pure'", "':'", "':='", "'val'", "'var'", "'\\\\all'", "'\\\\some'", "'\\u2200'", "'\\u2203'", "'..'", "'..<'", "'T'", "'F'", "'true'", "'false'", "'=>'", "'+'", "'-'", "'state'", "';'", "'invariants'", "'inv'", "'integration'", "'initialize'", "'compute'", "'cases'", "'infoflow'", "'from'", "'('", "')'", "','", "'to'", "'handle'", "'case'", "'assume'", "'guarantee'", "'.'", "'functions'", "'def'", "'['", "']'", "'invariant'", "'reads'", "'modifies'", "'if'", "'while'", "'match'", "'{'", "'}'", "'spec'", "'assert'", "'halt'", "'do'", "'else'", "'_'", "'In'", "'MaySend'", "'MustSend'", "'NoSend'", "'HasEvent'", "'='", "'for'", "'yield'", "'by'", "'return'", "'res'", "'reference'", "'classifier'", "'delta'", "'applies'", "'in'", "'binding'", "'modes'", "'::'", "'mut'", "'F32'", "'F64'", "'+=>'", "'constant'"
+>>>>>>> 1f12bcb (update)
     };
     public static final int RULE_HEX=16;
     public static final int T__50=50;
@@ -11469,14 +11473,25 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 alt19=8;
                 }
                 break;
-            case 115:
+            case 114:
                 {
                 alt19=9;
                 }
                 break;
+<<<<<<< HEAD
             case RULE_STRING_VALUE:
                 {
                 alt19=10;
+=======
+            case 115:
+                {
+                alt20=9;
+                }
+                break;
+            case RULE_STRING_VALUE:
+                {
+                alt20=10;
+>>>>>>> 1f12bcb (update)
                 }
                 break;
             case RULE_MSTRING:
@@ -12448,8 +12463,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( (LA25_0==54) ) {
                 alt25=1;
             }
+<<<<<<< HEAD
             else if ( (LA25_0==116) ) {
                 alt25=2;
+=======
+            else if ( (LA26_0==116) ) {
+                alt26=2;
+>>>>>>> 1f12bcb (update)
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return ;}
@@ -15406,8 +15426,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt41=2;
             int LA41_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA41_0==RULE_STRING_VALUE) ) {
                 alt41=1;
+=======
+            if ( (LA42_0==RULE_STRING_VALUE) ) {
+                alt42=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt41) {
                 case 1 :
@@ -17810,8 +17835,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt52=2;
             int LA52_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA52_0==RULE_STRING_VALUE) ) {
                 alt52=1;
+=======
+            if ( (LA53_0==RULE_STRING_VALUE) ) {
+                alt53=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt52) {
                 case 1 :
@@ -17970,17 +18000,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InfoFlowClause__Group__4__Impl"
+<<<<<<< HEAD
     // InternalGumbo.g:5010:1: rule__InfoFlowClause__Group__4__Impl : ( 'from' ) ;
+=======
+    // InternalGumbo.g:5031:1: rule__InfoFlowClause__Group__4__Impl : ( 'from' ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__InfoFlowClause__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:5014:1: ( ( 'from' ) )
             // InternalGumbo.g:5015:1: ( 'from' )
             {
             // InternalGumbo.g:5015:1: ( 'from' )
             // InternalGumbo.g:5016:2: 'from'
+=======
+            // InternalGumbo.g:5035:1: ( ( 'from' ) )
+            // InternalGumbo.g:5036:1: ( 'from' )
+            {
+            // InternalGumbo.g:5036:1: ( 'from' )
+            // InternalGumbo.g:5037:2: 'from'
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getFromKeyword_4()); 
@@ -18386,17 +18428,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InfoFlowClause__Group__9__Impl"
+<<<<<<< HEAD
     // InternalGumbo.g:5145:1: rule__InfoFlowClause__Group__9__Impl : ( 'to' ) ;
+=======
+    // InternalGumbo.g:5166:1: rule__InfoFlowClause__Group__9__Impl : ( 'to' ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__InfoFlowClause__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:5149:1: ( ( 'to' ) )
             // InternalGumbo.g:5150:1: ( 'to' )
             {
             // InternalGumbo.g:5150:1: ( 'to' )
             // InternalGumbo.g:5151:2: 'to'
+=======
+            // InternalGumbo.g:5170:1: ( ( 'to' ) )
+            // InternalGumbo.g:5171:1: ( 'to' )
+            {
+            // InternalGumbo.g:5171:1: ( 'to' )
+            // InternalGumbo.g:5172:2: 'to'
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getToKeyword_9()); 
@@ -20333,8 +20387,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt59=2;
             int LA59_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA59_0==RULE_STRING_VALUE) ) {
                 alt59=1;
+=======
+            if ( (LA60_0==RULE_STRING_VALUE) ) {
+                alt60=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt59) {
                 case 1 :
@@ -20853,8 +20912,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt60=2;
             int LA60_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA60_0==RULE_STRING_VALUE) ) {
                 alt60=1;
+=======
+            if ( (LA61_0==RULE_STRING_VALUE) ) {
+                alt61=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt60) {
                 case 1 :
@@ -21605,8 +21669,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA61_0==RULE_STRING_VALUE) ) {
                 alt61=1;
+=======
+            if ( (LA62_0==RULE_STRING_VALUE) ) {
+                alt62=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt61) {
                 case 1 :
@@ -26252,8 +26321,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt75=2;
             int LA75_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA75_0==113) ) {
                 alt75=1;
+=======
+            if ( (LA78_0==113) ) {
+                alt78=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt75) {
                 case 1 :
@@ -32827,31 +32901,56 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SlangStmt__Group_5__3__Impl"
+<<<<<<< HEAD
     // InternalGumbo.g:9667:1: rule__SlangStmt__Group_5__3__Impl : ( ( RULE_STRING_VALUE )? ) ;
+=======
+    // InternalGumbo.g:9688:1: rule__SlangStmt__Group_5__3__Impl : ( ( RULE_STRING_VALUE )? ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__SlangStmt__Group_5__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:9671:1: ( ( ( RULE_STRING_VALUE )? ) )
             // InternalGumbo.g:9672:1: ( ( RULE_STRING_VALUE )? )
             {
             // InternalGumbo.g:9672:1: ( ( RULE_STRING_VALUE )? )
             // InternalGumbo.g:9673:2: ( RULE_STRING_VALUE )?
+=======
+            // InternalGumbo.g:9692:1: ( ( ( RULE_STRING_VALUE )? ) )
+            // InternalGumbo.g:9693:1: ( ( RULE_STRING_VALUE )? )
+            {
+            // InternalGumbo.g:9693:1: ( ( RULE_STRING_VALUE )? )
+            // InternalGumbo.g:9694:2: ( RULE_STRING_VALUE )?
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_5_3()); 
             }
+<<<<<<< HEAD
             // InternalGumbo.g:9674:2: ( RULE_STRING_VALUE )?
             int alt90=2;
             int LA90_0 = input.LA(1);
 
             if ( (LA90_0==RULE_STRING_VALUE) ) {
                 alt90=1;
+=======
+            // InternalGumbo.g:9695:2: ( RULE_STRING_VALUE )?
+            int alt92=2;
+            int LA92_0 = input.LA(1);
+
+            if ( (LA92_0==RULE_STRING_VALUE) ) {
+                alt92=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt90) {
                 case 1 :
+<<<<<<< HEAD
                     // InternalGumbo.g:9674:3: RULE_STRING_VALUE
+=======
+                    // InternalGumbo.g:9695:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
                     {
                     match(input,RULE_STRING_VALUE,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
@@ -33165,31 +33264,56 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SlangStmt__Group_6__3__Impl"
+<<<<<<< HEAD
     // InternalGumbo.g:9775:1: rule__SlangStmt__Group_6__3__Impl : ( ( RULE_STRING_VALUE )? ) ;
+=======
+    // InternalGumbo.g:9796:1: rule__SlangStmt__Group_6__3__Impl : ( ( RULE_STRING_VALUE )? ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__SlangStmt__Group_6__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:9779:1: ( ( ( RULE_STRING_VALUE )? ) )
             // InternalGumbo.g:9780:1: ( ( RULE_STRING_VALUE )? )
             {
             // InternalGumbo.g:9780:1: ( ( RULE_STRING_VALUE )? )
             // InternalGumbo.g:9781:2: ( RULE_STRING_VALUE )?
+=======
+            // InternalGumbo.g:9800:1: ( ( ( RULE_STRING_VALUE )? ) )
+            // InternalGumbo.g:9801:1: ( ( RULE_STRING_VALUE )? )
+            {
+            // InternalGumbo.g:9801:1: ( ( RULE_STRING_VALUE )? )
+            // InternalGumbo.g:9802:2: ( RULE_STRING_VALUE )?
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_6_3()); 
             }
+<<<<<<< HEAD
             // InternalGumbo.g:9782:2: ( RULE_STRING_VALUE )?
             int alt91=2;
             int LA91_0 = input.LA(1);
 
             if ( (LA91_0==RULE_STRING_VALUE) ) {
                 alt91=1;
+=======
+            // InternalGumbo.g:9803:2: ( RULE_STRING_VALUE )?
+            int alt93=2;
+            int LA93_0 = input.LA(1);
+
+            if ( (LA93_0==RULE_STRING_VALUE) ) {
+                alt93=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt91) {
                 case 1 :
+<<<<<<< HEAD
                     // InternalGumbo.g:9782:3: RULE_STRING_VALUE
+=======
+                    // InternalGumbo.g:9803:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
                     {
                     match(input,RULE_STRING_VALUE,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
@@ -33414,31 +33538,56 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SlangStmt__Group_7__2__Impl"
+<<<<<<< HEAD
     // InternalGumbo.g:9856:1: rule__SlangStmt__Group_7__2__Impl : ( ( RULE_STRING_VALUE )? ) ;
+=======
+    // InternalGumbo.g:9877:1: rule__SlangStmt__Group_7__2__Impl : ( ( RULE_STRING_VALUE )? ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__SlangStmt__Group_7__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:9860:1: ( ( ( RULE_STRING_VALUE )? ) )
             // InternalGumbo.g:9861:1: ( ( RULE_STRING_VALUE )? )
             {
             // InternalGumbo.g:9861:1: ( ( RULE_STRING_VALUE )? )
             // InternalGumbo.g:9862:2: ( RULE_STRING_VALUE )?
+=======
+            // InternalGumbo.g:9881:1: ( ( ( RULE_STRING_VALUE )? ) )
+            // InternalGumbo.g:9882:1: ( ( RULE_STRING_VALUE )? )
+            {
+            // InternalGumbo.g:9882:1: ( ( RULE_STRING_VALUE )? )
+            // InternalGumbo.g:9883:2: ( RULE_STRING_VALUE )?
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_7_2()); 
             }
+<<<<<<< HEAD
             // InternalGumbo.g:9863:2: ( RULE_STRING_VALUE )?
             int alt92=2;
             int LA92_0 = input.LA(1);
 
             if ( (LA92_0==RULE_STRING_VALUE) ) {
                 alt92=1;
+=======
+            // InternalGumbo.g:9884:2: ( RULE_STRING_VALUE )?
+            int alt94=2;
+            int LA94_0 = input.LA(1);
+
+            if ( (LA94_0==RULE_STRING_VALUE) ) {
+                alt94=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt92) {
                 case 1 :
+<<<<<<< HEAD
                     // InternalGumbo.g:9863:3: RULE_STRING_VALUE
+=======
+                    // InternalGumbo.g:9884:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
                     {
                     match(input,RULE_STRING_VALUE,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
@@ -35577,8 +35726,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt98=2;
             int LA98_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA98_0==RULE_ID||LA98_0==RULE_INTEGER_LIT||(LA98_0>=RULE_F64_LIT && LA98_0<=RULE_REAL_LIT)||(LA98_0>=RULE_OP && LA98_0<=RULE_STRING_VALUE)||(LA98_0>=RULE_HEX && LA98_0<=RULE_MSPB)||LA98_0==37||(LA98_0>=44 && LA98_0<=47)||(LA98_0>=50 && LA98_0<=53)||(LA98_0>=55 && LA98_0<=56)||LA98_0==67||LA98_0==83||LA98_0==86||(LA98_0>=94 && LA98_0<=98)||LA98_0==100||LA98_0==104||(LA98_0>=114 && LA98_0<=115)) ) {
                 alt98=1;
+=======
+            if ( ((LA100_0>=RULE_INTEGER_LIT && LA100_0<=RULE_ID)||(LA100_0>=RULE_F64_LIT && LA100_0<=RULE_REAL_LIT)||(LA100_0>=RULE_OP && LA100_0<=RULE_STRING_VALUE)||(LA100_0>=RULE_HEX && LA100_0<=RULE_MSPB)||LA100_0==37||(LA100_0>=44 && LA100_0<=47)||(LA100_0>=50 && LA100_0<=53)||(LA100_0>=55 && LA100_0<=56)||LA100_0==67||LA100_0==83||LA100_0==86||(LA100_0>=94 && LA100_0<=98)||LA100_0==100||LA100_0==104||(LA100_0>=114 && LA100_0<=115)) ) {
+                alt100=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt98) {
                 case 1 :
@@ -54820,8 +54974,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt132=2;
             int LA132_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA132_0==RULE_ID||LA132_0==RULE_INTEGER_LIT||(LA132_0>=RULE_F64_LIT && LA132_0<=RULE_REAL_LIT)||(LA132_0>=RULE_OP && LA132_0<=RULE_STRING_VALUE)||(LA132_0>=RULE_HEX && LA132_0<=RULE_MSPB)||LA132_0==37||(LA132_0>=44 && LA132_0<=47)||(LA132_0>=50 && LA132_0<=53)||(LA132_0>=55 && LA132_0<=56)||LA132_0==67||LA132_0==83||LA132_0==86||(LA132_0>=94 && LA132_0<=98)||LA132_0==100||LA132_0==104||(LA132_0>=114 && LA132_0<=115)) ) {
                 alt132=1;
+=======
+            if ( ((LA133_0>=RULE_INTEGER_LIT && LA133_0<=RULE_ID)||(LA133_0>=RULE_F64_LIT && LA133_0<=RULE_REAL_LIT)||(LA133_0>=RULE_OP && LA133_0<=RULE_STRING_VALUE)||(LA133_0>=RULE_HEX && LA133_0<=RULE_MSPB)||LA133_0==37||(LA133_0>=44 && LA133_0<=47)||(LA133_0>=50 && LA133_0<=53)||(LA133_0>=55 && LA133_0<=56)||LA133_0==67||LA133_0==83||LA133_0==86||(LA133_0>=94 && LA133_0<=98)||LA133_0==100||LA133_0==104||(LA133_0>=114 && LA133_0<=115)) ) {
+                alt133=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt132) {
                 case 1 :
@@ -55241,8 +55400,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt133=2;
             int LA133_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA133_0==RULE_ID||LA133_0==RULE_INTEGER_LIT||(LA133_0>=RULE_F64_LIT && LA133_0<=RULE_REAL_LIT)||(LA133_0>=RULE_OP && LA133_0<=RULE_STRING_VALUE)||(LA133_0>=RULE_HEX && LA133_0<=RULE_MSPB)||LA133_0==37||(LA133_0>=44 && LA133_0<=47)||(LA133_0>=50 && LA133_0<=53)||(LA133_0>=55 && LA133_0<=56)||LA133_0==67||LA133_0==83||LA133_0==86||(LA133_0>=94 && LA133_0<=98)||LA133_0==100||LA133_0==104||(LA133_0>=114 && LA133_0<=115)) ) {
                 alt133=1;
+=======
+            if ( ((LA134_0>=RULE_INTEGER_LIT && LA134_0<=RULE_ID)||(LA134_0>=RULE_F64_LIT && LA134_0<=RULE_REAL_LIT)||(LA134_0>=RULE_OP && LA134_0<=RULE_STRING_VALUE)||(LA134_0>=RULE_HEX && LA134_0<=RULE_MSPB)||LA134_0==37||(LA134_0>=44 && LA134_0<=47)||(LA134_0>=50 && LA134_0<=53)||(LA134_0>=55 && LA134_0<=56)||LA134_0==67||LA134_0==83||LA134_0==86||(LA134_0>=94 && LA134_0<=98)||LA134_0==100||LA134_0==104||(LA134_0>=114 && LA134_0<=115)) ) {
+                alt134=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt133) {
                 case 1 :
@@ -58802,8 +58966,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt135=2;
             int LA135_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA135_0==117) ) {
                 alt135=1;
+=======
+            if ( (LA136_0==117) ) {
+                alt136=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt135) {
                 case 1 :
@@ -59091,8 +59260,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt137=2;
             int LA137_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA137_0==109) ) {
                 alt137=1;
+=======
+            if ( (LA138_0==109) ) {
+                alt138=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt137) {
                 case 1 :
@@ -60465,11 +60639,19 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt140=2;
             int LA140_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA140_0==109) ) {
                 int LA140_1 = input.LA(2);
 
                 if ( (LA140_1==111) ) {
                     alt140=1;
+=======
+            if ( (LA141_0==109) ) {
+                int LA141_1 = input.LA(2);
+
+                if ( (LA141_1==111) ) {
+                    alt141=1;
+>>>>>>> 1f12bcb (update)
                 }
             }
             switch (alt140) {
@@ -66887,8 +67069,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             int alt153=2;
             int LA153_0 = input.LA(1);
 
+<<<<<<< HEAD
             if ( (LA153_0==112) ) {
                 alt153=1;
+=======
+            if ( (LA154_0==112) ) {
+                alt154=1;
+>>>>>>> 1f12bcb (update)
             }
             switch (alt153) {
                 case 1 :
@@ -67145,8 +67332,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 if ( (LA154_0==RULE_ID) ) {
                     int LA154_1 = input.LA(2);
 
+<<<<<<< HEAD
                     if ( (LA154_1==112) ) {
                         alt154=1;
+=======
+                    if ( (LA155_1==112) ) {
+                        alt155=1;
+>>>>>>> 1f12bcb (update)
                     }
 
 
@@ -68265,17 +68457,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InvSpec__DescriptorAssignment_2"
+<<<<<<< HEAD
     // InternalGumbo.g:20986:1: rule__InvSpec__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+=======
+    // InternalGumbo.g:21007:1: rule__InvSpec__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__InvSpec__DescriptorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:20990:1: ( ( RULE_STRING_VALUE ) )
             // InternalGumbo.g:20991:2: ( RULE_STRING_VALUE )
             {
             // InternalGumbo.g:20991:2: ( RULE_STRING_VALUE )
             // InternalGumbo.g:20992:3: RULE_STRING_VALUE
+=======
+            // InternalGumbo.g:21011:1: ( ( RULE_STRING_VALUE ) )
+            // InternalGumbo.g:21012:2: ( RULE_STRING_VALUE )
+            {
+            // InternalGumbo.g:21012:2: ( RULE_STRING_VALUE )
+            // InternalGumbo.g:21013:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvSpecAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0()); 
@@ -68842,17 +69046,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InfoFlowClause__DescriptorAssignment_2"
+<<<<<<< HEAD
     // InternalGumbo.g:21181:1: rule__InfoFlowClause__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+=======
+    // InternalGumbo.g:21202:1: rule__InfoFlowClause__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__InfoFlowClause__DescriptorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:21185:1: ( ( RULE_STRING_VALUE ) )
             // InternalGumbo.g:21186:2: ( RULE_STRING_VALUE )
             {
             // InternalGumbo.g:21186:2: ( RULE_STRING_VALUE )
             // InternalGumbo.g:21187:3: RULE_STRING_VALUE
+=======
+            // InternalGumbo.g:21206:1: ( ( RULE_STRING_VALUE ) )
+            // InternalGumbo.g:21207:2: ( RULE_STRING_VALUE )
+            {
+            // InternalGumbo.g:21207:2: ( RULE_STRING_VALUE )
+            // InternalGumbo.g:21208:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0()); 
@@ -69279,17 +69495,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CaseStatementClause__DescriptorAssignment_2"
+<<<<<<< HEAD
     // InternalGumbo.g:21336:1: rule__CaseStatementClause__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+=======
+    // InternalGumbo.g:21357:1: rule__CaseStatementClause__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__CaseStatementClause__DescriptorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:21340:1: ( ( RULE_STRING_VALUE ) )
             // InternalGumbo.g:21341:2: ( RULE_STRING_VALUE )
             {
             // InternalGumbo.g:21341:2: ( RULE_STRING_VALUE )
             // InternalGumbo.g:21342:3: RULE_STRING_VALUE
+=======
+            // InternalGumbo.g:21361:1: ( ( RULE_STRING_VALUE ) )
+            // InternalGumbo.g:21362:2: ( RULE_STRING_VALUE )
+            {
+            // InternalGumbo.g:21362:2: ( RULE_STRING_VALUE )
+            // InternalGumbo.g:21363:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseStatementClauseAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0()); 
@@ -69451,17 +69679,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AssumeStatement__DescriptorAssignment_2"
+<<<<<<< HEAD
     // InternalGumbo.g:21396:1: rule__AssumeStatement__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+=======
+    // InternalGumbo.g:21417:1: rule__AssumeStatement__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__AssumeStatement__DescriptorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:21400:1: ( ( RULE_STRING_VALUE ) )
             // InternalGumbo.g:21401:2: ( RULE_STRING_VALUE )
             {
             // InternalGumbo.g:21401:2: ( RULE_STRING_VALUE )
             // InternalGumbo.g:21402:3: RULE_STRING_VALUE
+=======
+            // InternalGumbo.g:21421:1: ( ( RULE_STRING_VALUE ) )
+            // InternalGumbo.g:21422:2: ( RULE_STRING_VALUE )
+            {
+            // InternalGumbo.g:21422:2: ( RULE_STRING_VALUE )
+            // InternalGumbo.g:21423:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssumeStatementAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0()); 
@@ -69623,17 +69863,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GuaranteeStatement__DescriptorAssignment_2"
+<<<<<<< HEAD
     // InternalGumbo.g:21456:1: rule__GuaranteeStatement__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+=======
+    // InternalGumbo.g:21477:1: rule__GuaranteeStatement__DescriptorAssignment_2 : ( RULE_STRING_VALUE ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__GuaranteeStatement__DescriptorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:21460:1: ( ( RULE_STRING_VALUE ) )
             // InternalGumbo.g:21461:2: ( RULE_STRING_VALUE )
             {
             // InternalGumbo.g:21461:2: ( RULE_STRING_VALUE )
             // InternalGumbo.g:21462:3: RULE_STRING_VALUE
+=======
+            // InternalGumbo.g:21481:1: ( ( RULE_STRING_VALUE ) )
+            // InternalGumbo.g:21482:2: ( RULE_STRING_VALUE )
+            {
+            // InternalGumbo.g:21482:2: ( RULE_STRING_VALUE )
+            // InternalGumbo.g:21483:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGuaranteeStatementAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0()); 
@@ -76791,17 +77043,29 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SlangLit__ValueAssignment_9_1"
+<<<<<<< HEAD
     // InternalGumbo.g:23876:1: rule__SlangLit__ValueAssignment_9_1 : ( RULE_STRING_VALUE ) ;
+=======
+    // InternalGumbo.g:23897:1: rule__SlangLit__ValueAssignment_9_1 : ( RULE_STRING_VALUE ) ;
+>>>>>>> 1f12bcb (update)
     public final void rule__SlangLit__ValueAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
+<<<<<<< HEAD
             // InternalGumbo.g:23880:1: ( ( RULE_STRING_VALUE ) )
             // InternalGumbo.g:23881:2: ( RULE_STRING_VALUE )
             {
             // InternalGumbo.g:23881:2: ( RULE_STRING_VALUE )
             // InternalGumbo.g:23882:3: RULE_STRING_VALUE
+=======
+            // InternalGumbo.g:23901:1: ( ( RULE_STRING_VALUE ) )
+            // InternalGumbo.g:23902:2: ( RULE_STRING_VALUE )
+            {
+            // InternalGumbo.g:23902:2: ( RULE_STRING_VALUE )
+            // InternalGumbo.g:23903:3: RULE_STRING_VALUE
+>>>>>>> 1f12bcb (update)
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangLitAccess().getValueSTRING_VALUETerminalRuleCall_9_1_0()); 
@@ -79151,6 +79415,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
     protected DFA17 dfa17 = new DFA17(this);
     protected DFA26 dfa26 = new DFA26(this);
     static final String dfa_1s = "\36\uffff";
+<<<<<<< HEAD
     static final String dfa_2s = "\10\uffff\1\20\11\uffff\1\20\5\uffff\1\32\5\uffff";
     static final String dfa_3s = "\1\4\7\uffff\1\4\3\uffff\3\4\2\uffff\1\103\4\4\1\uffff\1\103\2\4\1\uffff\1\4\1\103\1\4";
     static final String dfa_4s = "\1\163\7\uffff\1\160\3\uffff\2\4\1\147\2\uffff\1\160\2\147\2\4\1\uffff\1\160\1\147\1\4\1\uffff\1\147\1\126\1\147";
@@ -79158,6 +79423,15 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
     static final String dfa_6s = "\36\uffff}>";
     static final String[] dfa_7s = {
             "\1\10\1\uffff\1\1\1\uffff\2\1\4\uffff\1\1\1\uffff\4\1\3\2\33\uffff\4\1\15\uffff\1\11\22\uffff\1\13\7\uffff\1\3\1\4\1\5\1\6\1\7\1\uffff\1\12\3\uffff\1\1\11\uffff\2\1",
+=======
+    static final String dfa_2s = "\10\uffff\1\17\11\uffff\1\17\5\uffff\1\33\5\uffff";
+    static final String dfa_3s = "\1\5\7\uffff\1\6\3\uffff\2\6\2\uffff\1\6\1\103\4\6\1\uffff\1\103\3\6\1\uffff\1\103\1\6";
+    static final String dfa_4s = "\1\163\7\uffff\1\160\3\uffff\2\6\2\uffff\1\147\1\160\2\147\2\6\1\uffff\1\160\1\147\1\6\1\147\1\uffff\1\126\1\147";
+    static final String dfa_5s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\uffff\1\14\1\15\1\16\2\uffff\1\10\1\13\6\uffff\1\12\4\uffff\1\11\2\uffff";
+    static final String dfa_6s = "\36\uffff}>";
+    static final String[] dfa_7s = {
+            "\1\1\1\10\1\uffff\2\1\4\uffff\1\1\1\uffff\4\1\3\2\33\uffff\4\1\15\uffff\1\11\22\uffff\1\13\7\uffff\1\3\1\4\1\5\1\6\1\7\1\uffff\1\12\3\uffff\1\1\11\uffff\2\1",
+>>>>>>> 1f12bcb (update)
             "",
             "",
             "",
@@ -79165,7 +79439,11 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
+<<<<<<< HEAD
             "\1\20\6\uffff\4\20\26\uffff\1\20\4\uffff\2\20\4\uffff\2\20\4\uffff\3\20\1\uffff\1\20\10\uffff\1\17\2\20\2\uffff\2\20\5\uffff\1\15\1\20\1\uffff\4\20\1\16\6\20\10\uffff\3\20\10\uffff\1\14",
+=======
+            "\1\17\4\uffff\4\17\26\uffff\1\17\4\uffff\2\17\4\uffff\2\17\4\uffff\3\17\1\uffff\1\17\10\uffff\1\16\2\17\2\uffff\2\17\1\uffff\1\15\4\uffff\1\17\1\uffff\4\17\1\20\6\17\10\uffff\3\17\10\uffff\1\14",
+>>>>>>> 1f12bcb (update)
             "",
             "",
             "",
@@ -79174,6 +79452,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             "\1\23\45\uffff\2\20\34\uffff\2\20\11\uffff\3\20\1\uffff\5\20\13\uffff\1\20",
             "",
             "",
+<<<<<<< HEAD
             "\1\17\13\uffff\1\25\6\uffff\1\26\31\uffff\1\24",
             "\1\20\6\uffff\4\20\26\uffff\1\20\4\uffff\2\20\4\uffff\2\20\4\uffff\3\20\1\uffff\1\20\10\uffff\1\17\2\20\2\uffff\2\20\3\uffff\1\20\1\uffff\2\20\1\uffff\4\20\1\16\6\20\10\uffff\3\20",
             "\1\20\2\uffff\1\20\40\uffff\4\20\27\uffff\1\20\5\uffff\1\20\5\uffff\1\20\3\uffff\3\20\1\uffff\5\20\7\uffff\1\26\3\uffff\1\20",
@@ -79182,6 +79461,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             "",
             "\1\17\13\uffff\1\31\6\uffff\1\26\31\uffff\1\24",
             "\1\32\6\uffff\4\32\26\uffff\1\32\4\uffff\2\32\4\uffff\2\32\4\uffff\3\32\1\uffff\1\32\10\uffff\1\17\2\32\2\uffff\2\32\5\uffff\2\32\1\uffff\4\32\1\33\6\32\10\uffff\3\32",
+=======
+            "\1\23\43\uffff\2\17\34\uffff\2\17\11\uffff\3\17\1\uffff\5\17\13\uffff\1\17",
+            "\1\16\7\uffff\1\25\12\uffff\1\26\31\uffff\1\24",
+            "\1\17\4\uffff\4\17\26\uffff\1\17\4\uffff\2\17\4\uffff\2\17\4\uffff\3\17\1\uffff\1\17\10\uffff\1\16\2\17\2\uffff\2\17\1\uffff\1\17\2\uffff\1\17\1\uffff\1\17\1\uffff\4\17\1\20\6\17\10\uffff\3\17",
+            "\2\17\40\uffff\4\17\27\uffff\1\17\5\uffff\1\17\1\uffff\1\17\7\uffff\3\17\1\uffff\5\17\7\uffff\1\26\3\uffff\1\17",
+            "\1\27",
+            "\1\30",
+            "",
+            "\1\16\7\uffff\1\31\12\uffff\1\26\31\uffff\1\24",
+            "\1\33\4\uffff\4\33\26\uffff\1\33\4\uffff\2\33\4\uffff\2\33\4\uffff\3\33\1\uffff\1\33\10\uffff\1\16\2\33\2\uffff\2\33\1\uffff\1\33\4\uffff\1\33\1\uffff\4\33\1\32\6\33\10\uffff\3\33",
+>>>>>>> 1f12bcb (update)
             "\1\34",
             "",
             "\1\35\45\uffff\2\32\34\uffff\2\32\11\uffff\3\32\1\uffff\5\32\13\uffff\1\32",
@@ -79215,12 +79505,20 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String dfa_8s = "\62\uffff";
+<<<<<<< HEAD
     static final String dfa_9s = "\1\4\30\uffff\1\0\2\uffff\1\0\25\uffff";
+=======
+    static final String dfa_9s = "\1\5\30\uffff\1\0\2\uffff\1\0\25\uffff";
+>>>>>>> 1f12bcb (update)
     static final String dfa_10s = "\1\163\30\uffff\1\0\2\uffff\1\0\25\uffff";
     static final String dfa_11s = "\1\uffff\1\1\45\uffff\1\2\12\uffff";
     static final String dfa_12s = "\31\uffff\1\0\2\uffff\1\1\25\uffff}>";
     static final String[] dfa_13s = {
+<<<<<<< HEAD
             "\1\31\1\uffff\1\1\1\uffff\2\1\1\uffff\4\1\1\uffff\7\1\16\uffff\1\1\4\uffff\2\47\4\1\2\uffff\4\1\1\uffff\2\1\12\uffff\1\1\5\uffff\1\47\11\uffff\1\34\2\47\1\1\5\47\2\uffff\5\1\1\uffff\1\1\2\uffff\1\47\1\1\11\uffff\2\1",
+=======
+            "\1\1\1\31\1\uffff\2\1\1\uffff\4\1\1\uffff\7\1\16\uffff\1\1\4\uffff\2\47\4\1\2\uffff\4\1\1\uffff\2\1\12\uffff\1\1\5\uffff\1\47\11\uffff\1\34\2\47\1\1\5\47\2\uffff\5\1\1\uffff\1\1\2\uffff\1\47\1\1\11\uffff\2\1",
+>>>>>>> 1f12bcb (update)
             "",
             "",
             "",
@@ -79339,8 +79637,13 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
     }
     static final String dfa_14s = "\25\uffff";
     static final String dfa_15s = "\10\uffff\1\17\1\21\1\23\3\uffff\1\17\1\uffff\1\21\3\uffff\1\23";
+<<<<<<< HEAD
     static final String dfa_16s = "\1\4\5\uffff\4\4\1\60\3\uffff\1\60\1\uffff\1\60\1\uffff\1\4\1\uffff\1\60";
     static final String dfa_17s = "\1\152\5\uffff\2\11\2\155\1\160\3\uffff\1\155\1\uffff\1\155\1\uffff\1\4\1\uffff\1\155";
+=======
+    static final String dfa_16s = "\1\4\5\uffff\2\5\2\6\1\60\3\uffff\1\60\1\uffff\1\60\1\uffff\1\6\1\uffff\1\60";
+    static final String dfa_17s = "\1\152\5\uffff\2\11\2\155\1\160\3\uffff\1\155\1\uffff\1\155\1\uffff\1\6\1\uffff\1\155";
+>>>>>>> 1f12bcb (update)
     static final String dfa_18s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\5\uffff\1\11\1\12\1\6\1\uffff\1\7\1\uffff\1\10\1\uffff\1\13\1\uffff";
     static final String dfa_19s = "\25\uffff}>";
     static final String[] dfa_20s = {
@@ -79350,10 +79653,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
+<<<<<<< HEAD
             "\1\15\1\uffff\1\11\2\uffff\1\10",
             "\1\15\1\uffff\1\11\2\uffff\1\10",
             "\1\16\53\uffff\1\15\11\uffff\1\17\11\uffff\2\17\46\uffff\2\17",
             "\1\20\53\uffff\1\15\11\uffff\1\21\11\uffff\2\21\46\uffff\2\21",
+=======
+            "\1\11\1\15\2\uffff\1\10",
+            "\1\11\1\15\2\uffff\1\10",
+            "\1\16\51\uffff\1\15\11\uffff\1\17\11\uffff\2\17\46\uffff\2\17",
+            "\1\20\51\uffff\1\15\11\uffff\1\21\11\uffff\2\21\46\uffff\2\21",
+>>>>>>> 1f12bcb (update)
             "\1\15\11\uffff\1\23\11\uffff\2\23\46\uffff\2\23\2\uffff\1\22",
             "",
             "",
@@ -79407,7 +79717,11 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x1000000000000000L});
         public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x1000000000000002L});
         public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000010000004000L});
+<<<<<<< HEAD
         public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x01BCF020007F7B50L,0x000C0117C0480008L});
+=======
+        public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x01BCF020007F7B60L,0x000C0117C0480008L});
+>>>>>>> 1f12bcb (update)
         public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000600L});
         public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000600L});
         public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x4000000000000000L});
@@ -79429,6 +79743,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000002L,0x0000000000040600L});
         public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
         public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+<<<<<<< HEAD
         public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
         public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
         public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x000000C000000010L,0x0000000000000008L});
@@ -79478,6 +79793,57 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0003000000000000L});
         public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000000002L,0x0000000000002000L});
         public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x003C0000000F4340L,0x000C010000000000L});
+=======
+        public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+        public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+        public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000002L,0x0000000000004000L});
+        public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+        public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000002L,0x0000000000002000L});
+        public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x01BCF0E0007F7B60L,0x000C0117C0480008L});
+        public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000010000000000L,0x0000000000004008L});
+        public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000000L,0x0000000000060600L});
+        public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004008L});
+        public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000020000000000L});
+        public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+        public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0040000000000040L});
+        public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000002000000000L});
+        public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000040L,0x0002000000000000L});
+        public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008020L});
+        public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000800L});
+        public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x00000C0000000000L});
+        public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+        public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
+        public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
+        public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000000L,0x0000000000050000L});
+        public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
+        public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800100L});
+        public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+        public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
+        public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+        public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
+        public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000030000000080L,0x0000000000000808L});
+        public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000808L});
+        public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000000480000L});
+        public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000808L});
+        public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x01BCF020007F7B60L,0x000C0117C0480018L});
+        public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000008L});
+        public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0040000000000000L,0x0000000000080000L});
+        public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x00000C0000000040L,0x000000000F380200L});
+        public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x00000C0000000042L,0x000000000F380200L});
+        public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000040L,0x0000000020000008L});
+        public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000030L});
+        public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000010000000000L,0x0000000000000008L});
+        public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000030000000000L});
+        public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x00000C0000000040L,0x000000800FB80200L});
+        public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x003C0000007F4360L,0x000C0117C0400008L});
+        public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x01BCF020007F7B62L,0x000C0117C0480008L});
+        public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000F00000000000L});
+        public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0040000000000000L,0x0000000000000020L});
+        public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0003000000000000L});
+        public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x003C0000000F4320L,0x000C010000000000L});
+>>>>>>> 1f12bcb (update)
         public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000700000L});
         public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
         public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
@@ -79490,7 +79856,11 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_92 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
         public static final BitSet FOLLOW_93 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000020L});
         public static final BitSet FOLLOW_94 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400008L});
+<<<<<<< HEAD
         public static final BitSet FOLLOW_95 = new BitSet(new long[]{0x01BCFC20007F7B50L,0x000C0197CFF80208L});
+=======
+        public static final BitSet FOLLOW_95 = new BitSet(new long[]{0x01BCFC20007F7B60L,0x000C0197CFF80208L});
+>>>>>>> 1f12bcb (update)
         public static final BitSet FOLLOW_96 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
         public static final BitSet FOLLOW_97 = new BitSet(new long[]{0x0040000000000000L});
         public static final BitSet FOLLOW_98 = new BitSet(new long[]{0x0000080000000010L});
@@ -79509,6 +79879,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_111 = new BitSet(new long[]{0x0000000000200000L});
         public static final BitSet FOLLOW_112 = new BitSet(new long[]{0x0000000000008400L});
         public static final BitSet FOLLOW_113 = new BitSet(new long[]{0x0040000000000000L,0x0010000000000000L});
+<<<<<<< HEAD
         public static final BitSet FOLLOW_114 = new BitSet(new long[]{0x81B0000000000270L,0x0020060000002008L});
         public static final BitSet FOLLOW_115 = new BitSet(new long[]{0x0400000000000000L,0x0000300000000000L});
         public static final BitSet FOLLOW_116 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
@@ -79518,6 +79889,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0001000000000000L,0x0000000000004000L});
         public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0180000000000250L});
         public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0180000000000040L});
+=======
+        public static final BitSet FOLLOW_114 = new BitSet(new long[]{0x81B0000000000270L,0x0020060000004008L});
+        public static final BitSet FOLLOW_115 = new BitSet(new long[]{0x0400000000000000L,0x0000300000000000L});
+        public static final BitSet FOLLOW_116 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
+        public static final BitSet FOLLOW_117 = new BitSet(new long[]{0x0030000000000000L});
+        public static final BitSet FOLLOW_118 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
+        public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x81B0000000000270L,0x0020060000004018L});
+        public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0001000000000000L,0x0000000000008000L});
+        public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0180000000000260L});
+        public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0180000000000020L});
+>>>>>>> 1f12bcb (update)
         public static final BitSet FOLLOW_123 = new BitSet(new long[]{0x0180000000000200L});
         public static final BitSet FOLLOW_124 = new BitSet(new long[]{0x0001000000000000L});
         public static final BitSet FOLLOW_125 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000000L});

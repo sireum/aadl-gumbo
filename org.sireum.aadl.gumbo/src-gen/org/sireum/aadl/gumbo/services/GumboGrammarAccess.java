@@ -1695,10 +1695,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cEnsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cEnsSlangEnsuresParserRuleCall_4_0 = (RuleCall)cEnsAssignment_4.eContents().get(0);
 		
+<<<<<<< HEAD
 		//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures?
+=======
+		//SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures?
+>>>>>>> 1f12bcb (update)
 		public Group getGroup() { return cGroup; }
 		
 		//{SlangDefContractCase}
@@ -1707,7 +1714,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'case'
 		public Keyword getCaseKeyword_1() { return cCaseKeyword_1; }
 		
+<<<<<<< HEAD
 		//STRING_VALUE
+=======
+		///*SLANG_*/STRING_VALUE
+>>>>>>> 1f12bcb (update)
 		public RuleCall getSTRING_VALUETerminalRuleCall_2() { return cSTRING_VALUETerminalRuleCall_2; }
 		
 		//req=SlangRequires?
@@ -5537,7 +5548,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getSlangDefContractAccess().getRule();
 	}
 	
+<<<<<<< HEAD
 	//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+=======
+	//SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+>>>>>>> 1f12bcb (update)
 	public SlangDefContractCaseElements getSlangDefContractCaseAccess() {
 		return pSlangDefContractCase;
 	}
