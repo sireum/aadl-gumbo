@@ -828,9 +828,9 @@ ruleCompute returns [EObject current=null]
 			)
 		)*
 		(
-			otherlv_5='cases'
+			otherlv_5='compute_cases'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getComputeAccess().getCasesKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getComputeAccess().getCompute_casesKeyword_4_0());
 			}
 			(
 				(

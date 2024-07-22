@@ -35,7 +35,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalGumboParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INTEGER_LIT", "RULE_DEFOP", "RULE_F64_LIT", "RULE_REAL_LIT", "RULE_MSPE", "RULE_OP", "RULE_IMPLIES", "RULE_SIMPLIES", "RULE_STRING_VALUE", "RULE_MSPM", "RULE_HEX", "RULE_BIN", "RULE_F32_LIT", "RULE_MSTRING", "RULE_MSP", "RULE_SLI", "RULE_MSPB", "RULE_ESC_SEQ", "RULE_IDF", "RULE_MSPI", "RULE_OPSYM", "RULE_EXTENDED_DIGIT", "RULE_INT_IDF", "RULE_LETTER", "RULE_DIGIT", "RULE_UNICODE_ESC", "RULE_SL_COMMENT", "RULE_EXPONENT", "RULE_INT_EXPONENT", "RULE_BASED_INTEGER", "RULE_WS", "'*'", "'@strictpure'", "'@pure'", "':'", "':='", "'val'", "'var'", "'\\\\all'", "'\\\\some'", "'\\u2200'", "'\\u2203'", "'..'", "'..<'", "'T'", "'F'", "'true'", "'false'", "'=>'", "'+'", "'-'", "'state'", "';'", "'invariants'", "'inv'", "'integration'", "'initialize'", "'compute'", "'cases'", "'infoflow'", "'from'", "'('", "')'", "','", "'to'", "'handle'", "'case'", "'assume'", "'guarantee'", "'functions'", "'def'", "'['", "']'", "'.'", "'invariant'", "'reads'", "'modifies'", "'if'", "'while'", "'match'", "'{'", "'}'", "'spec'", "'assert'", "'halt'", "'do'", "'else'", "'_'", "'In'", "'MaySend'", "'MustSend'", "'NoSend'", "'HasEvent'", "'='", "'for'", "'yield'", "'by'", "'return'", "'res'", "'reference'", "'classifier'", "'delta'", "'applies'", "'in'", "'binding'", "'modes'", "'::'", "'mut'", "'F32'", "'F64'", "'+=>'", "'constant'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INTEGER_LIT", "RULE_DEFOP", "RULE_F64_LIT", "RULE_REAL_LIT", "RULE_MSPE", "RULE_OP", "RULE_IMPLIES", "RULE_SIMPLIES", "RULE_STRING_VALUE", "RULE_MSPM", "RULE_HEX", "RULE_BIN", "RULE_F32_LIT", "RULE_MSTRING", "RULE_MSP", "RULE_SLI", "RULE_MSPB", "RULE_ESC_SEQ", "RULE_IDF", "RULE_MSPI", "RULE_OPSYM", "RULE_EXTENDED_DIGIT", "RULE_INT_IDF", "RULE_LETTER", "RULE_DIGIT", "RULE_UNICODE_ESC", "RULE_SL_COMMENT", "RULE_EXPONENT", "RULE_INT_EXPONENT", "RULE_BASED_INTEGER", "RULE_WS", "'*'", "'@strictpure'", "'@pure'", "':'", "':='", "'val'", "'var'", "'\\\\all'", "'\\\\some'", "'\\u2200'", "'\\u2203'", "'..'", "'..<'", "'T'", "'F'", "'true'", "'false'", "'=>'", "'+'", "'-'", "'state'", "';'", "'invariants'", "'inv'", "'integration'", "'initialize'", "'compute'", "'compute_cases'", "'infoflow'", "'from'", "'('", "')'", "','", "'to'", "'handle'", "'case'", "'assume'", "'guarantee'", "'functions'", "'def'", "'['", "']'", "'.'", "'invariant'", "'reads'", "'modifies'", "'if'", "'while'", "'match'", "'{'", "'}'", "'spec'", "'assert'", "'halt'", "'do'", "'else'", "'_'", "'In'", "'MaySend'", "'MustSend'", "'NoSend'", "'HasEvent'", "'='", "'for'", "'yield'", "'by'", "'return'", "'res'", "'reference'", "'classifier'", "'delta'", "'applies'", "'in'", "'binding'", "'modes'", "'::'", "'mut'", "'F32'", "'F64'", "'+=>'", "'constant'"
     };
     public static final int RULE_HEX=16;
     public static final int T__50=50;
@@ -17413,24 +17413,24 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Compute__Group_4__0__Impl"
-    // InternalGumbo.g:4841:1: rule__Compute__Group_4__0__Impl : ( 'cases' ) ;
+    // InternalGumbo.g:4841:1: rule__Compute__Group_4__0__Impl : ( 'compute_cases' ) ;
     public final void rule__Compute__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGumbo.g:4845:1: ( ( 'cases' ) )
-            // InternalGumbo.g:4846:1: ( 'cases' )
+            // InternalGumbo.g:4845:1: ( ( 'compute_cases' ) )
+            // InternalGumbo.g:4846:1: ( 'compute_cases' )
             {
-            // InternalGumbo.g:4846:1: ( 'cases' )
-            // InternalGumbo.g:4847:2: 'cases'
+            // InternalGumbo.g:4846:1: ( 'compute_cases' )
+            // InternalGumbo.g:4847:2: 'compute_cases'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getComputeAccess().getCasesKeyword_4_0()); 
+               before(grammarAccess.getComputeAccess().getCompute_casesKeyword_4_0()); 
             }
             match(input,64,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getComputeAccess().getCasesKeyword_4_0()); 
+               after(grammarAccess.getComputeAccess().getCompute_casesKeyword_4_0()); 
             }
 
             }

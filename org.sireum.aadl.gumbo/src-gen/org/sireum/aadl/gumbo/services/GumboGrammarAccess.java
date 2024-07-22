@@ -449,7 +449,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cSpecsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSpecsSpecStatementParserRuleCall_3_0 = (RuleCall)cSpecsAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cCasesKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cCompute_casesKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cCasesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cCasesCaseStatementClauseParserRuleCall_4_1_0 = (RuleCall)cCasesAssignment_4_1.eContents().get(0);
 		private final Assignment cHandlersAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -469,7 +469,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//      //    | (handlers+=HandlerClause)*
 		//      //)+
 		//      (specs+=SpecStatement)* // assume and/or guarantees
-		//      ('cases' (cases+=CaseStatementClause)+)*
+		//      ('compute_cases' (cases+=CaseStatementClause)+)*
 		//      (handlers+=HandlerClause)*
 		//      (flows+=InfoFlowClause)*
 		//;
@@ -486,7 +486,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  //    | (handlers+=HandlerClause)*
 		//  //)+
 		//  (specs+=SpecStatement)* // assume and/or guarantees
-		//  ('cases' (cases+=CaseStatementClause)+)*
+		//  ('compute_cases' (cases+=CaseStatementClause)+)*
 		//  (handlers+=HandlerClause)*
 		//  (flows+=InfoFlowClause)*
 		public Group getGroup() { return cGroup; }
@@ -524,11 +524,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		public RuleCall getSpecsSpecStatementParserRuleCall_3_0() { return cSpecsSpecStatementParserRuleCall_3_0; }
 		
 		//// assume and/or guarantees
-		//     ('cases' (cases+=CaseStatementClause)+)*
+		//     ('compute_cases' (cases+=CaseStatementClause)+)*
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'cases'
-		public Keyword getCasesKeyword_4_0() { return cCasesKeyword_4_0; }
+		//'compute_cases'
+		public Keyword getCompute_casesKeyword_4_0() { return cCompute_casesKeyword_4_0; }
 		
 		//(cases+=CaseStatementClause)+
 		public Assignment getCasesAssignment_4_1() { return cCasesAssignment_4_1; }
@@ -5245,7 +5245,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//      //    | (handlers+=HandlerClause)*
 	//      //)+
 	//      (specs+=SpecStatement)* // assume and/or guarantees
-	//      ('cases' (cases+=CaseStatementClause)+)*
+	//      ('compute_cases' (cases+=CaseStatementClause)+)*
 	//      (handlers+=HandlerClause)*
 	//      (flows+=InfoFlowClause)*
 	//;
