@@ -44,9 +44,9 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
 	protected AbstractElementAlias match_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1;
 	protected AbstractElementAlias match_SlangStmt_ColonKeyword_9_2_0_q;
-	protected AbstractElementAlias match_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q;
-	protected AbstractElementAlias match_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q;
-	protected AbstractElementAlias match_SlangStmt_SLANG_STRINGTerminalRuleCall_7_2_q;
+	protected AbstractElementAlias match_SlangStmt_STRING_VALUETerminalRuleCall_5_3_q;
+	protected AbstractElementAlias match_SlangStmt_STRING_VALUETerminalRuleCall_6_3_q;
+	protected AbstractElementAlias match_SlangStmt_STRING_VALUETerminalRuleCall_7_2_q;
 	protected AbstractElementAlias match_SlangTPattern_IDTerminalRuleCall_0_1_or__Keyword_2_1;
 	protected AbstractElementAlias match_SlangVarDeclDef_SpecKeyword_1_q;
 	
@@ -65,9 +65,9 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		match_SlangQuantVar_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangQuantVarAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangQuantVarAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
 		match_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangStmtAccess().getColonEqualsSignKeyword_9_2_1_1_0_0()), new TokenAlias(false, false, grammarAccess.getSlangStmtAccess().getDEFOPTerminalRuleCall_9_2_1_1_0_1()));
 		match_SlangStmt_ColonKeyword_9_2_0_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getColonKeyword_9_2_0());
-		match_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_5_3());
-		match_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_6_3());
-		match_SlangStmt_SLANG_STRINGTerminalRuleCall_7_2_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSLANG_STRINGTerminalRuleCall_7_2());
+		match_SlangStmt_STRING_VALUETerminalRuleCall_5_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_5_3());
+		match_SlangStmt_STRING_VALUETerminalRuleCall_6_3_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_6_3());
+		match_SlangStmt_STRING_VALUETerminalRuleCall_7_2_q = new TokenAlias(false, true, grammarAccess.getSlangStmtAccess().getSTRING_VALUETerminalRuleCall_7_2());
 		match_SlangTPattern_IDTerminalRuleCall_0_1_or__Keyword_2_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangTPatternAccess().getIDTerminalRuleCall_0_1()), new TokenAlias(false, false, grammarAccess.getSlangTPatternAccess().get_Keyword_2_1()));
 		match_SlangVarDeclDef_SpecKeyword_1_q = new TokenAlias(false, true, grammarAccess.getSlangVarDeclDefAccess().getSpecKeyword_1());
 	}
@@ -88,8 +88,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 			return getMSPEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getMSPMRule())
 			return getMSPMToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSLANG_STRINGRule())
-			return getSLANG_STRINGToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSTRING_VALUERule())
+			return getSTRING_VALUEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSlangDefModsRule())
 			return getSlangDefModsToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSlangNameRule())
@@ -173,9 +173,9 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	}
 	
 	/**
-	 * terminal SLANG_STRING: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
+	 * terminal STRING_VALUE: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 	 */
-	protected String getSLANG_STRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSTRING_VALUEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "\"\"";
@@ -238,12 +238,12 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 				emit_SlangStmt_ColonEqualsSignKeyword_9_2_1_1_0_0_or_DEFOPTerminalRuleCall_9_2_1_1_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangStmt_ColonKeyword_9_2_0_q.equals(syntax))
 				emit_SlangStmt_ColonKeyword_9_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q.equals(syntax))
-				emit_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q.equals(syntax))
-				emit_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SlangStmt_SLANG_STRINGTerminalRuleCall_7_2_q.equals(syntax))
-				emit_SlangStmt_SLANG_STRINGTerminalRuleCall_7_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangStmt_STRING_VALUETerminalRuleCall_5_3_q.equals(syntax))
+				emit_SlangStmt_STRING_VALUETerminalRuleCall_5_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangStmt_STRING_VALUETerminalRuleCall_6_3_q.equals(syntax))
+				emit_SlangStmt_STRING_VALUETerminalRuleCall_6_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SlangStmt_STRING_VALUETerminalRuleCall_7_2_q.equals(syntax))
+				emit_SlangStmt_STRING_VALUETerminalRuleCall_7_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangTPattern_IDTerminalRuleCall_0_1_or__Keyword_2_1.equals(syntax))
 				emit_SlangTPattern_IDTerminalRuleCall_0_1_or__Keyword_2_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangVarDeclDef_SpecKeyword_1_q.equals(syntax))
@@ -427,42 +427,42 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     SLANG_STRING?
+	 *     STRING_VALUE?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     e=OwnedExpression (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */
-	protected void emit_SlangStmt_SLANG_STRINGTerminalRuleCall_5_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangStmt_STRING_VALUETerminalRuleCall_5_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     SLANG_STRING?
+	 *     STRING_VALUE?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     e=OwnedExpression (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */
-	protected void emit_SlangStmt_SLANG_STRINGTerminalRuleCall_6_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangStmt_STRING_VALUETerminalRuleCall_6_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     SLANG_STRING?
+	 *     STRING_VALUE?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'halt' (ambiguity) (rule start)
 	 
 	 * </pre>
 	 */
-	protected void emit_SlangStmt_SLANG_STRINGTerminalRuleCall_7_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SlangStmt_STRING_VALUETerminalRuleCall_7_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

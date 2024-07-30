@@ -187,11 +187,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createAnonGuaranteeStatementAdapter();
       }
       @Override
-      public Adapter caseOtherDataRef(OtherDataRef object)
-      {
-        return createOtherDataRefAdapter();
-      }
-      @Override
       public Adapter caseDoubleDotRef(DoubleDotRef object)
       {
         return createDoubleDotRefAdapter();
@@ -307,6 +302,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangEnsuresAdapter();
       }
       @Override
+      public Adapter caseSlangType(SlangType object)
+      {
+        return createSlangTypeAdapter();
+      }
+      @Override
+      public Adapter caseSlangTypeArgs(SlangTypeArgs object)
+      {
+        return createSlangTypeArgsAdapter();
+      }
+      @Override
       public Adapter caseSlangStmt(SlangStmt object)
       {
         return createSlangStmtAdapter();
@@ -347,16 +352,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangVarDefAdapter();
       }
       @Override
-      public Adapter caseSlangType(SlangType object)
-      {
-        return createSlangTypeAdapter();
-      }
-      @Override
-      public Adapter caseSlangTypeArgs(SlangTypeArgs object)
-      {
-        return createSlangTypeArgsAdapter();
-      }
-      @Override
       public Adapter caseSlangBlock(SlangBlock object)
       {
         return createSlangBlockAdapter();
@@ -380,6 +375,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSlangAccessSuffix(SlangAccessSuffix object)
       {
         return createSlangAccessSuffixAdapter();
+      }
+      @Override
+      public Adapter caseOtherDataRef(OtherDataRef object)
+      {
+        return createOtherDataRefAdapter();
       }
       @Override
       public Adapter caseSlangParams(SlangParams object)
@@ -979,21 +979,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef <em>Other Data Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef
-   * @generated
-   */
-  public Adapter createOtherDataRefAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.DoubleDotRef <em>Double Dot Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1339,6 +1324,36 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangType <em>Slang Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangType
+   * @generated
+   */
+  public Adapter createSlangTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypeArgs <em>Slang Type Args</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangTypeArgs
+   * @generated
+   */
+  public Adapter createSlangTypeArgsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangStmt <em>Slang Stmt</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1459,36 +1474,6 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangType <em>Slang Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangType
-   * @generated
-   */
-  public Adapter createSlangTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangTypeArgs <em>Slang Type Args</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangTypeArgs
-   * @generated
-   */
-  public Adapter createSlangTypeArgsAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangBlock <em>Slang Block</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1559,6 +1544,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSlangAccessSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef <em>Other Data Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef
+   * @generated
+   */
+  public Adapter createOtherDataRefAdapter()
   {
     return null;
   }

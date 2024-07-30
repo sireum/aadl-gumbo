@@ -35,7 +35,6 @@ public class InternalGumboLexer extends Lexer {
     public static final int PlusSignEqualsSignGreaterThanSign=46;
     public static final int LeftParenthesis=67;
     public static final int RULE_MSTRING=88;
-    public static final int RULE_SLANG_STRING=87;
     public static final int RULE_OP=100;
     public static final int RULE_BIN=103;
     public static final int RULE_ESC_SEQ=86;
@@ -55,7 +54,7 @@ public class InternalGumboLexer extends Lexer {
     public static final int ThereExists=85;
     public static final int RULE_REAL_LIT=106;
     public static final int Classifier=6;
-    public static final int Case=41;
+    public static final int Case=40;
     public static final int Comma=71;
     public static final int HyphenMinus=72;
     public static final int NoSend=23;
@@ -79,10 +78,11 @@ public class InternalGumboLexer extends Lexer {
     public static final int Delta=31;
     public static final int RULE_SLI=92;
     public static final int By=62;
-    public static final int Else=42;
+    public static final int Else=41;
     public static final int RULE_EXTENDED_DIGIT=101;
     public static final int Yield=38;
-    public static final int All=40;
+    public static final int RULE_STRING_VALUE=87;
+    public static final int All=39;
     public static final int Infoflow=17;
     public static final int Res=54;
     public static final int F64=49;
@@ -93,6 +93,7 @@ public class InternalGumboLexer extends Lexer {
     public static final int FullStopFullStop=57;
     public static final int RULE_F32_LIT=107;
     public static final int LessThanSignColon=60;
+    public static final int To=66;
     public static final int Applies=20;
     public static final int RULE_MSP=91;
     public static final int RULE_BASED_INTEGER=115;
@@ -103,7 +104,6 @@ public class InternalGumboLexer extends Lexer {
     public static final int RULE_MSPI=90;
     public static final int For=51;
     public static final int RightParenthesis=68;
-    public static final int To_1=66;
     public static final int Do=63;
     public static final int ColonEqualsSign=59;
     public static final int Mut=53;
@@ -131,7 +131,7 @@ public class InternalGumboLexer extends Lexer {
     public static final int RULE_INT_IDF=105;
     public static final int MustSend=15;
     public static final int While=37;
-    public static final int From=39;
+    public static final int From=42;
     public static final int Extension=9;
     public static final int FullStopFullStopLessThanSign=47;
     public static final int RULE_IDF=89;
@@ -3045,68 +3045,13 @@ public class InternalGumboLexer extends Lexer {
     }
     // $ANTLR end "Yield"
 
-    // $ANTLR start "From"
-    public final void mFrom() throws RecognitionException {
-        try {
-            int _type = From;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGumboLexer.g:94:6: ( ( 'F' | 'f' ) ( 'R' | 'r' ) ( 'O' | 'o' ) ( 'M' | 'm' ) )
-            // InternalGumboLexer.g:94:8: ( 'F' | 'f' ) ( 'R' | 'r' ) ( 'O' | 'o' ) ( 'M' | 'm' )
-            {
-            if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "From"
-
     // $ANTLR start "All"
     public final void mAll() throws RecognitionException {
         try {
             int _type = All;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGumboLexer.g:96:5: ( '\\\\' ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'L' | 'l' ) )
-            // InternalGumboLexer.g:96:7: '\\\\' ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'L' | 'l' )
+            // InternalGumboLexer.g:94:5: ( '\\\\' ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'L' | 'l' ) )
+            // InternalGumboLexer.g:94:7: '\\\\' ( 'A' | 'a' ) ( 'L' | 'l' ) ( 'L' | 'l' )
             {
             match('\\'); 
             if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
@@ -3152,8 +3097,8 @@ public class InternalGumboLexer extends Lexer {
         try {
             int _type = Case;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGumboLexer.g:98:6: ( ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'S' | 's' ) ( 'E' | 'e' ) )
-            // InternalGumboLexer.g:98:8: ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'S' | 's' ) ( 'E' | 'e' )
+            // InternalGumboLexer.g:96:6: ( ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'S' | 's' ) ( 'E' | 'e' ) )
+            // InternalGumboLexer.g:96:8: ( 'C' | 'c' ) ( 'A' | 'a' ) ( 'S' | 's' ) ( 'E' | 'e' )
             {
             if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
                 input.consume();
@@ -3207,8 +3152,8 @@ public class InternalGumboLexer extends Lexer {
         try {
             int _type = Else;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGumboLexer.g:100:6: ( ( 'E' | 'e' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' ) )
-            // InternalGumboLexer.g:100:8: ( 'E' | 'e' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' )
+            // InternalGumboLexer.g:98:6: ( ( 'E' | 'e' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' ) )
+            // InternalGumboLexer.g:98:8: ( 'E' | 'e' ) ( 'L' | 'l' ) ( 'S' | 's' ) ( 'E' | 'e' )
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -3256,6 +3201,61 @@ public class InternalGumboLexer extends Lexer {
         }
     }
     // $ANTLR end "Else"
+
+    // $ANTLR start "From"
+    public final void mFrom() throws RecognitionException {
+        try {
+            int _type = From;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalGumboLexer.g:100:6: ( ( 'F' | 'f' ) ( 'R' | 'r' ) ( 'O' | 'o' ) ( 'M' | 'm' ) )
+            // InternalGumboLexer.g:100:8: ( 'F' | 'f' ) ( 'R' | 'r' ) ( 'O' | 'o' ) ( 'M' | 'm' )
+            {
+            if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "From"
 
     // $ANTLR start "Halt"
     public final void mHalt() throws RecognitionException {
@@ -4101,13 +4101,13 @@ public class InternalGumboLexer extends Lexer {
     }
     // $ANTLR end "In_1"
 
-    // $ANTLR start "To_1"
-    public final void mTo_1() throws RecognitionException {
+    // $ANTLR start "To"
+    public final void mTo() throws RecognitionException {
         try {
-            int _type = To_1;
+            int _type = To;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalGumboLexer.g:148:6: ( ( 'T' | 't' ) ( 'O' | 'o' ) )
-            // InternalGumboLexer.g:148:8: ( 'T' | 't' ) ( 'O' | 'o' )
+            // InternalGumboLexer.g:148:4: ( ( 'T' | 't' ) ( 'O' | 'o' ) )
+            // InternalGumboLexer.g:148:6: ( 'T' | 't' ) ( 'O' | 'o' )
             {
             if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
                 input.consume();
@@ -4136,7 +4136,7 @@ public class InternalGumboLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "To_1"
+    // $ANTLR end "To"
 
     // $ANTLR start "LeftParenthesis"
     public final void mLeftParenthesis() throws RecognitionException {
@@ -4534,10 +4534,10 @@ public class InternalGumboLexer extends Lexer {
     }
     // $ANTLR end "ThereExists"
 
-    // $ANTLR start "RULE_SLANG_STRING"
-    public final void mRULE_SLANG_STRING() throws RecognitionException {
+    // $ANTLR start "RULE_STRING_VALUE"
+    public final void mRULE_STRING_VALUE() throws RecognitionException {
         try {
-            int _type = RULE_SLANG_STRING;
+            int _type = RULE_STRING_VALUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
             // InternalGumboLexer.g:188:19: ( '\"' ( RULE_ESC_SEQ | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
             // InternalGumboLexer.g:188:21: '\"' ( RULE_ESC_SEQ | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
@@ -4596,7 +4596,7 @@ public class InternalGumboLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_SLANG_STRING"
+    // $ANTLR end "RULE_STRING_VALUE"
 
     // $ANTLR start "RULE_MSTRING"
     public final void mRULE_MSTRING() throws RecognitionException {
@@ -6943,7 +6943,7 @@ public class InternalGumboLexer extends Lexer {
     // $ANTLR end "RULE_WS"
 
     public void mTokens() throws RecognitionException {
-        // InternalGumboLexer.g:1:8: ( Strictpure | Integration | Classifier | Initialize | Invariants | Extension | Functions | Guarantee | Invariant | Reference | HasEvent | MustSend | Constant | Infoflow | Modifies | MaySend | Applies | Binding | Compute | NoSend | Assert | Assume | Handle | Return | Pure | Some | Cases | Delta | False | Match | Modes | Reads | State | While | Yield | From | All | Case | Else | Halt | Spec | True | PlusSignEqualsSignGreaterThanSign | FullStopFullStopLessThanSign | F32 | F64 | Def | For | Inv | Mut | Res | Val | Var | FullStopFullStop | ColonColon | ColonEqualsSign | LessThanSignColon | EqualsSignGreaterThanSign | By | Do | If | In_1 | To_1 | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Colon | Semicolon | EqualsSign | F | T | LeftSquareBracket | RightSquareBracket | KW__ | LeftCurlyBracket | RightCurlyBracket | ForAll | ThereExists | RULE_SLANG_STRING | RULE_MSTRING | RULE_MSP | RULE_SLI | RULE_MSPB | RULE_MSPM | RULE_MSPE | RULE_DEFOP | RULE_IMPLIES | RULE_SIMPLIES | RULE_OP | RULE_HEX | RULE_BIN | RULE_INT_IDF | RULE_F32_LIT | RULE_F64_LIT | RULE_SL_COMMENT | RULE_REAL_LIT | RULE_INTEGER_LIT | RULE_STRING | RULE_ID | RULE_WS )
+        // InternalGumboLexer.g:1:8: ( Strictpure | Integration | Classifier | Initialize | Invariants | Extension | Functions | Guarantee | Invariant | Reference | HasEvent | MustSend | Constant | Infoflow | Modifies | MaySend | Applies | Binding | Compute | NoSend | Assert | Assume | Handle | Return | Pure | Some | Cases | Delta | False | Match | Modes | Reads | State | While | Yield | All | Case | Else | From | Halt | Spec | True | PlusSignEqualsSignGreaterThanSign | FullStopFullStopLessThanSign | F32 | F64 | Def | For | Inv | Mut | Res | Val | Var | FullStopFullStop | ColonColon | ColonEqualsSign | LessThanSignColon | EqualsSignGreaterThanSign | By | Do | If | In_1 | To | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Colon | Semicolon | EqualsSign | F | T | LeftSquareBracket | RightSquareBracket | KW__ | LeftCurlyBracket | RightCurlyBracket | ForAll | ThereExists | RULE_STRING_VALUE | RULE_MSTRING | RULE_MSP | RULE_SLI | RULE_MSPB | RULE_MSPM | RULE_MSPE | RULE_DEFOP | RULE_IMPLIES | RULE_SIMPLIES | RULE_OP | RULE_HEX | RULE_BIN | RULE_INT_IDF | RULE_F32_LIT | RULE_F64_LIT | RULE_SL_COMMENT | RULE_REAL_LIT | RULE_INTEGER_LIT | RULE_STRING | RULE_ID | RULE_WS )
         int alt49=104;
         alt49 = dfa49.predict(input);
         switch (alt49) {
@@ -7193,30 +7193,30 @@ public class InternalGumboLexer extends Lexer {
                 }
                 break;
             case 36 :
-                // InternalGumboLexer.g:1:292: From
-                {
-                mFrom(); 
-
-                }
-                break;
-            case 37 :
-                // InternalGumboLexer.g:1:297: All
+                // InternalGumboLexer.g:1:292: All
                 {
                 mAll(); 
 
                 }
                 break;
-            case 38 :
-                // InternalGumboLexer.g:1:301: Case
+            case 37 :
+                // InternalGumboLexer.g:1:296: Case
                 {
                 mCase(); 
 
                 }
                 break;
-            case 39 :
-                // InternalGumboLexer.g:1:306: Else
+            case 38 :
+                // InternalGumboLexer.g:1:301: Else
                 {
                 mElse(); 
+
+                }
+                break;
+            case 39 :
+                // InternalGumboLexer.g:1:306: From
+                {
+                mFrom(); 
 
                 }
                 break;
@@ -7382,294 +7382,294 @@ public class InternalGumboLexer extends Lexer {
                 }
                 break;
             case 63 :
-                // InternalGumboLexer.g:1:527: To_1
+                // InternalGumboLexer.g:1:527: To
                 {
-                mTo_1(); 
+                mTo(); 
 
                 }
                 break;
             case 64 :
-                // InternalGumboLexer.g:1:532: LeftParenthesis
+                // InternalGumboLexer.g:1:530: LeftParenthesis
                 {
                 mLeftParenthesis(); 
 
                 }
                 break;
             case 65 :
-                // InternalGumboLexer.g:1:548: RightParenthesis
+                // InternalGumboLexer.g:1:546: RightParenthesis
                 {
                 mRightParenthesis(); 
 
                 }
                 break;
             case 66 :
-                // InternalGumboLexer.g:1:565: Asterisk
+                // InternalGumboLexer.g:1:563: Asterisk
                 {
                 mAsterisk(); 
 
                 }
                 break;
             case 67 :
-                // InternalGumboLexer.g:1:574: PlusSign
+                // InternalGumboLexer.g:1:572: PlusSign
                 {
                 mPlusSign(); 
 
                 }
                 break;
             case 68 :
-                // InternalGumboLexer.g:1:583: Comma
+                // InternalGumboLexer.g:1:581: Comma
                 {
                 mComma(); 
 
                 }
                 break;
             case 69 :
-                // InternalGumboLexer.g:1:589: HyphenMinus
+                // InternalGumboLexer.g:1:587: HyphenMinus
                 {
                 mHyphenMinus(); 
 
                 }
                 break;
             case 70 :
-                // InternalGumboLexer.g:1:601: FullStop
+                // InternalGumboLexer.g:1:599: FullStop
                 {
                 mFullStop(); 
 
                 }
                 break;
             case 71 :
-                // InternalGumboLexer.g:1:610: Colon
+                // InternalGumboLexer.g:1:608: Colon
                 {
                 mColon(); 
 
                 }
                 break;
             case 72 :
-                // InternalGumboLexer.g:1:616: Semicolon
+                // InternalGumboLexer.g:1:614: Semicolon
                 {
                 mSemicolon(); 
 
                 }
                 break;
             case 73 :
-                // InternalGumboLexer.g:1:626: EqualsSign
+                // InternalGumboLexer.g:1:624: EqualsSign
                 {
                 mEqualsSign(); 
 
                 }
                 break;
             case 74 :
-                // InternalGumboLexer.g:1:637: F
+                // InternalGumboLexer.g:1:635: F
                 {
                 mF(); 
 
                 }
                 break;
             case 75 :
-                // InternalGumboLexer.g:1:639: T
+                // InternalGumboLexer.g:1:637: T
                 {
                 mT(); 
 
                 }
                 break;
             case 76 :
-                // InternalGumboLexer.g:1:641: LeftSquareBracket
+                // InternalGumboLexer.g:1:639: LeftSquareBracket
                 {
                 mLeftSquareBracket(); 
 
                 }
                 break;
             case 77 :
-                // InternalGumboLexer.g:1:659: RightSquareBracket
+                // InternalGumboLexer.g:1:657: RightSquareBracket
                 {
                 mRightSquareBracket(); 
 
                 }
                 break;
             case 78 :
-                // InternalGumboLexer.g:1:678: KW__
+                // InternalGumboLexer.g:1:676: KW__
                 {
                 mKW__(); 
 
                 }
                 break;
             case 79 :
-                // InternalGumboLexer.g:1:683: LeftCurlyBracket
+                // InternalGumboLexer.g:1:681: LeftCurlyBracket
                 {
                 mLeftCurlyBracket(); 
 
                 }
                 break;
             case 80 :
-                // InternalGumboLexer.g:1:700: RightCurlyBracket
+                // InternalGumboLexer.g:1:698: RightCurlyBracket
                 {
                 mRightCurlyBracket(); 
 
                 }
                 break;
             case 81 :
-                // InternalGumboLexer.g:1:718: ForAll
+                // InternalGumboLexer.g:1:716: ForAll
                 {
                 mForAll(); 
 
                 }
                 break;
             case 82 :
-                // InternalGumboLexer.g:1:725: ThereExists
+                // InternalGumboLexer.g:1:723: ThereExists
                 {
                 mThereExists(); 
 
                 }
                 break;
             case 83 :
-                // InternalGumboLexer.g:1:737: RULE_SLANG_STRING
+                // InternalGumboLexer.g:1:735: RULE_STRING_VALUE
                 {
-                mRULE_SLANG_STRING(); 
+                mRULE_STRING_VALUE(); 
 
                 }
                 break;
             case 84 :
-                // InternalGumboLexer.g:1:755: RULE_MSTRING
+                // InternalGumboLexer.g:1:753: RULE_MSTRING
                 {
                 mRULE_MSTRING(); 
 
                 }
                 break;
             case 85 :
-                // InternalGumboLexer.g:1:768: RULE_MSP
+                // InternalGumboLexer.g:1:766: RULE_MSP
                 {
                 mRULE_MSP(); 
 
                 }
                 break;
             case 86 :
-                // InternalGumboLexer.g:1:777: RULE_SLI
+                // InternalGumboLexer.g:1:775: RULE_SLI
                 {
                 mRULE_SLI(); 
 
                 }
                 break;
             case 87 :
-                // InternalGumboLexer.g:1:786: RULE_MSPB
+                // InternalGumboLexer.g:1:784: RULE_MSPB
                 {
                 mRULE_MSPB(); 
 
                 }
                 break;
             case 88 :
-                // InternalGumboLexer.g:1:796: RULE_MSPM
+                // InternalGumboLexer.g:1:794: RULE_MSPM
                 {
                 mRULE_MSPM(); 
 
                 }
                 break;
             case 89 :
-                // InternalGumboLexer.g:1:806: RULE_MSPE
+                // InternalGumboLexer.g:1:804: RULE_MSPE
                 {
                 mRULE_MSPE(); 
 
                 }
                 break;
             case 90 :
-                // InternalGumboLexer.g:1:816: RULE_DEFOP
+                // InternalGumboLexer.g:1:814: RULE_DEFOP
                 {
                 mRULE_DEFOP(); 
 
                 }
                 break;
             case 91 :
-                // InternalGumboLexer.g:1:827: RULE_IMPLIES
+                // InternalGumboLexer.g:1:825: RULE_IMPLIES
                 {
                 mRULE_IMPLIES(); 
 
                 }
                 break;
             case 92 :
-                // InternalGumboLexer.g:1:840: RULE_SIMPLIES
+                // InternalGumboLexer.g:1:838: RULE_SIMPLIES
                 {
                 mRULE_SIMPLIES(); 
 
                 }
                 break;
             case 93 :
-                // InternalGumboLexer.g:1:854: RULE_OP
+                // InternalGumboLexer.g:1:852: RULE_OP
                 {
                 mRULE_OP(); 
 
                 }
                 break;
             case 94 :
-                // InternalGumboLexer.g:1:862: RULE_HEX
+                // InternalGumboLexer.g:1:860: RULE_HEX
                 {
                 mRULE_HEX(); 
 
                 }
                 break;
             case 95 :
-                // InternalGumboLexer.g:1:871: RULE_BIN
+                // InternalGumboLexer.g:1:869: RULE_BIN
                 {
                 mRULE_BIN(); 
 
                 }
                 break;
             case 96 :
-                // InternalGumboLexer.g:1:880: RULE_INT_IDF
+                // InternalGumboLexer.g:1:878: RULE_INT_IDF
                 {
                 mRULE_INT_IDF(); 
 
                 }
                 break;
             case 97 :
-                // InternalGumboLexer.g:1:893: RULE_F32_LIT
+                // InternalGumboLexer.g:1:891: RULE_F32_LIT
                 {
                 mRULE_F32_LIT(); 
 
                 }
                 break;
             case 98 :
-                // InternalGumboLexer.g:1:906: RULE_F64_LIT
+                // InternalGumboLexer.g:1:904: RULE_F64_LIT
                 {
                 mRULE_F64_LIT(); 
 
                 }
                 break;
             case 99 :
-                // InternalGumboLexer.g:1:919: RULE_SL_COMMENT
+                // InternalGumboLexer.g:1:917: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 100 :
-                // InternalGumboLexer.g:1:935: RULE_REAL_LIT
+                // InternalGumboLexer.g:1:933: RULE_REAL_LIT
                 {
                 mRULE_REAL_LIT(); 
 
                 }
                 break;
             case 101 :
-                // InternalGumboLexer.g:1:949: RULE_INTEGER_LIT
+                // InternalGumboLexer.g:1:947: RULE_INTEGER_LIT
                 {
                 mRULE_INTEGER_LIT(); 
 
                 }
                 break;
             case 102 :
-                // InternalGumboLexer.g:1:966: RULE_STRING
+                // InternalGumboLexer.g:1:964: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 103 :
-                // InternalGumboLexer.g:1:978: RULE_ID
+                // InternalGumboLexer.g:1:976: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 104 :
-                // InternalGumboLexer.g:1:986: RULE_WS
+                // InternalGumboLexer.g:1:984: RULE_WS
                 {
                 mRULE_WS(); 
 
@@ -7691,7 +7691,7 @@ public class InternalGumboLexer extends Lexer {
     static final String DFA49_maxS =
         "\1\u2aff\1\163\21\172\1\75\1\56\1\172\1\u2aff\1\72\1\u2aff\4\uffff\1\76\3\uffff\1\172\2\uffff\2\u2aff\1\uffff\1\172\1\uffff\1\176\1\uffff\2\172\4\uffff\3\172\1\uffff\1\uffff\13\172\1\uffff\13\172\1\157\1\154\10\172\3\uffff\1\74\1\uffff\1\172\1\uffff\1\u2aff\3\uffff\1\u2aff\4\uffff\1\172\3\uffff\1\42\1\165\2\uffff\1\44\1\uffff\1\72\1\76\1\146\1\137\1\uffff\1\71\1\146\1\71\1\uffff\1\71\4\172\2\uffff\1\42\1\uffff\34\172\1\uffff\1\172\1\155\1\154\2\172\1\uffff\5\172\3\uffff\2\172\4\uffff\2\uffff\1\uffff\1\uffff\1\uffff\2\uffff\1\72\2\172\1\uffff\1\145\1\146\2\71\1\146\3\172\1\uffff\1\172\1\uffff\11\172\3\uffff\4\172\1\uffff\4\172\1\uffff\11\172\1\145\2\172\1\uffff\5\172\2\uffff\2\uffff\3\uffff\1\71\2\146\2\172\1\uffff\2\71\2\uffff\4\172\1\uffff\1\44\1\uffff\4\172\1\uffff\1\172\1\uffff\2\172\1\uffff\6\172\1\uffff\13\172\1\uffff\2\172\1\uffff\2\172\1\uffff\1\uffff\1\71\1\146\1\71\1\146\4\172\1\uffff\1\uffff\2\uffff\3\172\1\uffff\2\172\1\uffff\3\172\1\uffff\4\172\1\uffff\1\172\1\uffff\5\172\5\uffff\1\uffff\2\71\4\172\1\uffff\1\uffff\7\172\1\uffff\1\172\1\uffff\4\172\2\uffff\1\172\1\uffff\1\uffff\7\172\1\uffff\7\172\3\uffff\3\172\1\uffff\1\172\1\uffff\4\172\3\uffff\3\172\1\uffff\1\172\4\uffff\1\172\4\uffff";
     static final String DFA49_acceptS =
-        "\31\uffff\1\100\1\101\1\102\1\104\1\uffff\1\110\1\114\1\115\1\uffff\1\117\1\120\6\uffff\1\135\2\uffff\1\146\1\150\1\1\1\31\3\uffff\1\147\14\uffff\1\112\25\uffff\1\113\1\53\1\103\1\uffff\1\106\1\uffff\1\67\1\uffff\1\132\1\107\1\71\1\uffff\1\111\1\133\1\143\1\105\1\uffff\1\116\1\121\1\122\12\uffff\1\145\3\uffff\1\140\5\uffff\1\76\1\75\1\uffff\1\126\34\uffff\1\73\5\uffff\1\74\5\uffff\1\77\1\54\1\66\2\uffff\1\70\1\72\1\124\1\123\2\uffff\1\123\1\uffff\1\130\5\uffff\1\137\10\uffff\1\61\13\uffff\1\55\1\56\1\60\4\uffff\1\63\4\uffff\1\62\14\uffff\1\57\5\uffff\1\64\1\65\2\uffff\1\131\1\134\1\136\5\uffff\1\144\2\uffff\1\141\1\142\13\uffff\1\46\1\uffff\1\47\2\uffff\1\44\6\uffff\1\50\13\uffff\1\45\2\uffff\1\51\2\uffff\1\52\12\uffff\1\127\5\uffff\1\33\2\uffff\1\35\3\uffff\1\40\4\uffff\1\37\1\uffff\1\36\5\uffff\1\32\1\34\1\41\1\42\1\43\10\uffff\1\125\7\uffff\1\30\1\uffff\1\27\4\uffff\1\25\1\26\1\uffff\1\24\10\uffff\1\23\7\uffff\1\20\1\21\1\22\3\uffff\1\16\1\uffff\1\15\4\uffff\1\13\1\14\1\17\3\uffff\1\11\1\uffff\1\6\1\7\1\10\1\12\1\uffff\1\4\1\5\1\3\1\2";
+        "\31\uffff\1\100\1\101\1\102\1\104\1\uffff\1\110\1\114\1\115\1\uffff\1\117\1\120\6\uffff\1\135\2\uffff\1\146\1\150\1\1\1\31\3\uffff\1\147\14\uffff\1\112\25\uffff\1\113\1\53\1\103\1\uffff\1\106\1\uffff\1\67\1\uffff\1\132\1\107\1\71\1\uffff\1\111\1\133\1\143\1\105\1\uffff\1\116\1\121\1\122\12\uffff\1\145\3\uffff\1\140\5\uffff\1\76\1\75\1\uffff\1\126\34\uffff\1\73\5\uffff\1\74\5\uffff\1\77\1\54\1\66\2\uffff\1\70\1\72\1\124\1\123\2\uffff\1\123\1\uffff\1\130\5\uffff\1\137\10\uffff\1\61\13\uffff\1\55\1\56\1\60\4\uffff\1\63\4\uffff\1\62\14\uffff\1\57\5\uffff\1\64\1\65\2\uffff\1\131\1\134\1\136\5\uffff\1\144\2\uffff\1\141\1\142\13\uffff\1\45\1\uffff\1\46\2\uffff\1\47\6\uffff\1\50\13\uffff\1\44\2\uffff\1\51\2\uffff\1\52\12\uffff\1\127\5\uffff\1\33\2\uffff\1\35\3\uffff\1\40\4\uffff\1\37\1\uffff\1\36\5\uffff\1\32\1\34\1\41\1\42\1\43\10\uffff\1\125\7\uffff\1\30\1\uffff\1\27\4\uffff\1\25\1\26\1\uffff\1\24\10\uffff\1\23\7\uffff\1\20\1\21\1\22\3\uffff\1\16\1\uffff\1\15\4\uffff\1\13\1\14\1\17\3\uffff\1\11\1\uffff\1\6\1\7\1\10\1\12\1\uffff\1\4\1\5\1\3\1\2";
     static final String DFA49_specialS =
         "\46\uffff\1\17\1\uffff\1\2\14\uffff\1\0\67\uffff\1\24\1\5\1\uffff\1\3\103\uffff\1\25\1\23\1\uffff\1\6\1\uffff\1\7\1\16\16\uffff\1\1\52\uffff\1\20\1\10\21\uffff\1\12\1\uffff\1\26\43\uffff\1\21\10\uffff\1\13\1\uffff\1\14\1\4\34\uffff\1\22\6\uffff\1\15\23\uffff\1\11\55\uffff}>";
     static final String[] DFA49_transitionS = DFA49_transitionS_.DFA49_transitionS;
@@ -8145,7 +8145,7 @@ public class InternalGumboLexer extends Lexer {
             this.transition = DFA49_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( Strictpure | Integration | Classifier | Initialize | Invariants | Extension | Functions | Guarantee | Invariant | Reference | HasEvent | MustSend | Constant | Infoflow | Modifies | MaySend | Applies | Binding | Compute | NoSend | Assert | Assume | Handle | Return | Pure | Some | Cases | Delta | False | Match | Modes | Reads | State | While | Yield | From | All | Case | Else | Halt | Spec | True | PlusSignEqualsSignGreaterThanSign | FullStopFullStopLessThanSign | F32 | F64 | Def | For | Inv | Mut | Res | Val | Var | FullStopFullStop | ColonColon | ColonEqualsSign | LessThanSignColon | EqualsSignGreaterThanSign | By | Do | If | In_1 | To_1 | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Colon | Semicolon | EqualsSign | F | T | LeftSquareBracket | RightSquareBracket | KW__ | LeftCurlyBracket | RightCurlyBracket | ForAll | ThereExists | RULE_SLANG_STRING | RULE_MSTRING | RULE_MSP | RULE_SLI | RULE_MSPB | RULE_MSPM | RULE_MSPE | RULE_DEFOP | RULE_IMPLIES | RULE_SIMPLIES | RULE_OP | RULE_HEX | RULE_BIN | RULE_INT_IDF | RULE_F32_LIT | RULE_F64_LIT | RULE_SL_COMMENT | RULE_REAL_LIT | RULE_INTEGER_LIT | RULE_STRING | RULE_ID | RULE_WS );";
+            return "1:1: Tokens : ( Strictpure | Integration | Classifier | Initialize | Invariants | Extension | Functions | Guarantee | Invariant | Reference | HasEvent | MustSend | Constant | Infoflow | Modifies | MaySend | Applies | Binding | Compute | NoSend | Assert | Assume | Handle | Return | Pure | Some | Cases | Delta | False | Match | Modes | Reads | State | While | Yield | All | Case | Else | From | Halt | Spec | True | PlusSignEqualsSignGreaterThanSign | FullStopFullStopLessThanSign | F32 | F64 | Def | For | Inv | Mut | Res | Val | Var | FullStopFullStop | ColonColon | ColonEqualsSign | LessThanSignColon | EqualsSignGreaterThanSign | By | Do | If | In_1 | To | LeftParenthesis | RightParenthesis | Asterisk | PlusSign | Comma | HyphenMinus | FullStop | Colon | Semicolon | EqualsSign | F | T | LeftSquareBracket | RightSquareBracket | KW__ | LeftCurlyBracket | RightCurlyBracket | ForAll | ThereExists | RULE_STRING_VALUE | RULE_MSTRING | RULE_MSP | RULE_SLI | RULE_MSPB | RULE_MSPM | RULE_MSPE | RULE_DEFOP | RULE_IMPLIES | RULE_SIMPLIES | RULE_OP | RULE_HEX | RULE_BIN | RULE_INT_IDF | RULE_F32_LIT | RULE_F64_LIT | RULE_SL_COMMENT | RULE_REAL_LIT | RULE_INTEGER_LIT | RULE_STRING | RULE_ID | RULE_WS );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

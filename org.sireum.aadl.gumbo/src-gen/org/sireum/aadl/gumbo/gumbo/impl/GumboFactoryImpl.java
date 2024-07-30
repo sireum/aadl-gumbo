@@ -94,7 +94,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.ANON_ASSUME_STATEMENT: return createAnonAssumeStatement();
       case GumboPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
       case GumboPackage.ANON_GUARANTEE_STATEMENT: return createAnonGuaranteeStatement();
-      case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
       case GumboPackage.DOUBLE_DOT_REF: return createDoubleDotRef();
       case GumboPackage.DATA_ELEMENT: return createDataElement();
       case GumboPackage.SUBCOMPONENT_ELEMENT: return createSubcomponentElement();
@@ -118,6 +117,8 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_READS: return createSlangReads();
       case GumboPackage.SLANG_MODIFIES: return createSlangModifies();
       case GumboPackage.SLANG_ENSURES: return createSlangEnsures();
+      case GumboPackage.SLANG_TYPE: return createSlangType();
+      case GumboPackage.SLANG_TYPE_ARGS: return createSlangTypeArgs();
       case GumboPackage.SLANG_STMT: return createSlangStmt();
       case GumboPackage.SLANG_ELSE: return createSlangElse();
       case GumboPackage.SLANG_LOOP_CONTRACT: return createSlangLoopContract();
@@ -126,13 +127,12 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_PATTERN: return createSlangPattern();
       case GumboPackage.SLANG_TPATTERN: return createSlangTPattern();
       case GumboPackage.SLANG_VAR_DEF: return createSlangVarDef();
-      case GumboPackage.SLANG_TYPE: return createSlangType();
-      case GumboPackage.SLANG_TYPE_ARGS: return createSlangTypeArgs();
       case GumboPackage.SLANG_BLOCK: return createSlangBlock();
       case GumboPackage.OWNED_EXPRESSION: return createOwnedExpression();
       case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
       case GumboPackage.EXPR: return createExpr();
       case GumboPackage.SLANG_ACCESS_SUFFIX: return createSlangAccessSuffix();
+      case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
       case GumboPackage.SLANG_PARAMS: return createSlangParams();
       case GumboPackage.SLANG_PARAM: return createSlangParam();
       case GumboPackage.SLANG_FOR_RANGE: return createSlangForRange();
@@ -425,18 +425,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public OtherDataRef createOtherDataRef()
-  {
-    OtherDataRefImpl otherDataRef = new OtherDataRefImpl();
-    return otherDataRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public DoubleDotRef createDoubleDotRef()
   {
     DoubleDotRefImpl doubleDotRef = new DoubleDotRefImpl();
@@ -713,6 +701,30 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public SlangType createSlangType()
+  {
+    SlangTypeImpl slangType = new SlangTypeImpl();
+    return slangType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangTypeArgs createSlangTypeArgs()
+  {
+    SlangTypeArgsImpl slangTypeArgs = new SlangTypeArgsImpl();
+    return slangTypeArgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SlangStmt createSlangStmt()
   {
     SlangStmtImpl slangStmt = new SlangStmtImpl();
@@ -809,30 +821,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangType createSlangType()
-  {
-    SlangTypeImpl slangType = new SlangTypeImpl();
-    return slangType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SlangTypeArgs createSlangTypeArgs()
-  {
-    SlangTypeArgsImpl slangTypeArgs = new SlangTypeArgsImpl();
-    return slangTypeArgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public SlangBlock createSlangBlock()
   {
     SlangBlockImpl slangBlock = new SlangBlockImpl();
@@ -885,6 +873,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangAccessSuffixImpl slangAccessSuffix = new SlangAccessSuffixImpl();
     return slangAccessSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OtherDataRef createOtherDataRef()
+  {
+    OtherDataRefImpl otherDataRef = new OtherDataRefImpl();
+    return otherDataRef;
   }
 
   /**
