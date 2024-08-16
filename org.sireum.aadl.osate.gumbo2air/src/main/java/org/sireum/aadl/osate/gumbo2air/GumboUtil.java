@@ -248,4 +248,8 @@ public class GumboUtil {
 	public enum Typed_VarKind {
 		Mutable, Immutable, Index
 	}
+
+	public static org.sireum.hamr.ir.Attr toAttr(EObject e) {
+		return org.sireum.hamr.ir.Attr$.MODULE$.apply(VisitorUtil.buildPositionOpt(e));
+	}
 }

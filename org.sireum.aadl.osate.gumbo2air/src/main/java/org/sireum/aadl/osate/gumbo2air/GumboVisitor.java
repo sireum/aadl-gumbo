@@ -245,7 +245,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					org.sireum.hamr.ir.Name containingPackage = org.sireum.hamr.ir.Name$.MODULE$
 							.apply(VisitorUtil.toISZ(segs), SlangUtil.toNone());
 
-					ret.add(GclLib$.MODULE$.apply(containingPackage, VisitorUtil.toISZ(methods)));
+					ret.add(GclLib$.MODULE$.apply(containingPackage, VisitorUtil.toISZ(methods), GumboUtil.toAttr(gl)));
 				}
 			}
 		}
@@ -524,7 +524,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(s.getDescriptor());
 
 				_invariants.add(GclInvariant$.MODULE$.apply(id, descriptor, visitPop(s.getExpr()),
-						VisitorUtil.buildPositionOpt(s)));
+						GumboUtil.toAttr(s)));
 			}
 		}
 
@@ -555,7 +555,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 
 			_initializes = SlangUtil.toSome(GclInitialize$.MODULE$.apply(VisitorUtil.toISZ(modifies),
-					VisitorUtil.toISZ(guarantees), VisitorUtil.toISZ(flows)));
+					VisitorUtil.toISZ(guarantees), VisitorUtil.toISZ(flows),
+					GumboUtil.toAttr(object.getSpecs().getInitialize())));
 		}
 
 		Option<GclCompute> _compute = SlangUtil.toNone();
@@ -564,7 +565,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_methods),
-				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute));
+				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute,
+				GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -608,7 +610,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				Exp guarantees = visitPop(css.getGuaranteeStatement().getExpr());
 
 				caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-						VisitorUtil.buildPositionOpt(css)));
+						GumboUtil.toAttr(css)));
 			}
 		}
 
@@ -620,7 +622,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(specs),
-				VisitorUtil.toISZ(caseStatements), VisitorUtil.toISZ(handlers), VisitorUtil.toISZ(flows)));
+				VisitorUtil.toISZ(caseStatements), VisitorUtil.toISZ(handlers), VisitorUtil.toISZ(flows),
+				GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -650,7 +653,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			guarantees.add(visitPop(gs));
 		}
 
-		push(GclHandle$.MODULE$.apply(slangExp, VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees)));
+		push(GclHandle$.MODULE$.apply(slangExp, VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees),
+				GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -662,7 +666,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			specs.add(visitPop(spec));
 		}
 
-		push(GclIntegration$.MODULE$.apply(VisitorUtil.toISZ(specs)));
+		push(GclIntegration$.MODULE$.apply(VisitorUtil.toISZ(specs), GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -674,7 +678,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		processDatatype(t.getContainingClassifier());
 
-		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName(), VisitorUtil.buildPositionOpt(object)));
+		push(GclStateVar$.MODULE$.apply(name, t.getQualifiedName(), GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -685,8 +689,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(object.getDescriptor());
 
-		push(GclAssume$.MODULE$.apply(id, descriptor, visitPop(object.getExpr()),
-				VisitorUtil.buildPositionOpt(object)));
+		push(GclAssume$.MODULE$.apply(id, descriptor, visitPop(object.getExpr()), GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -697,8 +700,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(object.getDescriptor());
 
-		push(GclGuarantee$.MODULE$.apply(id, descriptor, visitPop(object.getExpr()),
-				VisitorUtil.buildPositionOpt(object)));
+		push(GclGuarantee$.MODULE$.apply(id, descriptor, visitPop(object.getExpr()), GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -1283,7 +1285,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(object.getDescriptor());
 
 		push(org.sireum.hamr.ir.InfoFlowClause$.MODULE$.apply(object.getId(), descriptor, VisitorUtil.toISZ(froms),
-				VisitorUtil.toISZ(tos), VisitorUtil.buildPositionOpt(object)));
+				VisitorUtil.toISZ(tos), GumboUtil.toAttr(object)));
 
 		return false;
 	}
