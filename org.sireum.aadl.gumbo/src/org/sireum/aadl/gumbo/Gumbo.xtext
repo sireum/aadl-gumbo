@@ -17,15 +17,7 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 
 GumboLibrary returns GumboLibrary:
 	{GumboLibrary}
-<<<<<<< HEAD
-<<<<<<< HEAD
 		(functions = Functions)?
-=======
-	'library'? (functions = Functions)?
->>>>>>> 6d97c75 (update)
-=======
-		(functions = Functions)?
->>>>>>> 3c55eb6 (update)
 ;
 
 GumboSubclause returns GumboSubclause:
@@ -205,15 +197,7 @@ SlangDefContract
 	  )
 	;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
-=======
-SlangDefContractCase: {SlangDefContractCase} 'case' /*SLANG_*/STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
->>>>>>> 1f12bcb (update)
-=======
-SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
->>>>>>> 6d97c75 (update)
 
 SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
 
