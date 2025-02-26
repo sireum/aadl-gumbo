@@ -921,7 +921,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			exps.add(visitPop(object.getTerms().get(i)));
 			if (i < object.getOps().size()) {
 				String op = GumboUtil.toSlangBinaryOp(object.getOps().get(i));
-				exps.add(LitString$.MODULE$.apply(op, null));
+				exps.add(LitString$.MODULE$.apply(op, GumboUtil.buildAttr(SlangUtil.toNone())));
 			}
 		}
 
