@@ -1197,15 +1197,25 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		String[] parts = object.getSli().split("\"");
 
 		switch (parts[0]) {
+		case "z":
+			Option<Z> z = Z.apply(parts[1]);
+			if (z.nonEmpty()) {
+				push(Exp.LitZ$.MODULE$.apply(z.get(), GumboUtil.buildAttr(object)));
+			} else {
+				reportError(object, "'" + parts[1] + "' is not a valid Z");
+			}
+
+			break;
+		case "r":
+			scala.math.BigDecimal r = new scala.math.BigDecimal(new java.math.BigDecimal(parts[1]));
+			push(Exp.LitR$.MODULE$.apply(r, GumboUtil.buildAttr(object)));
+
+			break;
 		case "c":
 			reportError(parts[1].length() == 1, object, "Expecting a single character");
 
 			int c = parts[1].charAt(0);
 			push(Exp.LitC$.MODULE$.apply(c, GumboUtil.buildAttr(object)));
-
-			break;
-		case "string":
-			push(Exp.LitString$.MODULE$.apply(parts[1], GumboUtil.buildAttr(object)));
 
 			break;
 		case "f32":
@@ -1228,28 +1238,25 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 
 			break;
-		case "r":
-			scala.math.BigDecimal r = new scala.math.BigDecimal(new java.math.BigDecimal(parts[1]));
-			push(Exp.LitR$.MODULE$.apply(r, GumboUtil.buildAttr(object)));
-
-			break;
-		case "z":
-			Option<Z> z = Z.apply(parts[1]);
-			if (z.nonEmpty()) {
-				push(Exp.LitZ$.MODULE$.apply(z.get(), GumboUtil.buildAttr(object)));
-			} else {
-				reportError(object, "'" + parts[1] + "' is not a valid Z");
-			}
+		case "string":
+			push(Exp.LitString$.MODULE$.apply(parts[1], GumboUtil.buildAttr(object)));
 
 			break;
 		default:
+			// must be an int lit (eg. u32, s64, etc)
 
-			LitString lit = LitString$.MODULE$.apply(parts[1], GumboUtil.buildAttr(object));
+			Option<Z> intLit = Z.apply(parts[1]);
+			if (intLit.nonEmpty()) {
+				LitString lit = LitString$.MODULE$.apply(parts[1], GumboUtil.buildAttr(object));
 
-			Exp slangExp = StringInterpolate$.MODULE$.apply(parts[0], VisitorUtil.toISZ(lit), VisitorUtil.toISZ(),
-					GumboUtil.buildTypedAttr(object));
+				Exp slangExp = StringInterpolate$.MODULE$.apply(parts[0], VisitorUtil.toISZ(lit), VisitorUtil.toISZ(),
+						GumboUtil.buildTypedAttr(object));
 
-			push(slangExp);
+				push(slangExp);
+			} else {
+				reportError(object, "'" + parts[1] + "' is not a valid " + parts[0].substring(0, 1).toUpperCase()
+						+ parts[0].substring(1));
+			}
 
 			break;
 		}
