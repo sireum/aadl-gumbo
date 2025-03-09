@@ -2,7 +2,7 @@
 <feature
       id="org.sireum.aadl.gumbo.feature"
       label="Sireum GUMBO feature"
-      version="1.2025.02250914.qualifier"
+      version="1.2025.03090911.qualifier"
       provider-name="SAnToS">
 
    <plugin
