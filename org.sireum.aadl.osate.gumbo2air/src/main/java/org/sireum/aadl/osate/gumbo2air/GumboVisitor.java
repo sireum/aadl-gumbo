@@ -488,8 +488,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			purity = Purity$.MODULE$.byName("StrictPure").get();
 		}
 
-		MethodSig sig = MethodSig$.MODULE$.apply(purity, methodId, VisitorUtil.toISZ(typeParams), hasParams,
-				VisitorUtil.toISZ(params), returnType);
+		MethodSig sig = MethodSig$.MODULE$.apply(purity, VisitorUtil.toISZ(), methodId, VisitorUtil.toISZ(typeParams),
+				hasParams, VisitorUtil.toISZ(params), returnType);
 
 		Method m = Method$.MODULE$.apply(typeChecked, purity, modifiers, sig, mcontract, SlangUtil.toSome(body),
 				GumboUtil.buildResolvedAttr(object));
