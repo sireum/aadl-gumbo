@@ -35,36 +35,94 @@ import org.sireum.message.FlatPos;
 import org.sireum.message.FlatPos$;
 import org.sireum.message.Position;
 
-import scala.Function1;
-import scala.Tuple2;
-
 public class GumboUtil {
 
 	protected final static AadlASTFactory factory = new AadlASTFactory();
 
-	// refer to BinaryOp defined in
-	// https://github.com/sireum/slang/blob/0e73b8bf13022f876bf6961c442c65022cbaecfc/ast/shared/src/main/scala/org/sireum/lang/ast/AST.scala#L1264
-	final static org.sireum.Map<String, String> binaryOps = //
-			(org.sireum.Map$.MODULE$.apply(VisitorUtil.toISZ( //
-					"+", "-", "*", "/", "%", //
-					"==", "===", "!=", "=!=", //
-					"<<", ">>", ">>>", //
-					"<", "<=", ">", ">=", "&", "|", "|^", //
-					"->:", "&&", "||", //
-					// "-->:" invalid symbol in AADL
-					":+", "+:", "++", "--", //
-					"~>").map((Function1<String, Tuple2<String, String>>) (String key) -> {
-						return Tuple2.apply(key, key);
-					}))) //
-					.$plus(Tuple2.apply("~>:", "->:")) // also allow non-standard '~>:' variant
-					.$plus(Tuple2.apply("~~>:", "-->:")); // can't use '-->:' since '--' is an aadl comment
-
+	// https://github.com/sireum/slang/blob/ea2960f17c78b653094c1ff038a8386f6f22d32b/ast/shared/src/main/scala/org/sireum/lang/ast/AST.scala#L1643
 	public static String toSlangBinaryOp(String op) {
-		String lop = op.toLowerCase();
-		if (binaryOps.contains(lop)) {
-			return binaryOps.get(lop).get();
+		switch (op.toLowerCase()) {
+		case "+":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Add();
+		case "-":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Sub();
+		case "*":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Mul();
+		case "/":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Div();
+		case "%":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Rem();
+		case "==":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Eq();
+		case "===":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Equiv();
+		case "≡":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.EquivUni();
+		case "!=":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Ne();
+		case "=!=":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Inequiv();
+		case "≢":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.InequivUni();
+		case "~~":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.FpEq();
+		case "!~":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.FpNe();
+		case "<<":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Shl();
+		case ">>":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Shr();
+		case ">>>":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Ushr();
+		case "<":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Lt();
+		case "<=":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Le();
+		case ">":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Gt();
+		case ">=":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Ge();
+		case "&":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.And();
+		case "|":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Or();
+		case "|^":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Xor();
+
+		case "__>:":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Imply();
+		case "->:":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Imply();
+		case "~>:":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Imply();
+
+		case "&&":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondAnd();
+		case "||":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondOr();
+
+		case "___>:":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondImply();
+		case "~~>:":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondImply();
+
+		case ":+":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Append();
+		case "+:":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Prepend();
+		case "++":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.AppendAll();
+		case "--":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.RemoveAll();
+		case "~>":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.MapsTo();
+		case "=>:":
+			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Arrow();
+
+		default:
+			throw new RuntimeException("Binary operator '" + op + "' not supported");
 		}
-		throw new RuntimeException("Binary operator '" + op + "' not supported");
+
 	}
 
 	// UnaryOp is nested inside an object. Its '.Type' is not
