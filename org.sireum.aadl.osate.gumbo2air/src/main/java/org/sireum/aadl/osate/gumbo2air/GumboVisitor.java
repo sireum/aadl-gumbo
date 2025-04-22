@@ -88,12 +88,12 @@ import org.sireum.hamr.codegen.common.util.GclUtil;
 import org.sireum.hamr.ir.Annex;
 import org.sireum.hamr.ir.Annex$;
 import org.sireum.hamr.ir.AnnexLib;
+import org.sireum.hamr.ir.GclAssume;
 import org.sireum.hamr.ir.GclAssume$;
 import org.sireum.hamr.ir.GclCaseStatement;
 import org.sireum.hamr.ir.GclCaseStatement$;
 import org.sireum.hamr.ir.GclCompute;
 import org.sireum.hamr.ir.GclCompute$;
-import org.sireum.hamr.ir.GclComputeSpec;
 import org.sireum.hamr.ir.GclGuarantee;
 import org.sireum.hamr.ir.GclGuarantee$;
 import org.sireum.hamr.ir.GclHandle;
@@ -523,8 +523,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 				Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(s.getDescriptor());
 
-				_invariants.add(GclInvariant$.MODULE$.apply(id, descriptor, visitPop(s.getExpr()),
-						GumboUtil.toAttr(s)));
+				_invariants
+						.add(GclInvariant$.MODULE$.apply(id, descriptor, visitPop(s.getExpr()), GumboUtil.toAttr(s)));
 			}
 		}
 
@@ -554,9 +554,9 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				flows.add(visitPop(ifc));
 			}
 
-			_initializes = SlangUtil.toSome(GclInitialize$.MODULE$.apply(VisitorUtil.toISZ(modifies),
-					VisitorUtil.toISZ(guarantees), VisitorUtil.toISZ(flows),
-					GumboUtil.toAttr(object.getSpecs().getInitialize())));
+			_initializes = SlangUtil
+					.toSome(GclInitialize$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees),
+							VisitorUtil.toISZ(flows), GumboUtil.toAttr(object.getSpecs().getInitialize())));
 		}
 
 		Option<GclCompute> _compute = SlangUtil.toNone();
@@ -565,8 +565,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 
 		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_methods),
-				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute,
-				GumboUtil.toAttr(object)));
+				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute, GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -581,12 +580,17 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
-		// TODO is preserving ordering important?
+		List<GclAssume> genAssumes = new ArrayList<>();
+		if (object.getAssumes() != null) {
+			for (AssumeStatement assm : object.getAssumes()) {
+				genAssumes.add(visitPop(assm));
+			}
+		}
 
-		List<GclComputeSpec> specs = new ArrayList<>();
-		if (object.getSpecs() != null) {
-			for (SpecStatement spec : object.getSpecs()) {
-				specs.add(visitPop(spec));
+		List<GclGuarantee> genGuarantees = new ArrayList<>();
+		if (object.getGuarantees() != null) {
+			for (GuaranteeStatement guar : object.getGuarantees()) {
+				genGuarantees.add(visitPop(guar));
 			}
 		}
 
@@ -605,12 +609,15 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 				Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(css.getDescriptor());
 
-				Exp assumes = visitPop(css.getAssumeStatement().getExpr());
+				Option<Exp> assumes = SlangUtil.toNone();
+				if (css.getAssumeStatement() != null) {
+					assumes = SlangUtil.toSome(visitPop(css.getAssumeStatement().getExpr()));
+				}
 
 				Exp guarantees = visitPop(css.getGuaranteeStatement().getExpr());
 
-				caseStatements.add(GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees,
-						GumboUtil.toAttr(css)));
+				caseStatements.add(
+						GclCaseStatement$.MODULE$.apply(id, descriptor, assumes, guarantees, GumboUtil.toAttr(css)));
 			}
 		}
 
@@ -621,8 +628,12 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
-		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(specs),
-				VisitorUtil.toISZ(caseStatements), VisitorUtil.toISZ(handlers), VisitorUtil.toISZ(flows),
+		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), //
+				VisitorUtil.toISZ(genAssumes), //
+				VisitorUtil.toISZ(genGuarantees), //
+				VisitorUtil.toISZ(caseStatements), //
+				VisitorUtil.toISZ(handlers), //
+				VisitorUtil.toISZ(flows), //
 				GumboUtil.toAttr(object)));
 
 		return false;
@@ -638,7 +649,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		org.sireum.lang.ast.Id portId = Id$.MODULE$.apply(p.getName(),
 				GumboUtil.buildAttr(GumboUtil.shrinkPos(clausePos, p.getName().length())));
 
-		Ident slangExp = Ident$.MODULE$.apply(portId,
+		Ident portExp = Ident$.MODULE$.apply(portId,
 				GumboUtil.buildResolvedAttr(GumboUtil.shrinkPos(clausePos, p.getName().length())));
 
 		List<Exp> modifies = new ArrayList<>();
@@ -648,12 +659,44 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
+		List<GclAssume> assumes = new ArrayList<>();
+		for (AssumeStatement a : object.getAssumes()) {
+			assumes.add(visitPop(a));
+		}
+
 		List<GclGuarantee> guarantees = new ArrayList<>();
 		for (GuaranteeStatement gs : object.getGuarantees()) {
 			guarantees.add(visitPop(gs));
 		}
 
-		push(GclHandle$.MODULE$.apply(slangExp, VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(guarantees),
+		List<GclCaseStatement> caseStatements = new ArrayList<>();
+		if (object.getCases() != null) {
+			for (CaseStatementClause css : object.getCases()) {
+
+				java.lang.String id = css.getId();
+
+				Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(css.getDescriptor());
+
+				Option<Exp> handlerAssumes = SlangUtil.toNone();
+				if (css.getAssumeStatement() != null) {
+					handlerAssumes = SlangUtil.toSome(visitPop(css.getAssumeStatement().getExpr()));
+				}
+
+				Exp handlerGuarantees = visitPop(css.getGuaranteeStatement().getExpr());
+
+				caseStatements.add(GclCaseStatement$.MODULE$.apply(id, //
+						descriptor, //
+						handlerAssumes, //
+						handlerGuarantees, //
+						GumboUtil.toAttr(css)));
+			}
+		}
+
+		push(GclHandle$.MODULE$.apply(portExp, //
+				VisitorUtil.toISZ(modifies), //
+				VisitorUtil.toISZ(assumes), //
+				VisitorUtil.toISZ(guarantees), //
+				VisitorUtil.toISZ(caseStatements), //
 				GumboUtil.toAttr(object)));
 
 		return false;

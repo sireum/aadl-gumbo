@@ -84,7 +84,8 @@ Compute:
 	  //	| (handlers+=HandlerClause)*
 	  //)+
 	  
-	  (specs+=SpecStatement)* // assume and/or guarantees
+	  (assumes+=AssumeStatement)*
+	  (guarantees+=GuaranteeStatement)*
 	  ('cases' (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
@@ -100,16 +101,15 @@ InfoFlowClause:
 HandlerClause:
 	'handle' id=[aadl2::Port|ID] ':'
 	(modifies=SlangModifies ';')?
-	// belt: can hanlders have assume statements?
-	(guarantees+=GuaranteeStatement)+
+	(assumes+=AssumeStatement)*
+	(guarantees+=GuaranteeStatement)*
+	('cases' (cases+=CaseStatementClause)+)*	
 ;
 
 CaseStatementClause:
 	'case' id=ID descriptor=STRING_VALUE? ':' 
-	       // in case clauses, we must have both an assume clause and a guarantee clause
-	       // but they don't have a display name (they will "inherit" the name from the case name).
-	       assumeStatement = AnonAssumeStatement
-	       guaranteeStatement = AnonGuaranteeStatement
+	       (assumeStatement=AnonAssumeStatement)?
+	       guaranteeStatement=AnonGuaranteeStatement
 ;
 
 SpecStatement:
