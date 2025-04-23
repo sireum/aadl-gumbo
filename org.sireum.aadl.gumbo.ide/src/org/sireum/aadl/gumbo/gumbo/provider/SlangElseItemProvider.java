@@ -183,7 +183,7 @@ public class SlangElseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ELSE__COND,
-         GumboFactory.eINSTANCE.createBasicExp()));
+         GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -198,7 +198,137 @@ public class SlangElseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ELSE__COND,
-         GumboFactory.eINSTANCE.createUnaryExp()));
+         GumboFactory.eINSTANCE.createImpliesExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createOrExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createAndExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createEqualNotExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createLtGtExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createColonExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createPlusMinusExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createUnaryExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createPostFixExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createParenExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createSlangForTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createF32Obj()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createF64Obj()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createCallExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createDataRefExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ELSE__COND,
+         GumboFactory.eINSTANCE.createResultExpr()));
 
     newChildDescriptors.add
       (createChildParameter

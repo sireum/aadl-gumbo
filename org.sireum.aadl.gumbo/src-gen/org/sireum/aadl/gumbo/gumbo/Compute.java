@@ -27,7 +27,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getModifies <em>Modifies</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getSpecs <em>Specs</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getAssumes <em>Assumes</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getGuarantees <em>Guarantees</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getCases <em>Cases</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Compute#getFlows <em>Flows</em>}</li>
@@ -62,16 +63,28 @@ public interface Compute extends EObject
   void setModifies(SlangModifies value);
 
   /**
-   * Returns the value of the '<em><b>Specs</b></em>' containment reference list.
-   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.SpecStatement}.
+   * Returns the value of the '<em><b>Assumes</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.AssumeStatement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Specs</em>' containment reference list.
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute_Specs()
+   * @return the value of the '<em>Assumes</em>' containment reference list.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute_Assumes()
    * @model containment="true"
    * @generated
    */
-  EList<SpecStatement> getSpecs();
+  EList<AssumeStatement> getAssumes();
+
+  /**
+   * Returns the value of the '<em><b>Guarantees</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.GuaranteeStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Guarantees</em>' containment reference list.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getCompute_Guarantees()
+   * @model containment="true"
+   * @generated
+   */
+  EList<GuaranteeStatement> getGuarantees();
 
   /**
    * Returns the value of the '<em><b>Cases</b></em>' containment reference list.

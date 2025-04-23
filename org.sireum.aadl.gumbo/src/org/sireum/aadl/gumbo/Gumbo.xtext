@@ -43,7 +43,7 @@ StateVarDecl:
  // ...plain declaration without cross referencing is given below	
  // id1 = ID ':' typeName = ID
  // ...single id per type
- (name = ID ':') typeName=[aadl2::DataSubcomponentType|QualifiedName] ';'
+ (name = ID ':') typeName=[aadl2::DataSubcomponentType|QualifiedName] ';' // TODO: ( ':=' expr=OwnedExpression)? ';'
  // ...multiple ids per type -- leave this out for now until I figure out how to get cross-referencing right for an id list
  // ids+=ID (',' ids+=ID)* ':' typeName=[aadl2::DataSubcomponentType|QCREF] ';'
 ;
@@ -74,16 +74,6 @@ InitializeSpecStatement:
 Compute:
 	{Compute} 'compute'
 	  (modifies=SlangModifies ';')?
-
-	  // allow the following to occur in any order?
-	  // is ordering important?
-	  // TODO: causes antlr to freeze
-	  //( 
-	  //	  (specs+=SpecStatement)* // assume and/or guarantees
-	  //	| ('cases' (cases+=CaseStatementClause)+)*
-	  //	| (handlers+=HandlerClause)*
-	  //)+
-	  
 	  (assumes+=AssumeStatement)*
 	  (guarantees+=GuaranteeStatement)*
 	  ('cases' (cases+=CaseStatementClause)+)*
@@ -134,14 +124,14 @@ AnonGuaranteeStatement:
 	'guarantee' expr=OwnedExpression ';'
 ;
 
-PREDICATE: // TODO 
-	ID
-;
+//PREDICATE: // TODO 
+//	ID
+//;
 
 
-DoubleDotRef:
-	elm=[aadl2::NamedElement|QualifiedName]
-;
+//DoubleDotRef:
+	//elm=[aadl2::NamedElement|QualifiedName]
+//;
 
 DataElement returns DataElement:
 	dataElement = [aadl2::DataSubcomponentType|QualifiedName]
@@ -157,21 +147,26 @@ Functions:
 
 FuncSpec: SlangDefDef ';';
 
-SlangDefDeclDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ( ':=' e=OwnedExpression )? ;
+//SlangDefDeclDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ( ':=' e=OwnedExpression )? ;
 
-SlangDefDecl: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ;
+//SlangDefDecl: SlangDefMods? 'def' 
+//	//sde=SlangDefExt? 
+//	name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract?
+//;
 	
 SlangDefDef: 
 	 //defMods=SlangDefMods 
-	 'def' sde=SlangDefExt? name=SlangDefID 
+	 'def' 
+	 //sde=SlangDefExt? 
+	 name=SlangDefID 
 		typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
 		':=' methodContract=SlangDefContract body=OwnedExpression
 ;
 
 //SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
-SlangDefMods: '@strictpure' | '@pure';
+//SlangDefMods: '@strictpure' | '@pure';
 
-SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
+//SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
 	
 // NOTE: removing Operator as that's part of the Slang expr language and therefore will not be
 //       present in kerml's expression language. This is probably okay since, for e.g., "def + ()..." 
@@ -197,15 +192,15 @@ SlangDefContract
 	  )
 	;
 
-SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
 
-SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
+//SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
 
-SlangSupr: name=SlangName args=SlangTypeArgs? ;
+//SlangSupr: name=SlangName args=SlangTypeArgs? ;
 
-SlangName: ID ( '.' ID )* ;
+//SlangName: ID ( '.' ID )* ;
 
-SlangExt: {SlangExt} 'extension' ID ( 'for' SlangName )?  '{' decl+=SlangDefDecl* '}' ;
+//SlangExt: {SlangExt} 'extension' ID ( 'for' SlangName )?  '{' decl+=SlangDefDecl* '}' ;
 
 SlangInvariant: 'invariant' exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* ;
 
@@ -229,7 +224,7 @@ SlangBaseType returns SlangType
 	//| '(' ( SlangType ( ',' SlangType )* )? ')'
 	;
 
-SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
+//SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
 
 
 
@@ -242,15 +237,15 @@ SlangStmt
 //	| ({SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )*) l=SlangLoopContract b=SlangBlock
 	| {SlangMatchStmt} 'match' testExpr=OwnedExpression '{' c+=SlangCase* '}'
 	| {SlangSpecStmt} 'spec' b=SlangBlock
-	| {SlangAssumeStmt} 'assume' e=OwnedExpression /*SLANG_*/STRING_VALUE?
-	| {SlangAssertStmt} 'assert' e=OwnedExpression /*SLANG_*/STRING_VALUE?
-	| {SlangHaltStmt} 'halt' /*SLANG_*/STRING_VALUE?
+	| {SlangAssumeStmt} 'assume' e=OwnedExpression STRING_VALUE?
+	| {SlangAssertStmt} 'assert' e=OwnedExpression STRING_VALUE?
+	| {SlangHaltStmt} 'halt' STRING_VALUE?
 	| {SlangDoStmt} 'do' e=OwnedExpression
 	// FIXME: This causes a "multiple alternatives" warning.
-	| {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID] 
-	  ( ':'
-	  | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=OwnedExpression )?
-	  )
+	//| {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID] 
+	//  ( ':'
+	//  | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=OwnedExpression )?
+	//  )
 	;
 	
 SlangElse
@@ -262,10 +257,10 @@ SlangElse
 	
 SlangLoopContract: {SlangLoopContract} inv=SlangInvariant? mod=SlangModifies? ;
 
-SlangLHSSuffix
-	: {SlangFieldLookup} '.' ID
-	| {SlangMethodCall} '(' ( exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* )? ')'
-	;
+//SlangLHSSuffix
+//	: {SlangFieldLookup} '.' ID
+//	| {SlangMethodCall} '(' ( exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* )? ')'
+//	;
 
 SlangCase: 'case' pattern=SlangPattern ( 'if' e=OwnedExpression )? '=>' s+=SlangStmt* ;
 
@@ -280,15 +275,15 @@ SlangTPattern:
 	| {SlangTPattern} '_' ( ':' type=SlangType )?
 	;
 	
-SlangTypedVarDef returns SlangVarDef:
-	SlangVarMod SlangPattern ':' typeName=SlangType ':=' init=OwnedExpression
-;
+//SlangTypedVarDef returns SlangVarDef:
+//	SlangVarMod SlangPattern ':' typeName=SlangType ':=' init=OwnedExpression
+//;
 
 SlangVarDef: SlangVarMod SlangPattern ( ':' typeName=SlangType )? ':=' init=OwnedExpression ;
 
-SlangVarDeclDef returns SlangVarDef:
-	SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=OwnedExpression )?
-;
+//SlangVarDeclDef returns SlangVarDef:
+//	SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=OwnedExpression )?
+//;
 
 SlangVarMod: 'val' | 'var' ;
 
@@ -296,20 +291,57 @@ SlangVarMod: 'val' | 'var' ;
 SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
 
 
-OwnedExpression
-	: {BasicExp} terms+=SlangAccess 
-	      ( ops+=Operator terms+=SlangAccess )*
-	| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
+
+OwnedExpression 
+	//: {BasicExp} terms+=SlangAccess ( ops+=Operator terms+=SlangAccess )*
+	//| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
+	//| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
+	//| {UnaryExp} op=Operator accessExp=SlangAccess
+	//;
+	: {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
 	| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	| {UnaryExp} op=Operator accessExp=SlangAccess
+	| ImpliesExpression
 	;
+
+
+ImpliesExpression returns Expr
+	: OrExpression ( {ImpliesExpr.left=current} op=ImpliesOps right=OrExpression )*;
+
+OrExpression returns Expr
+	: AndExpression ({OrExpr.left=current} op=OR_OPS right=AndExpression)*;
+	
+// no hat ^ in Slang
+
+AndExpression returns Expr
+	: EqualNotExpression ( {AndExpr.left=current} op=AND_OPS right=EqualNotExpression)*;
+
+EqualNotExpression returns Expr
+	: LtGtExpression ( {EqualNotExpr.left=current} op=EQUAL_NOT_OPS right=LtGtExpression)*;
+
+LtGtExpression returns Expr
+	: ColonExpression ( {LtGtExpr.left=current} op=LT_GT_OPS right=ColonExpression)*;
+	
+ColonExpression returns Expr
+	: PlusMinusExpression ( {ColonExpr.left=current} op=COLON_OP right=PlusMinusExpression)*;
+
+PlusMinusExpression returns Expr
+	: MultiplicativeExpression ( {PlusMinusExpr.left=current} op=PlusMinusOps right=MultiplicativeExpression)*;
+
+MultiplicativeExpression returns Expr
+	: UnaryExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=UnaryExpression)*;
+	
+UnaryExpression returns Expr
+	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
+	| PrimaryExpr
+	;
+	
 	
 SlangQuantVar: ID ':' e=OwnedExpression ( ( '..' | '..<' ) upperBound=OwnedExpression )? ;
 
-SlangAccess returns Expr
-	: {SlangAccess} t=SlangTerm ( suffixes+=SlangAccessSuffix )* ;
+//SlangAccess
+//	: {SlangAccess} t=PrimaryExpr ( suffixes+=SlangAccessSuffix )* ;
 
-SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID; // cs=SlangCallSuffix? ;
+//SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID; // cs=SlangCallSuffix? ;
 
 OtherDataRef:
 	(
@@ -322,19 +354,26 @@ OtherDataRef:
 	)
 ;
 
-SlangTerm returns Expr
+PrimaryExpr  returns Expr
+	: BaseExpr
+	| {PostFixExpr} baseExp=AccessibleBaseExpr ( posts+=Postfix)*;
+	
+BaseExpr returns Expr
 	: {SlangLitTerm} lit=SlangLit
 	| {SlangInterpTerm} i=SlangInterp
+	
 	| => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
 	| => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')' 
 	| => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')'
 	| => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
 	| => ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
-	| => ({CallExpr} id=[ecore::EObject|QualifiedName] callSuffix=SlangCallSuffix )
+
 	| => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
-	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') argExpr+=OwnedExpression (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=OwnedExpression)* '}'
-	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
+
+	| FloatObjectExpr
+	
 	| {ParenExpr} '(' exp=OwnedExpression ')'
+	
 	//| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
 	| {SlangForTerm} 'for' r+=SlangForRange ( ',' r+=SlangForRange )*  'yield' ( b=SlangBlock |  '(' e=OwnedExpression ')' )
 	| {SlangBlockTerm} '{'
@@ -342,6 +381,34 @@ SlangTerm returns Expr
 	    | stmt+=SlangStmt* r=SlangRet? '}'
 	   )
 	;
+
+FloatObjectExpr returns Expr
+	: {F32Obj} 'F32' '.' attr=ID
+	| {F64Obj} 'F64' '.' attr=ID
+	;
+	
+AccessibleBaseExpr returns Expr
+	:  => ({CallExpr} id=[ecore::EObject|QualifiedName] callSuffix=SlangCallSuffix )	
+	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') 
+			argExpr+=OwnedExpression (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=OwnedExpression)* '}'
+	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
+	| {ResultExpr} 'res'
+;
+
+Postfix:
+	MemberAccess | ArrayAccess;
+
+MemberAccess:
+	'.' field=ID;
+
+ArrayAccess:
+	'(' index+=OwnedExpression (',' index+=OwnedExpression)* ')';
+
+//TupleExpr
+//    {TupleExpr} '(' elements+=OwnedExpression (',' elements+=OwnedExpression)+ ')';
+    
+//FunctionCall:
+//    func=PrimaryExpr '(' (args+=OwnedExpression (',' args+=OwnedExpression)*)? ')';
 
 
 SlangParams: '(' params+=SlangParam ( ',' params+=SlangParam )? ')' ;
@@ -366,58 +433,98 @@ SlangCallArgs: {SlangCallArgs} '(' ( arg+=OwnedExpression ( ',' arg+=OwnedExpres
 
 SlangLit 
 	: {BooleanLit} value=('T' | 'F' | 'true' | 'false')
-	| {ResultLit} 'res'
+	//| {ResultLit} 'res'
 	| {IntegerLit} value=INTEGER_LIT
 	//| {IntIdfLit} value=INT_IDF
 	| {HexLit} value=HEX
 	| {BinLit} value=BIN
 	| {F32Lit} value=F32_LIT
 	| {F64Lit} value=(F64_LIT | REAL_LIT)
-	| {F32Obj} value='F32'
-	| {F64Obj} value='F64'
+	//| {F32Obj} value='F32'
+	//| {F64Obj} value='F64'
 	| {SlangStringLit} value=STRING_VALUE
 	//| {RealIdfLit} value=REAL_IDF
-	| {MStringLit} value=MSTRING
+	//| {MStringLit} value=MSTRING
 	;
 
 SlangInterp	
-	: {SlangMspInterp} msp=MSP
-	| {SlangLiteralInterp} sli=SLI
-	| {SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
-	;
+	//: {SlangMspInterp} msp=MSP
+	//| {SlangLiteralInterp} sli=SLI
+	//| {SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
+	: {SlangLiteralInterp} sli=SLI;
 
-SlangMInterp
-	: '{' e=OwnedExpression '}' ( MSPM m=SlangMInterp | MSPE )
-	;
+//SlangMInterp
+	//: '{' e=OwnedExpression '}' ( MSPM m=SlangMInterp | MSPE )
+	//;
 	
 QualifiedName
 	: QCREF;
 	
 terminal STRING_VALUE: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 
-terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
+//terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
 
-terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
+//terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
 
 terminal SLI: IDF '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 
-terminal MSPB: IDF '"""' MSPI* '$' ;
+//terminal MSPB: IDF '"""' MSPI* '$' ;
 
-terminal MSPM: '$' MSPI* '$' ;
+//terminal MSPM: '$' MSPI* '$' ;
 
-terminal MSPE: '$' MSPI* ( '"""' | '""""' | '"""""' ) ;
+//terminal MSPE: '$' MSPI* ( '"""' | '""""' | '"""""' ) ;
 
-terminal DEFOP: ':' OPSYM* '=' ;
+//terminal DEFOP: ':' OPSYM* '=' ;
 
 
-terminal IMPLIES: ('-' | '~') '>' ':';
+
+
+UnaryOp: PlusMinus | NOT;
+
+terminal NOT: '!';
+
+
+MultiplicativeOp: STAR | MULTIPLICATIVE_OP;
+
+terminal MULTIPLICATIVE_OP: '/' | '%';
+
+PlusMinusOps:
+	SLANG_OP | PlusMinus
+;
+
+terminal SLANG_OP
+	: '+:' | '++' |
+	  // '--' is an aadl comment so use '-~' or '~-' for sequence removal  
+	  '-~' | '~-';
+
+terminal COLON_OP: ':+';
+
+terminal LT_GT_OPS: 
+	'<<<' | '<<' | '<=' | '<' |
+	'>>>' | '>>' | '>=' | '>';
+
+terminal EQUAL_NOT_OPS: '=!=' | '===' | '==' | '!=' | '!~';
+
+terminal AND_OPS: '&&' | '&';
+
+// terminal HAT_OPS: '^';
+
+terminal OR_OPS: '|^' | '||' | '|' ;
+
+ImpliesOps: IMPLIES | SIMPLIES;
+
+terminal IMPLIES: ('__' | '-' | '~') '>' ':';
 
 // can't use -->: as -- is a comment in AADL
-terminal SIMPLIES: '~' '~'  '>' ':'; // short circuit implies
+terminal SIMPLIES: ('___' | '~~')  '>' ':'; // short circuit implies
 
-Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
 
-terminal OP: ( OPSYM+ | '\\' IDF ) ;
+
+
+
+//Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
+
+//terminal OP: ( OPSYM+ | '\\' IDF ) ;
 //
 //terminal INT
 //	: '0' IDF?
@@ -436,7 +543,7 @@ terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
 
 //terminal CHAR: '\'' ( ESC_SEQ | !('\''|'\\') ) '\'' ;
 
-terminal INT_IDF: INTEGER_LIT IDF;
+//terminal INT_IDF: INTEGER_LIT IDF;
 
 terminal F32_LIT: REAL_LIT 'f';
 
@@ -454,6 +561,7 @@ terminal fragment LETTER: 'a'..'z' | 'A'..'Z';
 
 //terminal fragment LETTER_NOE: 'a'..'d' | 'f'..'z' | 'A'..'D' | 'F'..'Z' ;
 
+/* 
 terminal fragment OPSYM
 	: //'+' | '-' | '*' |
 	 '/' | '%' | '=' | '<' | '>' | '!' | '&' | '^' | '|' | '~'
@@ -462,7 +570,7 @@ terminal fragment OPSYM
 	| ( '\u27C0' .. '\u27EF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-A
 	| ( '\u2980' .. '\u29FF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
 	;
-	
+*/	
 terminal fragment ESC_SEQ: '\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\' ) | UNICODE_ESC ;
 	
 terminal fragment UNICODE_ESC: '\\' 'u' EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT ;

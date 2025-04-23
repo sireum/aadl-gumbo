@@ -164,17 +164,7 @@ public class SlangInterpTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_INTERP_TERM__I,
-         GumboFactory.eINSTANCE.createSlangMspInterp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_INTERP_TERM__I,
          GumboFactory.eINSTANCE.createSlangLiteralInterp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_INTERP_TERM__I,
-         GumboFactory.eINSTANCE.createSlangMspbInterp()));
   }
 
 }

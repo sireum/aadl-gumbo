@@ -231,13 +231,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.DOUBLE_DOT_REF:
-      {
-        DoubleDotRef doubleDotRef = (DoubleDotRef)theEObject;
-        T result = caseDoubleDotRef(doubleDotRef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.DATA_ELEMENT:
       {
         DataElement dataElement = (DataElement)theEObject;
@@ -266,32 +259,11 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SLANG_DEF_DECL_DEF:
-      {
-        SlangDefDeclDef slangDefDeclDef = (SlangDefDeclDef)theEObject;
-        T result = caseSlangDefDeclDef(slangDefDeclDef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_DEF_DECL:
-      {
-        SlangDefDecl slangDefDecl = (SlangDefDecl)theEObject;
-        T result = caseSlangDefDecl(slangDefDecl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.SLANG_DEF_DEF:
       {
         SlangDefDef slangDefDef = (SlangDefDef)theEObject;
         T result = caseSlangDefDef(slangDefDef);
         if (result == null) result = caseFuncSpec(slangDefDef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_DEF_EXT:
-      {
-        SlangDefExt slangDefExt = (SlangDefExt)theEObject;
-        T result = caseSlangDefExt(slangDefExt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -327,34 +299,6 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SlangDefContract slangDefContract = (SlangDefContract)theEObject;
         T result = caseSlangDefContract(slangDefContract);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_DEF_CONTRACT_CASE:
-      {
-        SlangDefContractCase slangDefContractCase = (SlangDefContractCase)theEObject;
-        T result = caseSlangDefContractCase(slangDefContractCase);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_SUPRS:
-      {
-        SlangSuprs slangSuprs = (SlangSuprs)theEObject;
-        T result = caseSlangSuprs(slangSuprs);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_SUPR:
-      {
-        SlangSupr slangSupr = (SlangSupr)theEObject;
-        T result = caseSlangSupr(slangSupr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_EXT:
-      {
-        SlangExt slangExt = (SlangExt)theEObject;
-        T result = caseSlangExt(slangExt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -400,13 +344,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SLANG_TYPE_ARGS:
-      {
-        SlangTypeArgs slangTypeArgs = (SlangTypeArgs)theEObject;
-        T result = caseSlangTypeArgs(slangTypeArgs);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.SLANG_STMT:
       {
         SlangStmt slangStmt = (SlangStmt)theEObject;
@@ -425,13 +362,6 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SlangLoopContract slangLoopContract = (SlangLoopContract)theEObject;
         T result = caseSlangLoopContract(slangLoopContract);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_LHS_SUFFIX:
-      {
-        SlangLHSSuffix slangLHSSuffix = (SlangLHSSuffix)theEObject;
-        T result = caseSlangLHSSuffix(slangLHSSuffix);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -481,6 +411,14 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.EXPR:
+      {
+        Expr expr = (Expr)theEObject;
+        T result = caseExpr(expr);
+        if (result == null) result = caseOwnedExpression(expr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.SLANG_QUANT_VAR:
       {
         SlangQuantVar slangQuantVar = (SlangQuantVar)theEObject;
@@ -488,24 +426,33 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.EXPR:
-      {
-        Expr expr = (Expr)theEObject;
-        T result = caseExpr(expr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_ACCESS_SUFFIX:
-      {
-        SlangAccessSuffix slangAccessSuffix = (SlangAccessSuffix)theEObject;
-        T result = caseSlangAccessSuffix(slangAccessSuffix);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.OTHER_DATA_REF:
       {
         OtherDataRef otherDataRef = (OtherDataRef)theEObject;
         T result = caseOtherDataRef(otherDataRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.POSTFIX:
+      {
+        Postfix postfix = (Postfix)theEObject;
+        T result = casePostfix(postfix);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.MEMBER_ACCESS:
+      {
+        MemberAccess memberAccess = (MemberAccess)theEObject;
+        T result = caseMemberAccess(memberAccess);
+        if (result == null) result = casePostfix(memberAccess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.ARRAY_ACCESS:
+      {
+        ArrayAccess arrayAccess = (ArrayAccess)theEObject;
+        T result = caseArrayAccess(arrayAccess);
+        if (result == null) result = casePostfix(arrayAccess);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -562,13 +509,6 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SlangInterp slangInterp = (SlangInterp)theEObject;
         T result = caseSlangInterp(slangInterp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_MINTERP:
-      {
-        SlangMInterp slangMInterp = (SlangMInterp)theEObject;
-        T result = caseSlangMInterp(slangMInterp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -636,38 +576,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SLANG_ID_STMT:
-      {
-        SlangIdStmt slangIdStmt = (SlangIdStmt)theEObject;
-        T result = caseSlangIdStmt(slangIdStmt);
-        if (result == null) result = caseSlangStmt(slangIdStmt);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_FIELD_LOOKUP:
-      {
-        SlangFieldLookup slangFieldLookup = (SlangFieldLookup)theEObject;
-        T result = caseSlangFieldLookup(slangFieldLookup);
-        if (result == null) result = caseSlangLHSSuffix(slangFieldLookup);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_METHOD_CALL:
-      {
-        SlangMethodCall slangMethodCall = (SlangMethodCall)theEObject;
-        T result = caseSlangMethodCall(slangMethodCall);
-        if (result == null) result = caseSlangLHSSuffix(slangMethodCall);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.BASIC_EXP:
-      {
-        BasicExp basicExp = (BasicExp)theEObject;
-        T result = caseBasicExp(basicExp);
-        if (result == null) result = caseOwnedExpression(basicExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.IF_ELSE_EXP:
       {
         IfElseExp ifElseExp = (IfElseExp)theEObject;
@@ -684,19 +592,93 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.UNARY_EXP:
+      case GumboPackage.IMPLIES_EXPR:
       {
-        UnaryExp unaryExp = (UnaryExp)theEObject;
-        T result = caseUnaryExp(unaryExp);
-        if (result == null) result = caseOwnedExpression(unaryExp);
+        ImpliesExpr impliesExpr = (ImpliesExpr)theEObject;
+        T result = caseImpliesExpr(impliesExpr);
+        if (result == null) result = caseExpr(impliesExpr);
+        if (result == null) result = caseOwnedExpression(impliesExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SLANG_ACCESS:
+      case GumboPackage.OR_EXPR:
       {
-        SlangAccess slangAccess = (SlangAccess)theEObject;
-        T result = caseSlangAccess(slangAccess);
-        if (result == null) result = caseExpr(slangAccess);
+        OrExpr orExpr = (OrExpr)theEObject;
+        T result = caseOrExpr(orExpr);
+        if (result == null) result = caseExpr(orExpr);
+        if (result == null) result = caseOwnedExpression(orExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.AND_EXPR:
+      {
+        AndExpr andExpr = (AndExpr)theEObject;
+        T result = caseAndExpr(andExpr);
+        if (result == null) result = caseExpr(andExpr);
+        if (result == null) result = caseOwnedExpression(andExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.EQUAL_NOT_EXPR:
+      {
+        EqualNotExpr equalNotExpr = (EqualNotExpr)theEObject;
+        T result = caseEqualNotExpr(equalNotExpr);
+        if (result == null) result = caseExpr(equalNotExpr);
+        if (result == null) result = caseOwnedExpression(equalNotExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.LT_GT_EXPR:
+      {
+        LtGtExpr ltGtExpr = (LtGtExpr)theEObject;
+        T result = caseLtGtExpr(ltGtExpr);
+        if (result == null) result = caseExpr(ltGtExpr);
+        if (result == null) result = caseOwnedExpression(ltGtExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.COLON_EXPR:
+      {
+        ColonExpr colonExpr = (ColonExpr)theEObject;
+        T result = caseColonExpr(colonExpr);
+        if (result == null) result = caseExpr(colonExpr);
+        if (result == null) result = caseOwnedExpression(colonExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.PLUS_MINUS_EXPR:
+      {
+        PlusMinusExpr plusMinusExpr = (PlusMinusExpr)theEObject;
+        T result = casePlusMinusExpr(plusMinusExpr);
+        if (result == null) result = caseExpr(plusMinusExpr);
+        if (result == null) result = caseOwnedExpression(plusMinusExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.MULTIPLICATIVE_EXPR:
+      {
+        MultiplicativeExpr multiplicativeExpr = (MultiplicativeExpr)theEObject;
+        T result = caseMultiplicativeExpr(multiplicativeExpr);
+        if (result == null) result = caseExpr(multiplicativeExpr);
+        if (result == null) result = caseOwnedExpression(multiplicativeExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.UNARY_EXPR:
+      {
+        UnaryExpr unaryExpr = (UnaryExpr)theEObject;
+        T result = caseUnaryExpr(unaryExpr);
+        if (result == null) result = caseExpr(unaryExpr);
+        if (result == null) result = caseOwnedExpression(unaryExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.POST_FIX_EXPR:
+      {
+        PostFixExpr postFixExpr = (PostFixExpr)theEObject;
+        T result = casePostFixExpr(postFixExpr);
+        if (result == null) result = caseExpr(postFixExpr);
+        if (result == null) result = caseOwnedExpression(postFixExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -705,6 +687,7 @@ public class GumboSwitch<T> extends Switch<T>
         SlangLitTerm slangLitTerm = (SlangLitTerm)theEObject;
         T result = caseSlangLitTerm(slangLitTerm);
         if (result == null) result = caseExpr(slangLitTerm);
+        if (result == null) result = caseOwnedExpression(slangLitTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -713,6 +696,7 @@ public class GumboSwitch<T> extends Switch<T>
         SlangInterpTerm slangInterpTerm = (SlangInterpTerm)theEObject;
         T result = caseSlangInterpTerm(slangInterpTerm);
         if (result == null) result = caseExpr(slangInterpTerm);
+        if (result == null) result = caseOwnedExpression(slangInterpTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -721,6 +705,7 @@ public class GumboSwitch<T> extends Switch<T>
         InStateExpr inStateExpr = (InStateExpr)theEObject;
         T result = caseInStateExpr(inStateExpr);
         if (result == null) result = caseExpr(inStateExpr);
+        if (result == null) result = caseOwnedExpression(inStateExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -729,6 +714,7 @@ public class GumboSwitch<T> extends Switch<T>
         MaySendExpr maySendExpr = (MaySendExpr)theEObject;
         T result = caseMaySendExpr(maySendExpr);
         if (result == null) result = caseExpr(maySendExpr);
+        if (result == null) result = caseOwnedExpression(maySendExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -737,6 +723,7 @@ public class GumboSwitch<T> extends Switch<T>
         MustSendExpr mustSendExpr = (MustSendExpr)theEObject;
         T result = caseMustSendExpr(mustSendExpr);
         if (result == null) result = caseExpr(mustSendExpr);
+        if (result == null) result = caseOwnedExpression(mustSendExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -745,6 +732,7 @@ public class GumboSwitch<T> extends Switch<T>
         NoSendExpr noSendExpr = (NoSendExpr)theEObject;
         T result = caseNoSendExpr(noSendExpr);
         if (result == null) result = caseExpr(noSendExpr);
+        if (result == null) result = caseOwnedExpression(noSendExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -753,14 +741,7 @@ public class GumboSwitch<T> extends Switch<T>
         HasEventExpr hasEventExpr = (HasEventExpr)theEObject;
         T result = caseHasEventExpr(hasEventExpr);
         if (result == null) result = caseExpr(hasEventExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.CALL_EXPR:
-      {
-        CallExpr callExpr = (CallExpr)theEObject;
-        T result = caseCallExpr(callExpr);
-        if (result == null) result = caseExpr(callExpr);
+        if (result == null) result = caseOwnedExpression(hasEventExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -769,22 +750,7 @@ public class GumboSwitch<T> extends Switch<T>
         EnumLitExpr enumLitExpr = (EnumLitExpr)theEObject;
         T result = caseEnumLitExpr(enumLitExpr);
         if (result == null) result = caseExpr(enumLitExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.RECORD_LIT_EXPR:
-      {
-        RecordLitExpr recordLitExpr = (RecordLitExpr)theEObject;
-        T result = caseRecordLitExpr(recordLitExpr);
-        if (result == null) result = caseExpr(recordLitExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.DATA_REF_EXPR:
-      {
-        DataRefExpr dataRefExpr = (DataRefExpr)theEObject;
-        T result = caseDataRefExpr(dataRefExpr);
-        if (result == null) result = caseExpr(dataRefExpr);
+        if (result == null) result = caseOwnedExpression(enumLitExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -793,6 +759,7 @@ public class GumboSwitch<T> extends Switch<T>
         ParenExpr parenExpr = (ParenExpr)theEObject;
         T result = caseParenExpr(parenExpr);
         if (result == null) result = caseExpr(parenExpr);
+        if (result == null) result = caseOwnedExpression(parenExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -801,6 +768,7 @@ public class GumboSwitch<T> extends Switch<T>
         SlangForTerm slangForTerm = (SlangForTerm)theEObject;
         T result = caseSlangForTerm(slangForTerm);
         if (result == null) result = caseExpr(slangForTerm);
+        if (result == null) result = caseOwnedExpression(slangForTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -809,6 +777,61 @@ public class GumboSwitch<T> extends Switch<T>
         SlangBlockTerm slangBlockTerm = (SlangBlockTerm)theEObject;
         T result = caseSlangBlockTerm(slangBlockTerm);
         if (result == null) result = caseExpr(slangBlockTerm);
+        if (result == null) result = caseOwnedExpression(slangBlockTerm);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.F32_OBJ:
+      {
+        F32Obj f32Obj = (F32Obj)theEObject;
+        T result = caseF32Obj(f32Obj);
+        if (result == null) result = caseExpr(f32Obj);
+        if (result == null) result = caseOwnedExpression(f32Obj);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.F64_OBJ:
+      {
+        F64Obj f64Obj = (F64Obj)theEObject;
+        T result = caseF64Obj(f64Obj);
+        if (result == null) result = caseExpr(f64Obj);
+        if (result == null) result = caseOwnedExpression(f64Obj);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.CALL_EXPR:
+      {
+        CallExpr callExpr = (CallExpr)theEObject;
+        T result = caseCallExpr(callExpr);
+        if (result == null) result = caseExpr(callExpr);
+        if (result == null) result = caseOwnedExpression(callExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.RECORD_LIT_EXPR:
+      {
+        RecordLitExpr recordLitExpr = (RecordLitExpr)theEObject;
+        T result = caseRecordLitExpr(recordLitExpr);
+        if (result == null) result = caseExpr(recordLitExpr);
+        if (result == null) result = caseOwnedExpression(recordLitExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.DATA_REF_EXPR:
+      {
+        DataRefExpr dataRefExpr = (DataRefExpr)theEObject;
+        T result = caseDataRefExpr(dataRefExpr);
+        if (result == null) result = caseExpr(dataRefExpr);
+        if (result == null) result = caseOwnedExpression(dataRefExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.RESULT_EXPR:
+      {
+        ResultExpr resultExpr = (ResultExpr)theEObject;
+        T result = caseResultExpr(resultExpr);
+        if (result == null) result = caseExpr(resultExpr);
+        if (result == null) result = caseOwnedExpression(resultExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -817,14 +840,6 @@ public class GumboSwitch<T> extends Switch<T>
         BooleanLit booleanLit = (BooleanLit)theEObject;
         T result = caseBooleanLit(booleanLit);
         if (result == null) result = caseSlangLit(booleanLit);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.RESULT_LIT:
-      {
-        ResultLit resultLit = (ResultLit)theEObject;
-        T result = caseResultLit(resultLit);
-        if (result == null) result = caseSlangLit(resultLit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -868,22 +883,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.F32_OBJ:
-      {
-        F32Obj f32Obj = (F32Obj)theEObject;
-        T result = caseF32Obj(f32Obj);
-        if (result == null) result = caseSlangLit(f32Obj);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.F64_OBJ:
-      {
-        F64Obj f64Obj = (F64Obj)theEObject;
-        T result = caseF64Obj(f64Obj);
-        if (result == null) result = caseSlangLit(f64Obj);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.SLANG_STRING_LIT:
       {
         SlangStringLit slangStringLit = (SlangStringLit)theEObject;
@@ -892,35 +891,11 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.MSTRING_LIT:
-      {
-        MStringLit mStringLit = (MStringLit)theEObject;
-        T result = caseMStringLit(mStringLit);
-        if (result == null) result = caseSlangLit(mStringLit);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_MSP_INTERP:
-      {
-        SlangMspInterp slangMspInterp = (SlangMspInterp)theEObject;
-        T result = caseSlangMspInterp(slangMspInterp);
-        if (result == null) result = caseSlangInterp(slangMspInterp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.SLANG_LITERAL_INTERP:
       {
         SlangLiteralInterp slangLiteralInterp = (SlangLiteralInterp)theEObject;
         T result = caseSlangLiteralInterp(slangLiteralInterp);
         if (result == null) result = caseSlangInterp(slangLiteralInterp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.SLANG_MSPB_INTERP:
-      {
-        SlangMspbInterp slangMspbInterp = (SlangMspbInterp)theEObject;
-        T result = caseSlangMspbInterp(slangMspbInterp);
-        if (result == null) result = caseSlangInterp(slangMspbInterp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1233,22 +1208,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Double Dot Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Double Dot Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDoubleDotRef(DoubleDotRef object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Data Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1313,38 +1272,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Def Decl Def</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Def Decl Def</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangDefDeclDef(SlangDefDeclDef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Def Decl</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Def Decl</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangDefDecl(SlangDefDecl object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang Def Def</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1356,22 +1283,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangDefDef(SlangDefDef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Def Ext</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Def Ext</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangDefExt(SlangDefExt object)
   {
     return null;
   }
@@ -1452,70 +1363,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangDefContract(SlangDefContract object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Def Contract Case</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Def Contract Case</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangDefContractCase(SlangDefContractCase object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Suprs</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Suprs</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangSuprs(SlangSuprs object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Supr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Supr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangSupr(SlangSupr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Ext</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Ext</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangExt(SlangExt object)
   {
     return null;
   }
@@ -1617,22 +1464,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Type Args</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Type Args</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangTypeArgs(SlangTypeArgs object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang Stmt</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1676,22 +1507,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangLoopContract(SlangLoopContract object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang LHS Suffix</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang LHS Suffix</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangLHSSuffix(SlangLHSSuffix object)
   {
     return null;
   }
@@ -1793,22 +1608,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Quant Var</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Quant Var</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangQuantVar(SlangQuantVar object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1825,17 +1624,17 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Access Suffix</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Slang Quant Var</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Access Suffix</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Slang Quant Var</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSlangAccessSuffix(SlangAccessSuffix object)
+  public T caseSlangQuantVar(SlangQuantVar object)
   {
     return null;
   }
@@ -1852,6 +1651,54 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOtherDataRef(OtherDataRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Postfix</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Postfix</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePostfix(Postfix object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Member Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Member Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMemberAccess(MemberAccess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayAccess(ArrayAccess object)
   {
     return null;
   }
@@ -1985,22 +1832,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang MInterp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang MInterp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangMInterp(SlangMInterp object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang If Stmt</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2129,70 +1960,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Id Stmt</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Id Stmt</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangIdStmt(SlangIdStmt object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Field Lookup</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Field Lookup</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangFieldLookup(SlangFieldLookup object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Method Call</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Method Call</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangMethodCall(SlangMethodCall object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Basic Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Basic Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBasicExp(BasicExp object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>If Else Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2225,33 +1992,161 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Implies Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Implies Expr</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseUnaryExp(UnaryExp object)
+  public T caseImpliesExpr(ImpliesExpr object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Access</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Or Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Access</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Or Expr</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSlangAccess(SlangAccess object)
+  public T caseOrExpr(OrExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>And Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>And Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAndExpr(AndExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Equal Not Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Equal Not Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEqualNotExpr(EqualNotExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Lt Gt Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Lt Gt Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLtGtExpr(LtGtExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Colon Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Colon Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseColonExpr(ColonExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Plus Minus Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Plus Minus Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlusMinusExpr(PlusMinusExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Multiplicative Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Multiplicative Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMultiplicativeExpr(MultiplicativeExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unary Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnaryExpr(UnaryExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Post Fix Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Post Fix Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePostFixExpr(PostFixExpr object)
   {
     return null;
   }
@@ -2369,22 +2264,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Call Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Call Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCallExpr(CallExpr object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Enum Lit Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2396,38 +2275,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEnumLitExpr(EnumLitExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Record Lit Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Record Lit Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRecordLitExpr(RecordLitExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Ref Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Ref Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDataRefExpr(DataRefExpr object)
   {
     return null;
   }
@@ -2481,6 +2328,102 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>F32 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>F32 Obj</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseF32Obj(F32Obj object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>F64 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>F64 Obj</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseF64Obj(F64Obj object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Call Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCallExpr(CallExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Record Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Record Lit Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRecordLitExpr(RecordLitExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Ref Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Ref Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataRefExpr(DataRefExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Result Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Result Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResultExpr(ResultExpr object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Boolean Lit</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2492,22 +2435,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBooleanLit(BooleanLit object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Result Lit</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Result Lit</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseResultLit(ResultLit object)
   {
     return null;
   }
@@ -2593,38 +2520,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>F32 Obj</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>F32 Obj</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseF32Obj(F32Obj object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>F64 Obj</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>F64 Obj</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseF64Obj(F64Obj object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang String Lit</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2641,38 +2536,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>MString Lit</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>MString Lit</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMStringLit(MStringLit object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Msp Interp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Msp Interp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangMspInterp(SlangMspInterp object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Slang Literal Interp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2684,22 +2547,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangLiteralInterp(SlangLiteralInterp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Slang Mspb Interp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Slang Mspb Interp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSlangMspbInterp(SlangMspbInterp object)
   {
     return null;
   }

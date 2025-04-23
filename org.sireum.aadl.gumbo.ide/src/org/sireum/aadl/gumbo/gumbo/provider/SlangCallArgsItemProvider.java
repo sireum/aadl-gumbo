@@ -179,7 +179,7 @@ public class SlangCallArgsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
-         GumboFactory.eINSTANCE.createBasicExp()));
+         GumboFactory.eINSTANCE.createExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -194,7 +194,137 @@ public class SlangCallArgsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
-         GumboFactory.eINSTANCE.createUnaryExp()));
+         GumboFactory.eINSTANCE.createImpliesExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createOrExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createAndExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createEqualNotExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createLtGtExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createColonExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createPlusMinusExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createUnaryExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createPostFixExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createSlangLitTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createSlangInterpTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createInStateExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createMaySendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createMustSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createNoSendExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createHasEventExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createEnumLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createParenExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createSlangForTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createSlangBlockTerm()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createF32Obj()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createF64Obj()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createCallExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createRecordLitExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createDataRefExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createResultExpr()));
   }
 
   /**

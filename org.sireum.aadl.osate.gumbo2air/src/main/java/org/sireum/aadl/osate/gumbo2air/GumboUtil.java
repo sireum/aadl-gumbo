@@ -13,11 +13,16 @@ import org.osate.aadl2.Port;
 import org.sireum.Option;
 import org.sireum.aadl.osate.util.SlangUtil;
 import org.sireum.aadl.osate.util.VisitorUtil;
+import org.sireum.aadl.osate.util.VisitorUtil.Pair;
 import org.sireum.hamr.ir.AadlASTFactory;
 import org.sireum.hamr.ir.Name;
+import org.sireum.hamr.codegen.common.util.GclUtil;
 import org.sireum.lang.ast.Attr;
 import org.sireum.lang.ast.Attr$;
+import org.sireum.lang.ast.*;
 import org.sireum.lang.ast.Exp;
+import org.sireum.lang.ast.Exp.Binary;
+import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.Select;
@@ -180,6 +185,15 @@ public class GumboUtil {
 		Position p = VisitorUtil.buildPosition(object);
 		return buildResolvedAttr(p == null ? SlangUtil.toNone() : SlangUtil.toSome(p));
 	}
+	
+	public static ResolvedAttr buildResolvedAttr_BuiltIn_Apply(Option<Position> p) {
+		ResolvedAttr ret = buildResolvedAttr(p);
+		return ret.apply( //
+				ret.posOpt(), //
+				SlangUtil.toSome(ResolvedInfo.BuiltIn$.MODULE$.apply(
+						GclUtil.SlangAstBridge$.MODULE$.getResolvedInfo_BuiltIn_Kind("Apply"))), //
+				ret.getTypedOpt());
+	}
 
 	public static ResolvedAttr buildResolvedAttr(Option<Position> p) {
 		return ResolvedAttr$.MODULE$.apply(p, SlangUtil.toNone(), SlangUtil.toNone());
@@ -206,7 +220,8 @@ public class GumboUtil {
 			assert af.getOffset32() <= bf.getOffset32() : af.getOffset32() + " vs " + bf.getOffset32();
 
 			int length = (bf.getOffset32() - af.getOffset32()) + bf.length32();
-			return SlangUtil.toSome(FlatPos$.MODULE$.apply(af.getUriOpt(), //
+			return SlangUtil.toSome(buildPos(//
+					af.getUriOpt(), //
 					af.getBeginLine32(), af.getBeginColumn32(), //
 					bf.getEndLine32(), bf.getEndColumn32(), //
 					af.getOffset32(), //
@@ -230,12 +245,36 @@ public class GumboUtil {
 
 			assert fp.getBeginColumn32() + newLength <= fp.getEndColumn32();
 
-			return SlangUtil.toSome(FlatPos$.MODULE$.apply(fp.getUriOpt(), //
+			return SlangUtil.toSome(buildPos(//
+					fp.getUriOpt(), //
 					fp.getBeginLine32(), fp.getBeginColumn32(), //
 					fp.getBeginLine32(), fp.getBeginColumn32() + newLength, //
 					fp.offset32(), //
 					newLength));
 		}
+	}
+	
+	public static Position buildPos(Option<org.sireum.String> uriOpt, int beginLine, int beginCol, int endLine, int endCol, int offset, int length) {
+		return FlatPos$.MODULE$.apply(uriOpt, beginLine, beginCol, endLine, endCol, offset, length);
+	}
+	
+	public static Exp convertExpStackToBinary(Exp lhs, Stack<Pair<String, Exp>> stack) {
+		if (stack.isEmpty()) {
+			return lhs;
+		} else {
+			while (stack.size() > 1) {
+				Pair<String, Exp> right = stack.pop();
+				Pair<String, Exp> left = stack.pop();
+				Option<Position> posOpt = mergePositions(left.t2.posOpt(), right.t2.posOpt());
+				Binary b = Binary$.MODULE$.apply(left.t2, right.t1, right.t2, GumboUtil.buildResolvedAttr(posOpt), posOpt);
+				stack.push(new Pair<>(left.t1, b));
+				
+			}
+			Pair<String, Exp> right = stack.pop();
+			Option<Position> posOpt = mergePositions(lhs.posOpt(), right.t2.posOpt());
+			return Binary$.MODULE$.apply(lhs, right.t1, right.t2, GumboUtil.buildResolvedAttr(posOpt), posOpt);
+		}
+				
 	}
 
 	public static Exp convertIdStackToSelect(Stack<Object> names) {

@@ -120,7 +120,9 @@ public class HandlerClauseItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(GumboPackage.Literals.HANDLER_CLAUSE__MODIFIES);
+      childrenFeatures.add(GumboPackage.Literals.HANDLER_CLAUSE__ASSUMES);
       childrenFeatures.add(GumboPackage.Literals.HANDLER_CLAUSE__GUARANTEES);
+      childrenFeatures.add(GumboPackage.Literals.HANDLER_CLAUSE__CASES);
     }
     return childrenFeatures;
   }
@@ -179,7 +181,9 @@ public class HandlerClauseItemProvider
     switch (notification.getFeatureID(HandlerClause.class))
     {
       case GumboPackage.HANDLER_CLAUSE__MODIFIES:
+      case GumboPackage.HANDLER_CLAUSE__ASSUMES:
       case GumboPackage.HANDLER_CLAUSE__GUARANTEES:
+      case GumboPackage.HANDLER_CLAUSE__CASES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -205,8 +209,18 @@ public class HandlerClauseItemProvider
 
     newChildDescriptors.add
       (createChildParameter
+        (GumboPackage.Literals.HANDLER_CLAUSE__ASSUMES,
+         GumboFactory.eINSTANCE.createAssumeStatement()));
+
+    newChildDescriptors.add
+      (createChildParameter
         (GumboPackage.Literals.HANDLER_CLAUSE__GUARANTEES,
          GumboFactory.eINSTANCE.createGuaranteeStatement()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.HANDLER_CLAUSE__CASES,
+         GumboFactory.eINSTANCE.createCaseStatementClause()));
   }
 
   /**

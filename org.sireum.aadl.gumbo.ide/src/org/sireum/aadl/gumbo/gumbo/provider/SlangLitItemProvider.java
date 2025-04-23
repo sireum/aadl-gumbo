@@ -22,13 +22,19 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.SlangLit;
 
 /**
  * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangLit} object.
@@ -69,8 +75,32 @@ public class SlangLitItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addValuePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Value feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addValuePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SlangLit_value_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SlangLit_value_feature", "_UI_SlangLit_type"),
+         GumboPackage.Literals.SLANG_LIT__VALUE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -94,7 +124,10 @@ public class SlangLitItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_SlangLit_type");
+    String label = ((SlangLit)object).getValue();
+    return label == null || label.length() == 0 ?
+      getString("_UI_SlangLit_type") :
+      getString("_UI_SlangLit_type") + " " + label;
   }
 
 
@@ -109,6 +142,13 @@ public class SlangLitItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(SlangLit.class))
+    {
+      case GumboPackage.SLANG_LIT__VALUE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
     super.notifyChanged(notification);
   }
 

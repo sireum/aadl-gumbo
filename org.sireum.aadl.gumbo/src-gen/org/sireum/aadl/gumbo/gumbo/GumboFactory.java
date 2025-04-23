@@ -205,15 +205,6 @@ public interface GumboFactory extends EFactory
   AnonGuaranteeStatement createAnonGuaranteeStatement();
 
   /**
-   * Returns a new object of class '<em>Double Dot Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Double Dot Ref</em>'.
-   * @generated
-   */
-  DoubleDotRef createDoubleDotRef();
-
-  /**
    * Returns a new object of class '<em>Data Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -250,24 +241,6 @@ public interface GumboFactory extends EFactory
   FuncSpec createFuncSpec();
 
   /**
-   * Returns a new object of class '<em>Slang Def Decl Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Def Decl Def</em>'.
-   * @generated
-   */
-  SlangDefDeclDef createSlangDefDeclDef();
-
-  /**
-   * Returns a new object of class '<em>Slang Def Decl</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Def Decl</em>'.
-   * @generated
-   */
-  SlangDefDecl createSlangDefDecl();
-
-  /**
    * Returns a new object of class '<em>Slang Def Def</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -275,15 +248,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangDefDef createSlangDefDef();
-
-  /**
-   * Returns a new object of class '<em>Slang Def Ext</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Def Ext</em>'.
-   * @generated
-   */
-  SlangDefExt createSlangDefExt();
 
   /**
    * Returns a new object of class '<em>Slang Def Params</em>'.
@@ -329,42 +293,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangDefContract createSlangDefContract();
-
-  /**
-   * Returns a new object of class '<em>Slang Def Contract Case</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Def Contract Case</em>'.
-   * @generated
-   */
-  SlangDefContractCase createSlangDefContractCase();
-
-  /**
-   * Returns a new object of class '<em>Slang Suprs</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Suprs</em>'.
-   * @generated
-   */
-  SlangSuprs createSlangSuprs();
-
-  /**
-   * Returns a new object of class '<em>Slang Supr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Supr</em>'.
-   * @generated
-   */
-  SlangSupr createSlangSupr();
-
-  /**
-   * Returns a new object of class '<em>Slang Ext</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Ext</em>'.
-   * @generated
-   */
-  SlangExt createSlangExt();
 
   /**
    * Returns a new object of class '<em>Slang Invariant</em>'.
@@ -421,15 +349,6 @@ public interface GumboFactory extends EFactory
   SlangType createSlangType();
 
   /**
-   * Returns a new object of class '<em>Slang Type Args</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Type Args</em>'.
-   * @generated
-   */
-  SlangTypeArgs createSlangTypeArgs();
-
-  /**
    * Returns a new object of class '<em>Slang Stmt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -455,15 +374,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangLoopContract createSlangLoopContract();
-
-  /**
-   * Returns a new object of class '<em>Slang LHS Suffix</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang LHS Suffix</em>'.
-   * @generated
-   */
-  SlangLHSSuffix createSlangLHSSuffix();
 
   /**
    * Returns a new object of class '<em>Slang Case</em>'.
@@ -520,15 +430,6 @@ public interface GumboFactory extends EFactory
   OwnedExpression createOwnedExpression();
 
   /**
-   * Returns a new object of class '<em>Slang Quant Var</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Quant Var</em>'.
-   * @generated
-   */
-  SlangQuantVar createSlangQuantVar();
-
-  /**
    * Returns a new object of class '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -538,13 +439,13 @@ public interface GumboFactory extends EFactory
   Expr createExpr();
 
   /**
-   * Returns a new object of class '<em>Slang Access Suffix</em>'.
+   * Returns a new object of class '<em>Slang Quant Var</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Access Suffix</em>'.
+   * @return a new object of class '<em>Slang Quant Var</em>'.
    * @generated
    */
-  SlangAccessSuffix createSlangAccessSuffix();
+  SlangQuantVar createSlangQuantVar();
 
   /**
    * Returns a new object of class '<em>Other Data Ref</em>'.
@@ -554,6 +455,33 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   OtherDataRef createOtherDataRef();
+
+  /**
+   * Returns a new object of class '<em>Postfix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix</em>'.
+   * @generated
+   */
+  Postfix createPostfix();
+
+  /**
+   * Returns a new object of class '<em>Member Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member Access</em>'.
+   * @generated
+   */
+  MemberAccess createMemberAccess();
+
+  /**
+   * Returns a new object of class '<em>Array Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Access</em>'.
+   * @generated
+   */
+  ArrayAccess createArrayAccess();
 
   /**
    * Returns a new object of class '<em>Slang Params</em>'.
@@ -628,15 +556,6 @@ public interface GumboFactory extends EFactory
   SlangInterp createSlangInterp();
 
   /**
-   * Returns a new object of class '<em>Slang MInterp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang MInterp</em>'.
-   * @generated
-   */
-  SlangMInterp createSlangMInterp();
-
-  /**
    * Returns a new object of class '<em>Slang If Stmt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -709,42 +628,6 @@ public interface GumboFactory extends EFactory
   SlangDoStmt createSlangDoStmt();
 
   /**
-   * Returns a new object of class '<em>Slang Id Stmt</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Id Stmt</em>'.
-   * @generated
-   */
-  SlangIdStmt createSlangIdStmt();
-
-  /**
-   * Returns a new object of class '<em>Slang Field Lookup</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Field Lookup</em>'.
-   * @generated
-   */
-  SlangFieldLookup createSlangFieldLookup();
-
-  /**
-   * Returns a new object of class '<em>Slang Method Call</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Method Call</em>'.
-   * @generated
-   */
-  SlangMethodCall createSlangMethodCall();
-
-  /**
-   * Returns a new object of class '<em>Basic Exp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Basic Exp</em>'.
-   * @generated
-   */
-  BasicExp createBasicExp();
-
-  /**
    * Returns a new object of class '<em>If Else Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -763,22 +646,94 @@ public interface GumboFactory extends EFactory
   QuantifiedExp createQuantifiedExp();
 
   /**
-   * Returns a new object of class '<em>Unary Exp</em>'.
+   * Returns a new object of class '<em>Implies Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unary Exp</em>'.
+   * @return a new object of class '<em>Implies Expr</em>'.
    * @generated
    */
-  UnaryExp createUnaryExp();
+  ImpliesExpr createImpliesExpr();
 
   /**
-   * Returns a new object of class '<em>Slang Access</em>'.
+   * Returns a new object of class '<em>Or Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Access</em>'.
+   * @return a new object of class '<em>Or Expr</em>'.
    * @generated
    */
-  SlangAccess createSlangAccess();
+  OrExpr createOrExpr();
+
+  /**
+   * Returns a new object of class '<em>And Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And Expr</em>'.
+   * @generated
+   */
+  AndExpr createAndExpr();
+
+  /**
+   * Returns a new object of class '<em>Equal Not Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equal Not Expr</em>'.
+   * @generated
+   */
+  EqualNotExpr createEqualNotExpr();
+
+  /**
+   * Returns a new object of class '<em>Lt Gt Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Lt Gt Expr</em>'.
+   * @generated
+   */
+  LtGtExpr createLtGtExpr();
+
+  /**
+   * Returns a new object of class '<em>Colon Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Colon Expr</em>'.
+   * @generated
+   */
+  ColonExpr createColonExpr();
+
+  /**
+   * Returns a new object of class '<em>Plus Minus Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plus Minus Expr</em>'.
+   * @generated
+   */
+  PlusMinusExpr createPlusMinusExpr();
+
+  /**
+   * Returns a new object of class '<em>Multiplicative Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multiplicative Expr</em>'.
+   * @generated
+   */
+  MultiplicativeExpr createMultiplicativeExpr();
+
+  /**
+   * Returns a new object of class '<em>Unary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Expr</em>'.
+   * @generated
+   */
+  UnaryExpr createUnaryExpr();
+
+  /**
+   * Returns a new object of class '<em>Post Fix Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Post Fix Expr</em>'.
+   * @generated
+   */
+  PostFixExpr createPostFixExpr();
 
   /**
    * Returns a new object of class '<em>Slang Lit Term</em>'.
@@ -844,15 +799,6 @@ public interface GumboFactory extends EFactory
   HasEventExpr createHasEventExpr();
 
   /**
-   * Returns a new object of class '<em>Call Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Call Expr</em>'.
-   * @generated
-   */
-  CallExpr createCallExpr();
-
-  /**
    * Returns a new object of class '<em>Enum Lit Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -860,24 +806,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   EnumLitExpr createEnumLitExpr();
-
-  /**
-   * Returns a new object of class '<em>Record Lit Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Record Lit Expr</em>'.
-   * @generated
-   */
-  RecordLitExpr createRecordLitExpr();
-
-  /**
-   * Returns a new object of class '<em>Data Ref Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Ref Expr</em>'.
-   * @generated
-   */
-  DataRefExpr createDataRefExpr();
 
   /**
    * Returns a new object of class '<em>Paren Expr</em>'.
@@ -907,6 +835,60 @@ public interface GumboFactory extends EFactory
   SlangBlockTerm createSlangBlockTerm();
 
   /**
+   * Returns a new object of class '<em>F32 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>F32 Obj</em>'.
+   * @generated
+   */
+  F32Obj createF32Obj();
+
+  /**
+   * Returns a new object of class '<em>F64 Obj</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>F64 Obj</em>'.
+   * @generated
+   */
+  F64Obj createF64Obj();
+
+  /**
+   * Returns a new object of class '<em>Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call Expr</em>'.
+   * @generated
+   */
+  CallExpr createCallExpr();
+
+  /**
+   * Returns a new object of class '<em>Record Lit Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Record Lit Expr</em>'.
+   * @generated
+   */
+  RecordLitExpr createRecordLitExpr();
+
+  /**
+   * Returns a new object of class '<em>Data Ref Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Ref Expr</em>'.
+   * @generated
+   */
+  DataRefExpr createDataRefExpr();
+
+  /**
+   * Returns a new object of class '<em>Result Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Result Expr</em>'.
+   * @generated
+   */
+  ResultExpr createResultExpr();
+
+  /**
    * Returns a new object of class '<em>Boolean Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -914,15 +896,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   BooleanLit createBooleanLit();
-
-  /**
-   * Returns a new object of class '<em>Result Lit</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Result Lit</em>'.
-   * @generated
-   */
-  ResultLit createResultLit();
 
   /**
    * Returns a new object of class '<em>Integer Lit</em>'.
@@ -970,24 +943,6 @@ public interface GumboFactory extends EFactory
   F64Lit createF64Lit();
 
   /**
-   * Returns a new object of class '<em>F32 Obj</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>F32 Obj</em>'.
-   * @generated
-   */
-  F32Obj createF32Obj();
-
-  /**
-   * Returns a new object of class '<em>F64 Obj</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>F64 Obj</em>'.
-   * @generated
-   */
-  F64Obj createF64Obj();
-
-  /**
    * Returns a new object of class '<em>Slang String Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -997,24 +952,6 @@ public interface GumboFactory extends EFactory
   SlangStringLit createSlangStringLit();
 
   /**
-   * Returns a new object of class '<em>MString Lit</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>MString Lit</em>'.
-   * @generated
-   */
-  MStringLit createMStringLit();
-
-  /**
-   * Returns a new object of class '<em>Slang Msp Interp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Msp Interp</em>'.
-   * @generated
-   */
-  SlangMspInterp createSlangMspInterp();
-
-  /**
    * Returns a new object of class '<em>Slang Literal Interp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1022,15 +959,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangLiteralInterp createSlangLiteralInterp();
-
-  /**
-   * Returns a new object of class '<em>Slang Mspb Interp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Mspb Interp</em>'.
-   * @generated
-   */
-  SlangMspbInterp createSlangMspbInterp();
 
   /**
    * Returns the package supported by this factory.

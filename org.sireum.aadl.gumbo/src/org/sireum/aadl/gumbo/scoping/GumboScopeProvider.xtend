@@ -55,7 +55,6 @@ import org.eclipse.emf.common.util.BasicEList
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam
 import org.sireum.aadl.gumbo.gumbo.SlangType
-import org.sireum.aadl.gumbo.gumbo.SlangIdStmt
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement
 import org.sireum.aadl.gumbo.gumbo.InStateExpr
@@ -399,9 +398,9 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 		return getVariableCrossRef(context, reference)
 	}
 
-	def scope_SlangIdStmt_portOrSubcomponentOrStateVar(SlangIdStmt context, EReference reference) {
-		return getVariableCrossRef(context, reference)
-	}
+	//def scope_SlangIdStmt_portOrSubcomponentOrStateVar(SlangIdStmt context, EReference reference) {
+	//	return getVariableCrossRef(context, reference)
+	//}
 
 	def protected static getClassifierForPreviousOtherDataRefElement(NamedElement previousElement) {
 		switch previousElement {

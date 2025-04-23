@@ -60,8 +60,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Compute">
     <eStructuralFeatures xsi:type="ecore:EReference" name="modifies" eType="#//SlangModifies"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specs" upperBound="-1"
-        eType="#//SpecStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assumes" upperBound="-1"
+        eType="#//AssumeStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guarantees" upperBound="-1"
+        eType="#//GuaranteeStatement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cases" upperBound="-1"
         eType="#//CaseStatementClause" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
@@ -81,8 +83,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modifies" eType="#//SlangModifies"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assumes" upperBound="-1"
+        eType="#//AssumeStatement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guarantees" upperBound="-1"
         eType="#//GuaranteeStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cases" upperBound="-1"
+        eType="#//CaseStatementClause" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CaseStatementClause">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -108,9 +114,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//OwnedExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DoubleDotRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elm" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataSubcomponentType"/>
   </eClassifiers>
@@ -122,37 +125,7 @@
         eType="#//FuncSpec" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FuncSpec"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangDefDeclDef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParams" eType="#//SlangTypeParams"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="c" eType="#//SlangDefContract"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//OwnedExpression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangDefDecl">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeParams" eType="#//SlangTypeParams"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//SlangDefParams"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SlangType"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="c" eType="#//SlangDefContract"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangDefDef" eSuperTypes="#//FuncSpec">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sde" eType="#//SlangDefExt"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeParams" eType="#//SlangTypeParams"
         containment="true"/>
@@ -163,11 +136,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodContract" eType="#//SlangDefContract"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//OwnedExpression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangDefExt">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangDefParams">
@@ -199,25 +167,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ensures" eType="#//SlangEnsures"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangDefContractCase">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="req" eType="#//SlangRequires"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ens" eType="#//SlangEnsures"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangSuprs">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superTypes" upperBound="-1"
-        eType="#//SlangSupr" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangSupr">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//SlangTypeArgs"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangExt">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="decl" upperBound="-1" eType="#//SlangDefDecl"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangInvariant">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
         eType="#//OwnedExpression" containment="true"/>
@@ -241,10 +190,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="SlangType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataSubcomponentType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangTypeArgs">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//SlangType" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangStmt"/>
   <eClassifiers xsi:type="ecore:EClass" name="SlangElse">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cond" eType="#//OwnedExpression"
@@ -260,7 +205,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mod" eType="#//SlangModifies"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangLHSSuffix"/>
   <eClassifiers xsi:type="ecore:EClass" name="SlangCase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//SlangPattern"
         containment="true"/>
@@ -272,6 +216,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SlangPattern" eSuperTypes="#//SlangVarDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
         eType="#//SlangTPattern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//OwnedExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangTPattern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
@@ -282,11 +230,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="SlangVarDef" eSuperTypes="#//SlangStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="d" eType="#//SlangVarDef"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//SlangType"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//OwnedExpression"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangBlock" eSuperTypes="#//SlangElse">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stmts" upperBound="-1"
@@ -295,15 +238,12 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OwnedExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expr" eSuperTypes="#//OwnedExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="SlangQuantVar">
     <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//OwnedExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" eType="#//OwnedExpression"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expr"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangAccessSuffix">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OtherDataRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="namedElement" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
@@ -312,6 +252,14 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//OtherDataRef"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Postfix"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MemberAccess" eSuperTypes="#//Postfix">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayAccess" eSuperTypes="#//Postfix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="index" upperBound="-1"
+        eType="#//OwnedExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangParams">
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
@@ -342,14 +290,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="arg" upperBound="-1" eType="#//OwnedExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangLit"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangInterp"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangMInterp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//OwnedExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="m" eType="#//SlangMInterp"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangLit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangInterp"/>
   <eClassifiers xsi:type="ecore:EClass" name="SlangIfStmt" eSuperTypes="#//SlangStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cond" eType="#//OwnedExpression"
         containment="true"/>
@@ -389,25 +333,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//OwnedExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangIdStmt" eSuperTypes="#//SlangStmt">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="portOrSubcomponentOrStateVar"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="l" upperBound="-1" eType="#//SlangLHSSuffix"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" eType="#//OwnedExpression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangFieldLookup" eSuperTypes="#//SlangLHSSuffix"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangMethodCall" eSuperTypes="#//SlangLHSSuffix">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
-        eType="#//OwnedExpression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BasicExp" eSuperTypes="#//OwnedExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="terms" upperBound="-1"
-        eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ops" unique="false" upperBound="-1"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfElseExp" eSuperTypes="#//OwnedExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ifCond" eType="#//OwnedExpression"
         containment="true"/>
@@ -422,15 +347,63 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedExpr" eType="#//OwnedExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnaryExp" eSuperTypes="#//OwnedExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="ImpliesExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="accessExp" eType="#//Expr"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangAccess" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="suffixes" upperBound="-1"
-        eType="#//SlangAccessSuffix" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AndExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EqualNotExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LtGtExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlusMinusExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiplicativeExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PostFixExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseExp" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="posts" upperBound="-1"
+        eType="#//Postfix" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangLitTerm" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="lit" eType="#//SlangLit"
@@ -459,28 +432,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="HasEventExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="eventPort" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CallExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="callSuffix" eType="#//SlangCallSuffix"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLitExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//DataClassifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//StringLiteral"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RecordLitExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recordType" eType="#//DataElement"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" unique="false" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argExpr" upperBound="-1"
-        eType="#//OwnedExpression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataRefExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="portOrSubcomponentOrStateVar"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//OtherDataRef"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParenExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//OwnedExpression"
@@ -504,46 +458,40 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//SlangRet"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanLit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="F32Obj" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attr" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResultLit" eSuperTypes="#//SlangLit"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerLit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="F64Obj" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attr" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HexLit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CallExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callSuffix" eType="#//SlangCallSuffix"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BinLit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordLitExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recordType" eType="#//DataElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" unique="false" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argExpr" upperBound="-1"
+        eType="#//OwnedExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="F32Lit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataRefExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="portOrSubcomponentOrStateVar"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//OtherDataRef"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="F64Lit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="F32Obj" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="F64Obj" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangStringLit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MStringLit" eSuperTypes="#//SlangLit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangMspInterp" eSuperTypes="#//SlangInterp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="msp" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResultExpr" eSuperTypes="#//Expr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanLit" eSuperTypes="#//SlangLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerLit" eSuperTypes="#//SlangLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HexLit" eSuperTypes="#//SlangLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BinLit" eSuperTypes="#//SlangLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="F32Lit" eSuperTypes="#//SlangLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="F64Lit" eSuperTypes="#//SlangLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlangStringLit" eSuperTypes="#//SlangLit"/>
   <eClassifiers xsi:type="ecore:EClass" name="SlangLiteralInterp" eSuperTypes="#//SlangInterp">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sli" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlangMspbInterp" eSuperTypes="#//SlangInterp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mspb" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="minterp" eType="#//SlangMInterp"
-        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

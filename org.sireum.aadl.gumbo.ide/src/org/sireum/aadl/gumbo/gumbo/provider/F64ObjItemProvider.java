@@ -34,7 +34,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class F64ObjItemProvider extends SlangLitItemProvider
+public class F64ObjItemProvider extends ExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -60,26 +60,26 @@ public class F64ObjItemProvider extends SlangLitItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addValuePropertyDescriptor(object);
+      addAttrPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Value feature.
+   * This adds a property descriptor for the Attr feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addValuePropertyDescriptor(Object object)
+  protected void addAttrPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_F64Obj_value_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_F64Obj_value_feature", "_UI_F64Obj_type"),
-         GumboPackage.Literals.F64_OBJ__VALUE,
+         getString("_UI_F64Obj_attr_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_F64Obj_attr_feature", "_UI_F64Obj_type"),
+         GumboPackage.Literals.F64_OBJ__ATTR,
          true,
          false,
          false,
@@ -109,7 +109,7 @@ public class F64ObjItemProvider extends SlangLitItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((F64Obj)object).getValue();
+    String label = ((F64Obj)object).getAttr();
     return label == null || label.length() == 0 ?
       getString("_UI_F64Obj_type") :
       getString("_UI_F64Obj_type") + " " + label;
@@ -130,7 +130,7 @@ public class F64ObjItemProvider extends SlangLitItemProvider
 
     switch (notification.getFeatureID(F64Obj.class))
     {
-      case GumboPackage.F64_OBJ__VALUE:
+      case GumboPackage.F64_OBJ__ATTR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

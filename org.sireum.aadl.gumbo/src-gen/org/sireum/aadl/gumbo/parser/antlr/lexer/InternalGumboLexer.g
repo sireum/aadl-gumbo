@@ -21,8 +21,6 @@ package org.sireum.aadl.gumbo.parser.antlr.lexer;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
-Strictpure : '@'('S'|'s')('T'|'t')('R'|'r')('I'|'i')('C'|'c')('T'|'t')('P'|'p')('U'|'u')('R'|'r')('E'|'e');
-
 Integration : ('I'|'i')('N'|'n')('T'|'t')('E'|'e')('G'|'g')('R'|'r')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
@@ -30,8 +28,6 @@ Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'
 Initialize : ('I'|'i')('N'|'n')('I'|'i')('T'|'t')('I'|'i')('A'|'a')('L'|'l')('I'|'i')('Z'|'z')('E'|'e');
 
 Invariants : ('I'|'i')('N'|'n')('V'|'v')('A'|'a')('R'|'r')('I'|'i')('A'|'a')('N'|'n')('T'|'t')('S'|'s');
-
-Extension : ('E'|'e')('X'|'x')('T'|'t')('E'|'e')('N'|'n')('S'|'s')('I'|'i')('O'|'o')('N'|'n');
 
 Functions : ('F'|'f')('U'|'u')('N'|'n')('C'|'c')('T'|'t')('I'|'i')('O'|'o')('N'|'n')('S'|'s');
 
@@ -68,8 +64,6 @@ Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
 Handle : ('H'|'h')('A'|'a')('N'|'n')('D'|'d')('L'|'l')('E'|'e');
 
 Return : ('R'|'r')('E'|'e')('T'|'t')('U'|'u')('R'|'r')('N'|'n');
-
-Pure : '@'('P'|'p')('U'|'u')('R'|'r')('E'|'e');
 
 Some : '\\'('S'|'s')('O'|'o')('M'|'m')('E'|'e');
 
@@ -133,8 +127,6 @@ ColonColon : ':'':';
 
 ColonEqualsSign : ':''=';
 
-LessThanSignColon : '<'':';
-
 EqualsSignGreaterThanSign : '=''>';
 
 By : ('B'|'b')('Y'|'y');
@@ -187,31 +179,31 @@ ThereExists : '\u2203';
 
 RULE_STRING_VALUE : '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
 
-RULE_MSTRING : '"""' (~('"')|'"' ~('"')|'""' ~('"'))* ('"""'|'""""'|'"""""');
-
-RULE_MSP : RULE_IDF '"""' RULE_MSPI* ('"""'|'""""'|'"""""');
-
 RULE_SLI : RULE_IDF '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
 
-RULE_MSPB : RULE_IDF '"""' RULE_MSPI* '$';
+RULE_NOT : '!';
 
-RULE_MSPM : '$' RULE_MSPI* '$';
+RULE_MULTIPLICATIVE_OP : ('/'|'%');
 
-RULE_MSPE : '$' RULE_MSPI* ('"""'|'""""'|'"""""');
+RULE_SLANG_OP : ('+:'|'++'|'-~'|'~-');
 
-RULE_DEFOP : ':' RULE_OPSYM* '=';
+RULE_COLON_OP : ':+';
 
-RULE_IMPLIES : ('-'|'~') '>' ':';
+RULE_LT_GT_OPS : ('<<<'|'<<'|'<='|'<'|'>>>'|'>>'|'>='|'>');
 
-RULE_SIMPLIES : '~' '~' '>' ':';
+RULE_EQUAL_NOT_OPS : ('=!='|'==='|'=='|'!='|'!~');
 
-RULE_OP : (RULE_OPSYM+|'\\' RULE_IDF);
+RULE_AND_OPS : ('&&'|'&');
+
+RULE_OR_OPS : ('|^'|'||'|'|');
+
+RULE_IMPLIES : ('__'|'-'|'~') '>' ':';
+
+RULE_SIMPLIES : ('___'|'~~') '>' ':';
 
 RULE_HEX : '0x' RULE_EXTENDED_DIGIT+ ('.' RULE_IDF)?;
 
 RULE_BIN : '0b' ('0'|'1'|'_')+ ('.' RULE_IDF)?;
-
-RULE_INT_IDF : RULE_INTEGER_LIT RULE_IDF;
 
 RULE_F32_LIT : RULE_REAL_LIT 'f';
 
@@ -222,8 +214,6 @@ fragment RULE_IDF : (RULE_LETTER|'_') (RULE_LETTER|RULE_DIGIT)*;
 fragment RULE_MSPI : (~(('"'|'$'))|'$$'|'"' ~('"')|'""' ~('"'));
 
 fragment RULE_LETTER : ('a'..'z'|'A'..'Z');
-
-fragment RULE_OPSYM : ('/'|'%'|'='|'<'|'>'|'!'|'&'|'^'|'|'|'~'|'\u2200'..'\u22FF'|'\u2A00'..'\u2AFF'|'\u27C0'..'\u27EF'|'\u2980'..'\u29FF');
 
 fragment RULE_ESC_SEQ : ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|RULE_UNICODE_ESC);
 
