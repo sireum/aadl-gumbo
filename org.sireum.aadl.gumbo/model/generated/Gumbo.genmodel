@@ -44,6 +44,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/modifies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/specs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/flows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Initialize/tables"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//InitializeSpecStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//InitializeSpecStatement/guaranteeStatement"/>
@@ -54,6 +55,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/cases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/handlers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/flows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/tables"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//GumboTable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboTable/table"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//NormalTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//NormalTable/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//NormalTable/descriptor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NormalTable/horizontalPredicates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NormalTable/verticalPredicates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NormalTable/resultRows"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//ResultRow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ResultRow/results"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//InfoFlowClause">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//InfoFlowClause/id"/>

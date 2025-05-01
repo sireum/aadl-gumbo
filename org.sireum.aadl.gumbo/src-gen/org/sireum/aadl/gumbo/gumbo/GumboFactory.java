@@ -133,6 +133,33 @@ public interface GumboFactory extends EFactory
   Compute createCompute();
 
   /**
+   * Returns a new object of class '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Table</em>'.
+   * @generated
+   */
+  GumboTable createGumboTable();
+
+  /**
+   * Returns a new object of class '<em>Normal Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Normal Table</em>'.
+   * @generated
+   */
+  NormalTable createNormalTable();
+
+  /**
+   * Returns a new object of class '<em>Result Row</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Result Row</em>'.
+   * @generated
+   */
+  ResultRow createResultRow();
+
+  /**
    * Returns a new object of class '<em>Info Flow Clause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Initialize#getModifies <em>Modifies</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Initialize#getSpecs <em>Specs</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.Initialize#getFlows <em>Flows</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.Initialize#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getInitialize()
@@ -82,5 +83,17 @@ public interface Initialize extends EObject
    * @generated
    */
   EList<InfoFlowClause> getFlows();
+
+  /**
+   * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.GumboTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tables</em>' containment reference list.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getInitialize_Tables()
+   * @model containment="true"
+   * @generated
+   */
+  EList<GumboTable> getTables();
 
 } // Initialize

@@ -173,6 +173,27 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.GUMBO_TABLE:
+      {
+        GumboTable gumboTable = (GumboTable)theEObject;
+        T result = caseGumboTable(gumboTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.NORMAL_TABLE:
+      {
+        NormalTable normalTable = (NormalTable)theEObject;
+        T result = caseNormalTable(normalTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.RESULT_ROW:
+      {
+        ResultRow resultRow = (ResultRow)theEObject;
+        T result = caseResultRow(resultRow);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.INFO_FLOW_CLAUSE:
       {
         InfoFlowClause infoFlowClause = (InfoFlowClause)theEObject;
@@ -1100,6 +1121,54 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCompute(Compute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGumboTable(GumboTable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Normal Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Normal Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNormalTable(NormalTable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Result Row</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Result Row</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResultRow(ResultRow object)
   {
     return null;
   }

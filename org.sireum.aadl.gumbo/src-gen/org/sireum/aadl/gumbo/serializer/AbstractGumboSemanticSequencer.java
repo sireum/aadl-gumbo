@@ -65,6 +65,7 @@ import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.GumboTable;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
@@ -81,11 +82,13 @@ import org.sireum.aadl.gumbo.gumbo.MStringLit;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultLit;
+import org.sireum.aadl.gumbo.gumbo.ResultRow;
 import org.sireum.aadl.gumbo.gumbo.SlangAccess;
 import org.sireum.aadl.gumbo.gumbo.SlangAccessSuffix;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
@@ -323,6 +326,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.GUMBO_SUBCLAUSE:
 				sequence_GumboSubclause(context, (GumboSubclause) semanticObject); 
 				return; 
+			case GumboPackage.GUMBO_TABLE:
+				sequence_GumboTable(context, (GumboTable) semanticObject); 
+				return; 
 			case GumboPackage.HANDLER_CLAUSE:
 				sequence_HandlerClause(context, (HandlerClause) semanticObject); 
 				return; 
@@ -371,6 +377,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.NO_SEND_EXPR:
 				sequence_SlangTerm(context, (NoSendExpr) semanticObject); 
 				return; 
+			case GumboPackage.NORMAL_TABLE:
+				sequence_NormalTable(context, (NormalTable) semanticObject); 
+				return; 
 			case GumboPackage.OTHER_DATA_REF:
 				sequence_OtherDataRef(context, (OtherDataRef) semanticObject); 
 				return; 
@@ -385,6 +394,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.RESULT_LIT:
 				sequence_SlangLit(context, (ResultLit) semanticObject); 
+				return; 
+			case GumboPackage.RESULT_ROW:
+				sequence_ResultRow(context, (ResultRow) semanticObject); 
 				return; 
 			case GumboPackage.SLANG_ACCESS:
 				sequence_SlangAccess(context, (SlangAccess) semanticObject); 
@@ -667,7 +679,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Compute returns Compute
 	 *
 	 * Constraint:
-	 *     (modifies=SlangModifies? specs+=SpecStatement* cases+=CaseStatementClause* handlers+=HandlerClause* flows+=InfoFlowClause*)
+	 *     (
+	 *         modifies=SlangModifies? 
+	 *         specs+=SpecStatement* 
+	 *         cases+=CaseStatementClause* 
+	 *         handlers+=HandlerClause* 
+	 *         flows+=InfoFlowClause* 
+	 *         tables+=GumboTable*
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Compute(ISerializationContext context, Compute semanticObject) {
@@ -783,6 +802,26 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     GumboTable returns GumboTable
+	 *
+	 * Constraint:
+	 *     table=NormalTable
+	 * </pre>
+	 */
+	protected void sequence_GumboTable(ISerializationContext context, GumboTable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.GUMBO_TABLE__TABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.GUMBO_TABLE__TABLE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGumboTableAccess().getTableNormalTableParserRuleCall_1_0(), semanticObject.getTable());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     HandlerClause returns HandlerClause
 	 *
 	 * Constraint:
@@ -839,7 +878,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     Initialize returns Initialize
 	 *
 	 * Constraint:
-	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement* flows+=InfoFlowClause*)
+	 *     (modifies=SlangModifies? specs+=InitializeSpecStatement* flows+=InfoFlowClause* tables+=GumboTable*)
 	 * </pre>
 	 */
 	protected void sequence_Initialize(ISerializationContext context, Initialize semanticObject) {
@@ -885,6 +924,26 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_Invariants(ISerializationContext context, Invariants semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     NormalTable returns NormalTable
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         descriptor=STRING_VALUE? 
+	 *         horizontalPredicates+=OwnedExpression* 
+	 *         horizontalPredicates+=OwnedExpression 
+	 *         (verticalPredicates+=OwnedExpression resultRows+=ResultRow)+
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_NormalTable(ISerializationContext context, NormalTable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -977,6 +1036,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 		feeder.accept(grammarAccess.getOwnedExpressionAccess().getOpOperatorParserRuleCall_3_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getOwnedExpressionAccess().getAccessExpSlangAccessParserRuleCall_3_2_0(), semanticObject.getAccessExp());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ResultRow returns ResultRow
+	 *
+	 * Constraint:
+	 *     (results+=OwnedExpression* results+=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_ResultRow(ISerializationContext context, ResultRow semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

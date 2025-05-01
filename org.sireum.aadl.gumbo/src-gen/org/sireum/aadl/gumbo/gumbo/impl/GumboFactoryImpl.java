@@ -86,6 +86,9 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.INITIALIZE: return createInitialize();
       case GumboPackage.INITIALIZE_SPEC_STATEMENT: return createInitializeSpecStatement();
       case GumboPackage.COMPUTE: return createCompute();
+      case GumboPackage.GUMBO_TABLE: return createGumboTable();
+      case GumboPackage.NORMAL_TABLE: return createNormalTable();
+      case GumboPackage.RESULT_ROW: return createResultRow();
       case GumboPackage.INFO_FLOW_CLAUSE: return createInfoFlowClause();
       case GumboPackage.HANDLER_CLAUSE: return createHandlerClause();
       case GumboPackage.CASE_STATEMENT_CLAUSE: return createCaseStatementClause();
@@ -321,6 +324,42 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     ComputeImpl compute = new ComputeImpl();
     return compute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GumboTable createGumboTable()
+  {
+    GumboTableImpl gumboTable = new GumboTableImpl();
+    return gumboTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NormalTable createNormalTable()
+  {
+    NormalTableImpl normalTable = new NormalTableImpl();
+    return normalTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ResultRow createResultRow()
+  {
+    ResultRowImpl resultRow = new ResultRowImpl();
+    return resultRow;
   }
 
   /**

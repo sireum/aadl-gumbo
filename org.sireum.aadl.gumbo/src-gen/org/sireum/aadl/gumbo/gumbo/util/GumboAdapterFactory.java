@@ -147,6 +147,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createComputeAdapter();
       }
       @Override
+      public Adapter caseGumboTable(GumboTable object)
+      {
+        return createGumboTableAdapter();
+      }
+      @Override
+      public Adapter caseNormalTable(NormalTable object)
+      {
+        return createNormalTableAdapter();
+      }
+      @Override
+      public Adapter caseResultRow(ResultRow object)
+      {
+        return createResultRowAdapter();
+      }
+      @Override
       public Adapter caseInfoFlowClause(InfoFlowClause object)
       {
         return createInfoFlowClauseAdapter();
@@ -854,6 +869,51 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComputeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.GumboTable <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboTable
+   * @generated
+   */
+  public Adapter createGumboTableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.NormalTable <em>Normal Table</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.NormalTable
+   * @generated
+   */
+  public Adapter createNormalTableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ResultRow <em>Result Row</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ResultRow
+   * @generated
+   */
+  public Adapter createResultRowAdapter()
   {
     return null;
   }

@@ -50,6 +50,7 @@ import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.GumboTable;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
@@ -63,9 +64,11 @@ import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 import org.sireum.aadl.gumbo.gumbo.ResultLit;
+import org.sireum.aadl.gumbo.gumbo.ResultRow;
 import org.sireum.aadl.gumbo.gumbo.SlangAccess;
 import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
@@ -554,8 +557,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				flows.add(visitPop(ifc));
 			}
 
+			List<org.sireum.hamr.ir.GumboTable> tables = new ArrayList<>();// SIERRA ADDED
+			for (GumboTable gt : i.getTables()) {
+				tables.add(visitPop(gt));
+			}
+
 			_initializes = SlangUtil.toSome(GclInitialize$.MODULE$.apply(VisitorUtil.toISZ(modifies),
-					VisitorUtil.toISZ(guarantees), VisitorUtil.toISZ(flows),
+					VisitorUtil.toISZ(guarantees), VisitorUtil.toISZ(flows), VisitorUtil.toISZ(tables), // SIERRA ADDED
 					GumboUtil.toAttr(object.getSpecs().getInitialize())));
 		}
 
@@ -568,6 +576,47 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute,
 				GumboUtil.toAttr(object)));
 
+		return false;
+	}
+
+	// SIERRA ADDED
+	@Override
+	public Boolean caseGumboTable(GumboTable gumboTable) {
+		NormalTable table = gumboTable.getTable();
+		push(org.sireum.hamr.ir.GumboTable$.MODULE$.apply(visitPop(table), GumboUtil.toAttr(gumboTable)));
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseNormalTable(NormalTable normalTable) {
+		List<Exp> verticalPredicates = new ArrayList<>();
+		List<Exp> horizontalPredicates = new ArrayList<>();
+		List<org.sireum.hamr.ir.ResultRow> resultRows = new ArrayList<>();
+
+		for (OwnedExpression e : normalTable.getVerticalPredicates()) {
+			verticalPredicates.add(visitPop(e));
+		}
+		for (OwnedExpression e : normalTable.getHorizontalPredicates()) {
+			horizontalPredicates.add(visitPop(e));
+		}
+		for (ResultRow r : normalTable.getResultRows()) {
+			resultRows.add(visitPop(r));
+		}
+		push(org.sireum.hamr.ir.NormalTable$.MODULE$.apply(normalTable.getId(),
+				GumboUtil.getOptionalSlangString(normalTable.getDescriptor()), VisitorUtil.toISZ(horizontalPredicates),
+				VisitorUtil.toISZ(verticalPredicates), VisitorUtil.toISZ(resultRows), GumboUtil.toAttr(normalTable)));
+		return false;
+	}
+
+	@Override
+	public Boolean caseResultRow(ResultRow resultRow) {
+		List<Exp> results = new ArrayList<>();
+
+		for (OwnedExpression e : resultRow.getResults()) {
+			results.add(visitPop(e));
+		}
+		push(org.sireum.hamr.ir.ResultRow$.MODULE$.apply(VisitorUtil.toISZ(results), GumboUtil.toAttr(resultRow)));
 		return false;
 	}
 
@@ -621,8 +670,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
+		List<org.sireum.hamr.ir.GumboTable> tables = new ArrayList<>();// SIERRA ADDED
+		for (GumboTable gt : object.getTables()) {
+			tables.add(visitPop(gt));
+		}
+
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), VisitorUtil.toISZ(specs),
 				VisitorUtil.toISZ(caseStatements), VisitorUtil.toISZ(handlers), VisitorUtil.toISZ(flows),
+				VisitorUtil.toISZ(tables), // SIERRA ADDED
 				GumboUtil.toAttr(object)));
 
 		return false;

@@ -97,6 +97,7 @@ public class InitializeItemProvider
       childrenFeatures.add(GumboPackage.Literals.INITIALIZE__MODIFIES);
       childrenFeatures.add(GumboPackage.Literals.INITIALIZE__SPECS);
       childrenFeatures.add(GumboPackage.Literals.INITIALIZE__FLOWS);
+      childrenFeatures.add(GumboPackage.Literals.INITIALIZE__TABLES);
     }
     return childrenFeatures;
   }
@@ -157,6 +158,7 @@ public class InitializeItemProvider
       case GumboPackage.INITIALIZE__MODIFIES:
       case GumboPackage.INITIALIZE__SPECS:
       case GumboPackage.INITIALIZE__FLOWS:
+      case GumboPackage.INITIALIZE__TABLES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -189,6 +191,11 @@ public class InitializeItemProvider
       (createChildParameter
         (GumboPackage.Literals.INITIALIZE__FLOWS,
          GumboFactory.eINSTANCE.createInfoFlowClause()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.INITIALIZE__TABLES,
+         GumboFactory.eINSTANCE.createGumboTable()));
   }
 
   /**

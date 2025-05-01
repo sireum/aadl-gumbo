@@ -52,6 +52,8 @@
         eType="#//InitializeSpecStatement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
         eType="#//InfoFlowClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
+        eType="#//GumboTable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitializeSpecStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="guaranteeStatement" eType="#//GuaranteeStatement"
@@ -68,6 +70,26 @@
         eType="#//HandlerClause" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
         eType="#//InfoFlowClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
+        eType="#//GumboTable" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GumboTable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//NormalTable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NormalTable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="horizontalPredicates" upperBound="-1"
+        eType="#//OwnedExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="verticalPredicates" upperBound="-1"
+        eType="#//OwnedExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultRows" upperBound="-1"
+        eType="#//ResultRow" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResultRow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
+        eType="#//OwnedExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfoFlowClause">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
