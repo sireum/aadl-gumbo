@@ -29,6 +29,7 @@ import org.osate.aadl2.EventPort;
 import org.osate.aadl2.ModelUnit;
 import org.osate.aadl2.Port;
 import org.osate.aadl2.ProcessSubcomponent;
+import org.osate.aadl2.Property;
 import org.osate.aadl2.ThreadClassifier;
 import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
@@ -59,6 +60,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
+import org.sireum.aadl.gumbo.gumbo.HexLit;
 import org.sireum.aadl.gumbo.gumbo.IfElseExp;
 import org.sireum.aadl.gumbo.gumbo.ImpliesExpr;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
@@ -1186,6 +1188,10 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			String attName = ref.getNamedElement().getName();
 
 			if (attName == null) {
+				if (ref.getNamedElement() instanceof Property) {
+					Property p = (Property) ref.getNamedElement();
+					attName = p.getName();
+				}
 				// FIXME: can still invoke HAMR when selector is invalid. OSATE is likely
 				// showing the error. For now use a string that can't appear in an id.
 				// Maybe use reporter instead.
@@ -1217,15 +1223,17 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	
 	@Override
 	public Boolean caseF32Obj(F32Obj object) {
-		Id slangId = Id$.MODULE$.apply("F32", GumboUtil.buildAttr(object));
-		push(Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object)));
+		Ident f32ident = Ident$.MODULE$.apply(Id$.MODULE$.apply("F32", GumboUtil.buildAttr(object)), GumboUtil.buildResolvedAttr(object));
+		Id attr = Id$.MODULE$.apply(object.getAttr(), GumboUtil.buildAttr(object));
+		push(Select$.MODULE$.apply(SlangUtil.toSome(f32ident), attr, VisitorUtil.toISZ(), GumboUtil.buildResolvedAttr(object)));
 		return false;
 	}
 
 	@Override
 	public Boolean caseF64Obj(F64Obj object) {
-		Id slangId = Id$.MODULE$.apply("F64", GumboUtil.buildAttr(object));
-		push(Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object)));
+		Ident f64ident = Ident$.MODULE$.apply(Id$.MODULE$.apply("64", GumboUtil.buildAttr(object)), GumboUtil.buildResolvedAttr(object));
+		Id attr = Id$.MODULE$.apply(object.getAttr(), GumboUtil.buildAttr(object));
+		push(Select$.MODULE$.apply(SlangUtil.toSome(f64ident), attr, VisitorUtil.toISZ(), GumboUtil.buildResolvedAttr(object)));
 		return false;
 	}
 
@@ -1266,6 +1274,35 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return false;
 	}
 
+	@Override
+	public Boolean caseHexLit(HexLit object) {
+		String hex = object.getValue();
+		assert hex.startsWith("0x") || hex.startsWith("0X");
+		hex = hex.strip().substring(2);
+		
+        int decimalValue = 0;
+        int base = 16;
+
+        for (int i = 0; i < hex.length(); i++) {
+            char c = hex.charAt(i);
+            int digitValue;
+
+            if (c >= '0' && c <= '9') {
+                digitValue = c - '0';
+            } else if (c >= 'A' && c <= 'F') {
+                digitValue = c - 'A' + 10;
+            } else if (c >= 'a' && c <= 'f') {
+                digitValue = c - 'a' + 10;
+            } else {
+                reportError(object, "'" + c + "' is not a valid hex character");
+                digitValue = 0;
+            }
+
+            decimalValue = decimalValue * base + digitValue;
+        }
+		return false;
+	}
+	
 	@Override
 	public Boolean caseIntegerLit(IntegerLit object) {
 

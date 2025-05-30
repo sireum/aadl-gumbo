@@ -83,7 +83,7 @@ import org.sireum.aadl.gumbo.gumbo.HasEventExpr
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class GumboScopeProvider extends AbstractGumboScopeProvider {
+class GumboScopeProvider_xtend extends AbstractGumboScopeProvider {
 	override protected Predicate<Method> getPredicate(EObject context, EReference reference) {
 		val method = super.getPredicate(context, reference)
 		val sname = method.toString.substring(1, method.toString.length - 1)
@@ -126,7 +126,8 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	def scope_InfoFlowClause_fromPortOrStateVar(InfoFlowClause context, EReference reference) {
 		val localDecls = new BasicEList<EObject>()
 
-		val ports = getPortRef(context, reference, #[PortCategory.EVENT, PortCategory.DATA, PortCategory.EVENT_DATA],
+		val ports = getPortRef(context, reference, 
+			#[PortCategory.EVENT, PortCategory.DATA, PortCategory.EVENT_DATA],
 			#[DirectionType.IN, DirectionType.OUT])
 
 		val stateVarDecls = context.getContainerOfType(SpecSection).state?.decls
@@ -140,7 +141,8 @@ class GumboScopeProvider extends AbstractGumboScopeProvider {
 	def scope_InfoFlowClause_toPortOrStateVar(InfoFlowClause context, EReference reference) {
 		val localDecls = new BasicEList<EObject>()
 
-		val ports = getPortRef(context, reference, #[PortCategory.EVENT, PortCategory.DATA, PortCategory.EVENT_DATA],
+		val ports = getPortRef(context, reference,
+			#[PortCategory.EVENT, PortCategory.DATA, PortCategory.EVENT_DATA],
 			#[DirectionType.IN, DirectionType.OUT])
 
 		val stateVarDecls = context.getContainerOfType(SpecSection).state?.decls

@@ -291,84 +291,90 @@ SlangVarMod: 'val' | 'var' ;
 SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
 
 
-
-OwnedExpression 
+// OwnedExpression is the entry rule for SysMLv2's expression language
+OwnedExpression : 
 	//: {BasicExp} terms+=SlangAccess ( ops+=Operator terms+=SlangAccess )*
 	//| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
 	//| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
 	//| {UnaryExp} op=Operator accessExp=SlangAccess
 	//;
-	: {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
-	| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	| ImpliesExpression
-	;
+	//{IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
+	//| 
+	//{QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
+	//ImpliesExpression
+	SlangExpression
+		;
 
 
-ImpliesExpression returns Expr
+// NOTE: will need to wrap nested IfElseExp or QuantifiedExp in parens (which matches what Slang/Scala requires)
+//   e.g. true ->: (if (true) true else true)
+
+SlangExpression returns GExpr
+  : ImpliesExpression
+  | {IfElseExp} 'if' '(' ifCond=ImpliesExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
+  | {QuantifiedExp} quantifier=( 'All' | '∀' | 'Exists' | '∃' ) '(' quantRange=QuantRange ')'
+  		// TODO: the following is a function expression
+  		'(' quantParam=QuantParam '=>' quantifiedExpr=OwnedExpression ')';
+
+// TODO: maybe support 'arrayName.indices'
+QuantRange: lo=OwnedExpression extent=( 'to' | 'until' ) high=OwnedExpression;
+
+QuantParam 
+	: name=ID 
+	| '(' name=ID ':' typeName=SlangType ')';
+
+
+ImpliesExpression returns GExpr
 	: OrExpression ( {ImpliesExpr.left=current} op=ImpliesOps right=OrExpression )*;
 
-OrExpression returns Expr
+OrExpression returns GExpr
 	: AndExpression ({OrExpr.left=current} op=OR_OPS right=AndExpression)*;
 	
 // no hat ^ in Slang
 
-AndExpression returns Expr
+AndExpression returns GExpr
 	: EqualNotExpression ( {AndExpr.left=current} op=AND_OPS right=EqualNotExpression)*;
 
-EqualNotExpression returns Expr
+EqualNotExpression returns GExpr
 	: LtGtExpression ( {EqualNotExpr.left=current} op=EQUAL_NOT_OPS right=LtGtExpression)*;
 
-LtGtExpression returns Expr
+LtGtExpression returns GExpr
 	: ColonExpression ( {LtGtExpr.left=current} op=LT_GT_OPS right=ColonExpression)*;
 	
-ColonExpression returns Expr
+ColonExpression returns GExpr
 	: PlusMinusExpression ( {ColonExpr.left=current} op=COLON_OP right=PlusMinusExpression)*;
 
-PlusMinusExpression returns Expr
+PlusMinusExpression returns GExpr
 	: MultiplicativeExpression ( {PlusMinusExpr.left=current} op=PlusMinusOps right=MultiplicativeExpression)*;
 
-MultiplicativeExpression returns Expr
+MultiplicativeExpression returns GExpr
 	: UnaryExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=UnaryExpression)*;
 	
-UnaryExpression returns Expr
+UnaryExpression returns GExpr
 	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
 	| PrimaryExpr
 	;
 	
-	
-SlangQuantVar: ID ':' e=OwnedExpression ( ( '..' | '..<' ) upperBound=OwnedExpression )? ;
-
 //SlangAccess
 //	: {SlangAccess} t=PrimaryExpr ( suffixes+=SlangAccessSuffix )* ;
 
 //SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID; // cs=SlangCallSuffix? ;
 
-OtherDataRef:
-	(
-		(
-			namedElement=[aadl2::NamedElement|ID]
-	 		(arrayRange+=ArrayRange)*
-		) 
-		('.' path=OtherDataRef)?
-//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
-	)
-;
-
-PrimaryExpr  returns Expr
+PrimaryExpr  returns GExpr
 	: BaseExpr
 	| {PostFixExpr} baseExp=AccessibleBaseExpr ( posts+=Postfix)*;
 	
-BaseExpr returns Expr
+BaseExpr returns GExpr
 	: {SlangLitTerm} lit=SlangLit
 	| {SlangInterpTerm} i=SlangInterp
-	
-	| => ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
-	| => ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')' 
-	| => ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')'
-	| => ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
-	| => ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
 
-	| => ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
+	| ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
+	| ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')' 
+	| ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')'
+	| ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
+	| ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
+
+	| ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
 
 	| FloatObjectExpr
 	
@@ -382,16 +388,16 @@ BaseExpr returns Expr
 	   )
 	;
 
-FloatObjectExpr returns Expr
-	: {F32Obj} 'F32' '.' attr=ID
+FloatObjectExpr returns GExpr
+	: {F32Obj} 'F32' '.' attr=ID // e.g. F32.NaN
 	| {F64Obj} 'F64' '.' attr=ID
 	;
 	
-AccessibleBaseExpr returns Expr
+AccessibleBaseExpr returns GExpr
 	:  => ({CallExpr} id=[ecore::EObject|QualifiedName] callSuffix=SlangCallSuffix )	
 	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') 
 			argExpr+=OwnedExpression (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=OwnedExpression)* '}'
-	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] ('.' ref=OtherDataRef)?
+	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] 
 	| {ResultExpr} 'res'
 ;
 
@@ -403,6 +409,16 @@ MemberAccess:
 
 ArrayAccess:
 	'(' index+=OwnedExpression (',' index+=OwnedExpression)* ')';
+
+
+OtherDataRef:
+		(
+			namedElement=[aadl2::NamedElement|ID]
+			(arrayRange+=ArrayRange)*
+		)
+		('.' path=OtherDataRef)?
+//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
+;
 
 //TupleExpr
 //    {TupleExpr} '(' elements+=OwnedExpression (',' elements+=OwnedExpression)+ ')';
@@ -478,6 +494,7 @@ terminal SLI: IDF '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 
 
 
+terminal QUANTIFIER_OP: '\\all' | '\\exists' | '∀' | '∃' ;
 
 UnaryOp: PlusMinus | NOT;
 
