@@ -29,7 +29,6 @@ import org.osate.aadl2.EventPort;
 import org.osate.aadl2.ModelUnit;
 import org.osate.aadl2.Port;
 import org.osate.aadl2.ProcessSubcomponent;
-import org.osate.aadl2.Property;
 import org.osate.aadl2.ThreadClassifier;
 import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
@@ -48,12 +47,12 @@ import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.EqualNotExpr;
-import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.F32Lit;
 import org.sireum.aadl.gumbo.gumbo.F32Obj;
 import org.sireum.aadl.gumbo.gumbo.F64Lit;
 import org.sireum.aadl.gumbo.gumbo.F64Obj;
 import org.sireum.aadl.gumbo.gumbo.FuncSpec;
+import org.sireum.aadl.gumbo.gumbo.GExpr;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
@@ -83,6 +82,8 @@ import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
 import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
 import org.sireum.aadl.gumbo.gumbo.Postfix;
+import org.sireum.aadl.gumbo.gumbo.QuantParam;
+import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
 import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
@@ -129,6 +130,8 @@ import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
 import org.sireum.hamr.ir.GclSubclause;
 import org.sireum.hamr.ir.GclSubclause$;
+import org.sireum.hamr.codegen.common.util.GclUtil.SlangAstBridge$;
+import org.sireum.lang.ast.AssignExp;
 import org.sireum.lang.ast.Exp.Binary;
 import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Body;
@@ -169,6 +172,7 @@ import org.sireum.lang.ast.Param$;
 import org.sireum.lang.ast.Purity;
 import org.sireum.lang.ast.Purity$;
 import org.sireum.lang.ast.Stmt;
+import org.sireum.lang.ast.Stmt.Expr;
 import org.sireum.lang.ast.Stmt.Method;
 import org.sireum.lang.ast.Stmt.Method$;
 import org.sireum.lang.ast.Type;
@@ -337,9 +341,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	private void processDatatype(Classifier c) {
-		if (c.getName() == null) {
-			System.out.println();
-		}
 		if (!c.getName().equals("Natural")) {
 			v.processDataType((DataClassifier) c);
 		}
@@ -393,10 +394,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				Id paramId = Id$.MODULE$.apply(sdp.getName(), GumboUtil.buildAttr(object));
 				Type.Named paramType = GumboUtil.buildTypeNamed(sdp.getTypeName().getTypeName(), object);
 
+				processDatatype(sdp.getTypeName().getTypeName().getContainingClassifier());
+				
 				params.add(Param$.MODULE$.apply(isHidden, paramId, paramType));
 			}
 		}
 
+		processDatatype(object.getType().getTypeName().getContainingClassifier());
+		
 		Type.Named returnType = GumboUtil.buildTypeNamed(object.getType().getTypeName(), object);
 
 		boolean hasParams = !params.isEmpty();
@@ -827,6 +832,10 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			StateVarDecl s = (StateVarDecl) obj;
 			Id id = Id$.MODULE$.apply(s.getName(), GumboUtil.buildAttr(object));
 			ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
+		} else if (obj instanceof SlangDefParam) {
+			SlangDefParam s = (SlangDefParam) obj;
+			Id id = Id$.MODULE$.apply(s.getName(), GumboUtil.buildAttr(object));
+			ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
 		} else {
 			reportError(obj, "Not currently handling calls to " + obj.getClass().getSimpleName());
 
@@ -953,8 +962,36 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return false;
 	}
 
+	@Override
+	public Boolean caseQuantifiedExp(QuantifiedExp object) {
+		boolean isForAll = object.getQuantifier().equalsIgnoreCase("all") || object.getQuantifier().equalsIgnoreCase("∀");
+		assert (isForAll || (object.getQuantifier().equalsIgnoreCase("exists") || object.getQuantifier().equalsIgnoreCase("∃")));
+		
+		boolean isInclusive = object.getQuantRange().getExtent().equalsIgnoreCase("to");
+		assert (isInclusive || object.getQuantRange().getExtent().equalsIgnoreCase("until"));
+		
+		Exp lo = visitPop(object.getQuantRange().getLo());
+		Exp high = visitPop(object.getQuantRange().getHigh());
+		
+		Option<Id> idOpt = SlangUtil.toSome(Id$.MODULE$.apply(object.getQuantParam().getName(), GumboUtil.buildAttr(object)));
+		
+		AssignExp quantExp = Stmt.Expr$.MODULE$.apply(visitPop(object.getQuantifiedExpr()), GumboUtil.buildTypedAttr(object));
 
-	Boolean constructBinary(Expr lhs, String op, Expr rhs, INode opNode) {
+		IS<Z, org.sireum.String> context = VisitorUtil.toISZ(path.stream().map(s -> SlangUtil.sireumString(s)).collect(Collectors.toList()));
+		
+		Exp.Fun funExp = Exp.Fun$.MODULE$.apply( //
+				context, //
+				VisitorUtil.toISZ(SlangAstBridge$.MODULE$.AST_Exp_Fun_Param(idOpt, SlangUtil.toNone(), SlangUtil.toNone())), //
+				quantExp, GumboUtil.buildTypedAttr(object));	
+		
+		Exp.QuantRange qrr = Exp.QuantRange$.MODULE$.apply(isForAll, lo, high, isInclusive, funExp, GumboUtil.buildResolvedAttr(object));
+
+		push(Exp.QuantRange$.MODULE$.apply(isForAll, lo, high, isInclusive, funExp, GumboUtil.buildResolvedAttr(object)));
+		
+		return false;
+	}
+
+	Boolean constructBinary(GExpr lhs, String op, GExpr rhs, INode opNode) {
 		Exp l = visitPop(lhs);
 		Exp r = visitPop(rhs);
 		Option<Position> mergedPos = GumboUtil.mergePositions(l.posOpt(), r.posOpt());
@@ -1051,7 +1088,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			for (Postfix postfix : object.getPosts()) {
 				if (postfix instanceof MemberAccess) {
 					MemberAccess m = (MemberAccess) postfix;
-					Id id = Id$.MODULE$.apply(m.getField(), GumboUtil.buildAttr(m));
+					String member = m.getField().toString();
+					Id id = Id$.MODULE$.apply(member, GumboUtil.buildAttr(m));
 					Option<Position> posOpt = GumboUtil.mergePositions(receiver.posOpt(), id.attr().posOpt());
 					receiver = Select$.MODULE$.apply(SlangUtil.toSome(receiver), // receiverOpt
 							id, // id
@@ -1171,6 +1209,11 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			slangId = Id$.MODULE$.apply(sdp.getName(),
 					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, sdp.getName().length())));
+		} else if (receiver instanceof QuantParam) {
+			QuantParam qp = (QuantParam) receiver;
+			
+			slangId = Id$.MODULE$.apply(qp.getName(),
+					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, qp.getName().length())));
 		} else {
 			// FIXME: can invoke HAMR even if there are syntax errors in gumbo annexes. OSATE is likely
 			// showing the error. Use reporter instead?
@@ -1183,41 +1226,39 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			return false;
 		}
 
+		/*
 		if (object.getRef() != null) {
-			OtherDataRef ref = object.getRef();
-			String attName = ref.getNamedElement().getName();
-
-			if (attName == null) {
-				if (ref.getNamedElement() instanceof Property) {
-					Property p = (Property) ref.getNamedElement();
-					attName = p.getName();
+				OtherDataRef ref = object.getRef();
+				String attName = ref.getNamedElement().getName();
+	
+				if (attName == null) {
+					// FIXME: can still invoke HAMR when selector is invalid. OSATE is likely
+					// showing the error. For now use a string that can't appear in an id.
+					// Maybe use reporter instead.
+					attName = "<invalid>";
 				}
-				// FIXME: can still invoke HAMR when selector is invalid. OSATE is likely
-				// showing the error. For now use a string that can't appear in an id.
-				// Maybe use reporter instead.
-				attName = "<invalid>";
-			}
-
-			Stack<Object> names = new Stack<>();
-			names.push(Id$.MODULE$.apply(attName, GumboUtil.buildAttr(ref)));
-			names.push(slangId);
-
-			ref = ref.getPath();
-
-			while (ref != null) {
-				attName = ref.getNamedElement().getName();
-
-				names.add(0, Id$.MODULE$.apply(attName, GumboUtil.buildAttr(ref)));
-
+	
+				Stack<Object> names = new Stack<>();
+				names.push(Id$.MODULE$.apply(attName, GumboUtil.buildAttr(ref)));
+				names.push(slangId);
+	
 				ref = ref.getPath();
-			}
-
-			push(GumboUtil.convertIdStackToSelect(names));
-
+	
+				while (ref != null) {
+					attName = ref.getNamedElement().getName();
+	
+					names.add(0, Id$.MODULE$.apply(attName, GumboUtil.buildAttr(ref)));
+	
+					ref = ref.getPath();
+				}
+	
+				push(GumboUtil.convertIdStackToSelect(names));
 		} else {
 			push(Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object)));
 		}
-
+*/
+		push(Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object)));
+		
 		return false;
 	}
 	

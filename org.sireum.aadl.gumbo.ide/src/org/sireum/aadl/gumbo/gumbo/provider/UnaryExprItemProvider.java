@@ -37,7 +37,7 @@ import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnaryExprItemProvider extends ExprItemProvider
+public class UnaryExprItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -191,7 +191,17 @@ public class UnaryExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_EXPR__EXP,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXPR__EXP,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXPR__EXP,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
       (createChildParameter

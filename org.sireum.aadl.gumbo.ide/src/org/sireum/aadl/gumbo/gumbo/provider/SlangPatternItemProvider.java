@@ -178,7 +178,7 @@ public class SlangPatternItemProvider extends SlangVarDefItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_PATTERN__INIT,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter

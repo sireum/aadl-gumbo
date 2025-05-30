@@ -37,7 +37,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AndExprItemProvider extends ExprItemProvider
+public class AndExprItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -193,7 +193,17 @@ public class AndExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.AND_EXPR__LEFT,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.AND_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.AND_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -333,7 +343,17 @@ public class AndExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.AND_EXPR__RIGHT,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.AND_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.AND_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
       (createChildParameter

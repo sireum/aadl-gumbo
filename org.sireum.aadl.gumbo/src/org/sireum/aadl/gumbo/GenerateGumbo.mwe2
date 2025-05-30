@@ -140,7 +140,7 @@ Workflow {
 			//composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 			fragment = scoping.ImportNamespacesScopingFragment2 {
-				generateXtendStub = true
+				//generateXtendStub = true
 				ignoreCase = true
 			}
 			fragment = exporting.QualifiedNamesFragment2 {}

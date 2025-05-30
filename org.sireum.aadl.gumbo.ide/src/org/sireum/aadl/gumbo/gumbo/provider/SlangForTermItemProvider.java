@@ -35,7 +35,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangForTerm;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangForTermItemProvider extends ExprItemProvider
+public class SlangForTermItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -178,7 +178,7 @@ public class SlangForTermItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_FOR_TERM__E,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter

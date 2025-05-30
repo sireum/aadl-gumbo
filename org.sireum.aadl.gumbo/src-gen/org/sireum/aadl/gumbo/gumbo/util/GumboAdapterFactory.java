@@ -312,19 +312,19 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createOwnedExpressionAdapter();
       }
       @Override
-      public Adapter caseExpr(Expr object)
+      public Adapter caseGExpr(GExpr object)
       {
-        return createExprAdapter();
+        return createGExprAdapter();
       }
       @Override
-      public Adapter caseSlangQuantVar(SlangQuantVar object)
+      public Adapter caseQuantRange(QuantRange object)
       {
-        return createSlangQuantVarAdapter();
+        return createQuantRangeAdapter();
       }
       @Override
-      public Adapter caseOtherDataRef(OtherDataRef object)
+      public Adapter caseQuantParam(QuantParam object)
       {
-        return createOtherDataRefAdapter();
+        return createQuantParamAdapter();
       }
       @Override
       public Adapter casePostfix(Postfix object)
@@ -340,6 +340,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseArrayAccess(ArrayAccess object)
       {
         return createArrayAccessAdapter();
+      }
+      @Override
+      public Adapter caseOtherDataRef(OtherDataRef object)
+      {
+        return createOtherDataRefAdapter();
       }
       @Override
       public Adapter caseSlangParams(SlangParams object)
@@ -1314,46 +1319,46 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Expr <em>Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.GExpr <em>GExpr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Expr
+   * @see org.sireum.aadl.gumbo.gumbo.GExpr
    * @generated
    */
-  public Adapter createExprAdapter()
+  public Adapter createGExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar <em>Slang Quant Var</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.QuantRange <em>Quant Range</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.SlangQuantVar
+   * @see org.sireum.aadl.gumbo.gumbo.QuantRange
    * @generated
    */
-  public Adapter createSlangQuantVarAdapter()
+  public Adapter createQuantRangeAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef <em>Other Data Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.QuantParam <em>Quant Param</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef
+   * @see org.sireum.aadl.gumbo.gumbo.QuantParam
    * @generated
    */
-  public Adapter createOtherDataRefAdapter()
+  public Adapter createQuantParamAdapter()
   {
     return null;
   }
@@ -1399,6 +1404,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArrayAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.OtherDataRef <em>Other Data Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.OtherDataRef
+   * @generated
+   */
+  public Adapter createOtherDataRefAdapter()
   {
     return null;
   }

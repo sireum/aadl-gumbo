@@ -1185,78 +1185,78 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Expr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.GExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExprItemProvider exprItemProvider;
+  protected GExprItemProvider gExprItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Expr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.GExpr}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createExprAdapter()
+  public Adapter createGExprAdapter()
   {
-    if (exprItemProvider == null)
+    if (gExprItemProvider == null)
     {
-      exprItemProvider = new ExprItemProvider(this);
+      gExprItemProvider = new GExprItemProvider(this);
     }
 
-    return exprItemProvider;
+    return gExprItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.QuantRange} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SlangQuantVarItemProvider slangQuantVarItemProvider;
+  protected QuantRangeItemProvider quantRangeItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangQuantVar}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.QuantRange}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createSlangQuantVarAdapter()
+  public Adapter createQuantRangeAdapter()
   {
-    if (slangQuantVarItemProvider == null)
+    if (quantRangeItemProvider == null)
     {
-      slangQuantVarItemProvider = new SlangQuantVarItemProvider(this);
+      quantRangeItemProvider = new QuantRangeItemProvider(this);
     }
 
-    return slangQuantVarItemProvider;
+    return quantRangeItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.OtherDataRef} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.QuantParam} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OtherDataRefItemProvider otherDataRefItemProvider;
+  protected QuantParamItemProvider quantParamItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.OtherDataRef}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.QuantParam}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createOtherDataRefAdapter()
+  public Adapter createQuantParamAdapter()
   {
-    if (otherDataRefItemProvider == null)
+    if (quantParamItemProvider == null)
     {
-      otherDataRefItemProvider = new OtherDataRefItemProvider(this);
+      quantParamItemProvider = new QuantParamItemProvider(this);
     }
 
-    return otherDataRefItemProvider;
+    return quantParamItemProvider;
   }
 
   /**
@@ -1332,6 +1332,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return arrayAccessItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.OtherDataRef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OtherDataRefItemProvider otherDataRefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.OtherDataRef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createOtherDataRefAdapter()
+  {
+    if (otherDataRefItemProvider == null)
+    {
+      otherDataRefItemProvider = new OtherDataRefItemProvider(this);
+    }
+
+    return otherDataRefItemProvider;
   }
 
   /**
@@ -2820,12 +2845,13 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangVarDefItemProvider != null) slangVarDefItemProvider.dispose();
     if (slangBlockItemProvider != null) slangBlockItemProvider.dispose();
     if (ownedExpressionItemProvider != null) ownedExpressionItemProvider.dispose();
-    if (exprItemProvider != null) exprItemProvider.dispose();
-    if (slangQuantVarItemProvider != null) slangQuantVarItemProvider.dispose();
-    if (otherDataRefItemProvider != null) otherDataRefItemProvider.dispose();
+    if (gExprItemProvider != null) gExprItemProvider.dispose();
+    if (quantRangeItemProvider != null) quantRangeItemProvider.dispose();
+    if (quantParamItemProvider != null) quantParamItemProvider.dispose();
     if (postfixItemProvider != null) postfixItemProvider.dispose();
     if (memberAccessItemProvider != null) memberAccessItemProvider.dispose();
     if (arrayAccessItemProvider != null) arrayAccessItemProvider.dispose();
+    if (otherDataRefItemProvider != null) otherDataRefItemProvider.dispose();
     if (slangParamsItemProvider != null) slangParamsItemProvider.dispose();
     if (slangParamItemProvider != null) slangParamItemProvider.dispose();
     if (slangForRangeItemProvider != null) slangForRangeItemProvider.dispose();

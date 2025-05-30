@@ -35,7 +35,7 @@ import org.sireum.aadl.gumbo.gumbo.IfElseExp;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IfElseExpItemProvider extends OwnedExpressionItemProvider
+public class IfElseExpItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -163,12 +163,7 @@ public class IfElseExpItemProvider extends OwnedExpressionItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
-         GumboFactory.eINSTANCE.createOwnedExpression()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -323,7 +318,7 @@ public class IfElseExpItemProvider extends OwnedExpressionItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -478,7 +473,7 @@ public class IfElseExpItemProvider extends OwnedExpressionItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter

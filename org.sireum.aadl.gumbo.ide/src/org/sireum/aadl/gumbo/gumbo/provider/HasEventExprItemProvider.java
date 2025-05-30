@@ -31,7 +31,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HasEventExprItemProvider extends ExprItemProvider
+public class HasEventExprItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.

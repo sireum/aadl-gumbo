@@ -91,6 +91,8 @@ import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
 import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
+import org.sireum.aadl.gumbo.gumbo.QuantParam;
+import org.sireum.aadl.gumbo.gumbo.QuantRange;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
@@ -122,7 +124,6 @@ import org.sireum.aadl.gumbo.gumbo.SlangModifies;
 import org.sireum.aadl.gumbo.gumbo.SlangParam;
 import org.sireum.aadl.gumbo.gumbo.SlangParams;
 import org.sireum.aadl.gumbo.gumbo.SlangPattern;
-import org.sireum.aadl.gumbo.gumbo.SlangQuantVar;
 import org.sireum.aadl.gumbo.gumbo.SlangReads;
 import org.sireum.aadl.gumbo.gumbo.SlangRequires;
 import org.sireum.aadl.gumbo.gumbo.SlangRet;
@@ -331,7 +332,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				sequence_SlangLit(context, (HexLit) semanticObject); 
 				return; 
 			case GumboPackage.IF_ELSE_EXP:
-				sequence_OwnedExpression(context, (IfElseExp) semanticObject); 
+				sequence_SlangExpression(context, (IfElseExp) semanticObject); 
 				return; 
 			case GumboPackage.IMPLIES_EXPR:
 				sequence_ImpliesExpression(context, (ImpliesExpr) semanticObject); 
@@ -393,8 +394,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.POST_FIX_EXPR:
 				sequence_PrimaryExpr(context, (PostFixExpr) semanticObject); 
 				return; 
+			case GumboPackage.QUANT_PARAM:
+				sequence_QuantParam(context, (QuantParam) semanticObject); 
+				return; 
+			case GumboPackage.QUANT_RANGE:
+				sequence_QuantRange(context, (QuantRange) semanticObject); 
+				return; 
 			case GumboPackage.QUANTIFIED_EXP:
-				sequence_OwnedExpression(context, (QuantifiedExp) semanticObject); 
+				sequence_SlangExpression(context, (QuantifiedExp) semanticObject); 
 				return; 
 			case GumboPackage.RECORD_LIT_EXPR:
 				sequence_AccessibleBaseExpr(context, (RecordLitExpr) semanticObject); 
@@ -493,9 +500,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 					return; 
 				}
 				else break;
-			case GumboPackage.SLANG_QUANT_VAR:
-				sequence_SlangQuantVar(context, (SlangQuantVar) semanticObject); 
-				return; 
 			case GumboPackage.SLANG_READS:
 				sequence_SlangReads(context, (SlangReads) semanticObject); 
 				return; 
@@ -578,11 +582,17 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     AccessibleBaseExpr returns DataRefExpr
 	 *
 	 * Constraint:
-	 *     (portOrSubcomponentOrStateVar=[EObject|ID] ref=OtherDataRef?)
+	 *     portOrSubcomponentOrStateVar=[EObject|ID]
 	 * </pre>
 	 */
 	protected void sequence_AccessibleBaseExpr(ISerializationContext context, DataRefExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.DATA_REF_EXPR__PORT_OR_SUBCOMPONENT_OR_STATE_VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.DATA_REF_EXPR__PORT_OR_SUBCOMPONENT_OR_STATE_VAR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAccessibleBaseExprAccess().getPortOrSubcomponentOrStateVarEObjectIDTerminalRuleCall_2_1_0_1(), semanticObject.eGet(GumboPackage.Literals.DATA_REF_EXPR__PORT_OR_SUBCOMPONENT_OR_STATE_VAR, false));
+		feeder.finish();
 	}
 	
 	
@@ -618,6 +628,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns AndExpr
+	 *     SlangExpression returns AndExpr
 	 *     ImpliesExpression returns AndExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns AndExpr
 	 *     OrExpression returns AndExpr
@@ -720,6 +731,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns EnumLitExpr
+	 *     SlangExpression returns EnumLitExpr
 	 *     ImpliesExpression returns EnumLitExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns EnumLitExpr
 	 *     OrExpression returns EnumLitExpr
@@ -752,7 +764,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.ENUM_LIT_EXPR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBaseExprAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_7_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
+		feeder.accept(grammarAccess.getBaseExprAccess().getEnumTypeDataClassifierQCLREFParserRuleCall_7_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__ENUM_TYPE, false));
 		feeder.accept(grammarAccess.getBaseExprAccess().getValueStringLiteralIDTerminalRuleCall_7_1_0_1(), semanticObject.eGet(GumboPackage.Literals.ENUM_LIT_EXPR__VALUE, false));
 		feeder.finish();
 	}
@@ -762,6 +774,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns HasEventExpr
+	 *     SlangExpression returns HasEventExpr
 	 *     ImpliesExpression returns HasEventExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns HasEventExpr
 	 *     OrExpression returns HasEventExpr
@@ -801,6 +814,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns InStateExpr
+	 *     SlangExpression returns InStateExpr
 	 *     ImpliesExpression returns InStateExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns InStateExpr
 	 *     OrExpression returns InStateExpr
@@ -840,6 +854,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns MaySendExpr
+	 *     SlangExpression returns MaySendExpr
 	 *     ImpliesExpression returns MaySendExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns MaySendExpr
 	 *     OrExpression returns MaySendExpr
@@ -873,6 +888,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns MustSendExpr
+	 *     SlangExpression returns MustSendExpr
 	 *     ImpliesExpression returns MustSendExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns MustSendExpr
 	 *     OrExpression returns MustSendExpr
@@ -906,6 +922,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns NoSendExpr
+	 *     SlangExpression returns NoSendExpr
 	 *     ImpliesExpression returns NoSendExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns NoSendExpr
 	 *     OrExpression returns NoSendExpr
@@ -945,6 +962,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns ParenExpr
+	 *     SlangExpression returns ParenExpr
 	 *     ImpliesExpression returns ParenExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns ParenExpr
 	 *     OrExpression returns ParenExpr
@@ -984,6 +1002,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns SlangBlockTerm
+	 *     SlangExpression returns SlangBlockTerm
 	 *     ImpliesExpression returns SlangBlockTerm
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns SlangBlockTerm
 	 *     OrExpression returns SlangBlockTerm
@@ -1017,6 +1036,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns SlangForTerm
+	 *     SlangExpression returns SlangForTerm
 	 *     ImpliesExpression returns SlangForTerm
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns SlangForTerm
 	 *     OrExpression returns SlangForTerm
@@ -1050,6 +1070,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns SlangInterpTerm
+	 *     SlangExpression returns SlangInterpTerm
 	 *     ImpliesExpression returns SlangInterpTerm
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns SlangInterpTerm
 	 *     OrExpression returns SlangInterpTerm
@@ -1089,6 +1110,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns SlangLitTerm
+	 *     SlangExpression returns SlangLitTerm
 	 *     ImpliesExpression returns SlangLitTerm
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns SlangLitTerm
 	 *     OrExpression returns SlangLitTerm
@@ -1142,6 +1164,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns ColonExpr
+	 *     SlangExpression returns ColonExpr
 	 *     ImpliesExpression returns ColonExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns ColonExpr
 	 *     OrExpression returns ColonExpr
@@ -1221,6 +1244,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns EqualNotExpr
+	 *     SlangExpression returns EqualNotExpr
 	 *     ImpliesExpression returns EqualNotExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns EqualNotExpr
 	 *     OrExpression returns EqualNotExpr
@@ -1255,6 +1279,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns F32Obj
+	 *     SlangExpression returns F32Obj
 	 *     ImpliesExpression returns F32Obj
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns F32Obj
 	 *     OrExpression returns F32Obj
@@ -1295,6 +1320,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns F64Obj
+	 *     SlangExpression returns F64Obj
 	 *     ImpliesExpression returns F64Obj
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns F64Obj
 	 *     OrExpression returns F64Obj
@@ -1414,6 +1440,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns ImpliesExpr
+	 *     SlangExpression returns ImpliesExpr
 	 *     ImpliesExpression returns ImpliesExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns ImpliesExpr
 	 *
@@ -1537,6 +1564,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns LtGtExpr
+	 *     SlangExpression returns LtGtExpr
 	 *     ImpliesExpression returns LtGtExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns LtGtExpr
 	 *     OrExpression returns LtGtExpr
@@ -1594,6 +1622,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns MultiplicativeExpr
+	 *     SlangExpression returns MultiplicativeExpr
 	 *     ImpliesExpression returns MultiplicativeExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns MultiplicativeExpr
 	 *     OrExpression returns MultiplicativeExpr
@@ -1636,6 +1665,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns OrExpr
+	 *     SlangExpression returns OrExpr
 	 *     ImpliesExpression returns OrExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns OrExpr
 	 *     OrExpression returns OrExpr
@@ -1679,47 +1709,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OwnedExpression returns IfElseExp
-	 *
-	 * Constraint:
-	 *     (ifCond=OwnedExpression thenExpr=OwnedExpression elseExpr=OwnedExpression)
-	 * </pre>
-	 */
-	protected void sequence_OwnedExpression(ISerializationContext context, IfElseExp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__IF_COND) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__IF_COND));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR));
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOwnedExpressionAccess().getIfCondOwnedExpressionParserRuleCall_0_3_0(), semanticObject.getIfCond());
-		feeder.accept(grammarAccess.getOwnedExpressionAccess().getThenExprOwnedExpressionParserRuleCall_0_5_0(), semanticObject.getThenExpr());
-		feeder.accept(grammarAccess.getOwnedExpressionAccess().getElseExprOwnedExpressionParserRuleCall_0_7_0(), semanticObject.getElseExpr());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     OwnedExpression returns QuantifiedExp
-	 *
-	 * Constraint:
-	 *     (qVar+=SlangQuantVar qVar+=SlangQuantVar* quantifiedExpr=OwnedExpression)
-	 * </pre>
-	 */
-	protected void sequence_OwnedExpression(ISerializationContext context, QuantifiedExp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     OwnedExpression returns PlusMinusExpr
+	 *     SlangExpression returns PlusMinusExpr
 	 *     ImpliesExpression returns PlusMinusExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns PlusMinusExpr
 	 *     OrExpression returns PlusMinusExpr
@@ -1760,6 +1751,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns PostFixExpr
+	 *     SlangExpression returns PostFixExpr
 	 *     ImpliesExpression returns PostFixExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns PostFixExpr
 	 *     OrExpression returns PostFixExpr
@@ -1784,6 +1776,34 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_PrimaryExpr(ISerializationContext context, PostFixExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     QuantParam returns QuantParam
+	 *
+	 * Constraint:
+	 *     (name=ID | (name=ID typeName=SlangType))
+	 * </pre>
+	 */
+	protected void sequence_QuantParam(ISerializationContext context, QuantParam semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     QuantRange returns QuantRange
+	 *
+	 * Constraint:
+	 *     (lo=OwnedExpression (extent='to' | extent='until') high=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_QuantRange(ISerializationContext context, QuantRange semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1960,6 +1980,53 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_SlangEnsures(ISerializationContext context, SlangEnsures semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     OwnedExpression returns IfElseExp
+	 *     SlangExpression returns IfElseExp
+	 *
+	 * Constraint:
+	 *     (ifCond=ImpliesExpression thenExpr=OwnedExpression elseExpr=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_SlangExpression(ISerializationContext context, IfElseExp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__IF_COND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__IF_COND));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getIfCondImpliesExpressionParserRuleCall_1_3_0(), semanticObject.getIfCond());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getThenExprOwnedExpressionParserRuleCall_1_5_0(), semanticObject.getThenExpr());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getElseExprOwnedExpressionParserRuleCall_1_7_0(), semanticObject.getElseExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     OwnedExpression returns QuantifiedExp
+	 *     SlangExpression returns QuantifiedExp
+	 *
+	 * Constraint:
+	 *     (
+	 *         (quantifier='All' | quantifier='∀' | quantifier='Exists' | quantifier='∃') 
+	 *         quantRange=QuantRange 
+	 *         quantParam=QuantParam 
+	 *         quantifiedExpr=OwnedExpression
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_SlangExpression(ISerializationContext context, QuantifiedExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2233,20 +2300,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_SlangPattern_SlangVarDef(ISerializationContext context, SlangPattern semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     SlangQuantVar returns SlangQuantVar
-	 *
-	 * Constraint:
-	 *     (e=OwnedExpression upperBound=OwnedExpression?)
-	 * </pre>
-	 */
-	protected void sequence_SlangQuantVar(ISerializationContext context, SlangQuantVar semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2585,6 +2638,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * <pre>
 	 * Contexts:
 	 *     OwnedExpression returns UnaryExpr
+	 *     SlangExpression returns UnaryExpr
 	 *     ImpliesExpression returns UnaryExpr
 	 *     ImpliesExpression.ImpliesExpr_1_0 returns UnaryExpr
 	 *     OrExpression returns UnaryExpr

@@ -35,7 +35,7 @@ import org.sireum.aadl.gumbo.gumbo.ParenExpr;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParenExprItemProvider extends ExprItemProvider
+public class ParenExprItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -164,7 +164,7 @@ public class ParenExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PAREN_EXPR__EXP,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter

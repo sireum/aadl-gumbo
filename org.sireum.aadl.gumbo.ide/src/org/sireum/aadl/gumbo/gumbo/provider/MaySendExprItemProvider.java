@@ -36,7 +36,7 @@ import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MaySendExprItemProvider extends ExprItemProvider
+public class MaySendExprItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -189,7 +189,7 @@ public class MaySendExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MAY_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter

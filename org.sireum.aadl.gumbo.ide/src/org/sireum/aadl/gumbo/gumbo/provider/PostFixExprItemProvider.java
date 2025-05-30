@@ -35,7 +35,7 @@ import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PostFixExprItemProvider extends ExprItemProvider
+public class PostFixExprItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -161,7 +161,17 @@ public class PostFixExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.POST_FIX_EXPR__BASE_EXP,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.POST_FIX_EXPR__BASE_EXP,
+         GumboFactory.eINSTANCE.createIfElseExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.POST_FIX_EXPR__BASE_EXP,
+         GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
       (createChildParameter

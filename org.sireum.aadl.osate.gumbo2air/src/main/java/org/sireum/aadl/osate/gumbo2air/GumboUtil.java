@@ -11,6 +11,7 @@ import org.osate.aadl2.ComponentType;
 import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Port;
 import org.sireum.Option;
+import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.osate.util.SlangUtil;
 import org.sireum.aadl.osate.util.VisitorUtil;
 import org.sireum.aadl.osate.util.VisitorUtil.Pair;

@@ -22,7 +22,9 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
@@ -35,7 +37,7 @@ import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
  * <!-- end-user-doc -->
  * @generated
  */
-public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
+public class QuantifiedExpItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -61,8 +63,32 @@ public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addQuantifierPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Quantifier feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addQuantifierPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_QuantifiedExp_quantifier_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_QuantifiedExp_quantifier_feature", "_UI_QuantifiedExp_type"),
+         GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -79,7 +105,8 @@ public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.QUANTIFIED_EXP__QVAR);
+      childrenFeatures.add(GumboPackage.Literals.QUANTIFIED_EXP__QUANT_RANGE);
+      childrenFeatures.add(GumboPackage.Literals.QUANTIFIED_EXP__QUANT_PARAM);
       childrenFeatures.add(GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR);
     }
     return childrenFeatures;
@@ -120,7 +147,10 @@ public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_QuantifiedExp_type");
+    String label = ((QuantifiedExp)object).getQuantifier();
+    return label == null || label.length() == 0 ?
+      getString("_UI_QuantifiedExp_type") :
+      getString("_UI_QuantifiedExp_type") + " " + label;
   }
 
 
@@ -138,7 +168,11 @@ public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
 
     switch (notification.getFeatureID(QuantifiedExp.class))
     {
-      case GumboPackage.QUANTIFIED_EXP__QVAR:
+      case GumboPackage.QUANTIFIED_EXP__QUANTIFIER:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+      case GumboPackage.QUANTIFIED_EXP__QUANT_RANGE:
+      case GumboPackage.QUANTIFIED_EXP__QUANT_PARAM:
       case GumboPackage.QUANTIFIED_EXP__QUANTIFIED_EXPR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -160,8 +194,13 @@ public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.QUANTIFIED_EXP__QVAR,
-         GumboFactory.eINSTANCE.createSlangQuantVar()));
+        (GumboPackage.Literals.QUANTIFIED_EXP__QUANT_RANGE,
+         GumboFactory.eINSTANCE.createQuantRange()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANTIFIED_EXP__QUANT_PARAM,
+         GumboFactory.eINSTANCE.createQuantParam()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -171,7 +210,7 @@ public class QuantifiedExpItemProvider extends OwnedExpressionItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter

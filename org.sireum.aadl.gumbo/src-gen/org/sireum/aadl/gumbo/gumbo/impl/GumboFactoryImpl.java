@@ -119,12 +119,13 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_VAR_DEF: return createSlangVarDef();
       case GumboPackage.SLANG_BLOCK: return createSlangBlock();
       case GumboPackage.OWNED_EXPRESSION: return createOwnedExpression();
-      case GumboPackage.EXPR: return createExpr();
-      case GumboPackage.SLANG_QUANT_VAR: return createSlangQuantVar();
-      case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
+      case GumboPackage.GEXPR: return createGExpr();
+      case GumboPackage.QUANT_RANGE: return createQuantRange();
+      case GumboPackage.QUANT_PARAM: return createQuantParam();
       case GumboPackage.POSTFIX: return createPostfix();
       case GumboPackage.MEMBER_ACCESS: return createMemberAccess();
       case GumboPackage.ARRAY_ACCESS: return createArrayAccess();
+      case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
       case GumboPackage.SLANG_PARAMS: return createSlangParams();
       case GumboPackage.SLANG_PARAM: return createSlangParam();
       case GumboPackage.SLANG_FOR_RANGE: return createSlangForRange();
@@ -717,10 +718,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Expr createExpr()
+  public GExpr createGExpr()
   {
-    ExprImpl expr = new ExprImpl();
-    return expr;
+    GExprImpl gExpr = new GExprImpl();
+    return gExpr;
   }
 
   /**
@@ -729,10 +730,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public SlangQuantVar createSlangQuantVar()
+  public QuantRange createQuantRange()
   {
-    SlangQuantVarImpl slangQuantVar = new SlangQuantVarImpl();
-    return slangQuantVar;
+    QuantRangeImpl quantRange = new QuantRangeImpl();
+    return quantRange;
   }
 
   /**
@@ -741,10 +742,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public OtherDataRef createOtherDataRef()
+  public QuantParam createQuantParam()
   {
-    OtherDataRefImpl otherDataRef = new OtherDataRefImpl();
-    return otherDataRef;
+    QuantParamImpl quantParam = new QuantParamImpl();
+    return quantParam;
   }
 
   /**
@@ -781,6 +782,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     ArrayAccessImpl arrayAccess = new ArrayAccessImpl();
     return arrayAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OtherDataRef createOtherDataRef()
+  {
+    OtherDataRefImpl otherDataRef = new OtherDataRefImpl();
+    return otherDataRef;
   }
 
   /**

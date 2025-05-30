@@ -35,7 +35,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangLitTerm;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlangLitTermItemProvider extends ExprItemProvider
+public class SlangLitTermItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.

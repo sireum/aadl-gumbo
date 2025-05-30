@@ -430,31 +430,31 @@ public interface GumboFactory extends EFactory
   OwnedExpression createOwnedExpression();
 
   /**
-   * Returns a new object of class '<em>Expr</em>'.
+   * Returns a new object of class '<em>GExpr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expr</em>'.
+   * @return a new object of class '<em>GExpr</em>'.
    * @generated
    */
-  Expr createExpr();
+  GExpr createGExpr();
 
   /**
-   * Returns a new object of class '<em>Slang Quant Var</em>'.
+   * Returns a new object of class '<em>Quant Range</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Slang Quant Var</em>'.
+   * @return a new object of class '<em>Quant Range</em>'.
    * @generated
    */
-  SlangQuantVar createSlangQuantVar();
+  QuantRange createQuantRange();
 
   /**
-   * Returns a new object of class '<em>Other Data Ref</em>'.
+   * Returns a new object of class '<em>Quant Param</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Other Data Ref</em>'.
+   * @return a new object of class '<em>Quant Param</em>'.
    * @generated
    */
-  OtherDataRef createOtherDataRef();
+  QuantParam createQuantParam();
 
   /**
    * Returns a new object of class '<em>Postfix</em>'.
@@ -482,6 +482,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   ArrayAccess createArrayAccess();
+
+  /**
+   * Returns a new object of class '<em>Other Data Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Other Data Ref</em>'.
+   * @generated
+   */
+  OtherDataRef createOtherDataRef();
 
   /**
    * Returns a new object of class '<em>Slang Params</em>'.

@@ -34,7 +34,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class F32ObjItemProvider extends ExprItemProvider
+public class F32ObjItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.

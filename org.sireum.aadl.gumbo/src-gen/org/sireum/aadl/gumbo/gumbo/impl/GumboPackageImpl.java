@@ -38,13 +38,13 @@ import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.EqualNotExpr;
-import org.sireum.aadl.gumbo.gumbo.Expr;
 import org.sireum.aadl.gumbo.gumbo.F32Lit;
 import org.sireum.aadl.gumbo.gumbo.F32Obj;
 import org.sireum.aadl.gumbo.gumbo.F64Lit;
 import org.sireum.aadl.gumbo.gumbo.F64Obj;
 import org.sireum.aadl.gumbo.gumbo.FuncSpec;
 import org.sireum.aadl.gumbo.gumbo.Functions;
+import org.sireum.aadl.gumbo.gumbo.GExpr;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
@@ -76,6 +76,8 @@ import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
 import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
 import org.sireum.aadl.gumbo.gumbo.Postfix;
+import org.sireum.aadl.gumbo.gumbo.QuantParam;
+import org.sireum.aadl.gumbo.gumbo.QuantRange;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
@@ -109,7 +111,6 @@ import org.sireum.aadl.gumbo.gumbo.SlangModifies;
 import org.sireum.aadl.gumbo.gumbo.SlangParam;
 import org.sireum.aadl.gumbo.gumbo.SlangParams;
 import org.sireum.aadl.gumbo.gumbo.SlangPattern;
-import org.sireum.aadl.gumbo.gumbo.SlangQuantVar;
 import org.sireum.aadl.gumbo.gumbo.SlangReads;
 import org.sireum.aadl.gumbo.gumbo.SlangRequires;
 import org.sireum.aadl.gumbo.gumbo.SlangRet;
@@ -450,21 +451,21 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass exprEClass = null;
+  private EClass gExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass slangQuantVarEClass = null;
+  private EClass quantRangeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass otherDataRefEClass = null;
+  private EClass quantParamEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -486,6 +487,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass arrayAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass otherDataRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2371,9 +2379,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getExpr()
+  public EClass getGExpr()
   {
-    return exprEClass;
+    return gExprEClass;
   }
 
   /**
@@ -2382,9 +2390,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getSlangQuantVar()
+  public EClass getQuantRange()
   {
-    return slangQuantVarEClass;
+    return quantRangeEClass;
   }
 
   /**
@@ -2393,9 +2401,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangQuantVar_E()
+  public EReference getQuantRange_Lo()
   {
-    return (EReference)slangQuantVarEClass.getEStructuralFeatures().get(0);
+    return (EReference)quantRangeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2404,9 +2412,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangQuantVar_UpperBound()
+  public EAttribute getQuantRange_Extent()
   {
-    return (EReference)slangQuantVarEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)quantRangeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2415,9 +2423,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getOtherDataRef()
+  public EReference getQuantRange_High()
   {
-    return otherDataRefEClass;
+    return (EReference)quantRangeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2426,9 +2434,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getOtherDataRef_NamedElement()
+  public EClass getQuantParam()
   {
-    return (EReference)otherDataRefEClass.getEStructuralFeatures().get(0);
+    return quantParamEClass;
   }
 
   /**
@@ -2437,9 +2445,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getOtherDataRef_ArrayRange()
+  public EAttribute getQuantParam_Name()
   {
-    return (EReference)otherDataRefEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)quantParamEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2448,9 +2456,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getOtherDataRef_Path()
+  public EReference getQuantParam_TypeName()
   {
-    return (EReference)otherDataRefEClass.getEStructuralFeatures().get(2);
+    return (EReference)quantParamEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2506,6 +2514,50 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getArrayAccess_Index()
   {
     return (EReference)arrayAccessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOtherDataRef()
+  {
+    return otherDataRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOtherDataRef_NamedElement()
+  {
+    return (EReference)otherDataRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOtherDataRef_ArrayRange()
+  {
+    return (EReference)otherDataRefEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOtherDataRef_Path()
+  {
+    return (EReference)otherDataRefEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2987,9 +3039,31 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getQuantifiedExp_QVar()
+  public EAttribute getQuantifiedExp_Quantifier()
   {
-    return (EReference)quantifiedExpEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)quantifiedExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getQuantifiedExp_QuantRange()
+  {
+    return (EReference)quantifiedExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getQuantifiedExp_QuantParam()
+  {
+    return (EReference)quantifiedExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3000,7 +3074,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   @Override
   public EReference getQuantifiedExp_QuantifiedExpr()
   {
-    return (EReference)quantifiedExpEClass.getEStructuralFeatures().get(1);
+    return (EReference)quantifiedExpEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3900,17 +3974,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getDataRefExpr_Ref()
-  {
-    return (EReference)dataRefExprEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getResultExpr()
   {
     return resultExprEClass;
@@ -4221,16 +4284,16 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     ownedExpressionEClass = createEClass(OWNED_EXPRESSION);
 
-    exprEClass = createEClass(EXPR);
+    gExprEClass = createEClass(GEXPR);
 
-    slangQuantVarEClass = createEClass(SLANG_QUANT_VAR);
-    createEReference(slangQuantVarEClass, SLANG_QUANT_VAR__E);
-    createEReference(slangQuantVarEClass, SLANG_QUANT_VAR__UPPER_BOUND);
+    quantRangeEClass = createEClass(QUANT_RANGE);
+    createEReference(quantRangeEClass, QUANT_RANGE__LO);
+    createEAttribute(quantRangeEClass, QUANT_RANGE__EXTENT);
+    createEReference(quantRangeEClass, QUANT_RANGE__HIGH);
 
-    otherDataRefEClass = createEClass(OTHER_DATA_REF);
-    createEReference(otherDataRefEClass, OTHER_DATA_REF__NAMED_ELEMENT);
-    createEReference(otherDataRefEClass, OTHER_DATA_REF__ARRAY_RANGE);
-    createEReference(otherDataRefEClass, OTHER_DATA_REF__PATH);
+    quantParamEClass = createEClass(QUANT_PARAM);
+    createEAttribute(quantParamEClass, QUANT_PARAM__NAME);
+    createEReference(quantParamEClass, QUANT_PARAM__TYPE_NAME);
 
     postfixEClass = createEClass(POSTFIX);
 
@@ -4239,6 +4302,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     arrayAccessEClass = createEClass(ARRAY_ACCESS);
     createEReference(arrayAccessEClass, ARRAY_ACCESS__INDEX);
+
+    otherDataRefEClass = createEClass(OTHER_DATA_REF);
+    createEReference(otherDataRefEClass, OTHER_DATA_REF__NAMED_ELEMENT);
+    createEReference(otherDataRefEClass, OTHER_DATA_REF__ARRAY_RANGE);
+    createEReference(otherDataRefEClass, OTHER_DATA_REF__PATH);
 
     slangParamsEClass = createEClass(SLANG_PARAMS);
     createEReference(slangParamsEClass, SLANG_PARAMS__PARAMS);
@@ -4300,7 +4368,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(ifElseExpEClass, IF_ELSE_EXP__ELSE_EXPR);
 
     quantifiedExpEClass = createEClass(QUANTIFIED_EXP);
-    createEReference(quantifiedExpEClass, QUANTIFIED_EXP__QVAR);
+    createEAttribute(quantifiedExpEClass, QUANTIFIED_EXP__QUANTIFIER);
+    createEReference(quantifiedExpEClass, QUANTIFIED_EXP__QUANT_RANGE);
+    createEReference(quantifiedExpEClass, QUANTIFIED_EXP__QUANT_PARAM);
     createEReference(quantifiedExpEClass, QUANTIFIED_EXP__QUANTIFIED_EXPR);
 
     impliesExprEClass = createEClass(IMPLIES_EXPR);
@@ -4409,7 +4479,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     dataRefExprEClass = createEClass(DATA_REF_EXPR);
     createEReference(dataRefExprEClass, DATA_REF_EXPR__PORT_OR_SUBCOMPONENT_OR_STATE_VAR);
-    createEReference(dataRefExprEClass, DATA_REF_EXPR__REF);
 
     resultExprEClass = createEClass(RESULT_EXPR);
 
@@ -4472,7 +4541,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangPatternEClass.getESuperTypes().add(this.getSlangVarDef());
     slangVarDefEClass.getESuperTypes().add(this.getSlangStmt());
     slangBlockEClass.getESuperTypes().add(this.getSlangElse());
-    exprEClass.getESuperTypes().add(this.getOwnedExpression());
+    gExprEClass.getESuperTypes().add(this.getOwnedExpression());
     memberAccessEClass.getESuperTypes().add(this.getPostfix());
     arrayAccessEClass.getESuperTypes().add(this.getPostfix());
     slangIfStmtEClass.getESuperTypes().add(this.getSlangStmt());
@@ -4483,35 +4552,35 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangAssertStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangHaltStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangDoStmtEClass.getESuperTypes().add(this.getSlangStmt());
-    ifElseExpEClass.getESuperTypes().add(this.getOwnedExpression());
-    quantifiedExpEClass.getESuperTypes().add(this.getOwnedExpression());
-    impliesExprEClass.getESuperTypes().add(this.getExpr());
-    orExprEClass.getESuperTypes().add(this.getExpr());
-    andExprEClass.getESuperTypes().add(this.getExpr());
-    equalNotExprEClass.getESuperTypes().add(this.getExpr());
-    ltGtExprEClass.getESuperTypes().add(this.getExpr());
-    colonExprEClass.getESuperTypes().add(this.getExpr());
-    plusMinusExprEClass.getESuperTypes().add(this.getExpr());
-    multiplicativeExprEClass.getESuperTypes().add(this.getExpr());
-    unaryExprEClass.getESuperTypes().add(this.getExpr());
-    postFixExprEClass.getESuperTypes().add(this.getExpr());
-    slangLitTermEClass.getESuperTypes().add(this.getExpr());
-    slangInterpTermEClass.getESuperTypes().add(this.getExpr());
-    inStateExprEClass.getESuperTypes().add(this.getExpr());
-    maySendExprEClass.getESuperTypes().add(this.getExpr());
-    mustSendExprEClass.getESuperTypes().add(this.getExpr());
-    noSendExprEClass.getESuperTypes().add(this.getExpr());
-    hasEventExprEClass.getESuperTypes().add(this.getExpr());
-    enumLitExprEClass.getESuperTypes().add(this.getExpr());
-    parenExprEClass.getESuperTypes().add(this.getExpr());
-    slangForTermEClass.getESuperTypes().add(this.getExpr());
-    slangBlockTermEClass.getESuperTypes().add(this.getExpr());
-    f32ObjEClass.getESuperTypes().add(this.getExpr());
-    f64ObjEClass.getESuperTypes().add(this.getExpr());
-    callExprEClass.getESuperTypes().add(this.getExpr());
-    recordLitExprEClass.getESuperTypes().add(this.getExpr());
-    dataRefExprEClass.getESuperTypes().add(this.getExpr());
-    resultExprEClass.getESuperTypes().add(this.getExpr());
+    ifElseExpEClass.getESuperTypes().add(this.getGExpr());
+    quantifiedExpEClass.getESuperTypes().add(this.getGExpr());
+    impliesExprEClass.getESuperTypes().add(this.getGExpr());
+    orExprEClass.getESuperTypes().add(this.getGExpr());
+    andExprEClass.getESuperTypes().add(this.getGExpr());
+    equalNotExprEClass.getESuperTypes().add(this.getGExpr());
+    ltGtExprEClass.getESuperTypes().add(this.getGExpr());
+    colonExprEClass.getESuperTypes().add(this.getGExpr());
+    plusMinusExprEClass.getESuperTypes().add(this.getGExpr());
+    multiplicativeExprEClass.getESuperTypes().add(this.getGExpr());
+    unaryExprEClass.getESuperTypes().add(this.getGExpr());
+    postFixExprEClass.getESuperTypes().add(this.getGExpr());
+    slangLitTermEClass.getESuperTypes().add(this.getGExpr());
+    slangInterpTermEClass.getESuperTypes().add(this.getGExpr());
+    inStateExprEClass.getESuperTypes().add(this.getGExpr());
+    maySendExprEClass.getESuperTypes().add(this.getGExpr());
+    mustSendExprEClass.getESuperTypes().add(this.getGExpr());
+    noSendExprEClass.getESuperTypes().add(this.getGExpr());
+    hasEventExprEClass.getESuperTypes().add(this.getGExpr());
+    enumLitExprEClass.getESuperTypes().add(this.getGExpr());
+    parenExprEClass.getESuperTypes().add(this.getGExpr());
+    slangForTermEClass.getESuperTypes().add(this.getGExpr());
+    slangBlockTermEClass.getESuperTypes().add(this.getGExpr());
+    f32ObjEClass.getESuperTypes().add(this.getGExpr());
+    f64ObjEClass.getESuperTypes().add(this.getGExpr());
+    callExprEClass.getESuperTypes().add(this.getGExpr());
+    recordLitExprEClass.getESuperTypes().add(this.getGExpr());
+    dataRefExprEClass.getESuperTypes().add(this.getGExpr());
+    resultExprEClass.getESuperTypes().add(this.getGExpr());
     booleanLitEClass.getESuperTypes().add(this.getSlangLit());
     integerLitEClass.getESuperTypes().add(this.getSlangLit());
     hexLitEClass.getESuperTypes().add(this.getSlangLit());
@@ -4697,16 +4766,16 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(ownedExpressionEClass, OwnedExpression.class, "OwnedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(gExprEClass, GExpr.class, "GExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(slangQuantVarEClass, SlangQuantVar.class, "SlangQuantVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSlangQuantVar_E(), this.getOwnedExpression(), null, "e", null, 0, 1, SlangQuantVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSlangQuantVar_UpperBound(), this.getOwnedExpression(), null, "upperBound", null, 0, 1, SlangQuantVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(quantRangeEClass, QuantRange.class, "QuantRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getQuantRange_Lo(), this.getOwnedExpression(), null, "lo", null, 0, 1, QuantRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQuantRange_Extent(), theEcorePackage.getEString(), "extent", null, 0, 1, QuantRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuantRange_High(), this.getOwnedExpression(), null, "high", null, 0, 1, QuantRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(otherDataRefEClass, OtherDataRef.class, "OtherDataRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOtherDataRef_NamedElement(), theAadl2Package.getNamedElement(), null, "namedElement", null, 0, 1, OtherDataRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOtherDataRef_ArrayRange(), theAadl2Package.getArrayRange(), null, "arrayRange", null, 0, -1, OtherDataRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOtherDataRef_Path(), this.getOtherDataRef(), null, "path", null, 0, 1, OtherDataRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(quantParamEClass, QuantParam.class, "QuantParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQuantParam_Name(), theEcorePackage.getEString(), "name", null, 0, 1, QuantParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuantParam_TypeName(), this.getSlangType(), null, "typeName", null, 0, 1, QuantParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixEClass, Postfix.class, "Postfix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4715,6 +4784,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(arrayAccessEClass, ArrayAccess.class, "ArrayAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayAccess_Index(), this.getOwnedExpression(), null, "index", null, 0, -1, ArrayAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(otherDataRefEClass, OtherDataRef.class, "OtherDataRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOtherDataRef_NamedElement(), theAadl2Package.getNamedElement(), null, "namedElement", null, 0, 1, OtherDataRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOtherDataRef_ArrayRange(), theAadl2Package.getArrayRange(), null, "arrayRange", null, 0, -1, OtherDataRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOtherDataRef_Path(), this.getOtherDataRef(), null, "path", null, 0, 1, OtherDataRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangParamsEClass, SlangParams.class, "SlangParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangParams_Params(), this.getSlangParam(), null, "params", null, 0, -1, SlangParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4771,60 +4845,62 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getSlangDoStmt_E(), this.getOwnedExpression(), null, "e", null, 0, 1, SlangDoStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifElseExpEClass, IfElseExp.class, "IfElseExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIfElseExp_IfCond(), this.getOwnedExpression(), null, "ifCond", null, 0, 1, IfElseExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfElseExp_IfCond(), this.getGExpr(), null, "ifCond", null, 0, 1, IfElseExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIfElseExp_ThenExpr(), this.getOwnedExpression(), null, "thenExpr", null, 0, 1, IfElseExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIfElseExp_ElseExpr(), this.getOwnedExpression(), null, "elseExpr", null, 0, 1, IfElseExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(quantifiedExpEClass, QuantifiedExp.class, "QuantifiedExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getQuantifiedExp_QVar(), this.getSlangQuantVar(), null, "qVar", null, 0, -1, QuantifiedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQuantifiedExp_Quantifier(), theEcorePackage.getEString(), "quantifier", null, 0, 1, QuantifiedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuantifiedExp_QuantRange(), this.getQuantRange(), null, "quantRange", null, 0, 1, QuantifiedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuantifiedExp_QuantParam(), this.getQuantParam(), null, "quantParam", null, 0, 1, QuantifiedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuantifiedExp_QuantifiedExpr(), this.getOwnedExpression(), null, "quantifiedExpr", null, 0, 1, QuantifiedExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(impliesExprEClass, ImpliesExpr.class, "ImpliesExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getImpliesExpr_Left(), this.getExpr(), null, "left", null, 0, 1, ImpliesExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImpliesExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, ImpliesExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getImpliesExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, ImpliesExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getImpliesExpr_Right(), this.getExpr(), null, "right", null, 0, 1, ImpliesExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImpliesExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, ImpliesExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orExprEClass, OrExpr.class, "OrExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOrExpr_Left(), this.getExpr(), null, "left", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOrExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOrExpr_Right(), this.getExpr(), null, "right", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(andExprEClass, AndExpr.class, "AndExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAndExpr_Left(), this.getExpr(), null, "left", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAndExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAndExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAndExpr_Right(), this.getExpr(), null, "right", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAndExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(equalNotExprEClass, EqualNotExpr.class, "EqualNotExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEqualNotExpr_Left(), this.getExpr(), null, "left", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEqualNotExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEqualNotExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEqualNotExpr_Right(), this.getExpr(), null, "right", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEqualNotExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ltGtExprEClass, LtGtExpr.class, "LtGtExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLtGtExpr_Left(), this.getExpr(), null, "left", null, 0, 1, LtGtExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLtGtExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, LtGtExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLtGtExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, LtGtExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLtGtExpr_Right(), this.getExpr(), null, "right", null, 0, 1, LtGtExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLtGtExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, LtGtExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colonExprEClass, ColonExpr.class, "ColonExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getColonExpr_Left(), this.getExpr(), null, "left", null, 0, 1, ColonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColonExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, ColonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getColonExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, ColonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getColonExpr_Right(), this.getExpr(), null, "right", null, 0, 1, ColonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColonExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, ColonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(plusMinusExprEClass, PlusMinusExpr.class, "PlusMinusExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPlusMinusExpr_Left(), this.getExpr(), null, "left", null, 0, 1, PlusMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlusMinusExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, PlusMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPlusMinusExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, PlusMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPlusMinusExpr_Right(), this.getExpr(), null, "right", null, 0, 1, PlusMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlusMinusExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, PlusMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicativeExprEClass, MultiplicativeExpr.class, "MultiplicativeExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMultiplicativeExpr_Left(), this.getExpr(), null, "left", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiplicativeExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMultiplicativeExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMultiplicativeExpr_Right(), this.getExpr(), null, "right", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiplicativeExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unaryExprEClass, UnaryExpr.class, "UnaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnaryExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUnaryExpr_Exp(), this.getExpr(), null, "exp", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpr_Exp(), this.getGExpr(), null, "exp", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postFixExprEClass, PostFixExpr.class, "PostFixExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPostFixExpr_BaseExp(), this.getExpr(), null, "baseExp", null, 0, 1, PostFixExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPostFixExpr_BaseExp(), this.getGExpr(), null, "baseExp", null, 0, 1, PostFixExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPostFixExpr_Posts(), this.getPostfix(), null, "posts", null, 0, -1, PostFixExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangLitTermEClass, SlangLitTerm.class, "SlangLitTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4885,7 +4961,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(dataRefExprEClass, DataRefExpr.class, "DataRefExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDataRefExpr_PortOrSubcomponentOrStateVar(), theEcorePackage.getEObject(), null, "portOrSubcomponentOrStateVar", null, 0, 1, DataRefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataRefExpr_Ref(), this.getOtherDataRef(), null, "ref", null, 0, 1, DataRefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(resultExprEClass, ResultExpr.class, "ResultExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

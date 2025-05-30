@@ -36,7 +36,7 @@ import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RecordLitExprItemProvider extends ExprItemProvider
+public class RecordLitExprItemProvider extends GExprItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -196,7 +196,7 @@ public class RecordLitExprItemProvider extends ExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
-         GumboFactory.eINSTANCE.createExpr()));
+         GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter

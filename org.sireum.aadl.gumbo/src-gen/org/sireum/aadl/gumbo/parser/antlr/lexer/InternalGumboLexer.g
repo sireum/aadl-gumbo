@@ -55,6 +55,8 @@ Binding : ('B'|'b')('I'|'i')('N'|'n')('D'|'d')('I'|'i')('N'|'n')('G'|'g');
 
 Compute : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e');
 
+Exists : ('E'|'e')('X'|'x')('I'|'i')('S'|'s')('T'|'t')('S'|'s');
+
 NoSend : ('N'|'n')('O'|'o')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
 
 Assert : ('A'|'a')('S'|'s')('S'|'s')('E'|'e')('R'|'r')('T'|'t');
@@ -64,8 +66,6 @@ Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
 Handle : ('H'|'h')('A'|'a')('N'|'n')('D'|'d')('L'|'l')('E'|'e');
 
 Return : ('R'|'r')('E'|'e')('T'|'t')('U'|'u')('R'|'r')('N'|'n');
-
-Some : '\\'('S'|'s')('O'|'o')('M'|'m')('E'|'e');
 
 Cases : ('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s');
 
@@ -81,11 +81,11 @@ Reads : ('R'|'r')('E'|'e')('A'|'a')('D'|'d')('S'|'s');
 
 State : ('S'|'s')('T'|'t')('A'|'a')('T'|'t')('E'|'e');
 
+Until : ('U'|'u')('N'|'n')('T'|'t')('I'|'i')('L'|'l');
+
 While : ('W'|'w')('H'|'h')('I'|'i')('L'|'l')('E'|'e');
 
 Yield : ('Y'|'y')('I'|'i')('E'|'e')('L'|'l')('D'|'d');
-
-All : '\\'('A'|'a')('L'|'l')('L'|'l');
 
 Case : ('C'|'c')('A'|'a')('S'|'s')('E'|'e');
 
@@ -102,6 +102,8 @@ True : ('T'|'t')('R'|'r')('U'|'u')('E'|'e');
 PlusSignEqualsSignGreaterThanSign : '+''=''>';
 
 FullStopFullStopLessThanSign : '.''.''<';
+
+All : ('A'|'a')('L'|'l')('L'|'l');
 
 F32 : ('F'|'f')'3''2';
 
@@ -180,6 +182,8 @@ ThereExists : '\u2203';
 RULE_STRING_VALUE : '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
 
 RULE_SLI : RULE_IDF '"' (RULE_ESC_SEQ|~(('\\'|'"')))* '"';
+
+RULE_QUANTIFIER_OP : ('\\all'|'\\exists'|'\u2200'|'\u2203');
 
 RULE_NOT : '!';
 

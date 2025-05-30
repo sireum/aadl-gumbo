@@ -178,15 +178,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangBlock/r"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//OwnedExpression"/>
-    <genClasses ecoreClass="Gumbo.ecore#//Expr"/>
-    <genClasses ecoreClass="Gumbo.ecore#//SlangQuantVar">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/e"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangQuantVar/upperBound"/>
+    <genClasses ecoreClass="Gumbo.ecore#//GExpr"/>
+    <genClasses ecoreClass="Gumbo.ecore#//QuantRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantRange/lo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//QuantRange/extent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantRange/high"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//OtherDataRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/namedElement"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/arrayRange"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/path"/>
+    <genClasses ecoreClass="Gumbo.ecore#//QuantParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//QuantParam/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantParam/typeName"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Postfix"/>
     <genClasses ecoreClass="Gumbo.ecore#//MemberAccess">
@@ -194,6 +194,11 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//ArrayAccess">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ArrayAccess/index"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//OtherDataRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/namedElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/arrayRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//OtherDataRef/path"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangParams">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangParams/params"/>
@@ -253,7 +258,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//IfElseExp/elseExpr"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//QuantifiedExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantifiedExp/qVar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//QuantifiedExp/quantifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantifiedExp/quantRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantifiedExp/quantParam"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//QuantifiedExp/quantifiedExpr"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//ImpliesExpr">
@@ -362,7 +369,6 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//DataRefExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/portOrSubcomponentOrStateVar"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//DataRefExpr/ref"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//ResultExpr"/>
     <genClasses ecoreClass="Gumbo.ecore#//BooleanLit"/>
