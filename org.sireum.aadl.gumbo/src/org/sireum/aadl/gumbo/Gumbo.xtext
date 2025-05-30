@@ -77,7 +77,7 @@ Compute:
 	  (modifies=SlangModifies ';')?
 	  (assumes+=AssumeStatement)*
 	  (guarantees+=GuaranteeStatement)*
-	  (('cases' | 'compute_cases') (cases+=CaseStatementClause)+)*
+	  ('compute_cases' (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
 ;
@@ -245,7 +245,7 @@ HandlerClause:
 	(modifies=SlangModifies ';')?
 	(assumes+=AssumeStatement)*
 	(guarantees+=GuaranteeStatement)*
-	(('cases' | 'compute_cases') (cases+=CaseStatementClause)+)*	
+	('compute_cases' (cases+=CaseStatementClause)+)*	
 ;
 
 CaseStatementClause:
