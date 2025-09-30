@@ -902,6 +902,301 @@ ruleCompute returns [EObject current=null]
 				}
 			)
 		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getComputeAccess().getGumboTablesGumboTableParserRuleCall_8_0());
+				}
+				lv_gumboTables_10_0=ruleGumboTable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getComputeRule());
+					}
+					add(
+						$current,
+						"gumboTables",
+						lv_gumboTables_10_0,
+						"org.sireum.aadl.gumbo.Gumbo.GumboTable");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleGumboTable
+entryRuleGumboTable returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGumboTableRule()); }
+	iv_ruleGumboTable=ruleGumboTable
+	{ $current=$iv_ruleGumboTable.current; }
+	EOF;
+
+// Rule GumboTable
+ruleGumboTable returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Table
+		{
+			newLeafNode(otherlv_0, grammarAccess.getGumboTableAccess().getTableKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGumboTableAccess().getTableNormalTableParserRuleCall_1_0());
+				}
+				lv_table_1_0=ruleNormalTable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGumboTableRule());
+					}
+					set(
+						$current,
+						"table",
+						lv_table_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.NormalTable");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleNormalTable
+entryRuleNormalTable returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNormalTableRule()); }
+	iv_ruleNormalTable=ruleNormalTable
+	{ $current=$iv_ruleNormalTable.current; }
+	EOF;
+
+// Rule NormalTable
+ruleNormalTable returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Normal
+		{
+			newLeafNode(otherlv_0, grammarAccess.getNormalTableAccess().getNormalKeyword_0());
+		}
+		(
+			(
+				lv_id_1_0=RULE_ID
+				{
+					newLeafNode(lv_id_1_0, grammarAccess.getNormalTableAccess().getIdIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNormalTableRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"id",
+						lv_id_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.ID");
+				}
+			)
+		)
+		(
+			(
+				lv_descriptor_2_0=RULE_STRING_VALUE
+				{
+					newLeafNode(lv_descriptor_2_0, grammarAccess.getNormalTableAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNormalTableRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"descriptor",
+						lv_descriptor_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
+				}
+			)
+		)?
+		otherlv_3=Colon
+		{
+			newLeafNode(otherlv_3, grammarAccess.getNormalTableAccess().getColonKeyword_3());
+		}
+		otherlv_4=LeftSquareBracket
+		{
+			newLeafNode(otherlv_4, grammarAccess.getNormalTableAccess().getLeftSquareBracketKeyword_4());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNormalTableAccess().getHorizontalPredicatesOwnedExpressionParserRuleCall_5_0_0());
+					}
+					lv_horizontalPredicates_5_0=ruleOwnedExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNormalTableRule());
+						}
+						add(
+							$current,
+							"horizontalPredicates",
+							lv_horizontalPredicates_5_0,
+							"org.sireum.aadl.gumbo.Gumbo.OwnedExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_6=Comma
+			{
+				newLeafNode(otherlv_6, grammarAccess.getNormalTableAccess().getCommaKeyword_5_1());
+			}
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNormalTableAccess().getHorizontalPredicatesOwnedExpressionParserRuleCall_6_0());
+				}
+				lv_horizontalPredicates_7_0=ruleOwnedExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNormalTableRule());
+					}
+					add(
+						$current,
+						"horizontalPredicates",
+						lv_horizontalPredicates_7_0,
+						"org.sireum.aadl.gumbo.Gumbo.OwnedExpression");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_8=RightSquareBracket
+		{
+			newLeafNode(otherlv_8, grammarAccess.getNormalTableAccess().getRightSquareBracketKeyword_7());
+		}
+		(
+			otherlv_9=LeftSquareBracket
+			{
+				newLeafNode(otherlv_9, grammarAccess.getNormalTableAccess().getLeftSquareBracketKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNormalTableAccess().getVerticalPredicatesOwnedExpressionParserRuleCall_8_1_0());
+					}
+					lv_verticalPredicates_10_0=ruleOwnedExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNormalTableRule());
+						}
+						add(
+							$current,
+							"verticalPredicates",
+							lv_verticalPredicates_10_0,
+							"org.sireum.aadl.gumbo.Gumbo.OwnedExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_11=Colon
+			{
+				newLeafNode(otherlv_11, grammarAccess.getNormalTableAccess().getColonKeyword_8_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNormalTableAccess().getResultRowsResultRowParserRuleCall_8_3_0());
+					}
+					lv_resultRows_12_0=ruleResultRow
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNormalTableRule());
+						}
+						add(
+							$current,
+							"resultRows",
+							lv_resultRows_12_0,
+							"org.sireum.aadl.gumbo.Gumbo.ResultRow");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_13=RightSquareBracket
+			{
+				newLeafNode(otherlv_13, grammarAccess.getNormalTableAccess().getRightSquareBracketKeyword_8_4());
+			}
+		)+
+		otherlv_14=Semicolon
+		{
+			newLeafNode(otherlv_14, grammarAccess.getNormalTableAccess().getSemicolonKeyword_9());
+		}
+	)
+;
+
+// Entry rule entryRuleResultRow
+entryRuleResultRow returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getResultRowRule()); }
+	iv_ruleResultRow=ruleResultRow
+	{ $current=$iv_ruleResultRow.current; }
+	EOF;
+
+// Rule ResultRow
+ruleResultRow returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getResultRowAccess().getResultsOwnedExpressionParserRuleCall_0_0_0());
+					}
+					lv_results_0_0=ruleOwnedExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getResultRowRule());
+						}
+						add(
+							$current,
+							"results",
+							lv_results_0_0,
+							"org.sireum.aadl.gumbo.Gumbo.OwnedExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_1=Comma
+			{
+				newLeafNode(otherlv_1, grammarAccess.getResultRowAccess().getCommaKeyword_0_1());
+			}
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getResultRowAccess().getResultsOwnedExpressionParserRuleCall_1_0());
+				}
+				lv_results_2_0=ruleOwnedExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getResultRowRule());
+					}
+					add(
+						$current,
+						"results",
+						lv_results_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.OwnedExpression");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

@@ -50,6 +50,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.GumboTable;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
@@ -69,6 +70,7 @@ import org.sireum.aadl.gumbo.gumbo.MemberAccess;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
@@ -81,6 +83,7 @@ import org.sireum.aadl.gumbo.gumbo.QuantRange;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
+import org.sireum.aadl.gumbo.gumbo.ResultRow;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangBlock;
@@ -214,6 +217,27 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass computeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass gumboTableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass normalTableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resultRowEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1337,6 +1361,127 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getCompute_Flows()
   {
     return (EReference)computeEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCompute_GumboTables()
+  {
+    return (EReference)computeEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGumboTable()
+  {
+    return gumboTableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGumboTable_Table()
+  {
+    return (EReference)gumboTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNormalTable()
+  {
+    return normalTableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNormalTable_Id()
+  {
+    return (EAttribute)normalTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNormalTable_Descriptor()
+  {
+    return (EAttribute)normalTableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNormalTable_HorizontalPredicates()
+  {
+    return (EReference)normalTableEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNormalTable_VerticalPredicates()
+  {
+    return (EReference)normalTableEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNormalTable_ResultRows()
+  {
+    return (EReference)normalTableEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getResultRow()
+  {
+    return resultRowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getResultRow_Results()
+  {
+    return (EReference)resultRowEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4156,6 +4301,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(computeEClass, COMPUTE__CASES);
     createEReference(computeEClass, COMPUTE__HANDLERS);
     createEReference(computeEClass, COMPUTE__FLOWS);
+    createEReference(computeEClass, COMPUTE__GUMBO_TABLES);
+
+    gumboTableEClass = createEClass(GUMBO_TABLE);
+    createEReference(gumboTableEClass, GUMBO_TABLE__TABLE);
+
+    normalTableEClass = createEClass(NORMAL_TABLE);
+    createEAttribute(normalTableEClass, NORMAL_TABLE__ID);
+    createEAttribute(normalTableEClass, NORMAL_TABLE__DESCRIPTOR);
+    createEReference(normalTableEClass, NORMAL_TABLE__HORIZONTAL_PREDICATES);
+    createEReference(normalTableEClass, NORMAL_TABLE__VERTICAL_PREDICATES);
+    createEReference(normalTableEClass, NORMAL_TABLE__RESULT_ROWS);
+
+    resultRowEClass = createEClass(RESULT_ROW);
+    createEReference(resultRowEClass, RESULT_ROW__RESULTS);
 
     infoFlowClauseEClass = createEClass(INFO_FLOW_CLAUSE);
     createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__ID);
@@ -4638,6 +4797,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Handlers(), this.getHandlerClause(), null, "handlers", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Flows(), this.getInfoFlowClause(), null, "flows", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompute_GumboTables(), this.getGumboTable(), null, "gumboTables", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(gumboTableEClass, GumboTable.class, "GumboTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGumboTable_Table(), this.getNormalTable(), null, "table", null, 0, 1, GumboTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(normalTableEClass, NormalTable.class, "NormalTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNormalTable_Id(), theEcorePackage.getEString(), "id", null, 0, 1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNormalTable_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNormalTable_HorizontalPredicates(), this.getOwnedExpression(), null, "horizontalPredicates", null, 0, -1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNormalTable_VerticalPredicates(), this.getOwnedExpression(), null, "verticalPredicates", null, 0, -1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNormalTable_ResultRows(), this.getResultRow(), null, "resultRows", null, 0, -1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resultRowEClass, ResultRow.class, "ResultRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getResultRow_Results(), this.getOwnedExpression(), null, "results", null, 0, -1, ResultRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(infoFlowClauseEClass, InfoFlowClause.class, "InfoFlowClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfoFlowClause_Id(), theEcorePackage.getEString(), "id", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -100,6 +100,7 @@ public class ComputeItemProvider
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__CASES);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__HANDLERS);
       childrenFeatures.add(GumboPackage.Literals.COMPUTE__FLOWS);
+      childrenFeatures.add(GumboPackage.Literals.COMPUTE__GUMBO_TABLES);
     }
     return childrenFeatures;
   }
@@ -163,6 +164,7 @@ public class ComputeItemProvider
       case GumboPackage.COMPUTE__CASES:
       case GumboPackage.COMPUTE__HANDLERS:
       case GumboPackage.COMPUTE__FLOWS:
+      case GumboPackage.COMPUTE__GUMBO_TABLES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -210,6 +212,11 @@ public class ComputeItemProvider
       (createChildParameter
         (GumboPackage.Literals.COMPUTE__FLOWS,
          GumboFactory.eINSTANCE.createInfoFlowClause()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.COMPUTE__GUMBO_TABLES,
+         GumboFactory.eINSTANCE.createGumboTable()));
   }
 
   /**

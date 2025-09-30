@@ -79,6 +79,23 @@ Compute:
 	  ('cases' (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
+	  (gumboTables+=GumboTable)*
+;
+
+GumboTable:
+	'table' table=(NormalTable) // TODO: Or inverse, or nested... Only doing normal for now, but this Table setup is
+								//								  in order to provide room for the additional types.
+								//								  similar to the SpecStatement
+;
+
+NormalTable:
+	'normal' id=ID descriptor=STRING_VALUE? ':' 
+		'[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']'
+		('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
+;
+
+ResultRow:
+	(results+=OwnedExpression ',')* results+=OwnedExpression
 ;
 
 InfoFlowClause:

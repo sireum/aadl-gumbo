@@ -458,6 +458,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cHandlersHandlerClauseParserRuleCall_6_0 = (RuleCall)cHandlersAssignment_6.eContents().get(0);
 		private final Assignment cFlowsAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cFlowsInfoFlowClauseParserRuleCall_7_0 = (RuleCall)cFlowsAssignment_7.eContents().get(0);
+		private final Assignment cGumboTablesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cGumboTablesGumboTableParserRuleCall_8_0 = (RuleCall)cGumboTablesAssignment_8.eContents().get(0);
 		
 		//Compute:
 		//    {Compute} 'compute'
@@ -467,6 +469,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//      ('cases' (cases+=CaseStatementClause)+)*
 		//      (handlers+=HandlerClause)*
 		//      (flows+=InfoFlowClause)*
+		//      (gumboTables+=GumboTable)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -477,6 +480,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  ('cases' (cases+=CaseStatementClause)+)*
 		//  (handlers+=HandlerClause)*
 		//  (flows+=InfoFlowClause)*
+		//  (gumboTables+=GumboTable)*
 		public Group getGroup() { return cGroup; }
 		
 		//{Compute}
@@ -532,6 +536,182 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//InfoFlowClause
 		public RuleCall getFlowsInfoFlowClauseParserRuleCall_7_0() { return cFlowsInfoFlowClauseParserRuleCall_7_0; }
+		
+		//(gumboTables+=GumboTable)*
+		public Assignment getGumboTablesAssignment_8() { return cGumboTablesAssignment_8; }
+		
+		//GumboTable
+		public RuleCall getGumboTablesGumboTableParserRuleCall_8_0() { return cGumboTablesGumboTableParserRuleCall_8_0; }
+	}
+	public class GumboTableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.GumboTable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTableKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTableNormalTableParserRuleCall_1_0 = (RuleCall)cTableAssignment_1.eContents().get(0);
+		
+		//GumboTable:
+		//    'table' table=(NormalTable) // TODO: Or inverse, or nested... Only doing normal for now, but this Table setup is
+		//                                //                                  in order to provide room for the additional types.
+		//                                //                                  similar to the SpecStatement
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'table' table=(NormalTable)
+		public Group getGroup() { return cGroup; }
+		
+		//'table'
+		public Keyword getTableKeyword_0() { return cTableKeyword_0; }
+		
+		//table=(NormalTable)
+		public Assignment getTableAssignment_1() { return cTableAssignment_1; }
+		
+		//(NormalTable)
+		public RuleCall getTableNormalTableParserRuleCall_1_0() { return cTableNormalTableParserRuleCall_1_0; }
+	}
+	public class NormalTableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.NormalTable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNormalKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cDescriptorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDescriptorSTRING_VALUETerminalRuleCall_2_0 = (RuleCall)cDescriptorAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Assignment cHorizontalPredicatesAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cHorizontalPredicatesOwnedExpressionParserRuleCall_5_0_0 = (RuleCall)cHorizontalPredicatesAssignment_5_0.eContents().get(0);
+		private final Keyword cCommaKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cHorizontalPredicatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cHorizontalPredicatesOwnedExpressionParserRuleCall_6_0 = (RuleCall)cHorizontalPredicatesAssignment_6.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cLeftSquareBracketKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cVerticalPredicatesAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cVerticalPredicatesOwnedExpressionParserRuleCall_8_1_0 = (RuleCall)cVerticalPredicatesAssignment_8_1.eContents().get(0);
+		private final Keyword cColonKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
+		private final Assignment cResultRowsAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
+		private final RuleCall cResultRowsResultRowParserRuleCall_8_3_0 = (RuleCall)cResultRowsAssignment_8_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
+		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		
+		//NormalTable:
+		//    'normal' id=ID descriptor=STRING_VALUE? ':'
+		//        '[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']'
+		//        ('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'normal' id=ID descriptor=STRING_VALUE? ':'
+		//    '[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']'
+		//    ('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
+		public Group getGroup() { return cGroup; }
+		
+		//'normal'
+		public Keyword getNormalKeyword_0() { return cNormalKeyword_0; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		
+		//descriptor=STRING_VALUE?
+		public Assignment getDescriptorAssignment_2() { return cDescriptorAssignment_2; }
+		
+		//STRING_VALUE
+		public RuleCall getDescriptorSTRING_VALUETerminalRuleCall_2_0() { return cDescriptorSTRING_VALUETerminalRuleCall_2_0; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+		
+		//(horizontalPredicates+=OwnedExpression ',')*
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//horizontalPredicates+=OwnedExpression
+		public Assignment getHorizontalPredicatesAssignment_5_0() { return cHorizontalPredicatesAssignment_5_0; }
+		
+		//OwnedExpression
+		public RuleCall getHorizontalPredicatesOwnedExpressionParserRuleCall_5_0_0() { return cHorizontalPredicatesOwnedExpressionParserRuleCall_5_0_0; }
+		
+		//','
+		public Keyword getCommaKeyword_5_1() { return cCommaKeyword_5_1; }
+		
+		//horizontalPredicates+=OwnedExpression
+		public Assignment getHorizontalPredicatesAssignment_6() { return cHorizontalPredicatesAssignment_6; }
+		
+		//OwnedExpression
+		public RuleCall getHorizontalPredicatesOwnedExpressionParserRuleCall_6_0() { return cHorizontalPredicatesOwnedExpressionParserRuleCall_6_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
+		
+		//('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_8_0() { return cLeftSquareBracketKeyword_8_0; }
+		
+		//verticalPredicates+=OwnedExpression
+		public Assignment getVerticalPredicatesAssignment_8_1() { return cVerticalPredicatesAssignment_8_1; }
+		
+		//OwnedExpression
+		public RuleCall getVerticalPredicatesOwnedExpressionParserRuleCall_8_1_0() { return cVerticalPredicatesOwnedExpressionParserRuleCall_8_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_8_2() { return cColonKeyword_8_2; }
+		
+		//resultRows+=ResultRow
+		public Assignment getResultRowsAssignment_8_3() { return cResultRowsAssignment_8_3; }
+		
+		//ResultRow
+		public RuleCall getResultRowsResultRowParserRuleCall_8_3_0() { return cResultRowsResultRowParserRuleCall_8_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_8_4() { return cRightSquareBracketKeyword_8_4; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_9() { return cSemicolonKeyword_9; }
+	}
+	public class ResultRowElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ResultRow");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cResultsAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cResultsOwnedExpressionParserRuleCall_0_0_0 = (RuleCall)cResultsAssignment_0_0.eContents().get(0);
+		private final Keyword cCommaKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cResultsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cResultsOwnedExpressionParserRuleCall_1_0 = (RuleCall)cResultsAssignment_1.eContents().get(0);
+		
+		//ResultRow:
+		//    (results+=OwnedExpression ',')* results+=OwnedExpression
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(results+=OwnedExpression ',')* results+=OwnedExpression
+		public Group getGroup() { return cGroup; }
+		
+		//(results+=OwnedExpression ',')*
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//results+=OwnedExpression
+		public Assignment getResultsAssignment_0_0() { return cResultsAssignment_0_0; }
+		
+		//OwnedExpression
+		public RuleCall getResultsOwnedExpressionParserRuleCall_0_0_0() { return cResultsOwnedExpressionParserRuleCall_0_0_0; }
+		
+		//','
+		public Keyword getCommaKeyword_0_1() { return cCommaKeyword_0_1; }
+		
+		//results+=OwnedExpression
+		public Assignment getResultsAssignment_1() { return cResultsAssignment_1; }
+		
+		//OwnedExpression
+		public RuleCall getResultsOwnedExpressionParserRuleCall_1_0() { return cResultsOwnedExpressionParserRuleCall_1_0; }
 	}
 	public class InfoFlowClauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
@@ -4574,6 +4754,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final InitializeElements pInitialize;
 	private final InitializeSpecStatementElements pInitializeSpecStatement;
 	private final ComputeElements pCompute;
+	private final GumboTableElements pGumboTable;
+	private final NormalTableElements pNormalTable;
+	private final ResultRowElements pResultRow;
 	private final InfoFlowClauseElements pInfoFlowClause;
 	private final HandlerClauseElements pHandlerClause;
 	private final CaseStatementClauseElements pCaseStatementClause;
@@ -4688,6 +4871,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pInitialize = new InitializeElements();
 		this.pInitializeSpecStatement = new InitializeSpecStatementElements();
 		this.pCompute = new ComputeElements();
+		this.pGumboTable = new GumboTableElements();
+		this.pNormalTable = new NormalTableElements();
+		this.pResultRow = new ResultRowElements();
 		this.pInfoFlowClause = new InfoFlowClauseElements();
 		this.pHandlerClause = new HandlerClauseElements();
 		this.pCaseStatementClause = new CaseStatementClauseElements();
@@ -4964,6 +5150,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//      ('cases' (cases+=CaseStatementClause)+)*
 	//      (handlers+=HandlerClause)*
 	//      (flows+=InfoFlowClause)*
+	//      (gumboTables+=GumboTable)*
 	//;
 	public ComputeElements getComputeAccess() {
 		return pCompute;
@@ -4971,6 +5158,43 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getComputeRule() {
 		return getComputeAccess().getRule();
+	}
+	
+	//GumboTable:
+	//    'table' table=(NormalTable) // TODO: Or inverse, or nested... Only doing normal for now, but this Table setup is
+	//                                //                                  in order to provide room for the additional types.
+	//                                //                                  similar to the SpecStatement
+	//;
+	public GumboTableElements getGumboTableAccess() {
+		return pGumboTable;
+	}
+	
+	public ParserRule getGumboTableRule() {
+		return getGumboTableAccess().getRule();
+	}
+	
+	//NormalTable:
+	//    'normal' id=ID descriptor=STRING_VALUE? ':'
+	//        '[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']'
+	//        ('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
+	//;
+	public NormalTableElements getNormalTableAccess() {
+		return pNormalTable;
+	}
+	
+	public ParserRule getNormalTableRule() {
+		return getNormalTableAccess().getRule();
+	}
+	
+	//ResultRow:
+	//    (results+=OwnedExpression ',')* results+=OwnedExpression
+	//;
+	public ResultRowElements getResultRowAccess() {
+		return pResultRow;
+	}
+	
+	public ParserRule getResultRowRule() {
+		return getResultRowAccess().getRule();
 	}
 	
 	//InfoFlowClause:

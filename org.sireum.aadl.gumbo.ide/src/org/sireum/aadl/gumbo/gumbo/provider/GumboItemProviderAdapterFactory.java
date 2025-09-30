@@ -360,6 +360,81 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.GumboTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected GumboTableItemProvider gumboTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.GumboTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createGumboTableAdapter()
+  {
+    if (gumboTableItemProvider == null)
+    {
+      gumboTableItemProvider = new GumboTableItemProvider(this);
+    }
+
+    return gumboTableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.NormalTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected NormalTableItemProvider normalTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.NormalTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createNormalTableAdapter()
+  {
+    if (normalTableItemProvider == null)
+    {
+      normalTableItemProvider = new NormalTableItemProvider(this);
+    }
+
+    return normalTableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ResultRow} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ResultRowItemProvider resultRowItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ResultRow}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createResultRowAdapter()
+  {
+    if (resultRowItemProvider == null)
+    {
+      resultRowItemProvider = new ResultRowItemProvider(this);
+    }
+
+    return resultRowItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2812,6 +2887,9 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (initializeItemProvider != null) initializeItemProvider.dispose();
     if (initializeSpecStatementItemProvider != null) initializeSpecStatementItemProvider.dispose();
     if (computeItemProvider != null) computeItemProvider.dispose();
+    if (gumboTableItemProvider != null) gumboTableItemProvider.dispose();
+    if (normalTableItemProvider != null) normalTableItemProvider.dispose();
+    if (resultRowItemProvider != null) resultRowItemProvider.dispose();
     if (infoFlowClauseItemProvider != null) infoFlowClauseItemProvider.dispose();
     if (handlerClauseItemProvider != null) handlerClauseItemProvider.dispose();
     if (caseStatementClauseItemProvider != null) caseStatementClauseItemProvider.dispose();
