@@ -57,6 +57,7 @@ import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.GumboTable;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
@@ -75,8 +76,8 @@ import org.sireum.aadl.gumbo.gumbo.MemberAccess;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
-import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
@@ -85,6 +86,7 @@ import org.sireum.aadl.gumbo.gumbo.Postfix;
 import org.sireum.aadl.gumbo.gumbo.QuantParam;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
+import org.sireum.aadl.gumbo.gumbo.ResultRow;
 import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
@@ -101,8 +103,8 @@ import org.sireum.aadl.osate.architecture.Visitor;
 import org.sireum.aadl.osate.gumbo2air.GumboUtil.UnaryOp;
 import org.sireum.aadl.osate.util.SlangUtil;
 import org.sireum.aadl.osate.util.VisitorUtil;
-import org.sireum.aadl.osate.util.VisitorUtil.Pair;
 import org.sireum.hamr.codegen.common.resolvers.GclResolver;
+import org.sireum.hamr.codegen.common.util.GclUtil.SlangAstBridge$;
 import org.sireum.hamr.ir.Annex;
 import org.sireum.hamr.ir.Annex$;
 import org.sireum.hamr.ir.AnnexLib;
@@ -130,18 +132,14 @@ import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
 import org.sireum.hamr.ir.GclSubclause;
 import org.sireum.hamr.ir.GclSubclause$;
-import org.sireum.hamr.codegen.common.util.GclUtil.SlangAstBridge$;
 import org.sireum.lang.ast.AssignExp;
-import org.sireum.lang.ast.Exp.Binary;
-import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Body;
 import org.sireum.lang.ast.Body$;
 import org.sireum.lang.ast.Exp;
+import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
-import org.sireum.lang.ast.Exp.If;
 import org.sireum.lang.ast.Exp.If$;
-import org.sireum.lang.ast.Exp.Input;
 import org.sireum.lang.ast.Exp.Input$;
 import org.sireum.lang.ast.Exp.Invoke;
 import org.sireum.lang.ast.Exp.Invoke$;
@@ -153,7 +151,6 @@ import org.sireum.lang.ast.Exp.Ref;
 import org.sireum.lang.ast.Exp.Select;
 import org.sireum.lang.ast.Exp.Select$;
 import org.sireum.lang.ast.Exp.StringInterpolate$;
-import org.sireum.lang.ast.Exp.Unary;
 import org.sireum.lang.ast.Exp.Unary$;
 import org.sireum.lang.ast.Id;
 import org.sireum.lang.ast.Id$;
@@ -172,7 +169,6 @@ import org.sireum.lang.ast.Param$;
 import org.sireum.lang.ast.Purity;
 import org.sireum.lang.ast.Purity$;
 import org.sireum.lang.ast.Stmt;
-import org.sireum.lang.ast.Stmt.Expr;
 import org.sireum.lang.ast.Stmt.Method;
 import org.sireum.lang.ast.Stmt.Method$;
 import org.sireum.lang.ast.Type;
@@ -395,13 +391,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				Type.Named paramType = GumboUtil.buildTypeNamed(sdp.getTypeName().getTypeName(), object);
 
 				processDatatype(sdp.getTypeName().getTypeName().getContainingClassifier());
-				
+
 				params.add(Param$.MODULE$.apply(isHidden, paramId, paramType));
 			}
 		}
 
 		processDatatype(object.getType().getTypeName().getContainingClassifier());
-		
+
 		Type.Named returnType = GumboUtil.buildTypeNamed(object.getType().getTypeName(), object);
 
 		boolean hasParams = !params.isEmpty();
@@ -574,6 +570,47 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return false;
 	}
 
+	// SIERRA ADDED
+	@Override
+	public Boolean caseGumboTable(GumboTable gumboTable) {
+		NormalTable table = gumboTable.getTable();
+		push(org.sireum.hamr.ir.GclGumboTable$.MODULE$.apply(visitPop(table), GumboUtil.toAttr(gumboTable)));
+
+		return false;
+	}
+
+	@Override
+	public Boolean caseNormalTable(NormalTable normalTable) {
+		List<Exp> verticalPredicates = new ArrayList<>();
+		List<Exp> horizontalPredicates = new ArrayList<>();
+		List<org.sireum.hamr.ir.GclResultRow> resultRows = new ArrayList<>();
+
+		for (OwnedExpression e : normalTable.getVerticalPredicates()) {
+			verticalPredicates.add(visitPop(e));
+		}
+		for (OwnedExpression e : normalTable.getHorizontalPredicates()) {
+			horizontalPredicates.add(visitPop(e));
+		}
+		for (ResultRow r : normalTable.getResultRows()) {
+			resultRows.add(visitPop(r));
+		}
+		push(org.sireum.hamr.ir.GclNormalTable$.MODULE$.apply(normalTable.getId(),
+				GumboUtil.getOptionalSlangString(normalTable.getDescriptor()), VisitorUtil.toISZ(horizontalPredicates),
+				VisitorUtil.toISZ(verticalPredicates), VisitorUtil.toISZ(resultRows), GumboUtil.toAttr(normalTable)));
+		return false;
+	}
+
+	@Override
+	public Boolean caseResultRow(ResultRow resultRow) {
+		List<Exp> results = new ArrayList<>();
+
+		for (OwnedExpression e : resultRow.getResults()) {
+			results.add(visitPop(e));
+		}
+		push(org.sireum.hamr.ir.GclResultRow$.MODULE$.apply(VisitorUtil.toISZ(results), GumboUtil.toAttr(resultRow)));
+		return false;
+	}
+
 	@Override
 	public Boolean caseCompute(Compute object) {
 
@@ -632,12 +669,19 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
+		List<org.sireum.hamr.ir.GclGumboTable> gumboTables = new ArrayList<>();// SIERRA ADDED
+		for (GumboTable gt : object.getGumboTables()) {
+			gumboTables.add(visitPop(gt));
+		}
+
+
 		push(GclCompute$.MODULE$.apply(VisitorUtil.toISZ(modifies), //
 				VisitorUtil.toISZ(genAssumes), //
 				VisitorUtil.toISZ(genGuarantees), //
 				VisitorUtil.toISZ(caseStatements), //
 				VisitorUtil.toISZ(handlers), //
 				VisitorUtil.toISZ(flows), //
+				VisitorUtil.toISZ(gumboTables), //
 				GumboUtil.toAttr(object)));
 
 		return false;
@@ -966,28 +1010,28 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseQuantifiedExp(QuantifiedExp object) {
 		boolean isForAll = object.getQuantifier().equalsIgnoreCase("all") || object.getQuantifier().equalsIgnoreCase("∀");
 		assert (isForAll || (object.getQuantifier().equalsIgnoreCase("exists") || object.getQuantifier().equalsIgnoreCase("∃")));
-		
+
 		boolean isInclusive = object.getQuantRange().getExtent().equalsIgnoreCase("to");
 		assert (isInclusive || object.getQuantRange().getExtent().equalsIgnoreCase("until"));
-		
+
 		Exp lo = visitPop(object.getQuantRange().getLo());
 		Exp high = visitPop(object.getQuantRange().getHigh());
-		
+
 		Option<Id> idOpt = SlangUtil.toSome(Id$.MODULE$.apply(object.getQuantParam().getName(), GumboUtil.buildAttr(object)));
-		
+
 		AssignExp quantExp = Stmt.Expr$.MODULE$.apply(visitPop(object.getQuantifiedExpr()), GumboUtil.buildTypedAttr(object));
 
 		IS<Z, org.sireum.String> context = VisitorUtil.toISZ(path.stream().map(s -> SlangUtil.sireumString(s)).collect(Collectors.toList()));
-		
+
 		Exp.Fun funExp = Exp.Fun$.MODULE$.apply( //
 				context, //
 				VisitorUtil.toISZ(SlangAstBridge$.MODULE$.AST_Exp_Fun_Param(idOpt, SlangUtil.toNone(), SlangUtil.toNone())), //
-				quantExp, GumboUtil.buildTypedAttr(object));	
-		
+				quantExp, GumboUtil.buildTypedAttr(object));
+
 		Exp.QuantRange qrr = Exp.QuantRange$.MODULE$.apply(isForAll, lo, high, isInclusive, funExp, GumboUtil.buildResolvedAttr(object));
 
 		push(Exp.QuantRange$.MODULE$.apply(isForAll, lo, high, isInclusive, funExp, GumboUtil.buildResolvedAttr(object)));
-		
+
 		return false;
 	}
 
@@ -995,41 +1039,41 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Exp l = visitPop(lhs);
 		Exp r = visitPop(rhs);
 		Option<Position> mergedPos = GumboUtil.mergePositions(l.posOpt(), r.posOpt());
-		
+
 		Position opPos = VisitorUtil.buildPositionFromINode(opNode, VisitorUtil.getResourcePath(lhs));
 		assert opPos != null;
-		
-		push(Binary$.MODULE$.apply(l, GumboUtil.toSlangBinaryOp(op), r, 
+
+		push(Binary$.MODULE$.apply(l, GumboUtil.toSlangBinaryOp(op), r,
 				GumboUtil.buildResolvedAttr(mergedPos), SlangUtil.toSome(opPos)));
 		return false;
 	}
-	
+
 	@Override
 	public Boolean caseImpliesExpr(ImpliesExpr object) {
-		// __>: ->: ~>: ___>: ~~>:		
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		// __>: ->: ~>: ___>: ~~>:
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.IMPLIES_EXPR__OP).get(0));
 	}
 
 	@Override
 	public Boolean caseOrExpr(OrExpr object) {
 		// |^ || |
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.OR_EXPR__OP).get(0));
 	}
-	
+
 
 	@Override
 	public Boolean caseAndExpr(AndExpr object) {
 		// && &
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.AND_EXPR__OP).get(0));
 	}
 
 	@Override
 	public Boolean caseEqualNotExpr(EqualNotExpr object) {
 		// =!= === == != !~
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.EQUAL_NOT_EXPR__OP).get(0));
 	}
 
@@ -1037,14 +1081,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseLtGtExpr(LtGtExpr object) {
 		// <<< << <= <
 		// >>> >> >= >
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.LT_GT_EXPR__OP).get(0));
 	}
 
 	@Override
 	public Boolean caseColonExpr(ColonExpr object) {
 		// :+
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.COLON_EXPR__OP).get(0));
 	}
 
@@ -1053,14 +1097,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		// +: ++
 		// -~ ~-
 		// + -
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.PLUS_MINUS_EXPR__OP).get(0));
 	}
 
 	@Override
 	public Boolean caseMultiplicativeExpr(MultiplicativeExpr object) {
 		// * / %
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
+		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.MULTIPLICATIVE_EXPR__OP).get(0));
 	}
 
@@ -1068,11 +1112,11 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	public Boolean caseUnaryExpr(UnaryExpr object) {
 		// + - !
 		UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
-		
+
 		INode opNode = NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.UNARY_EXPR__OP).get(0);
 		Position opPos = VisitorUtil.buildPositionFromINode(opNode, VisitorUtil.getResourcePath(object));
 		assert opPos != null;
-		
+
 		push(Unary$.MODULE$.apply(Exp.UnaryOp$.MODULE$.byName(slangOp.name()).get(), visitPop(object.getExp()),
 				GumboUtil.buildResolvedAttr(object), SlangUtil.toSome(opPos)));
 		return false;
@@ -1211,7 +1255,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, sdp.getName().length())));
 		} else if (receiver instanceof QuantParam) {
 			QuantParam qp = (QuantParam) receiver;
-			
+
 			slangId = Id$.MODULE$.apply(qp.getName(),
 					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, qp.getName().length())));
 		} else {
@@ -1230,38 +1274,38 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		if (object.getRef() != null) {
 				OtherDataRef ref = object.getRef();
 				String attName = ref.getNamedElement().getName();
-	
+
 				if (attName == null) {
 					// FIXME: can still invoke HAMR when selector is invalid. OSATE is likely
 					// showing the error. For now use a string that can't appear in an id.
 					// Maybe use reporter instead.
 					attName = "<invalid>";
 				}
-	
+
 				Stack<Object> names = new Stack<>();
 				names.push(Id$.MODULE$.apply(attName, GumboUtil.buildAttr(ref)));
 				names.push(slangId);
-	
+
 				ref = ref.getPath();
-	
+
 				while (ref != null) {
 					attName = ref.getNamedElement().getName();
-	
+
 					names.add(0, Id$.MODULE$.apply(attName, GumboUtil.buildAttr(ref)));
-	
+
 					ref = ref.getPath();
 				}
-	
+
 				push(GumboUtil.convertIdStackToSelect(names));
 		} else {
 			push(Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object)));
 		}
 */
 		push(Ident$.MODULE$.apply(slangId, GumboUtil.buildResolvedAttr(object)));
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public Boolean caseF32Obj(F32Obj object) {
 		Ident f32ident = Ident$.MODULE$.apply(Id$.MODULE$.apply("F32", GumboUtil.buildAttr(object)), GumboUtil.buildResolvedAttr(object));
@@ -1320,7 +1364,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		String hex = object.getValue();
 		assert hex.startsWith("0x") || hex.startsWith("0X");
 		hex = hex.strip().substring(2);
-		
+
         int decimalValue = 0;
         int base = 16;
 
@@ -1343,7 +1387,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
         }
 		return false;
 	}
-	
+
 	@Override
 	public Boolean caseIntegerLit(IntegerLit object) {
 
