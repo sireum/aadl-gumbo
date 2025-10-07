@@ -91,11 +91,31 @@ GumboTable:
 NormalTable:
 	'normal' id=ID descriptor=STRING_VALUE? ':' 
 		'[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']'
-		('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
+		('[' verticalPredicates+=OwnedExpression ':' resultRows+=GumboRow ']')+';'
 ;
 
-ResultRow:
-	(results+=OwnedExpression ',')* results+=OwnedExpression
+InverseTable:
+	'inverse' id=ID descriptor=STRING_VALUE? ':'
+		'[' (results+=OwnedExpression ',')* results+=OwnedExpression ']'
+		('[' verticalPredicates+=OwnedExpression ':' interiorPredicateRows+=GumboRow ']')+ ';'
+;
+
+NestedTable:
+	'nested' id=ID descriptor=STRING_VALUE? ':'
+		('['(horizontalPredicateRows+=GumboRowBlank)']')+
+		('['verticalPredicateRows+=GumboRowBlank) ':' (resultRows+=GumboRow']')+';'
+;
+
+GumboRow:
+	(expressions+=OwnedExpression ',')* expressions+=OwnedExpression
+;
+
+GumboRowBlank:
+	((expressions+=(OwnedExpression|TableBlank)) ',')* expressions+=(OwnedExpression|TableBlank)
+;
+
+TableBlank:
+	'_'
 ;
 
 InfoFlowClause:
