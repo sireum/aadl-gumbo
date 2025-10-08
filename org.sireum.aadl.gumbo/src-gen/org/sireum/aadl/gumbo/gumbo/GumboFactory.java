@@ -133,6 +133,60 @@ public interface GumboFactory extends EFactory
   Compute createCompute();
 
   /**
+   * Returns a new object of class '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Table</em>'.
+   * @generated
+   */
+  GumboTable createGumboTable();
+
+  /**
+   * Returns a new object of class '<em>Normal Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Normal Table</em>'.
+   * @generated
+   */
+  NormalTable createNormalTable();
+
+  /**
+   * Returns a new object of class '<em>Inverse Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inverse Table</em>'.
+   * @generated
+   */
+  InverseTable createInverseTable();
+
+  /**
+   * Returns a new object of class '<em>Nested Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nested Table</em>'.
+   * @generated
+   */
+  NestedTable createNestedTable();
+
+  /**
+   * Returns a new object of class '<em>Row Blank</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Row Blank</em>'.
+   * @generated
+   */
+  GumboRowBlank createGumboRowBlank();
+
+  /**
+   * Returns a new object of class '<em>Result Row</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Result Row</em>'.
+   * @generated
+   */
+  ResultRow createResultRow();
+
+  /**
    * Returns a new object of class '<em>Info Flow Clause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -635,6 +689,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangDoStmt createSlangDoStmt();
+
+  /**
+   * Returns a new object of class '<em>Slang Owned Expression Pattern</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slang Owned Expression Pattern</em>'.
+   * @generated
+   */
+  SlangOwnedExpressionPattern createSlangOwnedExpressionPattern();
 
   /**
    * Returns a new object of class '<em>If Else Exp</em>'.

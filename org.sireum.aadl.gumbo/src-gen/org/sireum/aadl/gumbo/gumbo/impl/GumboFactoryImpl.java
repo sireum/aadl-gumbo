@@ -86,6 +86,12 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.INITIALIZE: return createInitialize();
       case GumboPackage.INITIALIZE_SPEC_STATEMENT: return createInitializeSpecStatement();
       case GumboPackage.COMPUTE: return createCompute();
+      case GumboPackage.GUMBO_TABLE: return createGumboTable();
+      case GumboPackage.NORMAL_TABLE: return createNormalTable();
+      case GumboPackage.INVERSE_TABLE: return createInverseTable();
+      case GumboPackage.NESTED_TABLE: return createNestedTable();
+      case GumboPackage.GUMBO_ROW_BLANK: return createGumboRowBlank();
+      case GumboPackage.RESULT_ROW: return createResultRow();
       case GumboPackage.INFO_FLOW_CLAUSE: return createInfoFlowClause();
       case GumboPackage.HANDLER_CLAUSE: return createHandlerClause();
       case GumboPackage.CASE_STATEMENT_CLAUSE: return createCaseStatementClause();
@@ -142,6 +148,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_ASSERT_STMT: return createSlangAssertStmt();
       case GumboPackage.SLANG_HALT_STMT: return createSlangHaltStmt();
       case GumboPackage.SLANG_DO_STMT: return createSlangDoStmt();
+      case GumboPackage.SLANG_OWNED_EXPRESSION_PATTERN: return createSlangOwnedExpressionPattern();
       case GumboPackage.IF_ELSE_EXP: return createIfElseExp();
       case GumboPackage.QUANTIFIED_EXP: return createQuantifiedExp();
       case GumboPackage.IMPLIES_EXPR: return createImpliesExpr();
@@ -314,6 +321,78 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     ComputeImpl compute = new ComputeImpl();
     return compute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GumboTable createGumboTable()
+  {
+    GumboTableImpl gumboTable = new GumboTableImpl();
+    return gumboTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NormalTable createNormalTable()
+  {
+    NormalTableImpl normalTable = new NormalTableImpl();
+    return normalTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InverseTable createInverseTable()
+  {
+    InverseTableImpl inverseTable = new InverseTableImpl();
+    return inverseTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NestedTable createNestedTable()
+  {
+    NestedTableImpl nestedTable = new NestedTableImpl();
+    return nestedTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GumboRowBlank createGumboRowBlank()
+  {
+    GumboRowBlankImpl gumboRowBlank = new GumboRowBlankImpl();
+    return gumboRowBlank;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ResultRow createResultRow()
+  {
+    ResultRowImpl resultRow = new ResultRowImpl();
+    return resultRow;
   }
 
   /**
@@ -986,6 +1065,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangDoStmtImpl slangDoStmt = new SlangDoStmtImpl();
     return slangDoStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SlangOwnedExpressionPattern createSlangOwnedExpressionPattern()
+  {
+    SlangOwnedExpressionPatternImpl slangOwnedExpressionPattern = new SlangOwnedExpressionPatternImpl();
+    return slangOwnedExpressionPattern;
   }
 
   /**

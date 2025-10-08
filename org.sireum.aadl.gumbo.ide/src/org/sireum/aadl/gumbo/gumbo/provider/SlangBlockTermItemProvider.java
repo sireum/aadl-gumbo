@@ -379,6 +379,11 @@ public class SlangBlockTermItemProvider extends GExprItemProvider
 
     newChildDescriptors.add
       (createChildParameter
+        (GumboPackage.Literals.SLANG_BLOCK_TERM__STMT,
+         GumboFactory.eINSTANCE.createSlangOwnedExpressionPattern()));
+
+    newChildDescriptors.add
+      (createChildParameter
         (GumboPackage.Literals.SLANG_BLOCK_TERM__R,
          GumboFactory.eINSTANCE.createSlangRet()));
   }

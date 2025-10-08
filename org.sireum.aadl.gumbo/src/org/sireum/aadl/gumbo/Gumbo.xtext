@@ -79,6 +79,37 @@ Compute:
 	  ('cases' (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
+	  (gumboTables+=GumboTable)*
+;
+
+GumboTable:
+	'table' table=(NormalTable|InverseTable|NestedTable)
+;
+
+NormalTable:
+	'normal' id=ID descriptor=STRING_VALUE? ':' 
+		'[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']'
+		('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
+;
+
+InverseTable:
+	'inverse' id=ID descriptor=STRING_VALUE? ':'
+		'[' (results+=OwnedExpression ',')* results+=OwnedExpression ']'
+		('[' verticalPredicates+=OwnedExpression ':' interiorPredicateRows+=ResultRow ']')+ ';'
+;
+
+NestedTable:
+	'nested' id=ID descriptor=STRING_VALUE? ':'
+		('['(horizontalPredicateRows+=GumboRowBlank)']')+
+		('['verticalPredicateRows+=GumboRowBlank) ':' (resultRows+=ResultRow']')+';'
+;
+
+GumboRowBlank:
+	(expressions+=(OwnedExpression) ',')* expressions+=(OwnedExpression)
+;
+
+ResultRow:
+	(results+=OwnedExpression ',')* results+=OwnedExpression
 ;
 
 InfoFlowClause:
@@ -264,7 +295,7 @@ SlangLoopContract: {SlangLoopContract} inv=SlangInvariant? mod=SlangModifies? ;
 
 SlangCase: 'case' pattern=SlangPattern ( 'if' e=OwnedExpression )? '=>' s+=SlangStmt* ;
 
-SlangPattern: {SlangPattern}
+SlangPattern: {SlangOwnedExpressionPattern}
 	  ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
 	| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
 	;
@@ -475,7 +506,7 @@ SlangInterp
 	
 QualifiedName
 	: QCREF;
-	
+		
 terminal STRING_VALUE: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 
 //terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;

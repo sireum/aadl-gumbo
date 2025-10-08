@@ -360,6 +360,156 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.GumboTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected GumboTableItemProvider gumboTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.GumboTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createGumboTableAdapter()
+  {
+    if (gumboTableItemProvider == null)
+    {
+      gumboTableItemProvider = new GumboTableItemProvider(this);
+    }
+
+    return gumboTableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.NormalTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected NormalTableItemProvider normalTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.NormalTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createNormalTableAdapter()
+  {
+    if (normalTableItemProvider == null)
+    {
+      normalTableItemProvider = new NormalTableItemProvider(this);
+    }
+
+    return normalTableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.InverseTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected InverseTableItemProvider inverseTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.InverseTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createInverseTableAdapter()
+  {
+    if (inverseTableItemProvider == null)
+    {
+      inverseTableItemProvider = new InverseTableItemProvider(this);
+    }
+
+    return inverseTableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.NestedTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected NestedTableItemProvider nestedTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.NestedTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createNestedTableAdapter()
+  {
+    if (nestedTableItemProvider == null)
+    {
+      nestedTableItemProvider = new NestedTableItemProvider(this);
+    }
+
+    return nestedTableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.GumboRowBlank} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected GumboRowBlankItemProvider gumboRowBlankItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.GumboRowBlank}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createGumboRowBlankAdapter()
+  {
+    if (gumboRowBlankItemProvider == null)
+    {
+      gumboRowBlankItemProvider = new GumboRowBlankItemProvider(this);
+    }
+
+    return gumboRowBlankItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ResultRow} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ResultRowItemProvider resultRowItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ResultRow}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createResultRowAdapter()
+  {
+    if (resultRowItemProvider == null)
+    {
+      resultRowItemProvider = new ResultRowItemProvider(this);
+    }
+
+    return resultRowItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1760,6 +1910,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SlangOwnedExpressionPattern} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SlangOwnedExpressionPatternItemProvider slangOwnedExpressionPatternItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SlangOwnedExpressionPattern}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSlangOwnedExpressionPatternAdapter()
+  {
+    if (slangOwnedExpressionPatternItemProvider == null)
+    {
+      slangOwnedExpressionPatternItemProvider = new SlangOwnedExpressionPatternItemProvider(this);
+    }
+
+    return slangOwnedExpressionPatternItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IfElseExp} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2812,6 +2987,12 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (initializeItemProvider != null) initializeItemProvider.dispose();
     if (initializeSpecStatementItemProvider != null) initializeSpecStatementItemProvider.dispose();
     if (computeItemProvider != null) computeItemProvider.dispose();
+    if (gumboTableItemProvider != null) gumboTableItemProvider.dispose();
+    if (normalTableItemProvider != null) normalTableItemProvider.dispose();
+    if (inverseTableItemProvider != null) inverseTableItemProvider.dispose();
+    if (nestedTableItemProvider != null) nestedTableItemProvider.dispose();
+    if (gumboRowBlankItemProvider != null) gumboRowBlankItemProvider.dispose();
+    if (resultRowItemProvider != null) resultRowItemProvider.dispose();
     if (infoFlowClauseItemProvider != null) infoFlowClauseItemProvider.dispose();
     if (handlerClauseItemProvider != null) handlerClauseItemProvider.dispose();
     if (caseStatementClauseItemProvider != null) caseStatementClauseItemProvider.dispose();
@@ -2868,6 +3049,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangAssertStmtItemProvider != null) slangAssertStmtItemProvider.dispose();
     if (slangHaltStmtItemProvider != null) slangHaltStmtItemProvider.dispose();
     if (slangDoStmtItemProvider != null) slangDoStmtItemProvider.dispose();
+    if (slangOwnedExpressionPatternItemProvider != null) slangOwnedExpressionPatternItemProvider.dispose();
     if (ifElseExpItemProvider != null) ifElseExpItemProvider.dispose();
     if (quantifiedExpItemProvider != null) quantifiedExpItemProvider.dispose();
     if (impliesExprItemProvider != null) impliesExprItemProvider.dispose();

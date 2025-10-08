@@ -182,6 +182,11 @@ public class SlangCaseItemProvider
 
     newChildDescriptors.add
       (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__PATTERN,
+         GumboFactory.eINSTANCE.createSlangOwnedExpressionPattern()));
+
+    newChildDescriptors.add
+      (createChildParameter
         (GumboPackage.Literals.SLANG_CASE__E,
          GumboFactory.eINSTANCE.createOwnedExpression()));
 
@@ -389,6 +394,11 @@ public class SlangCaseItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_CASE__S,
          GumboFactory.eINSTANCE.createSlangDoStmt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__S,
+         GumboFactory.eINSTANCE.createSlangOwnedExpressionPattern()));
   }
 
   /**

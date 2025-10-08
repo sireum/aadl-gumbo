@@ -66,7 +66,9 @@ import org.sireum.aadl.gumbo.gumbo.Functions;
 import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.GumboRowBlank;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.GumboTable;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.HexLit;
@@ -80,12 +82,15 @@ import org.sireum.aadl.gumbo.gumbo.IntegerLit;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.Invariants;
+import org.sireum.aadl.gumbo.gumbo.InverseTable;
 import org.sireum.aadl.gumbo.gumbo.LtGtExpr;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NestedTable;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
@@ -96,6 +101,7 @@ import org.sireum.aadl.gumbo.gumbo.QuantRange;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
+import org.sireum.aadl.gumbo.gumbo.ResultRow;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangBlock;
@@ -121,6 +127,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
 import org.sireum.aadl.gumbo.gumbo.SlangLoopContract;
 import org.sireum.aadl.gumbo.gumbo.SlangMatchStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangModifies;
+import org.sireum.aadl.gumbo.gumbo.SlangOwnedExpressionPattern;
 import org.sireum.aadl.gumbo.gumbo.SlangParam;
 import org.sireum.aadl.gumbo.gumbo.SlangParams;
 import org.sireum.aadl.gumbo.gumbo.SlangPattern;
@@ -319,8 +326,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.GUMBO_LIBRARY:
 				sequence_GumboLibrary(context, (GumboLibrary) semanticObject); 
 				return; 
+			case GumboPackage.GUMBO_ROW_BLANK:
+				sequence_GumboRowBlank(context, (GumboRowBlank) semanticObject); 
+				return; 
 			case GumboPackage.GUMBO_SUBCLAUSE:
 				sequence_GumboSubclause(context, (GumboSubclause) semanticObject); 
+				return; 
+			case GumboPackage.GUMBO_TABLE:
+				sequence_GumboTable(context, (GumboTable) semanticObject); 
 				return; 
 			case GumboPackage.HANDLER_CLAUSE:
 				sequence_HandlerClause(context, (HandlerClause) semanticObject); 
@@ -361,6 +374,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.INVARIANTS:
 				sequence_Invariants(context, (Invariants) semanticObject); 
 				return; 
+			case GumboPackage.INVERSE_TABLE:
+				sequence_InverseTable(context, (InverseTable) semanticObject); 
+				return; 
 			case GumboPackage.LT_GT_EXPR:
 				sequence_LtGtExpression(context, (LtGtExpr) semanticObject); 
 				return; 
@@ -376,8 +392,14 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.MUST_SEND_EXPR:
 				sequence_BaseExpr(context, (MustSendExpr) semanticObject); 
 				return; 
+			case GumboPackage.NESTED_TABLE:
+				sequence_NestedTable(context, (NestedTable) semanticObject); 
+				return; 
 			case GumboPackage.NO_SEND_EXPR:
 				sequence_BaseExpr(context, (NoSendExpr) semanticObject); 
+				return; 
+			case GumboPackage.NORMAL_TABLE:
+				sequence_NormalTable(context, (NormalTable) semanticObject); 
 				return; 
 			case GumboPackage.OR_EXPR:
 				sequence_OrExpression(context, (OrExpr) semanticObject); 
@@ -408,6 +430,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.RESULT_EXPR:
 				sequence_AccessibleBaseExpr(context, (ResultExpr) semanticObject); 
+				return; 
+			case GumboPackage.RESULT_ROW:
+				sequence_ResultRow(context, (ResultRow) semanticObject); 
 				return; 
 			case GumboPackage.SLANG_ASSERT_STMT:
 				sequence_SlangStmt(context, (SlangAssertStmt) semanticObject); 
@@ -484,6 +509,16 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.SLANG_MODIFIES:
 				sequence_SlangModifies(context, (SlangModifies) semanticObject); 
 				return; 
+			case GumboPackage.SLANG_OWNED_EXPRESSION_PATTERN:
+				if (rule == grammarAccess.getSlangPatternRule()) {
+					sequence_SlangPattern(context, (SlangOwnedExpressionPattern) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSlangVarDefRule()) {
+					sequence_SlangPattern_SlangVarDef(context, (SlangOwnedExpressionPattern) semanticObject); 
+					return; 
+				}
+				else break;
 			case GumboPackage.SLANG_PARAM:
 				sequence_SlangParam(context, (SlangParam) semanticObject); 
 				return; 
@@ -1211,7 +1246,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         guarantees+=GuaranteeStatement* 
 	 *         cases+=CaseStatementClause* 
 	 *         handlers+=HandlerClause* 
-	 *         flows+=InfoFlowClause*
+	 *         flows+=InfoFlowClause* 
+	 *         gumboTables+=GumboTable*
 	 *     )
 	 * </pre>
 	 */
@@ -1404,6 +1440,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     GumboRowBlank returns GumboRowBlank
+	 *
+	 * Constraint:
+	 *     (expressions+=OwnedExpression* expressions+=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_GumboRowBlank(ISerializationContext context, GumboRowBlank semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     AnnexSubclause returns GumboSubclause
 	 *     GumboSubclause returns GumboSubclause
 	 *
@@ -1419,6 +1469,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGumboSubclauseAccess().getSpecsSpecSectionParserRuleCall_1_0(), semanticObject.getSpecs());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     GumboTable returns GumboTable
+	 *
+	 * Constraint:
+	 *     (table=NormalTable | table=InverseTable | table=NestedTable)
+	 * </pre>
+	 */
+	protected void sequence_GumboTable(ISerializationContext context, GumboTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1563,6 +1627,26 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     InverseTable returns InverseTable
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         descriptor=STRING_VALUE? 
+	 *         results+=OwnedExpression* 
+	 *         results+=OwnedExpression 
+	 *         (verticalPredicates+=OwnedExpression interiorPredicateRows+=ResultRow)+
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_InverseTable(ISerializationContext context, InverseTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     OwnedExpression returns LtGtExpr
 	 *     SlangExpression returns LtGtExpr
 	 *     ImpliesExpression returns LtGtExpr
@@ -1658,6 +1742,40 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getOpMultiplicativeOpParserRuleCall_1_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getRightUnaryExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     NestedTable returns NestedTable
+	 *
+	 * Constraint:
+	 *     (id=ID descriptor=STRING_VALUE? horizontalPredicateRows+=GumboRowBlank+ verticalPredicateRows+=GumboRowBlank resultRows+=ResultRow+)
+	 * </pre>
+	 */
+	protected void sequence_NestedTable(ISerializationContext context, NestedTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     NormalTable returns NormalTable
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         descriptor=STRING_VALUE? 
+	 *         horizontalPredicates+=OwnedExpression* 
+	 *         horizontalPredicates+=OwnedExpression 
+	 *         (verticalPredicates+=OwnedExpression resultRows+=ResultRow)+
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_NormalTable(ISerializationContext context, NormalTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1804,6 +1922,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_QuantRange(ISerializationContext context, QuantRange semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ResultRow returns ResultRow
+	 *
+	 * Constraint:
+	 *     (results+=OwnedExpression* results+=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_ResultRow(ISerializationContext context, ResultRow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2275,10 +2407,24 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     SlangPattern returns SlangOwnedExpressionPattern
+	 *
+	 * Constraint:
+	 *     (patterns+=SlangTPattern patterns+=SlangTPattern*)?
+	 * </pre>
+	 */
+	protected void sequence_SlangPattern(ISerializationContext context, SlangOwnedExpressionPattern semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     SlangPattern returns SlangPattern
 	 *
 	 * Constraint:
-	 *     ((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*))?
+	 *     (patterns+=SlangTPattern patterns+=SlangTPattern*)
 	 * </pre>
 	 */
 	protected void sequence_SlangPattern(ISerializationContext context, SlangPattern semanticObject) {
@@ -2289,14 +2435,24 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     SlangVarDef returns SlangOwnedExpressionPattern
+	 *
+	 * Constraint:
+	 *     ((patterns+=SlangTPattern patterns+=SlangTPattern*)? typeName=SlangType? init=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_SlangPattern_SlangVarDef(ISerializationContext context, SlangOwnedExpressionPattern semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     SlangVarDef returns SlangPattern
 	 *
 	 * Constraint:
-	 *     (
-	 *         ((patterns+=SlangTPattern patterns+=SlangTPattern*) | (patterns+=SlangTPattern patterns+=SlangTPattern*))? 
-	 *         typeName=SlangType? 
-	 *         init=OwnedExpression
-	 *     )
+	 *     (patterns+=SlangTPattern patterns+=SlangTPattern* typeName=SlangType? init=OwnedExpression)
 	 * </pre>
 	 */
 	protected void sequence_SlangPattern_SlangVarDef(ISerializationContext context, SlangPattern semanticObject) {

@@ -173,6 +173,48 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.GUMBO_TABLE:
+      {
+        GumboTable gumboTable = (GumboTable)theEObject;
+        T result = caseGumboTable(gumboTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.NORMAL_TABLE:
+      {
+        NormalTable normalTable = (NormalTable)theEObject;
+        T result = caseNormalTable(normalTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.INVERSE_TABLE:
+      {
+        InverseTable inverseTable = (InverseTable)theEObject;
+        T result = caseInverseTable(inverseTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.NESTED_TABLE:
+      {
+        NestedTable nestedTable = (NestedTable)theEObject;
+        T result = caseNestedTable(nestedTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.GUMBO_ROW_BLANK:
+      {
+        GumboRowBlank gumboRowBlank = (GumboRowBlank)theEObject;
+        T result = caseGumboRowBlank(gumboRowBlank);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.RESULT_ROW:
+      {
+        ResultRow resultRow = (ResultRow)theEObject;
+        T result = caseResultRow(resultRow);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.INFO_FLOW_CLAUSE:
       {
         InfoFlowClause infoFlowClause = (InfoFlowClause)theEObject;
@@ -580,6 +622,16 @@ public class GumboSwitch<T> extends Switch<T>
         SlangDoStmt slangDoStmt = (SlangDoStmt)theEObject;
         T result = caseSlangDoStmt(slangDoStmt);
         if (result == null) result = caseSlangStmt(slangDoStmt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SLANG_OWNED_EXPRESSION_PATTERN:
+      {
+        SlangOwnedExpressionPattern slangOwnedExpressionPattern = (SlangOwnedExpressionPattern)theEObject;
+        T result = caseSlangOwnedExpressionPattern(slangOwnedExpressionPattern);
+        if (result == null) result = caseSlangPattern(slangOwnedExpressionPattern);
+        if (result == null) result = caseSlangVarDef(slangOwnedExpressionPattern);
+        if (result == null) result = caseSlangStmt(slangOwnedExpressionPattern);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1084,6 +1136,102 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCompute(Compute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGumboTable(GumboTable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Normal Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Normal Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNormalTable(NormalTable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inverse Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inverse Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInverseTable(InverseTable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Nested Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nested Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNestedTable(NestedTable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Row Blank</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Row Blank</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGumboRowBlank(GumboRowBlank object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Result Row</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Result Row</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResultRow(ResultRow object)
   {
     return null;
   }
@@ -1980,6 +2128,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangDoStmt(SlangDoStmt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Slang Owned Expression Pattern</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Slang Owned Expression Pattern</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSlangOwnedExpressionPattern(SlangOwnedExpressionPattern object)
   {
     return null;
   }
