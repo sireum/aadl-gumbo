@@ -19,7 +19,7 @@ Require-Bundle: org.sireum.aadl.gumbo,
  org.eclipse.xtend.lib;resolution:=optional,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.sireum.aadl.gumbo.ide.contentassist.antlr.internal,
  org.sireum.aadl.gumbo.ide.contentassist.antlr,
  org.sireum.aadl.gumbo.ui.contentassist,

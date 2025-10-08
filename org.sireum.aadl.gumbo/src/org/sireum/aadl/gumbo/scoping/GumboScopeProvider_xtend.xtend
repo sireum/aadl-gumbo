@@ -55,8 +55,6 @@ import org.eclipse.emf.common.util.BasicEList
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam
 import org.sireum.aadl.gumbo.gumbo.SlangType
-import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
-import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement
 import org.sireum.aadl.gumbo.gumbo.InStateExpr
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr
@@ -67,14 +65,11 @@ import org.sireum.aadl.gumbo.gumbo.HandlerClause
 import java.util.List
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary
-import org.sireum.aadl.gumbo.gumbo.FuncSpec
 import org.eclipse.emf.common.util.EList
-import org.osate.aadl2.AnnexLibrary
 import org.osate.aadl2.DefaultAnnexLibrary
 import org.sireum.aadl.gumbo.gumbo.CallExpr
 import org.sireum.aadl.gumbo.gumbo.Compute
 import org.sireum.aadl.gumbo.gumbo.InfoFlowClause
-import org.osate.aadl2.EventPort
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr
 
 /**

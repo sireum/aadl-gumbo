@@ -8,18 +8,11 @@ import com.google.inject.Inject
 import org.osate.testsupport.TestHelper
 import org.osate.aadl2.AadlPackage
 import org.junit.Test
-import org.osate.aadl2.DefaultAnnexSubclause
-
-import static extension org.junit.Assert.assertEquals
-import org.osate.aadl2.EventDataPort
-import static org.junit.Assert.assertTrue
-import org.osate.aadl2.DirectionType
 import org.osate.testsupport.AssertHelper
 import org.eclipse.xtext.resource.IResourceServiceProvider
 import org.eclipse.emf.common.util.URI
 import org.sireum.aadl.gumbo.tests.GumboInjectorProvider
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
-import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement
 
 @RunWith(XtextRunner)
 @InjectWith(GumboInjectorProvider)

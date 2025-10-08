@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -14,11 +13,8 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.naming.QualifiedName;
-import org.eclipse.xtext.resource.EObjectDescription;
-import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.SimpleScope;
@@ -254,7 +250,7 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 		NamedElement elm = context.getEnumType();
 
 		if (elm instanceof DataType) {
-			EList<PropertyAssociation> propAssocs = ((DataType) elm).getOwnedPropertyAssociations();
+			EList<PropertyAssociation> propAssocs = elm.getOwnedPropertyAssociations();
 
 			// Look for Data_Representation == Enum
 			Optional<EnumerationLiteral> dataRepPropertyOpt = propAssocs.stream()

@@ -76,7 +76,6 @@ import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
-import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
@@ -101,8 +100,8 @@ import org.sireum.aadl.osate.architecture.Visitor;
 import org.sireum.aadl.osate.gumbo2air.GumboUtil.UnaryOp;
 import org.sireum.aadl.osate.util.SlangUtil;
 import org.sireum.aadl.osate.util.VisitorUtil;
-import org.sireum.aadl.osate.util.VisitorUtil.Pair;
 import org.sireum.hamr.codegen.common.resolvers.GclResolver;
+import org.sireum.hamr.codegen.common.util.GclUtil.SlangAstBridge$;
 import org.sireum.hamr.ir.Annex;
 import org.sireum.hamr.ir.Annex$;
 import org.sireum.hamr.ir.AnnexLib;
@@ -130,18 +129,14 @@ import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
 import org.sireum.hamr.ir.GclSubclause;
 import org.sireum.hamr.ir.GclSubclause$;
-import org.sireum.hamr.codegen.common.util.GclUtil.SlangAstBridge$;
 import org.sireum.lang.ast.AssignExp;
-import org.sireum.lang.ast.Exp.Binary;
-import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Body;
 import org.sireum.lang.ast.Body$;
 import org.sireum.lang.ast.Exp;
+import org.sireum.lang.ast.Exp.Binary$;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
-import org.sireum.lang.ast.Exp.If;
 import org.sireum.lang.ast.Exp.If$;
-import org.sireum.lang.ast.Exp.Input;
 import org.sireum.lang.ast.Exp.Input$;
 import org.sireum.lang.ast.Exp.Invoke;
 import org.sireum.lang.ast.Exp.Invoke$;
@@ -153,7 +148,6 @@ import org.sireum.lang.ast.Exp.Ref;
 import org.sireum.lang.ast.Exp.Select;
 import org.sireum.lang.ast.Exp.Select$;
 import org.sireum.lang.ast.Exp.StringInterpolate$;
-import org.sireum.lang.ast.Exp.Unary;
 import org.sireum.lang.ast.Exp.Unary$;
 import org.sireum.lang.ast.Id;
 import org.sireum.lang.ast.Id$;
@@ -172,7 +166,6 @@ import org.sireum.lang.ast.Param$;
 import org.sireum.lang.ast.Purity;
 import org.sireum.lang.ast.Purity$;
 import org.sireum.lang.ast.Stmt;
-import org.sireum.lang.ast.Stmt.Expr;
 import org.sireum.lang.ast.Stmt.Method;
 import org.sireum.lang.ast.Stmt.Method$;
 import org.sireum.lang.ast.Type;
@@ -983,8 +976,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				context, //
 				VisitorUtil.toISZ(SlangAstBridge$.MODULE$.AST_Exp_Fun_Param(idOpt, SlangUtil.toNone(), SlangUtil.toNone())), //
 				quantExp, GumboUtil.buildTypedAttr(object));	
-		
-		Exp.QuantRange qrr = Exp.QuantRange$.MODULE$.apply(isForAll, lo, high, isInclusive, funExp, GumboUtil.buildResolvedAttr(object));
 
 		push(Exp.QuantRange$.MODULE$.apply(isForAll, lo, high, isInclusive, funExp, GumboUtil.buildResolvedAttr(object)));
 		
