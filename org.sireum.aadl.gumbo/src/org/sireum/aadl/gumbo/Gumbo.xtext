@@ -83,39 +83,33 @@ Compute:
 ;
 
 GumboTable:
-	'table' table=(NormalTable) // TODO: Or inverse, or nested... Only doing normal for now, but this Table setup is
-								//								  in order to provide room for the additional types.
-								//								  similar to the SpecStatement
+	'table' table=(NormalTable|InverseTable|NestedTable)
 ;
 
 NormalTable:
 	'normal' id=ID descriptor=STRING_VALUE? ':' 
 		'[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']'
-		('[' verticalPredicates+=OwnedExpression ':' resultRows+=GumboRow ']')+';'
+		('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
 ;
 
 InverseTable:
 	'inverse' id=ID descriptor=STRING_VALUE? ':'
 		'[' (results+=OwnedExpression ',')* results+=OwnedExpression ']'
-		('[' verticalPredicates+=OwnedExpression ':' interiorPredicateRows+=GumboRow ']')+ ';'
+		('[' verticalPredicates+=OwnedExpression ':' interiorPredicateRows+=ResultRow ']')+ ';'
 ;
 
 NestedTable:
 	'nested' id=ID descriptor=STRING_VALUE? ':'
 		('['(horizontalPredicateRows+=GumboRowBlank)']')+
-		('['verticalPredicateRows+=GumboRowBlank) ':' (resultRows+=GumboRow']')+';'
+		('['verticalPredicateRows+=GumboRowBlank) ':' (resultRows+=ResultRow']')+';'
 ;
 
-GumboRow:
+ResultRow:
 	(expressions+=OwnedExpression ',')* expressions+=OwnedExpression
 ;
 
 GumboRowBlank:
-	((expressions+=(OwnedExpression|TableBlank)) ',')* expressions+=(OwnedExpression|TableBlank)
-;
-
-TableBlank:
-	'_'
+	((expressions+=(OwnedExpression|'_')) ',')* expressions+=(OwnedExpression|'_')
 ;
 
 InfoFlowClause:
