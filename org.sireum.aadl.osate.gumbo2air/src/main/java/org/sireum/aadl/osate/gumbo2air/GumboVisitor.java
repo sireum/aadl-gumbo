@@ -25,7 +25,6 @@ import org.osate.aadl2.DataClassifier;
 import org.osate.aadl2.DataSubcomponent;
 import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Element;
-import org.osate.aadl2.EventPort;
 import org.osate.aadl2.ModelUnit;
 import org.osate.aadl2.Port;
 import org.osate.aadl2.ProcessSubcomponent;
@@ -745,6 +744,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return false;
 	}
 
+	private Boolean isContainedInGumboSubclause(EObject o) {
+		return EcoreUtil2.getContainerOfType(o, GumboSubclause.class) != null;
+	}
+
+	private Boolean isContainedInGumboLibrary(EObject o) {
+		return EcoreUtil2.getContainerOfType(o, GumboLibrary.class) != null;
+	}
+
 	@Override
 	public Boolean caseCallExpr(CallExpr object) {
 		EObject obj = object.getId();
@@ -755,10 +762,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		if (obj instanceof SlangDefDef) {
 			SlangDefDef sdd = (SlangDefDef) obj;
 
-			boolean isInGumboSubclause = EcoreUtil2.getContainerOfType(sdd, GumboSubclause.class) != null;
-			boolean isInGumboLibrary = EcoreUtil2.getContainerOfType(sdd, GumboLibrary.class) != null;
-
-			if (isInGumboLibrary) {
+			if (isContainedInGumboLibrary(sdd)) {
 				AadlPackage aadlPackage = EcoreUtil2.getContainerOfType(sdd, AadlPackage.class);
 
 				// TODO: gcl libraries are placed in unique Slang objects called
@@ -777,7 +781,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 				Id id = Id$.MODULE$.apply(sdd.getName(), GumboUtil.buildAttr(object));
 				ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
 
-			} else if (isInGumboSubclause) {
+			} else if (isContainedInGumboSubclause(sdd)) {
 				Classifier classifier = EcoreUtil2.getContainerOfType(sdd, Classifier.class);
 
 				if (classifier == null
@@ -811,25 +815,8 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			Id id = Id$.MODULE$.apply(dst.getName(), GumboUtil.buildAttr(object));
 			ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
 
-		} else if (obj instanceof Port) {
-			if (obj instanceof EventPort) {
-				reportError(obj, "Access expressions cannot be applied to event ports");
-				Id id = Id$.MODULE$.apply("invalid", GumboUtil.buildAttr(object));
-				ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
-			} else {
-				Port p = (Port) obj;
-				Id id = Id$.MODULE$.apply(p.getName(), GumboUtil.buildAttr(object));
-				ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
-			}
-		} else if (obj instanceof StateVarDecl) {
-			StateVarDecl s = (StateVarDecl) obj;
-			Id id = Id$.MODULE$.apply(s.getName(), GumboUtil.buildAttr(object));
-			ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
-		} else if (obj instanceof SlangDefParam) {
-			SlangDefParam s = (SlangDefParam) obj;
-			Id id = Id$.MODULE$.apply(s.getName(), GumboUtil.buildAttr(object));
-			ident = Ident$.MODULE$.apply(id, GumboUtil.buildResolvedAttr(object));
-		} else {
+		}
+		else {
 			reportError(obj, "Not currently handling calls to " + obj.getClass().getSimpleName());
 
 			return false;
@@ -1069,6 +1056,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return false;
 	}
 
+	private Boolean isCallToGumboLibraryFunction(EObject o) {
+		if (o instanceof DataRefExpr && ((DataRefExpr) o).getPortOrSubcomponentOrStateVar() instanceof SlangDefDef) {
+			return isContainedInGumboLibrary(((DataRefExpr) o).getPortOrSubcomponentOrStateVar());
+		}
+		return false;
+	}
+
 	@Override
 	public Boolean casePostFixExpr(PostFixExpr object) {
 		Exp receiver = visitPop(object.getBaseExp());
@@ -1096,15 +1090,46 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					}
 
 					if (receiver instanceof Select) {
+						// e.g. myStructArray.fieldArray(i)
 						Select r = (Select) receiver;
+						
+						if (isCallToGumboLibraryFunction(object.getBaseExp())) {
+							
+							// TODO: gcl libraries are placed in unique Slang objects called
+							// <fqn-package-name>.GUMBO__Library. It would be better to add the
+							// GUMBO__Library suffix via a rewriter
+							
+							// GUMBO_Definitions.isFahrenheit(...) -> GUMBO_Definitions.GUMBO__Library.isFahrenheit(...)
+							Id id = Id$.MODULE$.apply("GUMBO__Library", r.id().getAttr());
+							Select x = Select$.MODULE$.apply(r.getReceiverOpt(), id, VisitorUtil.toISZ(), r.attr());
+							r = Select$.MODULE$.apply(
+									SlangUtil.toSome(x), r.id(), r.getTargs(), r.attr());
+						}
+						
 						receiver = Invoke$.MODULE$.apply(//
 								r.receiverOpt(), // receiverOpt
 								Ident$.MODULE$.apply(r.id(), GumboUtil.buildResolvedAttr(r.id().attr().posOpt())), // ident
 								VisitorUtil.toISZ(), // targs
 								VisitorUtil.toISZ(indexes), // args
 								GumboUtil.buildResolvedAttr(mergedPos));
+					} else if (receiver instanceof Ident) {
+						if (isCallToGumboLibraryFunction(object.getBaseExp())) {
+							assert(false);
+						}
+						// e.g. or MyArray(i)
+						Ident i = (Ident) receiver;
+						receiver = Invoke$.MODULE$.apply(//
+								SlangUtil.toNone(), // receiverOpt
+								i, // ident
+								VisitorUtil.toISZ(), // targs
+								VisitorUtil.toISZ(indexes), // args
+								GumboUtil.buildResolvedAttr(mergedPos));
 					} else {
-						// e.g. array(0)(1)
+						if (isCallToGumboLibraryFunction(object.getBaseExp())) {
+							assert(false);
+						}
+						
+						// e.g. array(0)(1) or FunctionCallThatReturnsAnArray()(1)
 						// array(0) will be an Invoke with the ident = 'array'.  That will be wrapped in
 						// and Invoke with the ident 'apply' whose resolved info indicates 'apply' is ResolvedInfo.BuiltIn.Kind.Apply
 						Invoke r = (Invoke) receiver;
@@ -1115,7 +1140,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 								VisitorUtil.toISZ(), // targs
 								VisitorUtil.toISZ(indexes), // args
 								GumboUtil.buildResolvedAttr(mergedPos));
-						assert(true);
 					}
 
 				}
@@ -1205,7 +1229,22 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			
 			slangId = Id$.MODULE$.apply(qp.getName(),
 					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, qp.getName().length())));
-		} else {
+		} else if (receiver instanceof DataSubcomponentType) {
+			DataSubcomponentType dst = (DataSubcomponentType) receiver;
+
+			String name = dst.getQualifiedName();
+			String[] segments = name.split("::");
+
+			Stack<Object> names = new Stack<>();
+			for (int i = 0; i < segments.length; i++) {
+				names.add(0, Id$.MODULE$.apply(segments[i], GumboUtil.buildAttr(object)));
+			}
+
+			push(GumboUtil.convertIdStackToSelect(names));
+
+			return false;
+		}
+		else {
 			// FIXME: can invoke HAMR even if there are syntax errors in gumbo annexes. OSATE is likely
 			// showing the error. Use reporter instead?
 

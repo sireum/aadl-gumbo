@@ -394,12 +394,15 @@ FloatObjectExpr returns GExpr
 	;
 	
 AccessibleBaseExpr returns GExpr
-	:  => ({CallExpr} id=[ecore::EObject|QualifiedName] callSuffix=SlangCallSuffix )	
-	| => ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') 
-			argExpr+=OwnedExpression (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=OwnedExpression)* '}'
-	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID] 
+	: {CallExpr} id=[ecore::EObject|QualifiedAADLName] callSuffix=SlangCallSuffix
+	| ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') 
+		argExpr+=OwnedExpression (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=OwnedExpression)* '}'
+	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID]		
 	| {ResultExpr} 'res'
-;
+;	
+ 
+QualifiedAADLName:
+	ID ('::' ID)+ ('.' ID)?;
 
 Postfix:
 	MemberAccess | ArrayAccess;
@@ -407,8 +410,8 @@ Postfix:
 MemberAccess:
 	'.' field=ID;
 
-ArrayAccess:
-	'(' index+=OwnedExpression (',' index+=OwnedExpression)* ')';
+ArrayAccess: {ArrayAccess}
+	'(' ( index+=OwnedExpression (',' index+=OwnedExpression)* )? ')';
 
 
 OtherDataRef:
