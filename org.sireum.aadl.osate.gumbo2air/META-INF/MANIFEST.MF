@@ -1,9 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GUMBO to AIR plugin
-Bundle-SymbolicName: org.sireum.aadl.osate.gumbo2air
+Bundle-SymbolicName: org.sireum.aadl.osate.gumbo2air;singleton:=true
 Bundle-Version: 1.2025.10031007.qualifier
 Automatic-Module-Name: org.sireum.aadl.osate.gumbo
+Bundle-ActivationPolicy: lazy
 Require-Bundle: org.osate.aadl2,
  org.osate.annexsupport,
  org.osate.xtext.aadl2.ui;bundle-version="6.2.1",

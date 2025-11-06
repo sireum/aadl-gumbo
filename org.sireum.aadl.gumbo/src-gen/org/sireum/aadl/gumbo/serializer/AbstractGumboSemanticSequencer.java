@@ -559,7 +559,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     AccessibleBaseExpr returns CallExpr
 	 *
 	 * Constraint:
-	 *     (id=[EObject|QualifiedName] callSuffix=SlangCallSuffix)
+	 *     (id=[EObject|QualifiedAADLName] callSuffix=SlangCallSuffix)
 	 * </pre>
 	 */
 	protected void sequence_AccessibleBaseExpr(ISerializationContext context, CallExpr semanticObject) {
@@ -570,8 +570,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.CALL_EXPR__CALL_SUFFIX));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAccessibleBaseExprAccess().getIdEObjectQualifiedNameParserRuleCall_0_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.CALL_EXPR__ID, false));
-		feeder.accept(grammarAccess.getAccessibleBaseExprAccess().getCallSuffixSlangCallSuffixParserRuleCall_0_0_2_0(), semanticObject.getCallSuffix());
+		feeder.accept(grammarAccess.getAccessibleBaseExprAccess().getIdEObjectQualifiedAADLNameParserRuleCall_0_1_0_1(), semanticObject.eGet(GumboPackage.Literals.CALL_EXPR__ID, false));
+		feeder.accept(grammarAccess.getAccessibleBaseExprAccess().getCallSuffixSlangCallSuffixParserRuleCall_0_2_0(), semanticObject.getCallSuffix());
 		feeder.finish();
 	}
 	
@@ -704,7 +704,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     ArrayAccess returns ArrayAccess
 	 *
 	 * Constraint:
-	 *     (index+=OwnedExpression index+=OwnedExpression*)
+	 *     (index+=OwnedExpression index+=OwnedExpression*)?
 	 * </pre>
 	 */
 	protected void sequence_ArrayAccess(ISerializationContext context, ArrayAccess semanticObject) {
