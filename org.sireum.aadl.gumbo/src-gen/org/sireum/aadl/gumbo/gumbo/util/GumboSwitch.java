@@ -187,10 +187,31 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.CASE_TABLE:
+      {
+        CaseTable caseTable = (CaseTable)theEObject;
+        T result = caseCaseTable(caseTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.NESTED_TABLE:
+      {
+        NestedTable nestedTable = (NestedTable)theEObject;
+        T result = caseNestedTable(nestedTable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.RESULT_ROW:
       {
         ResultRow resultRow = (ResultRow)theEObject;
         T result = caseResultRow(resultRow);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.BLANK_ROW:
+      {
+        BlankRow blankRow = (BlankRow)theEObject;
+        T result = caseBlankRow(blankRow);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1142,6 +1163,38 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Case Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Case Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCaseTable(CaseTable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Nested Table</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nested Table</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNestedTable(NestedTable object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Result Row</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1153,6 +1206,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseResultRow(ResultRow object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Blank Row</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Blank Row</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBlankRow(BlankRow object)
   {
     return null;
   }

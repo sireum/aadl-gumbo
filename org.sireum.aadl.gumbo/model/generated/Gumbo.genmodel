@@ -58,7 +58,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/gumboTables"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//GumboTable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboTable/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboTable/normal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboTable/cases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//GumboTable/nested"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//NormalTable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//NormalTable/id"/>
@@ -67,8 +69,27 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NormalTable/verticalPredicates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NormalTable/resultRows"/>
     </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//CaseTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CaseTable/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CaseTable/caseEval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CaseTable/descriptor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CaseTable/horizontalPredicates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CaseTable/verticalPredicateRows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CaseTable/resultRows"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//NestedTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//NestedTable/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//NestedTable/descriptor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NestedTable/horizontalPredicates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NestedTable/verticalPredicateRows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//NestedTable/resultRows"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//ResultRow">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ResultRow/results"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//BlankRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BlankRow/blanks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BlankRow/results"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//InfoFlowClause">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//InfoFlowClause/id"/>

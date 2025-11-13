@@ -94,7 +94,9 @@ public class GumboTableItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.GUMBO_TABLE__TABLE);
+      childrenFeatures.add(GumboPackage.Literals.GUMBO_TABLE__NORMAL);
+      childrenFeatures.add(GumboPackage.Literals.GUMBO_TABLE__CASES);
+      childrenFeatures.add(GumboPackage.Literals.GUMBO_TABLE__NESTED);
     }
     return childrenFeatures;
   }
@@ -152,7 +154,9 @@ public class GumboTableItemProvider
 
     switch (notification.getFeatureID(GumboTable.class))
     {
-      case GumboPackage.GUMBO_TABLE__TABLE:
+      case GumboPackage.GUMBO_TABLE__NORMAL:
+      case GumboPackage.GUMBO_TABLE__CASES:
+      case GumboPackage.GUMBO_TABLE__NESTED:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -173,8 +177,18 @@ public class GumboTableItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.GUMBO_TABLE__TABLE,
+        (GumboPackage.Literals.GUMBO_TABLE__NORMAL,
          GumboFactory.eINSTANCE.createNormalTable()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.GUMBO_TABLE__CASES,
+         GumboFactory.eINSTANCE.createCaseTable()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.GUMBO_TABLE__NESTED,
+         GumboFactory.eINSTANCE.createNestedTable()));
   }
 
   /**

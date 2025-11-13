@@ -39,9 +39,11 @@ import org.sireum.Z;
 import org.sireum.aadl.gumbo.gumbo.AndExpr;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
+import org.sireum.aadl.gumbo.gumbo.BlankRow;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
+import org.sireum.aadl.gumbo.gumbo.CaseTable;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
@@ -75,6 +77,7 @@ import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NestedTable;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
@@ -112,6 +115,7 @@ import org.sireum.hamr.ir.GclAssume;
 import org.sireum.hamr.ir.GclAssume$;
 import org.sireum.hamr.ir.GclCaseStatement;
 import org.sireum.hamr.ir.GclCaseStatement$;
+import org.sireum.hamr.ir.GclCaseTable;
 import org.sireum.hamr.ir.GclCompute;
 import org.sireum.hamr.ir.GclCompute$;
 import org.sireum.hamr.ir.GclGuarantee;
@@ -127,6 +131,8 @@ import org.sireum.hamr.ir.GclInvariant$;
 import org.sireum.hamr.ir.GclLib$;
 import org.sireum.hamr.ir.GclMethod;
 import org.sireum.hamr.ir.GclMethod$;
+import org.sireum.hamr.ir.GclNestedTable;
+import org.sireum.hamr.ir.GclNormalTable;
 import org.sireum.hamr.ir.GclSpec;
 import org.sireum.hamr.ir.GclStateVar;
 import org.sireum.hamr.ir.GclStateVar$;
@@ -573,9 +579,21 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	// SIERRA ADDED
 	@Override
 	public Boolean caseGumboTable(GumboTable gumboTable) {
-		NormalTable table = gumboTable.getTable();
-		push(org.sireum.hamr.ir.GclGumboTable$.MODULE$.apply(visitPop(table), GumboUtil.toAttr(gumboTable)));
+		Option<GclNormalTable> _normal = SlangUtil.toNone();
+		if(gumboTable.getNormal() != null) {
+			_normal = SlangUtil.toSome(visitPop(gumboTable.getNormal()));
+		}
 
+		Option<GclCaseTable> _cases = SlangUtil.toNone();
+		if (gumboTable.getCases() != null) {
+			_cases = SlangUtil.toSome(visitPop(gumboTable.getCases()));
+		}
+
+		Option<GclNestedTable> _nested = SlangUtil.toNone();
+		if (gumboTable.getNested() != null) {
+			_nested = SlangUtil.toSome(visitPop(gumboTable.getNested()));
+		}
+		push(org.sireum.hamr.ir.GclGumboTable$.MODULE$.apply(_normal, _cases, _nested, GumboUtil.toAttr(gumboTable)));
 		return false;
 	}
 
@@ -601,6 +619,54 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
+	public Boolean caseCaseTable(CaseTable caseTable) {
+		Exp caseEval;
+		List<org.sireum.hamr.ir.GclBlankRow> verticalPredicateRows = new ArrayList<>();
+		List<Exp> horizontalPredicates = new ArrayList<>();
+		List<org.sireum.hamr.ir.GclResultRow> resultRows = new ArrayList<>();
+
+		caseEval = visitPop(caseTable.getCaseEval());
+
+		for (BlankRow r : caseTable.getVerticalPredicateRows()) {
+			verticalPredicateRows.add(visitPop(r));
+		}
+		for (OwnedExpression e : caseTable.getHorizontalPredicates()) {
+			horizontalPredicates.add(visitPop(e));
+		}
+		for (ResultRow r : caseTable.getResultRows()) {
+			resultRows.add(visitPop(r));
+		}
+
+		push(org.sireum.hamr.ir.GclCaseTable$.MODULE$.apply(caseTable.getId(), caseEval,
+				GumboUtil.getOptionalSlangString(caseTable.getDescriptor()), VisitorUtil.toISZ(horizontalPredicates),
+				VisitorUtil.toISZ(verticalPredicateRows), VisitorUtil.toISZ(resultRows), GumboUtil.toAttr(caseTable)));
+		return false;
+	}
+
+	@Override
+	public Boolean caseNestedTable(NestedTable nestedTable) {
+		List<org.sireum.hamr.ir.GclBlankRow> verticalPredicateRows = new ArrayList<>();
+		List<Exp> horizontalPredicates = new ArrayList<>();
+		List<org.sireum.hamr.ir.GclResultRow> resultRows = new ArrayList<>();
+
+		for (BlankRow r : nestedTable.getVerticalPredicateRows()) {
+			verticalPredicateRows.add(visitPop(r));
+		}
+		for (OwnedExpression e : nestedTable.getHorizontalPredicates()) {
+			horizontalPredicates.add(visitPop(e));
+		}
+		for (ResultRow r : nestedTable.getResultRows()) {
+			resultRows.add(visitPop(r));
+		}
+
+		push(org.sireum.hamr.ir.GclNestedTable$.MODULE$.apply(nestedTable.getId(),
+				GumboUtil.getOptionalSlangString(nestedTable.getDescriptor()), VisitorUtil.toISZ(horizontalPredicates),
+				VisitorUtil.toISZ(verticalPredicateRows), VisitorUtil.toISZ(resultRows),
+				GumboUtil.toAttr(nestedTable)));
+		return false;
+	}
+
+	@Override
 	public Boolean caseResultRow(ResultRow resultRow) {
 		List<Exp> results = new ArrayList<>();
 
@@ -608,6 +674,21 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			results.add(visitPop(e));
 		}
 		push(org.sireum.hamr.ir.GclResultRow$.MODULE$.apply(VisitorUtil.toISZ(results), GumboUtil.toAttr(resultRow)));
+		return false;
+	}
+
+	@Override
+	public Boolean caseBlankRow(BlankRow blankRow) {
+		List<Exp> results = new ArrayList<>();
+		for (OwnedExpression e : blankRow.getResults()) {
+			results.add(visitPop(e));
+		}
+		List<org.sireum.String> blanks = new ArrayList<>();
+		for (String s : blankRow.getBlanks()) {
+			blanks.add(SlangUtil.sireumString(s));
+		}
+		push(org.sireum.hamr.ir.GclBlankRow$.MODULE$.apply(VisitorUtil.toISZ(blanks),
+				VisitorUtil.toISZ(results), GumboUtil.toAttr(blankRow)));
 		return false;
 	}
 

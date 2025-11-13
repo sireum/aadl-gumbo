@@ -41,6 +41,7 @@ public class GumboParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GumboGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getGumboTableAccess().getAlternatives_1(), "rule__GumboTable__Alternatives_1");
 			builder.put(grammarAccess.getSpecStatementAccess().getAlternatives(), "rule__SpecStatement__Alternatives");
 			builder.put(grammarAccess.getSlangStmtAccess().getAlternatives(), "rule__SlangStmt__Alternatives");
 			builder.put(grammarAccess.getSlangElseAccess().getAlternatives_1(), "rule__SlangElse__Alternatives_1");
@@ -94,8 +95,19 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNormalTableAccess().getGroup(), "rule__NormalTable__Group__0");
 			builder.put(grammarAccess.getNormalTableAccess().getGroup_5(), "rule__NormalTable__Group_5__0");
 			builder.put(grammarAccess.getNormalTableAccess().getGroup_8(), "rule__NormalTable__Group_8__0");
+			builder.put(grammarAccess.getCaseTableAccess().getGroup(), "rule__CaseTable__Group__0");
+			builder.put(grammarAccess.getCaseTableAccess().getGroup_5(), "rule__CaseTable__Group_5__0");
+			builder.put(grammarAccess.getCaseTableAccess().getGroup_5_1(), "rule__CaseTable__Group_5_1__0");
+			builder.put(grammarAccess.getCaseTableAccess().getGroup_6(), "rule__CaseTable__Group_6__0");
+			builder.put(grammarAccess.getNestedTableAccess().getGroup(), "rule__NestedTable__Group__0");
+			builder.put(grammarAccess.getNestedTableAccess().getGroup_4(), "rule__NestedTable__Group_4__0");
+			builder.put(grammarAccess.getNestedTableAccess().getGroup_4_1(), "rule__NestedTable__Group_4_1__0");
+			builder.put(grammarAccess.getNestedTableAccess().getGroup_5(), "rule__NestedTable__Group_5__0");
 			builder.put(grammarAccess.getResultRowAccess().getGroup(), "rule__ResultRow__Group__0");
 			builder.put(grammarAccess.getResultRowAccess().getGroup_0(), "rule__ResultRow__Group_0__0");
+			builder.put(grammarAccess.getBlankRowAccess().getGroup(), "rule__BlankRow__Group__0");
+			builder.put(grammarAccess.getBlankRowAccess().getGroup_0(), "rule__BlankRow__Group_0__0");
+			builder.put(grammarAccess.getBlankRowAccess().getGroup_1(), "rule__BlankRow__Group_1__0");
 			builder.put(grammarAccess.getInfoFlowClauseAccess().getGroup(), "rule__InfoFlowClause__Group__0");
 			builder.put(grammarAccess.getInfoFlowClauseAccess().getGroup_6(), "rule__InfoFlowClause__Group_6__0");
 			builder.put(grammarAccess.getInfoFlowClauseAccess().getGroup_6_1(), "rule__InfoFlowClause__Group_6_1__0");
@@ -321,15 +333,33 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getComputeAccess().getHandlersAssignment_6(), "rule__Compute__HandlersAssignment_6");
 			builder.put(grammarAccess.getComputeAccess().getFlowsAssignment_7(), "rule__Compute__FlowsAssignment_7");
 			builder.put(grammarAccess.getComputeAccess().getGumboTablesAssignment_8(), "rule__Compute__GumboTablesAssignment_8");
-			builder.put(grammarAccess.getGumboTableAccess().getTableAssignment_1(), "rule__GumboTable__TableAssignment_1");
+			builder.put(grammarAccess.getGumboTableAccess().getNormalAssignment_1_0(), "rule__GumboTable__NormalAssignment_1_0");
+			builder.put(grammarAccess.getGumboTableAccess().getCasesAssignment_1_1(), "rule__GumboTable__CasesAssignment_1_1");
+			builder.put(grammarAccess.getGumboTableAccess().getNestedAssignment_1_2(), "rule__GumboTable__NestedAssignment_1_2");
 			builder.put(grammarAccess.getNormalTableAccess().getIdAssignment_1(), "rule__NormalTable__IdAssignment_1");
 			builder.put(grammarAccess.getNormalTableAccess().getDescriptorAssignment_2(), "rule__NormalTable__DescriptorAssignment_2");
 			builder.put(grammarAccess.getNormalTableAccess().getHorizontalPredicatesAssignment_5_0(), "rule__NormalTable__HorizontalPredicatesAssignment_5_0");
 			builder.put(grammarAccess.getNormalTableAccess().getHorizontalPredicatesAssignment_6(), "rule__NormalTable__HorizontalPredicatesAssignment_6");
 			builder.put(grammarAccess.getNormalTableAccess().getVerticalPredicatesAssignment_8_1(), "rule__NormalTable__VerticalPredicatesAssignment_8_1");
 			builder.put(grammarAccess.getNormalTableAccess().getResultRowsAssignment_8_3(), "rule__NormalTable__ResultRowsAssignment_8_3");
+			builder.put(grammarAccess.getCaseTableAccess().getIdAssignment_1(), "rule__CaseTable__IdAssignment_1");
+			builder.put(grammarAccess.getCaseTableAccess().getCaseEvalAssignment_2(), "rule__CaseTable__CaseEvalAssignment_2");
+			builder.put(grammarAccess.getCaseTableAccess().getDescriptorAssignment_3(), "rule__CaseTable__DescriptorAssignment_3");
+			builder.put(grammarAccess.getCaseTableAccess().getHorizontalPredicatesAssignment_5_1_0(), "rule__CaseTable__HorizontalPredicatesAssignment_5_1_0");
+			builder.put(grammarAccess.getCaseTableAccess().getHorizontalPredicatesAssignment_5_2(), "rule__CaseTable__HorizontalPredicatesAssignment_5_2");
+			builder.put(grammarAccess.getCaseTableAccess().getVerticalPredicateRowsAssignment_6_1(), "rule__CaseTable__VerticalPredicateRowsAssignment_6_1");
+			builder.put(grammarAccess.getCaseTableAccess().getResultRowsAssignment_6_3(), "rule__CaseTable__ResultRowsAssignment_6_3");
+			builder.put(grammarAccess.getNestedTableAccess().getIdAssignment_1(), "rule__NestedTable__IdAssignment_1");
+			builder.put(grammarAccess.getNestedTableAccess().getDescriptorAssignment_2(), "rule__NestedTable__DescriptorAssignment_2");
+			builder.put(grammarAccess.getNestedTableAccess().getHorizontalPredicatesAssignment_4_1_0(), "rule__NestedTable__HorizontalPredicatesAssignment_4_1_0");
+			builder.put(grammarAccess.getNestedTableAccess().getHorizontalPredicatesAssignment_4_2(), "rule__NestedTable__HorizontalPredicatesAssignment_4_2");
+			builder.put(grammarAccess.getNestedTableAccess().getVerticalPredicateRowsAssignment_5_1(), "rule__NestedTable__VerticalPredicateRowsAssignment_5_1");
+			builder.put(grammarAccess.getNestedTableAccess().getResultRowsAssignment_5_3(), "rule__NestedTable__ResultRowsAssignment_5_3");
 			builder.put(grammarAccess.getResultRowAccess().getResultsAssignment_0_0(), "rule__ResultRow__ResultsAssignment_0_0");
 			builder.put(grammarAccess.getResultRowAccess().getResultsAssignment_1(), "rule__ResultRow__ResultsAssignment_1");
+			builder.put(grammarAccess.getBlankRowAccess().getBlanksAssignment_0_0(), "rule__BlankRow__BlanksAssignment_0_0");
+			builder.put(grammarAccess.getBlankRowAccess().getResultsAssignment_1_0(), "rule__BlankRow__ResultsAssignment_1_0");
+			builder.put(grammarAccess.getBlankRowAccess().getResultsAssignment_2(), "rule__BlankRow__ResultsAssignment_2");
 			builder.put(grammarAccess.getInfoFlowClauseAccess().getIdAssignment_1(), "rule__InfoFlowClause__IdAssignment_1");
 			builder.put(grammarAccess.getInfoFlowClauseAccess().getDescriptorAssignment_2(), "rule__InfoFlowClause__DescriptorAssignment_2");
 			builder.put(grammarAccess.getInfoFlowClauseAccess().getFromPortOrStateVarAssignment_6_0(), "rule__InfoFlowClause__FromPortOrStateVarAssignment_6_0");

@@ -29,9 +29,11 @@ import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinLit;
+import org.sireum.aadl.gumbo.gumbo.BlankRow;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
+import org.sireum.aadl.gumbo.gumbo.CaseTable;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
@@ -69,6 +71,7 @@ import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NestedTable;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
@@ -237,7 +240,28 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass caseTableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nestedTableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass resultRowEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass blankRowEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1391,9 +1415,31 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getGumboTable_Table()
+  public EReference getGumboTable_Normal()
   {
     return (EReference)gumboTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGumboTable_Cases()
+  {
+    return (EReference)gumboTableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGumboTable_Nested()
+  {
+    return (EReference)gumboTableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1468,6 +1514,149 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getCaseTable()
+  {
+    return caseTableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCaseTable_Id()
+  {
+    return (EAttribute)caseTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCaseTable_CaseEval()
+  {
+    return (EReference)caseTableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCaseTable_Descriptor()
+  {
+    return (EAttribute)caseTableEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCaseTable_HorizontalPredicates()
+  {
+    return (EReference)caseTableEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCaseTable_VerticalPredicateRows()
+  {
+    return (EReference)caseTableEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCaseTable_ResultRows()
+  {
+    return (EReference)caseTableEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNestedTable()
+  {
+    return nestedTableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNestedTable_Id()
+  {
+    return (EAttribute)nestedTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNestedTable_Descriptor()
+  {
+    return (EAttribute)nestedTableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNestedTable_HorizontalPredicates()
+  {
+    return (EReference)nestedTableEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNestedTable_VerticalPredicateRows()
+  {
+    return (EReference)nestedTableEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNestedTable_ResultRows()
+  {
+    return (EReference)nestedTableEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getResultRow()
   {
     return resultRowEClass;
@@ -1482,6 +1671,39 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getResultRow_Results()
   {
     return (EReference)resultRowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBlankRow()
+  {
+    return blankRowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBlankRow_Blanks()
+  {
+    return (EAttribute)blankRowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBlankRow_Results()
+  {
+    return (EReference)blankRowEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4304,7 +4526,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(computeEClass, COMPUTE__GUMBO_TABLES);
 
     gumboTableEClass = createEClass(GUMBO_TABLE);
-    createEReference(gumboTableEClass, GUMBO_TABLE__TABLE);
+    createEReference(gumboTableEClass, GUMBO_TABLE__NORMAL);
+    createEReference(gumboTableEClass, GUMBO_TABLE__CASES);
+    createEReference(gumboTableEClass, GUMBO_TABLE__NESTED);
 
     normalTableEClass = createEClass(NORMAL_TABLE);
     createEAttribute(normalTableEClass, NORMAL_TABLE__ID);
@@ -4313,8 +4537,27 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(normalTableEClass, NORMAL_TABLE__VERTICAL_PREDICATES);
     createEReference(normalTableEClass, NORMAL_TABLE__RESULT_ROWS);
 
+    caseTableEClass = createEClass(CASE_TABLE);
+    createEAttribute(caseTableEClass, CASE_TABLE__ID);
+    createEReference(caseTableEClass, CASE_TABLE__CASE_EVAL);
+    createEAttribute(caseTableEClass, CASE_TABLE__DESCRIPTOR);
+    createEReference(caseTableEClass, CASE_TABLE__HORIZONTAL_PREDICATES);
+    createEReference(caseTableEClass, CASE_TABLE__VERTICAL_PREDICATE_ROWS);
+    createEReference(caseTableEClass, CASE_TABLE__RESULT_ROWS);
+
+    nestedTableEClass = createEClass(NESTED_TABLE);
+    createEAttribute(nestedTableEClass, NESTED_TABLE__ID);
+    createEAttribute(nestedTableEClass, NESTED_TABLE__DESCRIPTOR);
+    createEReference(nestedTableEClass, NESTED_TABLE__HORIZONTAL_PREDICATES);
+    createEReference(nestedTableEClass, NESTED_TABLE__VERTICAL_PREDICATE_ROWS);
+    createEReference(nestedTableEClass, NESTED_TABLE__RESULT_ROWS);
+
     resultRowEClass = createEClass(RESULT_ROW);
     createEReference(resultRowEClass, RESULT_ROW__RESULTS);
+
+    blankRowEClass = createEClass(BLANK_ROW);
+    createEAttribute(blankRowEClass, BLANK_ROW__BLANKS);
+    createEReference(blankRowEClass, BLANK_ROW__RESULTS);
 
     infoFlowClauseEClass = createEClass(INFO_FLOW_CLAUSE);
     createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__ID);
@@ -4800,7 +5043,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getCompute_GumboTables(), this.getGumboTable(), null, "gumboTables", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gumboTableEClass, GumboTable.class, "GumboTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGumboTable_Table(), this.getNormalTable(), null, "table", null, 0, 1, GumboTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGumboTable_Normal(), this.getNormalTable(), null, "normal", null, 0, 1, GumboTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGumboTable_Cases(), this.getCaseTable(), null, "cases", null, 0, 1, GumboTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGumboTable_Nested(), this.getNestedTable(), null, "nested", null, 0, 1, GumboTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(normalTableEClass, NormalTable.class, "NormalTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNormalTable_Id(), theEcorePackage.getEString(), "id", null, 0, 1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4809,8 +5054,27 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getNormalTable_VerticalPredicates(), this.getOwnedExpression(), null, "verticalPredicates", null, 0, -1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNormalTable_ResultRows(), this.getResultRow(), null, "resultRows", null, 0, -1, NormalTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(caseTableEClass, CaseTable.class, "CaseTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCaseTable_Id(), theEcorePackage.getEString(), "id", null, 0, 1, CaseTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCaseTable_CaseEval(), this.getOwnedExpression(), null, "caseEval", null, 0, 1, CaseTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCaseTable_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, CaseTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCaseTable_HorizontalPredicates(), this.getOwnedExpression(), null, "horizontalPredicates", null, 0, -1, CaseTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCaseTable_VerticalPredicateRows(), this.getBlankRow(), null, "verticalPredicateRows", null, 0, -1, CaseTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCaseTable_ResultRows(), this.getResultRow(), null, "resultRows", null, 0, -1, CaseTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nestedTableEClass, NestedTable.class, "NestedTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNestedTable_Id(), theEcorePackage.getEString(), "id", null, 0, 1, NestedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNestedTable_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, NestedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNestedTable_HorizontalPredicates(), this.getOwnedExpression(), null, "horizontalPredicates", null, 0, -1, NestedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNestedTable_VerticalPredicateRows(), this.getBlankRow(), null, "verticalPredicateRows", null, 0, -1, NestedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNestedTable_ResultRows(), this.getResultRow(), null, "resultRows", null, 0, -1, NestedTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(resultRowEClass, ResultRow.class, "ResultRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getResultRow_Results(), this.getOwnedExpression(), null, "results", null, 0, -1, ResultRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(blankRowEClass, BlankRow.class, "BlankRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBlankRow_Blanks(), theEcorePackage.getEString(), "blanks", null, 0, -1, BlankRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBlankRow_Results(), this.getOwnedExpression(), null, "results", null, 0, -1, BlankRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(infoFlowClauseEClass, InfoFlowClause.class, "InfoFlowClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfoFlowClause_Id(), theEcorePackage.getEString(), "id", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

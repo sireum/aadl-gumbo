@@ -49,9 +49,11 @@ import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinLit;
+import org.sireum.aadl.gumbo.gumbo.BlankRow;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
+import org.sireum.aadl.gumbo.gumbo.CaseTable;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
@@ -86,6 +88,7 @@ import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
+import org.sireum.aadl.gumbo.gumbo.NestedTable;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NormalTable;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
@@ -274,6 +277,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.BIN_LIT:
 				sequence_SlangLit(context, (BinLit) semanticObject); 
 				return; 
+			case GumboPackage.BLANK_ROW:
+				sequence_BlankRow(context, (BlankRow) semanticObject); 
+				return; 
 			case GumboPackage.BOOLEAN_LIT:
 				sequence_SlangLit(context, (BooleanLit) semanticObject); 
 				return; 
@@ -282,6 +288,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.CASE_STATEMENT_CLAUSE:
 				sequence_CaseStatementClause(context, (CaseStatementClause) semanticObject); 
+				return; 
+			case GumboPackage.CASE_TABLE:
+				sequence_CaseTable(context, (CaseTable) semanticObject); 
 				return; 
 			case GumboPackage.COLON_EXPR:
 				sequence_ColonExpression(context, (ColonExpr) semanticObject); 
@@ -381,6 +390,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.MUST_SEND_EXPR:
 				sequence_BaseExpr(context, (MustSendExpr) semanticObject); 
+				return; 
+			case GumboPackage.NESTED_TABLE:
+				sequence_NestedTable(context, (NestedTable) semanticObject); 
 				return; 
 			case GumboPackage.NO_SEND_EXPR:
 				sequence_BaseExpr(context, (NoSendExpr) semanticObject); 
@@ -1161,6 +1173,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     BlankRow returns BlankRow
+	 *
+	 * Constraint:
+	 *     (blanks+='_'* results+=OwnedExpression* results+=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_BlankRow(ISerializationContext context, BlankRow semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     CaseStatementClause returns CaseStatementClause
 	 *
 	 * Constraint:
@@ -1168,6 +1194,26 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_CaseStatementClause(ISerializationContext context, CaseStatementClause semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     CaseTable returns CaseTable
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         caseEval=OwnedExpression 
+	 *         descriptor=STRING_VALUE? 
+	 *         (horizontalPredicates+=OwnedExpression* horizontalPredicates+=OwnedExpression)? 
+	 *         (verticalPredicateRows+=BlankRow resultRows+=ResultRow)+
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_CaseTable(ISerializationContext context, CaseTable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1441,17 +1487,11 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     GumboTable returns GumboTable
 	 *
 	 * Constraint:
-	 *     table=NormalTable
+	 *     (normal=NormalTable | cases=CaseTable | nested=NestedTable)
 	 * </pre>
 	 */
 	protected void sequence_GumboTable(ISerializationContext context, GumboTable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.GUMBO_TABLE__TABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.GUMBO_TABLE__TABLE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGumboTableAccess().getTableNormalTableParserRuleCall_1_0(), semanticObject.getTable());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1691,6 +1731,25 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getOpMultiplicativeOpParserRuleCall_1_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getRightUnaryExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     NestedTable returns NestedTable
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         descriptor=STRING_VALUE? 
+	 *         (horizontalPredicates+=OwnedExpression* horizontalPredicates+=OwnedExpression)? 
+	 *         (verticalPredicateRows+=BlankRow resultRows+=ResultRow)+
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_NestedTable(ISerializationContext context, NestedTable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

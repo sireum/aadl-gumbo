@@ -151,6 +151,24 @@ public interface GumboFactory extends EFactory
   NormalTable createNormalTable();
 
   /**
+   * Returns a new object of class '<em>Case Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Case Table</em>'.
+   * @generated
+   */
+  CaseTable createCaseTable();
+
+  /**
+   * Returns a new object of class '<em>Nested Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nested Table</em>'.
+   * @generated
+   */
+  NestedTable createNestedTable();
+
+  /**
    * Returns a new object of class '<em>Result Row</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -158,6 +176,15 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   ResultRow createResultRow();
+
+  /**
+   * Returns a new object of class '<em>Blank Row</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Blank Row</em>'.
+   * @generated
+   */
+  BlankRow createBlankRow();
 
   /**
    * Returns a new object of class '<em>Info Flow Clause</em>'.

@@ -88,7 +88,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.COMPUTE: return createCompute();
       case GumboPackage.GUMBO_TABLE: return createGumboTable();
       case GumboPackage.NORMAL_TABLE: return createNormalTable();
+      case GumboPackage.CASE_TABLE: return createCaseTable();
+      case GumboPackage.NESTED_TABLE: return createNestedTable();
       case GumboPackage.RESULT_ROW: return createResultRow();
+      case GumboPackage.BLANK_ROW: return createBlankRow();
       case GumboPackage.INFO_FLOW_CLAUSE: return createInfoFlowClause();
       case GumboPackage.HANDLER_CLAUSE: return createHandlerClause();
       case GumboPackage.CASE_STATEMENT_CLAUSE: return createCaseStatementClause();
@@ -349,10 +352,46 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public CaseTable createCaseTable()
+  {
+    CaseTableImpl caseTable = new CaseTableImpl();
+    return caseTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NestedTable createNestedTable()
+  {
+    NestedTableImpl nestedTable = new NestedTableImpl();
+    return nestedTable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ResultRow createResultRow()
   {
     ResultRowImpl resultRow = new ResultRowImpl();
     return resultRow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BlankRow createBlankRow()
+  {
+    BlankRowImpl blankRow = new BlankRowImpl();
+    return blankRow;
   }
 
   /**

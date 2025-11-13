@@ -83,7 +83,7 @@ Compute:
 ;
 
 GumboTable:
-	'table' table=(NormalTable|InverseTable|NestedTable)
+	'table' ((normal=NormalTable)|(cases=CaseTable)|(nested=NestedTable))//|InverseTable)//|NestedTable)
 ;
 
 NormalTable:
@@ -92,25 +92,29 @@ NormalTable:
 		('[' verticalPredicates+=OwnedExpression ':' resultRows+=ResultRow ']')+';'
 ;
 
-InverseTable:
-	'inverse' id=ID descriptor=STRING_VALUE? ':'
-		'[' (results+=OwnedExpression ',')* results+=OwnedExpression ']'
-		('[' verticalPredicates+=OwnedExpression ':' interiorPredicateRows+=ResultRow ']')+ ';'
+CaseTable:
+'case' id=ID caseEval=OwnedExpression descriptor=STRING_VALUE? ':'
+('[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']')?
+		('[' (verticalPredicateRows+=BlankRow) ':' resultRows+=ResultRow ']')+ ';'
 ;
 
 NestedTable:
 	'nested' id=ID descriptor=STRING_VALUE? ':'
-		('['(horizontalPredicateRows+=GumboRowBlank)']')+
-		('['verticalPredicateRows+=GumboRowBlank) ':' (resultRows+=ResultRow']')+';'
+		('[' (horizontalPredicates+=OwnedExpression ',')* horizontalPredicates+=OwnedExpression ']')?
+		('[' (verticalPredicateRows+=BlankRow) ':' resultRows+=ResultRow ']')+ ';'
 ;
 
 ResultRow:
-	(expressions+=OwnedExpression ',')* expressions+=OwnedExpression
+	(results+=OwnedExpression ',')* results+=OwnedExpression
 ;
 
-GumboRowBlank:
-	((expressions+=(OwnedExpression|'_')) ',')* expressions+=(OwnedExpression|'_')
+BlankRow:
+	(blanks+='_' ',')* (results+=OwnedExpression ',')* results+=OwnedExpression
 ;
+
+//GumboRowBlank:
+	//((expressions+=(OwnedExpression|'_')) ',')* expressions+=(OwnedExpression|'_')
+//;
 
 InfoFlowClause:
 	'infoflow' id=ID descriptor=STRING_VALUE? ':'

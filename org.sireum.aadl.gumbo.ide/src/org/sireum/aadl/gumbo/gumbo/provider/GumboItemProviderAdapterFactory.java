@@ -410,6 +410,56 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.CaseTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CaseTableItemProvider caseTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.CaseTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCaseTableAdapter()
+  {
+    if (caseTableItemProvider == null)
+    {
+      caseTableItemProvider = new CaseTableItemProvider(this);
+    }
+
+    return caseTableItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.NestedTable} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected NestedTableItemProvider nestedTableItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.NestedTable}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createNestedTableAdapter()
+  {
+    if (nestedTableItemProvider == null)
+    {
+      nestedTableItemProvider = new NestedTableItemProvider(this);
+    }
+
+    return nestedTableItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ResultRow} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -432,6 +482,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return resultRowItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BlankRow} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BlankRowItemProvider blankRowItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BlankRow}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBlankRowAdapter()
+  {
+    if (blankRowItemProvider == null)
+    {
+      blankRowItemProvider = new BlankRowItemProvider(this);
+    }
+
+    return blankRowItemProvider;
   }
 
   /**
@@ -2889,7 +2964,10 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (computeItemProvider != null) computeItemProvider.dispose();
     if (gumboTableItemProvider != null) gumboTableItemProvider.dispose();
     if (normalTableItemProvider != null) normalTableItemProvider.dispose();
+    if (caseTableItemProvider != null) caseTableItemProvider.dispose();
+    if (nestedTableItemProvider != null) nestedTableItemProvider.dispose();
     if (resultRowItemProvider != null) resultRowItemProvider.dispose();
+    if (blankRowItemProvider != null) blankRowItemProvider.dispose();
     if (infoFlowClauseItemProvider != null) infoFlowClauseItemProvider.dispose();
     if (handlerClauseItemProvider != null) handlerClauseItemProvider.dispose();
     if (caseStatementClauseItemProvider != null) caseStatementClauseItemProvider.dispose();
