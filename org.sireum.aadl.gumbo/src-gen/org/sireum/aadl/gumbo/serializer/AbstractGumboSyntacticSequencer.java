@@ -33,7 +33,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	protected GumboGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1;
 	protected AbstractElementAlias match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q;
-	protected AbstractElementAlias match_HandlerClause_CasesKeyword_6_0_q;
+	protected AbstractElementAlias match_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1;
+	protected AbstractElementAlias match_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q;
 	protected AbstractElementAlias match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
 	protected AbstractElementAlias match_SlangParam_AsteriskKeyword_5_q;
 	protected AbstractElementAlias match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q;
@@ -48,7 +49,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		grammarAccess = (GumboGrammarAccess) access;
 		match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()));
 		match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()));
-		match_HandlerClause_CasesKeyword_6_0_q = new TokenAlias(false, true, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0());
+		match_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0()), new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1()));
+		match_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0()), new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1()));
 		match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
 		match_SlangParam_AsteriskKeyword_5_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getAsteriskKeyword_5());
 		match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getEqualsSignGreaterThanSignKeyword_3());
@@ -150,8 +152,10 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 				emit_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q.equals(syntax))
 				emit_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_HandlerClause_CasesKeyword_6_0_q.equals(syntax))
-				emit_HandlerClause_CasesKeyword_6_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1.equals(syntax))
+				emit_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q.equals(syntax))
+				emit_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1.equals(syntax))
 				emit_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangParam_AsteriskKeyword_5_q.equals(syntax))
@@ -206,14 +210,31 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     'cases'?
+	 *     'cases' | 'compute_cases'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     assumes+=AssumeStatement (ambiguity) cases+=CaseStatementClause
+	 *     guarantees+=GuaranteeStatement (ambiguity) cases+=CaseStatementClause
+	 *     id=[Port|ID] ':' (ambiguity) cases+=CaseStatementClause
+	 *     modifies=SlangModifies ';' (ambiguity) cases+=CaseStatementClause
+	 
+	 * </pre>
+	 */
+	protected void emit_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('cases' | 'compute_cases')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     cases+=CaseStatementClause (ambiguity) cases+=CaseStatementClause
 	 
 	 * </pre>
 	 */
-	protected void emit_HandlerClause_CasesKeyword_6_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

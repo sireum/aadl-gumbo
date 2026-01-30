@@ -93,7 +93,7 @@ HandlerClause:
 	(modifies=SlangModifies ';')?
 	(assumes+=AssumeStatement)*
 	(guarantees+=GuaranteeStatement)*
-	('cases' (cases+=CaseStatementClause)+)*	
+	(('cases' | 'compute_cases') (cases+=CaseStatementClause)+)*	
 ;
 
 CaseStatementClause:

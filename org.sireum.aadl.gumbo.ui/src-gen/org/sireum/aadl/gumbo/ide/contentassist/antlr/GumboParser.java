@@ -42,6 +42,7 @@ public class GumboParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GumboGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getComputeAccess().getAlternatives_5_0(), "rule__Compute__Alternatives_5_0");
+			builder.put(grammarAccess.getHandlerClauseAccess().getAlternatives_6_0(), "rule__HandlerClause__Alternatives_6_0");
 			builder.put(grammarAccess.getSpecStatementAccess().getAlternatives(), "rule__SpecStatement__Alternatives");
 			builder.put(grammarAccess.getSlangDefModsAccess().getAlternatives(), "rule__SlangDefMods__Alternatives");
 			builder.put(grammarAccess.getSlangStmtAccess().getAlternatives(), "rule__SlangStmt__Alternatives");

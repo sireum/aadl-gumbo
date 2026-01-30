@@ -3067,6 +3067,27 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__HandlerClause__Alternatives_6_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0()); }
+		Cases
+		{ after(grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1()); }
+		Compute_cases
+		{ after(grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__SpecStatement__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -6206,9 +6227,9 @@ rule__HandlerClause__Group_6__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0()); }
-	Cases
-	{ after(grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0()); }
+	{ before(grammarAccess.getHandlerClauseAccess().getAlternatives_6_0()); }
+	(rule__HandlerClause__Alternatives_6_0)
+	{ after(grammarAccess.getHandlerClauseAccess().getAlternatives_6_0()); }
 )
 ;
 finally {
