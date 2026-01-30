@@ -167,6 +167,7 @@ import org.sireum.lang.ast.Purity$;
 import org.sireum.lang.ast.Stmt;
 import org.sireum.lang.ast.Stmt.Method;
 import org.sireum.lang.ast.Stmt.Method$;
+import org.sireum.lang.ast.Stmt.SpecMethod$;
 import org.sireum.lang.ast.Type;
 import org.sireum.lang.ast.TypeParam;
 import org.sireum.lang.ast.TypeParam$;
@@ -398,9 +399,12 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		boolean hasParams = !params.isEmpty();
 
-		Stmt ret = Stmt.Return$.MODULE$.apply(SlangUtil.toSome(visitPop(object.getBody())), returnType.attr());
-		Body body = Body$.MODULE$.apply(VisitorUtil.toISZ(ret), VisitorUtil.toISZ());
-
+		Option<Body> body = SlangUtil.toNone();
+		if (object.getBody() != null) {
+			Stmt ret = Stmt.Return$.MODULE$.apply(SlangUtil.toSome(visitPop(object.getBody())), returnType.attr());
+			body = SlangUtil.toSome(Body$.MODULE$.apply(VisitorUtil.toISZ(ret), VisitorUtil.toISZ()));
+		}
+		
 		boolean typeChecked = false;
 		IS<Z, org.sireum.String> modifiers = VisitorUtil.toISZ();
 
@@ -477,20 +481,59 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					GumboUtil.buildAttr(object.getMethodContract()));
 		}
 
-		Purity.Type purity = null;
-		if (hasContract) {
-			purity = Purity$.MODULE$.byName("Pure").get();
-		} else {
-			purity = Purity$.MODULE$.byName("StrictPure").get();
+		Boolean isSpec = false;
+		Boolean isPure = false;
+		Boolean isStrictpure = false;
+
+		if (object.getDefMods() != null) {
+			switch (object.getDefMods()) {
+			case "@pure":
+				isPure = true;
+				break;
+			case "@strictpure":
+				isStrictpure = true;
+				break;
+			case "@spec":
+				isSpec = true;
+				break;
+			}
 		}
 
-		MethodSig sig = MethodSig$.MODULE$.apply(purity, VisitorUtil.toISZ(), methodId, VisitorUtil.toISZ(typeParams),
-				hasParams, VisitorUtil.toISZ(params), returnType);
 
-		Method m = Method$.MODULE$.apply(typeChecked, purity, modifiers, sig, mcontract, SlangUtil.toSome(body),
-				GumboUtil.buildResolvedAttr(object));
+		Purity.Type purity = null;
+		if (hasContract) {
+			if (isSpec | isStrictpure) {
+				reportError(object, "Only pure methods can have contracts");
+			}
+			if (body.isEmpty()) {
+				reportError(object, "Pure methods must have a body");	
+			}
+			purity = Purity$.MODULE$.byName("Pure").get();
+		} else if (body.nonEmpty()) {
+			if (isSpec) {
+				reportError(object, "Spec methods cannot have a body");
+			}
+			if (isPure) {
+				reportError(object, "Pure methods must have contracts");
+			}
+			purity = Purity$.MODULE$.byName("StrictPure").get();
+		} else {
+			assert isSpec;
+		}
 
-		push(GclMethod$.MODULE$.apply(m));
+		MethodSig sig = MethodSig$.MODULE$.apply(purity, VisitorUtil.toISZ(), methodId,
+				VisitorUtil.toISZ(typeParams), hasParams, VisitorUtil.toISZ(params), returnType);
+		
+		if (isSpec) {
+			push( SpecMethod$.MODULE$.apply(sig, GumboUtil.buildResolvedAttr(object)));
+		} else {
+			assert body.nonEmpty() : "A non-spec version must have a body";
+
+			Method m = Method$.MODULE$.apply(typeChecked, purity, modifiers, sig, mcontract, body,
+					GumboUtil.buildResolvedAttr(object));
+
+			push(GclMethod$.MODULE$.apply(m));
+		}
 
 		return false;
 	}

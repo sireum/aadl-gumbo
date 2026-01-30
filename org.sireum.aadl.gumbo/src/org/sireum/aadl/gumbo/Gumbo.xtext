@@ -76,7 +76,7 @@ Compute:
 	  (modifies=SlangModifies ';')?
 	  (assumes+=AssumeStatement)*
 	  (guarantees+=GuaranteeStatement)*
-	  ('cases' (cases+=CaseStatementClause)+)*
+	  (('cases' | 'compute_cases') (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
 ;
@@ -155,16 +155,17 @@ FuncSpec: SlangDefDef ';';
 //;
 	
 SlangDefDef: 
-	 //defMods=SlangDefMods 
+	
+	 defMods=SlangDefMods?
 	 'def' 
 	 //sde=SlangDefExt? 
 	 name=SlangDefID 
 		typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
-		':=' methodContract=SlangDefContract body=OwnedExpression
+		(':=' methodContract=SlangDefContract body=OwnedExpression)?
 ;
 
 //SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
-//SlangDefMods: '@strictpure' | '@pure';
+SlangDefMods: '@strictpure' | '@pure' | '@spec';
 
 //SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
 	
