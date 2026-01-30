@@ -1191,16 +1191,23 @@ ruleHandlerClause returns [EObject current=null]
 			)
 		)*
 		(
-			otherlv_7=Cases
-			{
-				newLeafNode(otherlv_7, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0());
-			}
+			(
+				otherlv_7=Cases
+				{
+					newLeafNode(otherlv_7, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0());
+				}
+				    |
+				otherlv_8=Compute_cases
+				{
+					newLeafNode(otherlv_8, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1());
+				}
+			)
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getHandlerClauseAccess().getCasesCaseStatementClauseParserRuleCall_6_1_0());
 					}
-					lv_cases_8_0=ruleCaseStatementClause
+					lv_cases_9_0=ruleCaseStatementClause
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getHandlerClauseRule());
@@ -1208,7 +1215,7 @@ ruleHandlerClause returns [EObject current=null]
 						add(
 							$current,
 							"cases",
-							lv_cases_8_0,
+							lv_cases_9_0,
 							"org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
 						afterParserOrEnumRuleCall();
 					}
