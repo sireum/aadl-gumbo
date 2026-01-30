@@ -17302,15 +17302,15 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:6190:3: ( () ( (lv_op_2_0= RULE_EQUAL_NOT_OPS ) ) ( (lv_right_3_0= ruleLtGtExpression ) ) )*
             loop119:
             do {
-                int alt119=2;
-                int LA119_0 = input.LA(1);
+                int alt95=2;
+                int LA95_0 = input.LA(1);
 
                 if ( (LA119_0==RULE_EQUAL_NOT_OPS) ) {
                     alt119=1;
                 }
 
 
-                switch (alt119) {
+                switch (alt95) {
             	case 1 :
             	    // InternalGumboParser.g:6191:4: () ( (lv_op_2_0= RULE_EQUAL_NOT_OPS ) ) ( (lv_right_3_0= ruleLtGtExpression ) )
             	    {
@@ -17402,7 +17402,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop119;
+            	    break loop95;
                 }
             } while (true);
 
