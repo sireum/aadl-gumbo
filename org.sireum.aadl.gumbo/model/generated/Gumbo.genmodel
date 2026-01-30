@@ -99,6 +99,7 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//FuncSpec"/>
     <genClasses ecoreClass="Gumbo.ecore#//SlangDefDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/defMods"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangDefDef/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/typeParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangDefDef/params"/>

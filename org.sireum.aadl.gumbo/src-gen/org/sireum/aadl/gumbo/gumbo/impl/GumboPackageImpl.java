@@ -1719,7 +1719,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getSlangDefDef_Name()
+  public EAttribute getSlangDefDef_DefMods()
   {
     return (EAttribute)slangDefDefEClass.getEStructuralFeatures().get(0);
   }
@@ -1730,9 +1730,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangDefDef_TypeParams()
+  public EAttribute getSlangDefDef_Name()
   {
-    return (EReference)slangDefDefEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)slangDefDefEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1741,7 +1741,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangDefDef_Params()
+  public EReference getSlangDefDef_TypeParams()
   {
     return (EReference)slangDefDefEClass.getEStructuralFeatures().get(2);
   }
@@ -1752,7 +1752,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangDefDef_Type()
+  public EReference getSlangDefDef_Params()
   {
     return (EReference)slangDefDefEClass.getEStructuralFeatures().get(3);
   }
@@ -1763,7 +1763,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangDefDef_MethodContract()
+  public EReference getSlangDefDef_Type()
   {
     return (EReference)slangDefDefEClass.getEStructuralFeatures().get(4);
   }
@@ -1774,9 +1774,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSlangDefDef_Body()
+  public EReference getSlangDefDef_MethodContract()
   {
     return (EReference)slangDefDefEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSlangDefDef_Body()
+  {
+    return (EReference)slangDefDefEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -4203,6 +4214,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     funcSpecEClass = createEClass(FUNC_SPEC);
 
     slangDefDefEClass = createEClass(SLANG_DEF_DEF);
+    createEAttribute(slangDefDefEClass, SLANG_DEF_DEF__DEF_MODS);
     createEAttribute(slangDefDefEClass, SLANG_DEF_DEF__NAME);
     createEReference(slangDefDefEClass, SLANG_DEF_DEF__TYPE_PARAMS);
     createEReference(slangDefDefEClass, SLANG_DEF_DEF__PARAMS);
@@ -4685,6 +4697,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(funcSpecEClass, FuncSpec.class, "FuncSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(slangDefDefEClass, SlangDefDef.class, "SlangDefDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSlangDefDef_DefMods(), theEcorePackage.getEString(), "defMods", null, 0, 1, SlangDefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSlangDefDef_Name(), theEcorePackage.getEString(), "name", null, 0, 1, SlangDefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSlangDefDef_TypeParams(), this.getSlangTypeParams(), null, "typeParams", null, 0, 1, SlangDefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSlangDefDef_Params(), this.getSlangDefParams(), null, "params", null, 0, 1, SlangDefDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

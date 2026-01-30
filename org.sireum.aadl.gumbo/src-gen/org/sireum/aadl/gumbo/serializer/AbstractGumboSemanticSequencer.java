@@ -1914,12 +1914,12 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *
 	 * Constraint:
 	 *     (
+	 *         defMods=SlangDefMods? 
 	 *         name=SlangDefID 
 	 *         typeParams=SlangTypeParams? 
 	 *         params=SlangDefParams 
 	 *         type=SlangType 
-	 *         methodContract=SlangDefContract 
-	 *         body=OwnedExpression
+	 *         (methodContract=SlangDefContract body=OwnedExpression)?
 	 *     )
 	 * </pre>
 	 */

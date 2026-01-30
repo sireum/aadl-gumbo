@@ -1093,13 +1093,22 @@ public interface GumboPackage extends EPackage
   int SLANG_DEF_DEF = 23;
 
   /**
+   * The feature id for the '<em><b>Def Mods</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLANG_DEF_DEF__DEF_MODS = FUNC_SPEC_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SLANG_DEF_DEF__NAME = FUNC_SPEC_FEATURE_COUNT + 0;
+  int SLANG_DEF_DEF__NAME = FUNC_SPEC_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Type Params</b></em>' containment reference.
@@ -1108,7 +1117,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_DEF_DEF__TYPE_PARAMS = FUNC_SPEC_FEATURE_COUNT + 1;
+  int SLANG_DEF_DEF__TYPE_PARAMS = FUNC_SPEC_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference.
@@ -1117,7 +1126,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_DEF_DEF__PARAMS = FUNC_SPEC_FEATURE_COUNT + 2;
+  int SLANG_DEF_DEF__PARAMS = FUNC_SPEC_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1126,7 +1135,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_DEF_DEF__TYPE = FUNC_SPEC_FEATURE_COUNT + 3;
+  int SLANG_DEF_DEF__TYPE = FUNC_SPEC_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Method Contract</b></em>' containment reference.
@@ -1135,7 +1144,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_DEF_DEF__METHOD_CONTRACT = FUNC_SPEC_FEATURE_COUNT + 4;
+  int SLANG_DEF_DEF__METHOD_CONTRACT = FUNC_SPEC_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -1144,7 +1153,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_DEF_DEF__BODY = FUNC_SPEC_FEATURE_COUNT + 5;
+  int SLANG_DEF_DEF__BODY = FUNC_SPEC_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Slang Def Def</em>' class.
@@ -1153,7 +1162,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SLANG_DEF_DEF_FEATURE_COUNT = FUNC_SPEC_FEATURE_COUNT + 6;
+  int SLANG_DEF_DEF_FEATURE_COUNT = FUNC_SPEC_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SlangDefParamsImpl <em>Slang Def Params</em>}' class.
@@ -4694,6 +4703,17 @@ public interface GumboPackage extends EPackage
   EClass getSlangDefDef();
 
   /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangDefDef#getDefMods <em>Def Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Def Mods</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SlangDefDef#getDefMods()
+   * @see #getSlangDefDef()
+   * @generated
+   */
+  EAttribute getSlangDefDef_DefMods();
+
+  /**
    * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SlangDefDef#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7616,6 +7636,14 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EClass SLANG_DEF_DEF = eINSTANCE.getSlangDefDef();
+
+    /**
+     * The meta object literal for the '<em><b>Def Mods</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SLANG_DEF_DEF__DEF_MODS = eINSTANCE.getSlangDefDef_DefMods();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

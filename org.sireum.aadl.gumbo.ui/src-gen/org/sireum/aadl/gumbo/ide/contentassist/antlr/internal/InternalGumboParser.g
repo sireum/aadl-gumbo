@@ -89,6 +89,8 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("Halt", "'halt'");
 		tokenNameToValue.put("Spec", "'spec'");
 		tokenNameToValue.put("True", "'true'");
+		tokenNameToValue.put("Pure", "'@pure'");
+		tokenNameToValue.put("Spec_1", "'@spec'");
 		tokenNameToValue.put("Cases", "'cases'");
 		tokenNameToValue.put("Delta", "'delta'");
 		tokenNameToValue.put("False", "'false'");
@@ -121,7 +123,9 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("Classifier", "'classifier'");
 		tokenNameToValue.put("Initialize", "'initialize'");
 		tokenNameToValue.put("Invariants", "'invariants'");
+		tokenNameToValue.put("Strictpure", "'@strictpure'");
 		tokenNameToValue.put("Integration", "'integration'");
+		tokenNameToValue.put("Compute_cases", "'compute_cases'");
 	}
 
 	public void setGrammarAccess(GumboGrammarAccess grammarAccess) {
@@ -736,6 +740,31 @@ ruleSlangDefDef
 		{ before(grammarAccess.getSlangDefDefAccess().getGroup()); }
 		(rule__SlangDefDef__Group__0)
 		{ after(grammarAccess.getSlangDefDefAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleSlangDefMods
+entryRuleSlangDefMods
+:
+{ before(grammarAccess.getSlangDefModsRule()); }
+	 ruleSlangDefMods
+{ after(grammarAccess.getSlangDefModsRule()); } 
+	 EOF 
+;
+
+// Rule SlangDefMods
+ruleSlangDefMods 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getSlangDefModsAccess().getAlternatives()); }
+		(rule__SlangDefMods__Alternatives)
+		{ after(grammarAccess.getSlangDefModsAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -3017,6 +3046,27 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Compute__Alternatives_5_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()); }
+		Cases
+		{ after(grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()); }
+		Compute_cases
+		{ after(grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__SpecStatement__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -3032,6 +3082,33 @@ rule__SpecStatement__Alternatives
 		{ before(grammarAccess.getSpecStatementAccess().getGuaranteeStatementParserRuleCall_1()); }
 		ruleGuaranteeStatement
 		{ after(grammarAccess.getSpecStatementAccess().getGuaranteeStatementParserRuleCall_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangDefMods__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSlangDefModsAccess().getStrictpureKeyword_0()); }
+		Strictpure
+		{ after(grammarAccess.getSlangDefModsAccess().getStrictpureKeyword_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getSlangDefModsAccess().getPureKeyword_1()); }
+		Pure
+		{ after(grammarAccess.getSlangDefModsAccess().getPureKeyword_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getSlangDefModsAccess().getSpecKeyword_2()); }
+		Spec_1
+		{ after(grammarAccess.getSlangDefModsAccess().getSpecKeyword_2()); }
 	)
 ;
 finally {
@@ -5231,9 +5308,9 @@ rule__Compute__Group_5__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getComputeAccess().getCasesKeyword_5_0()); }
-	Cases
-	{ after(grammarAccess.getComputeAccess().getCasesKeyword_5_0()); }
+	{ before(grammarAccess.getComputeAccess().getAlternatives_5_0()); }
+	(rule__Compute__Alternatives_5_0)
+	{ after(grammarAccess.getComputeAccess().getAlternatives_5_0()); }
 )
 ;
 finally {
@@ -6953,9 +7030,9 @@ rule__SlangDefDef__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getDefKeyword_0()); }
-	Def
-	{ after(grammarAccess.getSlangDefDefAccess().getDefKeyword_0()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getDefModsAssignment_0()); }
+	(rule__SlangDefDef__DefModsAssignment_0)?
+	{ after(grammarAccess.getSlangDefDefAccess().getDefModsAssignment_0()); }
 )
 ;
 finally {
@@ -6980,9 +7057,9 @@ rule__SlangDefDef__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getNameAssignment_1()); }
-	(rule__SlangDefDef__NameAssignment_1)
-	{ after(grammarAccess.getSlangDefDefAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getDefKeyword_1()); }
+	Def
+	{ after(grammarAccess.getSlangDefDefAccess().getDefKeyword_1()); }
 )
 ;
 finally {
@@ -7007,9 +7084,9 @@ rule__SlangDefDef__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getTypeParamsAssignment_2()); }
-	(rule__SlangDefDef__TypeParamsAssignment_2)?
-	{ after(grammarAccess.getSlangDefDefAccess().getTypeParamsAssignment_2()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getNameAssignment_2()); }
+	(rule__SlangDefDef__NameAssignment_2)
+	{ after(grammarAccess.getSlangDefDefAccess().getNameAssignment_2()); }
 )
 ;
 finally {
@@ -7034,9 +7111,9 @@ rule__SlangDefDef__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getParamsAssignment_3()); }
-	(rule__SlangDefDef__ParamsAssignment_3)
-	{ after(grammarAccess.getSlangDefDefAccess().getParamsAssignment_3()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getTypeParamsAssignment_3()); }
+	(rule__SlangDefDef__TypeParamsAssignment_3)?
+	{ after(grammarAccess.getSlangDefDefAccess().getTypeParamsAssignment_3()); }
 )
 ;
 finally {
@@ -7061,9 +7138,9 @@ rule__SlangDefDef__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getColonKeyword_4()); }
-	Colon
-	{ after(grammarAccess.getSlangDefDefAccess().getColonKeyword_4()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getParamsAssignment_4()); }
+	(rule__SlangDefDef__ParamsAssignment_4)
+	{ after(grammarAccess.getSlangDefDefAccess().getParamsAssignment_4()); }
 )
 ;
 finally {
@@ -7088,9 +7165,9 @@ rule__SlangDefDef__Group__5__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getTypeAssignment_5()); }
-	(rule__SlangDefDef__TypeAssignment_5)
-	{ after(grammarAccess.getSlangDefDefAccess().getTypeAssignment_5()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getColonKeyword_5()); }
+	Colon
+	{ after(grammarAccess.getSlangDefDefAccess().getColonKeyword_5()); }
 )
 ;
 finally {
@@ -7115,9 +7192,9 @@ rule__SlangDefDef__Group__6__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getColonEqualsSignKeyword_6()); }
-	ColonEqualsSign
-	{ after(grammarAccess.getSlangDefDefAccess().getColonEqualsSignKeyword_6()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getTypeAssignment_6()); }
+	(rule__SlangDefDef__TypeAssignment_6)
+	{ after(grammarAccess.getSlangDefDefAccess().getTypeAssignment_6()); }
 )
 ;
 finally {
@@ -7130,7 +7207,6 @@ rule__SlangDefDef__Group__7
 	}
 :
 	rule__SlangDefDef__Group__7__Impl
-	rule__SlangDefDef__Group__8
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -7142,35 +7218,90 @@ rule__SlangDefDef__Group__7__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getMethodContractAssignment_7()); }
-	(rule__SlangDefDef__MethodContractAssignment_7)
-	{ after(grammarAccess.getSlangDefDefAccess().getMethodContractAssignment_7()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getGroup_7()); }
+	(rule__SlangDefDef__Group_7__0)?
+	{ after(grammarAccess.getSlangDefDefAccess().getGroup_7()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__Group__8
+
+rule__SlangDefDef__Group_7__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SlangDefDef__Group__8__Impl
+	rule__SlangDefDef__Group_7__0__Impl
+	rule__SlangDefDef__Group_7__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__Group__8__Impl
+rule__SlangDefDef__Group_7__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSlangDefDefAccess().getBodyAssignment_8()); }
-	(rule__SlangDefDef__BodyAssignment_8)
-	{ after(grammarAccess.getSlangDefDefAccess().getBodyAssignment_8()); }
+	{ before(grammarAccess.getSlangDefDefAccess().getColonEqualsSignKeyword_7_0()); }
+	ColonEqualsSign
+	{ after(grammarAccess.getSlangDefDefAccess().getColonEqualsSignKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangDefDef__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SlangDefDef__Group_7__1__Impl
+	rule__SlangDefDef__Group_7__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangDefDef__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSlangDefDefAccess().getMethodContractAssignment_7_1()); }
+	(rule__SlangDefDef__MethodContractAssignment_7_1)
+	{ after(grammarAccess.getSlangDefDefAccess().getMethodContractAssignment_7_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangDefDef__Group_7__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SlangDefDef__Group_7__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangDefDef__Group_7__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSlangDefDefAccess().getBodyAssignment_7_2()); }
+	(rule__SlangDefDef__BodyAssignment_7_2)
+	{ after(grammarAccess.getSlangDefDefAccess().getBodyAssignment_7_2()); }
 )
 ;
 finally {
@@ -21755,90 +21886,105 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__NameAssignment_1
+rule__SlangDefDef__DefModsAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSlangDefDefAccess().getNameSlangDefIDParserRuleCall_1_0()); }
+		{ before(grammarAccess.getSlangDefDefAccess().getDefModsSlangDefModsParserRuleCall_0_0()); }
+		ruleSlangDefMods
+		{ after(grammarAccess.getSlangDefDefAccess().getDefModsSlangDefModsParserRuleCall_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SlangDefDef__NameAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSlangDefDefAccess().getNameSlangDefIDParserRuleCall_2_0()); }
 		ruleSlangDefID
-		{ after(grammarAccess.getSlangDefDefAccess().getNameSlangDefIDParserRuleCall_1_0()); }
+		{ after(grammarAccess.getSlangDefDefAccess().getNameSlangDefIDParserRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__TypeParamsAssignment_2
+rule__SlangDefDef__TypeParamsAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSlangDefDefAccess().getTypeParamsSlangTypeParamsParserRuleCall_2_0()); }
+		{ before(grammarAccess.getSlangDefDefAccess().getTypeParamsSlangTypeParamsParserRuleCall_3_0()); }
 		ruleSlangTypeParams
-		{ after(grammarAccess.getSlangDefDefAccess().getTypeParamsSlangTypeParamsParserRuleCall_2_0()); }
+		{ after(grammarAccess.getSlangDefDefAccess().getTypeParamsSlangTypeParamsParserRuleCall_3_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__ParamsAssignment_3
+rule__SlangDefDef__ParamsAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSlangDefDefAccess().getParamsSlangDefParamsParserRuleCall_3_0()); }
+		{ before(grammarAccess.getSlangDefDefAccess().getParamsSlangDefParamsParserRuleCall_4_0()); }
 		ruleSlangDefParams
-		{ after(grammarAccess.getSlangDefDefAccess().getParamsSlangDefParamsParserRuleCall_3_0()); }
+		{ after(grammarAccess.getSlangDefDefAccess().getParamsSlangDefParamsParserRuleCall_4_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__TypeAssignment_5
+rule__SlangDefDef__TypeAssignment_6
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSlangDefDefAccess().getTypeSlangTypeParserRuleCall_5_0()); }
+		{ before(grammarAccess.getSlangDefDefAccess().getTypeSlangTypeParserRuleCall_6_0()); }
 		ruleSlangType
-		{ after(grammarAccess.getSlangDefDefAccess().getTypeSlangTypeParserRuleCall_5_0()); }
+		{ after(grammarAccess.getSlangDefDefAccess().getTypeSlangTypeParserRuleCall_6_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__MethodContractAssignment_7
+rule__SlangDefDef__MethodContractAssignment_7_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSlangDefDefAccess().getMethodContractSlangDefContractParserRuleCall_7_0()); }
+		{ before(grammarAccess.getSlangDefDefAccess().getMethodContractSlangDefContractParserRuleCall_7_1_0()); }
 		ruleSlangDefContract
-		{ after(grammarAccess.getSlangDefDefAccess().getMethodContractSlangDefContractParserRuleCall_7_0()); }
+		{ after(grammarAccess.getSlangDefDefAccess().getMethodContractSlangDefContractParserRuleCall_7_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SlangDefDef__BodyAssignment_8
+rule__SlangDefDef__BodyAssignment_7_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSlangDefDefAccess().getBodyOwnedExpressionParserRuleCall_8_0()); }
+		{ before(grammarAccess.getSlangDefDefAccess().getBodyOwnedExpressionParserRuleCall_7_2_0()); }
 		ruleOwnedExpression
-		{ after(grammarAccess.getSlangDefDefAccess().getBodyOwnedExpressionParserRuleCall_8_0()); }
+		{ after(grammarAccess.getSlangDefDefAccess().getBodyOwnedExpressionParserRuleCall_7_2_0()); }
 	)
 ;
 finally {

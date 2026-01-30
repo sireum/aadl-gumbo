@@ -31,7 +31,8 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Compute_CasesKeyword_5_0_q;
+	protected AbstractElementAlias match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1;
+	protected AbstractElementAlias match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q;
 	protected AbstractElementAlias match_HandlerClause_CasesKeyword_6_0_q;
 	protected AbstractElementAlias match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
 	protected AbstractElementAlias match_SlangParam_AsteriskKeyword_5_q;
@@ -45,7 +46,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
-		match_Compute_CasesKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getComputeAccess().getCasesKeyword_5_0());
+		match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()));
+		match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()));
 		match_HandlerClause_CasesKeyword_6_0_q = new TokenAlias(false, true, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0());
 		match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
 		match_SlangParam_AsteriskKeyword_5_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getAsteriskKeyword_5());
@@ -144,8 +146,10 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Compute_CasesKeyword_5_0_q.equals(syntax))
-				emit_Compute_CasesKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1.equals(syntax))
+				emit_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q.equals(syntax))
+				emit_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_HandlerClause_CasesKeyword_6_0_q.equals(syntax))
 				emit_HandlerClause_CasesKeyword_6_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1.equals(syntax))
@@ -171,14 +175,31 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     'cases'?
+	 *     'cases' | 'compute_cases'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'compute' (ambiguity) cases+=CaseStatementClause
+	 *     assumes+=AssumeStatement (ambiguity) cases+=CaseStatementClause
+	 *     guarantees+=GuaranteeStatement (ambiguity) cases+=CaseStatementClause
+	 *     modifies=SlangModifies ';' (ambiguity) cases+=CaseStatementClause
+	 
+	 * </pre>
+	 */
+	protected void emit_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('cases' | 'compute_cases')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     cases+=CaseStatementClause (ambiguity) cases+=CaseStatementClause
 	 
 	 * </pre>
 	 */
-	protected void emit_Compute_CasesKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

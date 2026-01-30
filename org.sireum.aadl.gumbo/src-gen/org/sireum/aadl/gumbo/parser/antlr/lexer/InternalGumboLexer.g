@@ -21,6 +21,10 @@ package org.sireum.aadl.gumbo.parser.antlr.lexer;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
+Compute_cases : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e')'_'('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s');
+
+Strictpure : '@'('S'|'s')('T'|'t')('R'|'r')('I'|'i')('C'|'c')('T'|'t')('P'|'p')('U'|'u')('R'|'r')('E'|'e');
+
 Integration : ('I'|'i')('N'|'n')('T'|'t')('E'|'e')('G'|'g')('R'|'r')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
@@ -66,6 +70,10 @@ Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
 Handle : ('H'|'h')('A'|'a')('N'|'n')('D'|'d')('L'|'l')('E'|'e');
 
 Return : ('R'|'r')('E'|'e')('T'|'t')('U'|'u')('R'|'r')('N'|'n');
+
+Pure : '@'('P'|'p')('U'|'u')('R'|'r')('E'|'e');
+
+Spec_1 : '@'('S'|'s')('P'|'p')('E'|'e')('C'|'c');
 
 Cases : ('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s');
 
