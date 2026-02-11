@@ -414,67 +414,72 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		boolean hasContract = false;
 
 		Accesses readsClause = Accesses$.MODULE$.empty();
-		if (object.getMethodContract().getReads() != null) {
-			hasContract = true;
-			List<Ref> idents = new ArrayList<>();
-			Option<Position> pos = VisitorUtil
-					.buildPositionOpt(object.getMethodContract().getReads().getExprs().get(0));
-			for (OwnedExpression e : object.getMethodContract().getReads().getExprs()) {
-				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-				Exp result = visitPop(e);
-				if (result instanceof Ref) {
-					idents.add((Ref) result);
-				} else {
-					reportError(e, "Only select expressions or simple names are allowed for read clauses");
-				}
-			}
-			readsClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
-		}
-
 		Claims requiresClause = Claims$.MODULE$.empty();
-		if (object.getMethodContract().getRequires() != null) {
-			hasContract = true;
-			List<Exp> exps = new ArrayList<>();
-			Option<Position> pos = VisitorUtil
-					.buildPositionOpt(object.getMethodContract().getRequires().getExprs().get(0));
-			for (OwnedExpression e : object.getMethodContract().getRequires().getExprs()) {
-				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-				exps.add(visitPop(e));
-			}
-			requiresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
-		}
-
 		Accesses modifiesClause = Accesses$.MODULE$.empty();
-		if (object.getMethodContract().getModifies() != null) {
-			hasContract = true;
-			List<Ref> idents = new ArrayList<>();
-			Option<Position> pos = VisitorUtil
-					.buildPositionOpt(object.getMethodContract().getModifies().getExprs().get(0));
-			for (OwnedExpression e : object.getMethodContract().getModifies().getExprs()) {
-				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-				Exp result = visitPop(e);
-				if (result instanceof Ident) {
-					idents.add((Ident) result);
-				} else {
-					reportError(e, "Only select expressions or simple names are allowed for modifies clauses");
-				}
-			}
-			modifiesClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
-		}
-
 		Claims ensuresClause = Claims$.MODULE$.empty();
-		if (object.getMethodContract().getEnsures() != null) {
-			hasContract = true;
-			List<Exp> exps = new ArrayList<>();
-			Option<Position> pos = VisitorUtil
-					.buildPositionOpt(object.getMethodContract().getEnsures().getExprs().get(0));
-			for (OwnedExpression e : object.getMethodContract().getEnsures().getExprs()) {
-				pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
-				exps.add(visitPop(e));
-			}
-			ensuresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
-		}
+		if (object.getMethodContract() != null) {
 
+			if (object.getMethodContract().getReads() != null) {
+				hasContract = true;
+				List<Ref> idents = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getReads().getExprs().get(0));
+				for (OwnedExpression e : object.getMethodContract().getReads().getExprs()) {
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+					Exp result = visitPop(e);
+					if (result instanceof Ref) {
+						idents.add((Ref) result);
+					} else {
+						reportError(e, "Only select expressions or simple names are allowed for read clauses");
+					}
+				}
+				readsClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
+			}
+	
+			
+			if (object.getMethodContract().getRequires() != null) {
+				hasContract = true;
+				List<Exp> exps = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getRequires().getExprs().get(0));
+				for (OwnedExpression e : object.getMethodContract().getRequires().getExprs()) {
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+					exps.add(visitPop(e));
+				}
+				requiresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
+			}
+	
+			
+			if (object.getMethodContract().getModifies() != null) {
+				hasContract = true;
+				List<Ref> idents = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getModifies().getExprs().get(0));
+				for (OwnedExpression e : object.getMethodContract().getModifies().getExprs()) {
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+					Exp result = visitPop(e);
+					if (result instanceof Ident) {
+						idents.add((Ident) result);
+					} else {
+						reportError(e, "Only select expressions or simple names are allowed for modifies clauses");
+					}
+				}
+				modifiesClause = Accesses$.MODULE$.apply(VisitorUtil.toISZ(idents), GumboUtil.buildAttr(pos));
+			}
+			
+			if (object.getMethodContract().getEnsures() != null) {
+				hasContract = true;
+				List<Exp> exps = new ArrayList<>();
+				Option<Position> pos = VisitorUtil
+						.buildPositionOpt(object.getMethodContract().getEnsures().getExprs().get(0));
+				for (OwnedExpression e : object.getMethodContract().getEnsures().getExprs()) {
+					pos = GumboUtil.mergePositions(pos, VisitorUtil.buildPositionOpt(e));
+					exps.add(visitPop(e));
+				}
+				ensuresClause = Claims$.MODULE$.apply(VisitorUtil.toISZ(exps), GumboUtil.buildAttr(pos));
+			}
+		}
+		
 		InfoFlows infoFlows = InfoFlows$.MODULE$.empty();
 
 		if (hasContract) {
