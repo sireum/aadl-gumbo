@@ -402,7 +402,11 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 		Option<Body> optBody = SlangUtil.toNone();
 		if (object.getBody() != null) {
-			Stmt ret = Stmt.Return$.MODULE$.apply(SlangUtil.toSome(visitPop(object.getBody())), returnType.attr());
+			Stmt ret = Stmt.Return$.MODULE$.apply(//
+					SlangUtil.toSome(visitPop(object.getBody())), //
+					VisitorUtil.toISZ(), //
+					returnType.attr()//
+					);
 			optBody = SlangUtil.toSome(Body$.MODULE$.apply(VisitorUtil.toISZ(ret), VisitorUtil.toISZ()));
 		}
 		
@@ -535,8 +539,16 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			purity = Purity$.MODULE$.byName("Pure").get();
 		}
 
-		MethodSig sig = MethodSig$.MODULE$.apply(purity, VisitorUtil.toISZ(), methodId,
-				VisitorUtil.toISZ(typeParams), hasParams, VisitorUtil.toISZ(params), returnType);
+		MethodSig sig = MethodSig$.MODULE$.apply(//
+				purity, //
+				VisitorUtil.toISZ(), //
+				methodId, //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(typeParams), //
+				hasParams, //
+				VisitorUtil.toISZ(params), //
+				returnType //
+				);
 		
 		if (isSpec) {
 			push(GclSpecMethod$.MODULE$.apply(SpecMethod$.MODULE$.apply(sig, GumboUtil.buildResolvedAttr(object))));
@@ -889,8 +901,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
-		push(Invoke$.MODULE$.apply(receiverOpt, ident, VisitorUtil.toISZ(targs), VisitorUtil.toISZ(args),
-				GumboUtil.buildResolvedAttr(object)));
+		push(Invoke$.MODULE$.apply(//
+				receiverOpt, //
+				ident, //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(targs), //
+				VisitorUtil.toISZ(args), //
+				GumboUtil.buildResolvedAttr(object) //
+				));
 
 		return false;
 	}
@@ -921,8 +939,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			args.add(visitPop(object.getValue()));
 		}
 
-		push(Invoke$.MODULE$.apply(SlangUtil.toNone(), maySendUifIdent, VisitorUtil.toISZ(),
-				VisitorUtil.toISZ(args), GumboUtil.buildResolvedAttr(object)));
+		push(Invoke$.MODULE$.apply( //
+				SlangUtil.toNone(),//
+				maySendUifIdent,//
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(args), //
+				GumboUtil.buildResolvedAttr(object) //
+				));
 
 		return false;
 	}
@@ -938,8 +962,13 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Id portId = Id$.MODULE$.apply(object.getEventPort().getName(), GumboUtil.buildAttr(object));
 		args.add(Ident$.MODULE$.apply(portId, GumboUtil.buildResolvedAttr(object)));
 
-		push(Invoke$.MODULE$.apply(SlangUtil.toNone(), hasEventUifIdent, VisitorUtil.toISZ(),
-				VisitorUtil.toISZ(args), GumboUtil.buildResolvedAttr(object)));
+		push(Invoke$.MODULE$.apply(//
+				SlangUtil.toNone(), //
+				hasEventUifIdent, VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(args), //
+				GumboUtil.buildResolvedAttr(object) //
+				));
 
 		return false;
 	}
@@ -962,8 +991,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			args.add(visitPop(object.getValue()));
 		}
 
-		push(Invoke$.MODULE$.apply(SlangUtil.toNone(), mustSendUifIdent, VisitorUtil.toISZ(),
-				VisitorUtil.toISZ(args), GumboUtil.buildResolvedAttr(object)));
+		push(Invoke$.MODULE$.apply(//
+				SlangUtil.toNone(), //
+				mustSendUifIdent, //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(args), //
+				GumboUtil.buildResolvedAttr(object) //
+				));
 
 		return false;
 	}
@@ -979,8 +1014,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Id portId = Id$.MODULE$.apply(object.getEventPort().getName(), GumboUtil.buildAttr(object));
 		args.add(Ident$.MODULE$.apply(portId, GumboUtil.buildResolvedAttr(object)));
 
-		push(Invoke$.MODULE$.apply(SlangUtil.toNone(), noSendUifIdent, VisitorUtil.toISZ(),
-				VisitorUtil.toISZ(args), GumboUtil.buildResolvedAttr(object)));
+		push(Invoke$.MODULE$.apply(//
+				SlangUtil.toNone(), //
+				noSendUifIdent, //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(), //
+				VisitorUtil.toISZ(args), //
+				GumboUtil.buildResolvedAttr(object) //
+				));
 
 		return false;
 	}
@@ -1012,14 +1053,17 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		
 		Option<Id> idOpt = SlangUtil.toSome(Id$.MODULE$.apply(object.getQuantParam().getName(), GumboUtil.buildAttr(object)));
 		
-		AssignExp quantExp = Stmt.Expr$.MODULE$.apply(visitPop(object.getQuantifiedExpr()), GumboUtil.buildTypedAttr(object));
+		AssignExp quantExp = Stmt.Expr$.MODULE$.apply(visitPop(object.getQuantifiedExpr()), VisitorUtil.toISZ(), GumboUtil.buildTypedAttr(object));
 
 		IS<Z, org.sireum.String> context = VisitorUtil.toISZ(path.stream().map(s -> SlangUtil.sireumString(s)).collect(Collectors.toList()));
 		
 		Exp.Fun funExp = Exp.Fun$.MODULE$.apply( //
 				context, //
 				VisitorUtil.toISZ(SlangAstBridge$.MODULE$.AST_Exp_Fun_Param(idOpt, SlangUtil.toNone(), SlangUtil.toNone())), //
-				quantExp, GumboUtil.buildTypedAttr(object));	
+				quantExp, //
+				VisitorUtil.toISZ(), //
+				GumboUtil.buildTypedAttr(object) //
+				);	
 
 		push(Exp.QuantRange$.MODULE$.apply(isForAll, lo, high, isInclusive, funExp, GumboUtil.buildResolvedAttr(object)));
 		
@@ -1166,6 +1210,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 						receiver = Invoke$.MODULE$.apply(//
 								r.receiverOpt(), // receiverOpt
 								Ident$.MODULE$.apply(r.id(), GumboUtil.buildResolvedAttr(r.id().attr().posOpt())), // ident
+								VisitorUtil.toISZ(), //
 								VisitorUtil.toISZ(), // targs
 								VisitorUtil.toISZ(indexes), // args
 								GumboUtil.buildResolvedAttr(mergedPos));
@@ -1178,6 +1223,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 						receiver = Invoke$.MODULE$.apply(//
 								SlangUtil.toNone(), // receiverOpt
 								i, // ident
+								VisitorUtil.toISZ(), //
 								VisitorUtil.toISZ(), // targs
 								VisitorUtil.toISZ(indexes), // args
 								GumboUtil.buildResolvedAttr(mergedPos));
@@ -1194,6 +1240,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 								SlangUtil.toSome(r), // receiverOpt
 								Ident$.MODULE$.apply(Id$.MODULE$.apply("apply", GumboUtil.buildAttr(aaPosOpt)),
 										GumboUtil.buildResolvedAttr_BuiltIn_Apply(aaPosOpt)), // ident
+								VisitorUtil.toISZ(), //
 								VisitorUtil.toISZ(), // targs
 								VisitorUtil.toISZ(indexes), // args
 								GumboUtil.buildResolvedAttr(mergedPos));
@@ -1482,7 +1529,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			ids.add(new org.sireum.String(s));
 		}
 
-		Typed.Name name = Typed.Name$.MODULE$.apply(VisitorUtil.toISZ(ids), VisitorUtil.toISZ());
+		Typed.Name name = Typed.Name$.MODULE$.apply(VisitorUtil.toISZ(ids), SlangUtil.toNone(), VisitorUtil.toISZ());
 		TypedAttr ta = GumboUtil.buildTypedAttr(object, name);
 
 		push(Exp.Result$.MODULE$.apply(SlangUtil.toNone(), ta));

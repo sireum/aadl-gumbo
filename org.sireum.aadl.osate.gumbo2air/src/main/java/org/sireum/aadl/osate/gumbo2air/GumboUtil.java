@@ -191,7 +191,7 @@ public class GumboUtil {
 		return ret.apply( //
 				ret.posOpt(), //
 				SlangUtil.toSome(ResolvedInfo.BuiltIn$.MODULE$.apply(
-						GclUtil.SlangAstBridge$.MODULE$.getResolvedInfo_BuiltIn_Kind("Apply"))), //
+						GclUtil.SlangAstBridge$.MODULE$.getResolvedInfo_BuiltIn_Kind("Apply"), p)), //
 				ret.getTypedOpt());
 	}
 
@@ -321,11 +321,11 @@ public class GumboUtil {
 				GumboUtil.buildAttr(object));
 		List<Type> retTypeArgs = new ArrayList<>();
 
-		Typed.Name typedName = Typed.Name$.MODULE$.apply(VisitorUtil.toISZ(retTypeStrings), VisitorUtil.toISZ());
+		Typed.Name typedName = Typed.Name$.MODULE$.apply(VisitorUtil.toISZ(retTypeStrings), SlangUtil.toNone(), VisitorUtil.toISZ());
 		TypedAttr retTypedAttr = TypedAttr$.MODULE$.apply(VisitorUtil.buildPositionOpt(object),
 				SlangUtil.toSome(typedName));
 
-		return Type.Named$.MODULE$.apply(retTypeName, VisitorUtil.toISZ(retTypeArgs), retTypedAttr);
+		return Type.Named$.MODULE$.apply(retTypeName, SlangUtil.toNone(), VisitorUtil.toISZ(retTypeArgs), retTypedAttr);
 	}
 
 	public static ComponentType getComponentType(Classifier classifier) {
