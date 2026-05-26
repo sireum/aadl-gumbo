@@ -87,6 +87,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
 import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
+import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.SlangStringLit;
 import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
@@ -1174,8 +1175,16 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			for (Postfix postfix : object.getPosts()) {
 				if (postfix instanceof MemberAccess) {
 					MemberAccess m = (MemberAccess) postfix;
-					String member = m.getField().toString();
+					String member = m.getField().getName();
 					Id id = Id$.MODULE$.apply(member, GumboUtil.buildAttr(m));
+					Option<Position> posOpt = GumboUtil.mergePositions(receiver.posOpt(), id.attr().posOpt());
+					receiver = Select$.MODULE$.apply(SlangUtil.toSome(receiver), // receiverOpt
+							id, // id
+							VisitorUtil.toISZ(), // targs
+							GumboUtil.buildResolvedAttr(posOpt));
+				} else if (postfix instanceof BuiltinAccess) {
+					BuiltinAccess b = (BuiltinAccess) postfix;
+					Id id = Id$.MODULE$.apply(b.getMethod(), GumboUtil.buildAttr(b));
 					Option<Position> posOpt = GumboUtil.mergePositions(receiver.posOpt(), id.attr().posOpt());
 					receiver = Select$.MODULE$.apply(SlangUtil.toSome(receiver), // receiverOpt
 							id, // id

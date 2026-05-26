@@ -21,6 +21,7 @@ import org.eclipse.xtext.scoping.impl.SimpleScope;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.osate.aadl2.AadlPackage;
 import org.osate.aadl2.Classifier;
+import org.osate.aadl2.ClassifierValue;
 import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.ComponentPrototype;
@@ -50,22 +51,28 @@ import org.osate.aadl2.SubcomponentType;
 import org.osate.aadl2.Type;
 import org.osate.aadl2.modelsupport.ResolvePrototypeUtil;
 import org.osate.xtext.aadl2.properties.scoping.PropertiesScopeProvider;
+import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
+import org.sireum.aadl.gumbo.gumbo.GExpr;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
+import org.sireum.aadl.gumbo.gumbo.MemberAccess;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
+import org.sireum.aadl.gumbo.gumbo.Postfix;
+import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
+import org.sireum.aadl.gumbo.gumbo.ResultExpr;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
 import org.sireum.aadl.gumbo.gumbo.SlangType;
@@ -172,6 +179,95 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 
 	IScope scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {
 		return getVariableCrossRef(context, reference);
+	}
+
+	IScope scope_MemberAccess_field(MemberAccess context, EReference reference) {
+		PostFixExpr postFixExpr = EcoreUtil2.getContainerOfType(context, PostFixExpr.class);
+		if (postFixExpr == null) {
+			return IScope.NULLSCOPE;
+		}
+
+		int index = postFixExpr.getPosts().indexOf(context);
+		SubcomponentType resolvedType = resolveTypeAtPostIndex(postFixExpr, index - 1);
+
+		if (resolvedType instanceof Classifier) {
+			return PropertiesScopeProvider
+					.scopeFor(PropertiesScopeProvider.filterRefined(((Classifier) resolvedType).getOwnedElements()));
+		}
+
+		return IScope.NULLSCOPE;
+	}
+
+	private SubcomponentType resolveTypeAtPostIndex(PostFixExpr postFixExpr, int index) {
+		if (index < 0) {
+			return resolveBaseExprType(postFixExpr.getBaseExp());
+		}
+
+		Postfix post = postFixExpr.getPosts().get(index);
+		if (post instanceof MemberAccess) {
+			NamedElement field = ((MemberAccess) post).getField();
+			if (field != null && !field.eIsProxy()) {
+				return getSubcomponentType(field);
+			}
+			return null;
+		} else if (post instanceof ArrayAccess) {
+			SubcomponentType containerType = resolveTypeAtPostIndex(postFixExpr, index - 1);
+			if (containerType != null) {
+				SubcomponentType elementType = getArrayElementType(containerType);
+				return elementType != null ? elementType : containerType;
+			}
+			return null;
+		}
+		return null;
+	}
+
+	private SubcomponentType resolveBaseExprType(GExpr baseExp) {
+		if (baseExp instanceof DataRefExpr) {
+			EObject ref = ((DataRefExpr) baseExp).getPortOrSubcomponentOrStateVar();
+			if (ref != null && !ref.eIsProxy()) {
+				return getSubcomponentType(ref);
+			}
+		} else if (baseExp instanceof CallExpr) {
+			EObject ref = ((CallExpr) baseExp).getId();
+			if (ref instanceof SlangDefDef) {
+				SlangType returnType = ((SlangDefDef) ref).getType();
+				if (returnType != null) {
+					return returnType.getTypeName();
+				}
+			}
+		} else if (baseExp instanceof ResultExpr) {
+			SlangDefDef defDef = EcoreUtil2.getContainerOfType(baseExp, SlangDefDef.class);
+			if (defDef != null && defDef.getType() != null) {
+				return defDef.getType().getTypeName();
+			}
+		}
+		return null;
+	}
+
+	private SubcomponentType getArrayElementType(SubcomponentType type) {
+		if (!(type instanceof DataType)) {
+			return null;
+		}
+		for (PropertyAssociation pa : ((DataType) type).getOwnedPropertyAssociations()) {
+			if (pa.getProperty() != null
+					&& "Data_Model::Base_Type".equals(pa.getProperty().getQualifiedName())
+					&& !pa.getOwnedValues().isEmpty()) {
+				var val = pa.getOwnedValues().get(0).getOwnedValue();
+				if (val instanceof ListValue) {
+					ListValue lv = (ListValue) val;
+					if (!lv.getOwnedListElements().isEmpty()) {
+						var elem = lv.getOwnedListElements().get(0);
+						if (elem instanceof ClassifierValue) {
+							Classifier cls = ((ClassifierValue) elem).getClassifier();
+							if (cls instanceof DataSubcomponentType) {
+								return (DataSubcomponentType) cls;
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
 	}
 
 	IScope scope_SlangType_typeName(SlangType context, EReference reference) {
@@ -627,6 +723,9 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 		} else if (e instanceof SlangDefParam) {
 			SlangType typeName = ((SlangDefParam) e).getTypeName();
 			return typeName != null ? typeName.getTypeName() : null;
+		} else if (e instanceof SlangDefDef) {
+			SlangType returnType = ((SlangDefDef) e).getType();
+			return returnType != null ? returnType.getTypeName() : null;
 		} else {
 			return null;
 		}

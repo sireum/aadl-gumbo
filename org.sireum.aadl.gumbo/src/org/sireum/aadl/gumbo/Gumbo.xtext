@@ -406,10 +406,20 @@ QualifiedAADLName:
 	ID ('::' ID)+ ('.' ID)?;
 
 Postfix:
-	MemberAccess | ArrayAccess;
+	MemberAccess | ArrayAccess | BuiltinAccess;
 
 MemberAccess:
-	'.' field=ID;
+	'.' field=[aadl2::NamedElement|ID];
+
+BuiltinAccess:
+	{BuiltinAccess} '.' method=BuiltinMethodName;
+
+BuiltinMethodName:
+	'size'
+	| 'toB' | 'toZ' | 'toC' | 'toR'
+	| 'toS8' | 'toS16' | 'toS32' | 'toS64'
+	| 'toU8' | 'toU16' | 'toU32' | 'toU64'
+	| 'toF32' | 'toF64';
 
 ArrayAccess: {ArrayAccess}
 	'(' ( index+=OwnedExpression (',' index+=OwnedExpression)* )? ')';
