@@ -22,16 +22,19 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.MemberAccess} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.BuiltinAccess} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MemberAccessItemProvider extends PostfixItemProvider
+public class BuiltinAccessItemProvider extends PostfixItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -39,7 +42,7 @@ public class MemberAccessItemProvider extends PostfixItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public MemberAccessItemProvider(AdapterFactory adapterFactory)
+  public BuiltinAccessItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -57,36 +60,36 @@ public class MemberAccessItemProvider extends PostfixItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addFieldPropertyDescriptor(object);
+      addMethodPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Field feature.
+   * This adds a property descriptor for the Method feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addFieldPropertyDescriptor(Object object)
+  protected void addMethodPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_MemberAccess_field_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MemberAccess_field_feature", "_UI_MemberAccess_type"),
-         GumboPackage.Literals.MEMBER_ACCESS__FIELD,
+         getString("_UI_BuiltinAccess_method_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_BuiltinAccess_method_feature", "_UI_BuiltinAccess_type"),
+         GumboPackage.Literals.BUILTIN_ACCESS__METHOD,
          true,
          false,
-         true,
-         null,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
          null));
   }
 
   /**
-   * This returns MemberAccess.gif.
+   * This returns BuiltinAccess.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -94,7 +97,7 @@ public class MemberAccessItemProvider extends PostfixItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/MemberAccess"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/BuiltinAccess"));
   }
 
   /**
@@ -106,7 +109,10 @@ public class MemberAccessItemProvider extends PostfixItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_MemberAccess_type");
+    String label = ((BuiltinAccess)object).getMethod();
+    return label == null || label.length() == 0 ?
+      getString("_UI_BuiltinAccess_type") :
+      getString("_UI_BuiltinAccess_type") + " " + label;
   }
 
 
@@ -121,6 +127,13 @@ public class MemberAccessItemProvider extends PostfixItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(BuiltinAccess.class))
+    {
+      case GumboPackage.BUILTIN_ACCESS__METHOD:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
     super.notifyChanged(notification);
   }
 

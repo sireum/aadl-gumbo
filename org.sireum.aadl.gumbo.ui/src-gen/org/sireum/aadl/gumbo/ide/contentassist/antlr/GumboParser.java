@@ -63,6 +63,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFloatObjectExprAccess().getAlternatives(), "rule__FloatObjectExpr__Alternatives");
 			builder.put(grammarAccess.getAccessibleBaseExprAccess().getAlternatives(), "rule__AccessibleBaseExpr__Alternatives");
 			builder.put(grammarAccess.getPostfixAccess().getAlternatives(), "rule__Postfix__Alternatives");
+			builder.put(grammarAccess.getBuiltinMethodNameAccess().getAlternatives(), "rule__BuiltinMethodName__Alternatives");
 			builder.put(grammarAccess.getSlangForRangeAccess().getAlternatives_3_0(), "rule__SlangForRange__Alternatives_3_0");
 			builder.put(grammarAccess.getSlangLitAccess().getAlternatives(), "rule__SlangLit__Alternatives");
 			builder.put(grammarAccess.getSlangLitAccess().getValueAlternatives_0_1_0(), "rule__SlangLit__ValueAlternatives_0_1_0");
@@ -221,6 +222,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQualifiedAADLNameAccess().getGroup_1(), "rule__QualifiedAADLName__Group_1__0");
 			builder.put(grammarAccess.getQualifiedAADLNameAccess().getGroup_2(), "rule__QualifiedAADLName__Group_2__0");
 			builder.put(grammarAccess.getMemberAccessAccess().getGroup(), "rule__MemberAccess__Group__0");
+			builder.put(grammarAccess.getBuiltinAccessAccess().getGroup(), "rule__BuiltinAccess__Group__0");
 			builder.put(grammarAccess.getArrayAccessAccess().getGroup(), "rule__ArrayAccess__Group__0");
 			builder.put(grammarAccess.getArrayAccessAccess().getGroup_2(), "rule__ArrayAccess__Group_2__0");
 			builder.put(grammarAccess.getArrayAccessAccess().getGroup_2_1(), "rule__ArrayAccess__Group_2_1__0");
@@ -477,6 +479,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAccessibleBaseExprAccess().getArgExprAssignment_1_2_3(), "rule__AccessibleBaseExpr__ArgExprAssignment_1_2_3");
 			builder.put(grammarAccess.getAccessibleBaseExprAccess().getPortOrSubcomponentOrStateVarAssignment_2_1(), "rule__AccessibleBaseExpr__PortOrSubcomponentOrStateVarAssignment_2_1");
 			builder.put(grammarAccess.getMemberAccessAccess().getFieldAssignment_1(), "rule__MemberAccess__FieldAssignment_1");
+			builder.put(grammarAccess.getBuiltinAccessAccess().getMethodAssignment_2(), "rule__BuiltinAccess__MethodAssignment_2");
 			builder.put(grammarAccess.getArrayAccessAccess().getIndexAssignment_2_0(), "rule__ArrayAccess__IndexAssignment_2_0");
 			builder.put(grammarAccess.getArrayAccessAccess().getIndexAssignment_2_1_1(), "rule__ArrayAccess__IndexAssignment_2_1_1");
 			builder.put(grammarAccess.getOtherDataRefAccess().getNamedElementAssignment_0_0(), "rule__OtherDataRef__NamedElementAssignment_0_0");

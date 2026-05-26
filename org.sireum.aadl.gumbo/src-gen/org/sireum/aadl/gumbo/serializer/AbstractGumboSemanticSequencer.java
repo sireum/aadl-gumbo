@@ -50,6 +50,7 @@ import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinLit;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
+import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
@@ -273,6 +274,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.BOOLEAN_LIT:
 				sequence_SlangLit(context, (BooleanLit) semanticObject); 
+				return; 
+			case GumboPackage.BUILTIN_ACCESS:
+				sequence_BuiltinAccess(context, (BuiltinAccess) semanticObject); 
 				return; 
 			case GumboPackage.CALL_EXPR:
 				sequence_AccessibleBaseExpr(context, (CallExpr) semanticObject); 
@@ -1149,6 +1153,27 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Postfix returns BuiltinAccess
+	 *     BuiltinAccess returns BuiltinAccess
+	 *
+	 * Constraint:
+	 *     method=BuiltinMethodName
+	 * </pre>
+	 */
+	protected void sequence_BuiltinAccess(ISerializationContext context, BuiltinAccess semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.BUILTIN_ACCESS__METHOD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.BUILTIN_ACCESS__METHOD));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBuiltinAccessAccess().getMethodBuiltinMethodNameParserRuleCall_2_0(), semanticObject.getMethod());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     CaseStatementClause returns CaseStatementClause
 	 *
 	 * Constraint:
@@ -1604,7 +1629,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     MemberAccess returns MemberAccess
 	 *
 	 * Constraint:
-	 *     field=ID
+	 *     field=[NamedElement|ID]
 	 * </pre>
 	 */
 	protected void sequence_MemberAccess(ISerializationContext context, MemberAccess semanticObject) {
@@ -1613,7 +1638,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.MEMBER_ACCESS__FIELD));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMemberAccessAccess().getFieldIDTerminalRuleCall_1_0(), semanticObject.getField());
+		feeder.accept(grammarAccess.getMemberAccessAccess().getFieldNamedElementIDTerminalRuleCall_1_0_1(), semanticObject.eGet(GumboPackage.Literals.MEMBER_ACCESS__FIELD, false));
 		feeder.finish();
 	}
 	

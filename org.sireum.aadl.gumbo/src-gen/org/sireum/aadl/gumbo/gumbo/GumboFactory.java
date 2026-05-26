@@ -475,6 +475,15 @@ public interface GumboFactory extends EFactory
   MemberAccess createMemberAccess();
 
   /**
+   * Returns a new object of class '<em>Builtin Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Builtin Access</em>'.
+   * @generated
+   */
+  BuiltinAccess createBuiltinAccess();
+
+  /**
    * Returns a new object of class '<em>Array Access</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

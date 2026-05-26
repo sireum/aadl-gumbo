@@ -448,6 +448,14 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.BUILTIN_ACCESS:
+      {
+        BuiltinAccess builtinAccess = (BuiltinAccess)theEObject;
+        T result = caseBuiltinAccess(builtinAccess);
+        if (result == null) result = casePostfix(builtinAccess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.ARRAY_ACCESS:
       {
         ArrayAccess arrayAccess = (ArrayAccess)theEObject;
@@ -1692,6 +1700,22 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMemberAccess(MemberAccess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Builtin Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Builtin Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBuiltinAccess(BuiltinAccess object)
   {
     return null;
   }

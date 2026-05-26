@@ -124,6 +124,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.QUANT_PARAM: return createQuantParam();
       case GumboPackage.POSTFIX: return createPostfix();
       case GumboPackage.MEMBER_ACCESS: return createMemberAccess();
+      case GumboPackage.BUILTIN_ACCESS: return createBuiltinAccess();
       case GumboPackage.ARRAY_ACCESS: return createArrayAccess();
       case GumboPackage.OTHER_DATA_REF: return createOtherDataRef();
       case GumboPackage.SLANG_PARAMS: return createSlangParams();
@@ -770,6 +771,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     MemberAccessImpl memberAccess = new MemberAccessImpl();
     return memberAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BuiltinAccess createBuiltinAccess()
+  {
+    BuiltinAccessImpl builtinAccess = new BuiltinAccessImpl();
+    return builtinAccess;
   }
 
   /**

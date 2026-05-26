@@ -337,6 +337,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createMemberAccessAdapter();
       }
       @Override
+      public Adapter caseBuiltinAccess(BuiltinAccess object)
+      {
+        return createBuiltinAccessAdapter();
+      }
+      @Override
       public Adapter caseArrayAccess(ArrayAccess object)
       {
         return createArrayAccessAdapter();
@@ -1389,6 +1394,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMemberAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BuiltinAccess <em>Builtin Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.BuiltinAccess
+   * @generated
+   */
+  public Adapter createBuiltinAccessAdapter()
   {
     return null;
   }

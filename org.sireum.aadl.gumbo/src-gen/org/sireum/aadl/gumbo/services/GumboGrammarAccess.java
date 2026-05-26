@@ -3951,12 +3951,13 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMemberAccessParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cArrayAccessParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBuiltinAccessParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Postfix:
-		//    MemberAccess | ArrayAccess;
+		//    MemberAccess | ArrayAccess | BuiltinAccess;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MemberAccess | ArrayAccess
+		//MemberAccess | ArrayAccess | BuiltinAccess
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MemberAccess
@@ -3964,29 +3965,142 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//ArrayAccess
 		public RuleCall getArrayAccessParserRuleCall_1() { return cArrayAccessParserRuleCall_1; }
+		
+		//BuiltinAccess
+		public RuleCall getBuiltinAccessParserRuleCall_2() { return cBuiltinAccessParserRuleCall_2; }
 	}
 	public class MemberAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.MemberAccess");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFullStopKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cFieldAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFieldIDTerminalRuleCall_1_0 = (RuleCall)cFieldAssignment_1.eContents().get(0);
+		private final CrossReference cFieldNamedElementCrossReference_1_0 = (CrossReference)cFieldAssignment_1.eContents().get(0);
+		private final RuleCall cFieldNamedElementIDTerminalRuleCall_1_0_1 = (RuleCall)cFieldNamedElementCrossReference_1_0.eContents().get(1);
 		
 		//MemberAccess:
-		//    '.' field=ID;
+		//    '.' field=[aadl2::NamedElement|ID];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'.' field=ID
+		//'.' field=[aadl2::NamedElement|ID]
 		public Group getGroup() { return cGroup; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0() { return cFullStopKeyword_0; }
 		
-		//field=ID
+		//field=[aadl2::NamedElement|ID]
 		public Assignment getFieldAssignment_1() { return cFieldAssignment_1; }
 		
+		//[aadl2::NamedElement|ID]
+		public CrossReference getFieldNamedElementCrossReference_1_0() { return cFieldNamedElementCrossReference_1_0; }
+		
 		//ID
-		public RuleCall getFieldIDTerminalRuleCall_1_0() { return cFieldIDTerminalRuleCall_1_0; }
+		public RuleCall getFieldNamedElementIDTerminalRuleCall_1_0_1() { return cFieldNamedElementIDTerminalRuleCall_1_0_1; }
+	}
+	public class BuiltinAccessElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BuiltinAccess");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBuiltinAccessAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cMethodAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMethodBuiltinMethodNameParserRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
+		
+		//BuiltinAccess:
+		//    {BuiltinAccess} '.' method=BuiltinMethodName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{BuiltinAccess} '.' method=BuiltinMethodName
+		public Group getGroup() { return cGroup; }
+		
+		//{BuiltinAccess}
+		public Action getBuiltinAccessAction_0() { return cBuiltinAccessAction_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		
+		//method=BuiltinMethodName
+		public Assignment getMethodAssignment_2() { return cMethodAssignment_2; }
+		
+		//BuiltinMethodName
+		public RuleCall getMethodBuiltinMethodNameParserRuleCall_2_0() { return cMethodBuiltinMethodNameParserRuleCall_2_0; }
+	}
+	public class BuiltinMethodNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BuiltinMethodName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cSizeKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cToBKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cToZKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cToCKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cToRKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cToS8Keyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cToS16Keyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cToS32Keyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cToS64Keyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cToU8Keyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cToU16Keyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cToU32Keyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cToU64Keyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cToF32Keyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cToF64Keyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		
+		//BuiltinMethodName:
+		//    'size'
+		//    | 'toB' | 'toZ' | 'toC' | 'toR'
+		//    | 'toS8' | 'toS16' | 'toS32' | 'toS64'
+		//    | 'toU8' | 'toU16' | 'toU32' | 'toU64'
+		//    | 'toF32' | 'toF64';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'size'
+		//| 'toB' | 'toZ' | 'toC' | 'toR'
+		//| 'toS8' | 'toS16' | 'toS32' | 'toS64'
+		//| 'toU8' | 'toU16' | 'toU32' | 'toU64'
+		//| 'toF32' | 'toF64'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'size'
+		public Keyword getSizeKeyword_0() { return cSizeKeyword_0; }
+		
+		//'toB'
+		public Keyword getToBKeyword_1() { return cToBKeyword_1; }
+		
+		//'toZ'
+		public Keyword getToZKeyword_2() { return cToZKeyword_2; }
+		
+		//'toC'
+		public Keyword getToCKeyword_3() { return cToCKeyword_3; }
+		
+		//'toR'
+		public Keyword getToRKeyword_4() { return cToRKeyword_4; }
+		
+		//'toS8'
+		public Keyword getToS8Keyword_5() { return cToS8Keyword_5; }
+		
+		//'toS16'
+		public Keyword getToS16Keyword_6() { return cToS16Keyword_6; }
+		
+		//'toS32'
+		public Keyword getToS32Keyword_7() { return cToS32Keyword_7; }
+		
+		//'toS64'
+		public Keyword getToS64Keyword_8() { return cToS64Keyword_8; }
+		
+		//'toU8'
+		public Keyword getToU8Keyword_9() { return cToU8Keyword_9; }
+		
+		//'toU16'
+		public Keyword getToU16Keyword_10() { return cToU16Keyword_10; }
+		
+		//'toU32'
+		public Keyword getToU32Keyword_11() { return cToU32Keyword_11; }
+		
+		//'toU64'
+		public Keyword getToU64Keyword_12() { return cToU64Keyword_12; }
+		
+		//'toF32'
+		public Keyword getToF32Keyword_13() { return cToF32Keyword_13; }
+		
+		//'toF64'
+		public Keyword getToF64Keyword_14() { return cToF64Keyword_14; }
 	}
 	public class ArrayAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ArrayAccess");
@@ -4718,6 +4832,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final QualifiedAADLNameElements pQualifiedAADLName;
 	private final PostfixElements pPostfix;
 	private final MemberAccessElements pMemberAccess;
+	private final BuiltinAccessElements pBuiltinAccess;
+	private final BuiltinMethodNameElements pBuiltinMethodName;
 	private final ArrayAccessElements pArrayAccess;
 	private final OtherDataRefElements pOtherDataRef;
 	private final SlangParamsElements pSlangParams;
@@ -4834,6 +4950,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pQualifiedAADLName = new QualifiedAADLNameElements();
 		this.pPostfix = new PostfixElements();
 		this.pMemberAccess = new MemberAccessElements();
+		this.pBuiltinAccess = new BuiltinAccessElements();
+		this.pBuiltinMethodName = new BuiltinMethodNameElements();
 		this.pArrayAccess = new ArrayAccessElements();
 		this.pOtherDataRef = new OtherDataRefElements();
 		this.pSlangParams = new SlangParamsElements();
@@ -5733,7 +5851,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Postfix:
-	//    MemberAccess | ArrayAccess;
+	//    MemberAccess | ArrayAccess | BuiltinAccess;
 	public PostfixElements getPostfixAccess() {
 		return pPostfix;
 	}
@@ -5743,13 +5861,37 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//MemberAccess:
-	//    '.' field=ID;
+	//    '.' field=[aadl2::NamedElement|ID];
 	public MemberAccessElements getMemberAccessAccess() {
 		return pMemberAccess;
 	}
 	
 	public ParserRule getMemberAccessRule() {
 		return getMemberAccessAccess().getRule();
+	}
+	
+	//BuiltinAccess:
+	//    {BuiltinAccess} '.' method=BuiltinMethodName;
+	public BuiltinAccessElements getBuiltinAccessAccess() {
+		return pBuiltinAccess;
+	}
+	
+	public ParserRule getBuiltinAccessRule() {
+		return getBuiltinAccessAccess().getRule();
+	}
+	
+	//BuiltinMethodName:
+	//    'size'
+	//    | 'toB' | 'toZ' | 'toC' | 'toR'
+	//    | 'toS8' | 'toS16' | 'toS32' | 'toS64'
+	//    | 'toU8' | 'toU16' | 'toU32' | 'toU64'
+	//    | 'toF32' | 'toF64';
+	public BuiltinMethodNameElements getBuiltinMethodNameAccess() {
+		return pBuiltinMethodName;
+	}
+	
+	public ParserRule getBuiltinMethodNameRule() {
+		return getBuiltinMethodNameAccess().getRule();
 	}
 	
 	//ArrayAccess: {ArrayAccess}

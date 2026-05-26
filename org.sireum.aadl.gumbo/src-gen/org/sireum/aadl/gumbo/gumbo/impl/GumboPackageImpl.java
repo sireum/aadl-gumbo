@@ -30,6 +30,7 @@ import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinLit;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
+import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
@@ -480,6 +481,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass memberAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass builtinAccessEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2500,9 +2508,31 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getMemberAccess_Field()
+  public EReference getMemberAccess_Field()
   {
-    return (EAttribute)memberAccessEClass.getEStructuralFeatures().get(0);
+    return (EReference)memberAccessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBuiltinAccess()
+  {
+    return builtinAccessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBuiltinAccess_Method()
+  {
+    return (EAttribute)builtinAccessEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4310,7 +4340,10 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     postfixEClass = createEClass(POSTFIX);
 
     memberAccessEClass = createEClass(MEMBER_ACCESS);
-    createEAttribute(memberAccessEClass, MEMBER_ACCESS__FIELD);
+    createEReference(memberAccessEClass, MEMBER_ACCESS__FIELD);
+
+    builtinAccessEClass = createEClass(BUILTIN_ACCESS);
+    createEAttribute(builtinAccessEClass, BUILTIN_ACCESS__METHOD);
 
     arrayAccessEClass = createEClass(ARRAY_ACCESS);
     createEReference(arrayAccessEClass, ARRAY_ACCESS__INDEX);
@@ -4555,6 +4588,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangBlockEClass.getESuperTypes().add(this.getSlangElse());
     gExprEClass.getESuperTypes().add(this.getOwnedExpression());
     memberAccessEClass.getESuperTypes().add(this.getPostfix());
+    builtinAccessEClass.getESuperTypes().add(this.getPostfix());
     arrayAccessEClass.getESuperTypes().add(this.getPostfix());
     slangIfStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangWhileStmtEClass.getESuperTypes().add(this.getSlangStmt());
@@ -4793,7 +4827,10 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(postfixEClass, Postfix.class, "Postfix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(memberAccessEClass, MemberAccess.class, "MemberAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMemberAccess_Field(), theEcorePackage.getEString(), "field", null, 0, 1, MemberAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMemberAccess_Field(), theAadl2Package.getNamedElement(), null, "field", null, 0, 1, MemberAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(builtinAccessEClass, BuiltinAccess.class, "BuiltinAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBuiltinAccess_Method(), theEcorePackage.getEString(), "method", null, 0, 1, BuiltinAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arrayAccessEClass, ArrayAccess.class, "ArrayAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayAccess_Index(), this.getOwnedExpression(), null, "index", null, 0, -1, ArrayAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

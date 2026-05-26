@@ -321,6 +321,11 @@ public class PostFixExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.POST_FIX_EXPR__POSTS,
+         GumboFactory.eINSTANCE.createBuiltinAccess()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.POST_FIX_EXPR__POSTS,
          GumboFactory.eINSTANCE.createArrayAccess()));
   }
 

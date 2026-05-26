@@ -20,18 +20,15 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.MemberAccess} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SizeAccess} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MemberAccessItemProvider extends PostfixItemProvider
+public class SizeAccessItemProvider extends PostfixItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -39,7 +36,7 @@ public class MemberAccessItemProvider extends PostfixItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public MemberAccessItemProvider(AdapterFactory adapterFactory)
+  public SizeAccessItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -57,36 +54,12 @@ public class MemberAccessItemProvider extends PostfixItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addFieldPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Field feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addFieldPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_MemberAccess_field_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_MemberAccess_field_feature", "_UI_MemberAccess_type"),
-         GumboPackage.Literals.MEMBER_ACCESS__FIELD,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
-   * This returns MemberAccess.gif.
+   * This returns SizeAccess.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -94,7 +67,7 @@ public class MemberAccessItemProvider extends PostfixItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/MemberAccess"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/SizeAccess"));
   }
 
   /**
@@ -106,7 +79,7 @@ public class MemberAccessItemProvider extends PostfixItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_MemberAccess_type");
+    return getString("_UI_SizeAccess_type");
   }
 
 

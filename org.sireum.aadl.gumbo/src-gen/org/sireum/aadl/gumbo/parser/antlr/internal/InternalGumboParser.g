@@ -6397,6 +6397,18 @@ rulePostfix returns [EObject current=null]
 			$current = $this_ArrayAccess_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getPostfixAccess().getBuiltinAccessParserRuleCall_2());
+		}
+		this_BuiltinAccess_2=ruleBuiltinAccess
+		{
+			$current = $this_BuiltinAccess_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -6422,22 +6434,180 @@ ruleMemberAccess returns [EObject current=null]
 		}
 		(
 			(
-				lv_field_1_0=RULE_ID
 				{
-					newLeafNode(lv_field_1_0, grammarAccess.getMemberAccessAccess().getFieldIDTerminalRuleCall_1_0());
+					/* */
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getMemberAccessRule());
 					}
-					setWithLastConsumed(
-						$current,
-						"field",
-						lv_field_1_0,
-						"org.osate.xtext.aadl2.properties.Properties.ID");
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getMemberAccessAccess().getFieldNamedElementCrossReference_1_0());
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleBuiltinAccess
+entryRuleBuiltinAccess returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBuiltinAccessRule()); }
+	iv_ruleBuiltinAccess=ruleBuiltinAccess
+	{ $current=$iv_ruleBuiltinAccess.current; }
+	EOF;
+
+// Rule BuiltinAccess
+ruleBuiltinAccess returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				/* */
+			}
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getBuiltinAccessAccess().getBuiltinAccessAction_0(),
+					$current);
+			}
+		)
+		otherlv_1=FullStop
+		{
+			newLeafNode(otherlv_1, grammarAccess.getBuiltinAccessAccess().getFullStopKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBuiltinAccessAccess().getMethodBuiltinMethodNameParserRuleCall_2_0());
+				}
+				lv_method_2_0=ruleBuiltinMethodName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBuiltinAccessRule());
+					}
+					set(
+						$current,
+						"method",
+						lv_method_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.BuiltinMethodName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleBuiltinMethodName
+entryRuleBuiltinMethodName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getBuiltinMethodNameRule()); }
+	iv_ruleBuiltinMethodName=ruleBuiltinMethodName
+	{ $current=$iv_ruleBuiltinMethodName.current.getText(); }
+	EOF;
+
+// Rule BuiltinMethodName
+ruleBuiltinMethodName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw=Size
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getSizeKeyword_0());
+		}
+		    |
+		kw=ToB
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToBKeyword_1());
+		}
+		    |
+		kw=ToZ
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToZKeyword_2());
+		}
+		    |
+		kw=ToC
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToCKeyword_3());
+		}
+		    |
+		kw=ToR
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToRKeyword_4());
+		}
+		    |
+		kw=ToS8
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToS8Keyword_5());
+		}
+		    |
+		kw=ToS16
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToS16Keyword_6());
+		}
+		    |
+		kw=ToS32
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToS32Keyword_7());
+		}
+		    |
+		kw=ToS64
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToS64Keyword_8());
+		}
+		    |
+		kw=ToU8
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToU8Keyword_9());
+		}
+		    |
+		kw=ToU16
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToU16Keyword_10());
+		}
+		    |
+		kw=ToU32
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToU32Keyword_11());
+		}
+		    |
+		kw=ToU64
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToU64Keyword_12());
+		}
+		    |
+		kw=ToF32
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToF32Keyword_13());
+		}
+		    |
+		kw=ToF64
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBuiltinMethodNameAccess().getToF64Keyword_14());
+		}
 	)
 ;
 

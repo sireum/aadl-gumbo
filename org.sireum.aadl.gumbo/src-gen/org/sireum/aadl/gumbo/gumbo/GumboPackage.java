@@ -2018,7 +2018,7 @@ public interface GumboPackage extends EPackage
   int MEMBER_ACCESS = 48;
 
   /**
-   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * The feature id for the '<em><b>Field</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2036,6 +2036,34 @@ public interface GumboPackage extends EPackage
   int MEMBER_ACCESS_FEATURE_COUNT = POSTFIX_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BuiltinAccessImpl <em>Builtin Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.BuiltinAccessImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBuiltinAccess()
+   * @generated
+   */
+  int BUILTIN_ACCESS = 49;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILTIN_ACCESS__METHOD = POSTFIX_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Builtin Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILTIN_ACCESS_FEATURE_COUNT = POSTFIX_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ArrayAccessImpl <em>Array Access</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2043,7 +2071,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getArrayAccess()
    * @generated
    */
-  int ARRAY_ACCESS = 49;
+  int ARRAY_ACCESS = 50;
 
   /**
    * The feature id for the '<em><b>Index</b></em>' containment reference list.
@@ -2071,7 +2099,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOtherDataRef()
    * @generated
    */
-  int OTHER_DATA_REF = 50;
+  int OTHER_DATA_REF = 51;
 
   /**
    * The feature id for the '<em><b>Named Element</b></em>' reference.
@@ -2117,7 +2145,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangParams()
    * @generated
    */
-  int SLANG_PARAMS = 51;
+  int SLANG_PARAMS = 52;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -2145,7 +2173,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangParam()
    * @generated
    */
-  int SLANG_PARAM = 52;
+  int SLANG_PARAM = 53;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2182,7 +2210,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangForRange()
    * @generated
    */
-  int SLANG_FOR_RANGE = 53;
+  int SLANG_FOR_RANGE = 54;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2228,7 +2256,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangRet()
    * @generated
    */
-  int SLANG_RET = 54;
+  int SLANG_RET = 55;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2256,7 +2284,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangCallSuffix()
    * @generated
    */
-  int SLANG_CALL_SUFFIX = 55;
+  int SLANG_CALL_SUFFIX = 56;
 
   /**
    * The feature id for the '<em><b>Ca</b></em>' containment reference.
@@ -2284,7 +2312,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangCallArgs()
    * @generated
    */
-  int SLANG_CALL_ARGS = 56;
+  int SLANG_CALL_ARGS = 57;
 
   /**
    * The feature id for the '<em><b>Arg</b></em>' containment reference list.
@@ -2312,7 +2340,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLit()
    * @generated
    */
-  int SLANG_LIT = 57;
+  int SLANG_LIT = 58;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2340,7 +2368,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangInterp()
    * @generated
    */
-  int SLANG_INTERP = 58;
+  int SLANG_INTERP = 59;
 
   /**
    * The number of structural features of the '<em>Slang Interp</em>' class.
@@ -2359,7 +2387,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangIfStmt()
    * @generated
    */
-  int SLANG_IF_STMT = 59;
+  int SLANG_IF_STMT = 60;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -2405,7 +2433,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangWhileStmt()
    * @generated
    */
-  int SLANG_WHILE_STMT = 60;
+  int SLANG_WHILE_STMT = 61;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -2451,7 +2479,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMatchStmt()
    * @generated
    */
-  int SLANG_MATCH_STMT = 61;
+  int SLANG_MATCH_STMT = 62;
 
   /**
    * The feature id for the '<em><b>Test Expr</b></em>' containment reference.
@@ -2488,7 +2516,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangSpecStmt()
    * @generated
    */
-  int SLANG_SPEC_STMT = 62;
+  int SLANG_SPEC_STMT = 63;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -2516,7 +2544,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangAssumeStmt()
    * @generated
    */
-  int SLANG_ASSUME_STMT = 63;
+  int SLANG_ASSUME_STMT = 64;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2544,7 +2572,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangAssertStmt()
    * @generated
    */
-  int SLANG_ASSERT_STMT = 64;
+  int SLANG_ASSERT_STMT = 65;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2572,7 +2600,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangHaltStmt()
    * @generated
    */
-  int SLANG_HALT_STMT = 65;
+  int SLANG_HALT_STMT = 66;
 
   /**
    * The number of structural features of the '<em>Slang Halt Stmt</em>' class.
@@ -2591,7 +2619,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangDoStmt()
    * @generated
    */
-  int SLANG_DO_STMT = 66;
+  int SLANG_DO_STMT = 67;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2619,7 +2647,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIfElseExp()
    * @generated
    */
-  int IF_ELSE_EXP = 67;
+  int IF_ELSE_EXP = 68;
 
   /**
    * The feature id for the '<em><b>If Cond</b></em>' containment reference.
@@ -2665,7 +2693,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getQuantifiedExp()
    * @generated
    */
-  int QUANTIFIED_EXP = 68;
+  int QUANTIFIED_EXP = 69;
 
   /**
    * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -2720,7 +2748,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getImpliesExpr()
    * @generated
    */
-  int IMPLIES_EXPR = 69;
+  int IMPLIES_EXPR = 70;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2766,7 +2794,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOrExpr()
    * @generated
    */
-  int OR_EXPR = 70;
+  int OR_EXPR = 71;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2812,7 +2840,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAndExpr()
    * @generated
    */
-  int AND_EXPR = 71;
+  int AND_EXPR = 72;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2858,7 +2886,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEqualNotExpr()
    * @generated
    */
-  int EQUAL_NOT_EXPR = 72;
+  int EQUAL_NOT_EXPR = 73;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2904,7 +2932,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getLtGtExpr()
    * @generated
    */
-  int LT_GT_EXPR = 73;
+  int LT_GT_EXPR = 74;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2950,7 +2978,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getColonExpr()
    * @generated
    */
-  int COLON_EXPR = 74;
+  int COLON_EXPR = 75;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2996,7 +3024,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPlusMinusExpr()
    * @generated
    */
-  int PLUS_MINUS_EXPR = 75;
+  int PLUS_MINUS_EXPR = 76;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3042,7 +3070,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMultiplicativeExpr()
    * @generated
    */
-  int MULTIPLICATIVE_EXPR = 76;
+  int MULTIPLICATIVE_EXPR = 77;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3088,7 +3116,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryExpr()
    * @generated
    */
-  int UNARY_EXPR = 77;
+  int UNARY_EXPR = 78;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -3125,7 +3153,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPostFixExpr()
    * @generated
    */
-  int POST_FIX_EXPR = 78;
+  int POST_FIX_EXPR = 79;
 
   /**
    * The feature id for the '<em><b>Base Exp</b></em>' containment reference.
@@ -3162,7 +3190,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLitTerm()
    * @generated
    */
-  int SLANG_LIT_TERM = 79;
+  int SLANG_LIT_TERM = 80;
 
   /**
    * The feature id for the '<em><b>Lit</b></em>' containment reference.
@@ -3190,7 +3218,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangInterpTerm()
    * @generated
    */
-  int SLANG_INTERP_TERM = 80;
+  int SLANG_INTERP_TERM = 81;
 
   /**
    * The feature id for the '<em><b>I</b></em>' containment reference.
@@ -3218,7 +3246,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getInStateExpr()
    * @generated
    */
-  int IN_STATE_EXPR = 81;
+  int IN_STATE_EXPR = 82;
 
   /**
    * The feature id for the '<em><b>State Var</b></em>' reference.
@@ -3246,7 +3274,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMaySendExpr()
    * @generated
    */
-  int MAY_SEND_EXPR = 82;
+  int MAY_SEND_EXPR = 83;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3283,7 +3311,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMustSendExpr()
    * @generated
    */
-  int MUST_SEND_EXPR = 83;
+  int MUST_SEND_EXPR = 84;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3320,7 +3348,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getNoSendExpr()
    * @generated
    */
-  int NO_SEND_EXPR = 84;
+  int NO_SEND_EXPR = 85;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3348,7 +3376,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHasEventExpr()
    * @generated
    */
-  int HAS_EVENT_EXPR = 85;
+  int HAS_EVENT_EXPR = 86;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3376,7 +3404,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEnumLitExpr()
    * @generated
    */
-  int ENUM_LIT_EXPR = 86;
+  int ENUM_LIT_EXPR = 87;
 
   /**
    * The feature id for the '<em><b>Enum Type</b></em>' reference.
@@ -3413,7 +3441,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getParenExpr()
    * @generated
    */
-  int PAREN_EXPR = 87;
+  int PAREN_EXPR = 88;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -3441,7 +3469,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangForTerm()
    * @generated
    */
-  int SLANG_FOR_TERM = 88;
+  int SLANG_FOR_TERM = 89;
 
   /**
    * The feature id for the '<em><b>R</b></em>' containment reference list.
@@ -3487,7 +3515,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangBlockTerm()
    * @generated
    */
-  int SLANG_BLOCK_TERM = 89;
+  int SLANG_BLOCK_TERM = 90;
 
   /**
    * The feature id for the '<em><b>P</b></em>' containment reference.
@@ -3542,7 +3570,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF32Obj()
    * @generated
    */
-  int F32_OBJ = 90;
+  int F32_OBJ = 91;
 
   /**
    * The feature id for the '<em><b>Attr</b></em>' attribute.
@@ -3570,7 +3598,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF64Obj()
    * @generated
    */
-  int F64_OBJ = 91;
+  int F64_OBJ = 92;
 
   /**
    * The feature id for the '<em><b>Attr</b></em>' attribute.
@@ -3598,7 +3626,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getCallExpr()
    * @generated
    */
-  int CALL_EXPR = 92;
+  int CALL_EXPR = 93;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3635,7 +3663,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRecordLitExpr()
    * @generated
    */
-  int RECORD_LIT_EXPR = 93;
+  int RECORD_LIT_EXPR = 94;
 
   /**
    * The feature id for the '<em><b>Record Type</b></em>' containment reference.
@@ -3681,7 +3709,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDataRefExpr()
    * @generated
    */
-  int DATA_REF_EXPR = 94;
+  int DATA_REF_EXPR = 95;
 
   /**
    * The feature id for the '<em><b>Port Or Subcomponent Or State Var</b></em>' reference.
@@ -3709,7 +3737,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getResultExpr()
    * @generated
    */
-  int RESULT_EXPR = 95;
+  int RESULT_EXPR = 96;
 
   /**
    * The number of structural features of the '<em>Result Expr</em>' class.
@@ -3728,7 +3756,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBooleanLit()
    * @generated
    */
-  int BOOLEAN_LIT = 96;
+  int BOOLEAN_LIT = 97;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3756,7 +3784,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIntegerLit()
    * @generated
    */
-  int INTEGER_LIT = 97;
+  int INTEGER_LIT = 98;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3784,7 +3812,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHexLit()
    * @generated
    */
-  int HEX_LIT = 98;
+  int HEX_LIT = 99;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3812,7 +3840,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinLit()
    * @generated
    */
-  int BIN_LIT = 99;
+  int BIN_LIT = 100;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3840,7 +3868,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF32Lit()
    * @generated
    */
-  int F32_LIT = 100;
+  int F32_LIT = 101;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3868,7 +3896,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF64Lit()
    * @generated
    */
-  int F64_LIT = 101;
+  int F64_LIT = 102;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3896,7 +3924,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangStringLit()
    * @generated
    */
-  int SLANG_STRING_LIT = 102;
+  int SLANG_STRING_LIT = 103;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3924,7 +3952,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLiteralInterp()
    * @generated
    */
-  int SLANG_LITERAL_INTERP = 103;
+  int SLANG_LITERAL_INTERP = 104;
 
   /**
    * The feature id for the '<em><b>Sli</b></em>' attribute.
@@ -5459,15 +5487,36 @@ public interface GumboPackage extends EPackage
   EClass getMemberAccess();
 
   /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.MemberAccess#getField <em>Field</em>}'.
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.MemberAccess#getField <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Field</em>'.
+   * @return the meta object for the reference '<em>Field</em>'.
    * @see org.sireum.aadl.gumbo.gumbo.MemberAccess#getField()
    * @see #getMemberAccess()
    * @generated
    */
-  EAttribute getMemberAccess_Field();
+  EReference getMemberAccess_Field();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.BuiltinAccess <em>Builtin Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Builtin Access</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BuiltinAccess
+   * @generated
+   */
+  EClass getBuiltinAccess();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BuiltinAccess#getMethod <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BuiltinAccess#getMethod()
+   * @see #getBuiltinAccess()
+   * @generated
+   */
+  EAttribute getBuiltinAccess_Method();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ArrayAccess <em>Array Access</em>}'.
@@ -8256,12 +8305,30 @@ public interface GumboPackage extends EPackage
     EClass MEMBER_ACCESS = eINSTANCE.getMemberAccess();
 
     /**
-     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Field</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MEMBER_ACCESS__FIELD = eINSTANCE.getMemberAccess_Field();
+    EReference MEMBER_ACCESS__FIELD = eINSTANCE.getMemberAccess_Field();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BuiltinAccessImpl <em>Builtin Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.BuiltinAccessImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBuiltinAccess()
+     * @generated
+     */
+    EClass BUILTIN_ACCESS = eINSTANCE.getBuiltinAccess();
+
+    /**
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUILTIN_ACCESS__METHOD = eINSTANCE.getBuiltinAccess_Method();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ArrayAccessImpl <em>Array Access</em>}' class.

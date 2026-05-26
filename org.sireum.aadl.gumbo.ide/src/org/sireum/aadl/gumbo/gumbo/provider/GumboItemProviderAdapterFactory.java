@@ -1310,6 +1310,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BuiltinAccess} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BuiltinAccessItemProvider builtinAccessItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BuiltinAccess}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBuiltinAccessAdapter()
+  {
+    if (builtinAccessItemProvider == null)
+    {
+      builtinAccessItemProvider = new BuiltinAccessItemProvider(this);
+    }
+
+    return builtinAccessItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ArrayAccess} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2850,6 +2875,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (quantParamItemProvider != null) quantParamItemProvider.dispose();
     if (postfixItemProvider != null) postfixItemProvider.dispose();
     if (memberAccessItemProvider != null) memberAccessItemProvider.dispose();
+    if (builtinAccessItemProvider != null) builtinAccessItemProvider.dispose();
     if (arrayAccessItemProvider != null) arrayAccessItemProvider.dispose();
     if (otherDataRefItemProvider != null) otherDataRefItemProvider.dispose();
     if (slangParamsItemProvider != null) slangParamsItemProvider.dispose();
