@@ -102,13 +102,16 @@ public class GumboUtil {
 			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.Imply();
 
 		case "&&":
+		case "and":
 			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondAnd();
 		case "||":
+		case "or":
 			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondOr();
 
 		case "___>:":
 			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondImply();
 		case "~~>:":
+		case "implies":
 			return org.sireum.lang.ast.Exp.BinaryOp$.MODULE$.CondImply();
 
 		case ":+":
@@ -141,7 +144,7 @@ public class GumboUtil {
 	public static UnaryOp toSlangUnaryOp(String op) {
 		if (op.equalsIgnoreCase("-")) {
 			return UnaryOp.Minus;
-		} else if (op.equalsIgnoreCase("!")) {
+		} else if (op.equalsIgnoreCase("!") || op.equalsIgnoreCase("not")) {
 			return UnaryOp.Not;
 		} else if (op.equalsIgnoreCase("+")) {
 			return UnaryOp.Plus;

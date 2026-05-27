@@ -408,12 +408,12 @@ ImpliesExpression returns GExpr
 	: OrExpression ( {ImpliesExpr.left=current} op=ImpliesOps right=OrExpression )*;
 
 OrExpression returns GExpr
-	: AndExpression ({OrExpr.left=current} op=OR_OPS right=AndExpression)*;
+	: AndExpression ({OrExpr.left=current} op=(OR_OPS | 'or') right=AndExpression)*;
 	
 // no hat ^ in Slang
 
 AndExpression returns GExpr
-	: EqualNotExpression ( {AndExpr.left=current} op=AND_OPS right=EqualNotExpression)*;
+	: EqualNotExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=EqualNotExpression)*;
 
 EqualNotExpression returns GExpr
 	: LtGtExpression ( {EqualNotExpr.left=current} op=EQUAL_NOT_OPS right=LtGtExpression)*;
@@ -589,7 +589,7 @@ terminal SLI: IDF '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
 
 terminal QUANTIFIER_OP: '\\all' | '\\exists' | '∀' | '∃' ;
 
-UnaryOp: PlusMinus | NOT;
+UnaryOp: PlusMinus | NOT | 'not';
 
 terminal NOT: '!';
 
@@ -621,7 +621,7 @@ terminal AND_OPS: '&&' | '&';
 
 terminal OR_OPS: '|^' | '||' | '|' ;
 
-ImpliesOps: IMPLIES | SIMPLIES;
+ImpliesOps: IMPLIES | SIMPLIES | 'implies';
 
 terminal IMPLIES: ('__' | '-' | '~') '>' ':';
 
