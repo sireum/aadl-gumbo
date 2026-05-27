@@ -59,6 +59,7 @@ import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
 import org.sireum.aadl.gumbo.gumbo.GExpr;
 import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
+import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
@@ -73,6 +74,14 @@ import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
+import org.sireum.aadl.gumbo.gumbo.Schedule;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath;
+import org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
 import org.sireum.aadl.gumbo.gumbo.SlangType;
@@ -179,6 +188,128 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 
 	IScope scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {
 		return getVariableCrossRef(context, reference);
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+	// Schedule scope methods
+	////////////////////////////////////////////////////////////////////////////
+
+	// Resolves each segment of a component alias path (e.g. regulate.mri_thread).
+	// First segment: system implementation's direct subcomponents.
+	// Subsequent segments: subcomponents of the previously resolved element's implementation.
+	IScope scope_ScheduleSubcomponentPath_subcomponent(ScheduleSubcomponentPath context, EReference reference) {
+		EObject container = context.eContainer();
+
+		if (container instanceof ScheduleComponentAlias) {
+			// First segment: scope to system implementation's direct subcomponents
+			ComponentImplementation ci = EcoreUtil2.getContainerOfType(context, ComponentImplementation.class);
+			if (ci != null) {
+				return Scopes.scopeFor(ci.getAllSubcomponents());
+			}
+		} else if (container instanceof ScheduleSubcomponentPath) {
+			// Subsequent segment: scope to subcomponents of the previous segment's resolved type
+			ScheduleSubcomponentPath parent = (ScheduleSubcomponentPath) container;
+			NamedElement resolved = parent.getSubcomponent();
+			if (resolved != null && !resolved.eIsProxy() && resolved instanceof Subcomponent) {
+				SubcomponentType subType = PropertiesScopeProvider
+						.allSubcomponentType((Subcomponent) resolved);
+				if (subType instanceof ComponentImplementation) {
+					return Scopes.scopeFor(((ComponentImplementation) subType).getAllSubcomponents());
+				}
+			}
+		}
+
+		return IScope.NULLSCOPE;
+	}
+
+	// Resolves each segment of a port alias path (e.g. mri.interface_failure).
+	// First segment: component aliases + system implementation's direct subcomponents.
+	// Subsequent segments: subcomponents and features of the previously resolved element.
+	IScope scope_SchedulePortPath_ref(SchedulePortPath context, EReference reference) {
+		EObject container = context.eContainer();
+
+		if (container instanceof SchedulePortAlias) {
+			// First segment: component aliases + system implementation's subcomponents
+			List<EObject> scope = new ArrayList<>();
+			scope.addAll(getScheduleComponentAliases(context));
+			ComponentImplementation ci = EcoreUtil2.getContainerOfType(context, ComponentImplementation.class);
+			if (ci != null) {
+				scope.addAll(ci.getAllSubcomponents());
+			}
+			return Scopes.scopeFor(scope);
+		} else if (container instanceof SchedulePortPath) {
+			// Subsequent segment: features and subcomponents of the previous element
+			SchedulePortPath parent = (SchedulePortPath) container;
+			EObject resolved = parent.getRef();
+			if (resolved != null && !resolved.eIsProxy()) {
+				Classifier classifier = resolveScheduleRefToClassifier(resolved);
+				if (classifier != null) {
+					List<EObject> members = new ArrayList<>();
+					members.addAll(classifier.getAllFeatures());
+					if (classifier instanceof ComponentImplementation) {
+						members.addAll(((ComponentImplementation) classifier).getAllSubcomponents());
+					}
+					return Scopes.scopeFor(members);
+				}
+			}
+		}
+
+		return IScope.NULLSCOPE;
+	}
+
+	// Resolves 'component' references in the schedule body.
+	// Scoped to component aliases + system implementation's direct subcomponents.
+	IScope scope_ScheduleComponentRef_component(ScheduleComponentRef context, EReference reference) {
+		List<EObject> scope = new ArrayList<>();
+		scope.addAll(getScheduleComponentAliases(context));
+		ComponentImplementation ci = EcoreUtil2.getContainerOfType(context, ComponentImplementation.class);
+		if (ci != null) {
+			scope.addAll(ci.getAllSubcomponents());
+		}
+		return Scopes.scopeFor(scope);
+	}
+
+	// Resolves each segment of a state variable alias path (e.g. mrm.regulator_mode).
+	// First segment: component aliases + system implementation's direct subcomponents.
+	// Subsequent segments: subcomponents of the previously resolved element.
+	// Leaf segment: StateVarDecl entries from the target component's GUMBO subclause.
+	IScope scope_ScheduleStateVarPath_ref(ScheduleStateVarPath context, EReference reference) {
+		EObject container = context.eContainer();
+
+		if (container instanceof ScheduleStateVarAlias) {
+			// First segment: component aliases + system implementation's subcomponents
+			List<EObject> scope = new ArrayList<>();
+			scope.addAll(getScheduleComponentAliases(context));
+			ComponentImplementation ci = EcoreUtil2.getContainerOfType(context, ComponentImplementation.class);
+			if (ci != null) {
+				scope.addAll(ci.getAllSubcomponents());
+			}
+			return Scopes.scopeFor(scope);
+		} else if (container instanceof ScheduleStateVarPath) {
+			// Subsequent segment: subcomponents + state var decls of the previous element
+			ScheduleStateVarPath parent = (ScheduleStateVarPath) container;
+			EObject resolved = parent.getRef();
+			if (resolved != null && !resolved.eIsProxy()) {
+				Classifier classifier = resolveScheduleRefToClassifier(resolved);
+				if (classifier != null) {
+					List<EObject> members = new ArrayList<>();
+					// Include subcomponents for intermediate navigation
+					if (classifier instanceof ComponentImplementation) {
+						members.addAll(((ComponentImplementation) classifier).getAllSubcomponents());
+					}
+					// Include StateVarDecl entries from GUMBO subclauses on this classifier
+					for (GumboSubclause gs : EcoreUtil2.eAllOfType(classifier, GumboSubclause.class)) {
+						SpecSection specs = gs.getSpecs();
+						if (specs != null && specs.getState() != null && specs.getState().getDecls() != null) {
+							members.addAll(specs.getState().getDecls());
+						}
+					}
+					return Scopes.scopeFor(members);
+				}
+			}
+		}
+
+		return IScope.NULLSCOPE;
 	}
 
 	IScope scope_MemberAccess_field(MemberAccess context, EReference reference) {
@@ -534,6 +665,17 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 			// Library defs from current package
 			localDecls.addAll(getGumboLibraryFunctionDefs(context, false));
 
+			// Port aliases from schedule (if inside a schedule block)
+			Schedule schedule = EcoreUtil2.getContainerOfType(context, Schedule.class);
+			if (schedule != null && schedule.getPortAliases() != null) {
+				localDecls.addAll(schedule.getPortAliases().getAliases());
+			}
+
+			// State var aliases from schedule (if inside a schedule block)
+			if (schedule != null && schedule.getStateVarAliases() != null) {
+				localDecls.addAll(schedule.getStateVarAliases().getAliases());
+			}
+
 			// Parameters of the enclosing function, if any
 			SlangDefDef defDef = EcoreUtil2.getContainerOfType(context, SlangDefDef.class);
 			if (defDef != null && defDef.getParams() != null) {
@@ -726,8 +868,109 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 		} else if (e instanceof SlangDefDef) {
 			SlangType returnType = ((SlangDefDef) e).getType();
 			return returnType != null ? returnType.getTypeName() : null;
+		} else if (e instanceof SchedulePortAlias) {
+			// Follow port path to the leaf element and resolve its type
+			NamedElement leaf = resolvePortPathLeaf(((SchedulePortAlias) e).getPortPath());
+			if (leaf != null) {
+				return getSubcomponentType(leaf);
+			}
+			return null;
+		} else if (e instanceof ScheduleStateVarAlias) {
+			// Follow state var path to the leaf element and resolve its type
+			EObject leaf = resolveStateVarPathLeaf(((ScheduleStateVarAlias) e).getStateVarPath());
+			if (leaf != null) {
+				return getSubcomponentType(leaf);
+			}
+			return null;
 		} else {
 			return null;
 		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+	// Schedule helper methods
+	////////////////////////////////////////////////////////////////////////////
+
+	// Get component aliases from the containing Schedule block
+	private List<ScheduleComponentAlias> getScheduleComponentAliases(EObject context) {
+		Schedule schedule = EcoreUtil2.getContainerOfType(context, Schedule.class);
+		if (schedule != null && schedule.getComponentAliases() != null) {
+			return schedule.getComponentAliases().getAliases();
+		}
+		return Collections.emptyList();
+	}
+
+	// Resolve an EObject from a schedule cross-reference to its Classifier.
+	// Handles both ScheduleComponentAlias (follow the alias path) and
+	// Subcomponent (get its type directly).
+	private Classifier resolveScheduleRefToClassifier(EObject ref) {
+		if (ref instanceof ScheduleComponentAlias) {
+			return resolveComponentAliasClassifier((ScheduleComponentAlias) ref);
+		} else if (ref instanceof Subcomponent) {
+			SubcomponentType subType = PropertiesScopeProvider
+					.allSubcomponentType((Subcomponent) ref);
+			if (subType instanceof ComponentClassifier) {
+				return (ComponentClassifier) subType;
+			}
+		}
+		return null;
+	}
+
+	// Follow a component alias's subcomponent path to its leaf, then resolve
+	// the leaf subcomponent's classifier.
+	private Classifier resolveComponentAliasClassifier(ScheduleComponentAlias alias) {
+		if (alias == null || alias.getComponentPath() == null) {
+			return null;
+		}
+		NamedElement leaf = resolveSubcomponentPathLeaf(alias.getComponentPath());
+		if (leaf instanceof Subcomponent) {
+			SubcomponentType subType = PropertiesScopeProvider
+					.allSubcomponentType((Subcomponent) leaf);
+			if (subType instanceof ComponentClassifier) {
+				return (ComponentClassifier) subType;
+			}
+		}
+		return null;
+	}
+
+	// Recursively follow a ScheduleSubcomponentPath to its leaf NamedElement.
+	private NamedElement resolveSubcomponentPathLeaf(ScheduleSubcomponentPath path) {
+		if (path == null) {
+			return null;
+		}
+		if (path.getSubPath() != null) {
+			return resolveSubcomponentPathLeaf(path.getSubPath());
+		}
+		NamedElement sub = path.getSubcomponent();
+		return (sub != null && !sub.eIsProxy()) ? sub : null;
+	}
+
+	// Recursively follow a SchedulePortPath to its leaf element.
+	// The leaf is typically a port/feature on the target component.
+	private NamedElement resolvePortPathLeaf(SchedulePortPath path) {
+		if (path == null) {
+			return null;
+		}
+		if (path.getSubPath() != null) {
+			return resolvePortPathLeaf(path.getSubPath());
+		}
+		EObject ref = path.getRef();
+		if (ref instanceof NamedElement && !ref.eIsProxy()) {
+			return (NamedElement) ref;
+		}
+		return null;
+	}
+
+	// Recursively follow a ScheduleStateVarPath to its leaf element.
+	// The leaf is typically a StateVarDecl from a thread's GUMBO subclause.
+	private EObject resolveStateVarPathLeaf(ScheduleStateVarPath path) {
+		if (path == null) {
+			return null;
+		}
+		if (path.getSubPath() != null) {
+			return resolveStateVarPathLeaf(path.getSubPath());
+		}
+		EObject ref = path.getRef();
+		return (ref != null && !ref.eIsProxy()) ? ref : null;
 	}
 }

@@ -26,6 +26,7 @@ import org.osate.aadl2.DataSubcomponent;
 import org.osate.aadl2.DataSubcomponentType;
 import org.osate.aadl2.Element;
 import org.osate.aadl2.ModelUnit;
+import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.Port;
 import org.osate.aadl2.ProcessSubcomponent;
 import org.osate.aadl2.instance.ComponentInstance;
@@ -92,6 +93,18 @@ import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
+import org.sireum.aadl.gumbo.gumbo.Schedule;
+import org.sireum.aadl.gumbo.gumbo.ScheduleAssert;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef;
+import org.sireum.aadl.gumbo.gumbo.ScheduleElement;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath;
+import org.sireum.aadl.gumbo.gumbo.ScheduleSequence;
+import org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin;
+import org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath;
 import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
 import org.sireum.aadl.gumbo.gumbo.util.GumboSwitch;
 import org.sireum.aadl.osate.architecture.AnnexVisitor;
@@ -123,6 +136,17 @@ import org.sireum.hamr.ir.GclInvariant;
 import org.sireum.hamr.ir.GclInvariant$;
 import org.sireum.hamr.ir.GclLib$;
 import org.sireum.hamr.ir.GclMethod;
+import org.sireum.hamr.ir.GclSchedule;
+import org.sireum.hamr.ir.GclSchedule$;
+import org.sireum.hamr.ir.GclScheduleAssert$;
+import org.sireum.hamr.ir.GclScheduleComponentAlias$;
+import org.sireum.hamr.ir.GclScheduleComponentRef$;
+import org.sireum.hamr.ir.GclScheduleElement;
+import org.sireum.hamr.ir.GclSchedulePortAlias$;
+import org.sireum.hamr.ir.GclScheduleStateVarAlias$;
+import org.sireum.hamr.ir.GclScheduleSequence;
+import org.sireum.hamr.ir.GclScheduleSequence$;
+import org.sireum.hamr.ir.GclScheduleSplitJoin$;
 import org.sireum.hamr.ir.GclSpec;
 import org.sireum.hamr.ir.GclSpecMethod$;
 import org.sireum.hamr.ir.GclStateVar;
@@ -583,9 +607,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		if (object.getSpecs().getCompute() != null) {
 			_compute = SlangUtil.toSome(visitPop(object.getSpecs().getCompute()));
 		}
+		
+		Option<GclSchedule> _schedule = SlangUtil.toNone();
+		if (object.getSpecs().getSchedule() != null) {
+			_schedule = SlangUtil.toSome(visitSchedule(object.getSpecs().getSchedule()));
+		}
 
 		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_methods),
-				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute, GumboUtil.toAttr(object)));
+				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute, _schedule, GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -766,6 +795,127 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		push(GclGuarantee$.MODULE$.apply(id, descriptor, visitPop(object.getExpr()), GumboUtil.toAttr(object)));
 
 		return false;
+	}
+
+	private GclSchedule visitSchedule(Schedule schedule) {
+		List<org.sireum.hamr.ir.GclScheduleComponentAlias> compAliases = new ArrayList<>();
+		if (schedule.getComponentAliases() != null) {
+			for (ScheduleComponentAlias alias : schedule.getComponentAliases().getAliases()) {
+				List<String> pathSegments = flattenSubcomponentPath(alias.getComponentPath());
+				compAliases.add(GclScheduleComponentAlias$.MODULE$.apply(
+						alias.getName(),
+						GumboUtil.toName(pathSegments),
+						GumboUtil.toAttr(alias)));
+			}
+		}
+
+		List<org.sireum.hamr.ir.GclSchedulePortAlias> portAliases = new ArrayList<>();
+		if (schedule.getPortAliases() != null) {
+			for (SchedulePortAlias alias : schedule.getPortAliases().getAliases()) {
+				List<String> pathSegments = flattenPortPath(alias.getPortPath());
+				portAliases.add(GclSchedulePortAlias$.MODULE$.apply(
+						alias.getName(),
+						GumboUtil.toName(pathSegments),
+						GumboUtil.toAttr(alias)));
+			}
+		}
+
+		List<org.sireum.hamr.ir.GclScheduleStateVarAlias> stateVarAliases = new ArrayList<>();
+		if (schedule.getStateVarAliases() != null) {
+			for (ScheduleStateVarAlias alias : schedule.getStateVarAliases().getAliases()) {
+				List<String> pathSegments = flattenStateVarPath(alias.getStateVarPath());
+				stateVarAliases.add(GclScheduleStateVarAlias$.MODULE$.apply(
+						alias.getName(),
+						GumboUtil.toName(pathSegments),
+						GumboUtil.toAttr(alias)));
+			}
+		}
+
+		List<GclScheduleElement> elements = new ArrayList<>();
+		for (ScheduleElement elem : schedule.getElements()) {
+			elements.add(visitScheduleElement(elem));
+		}
+
+		return GclSchedule$.MODULE$.apply(
+				VisitorUtil.toISZ(compAliases),
+				VisitorUtil.toISZ(portAliases),
+				VisitorUtil.toISZ(stateVarAliases),
+				VisitorUtil.toISZ(elements),
+				GumboUtil.toAttr(schedule));
+	}
+
+	private GclScheduleElement visitScheduleElement(ScheduleElement elem) {
+		if (elem instanceof ScheduleAssert) {
+			ScheduleAssert sa = (ScheduleAssert) elem;
+			Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(sa.getDescriptor());
+			Exp expr = visitPop(sa.getExpr());
+			return GclScheduleAssert$.MODULE$.apply(
+					sa.getId(), descriptor, expr, GumboUtil.toAttr(sa));
+		} else if (elem instanceof ScheduleComponentRef) {
+			ScheduleComponentRef cr = (ScheduleComponentRef) elem;
+			String compName = getEObjectName(cr.getComponent());
+			return GclScheduleComponentRef$.MODULE$.apply(
+					GumboUtil.toName(compName), GumboUtil.toAttr(cr));
+		} else if (elem instanceof ScheduleSplitJoin) {
+			ScheduleSplitJoin sj = (ScheduleSplitJoin) elem;
+			List<GclScheduleSequence> sequences = new ArrayList<>();
+			for (ScheduleSequence seq : sj.getSequences()) {
+				sequences.add(visitScheduleSequence(seq));
+			}
+			return GclScheduleSplitJoin$.MODULE$.apply(
+					VisitorUtil.toISZ(sequences), GumboUtil.toAttr(sj));
+		}
+		throw new RuntimeException("Unexpected schedule element type: " + elem.getClass().getName());
+	}
+
+	private GclScheduleSequence visitScheduleSequence(ScheduleSequence seq) {
+		List<GclScheduleElement> elements = new ArrayList<>();
+		for (ScheduleElement elem : seq.getElements()) {
+			elements.add(visitScheduleElement(elem));
+		}
+		return GclScheduleSequence$.MODULE$.apply(
+				VisitorUtil.toISZ(elements), GumboUtil.toAttr(seq));
+	}
+
+	private List<String> flattenSubcomponentPath(ScheduleSubcomponentPath path) {
+		List<String> segments = new ArrayList<>();
+		ScheduleSubcomponentPath current = path;
+		while (current != null) {
+			segments.add(current.getSubcomponent().getName());
+			current = current.getSubPath();
+		}
+		return segments;
+	}
+	
+	private List<String> flattenPortPath(SchedulePortPath path) {
+		List<String> segments = new ArrayList<>();
+		SchedulePortPath current = path;
+		while (current != null) {
+			segments.add(getEObjectName(current.getRef()));
+			current = current.getSubPath();
+		}
+		return segments;
+	}
+
+	private List<String> flattenStateVarPath(ScheduleStateVarPath path) {
+		List<String> segments = new ArrayList<>();
+		ScheduleStateVarPath current = path;
+		while (current != null) {
+			segments.add(getEObjectName(current.getRef()));
+			current = current.getSubPath();
+		}
+		return segments;
+	}
+
+	private String getEObjectName(EObject obj) {
+		if (obj instanceof ScheduleComponentAlias) {
+			return ((ScheduleComponentAlias) obj).getName();
+		} else if (obj instanceof StateVarDecl) {
+			return ((StateVarDecl) obj).getName();
+		} else if (obj instanceof NamedElement) {
+			return ((NamedElement) obj).getName();
+		}
+		throw new RuntimeException("Cannot get name from: " + obj.getClass().getName());
 	}
 
 	private Boolean isContainedInGumboSubclause(EObject o) {
@@ -1310,6 +1460,16 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			push(GumboUtil.convertIdStackToSelect(names));
 
 			return false;
+		} else if (receiver instanceof SchedulePortAlias) {
+			SchedulePortAlias spa = (SchedulePortAlias) receiver;
+
+			slangId = Id$.MODULE$.apply(spa.getName(),
+					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, spa.getName().length())));
+		} else if (receiver instanceof ScheduleStateVarAlias) {
+			ScheduleStateVarAlias sva = (ScheduleStateVarAlias) receiver;
+
+			slangId = Id$.MODULE$.apply(sva.getName(),
+					GumboUtil.buildAttr(GumboUtil.shrinkPos(selectPos, sva.getName().length())));
 		}
 		else {
 			// FIXME: can invoke HAMR even if there are syntax errors in gumbo annexes. OSATE is likely

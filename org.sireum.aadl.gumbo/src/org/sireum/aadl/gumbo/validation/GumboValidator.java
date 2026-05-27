@@ -13,8 +13,12 @@
  */
 package org.sireum.aadl.gumbo.validation;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.osate.aadl2.Classifier;
@@ -24,6 +28,10 @@ import org.osate.aadl2.SystemImplementation;
 import org.osate.aadl2.ThreadClassifier;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
+import org.sireum.aadl.gumbo.gumbo.Schedule;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
 import org.sireum.aadl.gumbo.gumbo.SlangDefContract;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
@@ -35,6 +43,13 @@ import org.sireum.aadl.gumbo.gumbo.SpecSection;
  */
 public class GumboValidator extends AbstractGumboValidator {
 
+	@Override
+	protected boolean isResponsible(Map<Object, Object> context, EObject eObject) {
+//		return (eObject.eClass().getEPackage() == AgreePackage.eINSTANCE) || eObject instanceof AadlPackage;
+		return eObject.eClass().getEPackage() == GumboPackage.eINSTANCE
+				|| super.isResponsible(context, eObject);
+	}
+	
 	@Check
 	public void checkSingleSubclause(GumboSubclause gs) {
 		Classifier c = EcoreUtil2.getContainerOfType(gs, Classifier.class);
@@ -181,6 +196,38 @@ public class GumboValidator extends AbstractGumboValidator {
 			if (isStrictpure) {
 				error("@strictpure methods must have a body",
 						def, GumboPackage.Literals.SLANG_DEF_DEF__DEF_MODS);
+			}
+		}
+	}
+
+	@Check
+	public void checkScheduleAliasUniqueness(Schedule schedule) {
+		Set<String> seen = new HashSet<>();
+
+		if (schedule.getComponentAliases() != null) {
+			for (ScheduleComponentAlias alias : schedule.getComponentAliases().getAliases()) {
+				if (!seen.add(alias.getName())) {
+					error("Duplicate alias name: " + alias.getName(),
+							alias, GumboPackage.Literals.SCHEDULE_COMPONENT_ALIAS__NAME);
+				}
+			}
+		}
+
+		if (schedule.getPortAliases() != null) {
+			for (SchedulePortAlias alias : schedule.getPortAliases().getAliases()) {
+				if (!seen.add(alias.getName())) {
+					error("Duplicate alias name: " + alias.getName(),
+							alias, GumboPackage.Literals.SCHEDULE_PORT_ALIAS__NAME);
+				}
+			}
+		}
+
+		if (schedule.getStateVarAliases() != null) {
+			for (ScheduleStateVarAlias alias : schedule.getStateVarAliases().getAliases()) {
+				if (!seen.add(alias.getName())) {
+					error("Duplicate alias name: " + alias.getName(),
+							alias, GumboPackage.Literals.SCHEDULE_STATE_VAR_ALIAS__NAME);
+				}
 			}
 		}
 	}

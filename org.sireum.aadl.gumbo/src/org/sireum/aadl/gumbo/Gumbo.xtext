@@ -94,12 +94,14 @@ Compute:
 //   - state/initialize/compute rejected on system implementations
 //   - component aliases resolve to thread subcomponent instances
 //   - port aliases resolve to ports on referenced components
+//   - state var aliases resolve to StateVarDecls in referenced components' GUMBO subclauses
 // ===========================================================================
 
 Schedule:
 	'schedule' '{'
 		(componentAliases = ScheduleComponentAliases)?
 		(portAliases = SchedulePortAliases)?
+		(stateVarAliases = ScheduleStateVarAliases)?
 		(elements += ScheduleElement)+
 	'}'
 ;
@@ -135,6 +137,22 @@ SchedulePortAlias:
 SchedulePortPath:
 	ref=[ecore::EObject|ID]
 	('.' subPath=SchedulePortPath)?
+;
+
+ScheduleStateVarAliases:
+	'state' (aliases += ScheduleStateVarAlias)+
+;
+
+ScheduleStateVarAlias:
+	name=ID '=' stateVarPath=ScheduleStateVarPath ';'
+;
+
+// Recursive chain for state variable references, e.g. mrm.regulator_mode.
+// Root can be a component alias or a subcomponent; tail navigates to
+// a StateVarDecl in the target thread's GUMBO subclause.
+ScheduleStateVarPath:
+	ref=[ecore::EObject|ID]
+	('.' subPath=ScheduleStateVarPath)?
 ;
 
 ScheduleElement:
