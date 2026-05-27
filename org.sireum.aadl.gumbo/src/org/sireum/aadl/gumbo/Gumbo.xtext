@@ -33,6 +33,7 @@ SpecSection: {SpecSection}
 	(integration = Integration)?
 	(initialize = Initialize)?
 	(compute = Compute)?
+	(schedule = Schedule)?
 ;
 
 State:
@@ -79,6 +80,84 @@ Compute:
 	  (('cases' | 'compute_cases') (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
+;
+
+// ===========================================================================
+// Schedule -- system-level contract for system implementations
+//
+// Specifies scheduling constraints (sequences and splits) with assertions
+// at transition points. Assertions are optional; omitted assertions are
+// treated as implicit 'true' during lowering.
+//
+// Validation (not grammar) enforces:
+//   - schedule only allowed on system implementations
+//   - state/initialize/compute rejected on system implementations
+//   - component aliases resolve to thread subcomponent instances
+//   - port aliases resolve to ports on referenced components
+// ===========================================================================
+
+Schedule:
+	'schedule' '{'
+		(componentAliases = ScheduleComponentAliases)?
+		(portAliases = SchedulePortAliases)?
+		(elements += ScheduleElement)+
+	'}'
+;
+
+ScheduleComponentAliases:
+	'components' (aliases += ScheduleComponentAlias)+
+;
+
+ScheduleComponentAlias:
+	name=ID '=' componentPath=ScheduleSubcomponentPath ';'
+;
+
+// Recursive chain through subcomponents, e.g. regulate.mri_thread.
+// Scope provider resolves each segment relative to the previous:
+//   - first segment: system implementation's direct subcomponents
+//   - subsequent segments: subcomponents of the previously resolved element
+ScheduleSubcomponentPath:
+	subcomponent=[aadl2::NamedElement|ID]
+	('.' subPath=ScheduleSubcomponentPath)?
+;
+
+SchedulePortAliases:
+	'ports' (aliases += SchedulePortAlias)+
+;
+
+SchedulePortAlias:
+	name=ID '=' portPath=SchedulePortPath ';'
+;
+
+// Recursive chain for port references, e.g. mri.interface_failure.
+// Root can be a component alias or a subcomponent; tail navigates
+// through subcomponents/features. Scope provider resolves each segment.
+SchedulePortPath:
+	ref=[ecore::EObject|ID]
+	('.' subPath=SchedulePortPath)?
+;
+
+ScheduleElement:
+	ScheduleAssert | ScheduleComponentRef | ScheduleSplitJoin
+;
+
+ScheduleAssert:
+	'assert' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+;
+
+// References a component alias or a subcomponent directly.
+// Scope provider puts both ScheduleComponentAlias entries and
+// aadl2::Subcomponent instances in scope.
+ScheduleComponentRef:
+	'component' component=[ecore::EObject|ID]
+;
+
+ScheduleSplitJoin:
+	'split' '{' sequences += ScheduleSequence (',' sequences += ScheduleSequence)+ '}'
+;
+
+ScheduleSequence:
+	'sequence' '{' (elements += ScheduleElement)+ '}'
 ;
 
 InfoFlowClause:

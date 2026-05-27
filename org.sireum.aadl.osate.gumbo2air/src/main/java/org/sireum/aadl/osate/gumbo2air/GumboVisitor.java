@@ -28,7 +28,6 @@ import org.osate.aadl2.Element;
 import org.osate.aadl2.ModelUnit;
 import org.osate.aadl2.Port;
 import org.osate.aadl2.ProcessSubcomponent;
-import org.osate.aadl2.ThreadClassifier;
 import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
 import org.osate.annexsupport.AnnexUtil;
@@ -293,8 +292,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			bas.addAll(cands);
 		}
 
-		reportError(bas.size() <= 1, c, "Only one " + ANNEX_TYPE + " subclause annex is allowed per component");
-
 		if (bas.size() == 1) {
 			this.path = path;
 
@@ -304,29 +301,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 			GclSubclause gs = visitPop(bas.get(0));
 
-			if (cWithGumbo instanceof DataClassifier) {
-				if (gs.state().nonEmpty()) {
-					this.reportError(cWithGumbo, "State variables cannot be attached to data components");
-				}
-				if (gs.methods().nonEmpty()) {
-					this.reportError(cWithGumbo, "Methods cannot be attached to data components");
-				}
-				if (gs.initializes().nonEmpty()) {
-					this.reportError(cWithGumbo, "Initialize clauses cannot be attached to data components");
-				}
-				if (gs.integration().nonEmpty()) {
-					this.reportError(cWithGumbo, "Integration clauses cannot be attached to data components");
-				}
-				if (gs.compute().nonEmpty()) {
-					this.reportError(cWithGumbo, "Compute clauses cannot be attached to data components");
-				}
-			} else if (cWithGumbo instanceof ThreadClassifier) {
-				if (gs.invariants().nonEmpty()) {
-					this.reportError(cWithGumbo, "Invariants cannot be attached to thread components");
-				}
-			} else {
-				this.reportError(cWithGumbo, "GUMBO subclauses can only be attached to thread and data components");
-			}
 			ret.add(Annex$.MODULE$.apply(ANNEX_TYPE, gs));
 
 			entryClassifier = null;
@@ -510,32 +484,12 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 		
-		// @spec, @pure and @strictpure are optional, but they must be applied correctly if used 
-
 		Purity.Type purity = null;
 		if (hasContract) {
-			if (isSpec | isStrictpure) {
-				reportError(object, "Only pure methods can have contracts");
-			}
-			if (optBody.isEmpty()) {
-				reportError(object, "Pure methods must have a body");	
-			}
 			purity = Purity$.MODULE$.byName("Pure").get();
 		} else if (optBody.nonEmpty()) {
-			if (isPure) {
-				reportError(object, "Pure methods must have a contract");
-			}
-			if (isSpec) {
-				reportError(object, "Spec methods cannot have a body");
-			}
 			purity = Purity$.MODULE$.byName("StrictPure").get();
 		} else {
-			if (isPure) {
-				reportError(object, "Pure methods must have a contract and a body");
-			}
-			if (isStrictpure) {
-				reportError(object, "Strictpure methods must have a body");
-			}	
 			isSpec = true;
 			purity = Purity$.MODULE$.byName("Pure").get();
 		}
