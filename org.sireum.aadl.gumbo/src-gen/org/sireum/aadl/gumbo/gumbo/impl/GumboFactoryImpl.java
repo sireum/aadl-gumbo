@@ -86,6 +86,21 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.INITIALIZE: return createInitialize();
       case GumboPackage.INITIALIZE_SPEC_STATEMENT: return createInitializeSpecStatement();
       case GumboPackage.COMPUTE: return createCompute();
+      case GumboPackage.SCHEDULE: return createSchedule();
+      case GumboPackage.SCHEDULE_COMPONENT_ALIASES: return createScheduleComponentAliases();
+      case GumboPackage.SCHEDULE_COMPONENT_ALIAS: return createScheduleComponentAlias();
+      case GumboPackage.SCHEDULE_SUBCOMPONENT_PATH: return createScheduleSubcomponentPath();
+      case GumboPackage.SCHEDULE_PORT_ALIASES: return createSchedulePortAliases();
+      case GumboPackage.SCHEDULE_PORT_ALIAS: return createSchedulePortAlias();
+      case GumboPackage.SCHEDULE_PORT_PATH: return createSchedulePortPath();
+      case GumboPackage.SCHEDULE_STATE_VAR_ALIASES: return createScheduleStateVarAliases();
+      case GumboPackage.SCHEDULE_STATE_VAR_ALIAS: return createScheduleStateVarAlias();
+      case GumboPackage.SCHEDULE_STATE_VAR_PATH: return createScheduleStateVarPath();
+      case GumboPackage.SCHEDULE_ELEMENT: return createScheduleElement();
+      case GumboPackage.SCHEDULE_ASSERT: return createScheduleAssert();
+      case GumboPackage.SCHEDULE_COMPONENT_REF: return createScheduleComponentRef();
+      case GumboPackage.SCHEDULE_SPLIT_JOIN: return createScheduleSplitJoin();
+      case GumboPackage.SCHEDULE_SEQUENCE: return createScheduleSequence();
       case GumboPackage.INFO_FLOW_CLAUSE: return createInfoFlowClause();
       case GumboPackage.HANDLER_CLAUSE: return createHandlerClause();
       case GumboPackage.CASE_STATEMENT_CLAUSE: return createCaseStatementClause();
@@ -315,6 +330,186 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     ComputeImpl compute = new ComputeImpl();
     return compute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Schedule createSchedule()
+  {
+    ScheduleImpl schedule = new ScheduleImpl();
+    return schedule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleComponentAliases createScheduleComponentAliases()
+  {
+    ScheduleComponentAliasesImpl scheduleComponentAliases = new ScheduleComponentAliasesImpl();
+    return scheduleComponentAliases;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleComponentAlias createScheduleComponentAlias()
+  {
+    ScheduleComponentAliasImpl scheduleComponentAlias = new ScheduleComponentAliasImpl();
+    return scheduleComponentAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleSubcomponentPath createScheduleSubcomponentPath()
+  {
+    ScheduleSubcomponentPathImpl scheduleSubcomponentPath = new ScheduleSubcomponentPathImpl();
+    return scheduleSubcomponentPath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SchedulePortAliases createSchedulePortAliases()
+  {
+    SchedulePortAliasesImpl schedulePortAliases = new SchedulePortAliasesImpl();
+    return schedulePortAliases;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SchedulePortAlias createSchedulePortAlias()
+  {
+    SchedulePortAliasImpl schedulePortAlias = new SchedulePortAliasImpl();
+    return schedulePortAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SchedulePortPath createSchedulePortPath()
+  {
+    SchedulePortPathImpl schedulePortPath = new SchedulePortPathImpl();
+    return schedulePortPath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleStateVarAliases createScheduleStateVarAliases()
+  {
+    ScheduleStateVarAliasesImpl scheduleStateVarAliases = new ScheduleStateVarAliasesImpl();
+    return scheduleStateVarAliases;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleStateVarAlias createScheduleStateVarAlias()
+  {
+    ScheduleStateVarAliasImpl scheduleStateVarAlias = new ScheduleStateVarAliasImpl();
+    return scheduleStateVarAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleStateVarPath createScheduleStateVarPath()
+  {
+    ScheduleStateVarPathImpl scheduleStateVarPath = new ScheduleStateVarPathImpl();
+    return scheduleStateVarPath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleElement createScheduleElement()
+  {
+    ScheduleElementImpl scheduleElement = new ScheduleElementImpl();
+    return scheduleElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleAssert createScheduleAssert()
+  {
+    ScheduleAssertImpl scheduleAssert = new ScheduleAssertImpl();
+    return scheduleAssert;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleComponentRef createScheduleComponentRef()
+  {
+    ScheduleComponentRefImpl scheduleComponentRef = new ScheduleComponentRefImpl();
+    return scheduleComponentRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleSplitJoin createScheduleSplitJoin()
+  {
+    ScheduleSplitJoinImpl scheduleSplitJoin = new ScheduleSplitJoinImpl();
+    return scheduleSplitJoin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScheduleSequence createScheduleSequence()
+  {
+    ScheduleSequenceImpl scheduleSequence = new ScheduleSequenceImpl();
+    return scheduleSequence;
   }
 
   /**

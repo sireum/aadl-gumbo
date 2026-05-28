@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getIntegration <em>Integration</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getInitialize <em>Initialize</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompute <em>Compute</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getSchedule <em>Schedule</em>}</li>
  * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection()
@@ -169,5 +170,27 @@ public interface SpecSection extends EObject
    * @generated
    */
   void setCompute(Compute value);
+
+  /**
+   * Returns the value of the '<em><b>Schedule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Schedule</em>' containment reference.
+   * @see #setSchedule(Schedule)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Schedule()
+   * @model containment="true"
+   * @generated
+   */
+  Schedule getSchedule();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getSchedule <em>Schedule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Schedule</em>' containment reference.
+   * @see #getSchedule()
+   * @generated
+   */
+  void setSchedule(Schedule value);
 
 } // SpecSection

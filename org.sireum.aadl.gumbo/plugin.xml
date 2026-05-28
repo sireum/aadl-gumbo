@@ -14,7 +14,7 @@
    		point="org.osate.annexsupport.parser">
          <parser 	
          	annexName="Gumbo"
-         	annexNSURI="http://www.aadl.info/Gumbo"
+         	annexNSURI="http://www.sireum.org/aadl/gumbo/Gumbo"
          	class="org.sireum.aadl.gumbo.parsing.GumboAnnexParser"
          	name="Gumbo Annex Parser"
          	id="org.sireum.aadl.gumbo.parser"/>

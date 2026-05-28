@@ -133,6 +133,141 @@ public interface GumboFactory extends EFactory
   Compute createCompute();
 
   /**
+   * Returns a new object of class '<em>Schedule</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule</em>'.
+   * @generated
+   */
+  Schedule createSchedule();
+
+  /**
+   * Returns a new object of class '<em>Schedule Component Aliases</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Component Aliases</em>'.
+   * @generated
+   */
+  ScheduleComponentAliases createScheduleComponentAliases();
+
+  /**
+   * Returns a new object of class '<em>Schedule Component Alias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Component Alias</em>'.
+   * @generated
+   */
+  ScheduleComponentAlias createScheduleComponentAlias();
+
+  /**
+   * Returns a new object of class '<em>Schedule Subcomponent Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Subcomponent Path</em>'.
+   * @generated
+   */
+  ScheduleSubcomponentPath createScheduleSubcomponentPath();
+
+  /**
+   * Returns a new object of class '<em>Schedule Port Aliases</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Port Aliases</em>'.
+   * @generated
+   */
+  SchedulePortAliases createSchedulePortAliases();
+
+  /**
+   * Returns a new object of class '<em>Schedule Port Alias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Port Alias</em>'.
+   * @generated
+   */
+  SchedulePortAlias createSchedulePortAlias();
+
+  /**
+   * Returns a new object of class '<em>Schedule Port Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Port Path</em>'.
+   * @generated
+   */
+  SchedulePortPath createSchedulePortPath();
+
+  /**
+   * Returns a new object of class '<em>Schedule State Var Aliases</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule State Var Aliases</em>'.
+   * @generated
+   */
+  ScheduleStateVarAliases createScheduleStateVarAliases();
+
+  /**
+   * Returns a new object of class '<em>Schedule State Var Alias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule State Var Alias</em>'.
+   * @generated
+   */
+  ScheduleStateVarAlias createScheduleStateVarAlias();
+
+  /**
+   * Returns a new object of class '<em>Schedule State Var Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule State Var Path</em>'.
+   * @generated
+   */
+  ScheduleStateVarPath createScheduleStateVarPath();
+
+  /**
+   * Returns a new object of class '<em>Schedule Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Element</em>'.
+   * @generated
+   */
+  ScheduleElement createScheduleElement();
+
+  /**
+   * Returns a new object of class '<em>Schedule Assert</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Assert</em>'.
+   * @generated
+   */
+  ScheduleAssert createScheduleAssert();
+
+  /**
+   * Returns a new object of class '<em>Schedule Component Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Component Ref</em>'.
+   * @generated
+   */
+  ScheduleComponentRef createScheduleComponentRef();
+
+  /**
+   * Returns a new object of class '<em>Schedule Split Join</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Split Join</em>'.
+   * @generated
+   */
+  ScheduleSplitJoin createScheduleSplitJoin();
+
+  /**
+   * Returns a new object of class '<em>Schedule Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schedule Sequence</em>'.
+   * @generated
+   */
+  ScheduleSequence createScheduleSequence();
+
+  /**
    * Returns a new object of class '<em>Info Flow Clause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

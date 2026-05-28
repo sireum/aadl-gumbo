@@ -16,8 +16,11 @@ package org.sireum.aadl.gumbo.validation;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtext.validation.ComposedChecks;
+import org.eclipse.xtext.validation.NamesAreUniqueValidator;
 import org.osate.xtext.aadl2.properties.validation.PropertiesValidator;
 
+@ComposedChecks(validators = {NamesAreUniqueValidator.class})
 public abstract class AbstractGumboValidator extends PropertiesValidator {
 	
 	@Override

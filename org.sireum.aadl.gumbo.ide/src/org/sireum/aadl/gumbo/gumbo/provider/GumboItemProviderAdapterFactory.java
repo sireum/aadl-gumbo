@@ -360,6 +360,381 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Schedule} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleItemProvider scheduleItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Schedule}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleAdapter()
+  {
+    if (scheduleItemProvider == null)
+    {
+      scheduleItemProvider = new ScheduleItemProvider(this);
+    }
+
+    return scheduleItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleComponentAliasesItemProvider scheduleComponentAliasesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleComponentAliasesAdapter()
+  {
+    if (scheduleComponentAliasesItemProvider == null)
+    {
+      scheduleComponentAliasesItemProvider = new ScheduleComponentAliasesItemProvider(this);
+    }
+
+    return scheduleComponentAliasesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleComponentAliasItemProvider scheduleComponentAliasItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleComponentAliasAdapter()
+  {
+    if (scheduleComponentAliasItemProvider == null)
+    {
+      scheduleComponentAliasItemProvider = new ScheduleComponentAliasItemProvider(this);
+    }
+
+    return scheduleComponentAliasItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleSubcomponentPathItemProvider scheduleSubcomponentPathItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleSubcomponentPathAdapter()
+  {
+    if (scheduleSubcomponentPathItemProvider == null)
+    {
+      scheduleSubcomponentPathItemProvider = new ScheduleSubcomponentPathItemProvider(this);
+    }
+
+    return scheduleSubcomponentPathItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchedulePortAliases} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SchedulePortAliasesItemProvider schedulePortAliasesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchedulePortAliases}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSchedulePortAliasesAdapter()
+  {
+    if (schedulePortAliasesItemProvider == null)
+    {
+      schedulePortAliasesItemProvider = new SchedulePortAliasesItemProvider(this);
+    }
+
+    return schedulePortAliasesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchedulePortAlias} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SchedulePortAliasItemProvider schedulePortAliasItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchedulePortAlias}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSchedulePortAliasAdapter()
+  {
+    if (schedulePortAliasItemProvider == null)
+    {
+      schedulePortAliasItemProvider = new SchedulePortAliasItemProvider(this);
+    }
+
+    return schedulePortAliasItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchedulePortPath} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SchedulePortPathItemProvider schedulePortPathItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchedulePortPath}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSchedulePortPathAdapter()
+  {
+    if (schedulePortPathItemProvider == null)
+    {
+      schedulePortPathItemProvider = new SchedulePortPathItemProvider(this);
+    }
+
+    return schedulePortPathItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleStateVarAliasesItemProvider scheduleStateVarAliasesItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleStateVarAliasesAdapter()
+  {
+    if (scheduleStateVarAliasesItemProvider == null)
+    {
+      scheduleStateVarAliasesItemProvider = new ScheduleStateVarAliasesItemProvider(this);
+    }
+
+    return scheduleStateVarAliasesItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleStateVarAliasItemProvider scheduleStateVarAliasItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleStateVarAliasAdapter()
+  {
+    if (scheduleStateVarAliasItemProvider == null)
+    {
+      scheduleStateVarAliasItemProvider = new ScheduleStateVarAliasItemProvider(this);
+    }
+
+    return scheduleStateVarAliasItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleStateVarPathItemProvider scheduleStateVarPathItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleStateVarPathAdapter()
+  {
+    if (scheduleStateVarPathItemProvider == null)
+    {
+      scheduleStateVarPathItemProvider = new ScheduleStateVarPathItemProvider(this);
+    }
+
+    return scheduleStateVarPathItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleElement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleElementItemProvider scheduleElementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleElementAdapter()
+  {
+    if (scheduleElementItemProvider == null)
+    {
+      scheduleElementItemProvider = new ScheduleElementItemProvider(this);
+    }
+
+    return scheduleElementItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleAssertItemProvider scheduleAssertItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleAssertAdapter()
+  {
+    if (scheduleAssertItemProvider == null)
+    {
+      scheduleAssertItemProvider = new ScheduleAssertItemProvider(this);
+    }
+
+    return scheduleAssertItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleComponentRefItemProvider scheduleComponentRefItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleComponentRefAdapter()
+  {
+    if (scheduleComponentRefItemProvider == null)
+    {
+      scheduleComponentRefItemProvider = new ScheduleComponentRefItemProvider(this);
+    }
+
+    return scheduleComponentRefItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleSplitJoinItemProvider scheduleSplitJoinItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleSplitJoinAdapter()
+  {
+    if (scheduleSplitJoinItemProvider == null)
+    {
+      scheduleSplitJoinItemProvider = new ScheduleSplitJoinItemProvider(this);
+    }
+
+    return scheduleSplitJoinItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ScheduleSequenceItemProvider scheduleSequenceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createScheduleSequenceAdapter()
+  {
+    if (scheduleSequenceItemProvider == null)
+    {
+      scheduleSequenceItemProvider = new ScheduleSequenceItemProvider(this);
+    }
+
+    return scheduleSequenceItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2837,6 +3212,21 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (initializeItemProvider != null) initializeItemProvider.dispose();
     if (initializeSpecStatementItemProvider != null) initializeSpecStatementItemProvider.dispose();
     if (computeItemProvider != null) computeItemProvider.dispose();
+    if (scheduleItemProvider != null) scheduleItemProvider.dispose();
+    if (scheduleComponentAliasesItemProvider != null) scheduleComponentAliasesItemProvider.dispose();
+    if (scheduleComponentAliasItemProvider != null) scheduleComponentAliasItemProvider.dispose();
+    if (scheduleSubcomponentPathItemProvider != null) scheduleSubcomponentPathItemProvider.dispose();
+    if (schedulePortAliasesItemProvider != null) schedulePortAliasesItemProvider.dispose();
+    if (schedulePortAliasItemProvider != null) schedulePortAliasItemProvider.dispose();
+    if (schedulePortPathItemProvider != null) schedulePortPathItemProvider.dispose();
+    if (scheduleStateVarAliasesItemProvider != null) scheduleStateVarAliasesItemProvider.dispose();
+    if (scheduleStateVarAliasItemProvider != null) scheduleStateVarAliasItemProvider.dispose();
+    if (scheduleStateVarPathItemProvider != null) scheduleStateVarPathItemProvider.dispose();
+    if (scheduleElementItemProvider != null) scheduleElementItemProvider.dispose();
+    if (scheduleAssertItemProvider != null) scheduleAssertItemProvider.dispose();
+    if (scheduleComponentRefItemProvider != null) scheduleComponentRefItemProvider.dispose();
+    if (scheduleSplitJoinItemProvider != null) scheduleSplitJoinItemProvider.dispose();
+    if (scheduleSequenceItemProvider != null) scheduleSequenceItemProvider.dispose();
     if (infoFlowClauseItemProvider != null) infoFlowClauseItemProvider.dispose();
     if (handlerClauseItemProvider != null) handlerClauseItemProvider.dispose();
     if (caseStatementClauseItemProvider != null) caseStatementClauseItemProvider.dispose();

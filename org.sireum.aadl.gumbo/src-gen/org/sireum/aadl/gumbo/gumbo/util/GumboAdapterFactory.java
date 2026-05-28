@@ -147,6 +147,81 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createComputeAdapter();
       }
       @Override
+      public Adapter caseSchedule(Schedule object)
+      {
+        return createScheduleAdapter();
+      }
+      @Override
+      public Adapter caseScheduleComponentAliases(ScheduleComponentAliases object)
+      {
+        return createScheduleComponentAliasesAdapter();
+      }
+      @Override
+      public Adapter caseScheduleComponentAlias(ScheduleComponentAlias object)
+      {
+        return createScheduleComponentAliasAdapter();
+      }
+      @Override
+      public Adapter caseScheduleSubcomponentPath(ScheduleSubcomponentPath object)
+      {
+        return createScheduleSubcomponentPathAdapter();
+      }
+      @Override
+      public Adapter caseSchedulePortAliases(SchedulePortAliases object)
+      {
+        return createSchedulePortAliasesAdapter();
+      }
+      @Override
+      public Adapter caseSchedulePortAlias(SchedulePortAlias object)
+      {
+        return createSchedulePortAliasAdapter();
+      }
+      @Override
+      public Adapter caseSchedulePortPath(SchedulePortPath object)
+      {
+        return createSchedulePortPathAdapter();
+      }
+      @Override
+      public Adapter caseScheduleStateVarAliases(ScheduleStateVarAliases object)
+      {
+        return createScheduleStateVarAliasesAdapter();
+      }
+      @Override
+      public Adapter caseScheduleStateVarAlias(ScheduleStateVarAlias object)
+      {
+        return createScheduleStateVarAliasAdapter();
+      }
+      @Override
+      public Adapter caseScheduleStateVarPath(ScheduleStateVarPath object)
+      {
+        return createScheduleStateVarPathAdapter();
+      }
+      @Override
+      public Adapter caseScheduleElement(ScheduleElement object)
+      {
+        return createScheduleElementAdapter();
+      }
+      @Override
+      public Adapter caseScheduleAssert(ScheduleAssert object)
+      {
+        return createScheduleAssertAdapter();
+      }
+      @Override
+      public Adapter caseScheduleComponentRef(ScheduleComponentRef object)
+      {
+        return createScheduleComponentRefAdapter();
+      }
+      @Override
+      public Adapter caseScheduleSplitJoin(ScheduleSplitJoin object)
+      {
+        return createScheduleSplitJoinAdapter();
+      }
+      @Override
+      public Adapter caseScheduleSequence(ScheduleSequence object)
+      {
+        return createScheduleSequenceAdapter();
+      }
+      @Override
       public Adapter caseInfoFlowClause(InfoFlowClause object)
       {
         return createInfoFlowClauseAdapter();
@@ -824,6 +899,231 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComputeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Schedule <em>Schedule</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Schedule
+   * @generated
+   */
+  public Adapter createScheduleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases <em>Schedule Component Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases
+   * @generated
+   */
+  public Adapter createScheduleComponentAliasesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias <em>Schedule Component Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias
+   * @generated
+   */
+  public Adapter createScheduleComponentAliasAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath <em>Schedule Subcomponent Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath
+   * @generated
+   */
+  public Adapter createScheduleSubcomponentPathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortAliases <em>Schedule Port Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortAliases
+   * @generated
+   */
+  public Adapter createSchedulePortAliasesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortAlias <em>Schedule Port Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortAlias
+   * @generated
+   */
+  public Adapter createSchedulePortAliasAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortPath <em>Schedule Port Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortPath
+   * @generated
+   */
+  public Adapter createSchedulePortPathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases <em>Schedule State Var Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases
+   * @generated
+   */
+  public Adapter createScheduleStateVarAliasesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias <em>Schedule State Var Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias
+   * @generated
+   */
+  public Adapter createScheduleStateVarAliasAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath <em>Schedule State Var Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath
+   * @generated
+   */
+  public Adapter createScheduleStateVarPathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleElement <em>Schedule Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleElement
+   * @generated
+   */
+  public Adapter createScheduleElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert <em>Schedule Assert</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleAssert
+   * @generated
+   */
+  public Adapter createScheduleAssertAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef <em>Schedule Component Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef
+   * @generated
+   */
+  public Adapter createScheduleComponentRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin <em>Schedule Split Join</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin
+   * @generated
+   */
+  public Adapter createScheduleSplitJoinAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence <em>Schedule Sequence</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSequence
+   * @generated
+   */
+  public Adapter createScheduleSequenceAdapter()
   {
     return null;
   }

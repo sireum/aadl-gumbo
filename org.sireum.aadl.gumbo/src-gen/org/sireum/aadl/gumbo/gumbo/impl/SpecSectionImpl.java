@@ -28,6 +28,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.Invariants;
+import org.sireum.aadl.gumbo.gumbo.Schedule;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.State;
 
@@ -45,6 +46,7 @@ import org.sireum.aadl.gumbo.gumbo.State;
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getIntegration <em>Integration</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getInitialize <em>Initialize</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getCompute <em>Compute</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getSchedule <em>Schedule</em>}</li>
  * </ul>
  *
  * @generated
@@ -110,6 +112,16 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
    * @ordered
    */
   protected Compute compute;
+
+  /**
+   * The cached value of the '{@link #getSchedule() <em>Schedule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSchedule()
+   * @generated
+   * @ordered
+   */
+  protected Schedule schedule;
 
   /**
    * <!-- begin-user-doc -->
@@ -438,6 +450,56 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
    * @generated
    */
   @Override
+  public Schedule getSchedule()
+  {
+    return schedule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSchedule(Schedule newSchedule, NotificationChain msgs)
+  {
+    Schedule oldSchedule = schedule;
+    schedule = newSchedule;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_SECTION__SCHEDULE, oldSchedule, newSchedule);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSchedule(Schedule newSchedule)
+  {
+    if (newSchedule != schedule)
+    {
+      NotificationChain msgs = null;
+      if (schedule != null)
+        msgs = ((InternalEObject)schedule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.SPEC_SECTION__SCHEDULE, null, msgs);
+      if (newSchedule != null)
+        msgs = ((InternalEObject)newSchedule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.SPEC_SECTION__SCHEDULE, null, msgs);
+      msgs = basicSetSchedule(newSchedule, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_SECTION__SCHEDULE, newSchedule, newSchedule));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -454,6 +516,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return basicSetInitialize(null, msgs);
       case GumboPackage.SPEC_SECTION__COMPUTE:
         return basicSetCompute(null, msgs);
+      case GumboPackage.SPEC_SECTION__SCHEDULE:
+        return basicSetSchedule(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -480,6 +544,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return getInitialize();
       case GumboPackage.SPEC_SECTION__COMPUTE:
         return getCompute();
+      case GumboPackage.SPEC_SECTION__SCHEDULE:
+        return getSchedule();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -511,6 +577,9 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return;
       case GumboPackage.SPEC_SECTION__COMPUTE:
         setCompute((Compute)newValue);
+        return;
+      case GumboPackage.SPEC_SECTION__SCHEDULE:
+        setSchedule((Schedule)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -544,6 +613,9 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
       case GumboPackage.SPEC_SECTION__COMPUTE:
         setCompute((Compute)null);
         return;
+      case GumboPackage.SPEC_SECTION__SCHEDULE:
+        setSchedule((Schedule)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -570,6 +642,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return initialize != null;
       case GumboPackage.SPEC_SECTION__COMPUTE:
         return compute != null;
+      case GumboPackage.SPEC_SECTION__SCHEDULE:
+        return schedule != null;
     }
     return super.eIsSet(featureID);
   }

@@ -173,6 +173,114 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.SCHEDULE:
+      {
+        Schedule schedule = (Schedule)theEObject;
+        T result = caseSchedule(schedule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_COMPONENT_ALIASES:
+      {
+        ScheduleComponentAliases scheduleComponentAliases = (ScheduleComponentAliases)theEObject;
+        T result = caseScheduleComponentAliases(scheduleComponentAliases);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_COMPONENT_ALIAS:
+      {
+        ScheduleComponentAlias scheduleComponentAlias = (ScheduleComponentAlias)theEObject;
+        T result = caseScheduleComponentAlias(scheduleComponentAlias);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_SUBCOMPONENT_PATH:
+      {
+        ScheduleSubcomponentPath scheduleSubcomponentPath = (ScheduleSubcomponentPath)theEObject;
+        T result = caseScheduleSubcomponentPath(scheduleSubcomponentPath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_PORT_ALIASES:
+      {
+        SchedulePortAliases schedulePortAliases = (SchedulePortAliases)theEObject;
+        T result = caseSchedulePortAliases(schedulePortAliases);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_PORT_ALIAS:
+      {
+        SchedulePortAlias schedulePortAlias = (SchedulePortAlias)theEObject;
+        T result = caseSchedulePortAlias(schedulePortAlias);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_PORT_PATH:
+      {
+        SchedulePortPath schedulePortPath = (SchedulePortPath)theEObject;
+        T result = caseSchedulePortPath(schedulePortPath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_STATE_VAR_ALIASES:
+      {
+        ScheduleStateVarAliases scheduleStateVarAliases = (ScheduleStateVarAliases)theEObject;
+        T result = caseScheduleStateVarAliases(scheduleStateVarAliases);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_STATE_VAR_ALIAS:
+      {
+        ScheduleStateVarAlias scheduleStateVarAlias = (ScheduleStateVarAlias)theEObject;
+        T result = caseScheduleStateVarAlias(scheduleStateVarAlias);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_STATE_VAR_PATH:
+      {
+        ScheduleStateVarPath scheduleStateVarPath = (ScheduleStateVarPath)theEObject;
+        T result = caseScheduleStateVarPath(scheduleStateVarPath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_ELEMENT:
+      {
+        ScheduleElement scheduleElement = (ScheduleElement)theEObject;
+        T result = caseScheduleElement(scheduleElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_ASSERT:
+      {
+        ScheduleAssert scheduleAssert = (ScheduleAssert)theEObject;
+        T result = caseScheduleAssert(scheduleAssert);
+        if (result == null) result = caseScheduleElement(scheduleAssert);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_COMPONENT_REF:
+      {
+        ScheduleComponentRef scheduleComponentRef = (ScheduleComponentRef)theEObject;
+        T result = caseScheduleComponentRef(scheduleComponentRef);
+        if (result == null) result = caseScheduleElement(scheduleComponentRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_SPLIT_JOIN:
+      {
+        ScheduleSplitJoin scheduleSplitJoin = (ScheduleSplitJoin)theEObject;
+        T result = caseScheduleSplitJoin(scheduleSplitJoin);
+        if (result == null) result = caseScheduleElement(scheduleSplitJoin);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEDULE_SEQUENCE:
+      {
+        ScheduleSequence scheduleSequence = (ScheduleSequence)theEObject;
+        T result = caseScheduleSequence(scheduleSequence);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.INFO_FLOW_CLAUSE:
       {
         InfoFlowClause infoFlowClause = (InfoFlowClause)theEObject;
@@ -1092,6 +1200,246 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCompute(Compute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchedule(Schedule object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Component Aliases</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Component Aliases</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleComponentAliases(ScheduleComponentAliases object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Component Alias</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Component Alias</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleComponentAlias(ScheduleComponentAlias object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Subcomponent Path</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Subcomponent Path</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleSubcomponentPath(ScheduleSubcomponentPath object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Port Aliases</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Port Aliases</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchedulePortAliases(SchedulePortAliases object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Port Alias</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Port Alias</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchedulePortAlias(SchedulePortAlias object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Port Path</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Port Path</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchedulePortPath(SchedulePortPath object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule State Var Aliases</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule State Var Aliases</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleStateVarAliases(ScheduleStateVarAliases object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule State Var Alias</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule State Var Alias</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleStateVarAlias(ScheduleStateVarAlias object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule State Var Path</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule State Var Path</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleStateVarPath(ScheduleStateVarPath object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleElement(ScheduleElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Assert</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Assert</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleAssert(ScheduleAssert object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Component Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Component Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleComponentRef(ScheduleComponentRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Split Join</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Split Join</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleSplitJoin(ScheduleSplitJoin object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schedule Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schedule Sequence</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScheduleSequence(ScheduleSequence object)
   {
     return null;
   }

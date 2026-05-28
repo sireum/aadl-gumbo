@@ -82,6 +82,21 @@ import org.sireum.aadl.gumbo.gumbo.QuantRange;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
+import org.sireum.aadl.gumbo.gumbo.Schedule;
+import org.sireum.aadl.gumbo.gumbo.ScheduleAssert;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef;
+import org.sireum.aadl.gumbo.gumbo.ScheduleElement;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortAliases;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
+import org.sireum.aadl.gumbo.gumbo.ScheduleSequence;
+import org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath;
+import org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangBlock;
@@ -215,6 +230,111 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass computeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleComponentAliasesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleComponentAliasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleSubcomponentPathEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass schedulePortAliasesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass schedulePortAliasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass schedulePortPathEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleStateVarAliasesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleStateVarAliasEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleStateVarPathEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleAssertEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleComponentRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleSplitJoinEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scheduleSequenceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1067,6 +1187,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EReference getSpecSection_Schedule()
+  {
+    return (EReference)specSectionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getState()
   {
     return stateEClass;
@@ -1345,6 +1476,446 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getCompute_Flows()
   {
     return (EReference)computeEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSchedule()
+  {
+    return scheduleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedule_ComponentAliases()
+  {
+    return (EReference)scheduleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedule_PortAliases()
+  {
+    return (EReference)scheduleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedule_StateVarAliases()
+  {
+    return (EReference)scheduleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedule_Elements()
+  {
+    return (EReference)scheduleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleComponentAliases()
+  {
+    return scheduleComponentAliasesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleComponentAliases_Aliases()
+  {
+    return (EReference)scheduleComponentAliasesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleComponentAlias()
+  {
+    return scheduleComponentAliasEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getScheduleComponentAlias_Name()
+  {
+    return (EAttribute)scheduleComponentAliasEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleComponentAlias_ComponentPath()
+  {
+    return (EReference)scheduleComponentAliasEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleSubcomponentPath()
+  {
+    return scheduleSubcomponentPathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleSubcomponentPath_Subcomponent()
+  {
+    return (EReference)scheduleSubcomponentPathEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleSubcomponentPath_SubPath()
+  {
+    return (EReference)scheduleSubcomponentPathEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSchedulePortAliases()
+  {
+    return schedulePortAliasesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedulePortAliases_Aliases()
+  {
+    return (EReference)schedulePortAliasesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSchedulePortAlias()
+  {
+    return schedulePortAliasEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSchedulePortAlias_Name()
+  {
+    return (EAttribute)schedulePortAliasEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedulePortAlias_PortPath()
+  {
+    return (EReference)schedulePortAliasEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSchedulePortPath()
+  {
+    return schedulePortPathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedulePortPath_Ref()
+  {
+    return (EReference)schedulePortPathEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchedulePortPath_SubPath()
+  {
+    return (EReference)schedulePortPathEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleStateVarAliases()
+  {
+    return scheduleStateVarAliasesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleStateVarAliases_Aliases()
+  {
+    return (EReference)scheduleStateVarAliasesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleStateVarAlias()
+  {
+    return scheduleStateVarAliasEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getScheduleStateVarAlias_Name()
+  {
+    return (EAttribute)scheduleStateVarAliasEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleStateVarAlias_StateVarPath()
+  {
+    return (EReference)scheduleStateVarAliasEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleStateVarPath()
+  {
+    return scheduleStateVarPathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleStateVarPath_Ref()
+  {
+    return (EReference)scheduleStateVarPathEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleStateVarPath_SubPath()
+  {
+    return (EReference)scheduleStateVarPathEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleElement()
+  {
+    return scheduleElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleAssert()
+  {
+    return scheduleAssertEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getScheduleAssert_Id()
+  {
+    return (EAttribute)scheduleAssertEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getScheduleAssert_Descriptor()
+  {
+    return (EAttribute)scheduleAssertEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleAssert_Expr()
+  {
+    return (EReference)scheduleAssertEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleComponentRef()
+  {
+    return scheduleComponentRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleComponentRef_Component()
+  {
+    return (EReference)scheduleComponentRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleSplitJoin()
+  {
+    return scheduleSplitJoinEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleSplitJoin_Sequences()
+  {
+    return (EReference)scheduleSplitJoinEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScheduleSequence()
+  {
+    return scheduleSequenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScheduleSequence_Elements()
+  {
+    return (EReference)scheduleSequenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4163,6 +4734,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(specSectionEClass, SPEC_SECTION__INTEGRATION);
     createEReference(specSectionEClass, SPEC_SECTION__INITIALIZE);
     createEReference(specSectionEClass, SPEC_SECTION__COMPUTE);
+    createEReference(specSectionEClass, SPEC_SECTION__SCHEDULE);
 
     stateEClass = createEClass(STATE);
     createEReference(stateEClass, STATE__DECLS);
@@ -4197,6 +4769,61 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(computeEClass, COMPUTE__CASES);
     createEReference(computeEClass, COMPUTE__HANDLERS);
     createEReference(computeEClass, COMPUTE__FLOWS);
+
+    scheduleEClass = createEClass(SCHEDULE);
+    createEReference(scheduleEClass, SCHEDULE__COMPONENT_ALIASES);
+    createEReference(scheduleEClass, SCHEDULE__PORT_ALIASES);
+    createEReference(scheduleEClass, SCHEDULE__STATE_VAR_ALIASES);
+    createEReference(scheduleEClass, SCHEDULE__ELEMENTS);
+
+    scheduleComponentAliasesEClass = createEClass(SCHEDULE_COMPONENT_ALIASES);
+    createEReference(scheduleComponentAliasesEClass, SCHEDULE_COMPONENT_ALIASES__ALIASES);
+
+    scheduleComponentAliasEClass = createEClass(SCHEDULE_COMPONENT_ALIAS);
+    createEAttribute(scheduleComponentAliasEClass, SCHEDULE_COMPONENT_ALIAS__NAME);
+    createEReference(scheduleComponentAliasEClass, SCHEDULE_COMPONENT_ALIAS__COMPONENT_PATH);
+
+    scheduleSubcomponentPathEClass = createEClass(SCHEDULE_SUBCOMPONENT_PATH);
+    createEReference(scheduleSubcomponentPathEClass, SCHEDULE_SUBCOMPONENT_PATH__SUBCOMPONENT);
+    createEReference(scheduleSubcomponentPathEClass, SCHEDULE_SUBCOMPONENT_PATH__SUB_PATH);
+
+    schedulePortAliasesEClass = createEClass(SCHEDULE_PORT_ALIASES);
+    createEReference(schedulePortAliasesEClass, SCHEDULE_PORT_ALIASES__ALIASES);
+
+    schedulePortAliasEClass = createEClass(SCHEDULE_PORT_ALIAS);
+    createEAttribute(schedulePortAliasEClass, SCHEDULE_PORT_ALIAS__NAME);
+    createEReference(schedulePortAliasEClass, SCHEDULE_PORT_ALIAS__PORT_PATH);
+
+    schedulePortPathEClass = createEClass(SCHEDULE_PORT_PATH);
+    createEReference(schedulePortPathEClass, SCHEDULE_PORT_PATH__REF);
+    createEReference(schedulePortPathEClass, SCHEDULE_PORT_PATH__SUB_PATH);
+
+    scheduleStateVarAliasesEClass = createEClass(SCHEDULE_STATE_VAR_ALIASES);
+    createEReference(scheduleStateVarAliasesEClass, SCHEDULE_STATE_VAR_ALIASES__ALIASES);
+
+    scheduleStateVarAliasEClass = createEClass(SCHEDULE_STATE_VAR_ALIAS);
+    createEAttribute(scheduleStateVarAliasEClass, SCHEDULE_STATE_VAR_ALIAS__NAME);
+    createEReference(scheduleStateVarAliasEClass, SCHEDULE_STATE_VAR_ALIAS__STATE_VAR_PATH);
+
+    scheduleStateVarPathEClass = createEClass(SCHEDULE_STATE_VAR_PATH);
+    createEReference(scheduleStateVarPathEClass, SCHEDULE_STATE_VAR_PATH__REF);
+    createEReference(scheduleStateVarPathEClass, SCHEDULE_STATE_VAR_PATH__SUB_PATH);
+
+    scheduleElementEClass = createEClass(SCHEDULE_ELEMENT);
+
+    scheduleAssertEClass = createEClass(SCHEDULE_ASSERT);
+    createEAttribute(scheduleAssertEClass, SCHEDULE_ASSERT__ID);
+    createEAttribute(scheduleAssertEClass, SCHEDULE_ASSERT__DESCRIPTOR);
+    createEReference(scheduleAssertEClass, SCHEDULE_ASSERT__EXPR);
+
+    scheduleComponentRefEClass = createEClass(SCHEDULE_COMPONENT_REF);
+    createEReference(scheduleComponentRefEClass, SCHEDULE_COMPONENT_REF__COMPONENT);
+
+    scheduleSplitJoinEClass = createEClass(SCHEDULE_SPLIT_JOIN);
+    createEReference(scheduleSplitJoinEClass, SCHEDULE_SPLIT_JOIN__SEQUENCES);
+
+    scheduleSequenceEClass = createEClass(SCHEDULE_SEQUENCE);
+    createEReference(scheduleSequenceEClass, SCHEDULE_SEQUENCE__ELEMENTS);
 
     infoFlowClauseEClass = createEClass(INFO_FLOW_CLAUSE);
     createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__ID);
@@ -4580,6 +5207,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     // Add supertypes to classes
     gumboLibraryEClass.getESuperTypes().add(theAadl2Package.getAnnexLibrary());
     gumboSubclauseEClass.getESuperTypes().add(theAadl2Package.getAnnexSubclause());
+    scheduleAssertEClass.getESuperTypes().add(this.getScheduleElement());
+    scheduleComponentRefEClass.getESuperTypes().add(this.getScheduleElement());
+    scheduleSplitJoinEClass.getESuperTypes().add(this.getScheduleElement());
     assumeStatementEClass.getESuperTypes().add(this.getSpecStatement());
     guaranteeStatementEClass.getESuperTypes().add(this.getSpecStatement());
     slangDefDefEClass.getESuperTypes().add(this.getFuncSpec());
@@ -4650,6 +5280,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getSpecSection_Integration(), this.getIntegration(), null, "integration", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Initialize(), this.getInitialize(), null, "initialize", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Compute(), this.getCompute(), null, "compute", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecSection_Schedule(), this.getSchedule(), null, "schedule", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getState_Decls(), this.getStateVarDecl(), null, "decls", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4684,6 +5315,61 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Handlers(), this.getHandlerClause(), null, "handlers", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Flows(), this.getInfoFlowClause(), null, "flows", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleEClass, Schedule.class, "Schedule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchedule_ComponentAliases(), this.getScheduleComponentAliases(), null, "componentAliases", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSchedule_PortAliases(), this.getSchedulePortAliases(), null, "portAliases", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSchedule_StateVarAliases(), this.getScheduleStateVarAliases(), null, "stateVarAliases", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSchedule_Elements(), this.getScheduleElement(), null, "elements", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleComponentAliasesEClass, ScheduleComponentAliases.class, "ScheduleComponentAliases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScheduleComponentAliases_Aliases(), this.getScheduleComponentAlias(), null, "aliases", null, 0, -1, ScheduleComponentAliases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleComponentAliasEClass, ScheduleComponentAlias.class, "ScheduleComponentAlias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getScheduleComponentAlias_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ScheduleComponentAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScheduleComponentAlias_ComponentPath(), this.getScheduleSubcomponentPath(), null, "componentPath", null, 0, 1, ScheduleComponentAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleSubcomponentPathEClass, ScheduleSubcomponentPath.class, "ScheduleSubcomponentPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScheduleSubcomponentPath_Subcomponent(), theAadl2Package.getNamedElement(), null, "subcomponent", null, 0, 1, ScheduleSubcomponentPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScheduleSubcomponentPath_SubPath(), this.getScheduleSubcomponentPath(), null, "subPath", null, 0, 1, ScheduleSubcomponentPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(schedulePortAliasesEClass, SchedulePortAliases.class, "SchedulePortAliases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchedulePortAliases_Aliases(), this.getSchedulePortAlias(), null, "aliases", null, 0, -1, SchedulePortAliases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(schedulePortAliasEClass, SchedulePortAlias.class, "SchedulePortAlias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSchedulePortAlias_Name(), theEcorePackage.getEString(), "name", null, 0, 1, SchedulePortAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSchedulePortAlias_PortPath(), this.getSchedulePortPath(), null, "portPath", null, 0, 1, SchedulePortAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(schedulePortPathEClass, SchedulePortPath.class, "SchedulePortPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchedulePortPath_Ref(), theEcorePackage.getEObject(), null, "ref", null, 0, 1, SchedulePortPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSchedulePortPath_SubPath(), this.getSchedulePortPath(), null, "subPath", null, 0, 1, SchedulePortPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleStateVarAliasesEClass, ScheduleStateVarAliases.class, "ScheduleStateVarAliases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScheduleStateVarAliases_Aliases(), this.getScheduleStateVarAlias(), null, "aliases", null, 0, -1, ScheduleStateVarAliases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleStateVarAliasEClass, ScheduleStateVarAlias.class, "ScheduleStateVarAlias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getScheduleStateVarAlias_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ScheduleStateVarAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScheduleStateVarAlias_StateVarPath(), this.getScheduleStateVarPath(), null, "stateVarPath", null, 0, 1, ScheduleStateVarAlias.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleStateVarPathEClass, ScheduleStateVarPath.class, "ScheduleStateVarPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScheduleStateVarPath_Ref(), theEcorePackage.getEObject(), null, "ref", null, 0, 1, ScheduleStateVarPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScheduleStateVarPath_SubPath(), this.getScheduleStateVarPath(), null, "subPath", null, 0, 1, ScheduleStateVarPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleElementEClass, ScheduleElement.class, "ScheduleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(scheduleAssertEClass, ScheduleAssert.class, "ScheduleAssert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getScheduleAssert_Id(), theEcorePackage.getEString(), "id", null, 0, 1, ScheduleAssert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScheduleAssert_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, ScheduleAssert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScheduleAssert_Expr(), this.getOwnedExpression(), null, "expr", null, 0, 1, ScheduleAssert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleComponentRefEClass, ScheduleComponentRef.class, "ScheduleComponentRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScheduleComponentRef_Component(), theEcorePackage.getEObject(), null, "component", null, 0, 1, ScheduleComponentRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleSplitJoinEClass, ScheduleSplitJoin.class, "ScheduleSplitJoin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScheduleSplitJoin_Sequences(), this.getScheduleSequence(), null, "sequences", null, 0, -1, ScheduleSplitJoin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scheduleSequenceEClass, ScheduleSequence.class, "ScheduleSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScheduleSequence_Elements(), this.getScheduleElement(), null, "elements", null, 0, -1, ScheduleSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(infoFlowClauseEClass, InfoFlowClause.class, "InfoFlowClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfoFlowClause_Id(), theEcorePackage.getEString(), "id", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

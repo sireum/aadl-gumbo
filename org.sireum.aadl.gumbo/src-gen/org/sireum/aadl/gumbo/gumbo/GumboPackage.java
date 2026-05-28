@@ -289,13 +289,22 @@ public interface GumboPackage extends EPackage
   int SPEC_SECTION__COMPUTE = 5;
 
   /**
+   * The feature id for the '<em><b>Schedule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPEC_SECTION__SCHEDULE = 6;
+
+  /**
    * The number of structural features of the '<em>Spec Section</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPEC_SECTION_FEATURE_COUNT = 6;
+  int SPEC_SECTION_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.StateImpl <em>State</em>}' class.
@@ -612,6 +621,516 @@ public interface GumboPackage extends EPackage
   int COMPUTE_FEATURE_COUNT = 6;
 
   /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleImpl <em>Schedule</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedule()
+   * @generated
+   */
+  int SCHEDULE = 11;
+
+  /**
+   * The feature id for the '<em><b>Component Aliases</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE__COMPONENT_ALIASES = 0;
+
+  /**
+   * The feature id for the '<em><b>Port Aliases</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE__PORT_ALIASES = 1;
+
+  /**
+   * The feature id for the '<em><b>State Var Aliases</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE__STATE_VAR_ALIASES = 2;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE__ELEMENTS = 3;
+
+  /**
+   * The number of structural features of the '<em>Schedule</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasesImpl <em>Schedule Component Aliases</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasesImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleComponentAliases()
+   * @generated
+   */
+  int SCHEDULE_COMPONENT_ALIASES = 12;
+
+  /**
+   * The feature id for the '<em><b>Aliases</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_COMPONENT_ALIASES__ALIASES = 0;
+
+  /**
+   * The number of structural features of the '<em>Schedule Component Aliases</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_COMPONENT_ALIASES_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasImpl <em>Schedule Component Alias</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleComponentAlias()
+   * @generated
+   */
+  int SCHEDULE_COMPONENT_ALIAS = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_COMPONENT_ALIAS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Component Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_COMPONENT_ALIAS__COMPONENT_PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Schedule Component Alias</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_COMPONENT_ALIAS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleSubcomponentPathImpl <em>Schedule Subcomponent Path</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleSubcomponentPathImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleSubcomponentPath()
+   * @generated
+   */
+  int SCHEDULE_SUBCOMPONENT_PATH = 14;
+
+  /**
+   * The feature id for the '<em><b>Subcomponent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_SUBCOMPONENT_PATH__SUBCOMPONENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Sub Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_SUBCOMPONENT_PATH__SUB_PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Schedule Subcomponent Path</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_SUBCOMPONENT_PATH_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasesImpl <em>Schedule Port Aliases</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasesImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedulePortAliases()
+   * @generated
+   */
+  int SCHEDULE_PORT_ALIASES = 15;
+
+  /**
+   * The feature id for the '<em><b>Aliases</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_ALIASES__ALIASES = 0;
+
+  /**
+   * The number of structural features of the '<em>Schedule Port Aliases</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_ALIASES_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasImpl <em>Schedule Port Alias</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedulePortAlias()
+   * @generated
+   */
+  int SCHEDULE_PORT_ALIAS = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_ALIAS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Port Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_ALIAS__PORT_PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Schedule Port Alias</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_ALIAS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SchedulePortPathImpl <em>Schedule Port Path</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.SchedulePortPathImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedulePortPath()
+   * @generated
+   */
+  int SCHEDULE_PORT_PATH = 17;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_PATH__REF = 0;
+
+  /**
+   * The feature id for the '<em><b>Sub Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_PATH__SUB_PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Schedule Port Path</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_PORT_PATH_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasesImpl <em>Schedule State Var Aliases</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasesImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleStateVarAliases()
+   * @generated
+   */
+  int SCHEDULE_STATE_VAR_ALIASES = 18;
+
+  /**
+   * The feature id for the '<em><b>Aliases</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_ALIASES__ALIASES = 0;
+
+  /**
+   * The number of structural features of the '<em>Schedule State Var Aliases</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_ALIASES_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasImpl <em>Schedule State Var Alias</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleStateVarAlias()
+   * @generated
+   */
+  int SCHEDULE_STATE_VAR_ALIAS = 19;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_ALIAS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>State Var Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_ALIAS__STATE_VAR_PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Schedule State Var Alias</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_ALIAS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarPathImpl <em>Schedule State Var Path</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarPathImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleStateVarPath()
+   * @generated
+   */
+  int SCHEDULE_STATE_VAR_PATH = 20;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_PATH__REF = 0;
+
+  /**
+   * The feature id for the '<em><b>Sub Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_PATH__SUB_PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Schedule State Var Path</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_STATE_VAR_PATH_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleElementImpl <em>Schedule Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleElementImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleElement()
+   * @generated
+   */
+  int SCHEDULE_ELEMENT = 21;
+
+  /**
+   * The number of structural features of the '<em>Schedule Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleAssertImpl <em>Schedule Assert</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleAssertImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleAssert()
+   * @generated
+   */
+  int SCHEDULE_ASSERT = 22;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_ASSERT__ID = SCHEDULE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Descriptor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_ASSERT__DESCRIPTOR = SCHEDULE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_ASSERT__EXPR = SCHEDULE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Schedule Assert</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_ASSERT_FEATURE_COUNT = SCHEDULE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentRefImpl <em>Schedule Component Ref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentRefImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleComponentRef()
+   * @generated
+   */
+  int SCHEDULE_COMPONENT_REF = 23;
+
+  /**
+   * The feature id for the '<em><b>Component</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_COMPONENT_REF__COMPONENT = SCHEDULE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Schedule Component Ref</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_COMPONENT_REF_FEATURE_COUNT = SCHEDULE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleSplitJoinImpl <em>Schedule Split Join</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleSplitJoinImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleSplitJoin()
+   * @generated
+   */
+  int SCHEDULE_SPLIT_JOIN = 24;
+
+  /**
+   * The feature id for the '<em><b>Sequences</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_SPLIT_JOIN__SEQUENCES = SCHEDULE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Schedule Split Join</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_SPLIT_JOIN_FEATURE_COUNT = SCHEDULE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleSequenceImpl <em>Schedule Sequence</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleSequenceImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleSequence()
+   * @generated
+   */
+  int SCHEDULE_SEQUENCE = 25;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_SEQUENCE__ELEMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Schedule Sequence</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE_SEQUENCE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.InfoFlowClauseImpl <em>Info Flow Clause</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -619,7 +1138,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getInfoFlowClause()
    * @generated
    */
-  int INFO_FLOW_CLAUSE = 11;
+  int INFO_FLOW_CLAUSE = 26;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -674,7 +1193,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHandlerClause()
    * @generated
    */
-  int HANDLER_CLAUSE = 12;
+  int HANDLER_CLAUSE = 27;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' reference.
@@ -738,7 +1257,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getCaseStatementClause()
    * @generated
    */
-  int CASE_STATEMENT_CLAUSE = 13;
+  int CASE_STATEMENT_CLAUSE = 28;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -793,7 +1312,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSpecStatement()
    * @generated
    */
-  int SPEC_STATEMENT = 14;
+  int SPEC_STATEMENT = 29;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -839,7 +1358,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAssumeStatement()
    * @generated
    */
-  int ASSUME_STATEMENT = 15;
+  int ASSUME_STATEMENT = 30;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -885,7 +1404,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAnonAssumeStatement()
    * @generated
    */
-  int ANON_ASSUME_STATEMENT = 16;
+  int ANON_ASSUME_STATEMENT = 31;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -913,7 +1432,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getGuaranteeStatement()
    * @generated
    */
-  int GUARANTEE_STATEMENT = 17;
+  int GUARANTEE_STATEMENT = 32;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -959,7 +1478,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAnonGuaranteeStatement()
    * @generated
    */
-  int ANON_GUARANTEE_STATEMENT = 18;
+  int ANON_GUARANTEE_STATEMENT = 33;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -987,7 +1506,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDataElement()
    * @generated
    */
-  int DATA_ELEMENT = 19;
+  int DATA_ELEMENT = 34;
 
   /**
    * The feature id for the '<em><b>Data Element</b></em>' reference.
@@ -1015,7 +1534,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSubcomponentElement()
    * @generated
    */
-  int SUBCOMPONENT_ELEMENT = 20;
+  int SUBCOMPONENT_ELEMENT = 35;
 
   /**
    * The feature id for the '<em><b>Subcomponent</b></em>' reference.
@@ -1043,7 +1562,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFunctions()
    * @generated
    */
-  int FUNCTIONS = 21;
+  int FUNCTIONS = 36;
 
   /**
    * The feature id for the '<em><b>Specs</b></em>' containment reference list.
@@ -1071,7 +1590,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getFuncSpec()
    * @generated
    */
-  int FUNC_SPEC = 22;
+  int FUNC_SPEC = 37;
 
   /**
    * The number of structural features of the '<em>Func Spec</em>' class.
@@ -1090,7 +1609,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangDefDef()
    * @generated
    */
-  int SLANG_DEF_DEF = 23;
+  int SLANG_DEF_DEF = 38;
 
   /**
    * The feature id for the '<em><b>Def Mods</b></em>' attribute.
@@ -1172,7 +1691,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangDefParams()
    * @generated
    */
-  int SLANG_DEF_PARAMS = 24;
+  int SLANG_DEF_PARAMS = 39;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -1200,7 +1719,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangDefParam()
    * @generated
    */
-  int SLANG_DEF_PARAM = 25;
+  int SLANG_DEF_PARAM = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1255,7 +1774,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangTypeParams()
    * @generated
    */
-  int SLANG_TYPE_PARAMS = 26;
+  int SLANG_TYPE_PARAMS = 41;
 
   /**
    * The feature id for the '<em><b>Type Param</b></em>' containment reference list.
@@ -1283,7 +1802,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangTypeParam()
    * @generated
    */
-  int SLANG_TYPE_PARAM = 27;
+  int SLANG_TYPE_PARAM = 42;
 
   /**
    * The feature id for the '<em><b>Is Mut</b></em>' attribute.
@@ -1320,7 +1839,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangDefContract()
    * @generated
    */
-  int SLANG_DEF_CONTRACT = 28;
+  int SLANG_DEF_CONTRACT = 43;
 
   /**
    * The feature id for the '<em><b>Reads</b></em>' containment reference.
@@ -1375,7 +1894,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangInvariant()
    * @generated
    */
-  int SLANG_INVARIANT = 29;
+  int SLANG_INVARIANT = 44;
 
   /**
    * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
@@ -1403,7 +1922,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangRequires()
    * @generated
    */
-  int SLANG_REQUIRES = 30;
+  int SLANG_REQUIRES = 45;
 
   /**
    * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
@@ -1431,7 +1950,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangReads()
    * @generated
    */
-  int SLANG_READS = 31;
+  int SLANG_READS = 46;
 
   /**
    * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
@@ -1459,7 +1978,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangModifies()
    * @generated
    */
-  int SLANG_MODIFIES = 32;
+  int SLANG_MODIFIES = 47;
 
   /**
    * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
@@ -1487,7 +2006,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangEnsures()
    * @generated
    */
-  int SLANG_ENSURES = 33;
+  int SLANG_ENSURES = 48;
 
   /**
    * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
@@ -1515,7 +2034,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangType()
    * @generated
    */
-  int SLANG_TYPE = 34;
+  int SLANG_TYPE = 49;
 
   /**
    * The feature id for the '<em><b>Type Name</b></em>' reference.
@@ -1543,7 +2062,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangStmt()
    * @generated
    */
-  int SLANG_STMT = 35;
+  int SLANG_STMT = 50;
 
   /**
    * The number of structural features of the '<em>Slang Stmt</em>' class.
@@ -1562,7 +2081,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangElse()
    * @generated
    */
-  int SLANG_ELSE = 36;
+  int SLANG_ELSE = 51;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -1608,7 +2127,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLoopContract()
    * @generated
    */
-  int SLANG_LOOP_CONTRACT = 37;
+  int SLANG_LOOP_CONTRACT = 52;
 
   /**
    * The feature id for the '<em><b>Inv</b></em>' containment reference.
@@ -1645,7 +2164,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangCase()
    * @generated
    */
-  int SLANG_CASE = 38;
+  int SLANG_CASE = 53;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -1691,7 +2210,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangVarDef()
    * @generated
    */
-  int SLANG_VAR_DEF = 41;
+  int SLANG_VAR_DEF = 56;
 
   /**
    * The feature id for the '<em><b>D</b></em>' containment reference.
@@ -1719,7 +2238,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangPattern()
    * @generated
    */
-  int SLANG_PATTERN = 39;
+  int SLANG_PATTERN = 54;
 
   /**
    * The feature id for the '<em><b>D</b></em>' containment reference.
@@ -1774,7 +2293,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangTPattern()
    * @generated
    */
-  int SLANG_TPATTERN = 40;
+  int SLANG_TPATTERN = 55;
 
   /**
    * The feature id for the '<em><b>Patterns</b></em>' containment reference list.
@@ -1811,7 +2330,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangBlock()
    * @generated
    */
-  int SLANG_BLOCK = 42;
+  int SLANG_BLOCK = 57;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -1875,7 +2394,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOwnedExpression()
    * @generated
    */
-  int OWNED_EXPRESSION = 43;
+  int OWNED_EXPRESSION = 58;
 
   /**
    * The number of structural features of the '<em>Owned Expression</em>' class.
@@ -1894,7 +2413,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getGExpr()
    * @generated
    */
-  int GEXPR = 44;
+  int GEXPR = 59;
 
   /**
    * The number of structural features of the '<em>GExpr</em>' class.
@@ -1913,7 +2432,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getQuantRange()
    * @generated
    */
-  int QUANT_RANGE = 45;
+  int QUANT_RANGE = 60;
 
   /**
    * The feature id for the '<em><b>Lo</b></em>' containment reference.
@@ -1959,7 +2478,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getQuantParam()
    * @generated
    */
-  int QUANT_PARAM = 46;
+  int QUANT_PARAM = 61;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1996,7 +2515,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPostfix()
    * @generated
    */
-  int POSTFIX = 47;
+  int POSTFIX = 62;
 
   /**
    * The number of structural features of the '<em>Postfix</em>' class.
@@ -2015,7 +2534,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMemberAccess()
    * @generated
    */
-  int MEMBER_ACCESS = 48;
+  int MEMBER_ACCESS = 63;
 
   /**
    * The feature id for the '<em><b>Field</b></em>' reference.
@@ -2043,7 +2562,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBuiltinAccess()
    * @generated
    */
-  int BUILTIN_ACCESS = 49;
+  int BUILTIN_ACCESS = 64;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -2071,7 +2590,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getArrayAccess()
    * @generated
    */
-  int ARRAY_ACCESS = 50;
+  int ARRAY_ACCESS = 65;
 
   /**
    * The feature id for the '<em><b>Index</b></em>' containment reference list.
@@ -2099,7 +2618,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOtherDataRef()
    * @generated
    */
-  int OTHER_DATA_REF = 51;
+  int OTHER_DATA_REF = 66;
 
   /**
    * The feature id for the '<em><b>Named Element</b></em>' reference.
@@ -2145,7 +2664,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangParams()
    * @generated
    */
-  int SLANG_PARAMS = 52;
+  int SLANG_PARAMS = 67;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -2173,7 +2692,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangParam()
    * @generated
    */
-  int SLANG_PARAM = 53;
+  int SLANG_PARAM = 68;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2210,7 +2729,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangForRange()
    * @generated
    */
-  int SLANG_FOR_RANGE = 54;
+  int SLANG_FOR_RANGE = 69;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2256,7 +2775,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangRet()
    * @generated
    */
-  int SLANG_RET = 55;
+  int SLANG_RET = 70;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2284,7 +2803,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangCallSuffix()
    * @generated
    */
-  int SLANG_CALL_SUFFIX = 56;
+  int SLANG_CALL_SUFFIX = 71;
 
   /**
    * The feature id for the '<em><b>Ca</b></em>' containment reference.
@@ -2312,7 +2831,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangCallArgs()
    * @generated
    */
-  int SLANG_CALL_ARGS = 57;
+  int SLANG_CALL_ARGS = 72;
 
   /**
    * The feature id for the '<em><b>Arg</b></em>' containment reference list.
@@ -2340,7 +2859,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLit()
    * @generated
    */
-  int SLANG_LIT = 58;
+  int SLANG_LIT = 73;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2368,7 +2887,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangInterp()
    * @generated
    */
-  int SLANG_INTERP = 59;
+  int SLANG_INTERP = 74;
 
   /**
    * The number of structural features of the '<em>Slang Interp</em>' class.
@@ -2387,7 +2906,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangIfStmt()
    * @generated
    */
-  int SLANG_IF_STMT = 60;
+  int SLANG_IF_STMT = 75;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -2433,7 +2952,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangWhileStmt()
    * @generated
    */
-  int SLANG_WHILE_STMT = 61;
+  int SLANG_WHILE_STMT = 76;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -2479,7 +2998,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangMatchStmt()
    * @generated
    */
-  int SLANG_MATCH_STMT = 62;
+  int SLANG_MATCH_STMT = 77;
 
   /**
    * The feature id for the '<em><b>Test Expr</b></em>' containment reference.
@@ -2516,7 +3035,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangSpecStmt()
    * @generated
    */
-  int SLANG_SPEC_STMT = 63;
+  int SLANG_SPEC_STMT = 78;
 
   /**
    * The feature id for the '<em><b>B</b></em>' containment reference.
@@ -2544,7 +3063,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangAssumeStmt()
    * @generated
    */
-  int SLANG_ASSUME_STMT = 64;
+  int SLANG_ASSUME_STMT = 79;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2572,7 +3091,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangAssertStmt()
    * @generated
    */
-  int SLANG_ASSERT_STMT = 65;
+  int SLANG_ASSERT_STMT = 80;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2600,7 +3119,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangHaltStmt()
    * @generated
    */
-  int SLANG_HALT_STMT = 66;
+  int SLANG_HALT_STMT = 81;
 
   /**
    * The number of structural features of the '<em>Slang Halt Stmt</em>' class.
@@ -2619,7 +3138,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangDoStmt()
    * @generated
    */
-  int SLANG_DO_STMT = 67;
+  int SLANG_DO_STMT = 82;
 
   /**
    * The feature id for the '<em><b>E</b></em>' containment reference.
@@ -2647,7 +3166,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIfElseExp()
    * @generated
    */
-  int IF_ELSE_EXP = 68;
+  int IF_ELSE_EXP = 83;
 
   /**
    * The feature id for the '<em><b>If Cond</b></em>' containment reference.
@@ -2693,7 +3212,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getQuantifiedExp()
    * @generated
    */
-  int QUANTIFIED_EXP = 69;
+  int QUANTIFIED_EXP = 84;
 
   /**
    * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -2748,7 +3267,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getImpliesExpr()
    * @generated
    */
-  int IMPLIES_EXPR = 70;
+  int IMPLIES_EXPR = 85;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2794,7 +3313,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOrExpr()
    * @generated
    */
-  int OR_EXPR = 71;
+  int OR_EXPR = 86;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2840,7 +3359,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAndExpr()
    * @generated
    */
-  int AND_EXPR = 72;
+  int AND_EXPR = 87;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2886,7 +3405,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEqualNotExpr()
    * @generated
    */
-  int EQUAL_NOT_EXPR = 73;
+  int EQUAL_NOT_EXPR = 88;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2932,7 +3451,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getLtGtExpr()
    * @generated
    */
-  int LT_GT_EXPR = 74;
+  int LT_GT_EXPR = 89;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2978,7 +3497,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getColonExpr()
    * @generated
    */
-  int COLON_EXPR = 75;
+  int COLON_EXPR = 90;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3024,7 +3543,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPlusMinusExpr()
    * @generated
    */
-  int PLUS_MINUS_EXPR = 76;
+  int PLUS_MINUS_EXPR = 91;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3070,7 +3589,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMultiplicativeExpr()
    * @generated
    */
-  int MULTIPLICATIVE_EXPR = 77;
+  int MULTIPLICATIVE_EXPR = 92;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3116,7 +3635,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryExpr()
    * @generated
    */
-  int UNARY_EXPR = 78;
+  int UNARY_EXPR = 93;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -3153,7 +3672,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPostFixExpr()
    * @generated
    */
-  int POST_FIX_EXPR = 79;
+  int POST_FIX_EXPR = 94;
 
   /**
    * The feature id for the '<em><b>Base Exp</b></em>' containment reference.
@@ -3190,7 +3709,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLitTerm()
    * @generated
    */
-  int SLANG_LIT_TERM = 80;
+  int SLANG_LIT_TERM = 95;
 
   /**
    * The feature id for the '<em><b>Lit</b></em>' containment reference.
@@ -3218,7 +3737,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangInterpTerm()
    * @generated
    */
-  int SLANG_INTERP_TERM = 81;
+  int SLANG_INTERP_TERM = 96;
 
   /**
    * The feature id for the '<em><b>I</b></em>' containment reference.
@@ -3246,7 +3765,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getInStateExpr()
    * @generated
    */
-  int IN_STATE_EXPR = 82;
+  int IN_STATE_EXPR = 97;
 
   /**
    * The feature id for the '<em><b>State Var</b></em>' reference.
@@ -3274,7 +3793,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMaySendExpr()
    * @generated
    */
-  int MAY_SEND_EXPR = 83;
+  int MAY_SEND_EXPR = 98;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3311,7 +3830,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMustSendExpr()
    * @generated
    */
-  int MUST_SEND_EXPR = 84;
+  int MUST_SEND_EXPR = 99;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3348,7 +3867,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getNoSendExpr()
    * @generated
    */
-  int NO_SEND_EXPR = 85;
+  int NO_SEND_EXPR = 100;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3376,7 +3895,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHasEventExpr()
    * @generated
    */
-  int HAS_EVENT_EXPR = 86;
+  int HAS_EVENT_EXPR = 101;
 
   /**
    * The feature id for the '<em><b>Event Port</b></em>' reference.
@@ -3404,7 +3923,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEnumLitExpr()
    * @generated
    */
-  int ENUM_LIT_EXPR = 87;
+  int ENUM_LIT_EXPR = 102;
 
   /**
    * The feature id for the '<em><b>Enum Type</b></em>' reference.
@@ -3441,7 +3960,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getParenExpr()
    * @generated
    */
-  int PAREN_EXPR = 88;
+  int PAREN_EXPR = 103;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -3469,7 +3988,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangForTerm()
    * @generated
    */
-  int SLANG_FOR_TERM = 89;
+  int SLANG_FOR_TERM = 104;
 
   /**
    * The feature id for the '<em><b>R</b></em>' containment reference list.
@@ -3515,7 +4034,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangBlockTerm()
    * @generated
    */
-  int SLANG_BLOCK_TERM = 90;
+  int SLANG_BLOCK_TERM = 105;
 
   /**
    * The feature id for the '<em><b>P</b></em>' containment reference.
@@ -3570,7 +4089,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF32Obj()
    * @generated
    */
-  int F32_OBJ = 91;
+  int F32_OBJ = 106;
 
   /**
    * The feature id for the '<em><b>Attr</b></em>' attribute.
@@ -3598,7 +4117,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF64Obj()
    * @generated
    */
-  int F64_OBJ = 92;
+  int F64_OBJ = 107;
 
   /**
    * The feature id for the '<em><b>Attr</b></em>' attribute.
@@ -3626,7 +4145,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getCallExpr()
    * @generated
    */
-  int CALL_EXPR = 93;
+  int CALL_EXPR = 108;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' reference.
@@ -3663,7 +4182,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getRecordLitExpr()
    * @generated
    */
-  int RECORD_LIT_EXPR = 94;
+  int RECORD_LIT_EXPR = 109;
 
   /**
    * The feature id for the '<em><b>Record Type</b></em>' containment reference.
@@ -3709,7 +4228,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getDataRefExpr()
    * @generated
    */
-  int DATA_REF_EXPR = 95;
+  int DATA_REF_EXPR = 110;
 
   /**
    * The feature id for the '<em><b>Port Or Subcomponent Or State Var</b></em>' reference.
@@ -3737,7 +4256,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getResultExpr()
    * @generated
    */
-  int RESULT_EXPR = 96;
+  int RESULT_EXPR = 111;
 
   /**
    * The number of structural features of the '<em>Result Expr</em>' class.
@@ -3756,7 +4275,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBooleanLit()
    * @generated
    */
-  int BOOLEAN_LIT = 97;
+  int BOOLEAN_LIT = 112;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3784,7 +4303,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIntegerLit()
    * @generated
    */
-  int INTEGER_LIT = 98;
+  int INTEGER_LIT = 113;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3812,7 +4331,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getHexLit()
    * @generated
    */
-  int HEX_LIT = 99;
+  int HEX_LIT = 114;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3840,7 +4359,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinLit()
    * @generated
    */
-  int BIN_LIT = 100;
+  int BIN_LIT = 115;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3868,7 +4387,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF32Lit()
    * @generated
    */
-  int F32_LIT = 101;
+  int F32_LIT = 116;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3896,7 +4415,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getF64Lit()
    * @generated
    */
-  int F64_LIT = 102;
+  int F64_LIT = 117;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3924,7 +4443,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangStringLit()
    * @generated
    */
-  int SLANG_STRING_LIT = 103;
+  int SLANG_STRING_LIT = 118;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3952,7 +4471,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSlangLiteralInterp()
    * @generated
    */
-  int SLANG_LITERAL_INTERP = 104;
+  int SLANG_LITERAL_INTERP = 119;
 
   /**
    * The feature id for the '<em><b>Sli</b></em>' attribute.
@@ -4090,6 +4609,17 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getSpecSection_Compute();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getSchedule <em>Schedule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Schedule</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SpecSection#getSchedule()
+   * @see #getSpecSection()
+   * @generated
+   */
+  EReference getSpecSection_Schedule();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.State <em>State</em>}'.
@@ -4368,6 +4898,431 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getCompute_Flows();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.Schedule <em>Schedule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Schedule
+   * @generated
+   */
+  EClass getSchedule();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.Schedule#getComponentAliases <em>Component Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Component Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Schedule#getComponentAliases()
+   * @see #getSchedule()
+   * @generated
+   */
+  EReference getSchedule_ComponentAliases();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.Schedule#getPortAliases <em>Port Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Port Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Schedule#getPortAliases()
+   * @see #getSchedule()
+   * @generated
+   */
+  EReference getSchedule_PortAliases();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.Schedule#getStateVarAliases <em>State Var Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>State Var Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Schedule#getStateVarAliases()
+   * @see #getSchedule()
+   * @generated
+   */
+  EReference getSchedule_StateVarAliases();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.Schedule#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.Schedule#getElements()
+   * @see #getSchedule()
+   * @generated
+   */
+  EReference getSchedule_Elements();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases <em>Schedule Component Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Component Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases
+   * @generated
+   */
+  EClass getScheduleComponentAliases();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases#getAliases <em>Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases#getAliases()
+   * @see #getScheduleComponentAliases()
+   * @generated
+   */
+  EReference getScheduleComponentAliases_Aliases();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias <em>Schedule Component Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Component Alias</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias
+   * @generated
+   */
+  EClass getScheduleComponentAlias();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias#getName()
+   * @see #getScheduleComponentAlias()
+   * @generated
+   */
+  EAttribute getScheduleComponentAlias_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias#getComponentPath <em>Component Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Component Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias#getComponentPath()
+   * @see #getScheduleComponentAlias()
+   * @generated
+   */
+  EReference getScheduleComponentAlias_ComponentPath();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath <em>Schedule Subcomponent Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Subcomponent Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath
+   * @generated
+   */
+  EClass getScheduleSubcomponentPath();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath#getSubcomponent <em>Subcomponent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Subcomponent</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath#getSubcomponent()
+   * @see #getScheduleSubcomponentPath()
+   * @generated
+   */
+  EReference getScheduleSubcomponentPath_Subcomponent();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath#getSubPath <em>Sub Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sub Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath#getSubPath()
+   * @see #getScheduleSubcomponentPath()
+   * @generated
+   */
+  EReference getScheduleSubcomponentPath_SubPath();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortAliases <em>Schedule Port Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Port Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortAliases
+   * @generated
+   */
+  EClass getSchedulePortAliases();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortAliases#getAliases <em>Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortAliases#getAliases()
+   * @see #getSchedulePortAliases()
+   * @generated
+   */
+  EReference getSchedulePortAliases_Aliases();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortAlias <em>Schedule Port Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Port Alias</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortAlias
+   * @generated
+   */
+  EClass getSchedulePortAlias();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortAlias#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortAlias#getName()
+   * @see #getSchedulePortAlias()
+   * @generated
+   */
+  EAttribute getSchedulePortAlias_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortAlias#getPortPath <em>Port Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Port Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortAlias#getPortPath()
+   * @see #getSchedulePortAlias()
+   * @generated
+   */
+  EReference getSchedulePortAlias_PortPath();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortPath <em>Schedule Port Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Port Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortPath
+   * @generated
+   */
+  EClass getSchedulePortPath();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortPath#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortPath#getRef()
+   * @see #getSchedulePortPath()
+   * @generated
+   */
+  EReference getSchedulePortPath_Ref();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SchedulePortPath#getSubPath <em>Sub Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sub Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SchedulePortPath#getSubPath()
+   * @see #getSchedulePortPath()
+   * @generated
+   */
+  EReference getSchedulePortPath_SubPath();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases <em>Schedule State Var Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule State Var Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases
+   * @generated
+   */
+  EClass getScheduleStateVarAliases();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases#getAliases <em>Aliases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Aliases</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases#getAliases()
+   * @see #getScheduleStateVarAliases()
+   * @generated
+   */
+  EReference getScheduleStateVarAliases_Aliases();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias <em>Schedule State Var Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule State Var Alias</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias
+   * @generated
+   */
+  EClass getScheduleStateVarAlias();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias#getName()
+   * @see #getScheduleStateVarAlias()
+   * @generated
+   */
+  EAttribute getScheduleStateVarAlias_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias#getStateVarPath <em>State Var Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>State Var Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias#getStateVarPath()
+   * @see #getScheduleStateVarAlias()
+   * @generated
+   */
+  EReference getScheduleStateVarAlias_StateVarPath();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath <em>Schedule State Var Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule State Var Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath
+   * @generated
+   */
+  EClass getScheduleStateVarPath();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath#getRef()
+   * @see #getScheduleStateVarPath()
+   * @generated
+   */
+  EReference getScheduleStateVarPath_Ref();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath#getSubPath <em>Sub Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sub Path</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath#getSubPath()
+   * @see #getScheduleStateVarPath()
+   * @generated
+   */
+  EReference getScheduleStateVarPath_SubPath();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleElement <em>Schedule Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Element</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleElement
+   * @generated
+   */
+  EClass getScheduleElement();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert <em>Schedule Assert</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Assert</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleAssert
+   * @generated
+   */
+  EClass getScheduleAssert();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleAssert#getId()
+   * @see #getScheduleAssert()
+   * @generated
+   */
+  EAttribute getScheduleAssert_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert#getDescriptor <em>Descriptor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Descriptor</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleAssert#getDescriptor()
+   * @see #getScheduleAssert()
+   * @generated
+   */
+  EAttribute getScheduleAssert_Descriptor();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleAssert#getExpr()
+   * @see #getScheduleAssert()
+   * @generated
+   */
+  EReference getScheduleAssert_Expr();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef <em>Schedule Component Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Component Ref</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef
+   * @generated
+   */
+  EClass getScheduleComponentRef();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef#getComponent <em>Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Component</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef#getComponent()
+   * @see #getScheduleComponentRef()
+   * @generated
+   */
+  EReference getScheduleComponentRef_Component();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin <em>Schedule Split Join</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Split Join</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin
+   * @generated
+   */
+  EClass getScheduleSplitJoin();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin#getSequences <em>Sequences</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Sequences</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin#getSequences()
+   * @see #getScheduleSplitJoin()
+   * @generated
+   */
+  EReference getScheduleSplitJoin_Sequences();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence <em>Schedule Sequence</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Schedule Sequence</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSequence
+   * @generated
+   */
+  EClass getScheduleSequence();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSequence#getElements()
+   * @see #getScheduleSequence()
+   * @generated
+   */
+  EReference getScheduleSequence_Elements();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.InfoFlowClause <em>Info Flow Clause</em>}'.
@@ -7165,6 +8120,14 @@ public interface GumboPackage extends EPackage
     EReference SPEC_SECTION__COMPUTE = eINSTANCE.getSpecSection_Compute();
 
     /**
+     * The meta object literal for the '<em><b>Schedule</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPEC_SECTION__SCHEDULE = eINSTANCE.getSpecSection_Schedule();
+
+    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.StateImpl <em>State</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7387,6 +8350,356 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference COMPUTE__FLOWS = eINSTANCE.getCompute_Flows();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleImpl <em>Schedule</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedule()
+     * @generated
+     */
+    EClass SCHEDULE = eINSTANCE.getSchedule();
+
+    /**
+     * The meta object literal for the '<em><b>Component Aliases</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE__COMPONENT_ALIASES = eINSTANCE.getSchedule_ComponentAliases();
+
+    /**
+     * The meta object literal for the '<em><b>Port Aliases</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE__PORT_ALIASES = eINSTANCE.getSchedule_PortAliases();
+
+    /**
+     * The meta object literal for the '<em><b>State Var Aliases</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE__STATE_VAR_ALIASES = eINSTANCE.getSchedule_StateVarAliases();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE__ELEMENTS = eINSTANCE.getSchedule_Elements();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasesImpl <em>Schedule Component Aliases</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasesImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleComponentAliases()
+     * @generated
+     */
+    EClass SCHEDULE_COMPONENT_ALIASES = eINSTANCE.getScheduleComponentAliases();
+
+    /**
+     * The meta object literal for the '<em><b>Aliases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_COMPONENT_ALIASES__ALIASES = eINSTANCE.getScheduleComponentAliases_Aliases();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasImpl <em>Schedule Component Alias</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentAliasImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleComponentAlias()
+     * @generated
+     */
+    EClass SCHEDULE_COMPONENT_ALIAS = eINSTANCE.getScheduleComponentAlias();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEDULE_COMPONENT_ALIAS__NAME = eINSTANCE.getScheduleComponentAlias_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Component Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_COMPONENT_ALIAS__COMPONENT_PATH = eINSTANCE.getScheduleComponentAlias_ComponentPath();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleSubcomponentPathImpl <em>Schedule Subcomponent Path</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleSubcomponentPathImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleSubcomponentPath()
+     * @generated
+     */
+    EClass SCHEDULE_SUBCOMPONENT_PATH = eINSTANCE.getScheduleSubcomponentPath();
+
+    /**
+     * The meta object literal for the '<em><b>Subcomponent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_SUBCOMPONENT_PATH__SUBCOMPONENT = eINSTANCE.getScheduleSubcomponentPath_Subcomponent();
+
+    /**
+     * The meta object literal for the '<em><b>Sub Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_SUBCOMPONENT_PATH__SUB_PATH = eINSTANCE.getScheduleSubcomponentPath_SubPath();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasesImpl <em>Schedule Port Aliases</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasesImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedulePortAliases()
+     * @generated
+     */
+    EClass SCHEDULE_PORT_ALIASES = eINSTANCE.getSchedulePortAliases();
+
+    /**
+     * The meta object literal for the '<em><b>Aliases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_PORT_ALIASES__ALIASES = eINSTANCE.getSchedulePortAliases_Aliases();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasImpl <em>Schedule Port Alias</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SchedulePortAliasImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedulePortAlias()
+     * @generated
+     */
+    EClass SCHEDULE_PORT_ALIAS = eINSTANCE.getSchedulePortAlias();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEDULE_PORT_ALIAS__NAME = eINSTANCE.getSchedulePortAlias_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Port Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_PORT_ALIAS__PORT_PATH = eINSTANCE.getSchedulePortAlias_PortPath();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.SchedulePortPathImpl <em>Schedule Port Path</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.SchedulePortPathImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getSchedulePortPath()
+     * @generated
+     */
+    EClass SCHEDULE_PORT_PATH = eINSTANCE.getSchedulePortPath();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_PORT_PATH__REF = eINSTANCE.getSchedulePortPath_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Sub Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_PORT_PATH__SUB_PATH = eINSTANCE.getSchedulePortPath_SubPath();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasesImpl <em>Schedule State Var Aliases</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasesImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleStateVarAliases()
+     * @generated
+     */
+    EClass SCHEDULE_STATE_VAR_ALIASES = eINSTANCE.getScheduleStateVarAliases();
+
+    /**
+     * The meta object literal for the '<em><b>Aliases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_STATE_VAR_ALIASES__ALIASES = eINSTANCE.getScheduleStateVarAliases_Aliases();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasImpl <em>Schedule State Var Alias</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarAliasImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleStateVarAlias()
+     * @generated
+     */
+    EClass SCHEDULE_STATE_VAR_ALIAS = eINSTANCE.getScheduleStateVarAlias();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEDULE_STATE_VAR_ALIAS__NAME = eINSTANCE.getScheduleStateVarAlias_Name();
+
+    /**
+     * The meta object literal for the '<em><b>State Var Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_STATE_VAR_ALIAS__STATE_VAR_PATH = eINSTANCE.getScheduleStateVarAlias_StateVarPath();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarPathImpl <em>Schedule State Var Path</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleStateVarPathImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleStateVarPath()
+     * @generated
+     */
+    EClass SCHEDULE_STATE_VAR_PATH = eINSTANCE.getScheduleStateVarPath();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_STATE_VAR_PATH__REF = eINSTANCE.getScheduleStateVarPath_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Sub Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_STATE_VAR_PATH__SUB_PATH = eINSTANCE.getScheduleStateVarPath_SubPath();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleElementImpl <em>Schedule Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleElementImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleElement()
+     * @generated
+     */
+    EClass SCHEDULE_ELEMENT = eINSTANCE.getScheduleElement();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleAssertImpl <em>Schedule Assert</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleAssertImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleAssert()
+     * @generated
+     */
+    EClass SCHEDULE_ASSERT = eINSTANCE.getScheduleAssert();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEDULE_ASSERT__ID = eINSTANCE.getScheduleAssert_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEDULE_ASSERT__DESCRIPTOR = eINSTANCE.getScheduleAssert_Descriptor();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_ASSERT__EXPR = eINSTANCE.getScheduleAssert_Expr();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentRefImpl <em>Schedule Component Ref</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleComponentRefImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleComponentRef()
+     * @generated
+     */
+    EClass SCHEDULE_COMPONENT_REF = eINSTANCE.getScheduleComponentRef();
+
+    /**
+     * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_COMPONENT_REF__COMPONENT = eINSTANCE.getScheduleComponentRef_Component();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleSplitJoinImpl <em>Schedule Split Join</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleSplitJoinImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleSplitJoin()
+     * @generated
+     */
+    EClass SCHEDULE_SPLIT_JOIN = eINSTANCE.getScheduleSplitJoin();
+
+    /**
+     * The meta object literal for the '<em><b>Sequences</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_SPLIT_JOIN__SEQUENCES = eINSTANCE.getScheduleSplitJoin_Sequences();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ScheduleSequenceImpl <em>Schedule Sequence</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.ScheduleSequenceImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getScheduleSequence()
+     * @generated
+     */
+    EClass SCHEDULE_SEQUENCE = eINSTANCE.getScheduleSequence();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEDULE_SEQUENCE__ELEMENTS = eINSTANCE.getScheduleSequence_Elements();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.InfoFlowClauseImpl <em>Info Flow Clause</em>}' class.
