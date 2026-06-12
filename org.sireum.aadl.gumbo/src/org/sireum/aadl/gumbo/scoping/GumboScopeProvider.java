@@ -74,9 +74,9 @@ import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
-import org.sireum.aadl.gumbo.gumbo.Schedule;
+import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
-import org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
@@ -257,9 +257,9 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 		return IScope.NULLSCOPE;
 	}
 
-	// Resolves 'component' references in the schedule body.
+	// Resolves bare component references in the composition schema.
 	// Scoped to component aliases + system implementation's direct subcomponents.
-	IScope scope_ScheduleComponentRef_component(ScheduleComponentRef context, EReference reference) {
+	IScope scope_SchemaComponentRef_component(SchemaComponentRef context, EReference reference) {
 		List<EObject> scope = new ArrayList<>();
 		scope.addAll(getScheduleComponentAliases(context));
 		ComponentImplementation ci = EcoreUtil2.getContainerOfType(context, ComponentImplementation.class);
@@ -665,15 +665,15 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 			// Library defs from current package
 			localDecls.addAll(getGumboLibraryFunctionDefs(context, false));
 
-			// Port aliases from schedule (if inside a schedule block)
-			Schedule schedule = EcoreUtil2.getContainerOfType(context, Schedule.class);
-			if (schedule != null && schedule.getPortAliases() != null) {
-				localDecls.addAll(schedule.getPortAliases().getAliases());
+			// Port aliases from the composition (if inside a composition block)
+			Composition composition = EcoreUtil2.getContainerOfType(context, Composition.class);
+			if (composition != null && composition.getPortAliases() != null) {
+				localDecls.addAll(composition.getPortAliases().getAliases());
 			}
 
-			// State var aliases from schedule (if inside a schedule block)
-			if (schedule != null && schedule.getStateVarAliases() != null) {
-				localDecls.addAll(schedule.getStateVarAliases().getAliases());
+			// State var aliases from the composition (if inside a composition block)
+			if (composition != null && composition.getStateVarAliases() != null) {
+				localDecls.addAll(composition.getStateVarAliases().getAliases());
 			}
 
 			// Parameters of the enclosing function, if any
@@ -891,11 +891,11 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 	// Schedule helper methods
 	////////////////////////////////////////////////////////////////////////////
 
-	// Get component aliases from the containing Schedule block
+	// Get component aliases from the containing Composition block
 	private List<ScheduleComponentAlias> getScheduleComponentAliases(EObject context) {
-		Schedule schedule = EcoreUtil2.getContainerOfType(context, Schedule.class);
-		if (schedule != null && schedule.getComponentAliases() != null) {
-			return schedule.getComponentAliases().getAliases();
+		Composition composition = EcoreUtil2.getContainerOfType(context, Composition.class);
+		if (composition != null && composition.getComponentAliases() != null) {
+			return composition.getComponentAliases().getAliases();
 		}
 		return Collections.emptyList();
 	}

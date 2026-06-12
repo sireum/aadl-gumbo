@@ -93,17 +93,24 @@ import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
 import org.sireum.aadl.gumbo.gumbo.SpecStatement;
 import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
-import org.sireum.aadl.gumbo.gumbo.Schedule;
-import org.sireum.aadl.gumbo.gumbo.ScheduleAssert;
+import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.CompositionProperty;
+import org.sireum.aadl.gumbo.gumbo.PointAfter;
+import org.sireum.aadl.gumbo.gumbo.PointAt;
+import org.sireum.aadl.gumbo.gumbo.PointBefore;
+import org.sireum.aadl.gumbo.gumbo.PropertyBinding;
+import org.sireum.aadl.gumbo.gumbo.Schema;
+import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
+import org.sireum.aadl.gumbo.gumbo.SchemaElement;
+import org.sireum.aadl.gumbo.gumbo.SchemaLabel;
+import org.sireum.aadl.gumbo.gumbo.SchemaPoint;
+import org.sireum.aadl.gumbo.gumbo.SchemaSequence;
+import org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
-import org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef;
-import org.sireum.aadl.gumbo.gumbo.ScheduleElement;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSequence;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin;
 import org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath;
 import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
 import org.sireum.aadl.gumbo.gumbo.util.GumboSwitch;
@@ -136,17 +143,27 @@ import org.sireum.hamr.ir.GclInvariant;
 import org.sireum.hamr.ir.GclInvariant$;
 import org.sireum.hamr.ir.GclLib$;
 import org.sireum.hamr.ir.GclMethod;
-import org.sireum.hamr.ir.GclSchedule;
-import org.sireum.hamr.ir.GclSchedule$;
-import org.sireum.hamr.ir.GclScheduleAssert$;
-import org.sireum.hamr.ir.GclScheduleComponentAlias$;
-import org.sireum.hamr.ir.GclScheduleComponentRef$;
-import org.sireum.hamr.ir.GclScheduleElement;
-import org.sireum.hamr.ir.GclSchedulePortAlias$;
-import org.sireum.hamr.ir.GclScheduleStateVarAlias$;
-import org.sireum.hamr.ir.GclScheduleSequence;
-import org.sireum.hamr.ir.GclScheduleSequence$;
-import org.sireum.hamr.ir.GclScheduleSplitJoin$;
+import org.sireum.hamr.ir.GclComposition;
+import org.sireum.hamr.ir.GclComposition$;
+import org.sireum.hamr.ir.GclCompositionComponentAlias$;
+import org.sireum.hamr.ir.GclCompositionPortAlias$;
+import org.sireum.hamr.ir.GclCompositionProperty;
+import org.sireum.hamr.ir.GclCompositionProperty$;
+import org.sireum.hamr.ir.GclCompositionStateVarAlias$;
+import org.sireum.hamr.ir.GclPointAfter$;
+import org.sireum.hamr.ir.GclPointAt$;
+import org.sireum.hamr.ir.GclPointBefore$;
+import org.sireum.hamr.ir.GclPointEnd$;
+import org.sireum.hamr.ir.GclPointStart$;
+import org.sireum.hamr.ir.GclPropertyBinding;
+import org.sireum.hamr.ir.GclPropertyBinding$;
+import org.sireum.hamr.ir.GclSchemaComponentRef$;
+import org.sireum.hamr.ir.GclSchemaElement;
+import org.sireum.hamr.ir.GclSchemaLabel$;
+import org.sireum.hamr.ir.GclSchemaPoint;
+import org.sireum.hamr.ir.GclSchemaSequence;
+import org.sireum.hamr.ir.GclSchemaSequence$;
+import org.sireum.hamr.ir.GclSchemaSplitJoin$;
 import org.sireum.hamr.ir.GclSpec;
 import org.sireum.hamr.ir.GclSpecMethod$;
 import org.sireum.hamr.ir.GclStateVar;
@@ -608,13 +625,14 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			_compute = SlangUtil.toSome(visitPop(object.getSpecs().getCompute()));
 		}
 		
-		Option<GclSchedule> _schedule = SlangUtil.toNone();
-		if (object.getSpecs().getSchedule() != null) {
-			_schedule = SlangUtil.toSome(visitSchedule(object.getSpecs().getSchedule()));
+		List<GclComposition> _compositions = new ArrayList<>();
+		for (Composition c : object.getSpecs().getCompositions()) {
+			_compositions.add(visitComposition(c));
 		}
 
 		push(GclSubclause$.MODULE$.apply(VisitorUtil.toISZ(_state), VisitorUtil.toISZ(_methods),
-				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute, _schedule, GumboUtil.toAttr(object)));
+				VisitorUtil.toISZ(_invariants), _initializes, _integration, _compute, VisitorUtil.toISZ(_compositions),
+				GumboUtil.toAttr(object)));
 
 		return false;
 	}
@@ -797,84 +815,122 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return false;
 	}
 
-	private GclSchedule visitSchedule(Schedule schedule) {
-		List<org.sireum.hamr.ir.GclScheduleComponentAlias> compAliases = new ArrayList<>();
-		if (schedule.getComponentAliases() != null) {
-			for (ScheduleComponentAlias alias : schedule.getComponentAliases().getAliases()) {
+	private GclComposition visitComposition(Composition composition) {
+		List<org.sireum.hamr.ir.GclCompositionComponentAlias> compAliases = new ArrayList<>();
+		if (composition.getComponentAliases() != null) {
+			for (ScheduleComponentAlias alias : composition.getComponentAliases().getAliases()) {
 				List<String> pathSegments = flattenSubcomponentPath(alias.getComponentPath());
-				compAliases.add(GclScheduleComponentAlias$.MODULE$.apply(
+				compAliases.add(GclCompositionComponentAlias$.MODULE$.apply(
 						alias.getName(),
 						GumboUtil.toName(pathSegments),
 						GumboUtil.toAttr(alias)));
 			}
 		}
 
-		List<org.sireum.hamr.ir.GclSchedulePortAlias> portAliases = new ArrayList<>();
-		if (schedule.getPortAliases() != null) {
-			for (SchedulePortAlias alias : schedule.getPortAliases().getAliases()) {
+		List<org.sireum.hamr.ir.GclCompositionPortAlias> portAliases = new ArrayList<>();
+		if (composition.getPortAliases() != null) {
+			for (SchedulePortAlias alias : composition.getPortAliases().getAliases()) {
 				List<String> pathSegments = flattenPortPath(alias.getPortPath());
-				portAliases.add(GclSchedulePortAlias$.MODULE$.apply(
+				portAliases.add(GclCompositionPortAlias$.MODULE$.apply(
 						alias.getName(),
 						GumboUtil.toName(pathSegments),
 						GumboUtil.toAttr(alias)));
 			}
 		}
 
-		List<org.sireum.hamr.ir.GclScheduleStateVarAlias> stateVarAliases = new ArrayList<>();
-		if (schedule.getStateVarAliases() != null) {
-			for (ScheduleStateVarAlias alias : schedule.getStateVarAliases().getAliases()) {
+		List<org.sireum.hamr.ir.GclCompositionStateVarAlias> stateVarAliases = new ArrayList<>();
+		if (composition.getStateVarAliases() != null) {
+			for (ScheduleStateVarAlias alias : composition.getStateVarAliases().getAliases()) {
 				List<String> pathSegments = flattenStateVarPath(alias.getStateVarPath());
-				stateVarAliases.add(GclScheduleStateVarAlias$.MODULE$.apply(
+				stateVarAliases.add(GclCompositionStateVarAlias$.MODULE$.apply(
 						alias.getName(),
 						GumboUtil.toName(pathSegments),
 						GumboUtil.toAttr(alias)));
 			}
 		}
 
-		List<GclScheduleElement> elements = new ArrayList<>();
-		for (ScheduleElement elem : schedule.getElements()) {
-			elements.add(visitScheduleElement(elem));
+		List<GclSchemaElement> schema = new ArrayList<>();
+		for (SchemaElement elem : composition.getSchema().getElements()) {
+			schema.add(visitSchemaElement(elem));
 		}
 
-		return GclSchedule$.MODULE$.apply(
+		List<GclCompositionProperty> properties = new ArrayList<>();
+		for (CompositionProperty p : composition.getProperties()) {
+			properties.add(visitCompositionProperty(p));
+		}
+
+		return GclComposition$.MODULE$.apply(
+				composition.getId(),
 				VisitorUtil.toISZ(compAliases),
 				VisitorUtil.toISZ(portAliases),
 				VisitorUtil.toISZ(stateVarAliases),
-				VisitorUtil.toISZ(elements),
-				GumboUtil.toAttr(schedule));
+				VisitorUtil.toISZ(schema),
+				VisitorUtil.toISZ(properties),
+				GumboUtil.toAttr(composition));
 	}
 
-	private GclScheduleElement visitScheduleElement(ScheduleElement elem) {
-		if (elem instanceof ScheduleAssert) {
-			ScheduleAssert sa = (ScheduleAssert) elem;
-			Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(sa.getDescriptor());
-			Exp expr = visitPop(sa.getExpr());
-			return GclScheduleAssert$.MODULE$.apply(
-					sa.getId(), descriptor, expr, GumboUtil.toAttr(sa));
-		} else if (elem instanceof ScheduleComponentRef) {
-			ScheduleComponentRef cr = (ScheduleComponentRef) elem;
+	private GclSchemaElement visitSchemaElement(SchemaElement elem) {
+		if (elem instanceof SchemaLabel) {
+			SchemaLabel l = (SchemaLabel) elem;
+			return GclSchemaLabel$.MODULE$.apply(l.getId(), GumboUtil.toAttr(l));
+		} else if (elem instanceof SchemaComponentRef) {
+			SchemaComponentRef cr = (SchemaComponentRef) elem;
 			String compName = getEObjectName(cr.getComponent());
-			return GclScheduleComponentRef$.MODULE$.apply(
-					GumboUtil.toName(compName), GumboUtil.toAttr(cr));
-		} else if (elem instanceof ScheduleSplitJoin) {
-			ScheduleSplitJoin sj = (ScheduleSplitJoin) elem;
-			List<GclScheduleSequence> sequences = new ArrayList<>();
-			for (ScheduleSequence seq : sj.getSequences()) {
-				sequences.add(visitScheduleSequence(seq));
+			Option<org.sireum.String> occurrenceLabel = GumboUtil.getOptionalSlangString(cr.getOccurrenceLabel());
+			return GclSchemaComponentRef$.MODULE$.apply(
+					GumboUtil.toName(compName), occurrenceLabel, GumboUtil.toAttr(cr));
+		} else if (elem instanceof SchemaSplitJoin) {
+			SchemaSplitJoin sj = (SchemaSplitJoin) elem;
+			List<GclSchemaSequence> branches = new ArrayList<>();
+			for (SchemaSequence seq : sj.getBranches()) {
+				branches.add(visitSchemaSequence(seq));
 			}
-			return GclScheduleSplitJoin$.MODULE$.apply(
-					VisitorUtil.toISZ(sequences), GumboUtil.toAttr(sj));
+			return GclSchemaSplitJoin$.MODULE$.apply(
+					VisitorUtil.toISZ(branches), GumboUtil.toAttr(sj));
 		}
-		throw new RuntimeException("Unexpected schedule element type: " + elem.getClass().getName());
+		throw new RuntimeException("Unexpected schema element type: " + elem.getClass().getName());
 	}
 
-	private GclScheduleSequence visitScheduleSequence(ScheduleSequence seq) {
-		List<GclScheduleElement> elements = new ArrayList<>();
-		for (ScheduleElement elem : seq.getElements()) {
-			elements.add(visitScheduleElement(elem));
+	private GclSchemaSequence visitSchemaSequence(SchemaSequence seq) {
+		List<GclSchemaElement> elements = new ArrayList<>();
+		for (SchemaElement elem : seq.getElements()) {
+			elements.add(visitSchemaElement(elem));
 		}
-		return GclScheduleSequence$.MODULE$.apply(
+		return GclSchemaSequence$.MODULE$.apply(
 				VisitorUtil.toISZ(elements), GumboUtil.toAttr(seq));
+	}
+
+	private GclCompositionProperty visitCompositionProperty(CompositionProperty p) {
+		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(p.getDescriptor());
+		List<GclPropertyBinding> bindings = new ArrayList<>();
+		for (PropertyBinding b : p.getBindings()) {
+			Option<org.sireum.String> bindingDescriptor = GumboUtil.getOptionalSlangString(b.getDescriptor());
+			Exp expr = visitPop(b.getExpr());
+			bindings.add(GclPropertyBinding$.MODULE$.apply(
+					visitSchemaPoint(b.getPoint()), bindingDescriptor, expr, GumboUtil.toAttr(b)));
+		}
+		return GclCompositionProperty$.MODULE$.apply(
+				p.getId(), descriptor, VisitorUtil.toISZ(bindings), GumboUtil.toAttr(p));
+	}
+
+	private GclSchemaPoint visitSchemaPoint(SchemaPoint point) {
+		if (point instanceof PointAt) {
+			PointAt p = (PointAt) point;
+			// the reserved names START and END denote the schedule's start/end places
+			if ("START".equals(p.getLabel())) {
+				return GclPointStart$.MODULE$.apply(GumboUtil.toAttr(p));
+			} else if ("END".equals(p.getLabel())) {
+				return GclPointEnd$.MODULE$.apply(GumboUtil.toAttr(p));
+			}
+			return GclPointAt$.MODULE$.apply(p.getLabel(), GumboUtil.toAttr(p));
+		} else if (point instanceof PointBefore) {
+			PointBefore p = (PointBefore) point;
+			return GclPointBefore$.MODULE$.apply(p.getOccurrence(), GumboUtil.toAttr(p));
+		} else if (point instanceof PointAfter) {
+			PointAfter p = (PointAfter) point;
+			return GclPointAfter$.MODULE$.apply(p.getOccurrence(), GumboUtil.toAttr(p));
+		}
+		throw new RuntimeException("Unexpected schema point type: " + point.getClass().getName());
 	}
 
 	private List<String> flattenSubcomponentPath(ScheduleSubcomponentPath path) {

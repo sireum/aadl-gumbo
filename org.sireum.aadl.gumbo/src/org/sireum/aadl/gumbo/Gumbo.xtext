@@ -33,7 +33,7 @@ SpecSection: {SpecSection}
 	(integration = Integration)?
 	(initialize = Initialize)?
 	(compute = Compute)?
-	(schedule = Schedule)?
+	(compositions += Composition)*
 ;
 
 State:
@@ -83,26 +83,33 @@ Compute:
 ;
 
 // ===========================================================================
-// Schedule -- system-level contract for system implementations
+// Composition -- system-level contract for system implementations (design D8
+// of VCGenerationDesign.md in the hamr-system-reasoning-prototype repo).
 //
-// Specifies scheduling constraints (sequences and splits) with assertions
-// at transition points. Assertions are optional; omitted assertions are
-// treated as implicit 'true' during lowering.
+// A composition separates the schedule *schema* (component ordering, splits/
+// joins -- no assertions) from named *properties* (assertion decorations of
+// schema points). The required id names the per-composition artifacts
+// (sys_proof_<id> proof crate, runtime monitor, meta program); a system may
+// declare several compositions.
 //
 // Validation (not grammar) enforces:
-//   - schedule only allowed on system implementations
+//   - composition only allowed on system implementations
 //   - state/initialize/compute rejected on system implementations
 //   - component aliases resolve to thread subcomponent instances
 //   - port aliases resolve to ports on referenced components
 //   - state var aliases resolve to StateVarDecls in referenced components' GUMBO subclauses
+// (the kekinian GclResolver additionally lints: composition id uniqueness,
+//  schema label uniqueness/collisions, occurrence labels required for
+//  multi-firing components, property point resolution)
 // ===========================================================================
 
-Schedule:
-	'schedule' '{'
+Composition:
+	'composition' id=ID '{'
 		(componentAliases = ScheduleComponentAliases)?
 		(portAliases = SchedulePortAliases)?
 		(stateVarAliases = ScheduleStateVarAliases)?
-		(elements += ScheduleElement)+
+		schema = Schema
+		(properties += CompositionProperty)*
 	'}'
 ;
 
@@ -155,27 +162,62 @@ ScheduleStateVarPath:
 	('.' subPath=ScheduleStateVarPath)?
 ;
 
-ScheduleElement:
-	ScheduleAssert | ScheduleComponentRef | ScheduleSplitJoin
+// The schedule skeleton only -- no assertions. ';' separates elements within a
+// sequence (order is claimed); ',' separates the branches of a split (order is
+// deliberately not claimed).
+Schema:
+	'schema' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
 ;
 
-ScheduleAssert:
-	'assert' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+SchemaElement:
+	SchemaLabel | SchemaSplitJoin | SchemaComponentRef
 ;
 
-// References a component alias or a subcomponent directly.
+// Names the place at this position (purely naming, never structural: the place
+// exists regardless; add a label only when a property must bind a point with
+// no unambiguous derived name, e.g. between a join and the next split).
+SchemaLabel:
+	'label' id=ID
+;
+
+// References a component alias or a subcomponent directly (no 'component'
+// keyword: with assertions out of the schema, a bare ID is unambiguous).
 // Scope provider puts both ScheduleComponentAlias entries and
-// aadl2::Subcomponent instances in scope.
-ScheduleComponentRef:
-	'component' component=[ecore::EObject|ID]
+// aadl2::Subcomponent instances in scope. The optional occurrence label
+// ('<alias> @ <id>') disambiguates a component that fires more than once per
+// hyperperiod; the kekinian resolver REQUIRES it on multi-firing occurrences.
+SchemaComponentRef:
+	component=[ecore::EObject|ID] ('@' occurrenceLabel=ID)?
 ;
 
-ScheduleSplitJoin:
-	'split' '{' sequences += ScheduleSequence (',' sequences += ScheduleSequence)+ '}'
+SchemaSplitJoin:
+	'split' '{' branches += SchemaSequence (',' branches += SchemaSequence)+ '}'
 ;
 
-ScheduleSequence:
-	'sequence' '{' (elements += ScheduleElement)+ '}'
+SchemaSequence:
+	'sequence' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
+;
+
+// A named assertion decoration of the schema. Each property generates its own
+// VC set over the shared net; a property's VCs see only its own bindings, and
+// unbound points lower to 'true'.
+CompositionProperty:
+	'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
+;
+
+PropertyBinding:
+	point=SchemaPoint descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+;
+
+// A schema point reference. 'at' takes a label (the reserved names START and
+// END are mapped to the schedule's start/end places by the AIR visitor);
+// 'before'/'after' take a component occurrence (its alias when it fires once,
+// or its occurrence label). Consecutive elements share a place, so a place may
+// have several names; the kekinian resolver enforces one binding per place.
+SchemaPoint:
+	  {PointAt} 'at' label=ID
+	| {PointBefore} 'before' occurrence=ID
+	| {PointAfter} 'after' occurrence=ID
 ;
 
 InfoFlowClause:

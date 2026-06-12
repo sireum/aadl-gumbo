@@ -13,22 +13,35 @@
  */
 package org.sireum.aadl.gumbo.validation;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.osate.aadl2.Classifier;
+import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.DataClassifier;
 import org.osate.aadl2.SystemImplementation;
 import org.osate.aadl2.ThreadClassifier;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
-import org.sireum.aadl.gumbo.gumbo.Schedule;
+import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.PointAfter;
+import org.sireum.aadl.gumbo.gumbo.PointAt;
+import org.sireum.aadl.gumbo.gumbo.PointBefore;
+import org.sireum.aadl.gumbo.gumbo.PropertyBinding;
+import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
+import org.sireum.aadl.gumbo.gumbo.SchemaElement;
+import org.sireum.aadl.gumbo.gumbo.SchemaLabel;
+import org.sireum.aadl.gumbo.gumbo.SchemaPoint;
+import org.sireum.aadl.gumbo.gumbo.SchemaSequence;
+import org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
@@ -92,9 +105,9 @@ public class GumboValidator extends AbstractGumboValidator {
 			error("Compute clauses cannot be attached to data components",
 					ss, GumboPackage.Literals.SPEC_SECTION__COMPUTE);
 		}
-		if (ss.getSchedule() != null) {
-			error("Schedule clauses cannot be attached to data components",
-					ss, GumboPackage.Literals.SPEC_SECTION__SCHEDULE);
+		if (!ss.getCompositions().isEmpty()) {
+			error("Composition blocks cannot be attached to data components",
+					ss, GumboPackage.Literals.SPEC_SECTION__COMPOSITIONS);
 		}
 	}
 
@@ -108,9 +121,9 @@ public class GumboValidator extends AbstractGumboValidator {
 			error("Invariants cannot be attached to thread components",
 					ss, GumboPackage.Literals.SPEC_SECTION__INVARIANTS);
 		}
-		if (ss.getSchedule() != null) {
-			error("Schedule clauses cannot be attached to thread components",
-					ss, GumboPackage.Literals.SPEC_SECTION__SCHEDULE);
+		if (!ss.getCompositions().isEmpty()) {
+			error("Composition blocks cannot be attached to thread components",
+					ss, GumboPackage.Literals.SPEC_SECTION__COMPOSITIONS);
 		}
 	}
 
@@ -201,11 +214,22 @@ public class GumboValidator extends AbstractGumboValidator {
 	}
 
 	@Check
-	public void checkScheduleAliasUniqueness(Schedule schedule) {
+	public void checkCompositionIdUniqueness(SpecSection ss) {
+		Set<String> seen = new HashSet<>();
+		for (Composition c : ss.getCompositions()) {
+			if (!seen.add(c.getId())) {
+				error("Duplicate composition id: " + c.getId(),
+						c, GumboPackage.Literals.COMPOSITION__ID);
+			}
+		}
+	}
+
+	@Check
+	public void checkCompositionAliasUniqueness(Composition composition) {
 		Set<String> seen = new HashSet<>();
 
-		if (schedule.getComponentAliases() != null) {
-			for (ScheduleComponentAlias alias : schedule.getComponentAliases().getAliases()) {
+		if (composition.getComponentAliases() != null) {
+			for (ScheduleComponentAlias alias : composition.getComponentAliases().getAliases()) {
 				if (!seen.add(alias.getName())) {
 					error("Duplicate alias name: " + alias.getName(),
 							alias, GumboPackage.Literals.SCHEDULE_COMPONENT_ALIAS__NAME);
@@ -213,8 +237,8 @@ public class GumboValidator extends AbstractGumboValidator {
 			}
 		}
 
-		if (schedule.getPortAliases() != null) {
-			for (SchedulePortAlias alias : schedule.getPortAliases().getAliases()) {
+		if (composition.getPortAliases() != null) {
+			for (SchedulePortAlias alias : composition.getPortAliases().getAliases()) {
 				if (!seen.add(alias.getName())) {
 					error("Duplicate alias name: " + alias.getName(),
 							alias, GumboPackage.Literals.SCHEDULE_PORT_ALIAS__NAME);
@@ -222,13 +246,155 @@ public class GumboValidator extends AbstractGumboValidator {
 			}
 		}
 
-		if (schedule.getStateVarAliases() != null) {
-			for (ScheduleStateVarAlias alias : schedule.getStateVarAliases().getAliases()) {
+		if (composition.getStateVarAliases() != null) {
+			for (ScheduleStateVarAlias alias : composition.getStateVarAliases().getAliases()) {
 				if (!seen.add(alias.getName())) {
 					error("Duplicate alias name: " + alias.getName(),
 							alias, GumboPackage.Literals.SCHEDULE_STATE_VAR_ALIAS__NAME);
 				}
 			}
 		}
+	}
+	// Schema labels (place labels and occurrence labels) share one namespace per
+	// composition: they must be unique, must not be the reserved point names
+	// START/END, and must not overlap any component/port/state-var alias (aliases
+	// name expression variables and occurrence ids; a label shadowing one would
+	// make 'at'/'before'/'after' references ambiguous to readers).
+	@Check
+	public void checkCompositionLabelUniqueness(Composition composition) {
+		Set<String> labels = new HashSet<>();
+
+		Set<String> aliases = new HashSet<>();
+		if (composition.getComponentAliases() != null) {
+			for (ScheduleComponentAlias a : composition.getComponentAliases().getAliases()) {
+				aliases.add(a.getName());
+			}
+		}
+		if (composition.getPortAliases() != null) {
+			for (SchedulePortAlias a : composition.getPortAliases().getAliases()) {
+				aliases.add(a.getName());
+			}
+		}
+		if (composition.getStateVarAliases() != null) {
+			for (ScheduleStateVarAlias a : composition.getStateVarAliases().getAliases()) {
+				aliases.add(a.getName());
+			}
+		}
+
+		if (composition.getSchema() != null) {
+			checkSchemaElementLabels(composition.getSchema().getElements(), labels, aliases);
+		}
+	}
+
+	private void checkSchemaElementLabels(List<SchemaElement> elements, Set<String> labels, Set<String> aliases) {
+		for (SchemaElement e : elements) {
+			if (e instanceof SchemaLabel) {
+				SchemaLabel l = (SchemaLabel) e;
+				validateSchemaLabel(l.getId(), l, GumboPackage.Literals.SCHEMA_LABEL__ID, labels, aliases);
+			} else if (e instanceof SchemaComponentRef) {
+				SchemaComponentRef cr = (SchemaComponentRef) e;
+				if (cr.getOccurrenceLabel() != null) {
+					validateSchemaLabel(cr.getOccurrenceLabel(), cr,
+							GumboPackage.Literals.SCHEMA_COMPONENT_REF__OCCURRENCE_LABEL, labels, aliases);
+				}
+			} else if (e instanceof SchemaSplitJoin) {
+				for (SchemaSequence branch : ((SchemaSplitJoin) e).getBranches()) {
+					checkSchemaElementLabels(branch.getElements(), labels, aliases);
+				}
+			}
+		}
+	}
+
+	private void validateSchemaLabel(String id, EObject obj, EStructuralFeature feature,
+			Set<String> labels, Set<String> aliases) {
+		if ("START".equals(id) || "END".equals(id)) {
+			error("Label '" + id + "' is reserved (START and END name the schedule's start/end places)",
+					obj, feature);
+		} else if (!labels.add(id)) {
+			error("Duplicate schema label: " + id, obj, feature);
+		}
+		if (aliases.contains(id)) {
+			error("Schema label '" + id + "' collides with a component/port/state-var alias",
+					obj, feature);
+		}
+	}
+	// Point references must resolve against the containing composition's schema:
+	// 'at' takes START/END or a place label; 'before'/'after' take an occurrence
+	// label or the name of a component that is dispatched exactly once per
+	// hyperperiod (mirrors the kekinian ScheduleNextRel.resolvePoint semantics,
+	// reported here for in-editor feedback).
+	@Check
+	public void checkSchemaPointResolution(PropertyBinding binding) {
+		Composition composition = EcoreUtil2.getContainerOfType(binding, Composition.class);
+		if (composition == null || composition.getSchema() == null || binding.getPoint() == null) {
+			return;
+		}
+		Set<String> placeLabels = new HashSet<>();
+		Set<String> occurrenceLabels = new HashSet<>();
+		Map<String, Integer> occurrenceCounts = new HashMap<>();
+		collectSchemaNames(composition.getSchema().getElements(), placeLabels, occurrenceLabels, occurrenceCounts);
+
+		SchemaPoint point = binding.getPoint();
+		if (point instanceof PointAt) {
+			String l = ((PointAt) point).getLabel();
+			if (!"START".equals(l) && !"END".equals(l) && !placeLabels.contains(l)) {
+				error("'" + l + "' does not name a schema label (or START/END)",
+						point, GumboPackage.Literals.POINT_AT__LABEL);
+			}
+		} else if (point instanceof PointBefore) {
+			checkOccurrenceRef(((PointBefore) point).getOccurrence(), point,
+					GumboPackage.Literals.POINT_BEFORE__OCCURRENCE, occurrenceLabels, occurrenceCounts);
+		} else if (point instanceof PointAfter) {
+			checkOccurrenceRef(((PointAfter) point).getOccurrence(), point,
+					GumboPackage.Literals.POINT_AFTER__OCCURRENCE, occurrenceLabels, occurrenceCounts);
+		}
+	}
+
+	private void checkOccurrenceRef(String occ, EObject obj, EStructuralFeature feature,
+			Set<String> occurrenceLabels, Map<String, Integer> occurrenceCounts) {
+		if (occurrenceLabels.contains(occ)) {
+			return;
+		}
+		Integer count = occurrenceCounts.get(occ);
+		if (count == null) {
+			error("'" + occ + "' does not name a component occurrence of the schema",
+					obj, feature);
+		} else if (count > 1) {
+			error("'" + occ + "' is ambiguous: the component is dispatched " + count
+					+ " times per hyperperiod; reference an occurrence label instead",
+					obj, feature);
+		}
+	}
+
+	private void collectSchemaNames(List<SchemaElement> elements, Set<String> placeLabels,
+			Set<String> occurrenceLabels, Map<String, Integer> occurrenceCounts) {
+		for (SchemaElement e : elements) {
+			if (e instanceof SchemaLabel) {
+				placeLabels.add(((SchemaLabel) e).getId());
+			} else if (e instanceof SchemaComponentRef) {
+				SchemaComponentRef cr = (SchemaComponentRef) e;
+				if (cr.getOccurrenceLabel() != null) {
+					occurrenceLabels.add(cr.getOccurrenceLabel());
+				}
+				String name = componentRefName(cr);
+				if (name != null) {
+					occurrenceCounts.merge(name, 1, Integer::sum);
+				}
+			} else if (e instanceof SchemaSplitJoin) {
+				for (SchemaSequence branch : ((SchemaSplitJoin) e).getBranches()) {
+					collectSchemaNames(branch.getElements(), placeLabels, occurrenceLabels, occurrenceCounts);
+				}
+			}
+		}
+	}
+
+	private String componentRefName(SchemaComponentRef cr) {
+		EObject c = cr.getComponent();
+		if (c instanceof ScheduleComponentAlias) {
+			return ((ScheduleComponentAlias) c).getName();
+		} else if (c instanceof NamedElement) {
+			return ((NamedElement) c).getName();
+		}
+		return null;
 	}
 }
