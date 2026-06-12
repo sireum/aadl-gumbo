@@ -54,6 +54,8 @@ import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
+import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.CompositionProperty;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
@@ -91,26 +93,30 @@ import org.sireum.aadl.gumbo.gumbo.OrExpr;
 import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
+import org.sireum.aadl.gumbo.gumbo.PointAfter;
+import org.sireum.aadl.gumbo.gumbo.PointAt;
+import org.sireum.aadl.gumbo.gumbo.PointBefore;
 import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
+import org.sireum.aadl.gumbo.gumbo.PropertyBinding;
 import org.sireum.aadl.gumbo.gumbo.QuantParam;
 import org.sireum.aadl.gumbo.gumbo.QuantRange;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
-import org.sireum.aadl.gumbo.gumbo.Schedule;
-import org.sireum.aadl.gumbo.gumbo.ScheduleAssert;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases;
-import org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAliases;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSequence;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath;
 import org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath;
+import org.sireum.aadl.gumbo.gumbo.Schema;
+import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
+import org.sireum.aadl.gumbo.gumbo.SchemaLabel;
+import org.sireum.aadl.gumbo.gumbo.SchemaSequence;
+import org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangBlock;
@@ -301,6 +307,12 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.COLON_EXPR:
 				sequence_ColonExpression(context, (ColonExpr) semanticObject); 
 				return; 
+			case GumboPackage.COMPOSITION:
+				sequence_Composition(context, (Composition) semanticObject); 
+				return; 
+			case GumboPackage.COMPOSITION_PROPERTY:
+				sequence_CompositionProperty(context, (CompositionProperty) semanticObject); 
+				return; 
 			case GumboPackage.COMPUTE:
 				sequence_Compute(context, (Compute) semanticObject); 
 				return; 
@@ -409,8 +421,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.PLUS_MINUS_EXPR:
 				sequence_PlusMinusExpression(context, (PlusMinusExpr) semanticObject); 
 				return; 
+			case GumboPackage.POINT_AFTER:
+				sequence_SchemaPoint(context, (PointAfter) semanticObject); 
+				return; 
+			case GumboPackage.POINT_AT:
+				sequence_SchemaPoint(context, (PointAt) semanticObject); 
+				return; 
+			case GumboPackage.POINT_BEFORE:
+				sequence_SchemaPoint(context, (PointBefore) semanticObject); 
+				return; 
 			case GumboPackage.POST_FIX_EXPR:
 				sequence_PrimaryExpr(context, (PostFixExpr) semanticObject); 
+				return; 
+			case GumboPackage.PROPERTY_BINDING:
+				sequence_PropertyBinding(context, (PropertyBinding) semanticObject); 
 				return; 
 			case GumboPackage.QUANT_PARAM:
 				sequence_QuantParam(context, (QuantParam) semanticObject); 
@@ -427,20 +451,11 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.RESULT_EXPR:
 				sequence_AccessibleBaseExpr(context, (ResultExpr) semanticObject); 
 				return; 
-			case GumboPackage.SCHEDULE:
-				sequence_Schedule(context, (Schedule) semanticObject); 
-				return; 
-			case GumboPackage.SCHEDULE_ASSERT:
-				sequence_ScheduleAssert(context, (ScheduleAssert) semanticObject); 
-				return; 
 			case GumboPackage.SCHEDULE_COMPONENT_ALIAS:
 				sequence_ScheduleComponentAlias(context, (ScheduleComponentAlias) semanticObject); 
 				return; 
 			case GumboPackage.SCHEDULE_COMPONENT_ALIASES:
 				sequence_ScheduleComponentAliases(context, (ScheduleComponentAliases) semanticObject); 
-				return; 
-			case GumboPackage.SCHEDULE_COMPONENT_REF:
-				sequence_ScheduleComponentRef(context, (ScheduleComponentRef) semanticObject); 
 				return; 
 			case GumboPackage.SCHEDULE_PORT_ALIAS:
 				sequence_SchedulePortAlias(context, (SchedulePortAlias) semanticObject); 
@@ -450,12 +465,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.SCHEDULE_PORT_PATH:
 				sequence_SchedulePortPath(context, (SchedulePortPath) semanticObject); 
-				return; 
-			case GumboPackage.SCHEDULE_SEQUENCE:
-				sequence_ScheduleSequence(context, (ScheduleSequence) semanticObject); 
-				return; 
-			case GumboPackage.SCHEDULE_SPLIT_JOIN:
-				sequence_ScheduleSplitJoin(context, (ScheduleSplitJoin) semanticObject); 
 				return; 
 			case GumboPackage.SCHEDULE_STATE_VAR_ALIAS:
 				sequence_ScheduleStateVarAlias(context, (ScheduleStateVarAlias) semanticObject); 
@@ -468,6 +477,21 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.SCHEDULE_SUBCOMPONENT_PATH:
 				sequence_ScheduleSubcomponentPath(context, (ScheduleSubcomponentPath) semanticObject); 
+				return; 
+			case GumboPackage.SCHEMA:
+				sequence_Schema(context, (Schema) semanticObject); 
+				return; 
+			case GumboPackage.SCHEMA_COMPONENT_REF:
+				sequence_SchemaComponentRef(context, (SchemaComponentRef) semanticObject); 
+				return; 
+			case GumboPackage.SCHEMA_LABEL:
+				sequence_SchemaLabel(context, (SchemaLabel) semanticObject); 
+				return; 
+			case GumboPackage.SCHEMA_SEQUENCE:
+				sequence_SchemaSequence(context, (SchemaSequence) semanticObject); 
+				return; 
+			case GumboPackage.SCHEMA_SPLIT_JOIN:
+				sequence_SchemaSplitJoin(context, (SchemaSplitJoin) semanticObject); 
 				return; 
 			case GumboPackage.SLANG_ASSERT_STMT:
 				sequence_SlangStmt(context, (SlangAssertStmt) semanticObject); 
@@ -1271,6 +1295,41 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     CompositionProperty returns CompositionProperty
+	 *
+	 * Constraint:
+	 *     (id=ID descriptor=STRING_VALUE? bindings+=PropertyBinding+)
+	 * </pre>
+	 */
+	protected void sequence_CompositionProperty(ISerializationContext context, CompositionProperty semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Composition returns Composition
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         componentAliases=ScheduleComponentAliases? 
+	 *         portAliases=SchedulePortAliases? 
+	 *         stateVarAliases=ScheduleStateVarAliases? 
+	 *         schema=Schema 
+	 *         properties+=CompositionProperty*
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Composition(ISerializationContext context, Composition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Compute returns Compute
 	 *
 	 * Constraint:
@@ -1840,6 +1899,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     PropertyBinding returns PropertyBinding
+	 *
+	 * Constraint:
+	 *     (point=SchemaPoint descriptor=STRING_VALUE? expr=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_PropertyBinding(ISerializationContext context, PropertyBinding semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     QuantParam returns QuantParam
 	 *
 	 * Constraint:
@@ -1861,21 +1934,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_QuantRange(ISerializationContext context, QuantRange semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     ScheduleElement returns ScheduleAssert
-	 *     ScheduleAssert returns ScheduleAssert
-	 *
-	 * Constraint:
-	 *     (id=ID descriptor=STRING_VALUE? expr=OwnedExpression)
-	 * </pre>
-	 */
-	protected void sequence_ScheduleAssert(ISerializationContext context, ScheduleAssert semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1914,27 +1972,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 */
 	protected void sequence_ScheduleComponentAliases(ISerializationContext context, ScheduleComponentAliases semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     ScheduleElement returns ScheduleComponentRef
-	 *     ScheduleComponentRef returns ScheduleComponentRef
-	 *
-	 * Constraint:
-	 *     component=[EObject|ID]
-	 * </pre>
-	 */
-	protected void sequence_ScheduleComponentRef(ISerializationContext context, ScheduleComponentRef semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SCHEDULE_COMPONENT_REF__COMPONENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SCHEDULE_COMPONENT_REF__COMPONENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getScheduleComponentRefAccess().getComponentEObjectIDTerminalRuleCall_1_0_1(), semanticObject.eGet(GumboPackage.Literals.SCHEDULE_COMPONENT_REF__COMPONENT, false));
-		feeder.finish();
 	}
 	
 	
@@ -1985,35 +2022,6 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 * </pre>
 	 */
 	protected void sequence_SchedulePortPath(ISerializationContext context, SchedulePortPath semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     ScheduleSequence returns ScheduleSequence
-	 *
-	 * Constraint:
-	 *     elements+=ScheduleElement+
-	 * </pre>
-	 */
-	protected void sequence_ScheduleSequence(ISerializationContext context, ScheduleSequence semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     ScheduleElement returns ScheduleSplitJoin
-	 *     ScheduleSplitJoin returns ScheduleSplitJoin
-	 *
-	 * Constraint:
-	 *     (sequences+=ScheduleSequence sequences+=ScheduleSequence+)
-	 * </pre>
-	 */
-	protected void sequence_ScheduleSplitJoin(ISerializationContext context, ScheduleSplitJoin semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2086,13 +2094,138 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Schedule returns Schedule
+	 *     SchemaElement returns SchemaComponentRef
+	 *     SchemaComponentRef returns SchemaComponentRef
 	 *
 	 * Constraint:
-	 *     (componentAliases=ScheduleComponentAliases? portAliases=SchedulePortAliases? stateVarAliases=ScheduleStateVarAliases? elements+=ScheduleElement+)
+	 *     (component=[EObject|ID] occurrenceLabel=ID?)
 	 * </pre>
 	 */
-	protected void sequence_Schedule(ISerializationContext context, Schedule semanticObject) {
+	protected void sequence_SchemaComponentRef(ISerializationContext context, SchemaComponentRef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SchemaElement returns SchemaLabel
+	 *     SchemaLabel returns SchemaLabel
+	 *
+	 * Constraint:
+	 *     id=ID
+	 * </pre>
+	 */
+	protected void sequence_SchemaLabel(ISerializationContext context, SchemaLabel semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.SCHEMA_LABEL__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.SCHEMA_LABEL__ID));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSchemaLabelAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SchemaPoint returns PointAfter
+	 *
+	 * Constraint:
+	 *     occurrence=ID
+	 * </pre>
+	 */
+	protected void sequence_SchemaPoint(ISerializationContext context, PointAfter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.POINT_AFTER__OCCURRENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.POINT_AFTER__OCCURRENCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSchemaPointAccess().getOccurrenceIDTerminalRuleCall_2_2_0(), semanticObject.getOccurrence());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SchemaPoint returns PointAt
+	 *
+	 * Constraint:
+	 *     label=ID
+	 * </pre>
+	 */
+	protected void sequence_SchemaPoint(ISerializationContext context, PointAt semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.POINT_AT__LABEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.POINT_AT__LABEL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSchemaPointAccess().getLabelIDTerminalRuleCall_0_2_0(), semanticObject.getLabel());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SchemaPoint returns PointBefore
+	 *
+	 * Constraint:
+	 *     occurrence=ID
+	 * </pre>
+	 */
+	protected void sequence_SchemaPoint(ISerializationContext context, PointBefore semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.POINT_BEFORE__OCCURRENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.POINT_BEFORE__OCCURRENCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSchemaPointAccess().getOccurrenceIDTerminalRuleCall_1_2_0(), semanticObject.getOccurrence());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SchemaSequence returns SchemaSequence
+	 *
+	 * Constraint:
+	 *     (elements+=SchemaElement elements+=SchemaElement*)
+	 * </pre>
+	 */
+	protected void sequence_SchemaSequence(ISerializationContext context, SchemaSequence semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SchemaElement returns SchemaSplitJoin
+	 *     SchemaSplitJoin returns SchemaSplitJoin
+	 *
+	 * Constraint:
+	 *     (branches+=SchemaSequence branches+=SchemaSequence+)
+	 * </pre>
+	 */
+	protected void sequence_SchemaSplitJoin(ISerializationContext context, SchemaSplitJoin semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Schema returns Schema
+	 *
+	 * Constraint:
+	 *     (elements+=SchemaElement elements+=SchemaElement*)
+	 * </pre>
+	 */
+	protected void sequence_Schema(ISerializationContext context, Schema semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2858,7 +2991,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         integration=Integration? 
 	 *         initialize=Initialize? 
 	 *         compute=Compute? 
-	 *         schedule=Schedule?
+	 *         compositions+=Composition*
 	 *     )
 	 * </pre>
 	 */

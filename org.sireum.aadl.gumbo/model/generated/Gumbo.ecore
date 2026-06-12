@@ -22,8 +22,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compute" eType="#//Compute"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schedule" eType="#//Schedule"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compositions" upperBound="-1"
+        eType="#//Composition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EReference" name="decls" upperBound="-1"
@@ -73,15 +73,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
         eType="#//InfoFlowClause" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Schedule">
+  <eClassifiers xsi:type="ecore:EClass" name="Composition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentAliases" eType="#//ScheduleComponentAliases"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="portAliases" eType="#//SchedulePortAliases"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateVarAliases" eType="#//ScheduleStateVarAliases"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ScheduleElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//CompositionProperty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScheduleComponentAliases">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aliases" upperBound="-1"
@@ -125,24 +128,40 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="subPath" eType="#//ScheduleStateVarPath"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ScheduleElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ScheduleAssert" eSuperTypes="#//ScheduleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Schema">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//SchemaElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaLabel" eSuperTypes="#//SchemaElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaComponentRef" eSuperTypes="#//SchemaElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurrenceLabel" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaSplitJoin" eSuperTypes="#//SchemaElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+        eType="#//SchemaSequence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaSequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//SchemaElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositionProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//PropertyBinding" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyBinding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="point" eType="#//SchemaPoint"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//OwnedExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ScheduleComponentRef" eSuperTypes="#//ScheduleElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ScheduleSplitJoin" eSuperTypes="#//ScheduleElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
-        eType="#//ScheduleSequence" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ScheduleSequence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ScheduleElement" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaPoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="InfoFlowClause">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -376,6 +395,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangInterp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PointAt" eSuperTypes="#//SchemaPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PointBefore" eSuperTypes="#//SchemaPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurrence" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PointAfter" eSuperTypes="#//SchemaPoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurrence" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlangIfStmt" eSuperTypes="#//SlangStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cond" eType="#//OwnedExpression"
         containment="true"/>

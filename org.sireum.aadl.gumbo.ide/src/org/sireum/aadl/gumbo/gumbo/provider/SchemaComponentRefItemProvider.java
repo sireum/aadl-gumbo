@@ -20,22 +20,21 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin;
+import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaComponentRef} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScheduleSplitJoinItemProvider extends ScheduleElementItemProvider
+public class SchemaComponentRefItemProvider extends SchemaElementItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -43,7 +42,7 @@ public class ScheduleSplitJoinItemProvider extends ScheduleElementItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScheduleSplitJoinItemProvider(AdapterFactory adapterFactory)
+  public SchemaComponentRefItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -61,45 +60,60 @@ public class ScheduleSplitJoinItemProvider extends ScheduleElementItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addComponentPropertyDescriptor(object);
+      addOccurrenceLabelPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Component feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addComponentPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SCHEDULE_SPLIT_JOIN__SEQUENCES);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SchemaComponentRef_component_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SchemaComponentRef_component_feature", "_UI_SchemaComponentRef_type"),
+         GumboPackage.Literals.SCHEMA_COMPONENT_REF__COMPONENT,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
   }
 
   /**
+   * This adds a property descriptor for the Occurrence Label feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
+  protected void addOccurrenceLabelPropertyDescriptor(Object object)
   {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_SchemaComponentRef_occurrenceLabel_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_SchemaComponentRef_occurrenceLabel_feature", "_UI_SchemaComponentRef_type"),
+         GumboPackage.Literals.SCHEMA_COMPONENT_REF__OCCURRENCE_LABEL,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
-   * This returns ScheduleSplitJoin.gif.
+   * This returns SchemaComponentRef.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -107,7 +121,7 @@ public class ScheduleSplitJoinItemProvider extends ScheduleElementItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ScheduleSplitJoin"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/SchemaComponentRef"));
   }
 
   /**
@@ -119,7 +133,10 @@ public class ScheduleSplitJoinItemProvider extends ScheduleElementItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_ScheduleSplitJoin_type");
+    String label = ((SchemaComponentRef)object).getOccurrenceLabel();
+    return label == null || label.length() == 0 ?
+      getString("_UI_SchemaComponentRef_type") :
+      getString("_UI_SchemaComponentRef_type") + " " + label;
   }
 
 
@@ -135,10 +152,10 @@ public class ScheduleSplitJoinItemProvider extends ScheduleElementItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(ScheduleSplitJoin.class))
+    switch (notification.getFeatureID(SchemaComponentRef.class))
     {
-      case GumboPackage.SCHEDULE_SPLIT_JOIN__SEQUENCES:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+      case GumboPackage.SCHEMA_COMPONENT_REF__OCCURRENCE_LABEL:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
     super.notifyChanged(notification);
@@ -155,11 +172,6 @@ public class ScheduleSplitJoinItemProvider extends ScheduleElementItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_SPLIT_JOIN__SEQUENCES,
-         GumboFactory.eINSTANCE.createScheduleSequence()));
   }
 
 }

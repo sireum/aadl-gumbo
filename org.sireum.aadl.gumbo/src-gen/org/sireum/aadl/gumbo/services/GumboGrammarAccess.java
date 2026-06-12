@@ -129,8 +129,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cInitializeInitializeParserRuleCall_5_0 = (RuleCall)cInitializeAssignment_5.eContents().get(0);
 		private final Assignment cComputeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cComputeComputeParserRuleCall_6_0 = (RuleCall)cComputeAssignment_6.eContents().get(0);
-		private final Assignment cScheduleAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cScheduleScheduleParserRuleCall_7_0 = (RuleCall)cScheduleAssignment_7.eContents().get(0);
+		private final Assignment cCompositionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cCompositionsCompositionParserRuleCall_7_0 = (RuleCall)cCompositionsAssignment_7.eContents().get(0);
 		
 		//SpecSection: {SpecSection}
 		//    (state = State)?
@@ -139,7 +139,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    (integration = Integration)?
 		//    (initialize = Initialize)?
 		//    (compute = Compute)?
-		//    (schedule = Schedule)?
+		//    (compositions += Composition)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -150,7 +150,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//   (integration = Integration)?
 		//   (initialize = Initialize)?
 		//   (compute = Compute)?
-		//   (schedule = Schedule)?
+		//   (compositions += Composition)*
 		public Group getGroup() { return cGroup; }
 		
 		//{SpecSection}
@@ -192,11 +192,11 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Compute
 		public RuleCall getComputeComputeParserRuleCall_6_0() { return cComputeComputeParserRuleCall_6_0; }
 		
-		//(schedule = Schedule)?
-		public Assignment getScheduleAssignment_7() { return cScheduleAssignment_7; }
+		//(compositions += Composition)*
+		public Assignment getCompositionsAssignment_7() { return cCompositionsAssignment_7; }
 		
-		//Schedule
-		public RuleCall getScheduleScheduleParserRuleCall_7_0() { return cScheduleScheduleParserRuleCall_7_0; }
+		//Composition
+		public RuleCall getCompositionsCompositionParserRuleCall_7_0() { return cCompositionsCompositionParserRuleCall_7_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.State");
@@ -551,85 +551,109 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//InfoFlowClause
 		public RuleCall getFlowsInfoFlowClauseParserRuleCall_7_0() { return cFlowsInfoFlowClauseParserRuleCall_7_0; }
 	}
-	public class ScheduleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Schedule");
+	public class CompositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Composition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cScheduleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cComponentAliasesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cComponentAliasesScheduleComponentAliasesParserRuleCall_2_0 = (RuleCall)cComponentAliasesAssignment_2.eContents().get(0);
-		private final Assignment cPortAliasesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPortAliasesSchedulePortAliasesParserRuleCall_3_0 = (RuleCall)cPortAliasesAssignment_3.eContents().get(0);
-		private final Assignment cStateVarAliasesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cStateVarAliasesScheduleStateVarAliasesParserRuleCall_4_0 = (RuleCall)cStateVarAliasesAssignment_4.eContents().get(0);
-		private final Assignment cElementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cElementsScheduleElementParserRuleCall_5_0 = (RuleCall)cElementsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cCompositionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cComponentAliasesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cComponentAliasesScheduleComponentAliasesParserRuleCall_3_0 = (RuleCall)cComponentAliasesAssignment_3.eContents().get(0);
+		private final Assignment cPortAliasesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPortAliasesSchedulePortAliasesParserRuleCall_4_0 = (RuleCall)cPortAliasesAssignment_4.eContents().get(0);
+		private final Assignment cStateVarAliasesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cStateVarAliasesScheduleStateVarAliasesParserRuleCall_5_0 = (RuleCall)cStateVarAliasesAssignment_5.eContents().get(0);
+		private final Assignment cSchemaAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSchemaSchemaParserRuleCall_6_0 = (RuleCall)cSchemaAssignment_6.eContents().get(0);
+		private final Assignment cPropertiesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cPropertiesCompositionPropertyParserRuleCall_7_0 = (RuleCall)cPropertiesAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//// ===========================================================================
-		//// Schedule -- system-level contract for system implementations
+		//// Composition -- system-level contract for system implementations (design D8
+		//// of VCGenerationDesign.md in the hamr-system-reasoning-prototype repo).
 		////
-		//// Specifies scheduling constraints (sequences and splits) with assertions
-		//// at transition points. Assertions are optional; omitted assertions are
-		//// treated as implicit 'true' during lowering.
+		//// A composition separates the schedule *schema* (component ordering, splits/
+		//// joins -- no assertions) from named *properties* (assertion decorations of
+		//// schema points). The required id names the per-composition artifacts
+		//// (sys_proof_<id> proof crate, runtime monitor, meta program); a system may
+		//// declare several compositions.
 		////
 		//// Validation (not grammar) enforces:
-		////   - schedule only allowed on system implementations
+		////   - composition only allowed on system implementations
 		////   - state/initialize/compute rejected on system implementations
 		////   - component aliases resolve to thread subcomponent instances
 		////   - port aliases resolve to ports on referenced components
 		////   - state var aliases resolve to StateVarDecls in referenced components' GUMBO subclauses
+		//// (the kekinian GclResolver additionally lints: composition id uniqueness,
+		////  schema label uniqueness/collisions, occurrence labels required for
+		////  multi-firing components, property point resolution)
 		//// ===========================================================================
-		//Schedule:
-		//    'schedule' '{'
+		//Composition:
+		//    'composition' id=ID '{'
 		//        (componentAliases = ScheduleComponentAliases)?
 		//        (portAliases = SchedulePortAliases)?
 		//        (stateVarAliases = ScheduleStateVarAliases)?
-		//        (elements += ScheduleElement)+
+		//        schema = Schema
+		//        (properties += CompositionProperty)*
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'schedule' '{'
+		//'composition' id=ID '{'
 		//    (componentAliases = ScheduleComponentAliases)?
 		//    (portAliases = SchedulePortAliases)?
 		//    (stateVarAliases = ScheduleStateVarAliases)?
-		//    (elements += ScheduleElement)+
+		//    schema = Schema
+		//    (properties += CompositionProperty)*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'schedule'
-		public Keyword getScheduleKeyword_0() { return cScheduleKeyword_0; }
+		//'composition'
+		public Keyword getCompositionKeyword_0() { return cCompositionKeyword_0; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
 		//(componentAliases = ScheduleComponentAliases)?
-		public Assignment getComponentAliasesAssignment_2() { return cComponentAliasesAssignment_2; }
+		public Assignment getComponentAliasesAssignment_3() { return cComponentAliasesAssignment_3; }
 		
 		//ScheduleComponentAliases
-		public RuleCall getComponentAliasesScheduleComponentAliasesParserRuleCall_2_0() { return cComponentAliasesScheduleComponentAliasesParserRuleCall_2_0; }
+		public RuleCall getComponentAliasesScheduleComponentAliasesParserRuleCall_3_0() { return cComponentAliasesScheduleComponentAliasesParserRuleCall_3_0; }
 		
 		//(portAliases = SchedulePortAliases)?
-		public Assignment getPortAliasesAssignment_3() { return cPortAliasesAssignment_3; }
+		public Assignment getPortAliasesAssignment_4() { return cPortAliasesAssignment_4; }
 		
 		//SchedulePortAliases
-		public RuleCall getPortAliasesSchedulePortAliasesParserRuleCall_3_0() { return cPortAliasesSchedulePortAliasesParserRuleCall_3_0; }
+		public RuleCall getPortAliasesSchedulePortAliasesParserRuleCall_4_0() { return cPortAliasesSchedulePortAliasesParserRuleCall_4_0; }
 		
 		//(stateVarAliases = ScheduleStateVarAliases)?
-		public Assignment getStateVarAliasesAssignment_4() { return cStateVarAliasesAssignment_4; }
+		public Assignment getStateVarAliasesAssignment_5() { return cStateVarAliasesAssignment_5; }
 		
 		//ScheduleStateVarAliases
-		public RuleCall getStateVarAliasesScheduleStateVarAliasesParserRuleCall_4_0() { return cStateVarAliasesScheduleStateVarAliasesParserRuleCall_4_0; }
+		public RuleCall getStateVarAliasesScheduleStateVarAliasesParserRuleCall_5_0() { return cStateVarAliasesScheduleStateVarAliasesParserRuleCall_5_0; }
 		
-		//(elements += ScheduleElement)+
-		public Assignment getElementsAssignment_5() { return cElementsAssignment_5; }
+		//schema = Schema
+		public Assignment getSchemaAssignment_6() { return cSchemaAssignment_6; }
 		
-		//ScheduleElement
-		public RuleCall getElementsScheduleElementParserRuleCall_5_0() { return cElementsScheduleElementParserRuleCall_5_0; }
+		//Schema
+		public RuleCall getSchemaSchemaParserRuleCall_6_0() { return cSchemaSchemaParserRuleCall_6_0; }
+		
+		//(properties += CompositionProperty)*
+		public Assignment getPropertiesAssignment_7() { return cPropertiesAssignment_7; }
+		
+		//CompositionProperty
+		public RuleCall getPropertiesCompositionPropertyParserRuleCall_7_0() { return cPropertiesCompositionPropertyParserRuleCall_7_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class ScheduleComponentAliasesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ScheduleComponentAliases");
@@ -947,53 +971,284 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ScheduleStateVarPath
 		public RuleCall getSubPathScheduleStateVarPathParserRuleCall_1_1_0() { return cSubPathScheduleStateVarPathParserRuleCall_1_1_0; }
 	}
-	public class ScheduleElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ScheduleElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cScheduleAssertParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cScheduleComponentRefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cScheduleSplitJoinParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+	public class SchemaElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Schema");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSchemaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsSchemaElementParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cElementsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cElementsSchemaElementParserRuleCall_3_1_0 = (RuleCall)cElementsAssignment_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//ScheduleElement:
-		//    ScheduleAssert | ScheduleComponentRef | ScheduleSplitJoin
+		//// The schedule skeleton only -- no assertions. ';' separates elements within a
+		//// sequence (order is claimed); ',' separates the branches of a split (order is
+		//// deliberately not claimed).
+		//Schema:
+		//    'schema' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ScheduleAssert | ScheduleComponentRef | ScheduleSplitJoin
+		//'schema' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'schema'
+		public Keyword getSchemaKeyword_0() { return cSchemaKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//elements += SchemaElement
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//SchemaElement
+		public RuleCall getElementsSchemaElementParserRuleCall_2_0() { return cElementsSchemaElementParserRuleCall_2_0; }
+		
+		//(';' elements += SchemaElement)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3_0() { return cSemicolonKeyword_3_0; }
+		
+		//elements += SchemaElement
+		public Assignment getElementsAssignment_3_1() { return cElementsAssignment_3_1; }
+		
+		//SchemaElement
+		public RuleCall getElementsSchemaElementParserRuleCall_3_1_0() { return cElementsSchemaElementParserRuleCall_3_1_0; }
+		
+		//(';')?
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class SchemaElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SchemaElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSchemaLabelParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSchemaSplitJoinParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSchemaComponentRefParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//SchemaElement:
+		//    SchemaLabel | SchemaSplitJoin | SchemaComponentRef
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SchemaLabel | SchemaSplitJoin | SchemaComponentRef
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//ScheduleAssert
-		public RuleCall getScheduleAssertParserRuleCall_0() { return cScheduleAssertParserRuleCall_0; }
+		//SchemaLabel
+		public RuleCall getSchemaLabelParserRuleCall_0() { return cSchemaLabelParserRuleCall_0; }
 		
-		//ScheduleComponentRef
-		public RuleCall getScheduleComponentRefParserRuleCall_1() { return cScheduleComponentRefParserRuleCall_1; }
+		//SchemaSplitJoin
+		public RuleCall getSchemaSplitJoinParserRuleCall_1() { return cSchemaSplitJoinParserRuleCall_1; }
 		
-		//ScheduleSplitJoin
-		public RuleCall getScheduleSplitJoinParserRuleCall_2() { return cScheduleSplitJoinParserRuleCall_2; }
+		//SchemaComponentRef
+		public RuleCall getSchemaComponentRefParserRuleCall_2() { return cSchemaComponentRefParserRuleCall_2; }
 	}
-	public class ScheduleAssertElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ScheduleAssert");
+	public class SchemaLabelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SchemaLabel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAssertKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLabelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		
+		//// Names the place at this position (purely naming, never structural: the place
+		//// exists regardless; add a label only when a property must bind a point with
+		//// no unambiguous derived name, e.g. between a join and the next split).
+		//SchemaLabel:
+		//    'label' id=ID
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'label' id=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'label'
+		public Keyword getLabelKeyword_0() { return cLabelKeyword_0; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+	}
+	public class SchemaComponentRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SchemaComponentRef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cComponentAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cComponentEObjectCrossReference_0_0 = (CrossReference)cComponentAssignment_0.eContents().get(0);
+		private final RuleCall cComponentEObjectIDTerminalRuleCall_0_0_1 = (RuleCall)cComponentEObjectCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommercialAtKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cOccurrenceLabelAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cOccurrenceLabelIDTerminalRuleCall_1_1_0 = (RuleCall)cOccurrenceLabelAssignment_1_1.eContents().get(0);
+		
+		//// References a component alias or a subcomponent directly (no 'component'
+		//// keyword: with assertions out of the schema, a bare ID is unambiguous).
+		//// Scope provider puts both ScheduleComponentAlias entries and
+		//// aadl2::Subcomponent instances in scope. The optional occurrence label
+		//// ('<alias> @ <id>') disambiguates a component that fires more than once per
+		//// hyperperiod; the kekinian resolver REQUIRES it on multi-firing occurrences.
+		//SchemaComponentRef:
+		//    component=[ecore::EObject|ID] ('@' occurrenceLabel=ID)?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//component=[ecore::EObject|ID] ('@' occurrenceLabel=ID)?
+		public Group getGroup() { return cGroup; }
+		
+		//component=[ecore::EObject|ID]
+		public Assignment getComponentAssignment_0() { return cComponentAssignment_0; }
+		
+		//[ecore::EObject|ID]
+		public CrossReference getComponentEObjectCrossReference_0_0() { return cComponentEObjectCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getComponentEObjectIDTerminalRuleCall_0_0_1() { return cComponentEObjectIDTerminalRuleCall_0_0_1; }
+		
+		//('@' occurrenceLabel=ID)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_1_0() { return cCommercialAtKeyword_1_0; }
+		
+		//occurrenceLabel=ID
+		public Assignment getOccurrenceLabelAssignment_1_1() { return cOccurrenceLabelAssignment_1_1; }
+		
+		//ID
+		public RuleCall getOccurrenceLabelIDTerminalRuleCall_1_1_0() { return cOccurrenceLabelIDTerminalRuleCall_1_1_0; }
+	}
+	public class SchemaSplitJoinElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SchemaSplitJoin");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSplitKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cBranchesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBranchesSchemaSequenceParserRuleCall_2_0 = (RuleCall)cBranchesAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cBranchesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cBranchesSchemaSequenceParserRuleCall_3_1_0 = (RuleCall)cBranchesAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//SchemaSplitJoin:
+		//    'split' '{' branches += SchemaSequence (',' branches += SchemaSequence)+ '}'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'split' '{' branches += SchemaSequence (',' branches += SchemaSequence)+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'split'
+		public Keyword getSplitKeyword_0() { return cSplitKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//branches += SchemaSequence
+		public Assignment getBranchesAssignment_2() { return cBranchesAssignment_2; }
+		
+		//SchemaSequence
+		public RuleCall getBranchesSchemaSequenceParserRuleCall_2_0() { return cBranchesSchemaSequenceParserRuleCall_2_0; }
+		
+		//(',' branches += SchemaSequence)+
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//','
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		
+		//branches += SchemaSequence
+		public Assignment getBranchesAssignment_3_1() { return cBranchesAssignment_3_1; }
+		
+		//SchemaSequence
+		public RuleCall getBranchesSchemaSequenceParserRuleCall_3_1_0() { return cBranchesSchemaSequenceParserRuleCall_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class SchemaSequenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SchemaSequence");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSequenceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsSchemaElementParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cElementsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cElementsSchemaElementParserRuleCall_3_1_0 = (RuleCall)cElementsAssignment_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//SchemaSequence:
+		//    'sequence' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'sequence' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'sequence'
+		public Keyword getSequenceKeyword_0() { return cSequenceKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//elements += SchemaElement
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//SchemaElement
+		public RuleCall getElementsSchemaElementParserRuleCall_2_0() { return cElementsSchemaElementParserRuleCall_2_0; }
+		
+		//(';' elements += SchemaElement)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3_0() { return cSemicolonKeyword_3_0; }
+		
+		//elements += SchemaElement
+		public Assignment getElementsAssignment_3_1() { return cElementsAssignment_3_1; }
+		
+		//SchemaElement
+		public RuleCall getElementsSchemaElementParserRuleCall_3_1_0() { return cElementsSchemaElementParserRuleCall_3_1_0; }
+		
+		//(';')?
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class CompositionPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.CompositionProperty");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPropertyKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
 		private final Assignment cDescriptorAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptorSTRING_VALUETerminalRuleCall_2_0 = (RuleCall)cDescriptorAssignment_2.eContents().get(0);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cExprOwnedExpressionParserRuleCall_4_0 = (RuleCall)cExprAssignment_4.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cBindingsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cBindingsPropertyBindingParserRuleCall_4_0 = (RuleCall)cBindingsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//ScheduleAssert:
-		//    'assert' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+		//// A named assertion decoration of the schema. Each property generates its own
+		//// VC set over the shared net; a property's VCs see only its own bindings, and
+		//// unbound points lower to 'true'.
+		//CompositionProperty:
+		//    'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'assert' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+		//'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'assert'
-		public Keyword getAssertKeyword_0() { return cAssertKeyword_0; }
+		//'property'
+		public Keyword getPropertyKeyword_0() { return cPropertyKeyword_0; }
 		
 		//id=ID
 		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
@@ -1007,128 +1262,142 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//STRING_VALUE
 		public RuleCall getDescriptorSTRING_VALUETerminalRuleCall_2_0() { return cDescriptorSTRING_VALUETerminalRuleCall_2_0; }
 		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//(bindings += PropertyBinding)+
+		public Assignment getBindingsAssignment_4() { return cBindingsAssignment_4; }
+		
+		//PropertyBinding
+		public RuleCall getBindingsPropertyBindingParserRuleCall_4_0() { return cBindingsPropertyBindingParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class PropertyBindingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.PropertyBinding");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPointAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPointSchemaPointParserRuleCall_0_0 = (RuleCall)cPointAssignment_0.eContents().get(0);
+		private final Assignment cDescriptorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDescriptorSTRING_VALUETerminalRuleCall_1_0 = (RuleCall)cDescriptorAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExprOwnedExpressionParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//PropertyBinding:
+		//    point=SchemaPoint descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//point=SchemaPoint descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+		public Group getGroup() { return cGroup; }
+		
+		//point=SchemaPoint
+		public Assignment getPointAssignment_0() { return cPointAssignment_0; }
+		
+		//SchemaPoint
+		public RuleCall getPointSchemaPointParserRuleCall_0_0() { return cPointSchemaPointParserRuleCall_0_0; }
+		
+		//descriptor=STRING_VALUE?
+		public Assignment getDescriptorAssignment_1() { return cDescriptorAssignment_1; }
+		
+		//STRING_VALUE
+		public RuleCall getDescriptorSTRING_VALUETerminalRuleCall_1_0() { return cDescriptorSTRING_VALUETerminalRuleCall_1_0; }
+		
 		//':'
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
 		//expr=OwnedExpression
-		public Assignment getExprAssignment_4() { return cExprAssignment_4; }
+		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
 		
 		//OwnedExpression
-		public RuleCall getExprOwnedExpressionParserRuleCall_4_0() { return cExprOwnedExpressionParserRuleCall_4_0; }
+		public RuleCall getExprOwnedExpressionParserRuleCall_3_0() { return cExprOwnedExpressionParserRuleCall_3_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
-	public class ScheduleComponentRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ScheduleComponentRef");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cComponentAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cComponentEObjectCrossReference_1_0 = (CrossReference)cComponentAssignment_1.eContents().get(0);
-		private final RuleCall cComponentEObjectIDTerminalRuleCall_1_0_1 = (RuleCall)cComponentEObjectCrossReference_1_0.eContents().get(1);
+	public class SchemaPointElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SchemaPoint");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cPointAtAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cAtKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cLabelAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cLabelIDTerminalRuleCall_0_2_0 = (RuleCall)cLabelAssignment_0_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cPointBeforeAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cBeforeKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cOccurrenceAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cOccurrenceIDTerminalRuleCall_1_2_0 = (RuleCall)cOccurrenceAssignment_1_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cPointAfterAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cAfterKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cOccurrenceAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cOccurrenceIDTerminalRuleCall_2_2_0 = (RuleCall)cOccurrenceAssignment_2_2.eContents().get(0);
 		
-		//// References a component alias or a subcomponent directly.
-		//// Scope provider puts both ScheduleComponentAlias entries and
-		//// aadl2::Subcomponent instances in scope.
-		//ScheduleComponentRef:
-		//    'component' component=[ecore::EObject|ID]
+		//// A schema point reference. 'at' takes a label (the reserved names START and
+		//// END are mapped to the schedule's start/end places by the AIR visitor);
+		//// 'before'/'after' take a component occurrence (its alias when it fires once,
+		//// or its occurrence label). Consecutive elements share a place, so a place may
+		//// have several names; the kekinian resolver enforces one binding per place.
+		//SchemaPoint:
+		//      {PointAt} 'at' label=ID
+		//    | {PointBefore} 'before' occurrence=ID
+		//    | {PointAfter} 'after' occurrence=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'component' component=[ecore::EObject|ID]
-		public Group getGroup() { return cGroup; }
+		//  {PointAt} 'at' label=ID
+		//| {PointBefore} 'before' occurrence=ID
+		//| {PointAfter} 'after' occurrence=ID
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'component'
-		public Keyword getComponentKeyword_0() { return cComponentKeyword_0; }
+		//{PointAt} 'at' label=ID
+		public Group getGroup_0() { return cGroup_0; }
 		
-		//component=[ecore::EObject|ID]
-		public Assignment getComponentAssignment_1() { return cComponentAssignment_1; }
+		//{PointAt}
+		public Action getPointAtAction_0_0() { return cPointAtAction_0_0; }
 		
-		//[ecore::EObject|ID]
-		public CrossReference getComponentEObjectCrossReference_1_0() { return cComponentEObjectCrossReference_1_0; }
+		//'at'
+		public Keyword getAtKeyword_0_1() { return cAtKeyword_0_1; }
+		
+		//label=ID
+		public Assignment getLabelAssignment_0_2() { return cLabelAssignment_0_2; }
 		
 		//ID
-		public RuleCall getComponentEObjectIDTerminalRuleCall_1_0_1() { return cComponentEObjectIDTerminalRuleCall_1_0_1; }
-	}
-	public class ScheduleSplitJoinElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ScheduleSplitJoin");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSplitKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cSequencesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSequencesScheduleSequenceParserRuleCall_2_0 = (RuleCall)cSequencesAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSequencesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSequencesScheduleSequenceParserRuleCall_3_1_0 = (RuleCall)cSequencesAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		public RuleCall getLabelIDTerminalRuleCall_0_2_0() { return cLabelIDTerminalRuleCall_0_2_0; }
 		
-		//ScheduleSplitJoin:
-		//    'split' '{' sequences += ScheduleSequence (',' sequences += ScheduleSequence)+ '}'
-		//;
-		@Override public ParserRule getRule() { return rule; }
+		//{PointBefore} 'before' occurrence=ID
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//'split' '{' sequences += ScheduleSequence (',' sequences += ScheduleSequence)+ '}'
-		public Group getGroup() { return cGroup; }
+		//{PointBefore}
+		public Action getPointBeforeAction_1_0() { return cPointBeforeAction_1_0; }
 		
-		//'split'
-		public Keyword getSplitKeyword_0() { return cSplitKeyword_0; }
+		//'before'
+		public Keyword getBeforeKeyword_1_1() { return cBeforeKeyword_1_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//occurrence=ID
+		public Assignment getOccurrenceAssignment_1_2() { return cOccurrenceAssignment_1_2; }
 		
-		//sequences += ScheduleSequence
-		public Assignment getSequencesAssignment_2() { return cSequencesAssignment_2; }
+		//ID
+		public RuleCall getOccurrenceIDTerminalRuleCall_1_2_0() { return cOccurrenceIDTerminalRuleCall_1_2_0; }
 		
-		//ScheduleSequence
-		public RuleCall getSequencesScheduleSequenceParserRuleCall_2_0() { return cSequencesScheduleSequenceParserRuleCall_2_0; }
+		//{PointAfter} 'after' occurrence=ID
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//(',' sequences += ScheduleSequence)+
-		public Group getGroup_3() { return cGroup_3; }
+		//{PointAfter}
+		public Action getPointAfterAction_2_0() { return cPointAfterAction_2_0; }
 		
-		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		//'after'
+		public Keyword getAfterKeyword_2_1() { return cAfterKeyword_2_1; }
 		
-		//sequences += ScheduleSequence
-		public Assignment getSequencesAssignment_3_1() { return cSequencesAssignment_3_1; }
+		//occurrence=ID
+		public Assignment getOccurrenceAssignment_2_2() { return cOccurrenceAssignment_2_2; }
 		
-		//ScheduleSequence
-		public RuleCall getSequencesScheduleSequenceParserRuleCall_3_1_0() { return cSequencesScheduleSequenceParserRuleCall_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class ScheduleSequenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ScheduleSequence");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSequenceKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cElementsScheduleElementParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//ScheduleSequence:
-		//    'sequence' '{' (elements += ScheduleElement)+ '}'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'sequence' '{' (elements += ScheduleElement)+ '}'
-		public Group getGroup() { return cGroup; }
-		
-		//'sequence'
-		public Keyword getSequenceKeyword_0() { return cSequenceKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//(elements += ScheduleElement)+
-		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
-		
-		//ScheduleElement
-		public RuleCall getElementsScheduleElementParserRuleCall_2_0() { return cElementsScheduleElementParserRuleCall_2_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		//ID
+		public RuleCall getOccurrenceIDTerminalRuleCall_2_2_0() { return cOccurrenceIDTerminalRuleCall_2_2_0; }
 	}
 	public class InfoFlowClauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
@@ -5389,7 +5658,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final InitializeElements pInitialize;
 	private final InitializeSpecStatementElements pInitializeSpecStatement;
 	private final ComputeElements pCompute;
-	private final ScheduleElements pSchedule;
+	private final CompositionElements pComposition;
 	private final ScheduleComponentAliasesElements pScheduleComponentAliases;
 	private final ScheduleComponentAliasElements pScheduleComponentAlias;
 	private final ScheduleSubcomponentPathElements pScheduleSubcomponentPath;
@@ -5399,11 +5668,15 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ScheduleStateVarAliasesElements pScheduleStateVarAliases;
 	private final ScheduleStateVarAliasElements pScheduleStateVarAlias;
 	private final ScheduleStateVarPathElements pScheduleStateVarPath;
-	private final ScheduleElementElements pScheduleElement;
-	private final ScheduleAssertElements pScheduleAssert;
-	private final ScheduleComponentRefElements pScheduleComponentRef;
-	private final ScheduleSplitJoinElements pScheduleSplitJoin;
-	private final ScheduleSequenceElements pScheduleSequence;
+	private final SchemaElements pSchema;
+	private final SchemaElementElements pSchemaElement;
+	private final SchemaLabelElements pSchemaLabel;
+	private final SchemaComponentRefElements pSchemaComponentRef;
+	private final SchemaSplitJoinElements pSchemaSplitJoin;
+	private final SchemaSequenceElements pSchemaSequence;
+	private final CompositionPropertyElements pCompositionProperty;
+	private final PropertyBindingElements pPropertyBinding;
+	private final SchemaPointElements pSchemaPoint;
 	private final InfoFlowClauseElements pInfoFlowClause;
 	private final HandlerClauseElements pHandlerClause;
 	private final CaseStatementClauseElements pCaseStatementClause;
@@ -5522,7 +5795,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pInitialize = new InitializeElements();
 		this.pInitializeSpecStatement = new InitializeSpecStatementElements();
 		this.pCompute = new ComputeElements();
-		this.pSchedule = new ScheduleElements();
+		this.pComposition = new CompositionElements();
 		this.pScheduleComponentAliases = new ScheduleComponentAliasesElements();
 		this.pScheduleComponentAlias = new ScheduleComponentAliasElements();
 		this.pScheduleSubcomponentPath = new ScheduleSubcomponentPathElements();
@@ -5532,11 +5805,15 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pScheduleStateVarAliases = new ScheduleStateVarAliasesElements();
 		this.pScheduleStateVarAlias = new ScheduleStateVarAliasElements();
 		this.pScheduleStateVarPath = new ScheduleStateVarPathElements();
-		this.pScheduleElement = new ScheduleElementElements();
-		this.pScheduleAssert = new ScheduleAssertElements();
-		this.pScheduleComponentRef = new ScheduleComponentRefElements();
-		this.pScheduleSplitJoin = new ScheduleSplitJoinElements();
-		this.pScheduleSequence = new ScheduleSequenceElements();
+		this.pSchema = new SchemaElements();
+		this.pSchemaElement = new SchemaElementElements();
+		this.pSchemaLabel = new SchemaLabelElements();
+		this.pSchemaComponentRef = new SchemaComponentRefElements();
+		this.pSchemaSplitJoin = new SchemaSplitJoinElements();
+		this.pSchemaSequence = new SchemaSequenceElements();
+		this.pCompositionProperty = new CompositionPropertyElements();
+		this.pPropertyBinding = new PropertyBindingElements();
+		this.pSchemaPoint = new SchemaPointElements();
 		this.pInfoFlowClause = new InfoFlowClauseElements();
 		this.pHandlerClause = new HandlerClauseElements();
 		this.pCaseStatementClause = new CaseStatementClauseElements();
@@ -5715,7 +5992,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    (integration = Integration)?
 	//    (initialize = Initialize)?
 	//    (compute = Compute)?
-	//    (schedule = Schedule)?
+	//    (compositions += Composition)*
 	//;
 	public SpecSectionElements getSpecSectionAccess() {
 		return pSpecSection;
@@ -5828,33 +6105,40 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//// ===========================================================================
-	//// Schedule -- system-level contract for system implementations
+	//// Composition -- system-level contract for system implementations (design D8
+	//// of VCGenerationDesign.md in the hamr-system-reasoning-prototype repo).
 	////
-	//// Specifies scheduling constraints (sequences and splits) with assertions
-	//// at transition points. Assertions are optional; omitted assertions are
-	//// treated as implicit 'true' during lowering.
+	//// A composition separates the schedule *schema* (component ordering, splits/
+	//// joins -- no assertions) from named *properties* (assertion decorations of
+	//// schema points). The required id names the per-composition artifacts
+	//// (sys_proof_<id> proof crate, runtime monitor, meta program); a system may
+	//// declare several compositions.
 	////
 	//// Validation (not grammar) enforces:
-	////   - schedule only allowed on system implementations
+	////   - composition only allowed on system implementations
 	////   - state/initialize/compute rejected on system implementations
 	////   - component aliases resolve to thread subcomponent instances
 	////   - port aliases resolve to ports on referenced components
 	////   - state var aliases resolve to StateVarDecls in referenced components' GUMBO subclauses
+	//// (the kekinian GclResolver additionally lints: composition id uniqueness,
+	////  schema label uniqueness/collisions, occurrence labels required for
+	////  multi-firing components, property point resolution)
 	//// ===========================================================================
-	//Schedule:
-	//    'schedule' '{'
+	//Composition:
+	//    'composition' id=ID '{'
 	//        (componentAliases = ScheduleComponentAliases)?
 	//        (portAliases = SchedulePortAliases)?
 	//        (stateVarAliases = ScheduleStateVarAliases)?
-	//        (elements += ScheduleElement)+
+	//        schema = Schema
+	//        (properties += CompositionProperty)*
 	//    '}'
 	//;
-	public ScheduleElements getScheduleAccess() {
-		return pSchedule;
+	public CompositionElements getCompositionAccess() {
+		return pComposition;
 	}
 	
-	public ParserRule getScheduleRule() {
-		return getScheduleAccess().getRule();
+	public ParserRule getCompositionRule() {
+		return getCompositionAccess().getRule();
 	}
 	
 	//ScheduleComponentAliases:
@@ -5969,62 +6253,125 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getScheduleStateVarPathAccess().getRule();
 	}
 	
-	//ScheduleElement:
-	//    ScheduleAssert | ScheduleComponentRef | ScheduleSplitJoin
+	//// The schedule skeleton only -- no assertions. ';' separates elements within a
+	//// sequence (order is claimed); ',' separates the branches of a split (order is
+	//// deliberately not claimed).
+	//Schema:
+	//    'schema' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
 	//;
-	public ScheduleElementElements getScheduleElementAccess() {
-		return pScheduleElement;
+	public SchemaElements getSchemaAccess() {
+		return pSchema;
 	}
 	
-	public ParserRule getScheduleElementRule() {
-		return getScheduleElementAccess().getRule();
+	public ParserRule getSchemaRule() {
+		return getSchemaAccess().getRule();
 	}
 	
-	//ScheduleAssert:
-	//    'assert' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+	//SchemaElement:
+	//    SchemaLabel | SchemaSplitJoin | SchemaComponentRef
 	//;
-	public ScheduleAssertElements getScheduleAssertAccess() {
-		return pScheduleAssert;
+	public SchemaElementElements getSchemaElementAccess() {
+		return pSchemaElement;
 	}
 	
-	public ParserRule getScheduleAssertRule() {
-		return getScheduleAssertAccess().getRule();
+	public ParserRule getSchemaElementRule() {
+		return getSchemaElementAccess().getRule();
 	}
 	
-	//// References a component alias or a subcomponent directly.
+	//// Names the place at this position (purely naming, never structural: the place
+	//// exists regardless; add a label only when a property must bind a point with
+	//// no unambiguous derived name, e.g. between a join and the next split).
+	//SchemaLabel:
+	//    'label' id=ID
+	//;
+	public SchemaLabelElements getSchemaLabelAccess() {
+		return pSchemaLabel;
+	}
+	
+	public ParserRule getSchemaLabelRule() {
+		return getSchemaLabelAccess().getRule();
+	}
+	
+	//// References a component alias or a subcomponent directly (no 'component'
+	//// keyword: with assertions out of the schema, a bare ID is unambiguous).
 	//// Scope provider puts both ScheduleComponentAlias entries and
-	//// aadl2::Subcomponent instances in scope.
-	//ScheduleComponentRef:
-	//    'component' component=[ecore::EObject|ID]
+	//// aadl2::Subcomponent instances in scope. The optional occurrence label
+	//// ('<alias> @ <id>') disambiguates a component that fires more than once per
+	//// hyperperiod; the kekinian resolver REQUIRES it on multi-firing occurrences.
+	//SchemaComponentRef:
+	//    component=[ecore::EObject|ID] ('@' occurrenceLabel=ID)?
 	//;
-	public ScheduleComponentRefElements getScheduleComponentRefAccess() {
-		return pScheduleComponentRef;
+	public SchemaComponentRefElements getSchemaComponentRefAccess() {
+		return pSchemaComponentRef;
 	}
 	
-	public ParserRule getScheduleComponentRefRule() {
-		return getScheduleComponentRefAccess().getRule();
+	public ParserRule getSchemaComponentRefRule() {
+		return getSchemaComponentRefAccess().getRule();
 	}
 	
-	//ScheduleSplitJoin:
-	//    'split' '{' sequences += ScheduleSequence (',' sequences += ScheduleSequence)+ '}'
+	//SchemaSplitJoin:
+	//    'split' '{' branches += SchemaSequence (',' branches += SchemaSequence)+ '}'
 	//;
-	public ScheduleSplitJoinElements getScheduleSplitJoinAccess() {
-		return pScheduleSplitJoin;
+	public SchemaSplitJoinElements getSchemaSplitJoinAccess() {
+		return pSchemaSplitJoin;
 	}
 	
-	public ParserRule getScheduleSplitJoinRule() {
-		return getScheduleSplitJoinAccess().getRule();
+	public ParserRule getSchemaSplitJoinRule() {
+		return getSchemaSplitJoinAccess().getRule();
 	}
 	
-	//ScheduleSequence:
-	//    'sequence' '{' (elements += ScheduleElement)+ '}'
+	//SchemaSequence:
+	//    'sequence' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
 	//;
-	public ScheduleSequenceElements getScheduleSequenceAccess() {
-		return pScheduleSequence;
+	public SchemaSequenceElements getSchemaSequenceAccess() {
+		return pSchemaSequence;
 	}
 	
-	public ParserRule getScheduleSequenceRule() {
-		return getScheduleSequenceAccess().getRule();
+	public ParserRule getSchemaSequenceRule() {
+		return getSchemaSequenceAccess().getRule();
+	}
+	
+	//// A named assertion decoration of the schema. Each property generates its own
+	//// VC set over the shared net; a property's VCs see only its own bindings, and
+	//// unbound points lower to 'true'.
+	//CompositionProperty:
+	//    'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
+	//;
+	public CompositionPropertyElements getCompositionPropertyAccess() {
+		return pCompositionProperty;
+	}
+	
+	public ParserRule getCompositionPropertyRule() {
+		return getCompositionPropertyAccess().getRule();
+	}
+	
+	//PropertyBinding:
+	//    point=SchemaPoint descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+	//;
+	public PropertyBindingElements getPropertyBindingAccess() {
+		return pPropertyBinding;
+	}
+	
+	public ParserRule getPropertyBindingRule() {
+		return getPropertyBindingAccess().getRule();
+	}
+	
+	//// A schema point reference. 'at' takes a label (the reserved names START and
+	//// END are mapped to the schedule's start/end places by the AIR visitor);
+	//// 'before'/'after' take a component occurrence (its alias when it fires once,
+	//// or its occurrence label). Consecutive elements share a place, so a place may
+	//// have several names; the kekinian resolver enforces one binding per place.
+	//SchemaPoint:
+	//      {PointAt} 'at' label=ID
+	//    | {PointBefore} 'before' occurrence=ID
+	//    | {PointAfter} 'after' occurrence=ID
+	//;
+	public SchemaPointElements getSchemaPointAccess() {
+		return pSchemaPoint;
+	}
+	
+	public ParserRule getSchemaPointRule() {
+		return getSchemaPointAccess().getRule();
 	}
 	
 	//InfoFlowClause:

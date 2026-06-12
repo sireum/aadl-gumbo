@@ -21,7 +21,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/integration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/initialize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/compute"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/schedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/compositions"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//State">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//State/decls"/>
@@ -57,11 +57,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/handlers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/flows"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//Schedule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Schedule/componentAliases"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Schedule/portAliases"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Schedule/stateVarAliases"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Schedule/elements"/>
+    <genClasses ecoreClass="Gumbo.ecore#//Composition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//Composition/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Composition/componentAliases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Composition/portAliases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Composition/stateVarAliases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Composition/schema"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Composition/properties"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//ScheduleComponentAliases">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ScheduleComponentAliases/aliases"/>
@@ -96,21 +98,34 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ScheduleStateVarPath/ref"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ScheduleStateVarPath/subPath"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//ScheduleElement"/>
-    <genClasses ecoreClass="Gumbo.ecore#//ScheduleAssert">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//ScheduleAssert/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//ScheduleAssert/descriptor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ScheduleAssert/expr"/>
+    <genClasses ecoreClass="Gumbo.ecore#//Schema">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Schema/elements"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//ScheduleComponentRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ScheduleComponentRef/component"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SchemaElement"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SchemaLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SchemaLabel/id"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//ScheduleSplitJoin">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ScheduleSplitJoin/sequences"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SchemaComponentRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SchemaComponentRef/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SchemaComponentRef/occurrenceLabel"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//ScheduleSequence">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//ScheduleSequence/elements"/>
+    <genClasses ecoreClass="Gumbo.ecore#//SchemaSplitJoin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SchemaSplitJoin/branches"/>
     </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SchemaSequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SchemaSequence/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//CompositionProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CompositionProperty/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CompositionProperty/descriptor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CompositionProperty/bindings"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//PropertyBinding">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//PropertyBinding/point"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//PropertyBinding/descriptor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//PropertyBinding/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//SchemaPoint"/>
     <genClasses ecoreClass="Gumbo.ecore#//InfoFlowClause">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//InfoFlowClause/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//InfoFlowClause/descriptor"/>
@@ -284,6 +299,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//SlangLit/value"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangInterp"/>
+    <genClasses ecoreClass="Gumbo.ecore#//PointAt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//PointAt/label"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//PointBefore">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//PointBefore/occurrence"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//PointAfter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//PointAfter/occurrence"/>
+    </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//SlangIfStmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIfStmt/cond"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SlangIfStmt/b"/>

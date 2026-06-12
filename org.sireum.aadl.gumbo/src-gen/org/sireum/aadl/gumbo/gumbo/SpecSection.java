@@ -13,6 +13,8 @@
  */
 package org.sireum.aadl.gumbo.gumbo;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -30,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getIntegration <em>Integration</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getInitialize <em>Initialize</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompute <em>Compute</em>}</li>
- *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getSchedule <em>Schedule</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompositions <em>Compositions</em>}</li>
  * </ul>
  *
  * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection()
@@ -172,25 +174,15 @@ public interface SpecSection extends EObject
   void setCompute(Compute value);
 
   /**
-   * Returns the value of the '<em><b>Schedule</b></em>' containment reference.
+   * Returns the value of the '<em><b>Compositions</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.gumbo.gumbo.Composition}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Schedule</em>' containment reference.
-   * @see #setSchedule(Schedule)
-   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Schedule()
+   * @return the value of the '<em>Compositions</em>' containment reference list.
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Compositions()
    * @model containment="true"
    * @generated
    */
-  Schedule getSchedule();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getSchedule <em>Schedule</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Schedule</em>' containment reference.
-   * @see #getSchedule()
-   * @generated
-   */
-  void setSchedule(Schedule value);
+  EList<Composition> getCompositions();
 
 } // SpecSection

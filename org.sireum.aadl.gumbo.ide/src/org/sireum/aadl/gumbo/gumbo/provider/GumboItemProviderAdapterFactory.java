@@ -360,28 +360,28 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Schedule} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Composition} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ScheduleItemProvider scheduleItemProvider;
+  protected CompositionItemProvider compositionItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Schedule}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Composition}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createScheduleAdapter()
+  public Adapter createCompositionAdapter()
   {
-    if (scheduleItemProvider == null)
+    if (compositionItemProvider == null)
     {
-      scheduleItemProvider = new ScheduleItemProvider(this);
+      compositionItemProvider = new CompositionItemProvider(this);
     }
 
-    return scheduleItemProvider;
+    return compositionItemProvider;
   }
 
   /**
@@ -610,128 +610,228 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleElement} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Schema} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ScheduleElementItemProvider scheduleElementItemProvider;
+  protected SchemaItemProvider schemaItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleElement}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Schema}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createScheduleElementAdapter()
+  public Adapter createSchemaAdapter()
   {
-    if (scheduleElementItemProvider == null)
+    if (schemaItemProvider == null)
     {
-      scheduleElementItemProvider = new ScheduleElementItemProvider(this);
+      schemaItemProvider = new SchemaItemProvider(this);
     }
 
-    return scheduleElementItemProvider;
+    return schemaItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchemaElement} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ScheduleAssertItemProvider scheduleAssertItemProvider;
+  protected SchemaElementItemProvider schemaElementItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaElement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createScheduleAssertAdapter()
+  public Adapter createSchemaElementAdapter()
   {
-    if (scheduleAssertItemProvider == null)
+    if (schemaElementItemProvider == null)
     {
-      scheduleAssertItemProvider = new ScheduleAssertItemProvider(this);
+      schemaElementItemProvider = new SchemaElementItemProvider(this);
     }
 
-    return scheduleAssertItemProvider;
+    return schemaElementItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchemaLabel} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ScheduleComponentRefItemProvider scheduleComponentRefItemProvider;
+  protected SchemaLabelItemProvider schemaLabelItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaLabel}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createScheduleComponentRefAdapter()
+  public Adapter createSchemaLabelAdapter()
   {
-    if (scheduleComponentRefItemProvider == null)
+    if (schemaLabelItemProvider == null)
     {
-      scheduleComponentRefItemProvider = new ScheduleComponentRefItemProvider(this);
+      schemaLabelItemProvider = new SchemaLabelItemProvider(this);
     }
 
-    return scheduleComponentRefItemProvider;
+    return schemaLabelItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchemaComponentRef} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ScheduleSplitJoinItemProvider scheduleSplitJoinItemProvider;
+  protected SchemaComponentRefItemProvider schemaComponentRefItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaComponentRef}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createScheduleSplitJoinAdapter()
+  public Adapter createSchemaComponentRefAdapter()
   {
-    if (scheduleSplitJoinItemProvider == null)
+    if (schemaComponentRefItemProvider == null)
     {
-      scheduleSplitJoinItemProvider = new ScheduleSplitJoinItemProvider(this);
+      schemaComponentRefItemProvider = new SchemaComponentRefItemProvider(this);
     }
 
-    return scheduleSplitJoinItemProvider;
+    return schemaComponentRefItemProvider;
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ScheduleSequenceItemProvider scheduleSequenceItemProvider;
+  protected SchemaSplitJoinItemProvider schemaSplitJoinItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createScheduleSequenceAdapter()
+  public Adapter createSchemaSplitJoinAdapter()
   {
-    if (scheduleSequenceItemProvider == null)
+    if (schemaSplitJoinItemProvider == null)
     {
-      scheduleSequenceItemProvider = new ScheduleSequenceItemProvider(this);
+      schemaSplitJoinItemProvider = new SchemaSplitJoinItemProvider(this);
     }
 
-    return scheduleSequenceItemProvider;
+    return schemaSplitJoinItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchemaSequence} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SchemaSequenceItemProvider schemaSequenceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaSequence}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSchemaSequenceAdapter()
+  {
+    if (schemaSequenceItemProvider == null)
+    {
+      schemaSequenceItemProvider = new SchemaSequenceItemProvider(this);
+    }
+
+    return schemaSequenceItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.CompositionProperty} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CompositionPropertyItemProvider compositionPropertyItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.CompositionProperty}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCompositionPropertyAdapter()
+  {
+    if (compositionPropertyItemProvider == null)
+    {
+      compositionPropertyItemProvider = new CompositionPropertyItemProvider(this);
+    }
+
+    return compositionPropertyItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.PropertyBinding} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PropertyBindingItemProvider propertyBindingItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.PropertyBinding}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPropertyBindingAdapter()
+  {
+    if (propertyBindingItemProvider == null)
+    {
+      propertyBindingItemProvider = new PropertyBindingItemProvider(this);
+    }
+
+    return propertyBindingItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.SchemaPoint} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected SchemaPointItemProvider schemaPointItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaPoint}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createSchemaPointAdapter()
+  {
+    if (schemaPointItemProvider == null)
+    {
+      schemaPointItemProvider = new SchemaPointItemProvider(this);
+    }
+
+    return schemaPointItemProvider;
   }
 
   /**
@@ -1957,6 +2057,81 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return slangInterpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.PointAt} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PointAtItemProvider pointAtItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.PointAt}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPointAtAdapter()
+  {
+    if (pointAtItemProvider == null)
+    {
+      pointAtItemProvider = new PointAtItemProvider(this);
+    }
+
+    return pointAtItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.PointBefore} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PointBeforeItemProvider pointBeforeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.PointBefore}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPointBeforeAdapter()
+  {
+    if (pointBeforeItemProvider == null)
+    {
+      pointBeforeItemProvider = new PointBeforeItemProvider(this);
+    }
+
+    return pointBeforeItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.PointAfter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected PointAfterItemProvider pointAfterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.PointAfter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createPointAfterAdapter()
+  {
+    if (pointAfterItemProvider == null)
+    {
+      pointAfterItemProvider = new PointAfterItemProvider(this);
+    }
+
+    return pointAfterItemProvider;
   }
 
   /**
@@ -3212,7 +3387,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (initializeItemProvider != null) initializeItemProvider.dispose();
     if (initializeSpecStatementItemProvider != null) initializeSpecStatementItemProvider.dispose();
     if (computeItemProvider != null) computeItemProvider.dispose();
-    if (scheduleItemProvider != null) scheduleItemProvider.dispose();
+    if (compositionItemProvider != null) compositionItemProvider.dispose();
     if (scheduleComponentAliasesItemProvider != null) scheduleComponentAliasesItemProvider.dispose();
     if (scheduleComponentAliasItemProvider != null) scheduleComponentAliasItemProvider.dispose();
     if (scheduleSubcomponentPathItemProvider != null) scheduleSubcomponentPathItemProvider.dispose();
@@ -3222,11 +3397,15 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (scheduleStateVarAliasesItemProvider != null) scheduleStateVarAliasesItemProvider.dispose();
     if (scheduleStateVarAliasItemProvider != null) scheduleStateVarAliasItemProvider.dispose();
     if (scheduleStateVarPathItemProvider != null) scheduleStateVarPathItemProvider.dispose();
-    if (scheduleElementItemProvider != null) scheduleElementItemProvider.dispose();
-    if (scheduleAssertItemProvider != null) scheduleAssertItemProvider.dispose();
-    if (scheduleComponentRefItemProvider != null) scheduleComponentRefItemProvider.dispose();
-    if (scheduleSplitJoinItemProvider != null) scheduleSplitJoinItemProvider.dispose();
-    if (scheduleSequenceItemProvider != null) scheduleSequenceItemProvider.dispose();
+    if (schemaItemProvider != null) schemaItemProvider.dispose();
+    if (schemaElementItemProvider != null) schemaElementItemProvider.dispose();
+    if (schemaLabelItemProvider != null) schemaLabelItemProvider.dispose();
+    if (schemaComponentRefItemProvider != null) schemaComponentRefItemProvider.dispose();
+    if (schemaSplitJoinItemProvider != null) schemaSplitJoinItemProvider.dispose();
+    if (schemaSequenceItemProvider != null) schemaSequenceItemProvider.dispose();
+    if (compositionPropertyItemProvider != null) compositionPropertyItemProvider.dispose();
+    if (propertyBindingItemProvider != null) propertyBindingItemProvider.dispose();
+    if (schemaPointItemProvider != null) schemaPointItemProvider.dispose();
     if (infoFlowClauseItemProvider != null) infoFlowClauseItemProvider.dispose();
     if (handlerClauseItemProvider != null) handlerClauseItemProvider.dispose();
     if (caseStatementClauseItemProvider != null) caseStatementClauseItemProvider.dispose();
@@ -3276,6 +3455,9 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangCallArgsItemProvider != null) slangCallArgsItemProvider.dispose();
     if (slangLitItemProvider != null) slangLitItemProvider.dispose();
     if (slangInterpItemProvider != null) slangInterpItemProvider.dispose();
+    if (pointAtItemProvider != null) pointAtItemProvider.dispose();
+    if (pointBeforeItemProvider != null) pointBeforeItemProvider.dispose();
+    if (pointAfterItemProvider != null) pointAfterItemProvider.dispose();
     if (slangIfStmtItemProvider != null) slangIfStmtItemProvider.dispose();
     if (slangWhileStmtItemProvider != null) slangWhileStmtItemProvider.dispose();
     if (slangMatchStmtItemProvider != null) slangMatchStmtItemProvider.dispose();

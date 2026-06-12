@@ -22,8 +22,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -31,19 +29,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.sireum.aadl.gumbo.gumbo.GumboFactory;
-import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.Schedule;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.Schedule} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.SchemaPoint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScheduleItemProvider 
+public class SchemaPointItemProvider 
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -58,7 +51,7 @@ public class ScheduleItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScheduleItemProvider(AdapterFactory adapterFactory)
+  public SchemaPointItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -81,43 +74,7 @@ public class ScheduleItemProvider
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-  {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SCHEDULE__COMPONENT_ALIASES);
-      childrenFeatures.add(GumboPackage.Literals.SCHEDULE__PORT_ALIASES);
-      childrenFeatures.add(GumboPackage.Literals.SCHEDULE__STATE_VAR_ALIASES);
-      childrenFeatures.add(GumboPackage.Literals.SCHEDULE__ELEMENTS);
-    }
-    return childrenFeatures;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
-  {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
-  }
-
-  /**
-   * This returns Schedule.gif.
+   * This returns SchemaPoint.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -125,7 +82,7 @@ public class ScheduleItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Schedule"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/SchemaPoint"));
   }
 
   /**
@@ -137,7 +94,7 @@ public class ScheduleItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_Schedule_type");
+    return getString("_UI_SchemaPoint_type");
   }
 
 
@@ -152,16 +109,6 @@ public class ScheduleItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(Schedule.class))
-    {
-      case GumboPackage.SCHEDULE__COMPONENT_ALIASES:
-      case GumboPackage.SCHEDULE__PORT_ALIASES:
-      case GumboPackage.SCHEDULE__STATE_VAR_ALIASES:
-      case GumboPackage.SCHEDULE__ELEMENTS:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-        return;
-    }
     super.notifyChanged(notification);
   }
 
@@ -176,41 +123,6 @@ public class ScheduleItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE__COMPONENT_ALIASES,
-         GumboFactory.eINSTANCE.createScheduleComponentAliases()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE__PORT_ALIASES,
-         GumboFactory.eINSTANCE.createSchedulePortAliases()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE__STATE_VAR_ALIASES,
-         GumboFactory.eINSTANCE.createScheduleStateVarAliases()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleElement()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleAssert()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleComponentRef()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SCHEDULE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleSplitJoin()));
   }
 
   /**

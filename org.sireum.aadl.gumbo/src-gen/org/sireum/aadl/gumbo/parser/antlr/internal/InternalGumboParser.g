@@ -336,22 +336,22 @@ ruleSpecSection returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecSectionAccess().getScheduleScheduleParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getCompositionsCompositionParserRuleCall_7_0());
 				}
-				lv_schedule_7_0=ruleSchedule
+				lv_compositions_7_0=ruleComposition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
 					}
-					set(
+					add(
 						$current,
-						"schedule",
-						lv_schedule_7_0,
-						"org.sireum.aadl.gumbo.Gumbo.Schedule");
+						"compositions",
+						lv_compositions_7_0,
+						"org.sireum.aadl.gumbo.Gumbo.Composition");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)*
 	)
 ;
 
@@ -931,15 +931,15 @@ ruleCompute returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleSchedule
-entryRuleSchedule returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getScheduleRule()); }
-	iv_ruleSchedule=ruleSchedule
-	{ $current=$iv_ruleSchedule.current; }
+// Entry rule entryRuleComposition
+entryRuleComposition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCompositionRule()); }
+	iv_ruleComposition=ruleComposition
+	{ $current=$iv_ruleComposition.current; }
 	EOF;
 
-// Rule Schedule
-ruleSchedule returns [EObject current=null]
+// Rule Composition
+ruleComposition returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -947,28 +947,46 @@ ruleSchedule returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=Schedule
+		otherlv_0=Composition
 		{
-			newLeafNode(otherlv_0, grammarAccess.getScheduleAccess().getScheduleKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getCompositionAccess().getCompositionKeyword_0());
 		}
-		otherlv_1=LeftCurlyBracket
+		(
+			(
+				lv_id_1_0=RULE_ID
+				{
+					newLeafNode(lv_id_1_0, grammarAccess.getCompositionAccess().getIdIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCompositionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"id",
+						lv_id_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.ID");
+				}
+			)
+		)
+		otherlv_2=LeftCurlyBracket
 		{
-			newLeafNode(otherlv_1, grammarAccess.getScheduleAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getCompositionAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScheduleAccess().getComponentAliasesScheduleComponentAliasesParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getCompositionAccess().getComponentAliasesScheduleComponentAliasesParserRuleCall_3_0());
 				}
-				lv_componentAliases_2_0=ruleScheduleComponentAliases
+				lv_componentAliases_3_0=ruleScheduleComponentAliases
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScheduleRule());
+						$current = createModelElementForParent(grammarAccess.getCompositionRule());
 					}
 					set(
 						$current,
 						"componentAliases",
-						lv_componentAliases_2_0,
+						lv_componentAliases_3_0,
 						"org.sireum.aadl.gumbo.Gumbo.ScheduleComponentAliases");
 					afterParserOrEnumRuleCall();
 				}
@@ -977,17 +995,17 @@ ruleSchedule returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScheduleAccess().getPortAliasesSchedulePortAliasesParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getCompositionAccess().getPortAliasesSchedulePortAliasesParserRuleCall_4_0());
 				}
-				lv_portAliases_3_0=ruleSchedulePortAliases
+				lv_portAliases_4_0=ruleSchedulePortAliases
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScheduleRule());
+						$current = createModelElementForParent(grammarAccess.getCompositionRule());
 					}
 					set(
 						$current,
 						"portAliases",
-						lv_portAliases_3_0,
+						lv_portAliases_4_0,
 						"org.sireum.aadl.gumbo.Gumbo.SchedulePortAliases");
 					afterParserOrEnumRuleCall();
 				}
@@ -996,17 +1014,17 @@ ruleSchedule returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScheduleAccess().getStateVarAliasesScheduleStateVarAliasesParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getCompositionAccess().getStateVarAliasesScheduleStateVarAliasesParserRuleCall_5_0());
 				}
-				lv_stateVarAliases_4_0=ruleScheduleStateVarAliases
+				lv_stateVarAliases_5_0=ruleScheduleStateVarAliases
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScheduleRule());
+						$current = createModelElementForParent(grammarAccess.getCompositionRule());
 					}
 					set(
 						$current,
 						"stateVarAliases",
-						lv_stateVarAliases_4_0,
+						lv_stateVarAliases_5_0,
 						"org.sireum.aadl.gumbo.Gumbo.ScheduleStateVarAliases");
 					afterParserOrEnumRuleCall();
 				}
@@ -1015,25 +1033,44 @@ ruleSchedule returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScheduleAccess().getElementsScheduleElementParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getCompositionAccess().getSchemaSchemaParserRuleCall_6_0());
 				}
-				lv_elements_5_0=ruleScheduleElement
+				lv_schema_6_0=ruleSchema
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScheduleRule());
+						$current = createModelElementForParent(grammarAccess.getCompositionRule());
 					}
-					add(
+					set(
 						$current,
-						"elements",
-						lv_elements_5_0,
-						"org.sireum.aadl.gumbo.Gumbo.ScheduleElement");
+						"schema",
+						lv_schema_6_0,
+						"org.sireum.aadl.gumbo.Gumbo.Schema");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
-		otherlv_6=RightCurlyBracket
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCompositionAccess().getPropertiesCompositionPropertyParserRuleCall_7_0());
+				}
+				lv_properties_7_0=ruleCompositionProperty
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCompositionRule());
+					}
+					add(
+						$current,
+						"properties",
+						lv_properties_7_0,
+						"org.sireum.aadl.gumbo.Gumbo.CompositionProperty");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_8=RightCurlyBracket
 		{
-			newLeafNode(otherlv_6, grammarAccess.getScheduleAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_8, grammarAccess.getCompositionAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -1536,15 +1573,96 @@ ruleScheduleStateVarPath returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleScheduleElement
-entryRuleScheduleElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getScheduleElementRule()); }
-	iv_ruleScheduleElement=ruleScheduleElement
-	{ $current=$iv_ruleScheduleElement.current; }
+// Entry rule entryRuleSchema
+entryRuleSchema returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSchemaRule()); }
+	iv_ruleSchema=ruleSchema
+	{ $current=$iv_ruleSchema.current; }
 	EOF;
 
-// Rule ScheduleElement
-ruleScheduleElement returns [EObject current=null]
+// Rule Schema
+ruleSchema returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Schema
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSchemaAccess().getSchemaKeyword_0());
+		}
+		otherlv_1=LeftCurlyBracket
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSchemaAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSchemaAccess().getElementsSchemaElementParserRuleCall_2_0());
+				}
+				lv_elements_2_0=ruleSchemaElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSchemaRule());
+					}
+					add(
+						$current,
+						"elements",
+						lv_elements_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.SchemaElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3=Semicolon
+			{
+				newLeafNode(otherlv_3, grammarAccess.getSchemaAccess().getSemicolonKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSchemaAccess().getElementsSchemaElementParserRuleCall_3_1_0());
+					}
+					lv_elements_4_0=ruleSchemaElement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSchemaRule());
+						}
+						add(
+							$current,
+							"elements",
+							lv_elements_4_0,
+							"org.sireum.aadl.gumbo.Gumbo.SchemaElement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		(
+			otherlv_5=Semicolon
+			{
+				newLeafNode(otherlv_5, grammarAccess.getSchemaAccess().getSemicolonKeyword_4());
+			}
+		)?
+		otherlv_6=RightCurlyBracket
+		{
+			newLeafNode(otherlv_6, grammarAccess.getSchemaAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleSchemaElement
+entryRuleSchemaElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSchemaElementRule()); }
+	iv_ruleSchemaElement=ruleSchemaElement
+	{ $current=$iv_ruleSchemaElement.current; }
+	EOF;
+
+// Rule SchemaElement
+ruleSchemaElement returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1556,11 +1674,11 @@ ruleScheduleElement returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getScheduleElementAccess().getScheduleAssertParserRuleCall_0());
+			newCompositeNode(grammarAccess.getSchemaElementAccess().getSchemaLabelParserRuleCall_0());
 		}
-		this_ScheduleAssert_0=ruleScheduleAssert
+		this_SchemaLabel_0=ruleSchemaLabel
 		{
-			$current = $this_ScheduleAssert_0.current;
+			$current = $this_SchemaLabel_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -1568,11 +1686,11 @@ ruleScheduleElement returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getScheduleElementAccess().getScheduleComponentRefParserRuleCall_1());
+			newCompositeNode(grammarAccess.getSchemaElementAccess().getSchemaSplitJoinParserRuleCall_1());
 		}
-		this_ScheduleComponentRef_1=ruleScheduleComponentRef
+		this_SchemaSplitJoin_1=ruleSchemaSplitJoin
 		{
-			$current = $this_ScheduleComponentRef_1.current;
+			$current = $this_SchemaSplitJoin_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -1580,25 +1698,25 @@ ruleScheduleElement returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getScheduleElementAccess().getScheduleSplitJoinParserRuleCall_2());
+			newCompositeNode(grammarAccess.getSchemaElementAccess().getSchemaComponentRefParserRuleCall_2());
 		}
-		this_ScheduleSplitJoin_2=ruleScheduleSplitJoin
+		this_SchemaComponentRef_2=ruleSchemaComponentRef
 		{
-			$current = $this_ScheduleSplitJoin_2.current;
+			$current = $this_SchemaComponentRef_2.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
 ;
 
-// Entry rule entryRuleScheduleAssert
-entryRuleScheduleAssert returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getScheduleAssertRule()); }
-	iv_ruleScheduleAssert=ruleScheduleAssert
-	{ $current=$iv_ruleScheduleAssert.current; }
+// Entry rule entryRuleSchemaLabel
+entryRuleSchemaLabel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSchemaLabelRule()); }
+	iv_ruleSchemaLabel=ruleSchemaLabel
+	{ $current=$iv_ruleSchemaLabel.current; }
 	EOF;
 
-// Rule ScheduleAssert
-ruleScheduleAssert returns [EObject current=null]
+// Rule SchemaLabel
+ruleSchemaLabel returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1606,19 +1724,275 @@ ruleScheduleAssert returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=Assert
+		otherlv_0=Label
 		{
-			newLeafNode(otherlv_0, grammarAccess.getScheduleAssertAccess().getAssertKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getSchemaLabelAccess().getLabelKeyword_0());
 		}
 		(
 			(
 				lv_id_1_0=RULE_ID
 				{
-					newLeafNode(lv_id_1_0, grammarAccess.getScheduleAssertAccess().getIdIDTerminalRuleCall_1_0());
+					newLeafNode(lv_id_1_0, grammarAccess.getSchemaLabelAccess().getIdIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getScheduleAssertRule());
+						$current = createModelElement(grammarAccess.getSchemaLabelRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"id",
+						lv_id_1_0,
+						"org.osate.xtext.aadl2.properties.Properties.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleSchemaComponentRef
+entryRuleSchemaComponentRef returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSchemaComponentRefRule()); }
+	iv_ruleSchemaComponentRef=ruleSchemaComponentRef
+	{ $current=$iv_ruleSchemaComponentRef.current; }
+	EOF;
+
+// Rule SchemaComponentRef
+ruleSchemaComponentRef returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					/* */
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSchemaComponentRefRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getSchemaComponentRefAccess().getComponentEObjectCrossReference_0_0());
+				}
+			)
+		)
+		(
+			otherlv_1=CommercialAt
+			{
+				newLeafNode(otherlv_1, grammarAccess.getSchemaComponentRefAccess().getCommercialAtKeyword_1_0());
+			}
+			(
+				(
+					lv_occurrenceLabel_2_0=RULE_ID
+					{
+						newLeafNode(lv_occurrenceLabel_2_0, grammarAccess.getSchemaComponentRefAccess().getOccurrenceLabelIDTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSchemaComponentRefRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"occurrenceLabel",
+							lv_occurrenceLabel_2_0,
+							"org.osate.xtext.aadl2.properties.Properties.ID");
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleSchemaSplitJoin
+entryRuleSchemaSplitJoin returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSchemaSplitJoinRule()); }
+	iv_ruleSchemaSplitJoin=ruleSchemaSplitJoin
+	{ $current=$iv_ruleSchemaSplitJoin.current; }
+	EOF;
+
+// Rule SchemaSplitJoin
+ruleSchemaSplitJoin returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Split
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSchemaSplitJoinAccess().getSplitKeyword_0());
+		}
+		otherlv_1=LeftCurlyBracket
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSchemaSplitJoinAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSchemaSplitJoinAccess().getBranchesSchemaSequenceParserRuleCall_2_0());
+				}
+				lv_branches_2_0=ruleSchemaSequence
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSchemaSplitJoinRule());
+					}
+					add(
+						$current,
+						"branches",
+						lv_branches_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.SchemaSequence");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3=Comma
+			{
+				newLeafNode(otherlv_3, grammarAccess.getSchemaSplitJoinAccess().getCommaKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSchemaSplitJoinAccess().getBranchesSchemaSequenceParserRuleCall_3_1_0());
+					}
+					lv_branches_4_0=ruleSchemaSequence
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSchemaSplitJoinRule());
+						}
+						add(
+							$current,
+							"branches",
+							lv_branches_4_0,
+							"org.sireum.aadl.gumbo.Gumbo.SchemaSequence");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)+
+		otherlv_5=RightCurlyBracket
+		{
+			newLeafNode(otherlv_5, grammarAccess.getSchemaSplitJoinAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleSchemaSequence
+entryRuleSchemaSequence returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSchemaSequenceRule()); }
+	iv_ruleSchemaSequence=ruleSchemaSequence
+	{ $current=$iv_ruleSchemaSequence.current; }
+	EOF;
+
+// Rule SchemaSequence
+ruleSchemaSequence returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Sequence
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSchemaSequenceAccess().getSequenceKeyword_0());
+		}
+		otherlv_1=LeftCurlyBracket
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSchemaSequenceAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSchemaSequenceAccess().getElementsSchemaElementParserRuleCall_2_0());
+				}
+				lv_elements_2_0=ruleSchemaElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSchemaSequenceRule());
+					}
+					add(
+						$current,
+						"elements",
+						lv_elements_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.SchemaElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3=Semicolon
+			{
+				newLeafNode(otherlv_3, grammarAccess.getSchemaSequenceAccess().getSemicolonKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSchemaSequenceAccess().getElementsSchemaElementParserRuleCall_3_1_0());
+					}
+					lv_elements_4_0=ruleSchemaElement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSchemaSequenceRule());
+						}
+						add(
+							$current,
+							"elements",
+							lv_elements_4_0,
+							"org.sireum.aadl.gumbo.Gumbo.SchemaElement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		(
+			otherlv_5=Semicolon
+			{
+				newLeafNode(otherlv_5, grammarAccess.getSchemaSequenceAccess().getSemicolonKeyword_4());
+			}
+		)?
+		otherlv_6=RightCurlyBracket
+		{
+			newLeafNode(otherlv_6, grammarAccess.getSchemaSequenceAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleCompositionProperty
+entryRuleCompositionProperty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCompositionPropertyRule()); }
+	iv_ruleCompositionProperty=ruleCompositionProperty
+	{ $current=$iv_ruleCompositionProperty.current; }
+	EOF;
+
+// Rule CompositionProperty
+ruleCompositionProperty returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=Property
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCompositionPropertyAccess().getPropertyKeyword_0());
+		}
+		(
+			(
+				lv_id_1_0=RULE_ID
+				{
+					newLeafNode(lv_id_1_0, grammarAccess.getCompositionPropertyAccess().getIdIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCompositionPropertyRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -1632,11 +2006,11 @@ ruleScheduleAssert returns [EObject current=null]
 			(
 				lv_descriptor_2_0=RULE_STRING_VALUE
 				{
-					newLeafNode(lv_descriptor_2_0, grammarAccess.getScheduleAssertAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
+					newLeafNode(lv_descriptor_2_0, grammarAccess.getCompositionPropertyAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getScheduleAssertRule());
+						$current = createModelElement(grammarAccess.getCompositionPropertyRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -1646,45 +2020,45 @@ ruleScheduleAssert returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_3=Colon
+		otherlv_3=LeftCurlyBracket
 		{
-			newLeafNode(otherlv_3, grammarAccess.getScheduleAssertAccess().getColonKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getCompositionPropertyAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScheduleAssertAccess().getExprOwnedExpressionParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getCompositionPropertyAccess().getBindingsPropertyBindingParserRuleCall_4_0());
 				}
-				lv_expr_4_0=ruleOwnedExpression
+				lv_bindings_4_0=rulePropertyBinding
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScheduleAssertRule());
+						$current = createModelElementForParent(grammarAccess.getCompositionPropertyRule());
 					}
-					set(
+					add(
 						$current,
-						"expr",
-						lv_expr_4_0,
-						"org.sireum.aadl.gumbo.Gumbo.OwnedExpression");
+						"bindings",
+						lv_bindings_4_0,
+						"org.sireum.aadl.gumbo.Gumbo.PropertyBinding");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
-		otherlv_5=Semicolon
+		)+
+		otherlv_5=RightCurlyBracket
 		{
-			newLeafNode(otherlv_5, grammarAccess.getScheduleAssertAccess().getSemicolonKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getCompositionPropertyAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
 
-// Entry rule entryRuleScheduleComponentRef
-entryRuleScheduleComponentRef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getScheduleComponentRefRule()); }
-	iv_ruleScheduleComponentRef=ruleScheduleComponentRef
-	{ $current=$iv_ruleScheduleComponentRef.current; }
+// Entry rule entryRulePropertyBinding
+entryRulePropertyBinding returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPropertyBindingRule()); }
+	iv_rulePropertyBinding=rulePropertyBinding
+	{ $current=$iv_rulePropertyBinding.current; }
 	EOF;
 
-// Rule ScheduleComponentRef
-ruleScheduleComponentRef returns [EObject current=null]
+// Rule PropertyBinding
+rulePropertyBinding returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1692,151 +2066,193 @@ ruleScheduleComponentRef returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=Component
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPropertyBindingAccess().getPointSchemaPointParserRuleCall_0_0());
+				}
+				lv_point_0_0=ruleSchemaPoint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPropertyBindingRule());
+					}
+					set(
+						$current,
+						"point",
+						lv_point_0_0,
+						"org.sireum.aadl.gumbo.Gumbo.SchemaPoint");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_descriptor_1_0=RULE_STRING_VALUE
+				{
+					newLeafNode(lv_descriptor_1_0, grammarAccess.getPropertyBindingAccess().getDescriptorSTRING_VALUETerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPropertyBindingRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"descriptor",
+						lv_descriptor_1_0,
+						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
+				}
+			)
+		)?
+		otherlv_2=Colon
 		{
-			newLeafNode(otherlv_0, grammarAccess.getScheduleComponentRefAccess().getComponentKeyword_0());
+			newLeafNode(otherlv_2, grammarAccess.getPropertyBindingAccess().getColonKeyword_2());
 		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPropertyBindingAccess().getExprOwnedExpressionParserRuleCall_3_0());
+				}
+				lv_expr_3_0=ruleOwnedExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPropertyBindingRule());
+					}
+					set(
+						$current,
+						"expr",
+						lv_expr_3_0,
+						"org.sireum.aadl.gumbo.Gumbo.OwnedExpression");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=Semicolon
+		{
+			newLeafNode(otherlv_4, grammarAccess.getPropertyBindingAccess().getSemicolonKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleSchemaPoint
+entryRuleSchemaPoint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSchemaPointRule()); }
+	iv_ruleSchemaPoint=ruleSchemaPoint
+	{ $current=$iv_ruleSchemaPoint.current; }
+	EOF;
+
+// Rule SchemaPoint
+ruleSchemaPoint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		(
 			(
 				{
 					/* */
 				}
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getScheduleComponentRefRule());
-					}
-				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getScheduleComponentRefAccess().getComponentEObjectCrossReference_1_0());
+					$current = forceCreateModelElement(
+						grammarAccess.getSchemaPointAccess().getPointAtAction_0_0(),
+						$current);
 				}
 			)
-		)
-	)
-;
-
-// Entry rule entryRuleScheduleSplitJoin
-entryRuleScheduleSplitJoin returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getScheduleSplitJoinRule()); }
-	iv_ruleScheduleSplitJoin=ruleScheduleSplitJoin
-	{ $current=$iv_ruleScheduleSplitJoin.current; }
-	EOF;
-
-// Rule ScheduleSplitJoin
-ruleScheduleSplitJoin returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0=Split
-		{
-			newLeafNode(otherlv_0, grammarAccess.getScheduleSplitJoinAccess().getSplitKeyword_0());
-		}
-		otherlv_1=LeftCurlyBracket
-		{
-			newLeafNode(otherlv_1, grammarAccess.getScheduleSplitJoinAccess().getLeftCurlyBracketKeyword_1());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getScheduleSplitJoinAccess().getSequencesScheduleSequenceParserRuleCall_2_0());
-				}
-				lv_sequences_2_0=ruleScheduleSequence
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScheduleSplitJoinRule());
-					}
-					add(
-						$current,
-						"sequences",
-						lv_sequences_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.ScheduleSequence");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_3=Comma
+			otherlv_1=At
 			{
-				newLeafNode(otherlv_3, grammarAccess.getScheduleSplitJoinAccess().getCommaKeyword_3_0());
+				newLeafNode(otherlv_1, grammarAccess.getSchemaPointAccess().getAtKeyword_0_1());
 			}
 			(
 				(
+					lv_label_2_0=RULE_ID
 					{
-						newCompositeNode(grammarAccess.getScheduleSplitJoinAccess().getSequencesScheduleSequenceParserRuleCall_3_1_0());
+						newLeafNode(lv_label_2_0, grammarAccess.getSchemaPointAccess().getLabelIDTerminalRuleCall_0_2_0());
 					}
-					lv_sequences_4_0=ruleScheduleSequence
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScheduleSplitJoinRule());
+							$current = createModelElement(grammarAccess.getSchemaPointRule());
 						}
-						add(
+						setWithLastConsumed(
 							$current,
-							"sequences",
-							lv_sequences_4_0,
-							"org.sireum.aadl.gumbo.Gumbo.ScheduleSequence");
-						afterParserOrEnumRuleCall();
+							"label",
+							lv_label_2_0,
+							"org.osate.xtext.aadl2.properties.Properties.ID");
 					}
 				)
 			)
-		)+
-		otherlv_5=RightCurlyBracket
-		{
-			newLeafNode(otherlv_5, grammarAccess.getScheduleSplitJoinAccess().getRightCurlyBracketKeyword_4());
-		}
-	)
-;
-
-// Entry rule entryRuleScheduleSequence
-entryRuleScheduleSequence returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getScheduleSequenceRule()); }
-	iv_ruleScheduleSequence=ruleScheduleSequence
-	{ $current=$iv_ruleScheduleSequence.current; }
-	EOF;
-
-// Rule ScheduleSequence
-ruleScheduleSequence returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0=Sequence
-		{
-			newLeafNode(otherlv_0, grammarAccess.getScheduleSequenceAccess().getSequenceKeyword_0());
-		}
-		otherlv_1=LeftCurlyBracket
-		{
-			newLeafNode(otherlv_1, grammarAccess.getScheduleSequenceAccess().getLeftCurlyBracketKeyword_1());
-		}
+		)
+		    |
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScheduleSequenceAccess().getElementsScheduleElementParserRuleCall_2_0());
+					/* */
 				}
-				lv_elements_2_0=ruleScheduleElement
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getScheduleSequenceRule());
-					}
-					add(
-						$current,
-						"elements",
-						lv_elements_2_0,
-						"org.sireum.aadl.gumbo.Gumbo.ScheduleElement");
-					afterParserOrEnumRuleCall();
+					$current = forceCreateModelElement(
+						grammarAccess.getSchemaPointAccess().getPointBeforeAction_1_0(),
+						$current);
 				}
 			)
-		)+
-		otherlv_3=RightCurlyBracket
-		{
-			newLeafNode(otherlv_3, grammarAccess.getScheduleSequenceAccess().getRightCurlyBracketKeyword_3());
-		}
+			otherlv_4=Before
+			{
+				newLeafNode(otherlv_4, grammarAccess.getSchemaPointAccess().getBeforeKeyword_1_1());
+			}
+			(
+				(
+					lv_occurrence_5_0=RULE_ID
+					{
+						newLeafNode(lv_occurrence_5_0, grammarAccess.getSchemaPointAccess().getOccurrenceIDTerminalRuleCall_1_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSchemaPointRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"occurrence",
+							lv_occurrence_5_0,
+							"org.osate.xtext.aadl2.properties.Properties.ID");
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getSchemaPointAccess().getPointAfterAction_2_0(),
+						$current);
+				}
+			)
+			otherlv_7=After
+			{
+				newLeafNode(otherlv_7, grammarAccess.getSchemaPointAccess().getAfterKeyword_2_1());
+			}
+			(
+				(
+					lv_occurrence_8_0=RULE_ID
+					{
+						newLeafNode(lv_occurrence_8_0, grammarAccess.getSchemaPointAccess().getOccurrenceIDTerminalRuleCall_2_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSchemaPointRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"occurrence",
+							lv_occurrence_8_0,
+							"org.osate.xtext.aadl2.properties.Properties.ID");
+					}
+				)
+			)
+		)
 	)
 ;
 

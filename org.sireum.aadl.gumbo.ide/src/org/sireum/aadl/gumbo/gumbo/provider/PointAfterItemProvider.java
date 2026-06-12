@@ -22,16 +22,19 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.PointAfter;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.PointAfter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScheduleComponentRefItemProvider extends ScheduleElementItemProvider
+public class PointAfterItemProvider extends SchemaPointItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -39,7 +42,7 @@ public class ScheduleComponentRefItemProvider extends ScheduleElementItemProvide
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScheduleComponentRefItemProvider(AdapterFactory adapterFactory)
+  public PointAfterItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -57,36 +60,36 @@ public class ScheduleComponentRefItemProvider extends ScheduleElementItemProvide
     {
       super.getPropertyDescriptors(object);
 
-      addComponentPropertyDescriptor(object);
+      addOccurrencePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Component feature.
+   * This adds a property descriptor for the Occurrence feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addComponentPropertyDescriptor(Object object)
+  protected void addOccurrencePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ScheduleComponentRef_component_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ScheduleComponentRef_component_feature", "_UI_ScheduleComponentRef_type"),
-         GumboPackage.Literals.SCHEDULE_COMPONENT_REF__COMPONENT,
+         getString("_UI_PointAfter_occurrence_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_PointAfter_occurrence_feature", "_UI_PointAfter_type"),
+         GumboPackage.Literals.POINT_AFTER__OCCURRENCE,
          true,
          false,
-         true,
-         null,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
          null));
   }
 
   /**
-   * This returns ScheduleComponentRef.gif.
+   * This returns PointAfter.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -94,7 +97,7 @@ public class ScheduleComponentRefItemProvider extends ScheduleElementItemProvide
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ScheduleComponentRef"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/PointAfter"));
   }
 
   /**
@@ -106,7 +109,10 @@ public class ScheduleComponentRefItemProvider extends ScheduleElementItemProvide
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_ScheduleComponentRef_type");
+    String label = ((PointAfter)object).getOccurrence();
+    return label == null || label.length() == 0 ?
+      getString("_UI_PointAfter_type") :
+      getString("_UI_PointAfter_type") + " " + label;
   }
 
 
@@ -121,6 +127,13 @@ public class ScheduleComponentRefItemProvider extends ScheduleElementItemProvide
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(PointAfter.class))
+    {
+      case GumboPackage.POINT_AFTER__OCCURRENCE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
     super.notifyChanged(notification);
   }
 

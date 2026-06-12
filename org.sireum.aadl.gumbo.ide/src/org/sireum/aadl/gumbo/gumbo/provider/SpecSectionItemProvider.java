@@ -100,7 +100,7 @@ public class SpecSectionItemProvider
       childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INTEGRATION);
       childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__INITIALIZE);
       childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__COMPUTE);
-      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__SCHEDULE);
+      childrenFeatures.add(GumboPackage.Literals.SPEC_SECTION__COMPOSITIONS);
     }
     return childrenFeatures;
   }
@@ -164,7 +164,7 @@ public class SpecSectionItemProvider
       case GumboPackage.SPEC_SECTION__INTEGRATION:
       case GumboPackage.SPEC_SECTION__INITIALIZE:
       case GumboPackage.SPEC_SECTION__COMPUTE:
-      case GumboPackage.SPEC_SECTION__SCHEDULE:
+      case GumboPackage.SPEC_SECTION__COMPOSITIONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -215,8 +215,8 @@ public class SpecSectionItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SPEC_SECTION__SCHEDULE,
-         GumboFactory.eINSTANCE.createSchedule()));
+        (GumboPackage.Literals.SPEC_SECTION__COMPOSITIONS,
+         GumboFactory.eINSTANCE.createComposition()));
   }
 
   /**

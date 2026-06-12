@@ -35,15 +35,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSequence;
+import org.sireum.aadl.gumbo.gumbo.Schema;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.Schema} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScheduleSequenceItemProvider 
+public class SchemaItemProvider 
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -58,7 +58,7 @@ public class ScheduleSequenceItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScheduleSequenceItemProvider(AdapterFactory adapterFactory)
+  public SchemaItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -94,7 +94,7 @@ public class ScheduleSequenceItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SCHEDULE_SEQUENCE__ELEMENTS);
+      childrenFeatures.add(GumboPackage.Literals.SCHEMA__ELEMENTS);
     }
     return childrenFeatures;
   }
@@ -114,7 +114,7 @@ public class ScheduleSequenceItemProvider
   }
 
   /**
-   * This returns ScheduleSequence.gif.
+   * This returns Schema.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -122,7 +122,7 @@ public class ScheduleSequenceItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ScheduleSequence"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/Schema"));
   }
 
   /**
@@ -134,7 +134,7 @@ public class ScheduleSequenceItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_ScheduleSequence_type");
+    return getString("_UI_Schema_type");
   }
 
 
@@ -150,9 +150,9 @@ public class ScheduleSequenceItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(ScheduleSequence.class))
+    switch (notification.getFeatureID(Schema.class))
     {
-      case GumboPackage.SCHEDULE_SEQUENCE__ELEMENTS:
+      case GumboPackage.SCHEMA__ELEMENTS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -173,23 +173,23 @@ public class ScheduleSequenceItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_SEQUENCE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleElement()));
+        (GumboPackage.Literals.SCHEMA__ELEMENTS,
+         GumboFactory.eINSTANCE.createSchemaElement()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_SEQUENCE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleAssert()));
+        (GumboPackage.Literals.SCHEMA__ELEMENTS,
+         GumboFactory.eINSTANCE.createSchemaLabel()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_SEQUENCE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleComponentRef()));
+        (GumboPackage.Literals.SCHEMA__ELEMENTS,
+         GumboFactory.eINSTANCE.createSchemaComponentRef()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_SEQUENCE__ELEMENTS,
-         GumboFactory.eINSTANCE.createScheduleSplitJoin()));
+        (GumboPackage.Literals.SCHEMA__ELEMENTS,
+         GumboFactory.eINSTANCE.createSchemaSplitJoin()));
   }
 
   /**

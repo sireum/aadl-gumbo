@@ -20,24 +20,39 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.sireum.aadl.gumbo.gumbo.GumboFactory;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
-import org.sireum.aadl.gumbo.gumbo.ScheduleAssert;
+import org.sireum.aadl.gumbo.gumbo.PropertyBinding;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.PropertyBinding} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
+public class PropertyBindingItemProvider 
+  extends ItemProviderAdapter
+  implements
+    IEditingDomainItemProvider,
+    IStructuredItemContentProvider,
+    ITreeItemContentProvider,
+    IItemLabelProvider,
+    IItemPropertySource
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -45,7 +60,7 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScheduleAssertItemProvider(AdapterFactory adapterFactory)
+  public PropertyBindingItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -63,33 +78,9 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addIdPropertyDescriptor(object);
       addDescriptorPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Id feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addIdPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ScheduleAssert_id_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ScheduleAssert_id_feature", "_UI_ScheduleAssert_type"),
-         GumboPackage.Literals.SCHEDULE_ASSERT__ID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -104,9 +95,9 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_ScheduleAssert_descriptor_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ScheduleAssert_descriptor_feature", "_UI_ScheduleAssert_type"),
-         GumboPackage.Literals.SCHEDULE_ASSERT__DESCRIPTOR,
+         getString("_UI_PropertyBinding_descriptor_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_PropertyBinding_descriptor_feature", "_UI_PropertyBinding_type"),
+         GumboPackage.Literals.PROPERTY_BINDING__DESCRIPTOR,
          true,
          false,
          false,
@@ -129,7 +120,8 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(GumboPackage.Literals.SCHEDULE_ASSERT__EXPR);
+      childrenFeatures.add(GumboPackage.Literals.PROPERTY_BINDING__POINT);
+      childrenFeatures.add(GumboPackage.Literals.PROPERTY_BINDING__EXPR);
     }
     return childrenFeatures;
   }
@@ -149,7 +141,7 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
   }
 
   /**
-   * This returns ScheduleAssert.gif.
+   * This returns PropertyBinding.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -157,7 +149,7 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ScheduleAssert"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyBinding"));
   }
 
   /**
@@ -169,10 +161,10 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((ScheduleAssert)object).getId();
+    String label = ((PropertyBinding)object).getDescriptor();
     return label == null || label.length() == 0 ?
-      getString("_UI_ScheduleAssert_type") :
-      getString("_UI_ScheduleAssert_type") + " " + label;
+      getString("_UI_PropertyBinding_type") :
+      getString("_UI_PropertyBinding_type") + " " + label;
   }
 
 
@@ -188,13 +180,13 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(ScheduleAssert.class))
+    switch (notification.getFeatureID(PropertyBinding.class))
     {
-      case GumboPackage.SCHEDULE_ASSERT__ID:
-      case GumboPackage.SCHEDULE_ASSERT__DESCRIPTOR:
+      case GumboPackage.PROPERTY_BINDING__DESCRIPTOR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case GumboPackage.SCHEDULE_ASSERT__EXPR:
+      case GumboPackage.PROPERTY_BINDING__POINT:
+      case GumboPackage.PROPERTY_BINDING__EXPR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -215,158 +207,190 @@ public class ScheduleAssertItemProvider extends ScheduleElementItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__POINT,
+         GumboFactory.eINSTANCE.createSchemaPoint()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PROPERTY_BINDING__POINT,
+         GumboFactory.eINSTANCE.createPointAt()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PROPERTY_BINDING__POINT,
+         GumboFactory.eINSTANCE.createPointBefore()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PROPERTY_BINDING__POINT,
+         GumboFactory.eINSTANCE.createPointAfter()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createOwnedExpression()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createGExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createQuantifiedExp()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createImpliesExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createOrExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createAndExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createLtGtExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createColonExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createPlusMinusExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createUnaryExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createPostFixExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createSlangLitTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createSlangInterpTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createInStateExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createMaySendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createMustSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createNoSendExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createHasEventExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createEnumLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createParenExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createSlangForTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createSlangBlockTerm()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createF32Obj()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createF64Obj()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createCallExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createRecordLitExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createDataRefExpr()));
 
     newChildDescriptors.add
       (createChildParameter
-        (GumboPackage.Literals.SCHEDULE_ASSERT__EXPR,
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createResultExpr()));
+  }
+
+  /**
+   * Return the resource locator for this item provider's resources.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ResourceLocator getResourceLocator()
+  {
+    return GumboEditPlugin.INSTANCE;
   }
 
 }

@@ -34,6 +34,8 @@ import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
+import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.CompositionProperty;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
@@ -75,28 +77,33 @@ import org.sireum.aadl.gumbo.gumbo.OtherDataRef;
 import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
+import org.sireum.aadl.gumbo.gumbo.PointAfter;
+import org.sireum.aadl.gumbo.gumbo.PointAt;
+import org.sireum.aadl.gumbo.gumbo.PointBefore;
 import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
 import org.sireum.aadl.gumbo.gumbo.Postfix;
+import org.sireum.aadl.gumbo.gumbo.PropertyBinding;
 import org.sireum.aadl.gumbo.gumbo.QuantParam;
 import org.sireum.aadl.gumbo.gumbo.QuantRange;
 import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
-import org.sireum.aadl.gumbo.gumbo.Schedule;
-import org.sireum.aadl.gumbo.gumbo.ScheduleAssert;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAliases;
-import org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef;
-import org.sireum.aadl.gumbo.gumbo.ScheduleElement;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAliases;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSequence;
-import org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAliases;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath;
 import org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath;
+import org.sireum.aadl.gumbo.gumbo.Schema;
+import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
+import org.sireum.aadl.gumbo.gumbo.SchemaElement;
+import org.sireum.aadl.gumbo.gumbo.SchemaLabel;
+import org.sireum.aadl.gumbo.gumbo.SchemaPoint;
+import org.sireum.aadl.gumbo.gumbo.SchemaSequence;
+import org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin;
 import org.sireum.aadl.gumbo.gumbo.SlangAssertStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangAssumeStmt;
 import org.sireum.aadl.gumbo.gumbo.SlangBlock;
@@ -236,7 +243,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass scheduleEClass = null;
+  private EClass compositionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -306,35 +313,63 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass scheduleElementEClass = null;
+  private EClass schemaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass scheduleAssertEClass = null;
+  private EClass schemaElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass scheduleComponentRefEClass = null;
+  private EClass schemaLabelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass scheduleSplitJoinEClass = null;
+  private EClass schemaComponentRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass scheduleSequenceEClass = null;
+  private EClass schemaSplitJoinEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass schemaSequenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass compositionPropertyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass propertyBindingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass schemaPointEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -678,6 +713,27 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass slangInterpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pointAtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pointBeforeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pointAfterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1187,7 +1243,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSpecSection_Schedule()
+  public EReference getSpecSection_Compositions()
   {
     return (EReference)specSectionEClass.getEStructuralFeatures().get(6);
   }
@@ -1484,9 +1540,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getSchedule()
+  public EClass getComposition()
   {
-    return scheduleEClass;
+    return compositionEClass;
   }
 
   /**
@@ -1495,9 +1551,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSchedule_ComponentAliases()
+  public EAttribute getComposition_Id()
   {
-    return (EReference)scheduleEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)compositionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1506,9 +1562,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSchedule_PortAliases()
+  public EReference getComposition_ComponentAliases()
   {
-    return (EReference)scheduleEClass.getEStructuralFeatures().get(1);
+    return (EReference)compositionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1517,9 +1573,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSchedule_StateVarAliases()
+  public EReference getComposition_PortAliases()
   {
-    return (EReference)scheduleEClass.getEStructuralFeatures().get(2);
+    return (EReference)compositionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1528,9 +1584,31 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSchedule_Elements()
+  public EReference getComposition_StateVarAliases()
   {
-    return (EReference)scheduleEClass.getEStructuralFeatures().get(3);
+    return (EReference)compositionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getComposition_Schema()
+  {
+    return (EReference)compositionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getComposition_Properties()
+  {
+    return (EReference)compositionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1803,9 +1881,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getScheduleElement()
+  public EClass getSchema()
   {
-    return scheduleElementEClass;
+    return schemaEClass;
   }
 
   /**
@@ -1814,9 +1892,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getScheduleAssert()
+  public EReference getSchema_Elements()
   {
-    return scheduleAssertEClass;
+    return (EReference)schemaEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1825,9 +1903,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getScheduleAssert_Id()
+  public EClass getSchemaElement()
   {
-    return (EAttribute)scheduleAssertEClass.getEStructuralFeatures().get(0);
+    return schemaElementEClass;
   }
 
   /**
@@ -1836,9 +1914,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EAttribute getScheduleAssert_Descriptor()
+  public EClass getSchemaLabel()
   {
-    return (EAttribute)scheduleAssertEClass.getEStructuralFeatures().get(1);
+    return schemaLabelEClass;
   }
 
   /**
@@ -1847,9 +1925,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getScheduleAssert_Expr()
+  public EAttribute getSchemaLabel_Id()
   {
-    return (EReference)scheduleAssertEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)schemaLabelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1858,9 +1936,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getScheduleComponentRef()
+  public EClass getSchemaComponentRef()
   {
-    return scheduleComponentRefEClass;
+    return schemaComponentRefEClass;
   }
 
   /**
@@ -1869,9 +1947,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getScheduleComponentRef_Component()
+  public EReference getSchemaComponentRef_Component()
   {
-    return (EReference)scheduleComponentRefEClass.getEStructuralFeatures().get(0);
+    return (EReference)schemaComponentRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1880,9 +1958,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getScheduleSplitJoin()
+  public EAttribute getSchemaComponentRef_OccurrenceLabel()
   {
-    return scheduleSplitJoinEClass;
+    return (EAttribute)schemaComponentRefEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1891,9 +1969,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getScheduleSplitJoin_Sequences()
+  public EClass getSchemaSplitJoin()
   {
-    return (EReference)scheduleSplitJoinEClass.getEStructuralFeatures().get(0);
+    return schemaSplitJoinEClass;
   }
 
   /**
@@ -1902,9 +1980,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getScheduleSequence()
+  public EReference getSchemaSplitJoin_Branches()
   {
-    return scheduleSequenceEClass;
+    return (EReference)schemaSplitJoinEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1913,9 +1991,119 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getScheduleSequence_Elements()
+  public EClass getSchemaSequence()
   {
-    return (EReference)scheduleSequenceEClass.getEStructuralFeatures().get(0);
+    return schemaSequenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSchemaSequence_Elements()
+  {
+    return (EReference)schemaSequenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCompositionProperty()
+  {
+    return compositionPropertyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCompositionProperty_Id()
+  {
+    return (EAttribute)compositionPropertyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCompositionProperty_Descriptor()
+  {
+    return (EAttribute)compositionPropertyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCompositionProperty_Bindings()
+  {
+    return (EReference)compositionPropertyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPropertyBinding()
+  {
+    return propertyBindingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPropertyBinding_Point()
+  {
+    return (EReference)propertyBindingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPropertyBinding_Descriptor()
+  {
+    return (EAttribute)propertyBindingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPropertyBinding_Expr()
+  {
+    return (EReference)propertyBindingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSchemaPoint()
+  {
+    return schemaPointEClass;
   }
 
   /**
@@ -3376,6 +3564,72 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getPointAt()
+  {
+    return pointAtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPointAt_Label()
+  {
+    return (EAttribute)pointAtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPointBefore()
+  {
+    return pointBeforeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPointBefore_Occurrence()
+  {
+    return (EAttribute)pointBeforeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPointAfter()
+  {
+    return pointAfterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPointAfter_Occurrence()
+  {
+    return (EAttribute)pointAfterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSlangIfStmt()
   {
     return slangIfStmtEClass;
@@ -4734,7 +4988,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(specSectionEClass, SPEC_SECTION__INTEGRATION);
     createEReference(specSectionEClass, SPEC_SECTION__INITIALIZE);
     createEReference(specSectionEClass, SPEC_SECTION__COMPUTE);
-    createEReference(specSectionEClass, SPEC_SECTION__SCHEDULE);
+    createEReference(specSectionEClass, SPEC_SECTION__COMPOSITIONS);
 
     stateEClass = createEClass(STATE);
     createEReference(stateEClass, STATE__DECLS);
@@ -4770,11 +5024,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(computeEClass, COMPUTE__HANDLERS);
     createEReference(computeEClass, COMPUTE__FLOWS);
 
-    scheduleEClass = createEClass(SCHEDULE);
-    createEReference(scheduleEClass, SCHEDULE__COMPONENT_ALIASES);
-    createEReference(scheduleEClass, SCHEDULE__PORT_ALIASES);
-    createEReference(scheduleEClass, SCHEDULE__STATE_VAR_ALIASES);
-    createEReference(scheduleEClass, SCHEDULE__ELEMENTS);
+    compositionEClass = createEClass(COMPOSITION);
+    createEAttribute(compositionEClass, COMPOSITION__ID);
+    createEReference(compositionEClass, COMPOSITION__COMPONENT_ALIASES);
+    createEReference(compositionEClass, COMPOSITION__PORT_ALIASES);
+    createEReference(compositionEClass, COMPOSITION__STATE_VAR_ALIASES);
+    createEReference(compositionEClass, COMPOSITION__SCHEMA);
+    createEReference(compositionEClass, COMPOSITION__PROPERTIES);
 
     scheduleComponentAliasesEClass = createEClass(SCHEDULE_COMPONENT_ALIASES);
     createEReference(scheduleComponentAliasesEClass, SCHEDULE_COMPONENT_ALIASES__ALIASES);
@@ -4809,21 +5065,35 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(scheduleStateVarPathEClass, SCHEDULE_STATE_VAR_PATH__REF);
     createEReference(scheduleStateVarPathEClass, SCHEDULE_STATE_VAR_PATH__SUB_PATH);
 
-    scheduleElementEClass = createEClass(SCHEDULE_ELEMENT);
+    schemaEClass = createEClass(SCHEMA);
+    createEReference(schemaEClass, SCHEMA__ELEMENTS);
 
-    scheduleAssertEClass = createEClass(SCHEDULE_ASSERT);
-    createEAttribute(scheduleAssertEClass, SCHEDULE_ASSERT__ID);
-    createEAttribute(scheduleAssertEClass, SCHEDULE_ASSERT__DESCRIPTOR);
-    createEReference(scheduleAssertEClass, SCHEDULE_ASSERT__EXPR);
+    schemaElementEClass = createEClass(SCHEMA_ELEMENT);
 
-    scheduleComponentRefEClass = createEClass(SCHEDULE_COMPONENT_REF);
-    createEReference(scheduleComponentRefEClass, SCHEDULE_COMPONENT_REF__COMPONENT);
+    schemaLabelEClass = createEClass(SCHEMA_LABEL);
+    createEAttribute(schemaLabelEClass, SCHEMA_LABEL__ID);
 
-    scheduleSplitJoinEClass = createEClass(SCHEDULE_SPLIT_JOIN);
-    createEReference(scheduleSplitJoinEClass, SCHEDULE_SPLIT_JOIN__SEQUENCES);
+    schemaComponentRefEClass = createEClass(SCHEMA_COMPONENT_REF);
+    createEReference(schemaComponentRefEClass, SCHEMA_COMPONENT_REF__COMPONENT);
+    createEAttribute(schemaComponentRefEClass, SCHEMA_COMPONENT_REF__OCCURRENCE_LABEL);
 
-    scheduleSequenceEClass = createEClass(SCHEDULE_SEQUENCE);
-    createEReference(scheduleSequenceEClass, SCHEDULE_SEQUENCE__ELEMENTS);
+    schemaSplitJoinEClass = createEClass(SCHEMA_SPLIT_JOIN);
+    createEReference(schemaSplitJoinEClass, SCHEMA_SPLIT_JOIN__BRANCHES);
+
+    schemaSequenceEClass = createEClass(SCHEMA_SEQUENCE);
+    createEReference(schemaSequenceEClass, SCHEMA_SEQUENCE__ELEMENTS);
+
+    compositionPropertyEClass = createEClass(COMPOSITION_PROPERTY);
+    createEAttribute(compositionPropertyEClass, COMPOSITION_PROPERTY__ID);
+    createEAttribute(compositionPropertyEClass, COMPOSITION_PROPERTY__DESCRIPTOR);
+    createEReference(compositionPropertyEClass, COMPOSITION_PROPERTY__BINDINGS);
+
+    propertyBindingEClass = createEClass(PROPERTY_BINDING);
+    createEReference(propertyBindingEClass, PROPERTY_BINDING__POINT);
+    createEAttribute(propertyBindingEClass, PROPERTY_BINDING__DESCRIPTOR);
+    createEReference(propertyBindingEClass, PROPERTY_BINDING__EXPR);
+
+    schemaPointEClass = createEClass(SCHEMA_POINT);
 
     infoFlowClauseEClass = createEClass(INFO_FLOW_CLAUSE);
     createEAttribute(infoFlowClauseEClass, INFO_FLOW_CLAUSE__ID);
@@ -5005,6 +5275,15 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEAttribute(slangLitEClass, SLANG_LIT__VALUE);
 
     slangInterpEClass = createEClass(SLANG_INTERP);
+
+    pointAtEClass = createEClass(POINT_AT);
+    createEAttribute(pointAtEClass, POINT_AT__LABEL);
+
+    pointBeforeEClass = createEClass(POINT_BEFORE);
+    createEAttribute(pointBeforeEClass, POINT_BEFORE__OCCURRENCE);
+
+    pointAfterEClass = createEClass(POINT_AFTER);
+    createEAttribute(pointAfterEClass, POINT_AFTER__OCCURRENCE);
 
     slangIfStmtEClass = createEClass(SLANG_IF_STMT);
     createEReference(slangIfStmtEClass, SLANG_IF_STMT__COND);
@@ -5207,9 +5486,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     // Add supertypes to classes
     gumboLibraryEClass.getESuperTypes().add(theAadl2Package.getAnnexLibrary());
     gumboSubclauseEClass.getESuperTypes().add(theAadl2Package.getAnnexSubclause());
-    scheduleAssertEClass.getESuperTypes().add(this.getScheduleElement());
-    scheduleComponentRefEClass.getESuperTypes().add(this.getScheduleElement());
-    scheduleSplitJoinEClass.getESuperTypes().add(this.getScheduleElement());
+    schemaLabelEClass.getESuperTypes().add(this.getSchemaElement());
+    schemaComponentRefEClass.getESuperTypes().add(this.getSchemaElement());
+    schemaSplitJoinEClass.getESuperTypes().add(this.getSchemaElement());
     assumeStatementEClass.getESuperTypes().add(this.getSpecStatement());
     guaranteeStatementEClass.getESuperTypes().add(this.getSpecStatement());
     slangDefDefEClass.getESuperTypes().add(this.getFuncSpec());
@@ -5220,6 +5499,9 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     memberAccessEClass.getESuperTypes().add(this.getPostfix());
     builtinAccessEClass.getESuperTypes().add(this.getPostfix());
     arrayAccessEClass.getESuperTypes().add(this.getPostfix());
+    pointAtEClass.getESuperTypes().add(this.getSchemaPoint());
+    pointBeforeEClass.getESuperTypes().add(this.getSchemaPoint());
+    pointAfterEClass.getESuperTypes().add(this.getSchemaPoint());
     slangIfStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangWhileStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangMatchStmtEClass.getESuperTypes().add(this.getSlangStmt());
@@ -5280,7 +5562,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getSpecSection_Integration(), this.getIntegration(), null, "integration", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Initialize(), this.getInitialize(), null, "initialize", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Compute(), this.getCompute(), null, "compute", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSpecSection_Schedule(), this.getSchedule(), null, "schedule", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecSection_Compositions(), this.getComposition(), null, "compositions", null, 0, -1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getState_Decls(), this.getStateVarDecl(), null, "decls", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5316,11 +5598,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getCompute_Handlers(), this.getHandlerClause(), null, "handlers", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Flows(), this.getInfoFlowClause(), null, "flows", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(scheduleEClass, Schedule.class, "Schedule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSchedule_ComponentAliases(), this.getScheduleComponentAliases(), null, "componentAliases", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSchedule_PortAliases(), this.getSchedulePortAliases(), null, "portAliases", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSchedule_StateVarAliases(), this.getScheduleStateVarAliases(), null, "stateVarAliases", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSchedule_Elements(), this.getScheduleElement(), null, "elements", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(compositionEClass, Composition.class, "Composition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComposition_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComposition_ComponentAliases(), this.getScheduleComponentAliases(), null, "componentAliases", null, 0, 1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComposition_PortAliases(), this.getSchedulePortAliases(), null, "portAliases", null, 0, 1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComposition_StateVarAliases(), this.getScheduleStateVarAliases(), null, "stateVarAliases", null, 0, 1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComposition_Schema(), this.getSchema(), null, "schema", null, 0, 1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComposition_Properties(), this.getCompositionProperty(), null, "properties", null, 0, -1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scheduleComponentAliasesEClass, ScheduleComponentAliases.class, "ScheduleComponentAliases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getScheduleComponentAliases_Aliases(), this.getScheduleComponentAlias(), null, "aliases", null, 0, -1, ScheduleComponentAliases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5355,21 +5639,35 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getScheduleStateVarPath_Ref(), theEcorePackage.getEObject(), null, "ref", null, 0, 1, ScheduleStateVarPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScheduleStateVarPath_SubPath(), this.getScheduleStateVarPath(), null, "subPath", null, 0, 1, ScheduleStateVarPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(scheduleElementEClass, ScheduleElement.class, "ScheduleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(schemaEClass, Schema.class, "Schema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchema_Elements(), this.getSchemaElement(), null, "elements", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(scheduleAssertEClass, ScheduleAssert.class, "ScheduleAssert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getScheduleAssert_Id(), theEcorePackage.getEString(), "id", null, 0, 1, ScheduleAssert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getScheduleAssert_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, ScheduleAssert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getScheduleAssert_Expr(), this.getOwnedExpression(), null, "expr", null, 0, 1, ScheduleAssert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(schemaElementEClass, SchemaElement.class, "SchemaElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(scheduleComponentRefEClass, ScheduleComponentRef.class, "ScheduleComponentRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getScheduleComponentRef_Component(), theEcorePackage.getEObject(), null, "component", null, 0, 1, ScheduleComponentRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(schemaLabelEClass, SchemaLabel.class, "SchemaLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSchemaLabel_Id(), theEcorePackage.getEString(), "id", null, 0, 1, SchemaLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(scheduleSplitJoinEClass, ScheduleSplitJoin.class, "ScheduleSplitJoin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getScheduleSplitJoin_Sequences(), this.getScheduleSequence(), null, "sequences", null, 0, -1, ScheduleSplitJoin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(schemaComponentRefEClass, SchemaComponentRef.class, "SchemaComponentRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchemaComponentRef_Component(), theEcorePackage.getEObject(), null, "component", null, 0, 1, SchemaComponentRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSchemaComponentRef_OccurrenceLabel(), theEcorePackage.getEString(), "occurrenceLabel", null, 0, 1, SchemaComponentRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(scheduleSequenceEClass, ScheduleSequence.class, "ScheduleSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getScheduleSequence_Elements(), this.getScheduleElement(), null, "elements", null, 0, -1, ScheduleSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(schemaSplitJoinEClass, SchemaSplitJoin.class, "SchemaSplitJoin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchemaSplitJoin_Branches(), this.getSchemaSequence(), null, "branches", null, 0, -1, SchemaSplitJoin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(schemaSequenceEClass, SchemaSequence.class, "SchemaSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchemaSequence_Elements(), this.getSchemaElement(), null, "elements", null, 0, -1, SchemaSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(compositionPropertyEClass, CompositionProperty.class, "CompositionProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCompositionProperty_Id(), theEcorePackage.getEString(), "id", null, 0, 1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompositionProperty_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompositionProperty_Bindings(), this.getPropertyBinding(), null, "bindings", null, 0, -1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(propertyBindingEClass, PropertyBinding.class, "PropertyBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPropertyBinding_Point(), this.getSchemaPoint(), null, "point", null, 0, 1, PropertyBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPropertyBinding_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, PropertyBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPropertyBinding_Expr(), this.getOwnedExpression(), null, "expr", null, 0, 1, PropertyBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(schemaPointEClass, SchemaPoint.class, "SchemaPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(infoFlowClauseEClass, InfoFlowClause.class, "InfoFlowClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInfoFlowClause_Id(), theEcorePackage.getEString(), "id", null, 0, 1, InfoFlowClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5551,6 +5849,15 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEAttribute(getSlangLit_Value(), theEcorePackage.getEString(), "value", null, 0, 1, SlangLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangInterpEClass, SlangInterp.class, "SlangInterp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(pointAtEClass, PointAt.class, "PointAt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPointAt_Label(), theEcorePackage.getEString(), "label", null, 0, 1, PointAt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pointBeforeEClass, PointBefore.class, "PointBefore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPointBefore_Occurrence(), theEcorePackage.getEString(), "occurrence", null, 0, 1, PointBefore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pointAfterEClass, PointAfter.class, "PointAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPointAfter_Occurrence(), theEcorePackage.getEString(), "occurrence", null, 0, 1, PointAfter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(slangIfStmtEClass, SlangIfStmt.class, "SlangIfStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangIfStmt_Cond(), this.getOwnedExpression(), null, "cond", null, 0, 1, SlangIfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

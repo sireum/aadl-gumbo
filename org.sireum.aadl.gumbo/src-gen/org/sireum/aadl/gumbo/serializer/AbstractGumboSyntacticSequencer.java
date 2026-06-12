@@ -35,6 +35,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q;
 	protected AbstractElementAlias match_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1;
 	protected AbstractElementAlias match_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q;
+	protected AbstractElementAlias match_SchemaSequence_SemicolonKeyword_4_q;
+	protected AbstractElementAlias match_Schema_SemicolonKeyword_4_q;
 	protected AbstractElementAlias match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1;
 	protected AbstractElementAlias match_SlangParam_AsteriskKeyword_5_q;
 	protected AbstractElementAlias match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q;
@@ -51,6 +53,8 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()));
 		match_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0()), new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1()));
 		match_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0()), new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1()));
+		match_SchemaSequence_SemicolonKeyword_4_q = new TokenAlias(false, true, grammarAccess.getSchemaSequenceAccess().getSemicolonKeyword_4());
+		match_Schema_SemicolonKeyword_4_q = new TokenAlias(false, true, grammarAccess.getSchemaAccess().getSemicolonKeyword_4());
 		match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()));
 		match_SlangParam_AsteriskKeyword_5_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getAsteriskKeyword_5());
 		match_SlangParam_EqualsSignGreaterThanSignKeyword_3_q = new TokenAlias(false, true, grammarAccess.getSlangParamAccess().getEqualsSignGreaterThanSignKeyword_3());
@@ -156,6 +160,10 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 				emit_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q.equals(syntax))
 				emit_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SchemaSequence_SemicolonKeyword_4_q.equals(syntax))
+				emit_SchemaSequence_SemicolonKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Schema_SemicolonKeyword_4_q.equals(syntax))
+				emit_Schema_SemicolonKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1.equals(syntax))
 				emit_SlangForRange_FullStopFullStopKeyword_3_0_0_or_FullStopFullStopLessThanSignKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SlangParam_AsteriskKeyword_5_q.equals(syntax))
@@ -235,6 +243,34 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 * </pre>
 	 */
 	protected void emit_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     elements+=SchemaElement (ambiguity) '}' (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_SchemaSequence_SemicolonKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     elements+=SchemaElement (ambiguity) '}' (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Schema_SemicolonKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

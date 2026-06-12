@@ -20,30 +20,21 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.sireum.aadl.gumbo.gumbo.GumboPackage;
+import org.sireum.aadl.gumbo.gumbo.PointBefore;
 
 /**
- * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.ScheduleElement} object.
+ * This is the item provider adapter for a {@link org.sireum.aadl.gumbo.gumbo.PointBefore} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScheduleElementItemProvider 
-  extends ItemProviderAdapter
-  implements
-    IEditingDomainItemProvider,
-    IStructuredItemContentProvider,
-    ITreeItemContentProvider,
-    IItemLabelProvider,
-    IItemPropertySource
+public class PointBeforeItemProvider extends SchemaPointItemProvider
 {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -51,7 +42,7 @@ public class ScheduleElementItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScheduleElementItemProvider(AdapterFactory adapterFactory)
+  public PointBeforeItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -69,12 +60,36 @@ public class ScheduleElementItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addOccurrencePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This returns ScheduleElement.gif.
+   * This adds a property descriptor for the Occurrence feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOccurrencePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_PointBefore_occurrence_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_PointBefore_occurrence_feature", "_UI_PointBefore_type"),
+         GumboPackage.Literals.POINT_BEFORE__OCCURRENCE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This returns PointBefore.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -82,7 +97,7 @@ public class ScheduleElementItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/ScheduleElement"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/PointBefore"));
   }
 
   /**
@@ -94,7 +109,10 @@ public class ScheduleElementItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_ScheduleElement_type");
+    String label = ((PointBefore)object).getOccurrence();
+    return label == null || label.length() == 0 ?
+      getString("_UI_PointBefore_type") :
+      getString("_UI_PointBefore_type") + " " + label;
   }
 
 
@@ -109,6 +127,13 @@ public class ScheduleElementItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(PointBefore.class))
+    {
+      case GumboPackage.POINT_BEFORE__OCCURRENCE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
     super.notifyChanged(notification);
   }
 
@@ -123,18 +148,6 @@ public class ScheduleElementItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return GumboEditPlugin.INSTANCE;
   }
 
 }

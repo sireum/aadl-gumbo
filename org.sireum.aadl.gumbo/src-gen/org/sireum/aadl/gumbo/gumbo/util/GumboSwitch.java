@@ -173,10 +173,10 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SCHEDULE:
+      case GumboPackage.COMPOSITION:
       {
-        Schedule schedule = (Schedule)theEObject;
-        T result = caseSchedule(schedule);
+        Composition composition = (Composition)theEObject;
+        T result = caseComposition(composition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -243,41 +243,69 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SCHEDULE_ELEMENT:
+      case GumboPackage.SCHEMA:
       {
-        ScheduleElement scheduleElement = (ScheduleElement)theEObject;
-        T result = caseScheduleElement(scheduleElement);
+        Schema schema = (Schema)theEObject;
+        T result = caseSchema(schema);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SCHEDULE_ASSERT:
+      case GumboPackage.SCHEMA_ELEMENT:
       {
-        ScheduleAssert scheduleAssert = (ScheduleAssert)theEObject;
-        T result = caseScheduleAssert(scheduleAssert);
-        if (result == null) result = caseScheduleElement(scheduleAssert);
+        SchemaElement schemaElement = (SchemaElement)theEObject;
+        T result = caseSchemaElement(schemaElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SCHEDULE_COMPONENT_REF:
+      case GumboPackage.SCHEMA_LABEL:
       {
-        ScheduleComponentRef scheduleComponentRef = (ScheduleComponentRef)theEObject;
-        T result = caseScheduleComponentRef(scheduleComponentRef);
-        if (result == null) result = caseScheduleElement(scheduleComponentRef);
+        SchemaLabel schemaLabel = (SchemaLabel)theEObject;
+        T result = caseSchemaLabel(schemaLabel);
+        if (result == null) result = caseSchemaElement(schemaLabel);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SCHEDULE_SPLIT_JOIN:
+      case GumboPackage.SCHEMA_COMPONENT_REF:
       {
-        ScheduleSplitJoin scheduleSplitJoin = (ScheduleSplitJoin)theEObject;
-        T result = caseScheduleSplitJoin(scheduleSplitJoin);
-        if (result == null) result = caseScheduleElement(scheduleSplitJoin);
+        SchemaComponentRef schemaComponentRef = (SchemaComponentRef)theEObject;
+        T result = caseSchemaComponentRef(schemaComponentRef);
+        if (result == null) result = caseSchemaElement(schemaComponentRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.SCHEDULE_SEQUENCE:
+      case GumboPackage.SCHEMA_SPLIT_JOIN:
       {
-        ScheduleSequence scheduleSequence = (ScheduleSequence)theEObject;
-        T result = caseScheduleSequence(scheduleSequence);
+        SchemaSplitJoin schemaSplitJoin = (SchemaSplitJoin)theEObject;
+        T result = caseSchemaSplitJoin(schemaSplitJoin);
+        if (result == null) result = caseSchemaElement(schemaSplitJoin);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEMA_SEQUENCE:
+      {
+        SchemaSequence schemaSequence = (SchemaSequence)theEObject;
+        T result = caseSchemaSequence(schemaSequence);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.COMPOSITION_PROPERTY:
+      {
+        CompositionProperty compositionProperty = (CompositionProperty)theEObject;
+        T result = caseCompositionProperty(compositionProperty);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.PROPERTY_BINDING:
+      {
+        PropertyBinding propertyBinding = (PropertyBinding)theEObject;
+        T result = casePropertyBinding(propertyBinding);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.SCHEMA_POINT:
+      {
+        SchemaPoint schemaPoint = (SchemaPoint)theEObject;
+        T result = caseSchemaPoint(schemaPoint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -632,6 +660,30 @@ public class GumboSwitch<T> extends Switch<T>
       {
         SlangInterp slangInterp = (SlangInterp)theEObject;
         T result = caseSlangInterp(slangInterp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.POINT_AT:
+      {
+        PointAt pointAt = (PointAt)theEObject;
+        T result = casePointAt(pointAt);
+        if (result == null) result = caseSchemaPoint(pointAt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.POINT_BEFORE:
+      {
+        PointBefore pointBefore = (PointBefore)theEObject;
+        T result = casePointBefore(pointBefore);
+        if (result == null) result = caseSchemaPoint(pointBefore);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.POINT_AFTER:
+      {
+        PointAfter pointAfter = (PointAfter)theEObject;
+        T result = casePointAfter(pointAfter);
+        if (result == null) result = caseSchemaPoint(pointAfter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1205,17 +1257,17 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Schedule</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Composition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Schedule</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Composition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSchedule(Schedule object)
+  public T caseComposition(Composition object)
   {
     return null;
   }
@@ -1365,81 +1417,145 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Schedule Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Schema</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Schedule Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Schema</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseScheduleElement(ScheduleElement object)
+  public T caseSchema(Schema object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Schedule Assert</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Schema Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Schedule Assert</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Schema Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseScheduleAssert(ScheduleAssert object)
+  public T caseSchemaElement(SchemaElement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Schedule Component Ref</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Schema Label</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Schedule Component Ref</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Schema Label</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseScheduleComponentRef(ScheduleComponentRef object)
+  public T caseSchemaLabel(SchemaLabel object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Schedule Split Join</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Schema Component Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Schedule Split Join</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Schema Component Ref</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseScheduleSplitJoin(ScheduleSplitJoin object)
+  public T caseSchemaComponentRef(SchemaComponentRef object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Schedule Sequence</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Schema Split Join</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Schedule Sequence</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Schema Split Join</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseScheduleSequence(ScheduleSequence object)
+  public T caseSchemaSplitJoin(SchemaSplitJoin object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schema Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schema Sequence</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchemaSequence(SchemaSequence object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Composition Property</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Composition Property</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompositionProperty(CompositionProperty object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Property Binding</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Property Binding</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePropertyBinding(PropertyBinding object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Schema Point</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Schema Point</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchemaPoint(SchemaPoint object)
   {
     return null;
   }
@@ -2224,6 +2340,54 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSlangInterp(SlangInterp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Point At</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Point At</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePointAt(PointAt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Point Before</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Point Before</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePointBefore(PointBefore object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Point After</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Point After</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePointAfter(PointAfter object)
   {
     return null;
   }

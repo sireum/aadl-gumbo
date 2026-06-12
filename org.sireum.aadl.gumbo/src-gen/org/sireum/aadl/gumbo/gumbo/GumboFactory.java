@@ -133,13 +133,13 @@ public interface GumboFactory extends EFactory
   Compute createCompute();
 
   /**
-   * Returns a new object of class '<em>Schedule</em>'.
+   * Returns a new object of class '<em>Composition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Schedule</em>'.
+   * @return a new object of class '<em>Composition</em>'.
    * @generated
    */
-  Schedule createSchedule();
+  Composition createComposition();
 
   /**
    * Returns a new object of class '<em>Schedule Component Aliases</em>'.
@@ -223,49 +223,85 @@ public interface GumboFactory extends EFactory
   ScheduleStateVarPath createScheduleStateVarPath();
 
   /**
-   * Returns a new object of class '<em>Schedule Element</em>'.
+   * Returns a new object of class '<em>Schema</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Schedule Element</em>'.
+   * @return a new object of class '<em>Schema</em>'.
    * @generated
    */
-  ScheduleElement createScheduleElement();
+  Schema createSchema();
 
   /**
-   * Returns a new object of class '<em>Schedule Assert</em>'.
+   * Returns a new object of class '<em>Schema Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Schedule Assert</em>'.
+   * @return a new object of class '<em>Schema Element</em>'.
    * @generated
    */
-  ScheduleAssert createScheduleAssert();
+  SchemaElement createSchemaElement();
 
   /**
-   * Returns a new object of class '<em>Schedule Component Ref</em>'.
+   * Returns a new object of class '<em>Schema Label</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Schedule Component Ref</em>'.
+   * @return a new object of class '<em>Schema Label</em>'.
    * @generated
    */
-  ScheduleComponentRef createScheduleComponentRef();
+  SchemaLabel createSchemaLabel();
 
   /**
-   * Returns a new object of class '<em>Schedule Split Join</em>'.
+   * Returns a new object of class '<em>Schema Component Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Schedule Split Join</em>'.
+   * @return a new object of class '<em>Schema Component Ref</em>'.
    * @generated
    */
-  ScheduleSplitJoin createScheduleSplitJoin();
+  SchemaComponentRef createSchemaComponentRef();
 
   /**
-   * Returns a new object of class '<em>Schedule Sequence</em>'.
+   * Returns a new object of class '<em>Schema Split Join</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Schedule Sequence</em>'.
+   * @return a new object of class '<em>Schema Split Join</em>'.
    * @generated
    */
-  ScheduleSequence createScheduleSequence();
+  SchemaSplitJoin createSchemaSplitJoin();
+
+  /**
+   * Returns a new object of class '<em>Schema Sequence</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schema Sequence</em>'.
+   * @generated
+   */
+  SchemaSequence createSchemaSequence();
+
+  /**
+   * Returns a new object of class '<em>Composition Property</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Composition Property</em>'.
+   * @generated
+   */
+  CompositionProperty createCompositionProperty();
+
+  /**
+   * Returns a new object of class '<em>Property Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Property Binding</em>'.
+   * @generated
+   */
+  PropertyBinding createPropertyBinding();
+
+  /**
+   * Returns a new object of class '<em>Schema Point</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Schema Point</em>'.
+   * @generated
+   */
+  SchemaPoint createSchemaPoint();
 
   /**
    * Returns a new object of class '<em>Info Flow Clause</em>'.
@@ -707,6 +743,33 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   SlangInterp createSlangInterp();
+
+  /**
+   * Returns a new object of class '<em>Point At</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Point At</em>'.
+   * @generated
+   */
+  PointAt createPointAt();
+
+  /**
+   * Returns a new object of class '<em>Point Before</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Point Before</em>'.
+   * @generated
+   */
+  PointBefore createPointBefore();
+
+  /**
+   * Returns a new object of class '<em>Point After</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Point After</em>'.
+   * @generated
+   */
+  PointAfter createPointAfter();
 
   /**
    * Returns a new object of class '<em>Slang If Stmt</em>'.

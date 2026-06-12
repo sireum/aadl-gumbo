@@ -86,7 +86,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.INITIALIZE: return createInitialize();
       case GumboPackage.INITIALIZE_SPEC_STATEMENT: return createInitializeSpecStatement();
       case GumboPackage.COMPUTE: return createCompute();
-      case GumboPackage.SCHEDULE: return createSchedule();
+      case GumboPackage.COMPOSITION: return createComposition();
       case GumboPackage.SCHEDULE_COMPONENT_ALIASES: return createScheduleComponentAliases();
       case GumboPackage.SCHEDULE_COMPONENT_ALIAS: return createScheduleComponentAlias();
       case GumboPackage.SCHEDULE_SUBCOMPONENT_PATH: return createScheduleSubcomponentPath();
@@ -96,11 +96,15 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SCHEDULE_STATE_VAR_ALIASES: return createScheduleStateVarAliases();
       case GumboPackage.SCHEDULE_STATE_VAR_ALIAS: return createScheduleStateVarAlias();
       case GumboPackage.SCHEDULE_STATE_VAR_PATH: return createScheduleStateVarPath();
-      case GumboPackage.SCHEDULE_ELEMENT: return createScheduleElement();
-      case GumboPackage.SCHEDULE_ASSERT: return createScheduleAssert();
-      case GumboPackage.SCHEDULE_COMPONENT_REF: return createScheduleComponentRef();
-      case GumboPackage.SCHEDULE_SPLIT_JOIN: return createScheduleSplitJoin();
-      case GumboPackage.SCHEDULE_SEQUENCE: return createScheduleSequence();
+      case GumboPackage.SCHEMA: return createSchema();
+      case GumboPackage.SCHEMA_ELEMENT: return createSchemaElement();
+      case GumboPackage.SCHEMA_LABEL: return createSchemaLabel();
+      case GumboPackage.SCHEMA_COMPONENT_REF: return createSchemaComponentRef();
+      case GumboPackage.SCHEMA_SPLIT_JOIN: return createSchemaSplitJoin();
+      case GumboPackage.SCHEMA_SEQUENCE: return createSchemaSequence();
+      case GumboPackage.COMPOSITION_PROPERTY: return createCompositionProperty();
+      case GumboPackage.PROPERTY_BINDING: return createPropertyBinding();
+      case GumboPackage.SCHEMA_POINT: return createSchemaPoint();
       case GumboPackage.INFO_FLOW_CLAUSE: return createInfoFlowClause();
       case GumboPackage.HANDLER_CLAUSE: return createHandlerClause();
       case GumboPackage.CASE_STATEMENT_CLAUSE: return createCaseStatementClause();
@@ -150,6 +154,9 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_CALL_ARGS: return createSlangCallArgs();
       case GumboPackage.SLANG_LIT: return createSlangLit();
       case GumboPackage.SLANG_INTERP: return createSlangInterp();
+      case GumboPackage.POINT_AT: return createPointAt();
+      case GumboPackage.POINT_BEFORE: return createPointBefore();
+      case GumboPackage.POINT_AFTER: return createPointAfter();
       case GumboPackage.SLANG_IF_STMT: return createSlangIfStmt();
       case GumboPackage.SLANG_WHILE_STMT: return createSlangWhileStmt();
       case GumboPackage.SLANG_MATCH_STMT: return createSlangMatchStmt();
@@ -338,10 +345,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public Schedule createSchedule()
+  public Composition createComposition()
   {
-    ScheduleImpl schedule = new ScheduleImpl();
-    return schedule;
+    CompositionImpl composition = new CompositionImpl();
+    return composition;
   }
 
   /**
@@ -458,10 +465,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public ScheduleElement createScheduleElement()
+  public Schema createSchema()
   {
-    ScheduleElementImpl scheduleElement = new ScheduleElementImpl();
-    return scheduleElement;
+    SchemaImpl schema = new SchemaImpl();
+    return schema;
   }
 
   /**
@@ -470,10 +477,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public ScheduleAssert createScheduleAssert()
+  public SchemaElement createSchemaElement()
   {
-    ScheduleAssertImpl scheduleAssert = new ScheduleAssertImpl();
-    return scheduleAssert;
+    SchemaElementImpl schemaElement = new SchemaElementImpl();
+    return schemaElement;
   }
 
   /**
@@ -482,10 +489,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public ScheduleComponentRef createScheduleComponentRef()
+  public SchemaLabel createSchemaLabel()
   {
-    ScheduleComponentRefImpl scheduleComponentRef = new ScheduleComponentRefImpl();
-    return scheduleComponentRef;
+    SchemaLabelImpl schemaLabel = new SchemaLabelImpl();
+    return schemaLabel;
   }
 
   /**
@@ -494,10 +501,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public ScheduleSplitJoin createScheduleSplitJoin()
+  public SchemaComponentRef createSchemaComponentRef()
   {
-    ScheduleSplitJoinImpl scheduleSplitJoin = new ScheduleSplitJoinImpl();
-    return scheduleSplitJoin;
+    SchemaComponentRefImpl schemaComponentRef = new SchemaComponentRefImpl();
+    return schemaComponentRef;
   }
 
   /**
@@ -506,10 +513,58 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public ScheduleSequence createScheduleSequence()
+  public SchemaSplitJoin createSchemaSplitJoin()
   {
-    ScheduleSequenceImpl scheduleSequence = new ScheduleSequenceImpl();
-    return scheduleSequence;
+    SchemaSplitJoinImpl schemaSplitJoin = new SchemaSplitJoinImpl();
+    return schemaSplitJoin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SchemaSequence createSchemaSequence()
+  {
+    SchemaSequenceImpl schemaSequence = new SchemaSequenceImpl();
+    return schemaSequence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CompositionProperty createCompositionProperty()
+  {
+    CompositionPropertyImpl compositionProperty = new CompositionPropertyImpl();
+    return compositionProperty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PropertyBinding createPropertyBinding()
+  {
+    PropertyBindingImpl propertyBinding = new PropertyBindingImpl();
+    return propertyBinding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SchemaPoint createSchemaPoint()
+  {
+    SchemaPointImpl schemaPoint = new SchemaPointImpl();
+    return schemaPoint;
   }
 
   /**
@@ -1098,6 +1153,42 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     SlangInterpImpl slangInterp = new SlangInterpImpl();
     return slangInterp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PointAt createPointAt()
+  {
+    PointAtImpl pointAt = new PointAtImpl();
+    return pointAt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PointBefore createPointBefore()
+  {
+    PointBeforeImpl pointBefore = new PointBeforeImpl();
+    return pointBefore;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PointAfter createPointAfter()
+  {
+    PointAfterImpl pointAfter = new PointAfterImpl();
+    return pointAfter;
   }
 
   /**

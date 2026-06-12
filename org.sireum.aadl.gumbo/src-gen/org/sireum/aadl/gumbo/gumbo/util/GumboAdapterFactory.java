@@ -147,9 +147,9 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createComputeAdapter();
       }
       @Override
-      public Adapter caseSchedule(Schedule object)
+      public Adapter caseComposition(Composition object)
       {
-        return createScheduleAdapter();
+        return createCompositionAdapter();
       }
       @Override
       public Adapter caseScheduleComponentAliases(ScheduleComponentAliases object)
@@ -197,29 +197,49 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createScheduleStateVarPathAdapter();
       }
       @Override
-      public Adapter caseScheduleElement(ScheduleElement object)
+      public Adapter caseSchema(Schema object)
       {
-        return createScheduleElementAdapter();
+        return createSchemaAdapter();
       }
       @Override
-      public Adapter caseScheduleAssert(ScheduleAssert object)
+      public Adapter caseSchemaElement(SchemaElement object)
       {
-        return createScheduleAssertAdapter();
+        return createSchemaElementAdapter();
       }
       @Override
-      public Adapter caseScheduleComponentRef(ScheduleComponentRef object)
+      public Adapter caseSchemaLabel(SchemaLabel object)
       {
-        return createScheduleComponentRefAdapter();
+        return createSchemaLabelAdapter();
       }
       @Override
-      public Adapter caseScheduleSplitJoin(ScheduleSplitJoin object)
+      public Adapter caseSchemaComponentRef(SchemaComponentRef object)
       {
-        return createScheduleSplitJoinAdapter();
+        return createSchemaComponentRefAdapter();
       }
       @Override
-      public Adapter caseScheduleSequence(ScheduleSequence object)
+      public Adapter caseSchemaSplitJoin(SchemaSplitJoin object)
       {
-        return createScheduleSequenceAdapter();
+        return createSchemaSplitJoinAdapter();
+      }
+      @Override
+      public Adapter caseSchemaSequence(SchemaSequence object)
+      {
+        return createSchemaSequenceAdapter();
+      }
+      @Override
+      public Adapter caseCompositionProperty(CompositionProperty object)
+      {
+        return createCompositionPropertyAdapter();
+      }
+      @Override
+      public Adapter casePropertyBinding(PropertyBinding object)
+      {
+        return createPropertyBindingAdapter();
+      }
+      @Override
+      public Adapter caseSchemaPoint(SchemaPoint object)
+      {
+        return createSchemaPointAdapter();
       }
       @Override
       public Adapter caseInfoFlowClause(InfoFlowClause object)
@@ -465,6 +485,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSlangInterp(SlangInterp object)
       {
         return createSlangInterpAdapter();
+      }
+      @Override
+      public Adapter casePointAt(PointAt object)
+      {
+        return createPointAtAdapter();
+      }
+      @Override
+      public Adapter casePointBefore(PointBefore object)
+      {
+        return createPointBeforeAdapter();
+      }
+      @Override
+      public Adapter casePointAfter(PointAfter object)
+      {
+        return createPointAfterAdapter();
       }
       @Override
       public Adapter caseSlangIfStmt(SlangIfStmt object)
@@ -904,16 +939,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Schedule <em>Schedule</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Composition <em>Composition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.Schedule
+   * @see org.sireum.aadl.gumbo.gumbo.Composition
    * @generated
    */
-  public Adapter createScheduleAdapter()
+  public Adapter createCompositionAdapter()
   {
     return null;
   }
@@ -1054,76 +1089,136 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleElement <em>Schedule Element</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Schema <em>Schema</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.ScheduleElement
+   * @see org.sireum.aadl.gumbo.gumbo.Schema
    * @generated
    */
-  public Adapter createScheduleElementAdapter()
+  public Adapter createSchemaAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleAssert <em>Schedule Assert</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchemaElement <em>Schema Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.ScheduleAssert
+   * @see org.sireum.aadl.gumbo.gumbo.SchemaElement
    * @generated
    */
-  public Adapter createScheduleAssertAdapter()
+  public Adapter createSchemaElementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef <em>Schedule Component Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchemaLabel <em>Schema Label</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.ScheduleComponentRef
+   * @see org.sireum.aadl.gumbo.gumbo.SchemaLabel
    * @generated
    */
-  public Adapter createScheduleComponentRefAdapter()
+  public Adapter createSchemaLabelAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin <em>Schedule Split Join</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchemaComponentRef <em>Schema Component Ref</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSplitJoin
+   * @see org.sireum.aadl.gumbo.gumbo.SchemaComponentRef
    * @generated
    */
-  public Adapter createScheduleSplitJoinAdapter()
+  public Adapter createSchemaComponentRefAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.ScheduleSequence <em>Schedule Sequence</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin <em>Schema Split Join</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.ScheduleSequence
+   * @see org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin
    * @generated
    */
-  public Adapter createScheduleSequenceAdapter()
+  public Adapter createSchemaSplitJoinAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchemaSequence <em>Schema Sequence</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SchemaSequence
+   * @generated
+   */
+  public Adapter createSchemaSequenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty <em>Composition Property</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.CompositionProperty
+   * @generated
+   */
+  public Adapter createCompositionPropertyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PropertyBinding <em>Property Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.PropertyBinding
+   * @generated
+   */
+  public Adapter createPropertyBindingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.SchemaPoint <em>Schema Point</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.SchemaPoint
+   * @generated
+   */
+  public Adapter createSchemaPointAdapter()
   {
     return null;
   }
@@ -1859,6 +1954,51 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSlangInterpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PointAt <em>Point At</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.PointAt
+   * @generated
+   */
+  public Adapter createPointAtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PointBefore <em>Point Before</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.PointBefore
+   * @generated
+   */
+  public Adapter createPointBeforeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.PointAfter <em>Point After</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.PointAfter
+   * @generated
+   */
+  public Adapter createPointAfterAdapter()
   {
     return null;
   }
