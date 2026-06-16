@@ -24,6 +24,7 @@ import org.osate.aadl2.Classifier;
 import org.osate.aadl2.ClassifierValue;
 import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.ComponentImplementation;
+import org.osate.aadl2.ComponentType;
 import org.osate.aadl2.ComponentPrototype;
 import org.osate.aadl2.DataClassifier;
 import org.osate.aadl2.DataImplementation;
@@ -298,10 +299,23 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 						members.addAll(((ComponentImplementation) classifier).getAllSubcomponents());
 					}
 					// Include StateVarDecl entries from GUMBO subclauses on this classifier
-					for (GumboSubclause gs : EcoreUtil2.eAllOfType(classifier, GumboSubclause.class)) {
-						SpecSection specs = gs.getSpecs();
-						if (specs != null && specs.getState() != null && specs.getState().getDecls() != null) {
-							members.addAll(specs.getState().getDecls());
+					// and, when the classifier is an implementation, on its type — a GUMBO
+					// state section may be attached to either (features inherit via
+					// getAllFeatures(), but GUMBO subclauses do not, so search both).
+					List<Classifier> gumboHosts = new ArrayList<>();
+					gumboHosts.add(classifier);
+					if (classifier instanceof ComponentImplementation) {
+						ComponentType ct = ((ComponentImplementation) classifier).getType();
+						if (ct != null) {
+							gumboHosts.add(ct);
+						}
+					}
+					for (Classifier host : gumboHosts) {
+						for (GumboSubclause gs : EcoreUtil2.eAllOfType(host, GumboSubclause.class)) {
+							SpecSection specs = gs.getSpecs();
+							if (specs != null && specs.getState() != null && specs.getState().getDecls() != null) {
+								members.addAll(specs.getState().getDecls());
+							}
 						}
 					}
 					return Scopes.scopeFor(members);
