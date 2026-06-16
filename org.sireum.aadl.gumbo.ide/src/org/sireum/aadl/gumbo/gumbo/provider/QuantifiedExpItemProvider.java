@@ -215,6 +215,11 @@ public class QuantifiedExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -261,6 +266,11 @@ public class QuantifiedExpItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANTIFIED_EXP__QUANTIFIED_EXPR,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -201,6 +201,11 @@ public class RecordLitExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -247,6 +252,11 @@ public class RecordLitExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.RECORD_LIT_EXPR__ARG_EXPR,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter

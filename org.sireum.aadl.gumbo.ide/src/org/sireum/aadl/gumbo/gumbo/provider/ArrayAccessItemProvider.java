@@ -169,6 +169,11 @@ public class ArrayAccessItemProvider extends PostfixItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ARRAY_ACCESS__INDEX,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ARRAY_ACCESS__INDEX,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -215,6 +220,11 @@ public class ArrayAccessItemProvider extends PostfixItemProvider
       (createChildParameter
         (GumboPackage.Literals.ARRAY_ACCESS__INDEX,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ARRAY_ACCESS__INDEX,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter

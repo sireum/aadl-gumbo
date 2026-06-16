@@ -49,6 +49,7 @@ import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinLit;
+import org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
@@ -86,6 +87,7 @@ import org.sireum.aadl.gumbo.gumbo.Invariants;
 import org.sireum.aadl.gumbo.gumbo.LtGtExpr;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
+import org.sireum.aadl.gumbo.gumbo.Monitor;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
@@ -161,6 +163,7 @@ import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
 import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
+import org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp;
 import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 
 @SuppressWarnings("all")
@@ -292,6 +295,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.BIN_LIT:
 				sequence_SlangLit(context, (BinLit) semanticObject); 
 				return; 
+			case GumboPackage.BINARY_TEMPORAL_EXPR:
+				sequence_BinaryTemporalExpression(context, (BinaryTemporalExpr) semanticObject); 
+				return; 
 			case GumboPackage.BOOLEAN_LIT:
 				sequence_SlangLit(context, (BooleanLit) semanticObject); 
 				return; 
@@ -399,6 +405,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				return; 
 			case GumboPackage.MEMBER_ACCESS:
 				sequence_MemberAccess(context, (MemberAccess) semanticObject); 
+				return; 
+			case GumboPackage.MONITOR:
+				sequence_Monitor(context, (Monitor) semanticObject); 
 				return; 
 			case GumboPackage.MULTIPLICATIVE_EXPR:
 				sequence_MultiplicativeExpression(context, (MultiplicativeExpr) semanticObject); 
@@ -632,6 +641,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 			case GumboPackage.UNARY_EXPR:
 				sequence_UnaryExpression(context, (UnaryExpr) semanticObject); 
 				return; 
+			case GumboPackage.UNARY_TEMPORAL_EXP:
+				sequence_SlangExpression(context, (UnaryTemporalExp) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -820,6 +832,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns EnumLitExpr
 	 *     MultiplicativeExpression returns EnumLitExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns EnumLitExpr
+	 *     BinaryTemporalExpression returns EnumLitExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns EnumLitExpr
 	 *     UnaryExpression returns EnumLitExpr
 	 *     PrimaryExpr returns EnumLitExpr
 	 *     BaseExpr returns EnumLitExpr
@@ -863,6 +877,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns HasEventExpr
 	 *     MultiplicativeExpression returns HasEventExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns HasEventExpr
+	 *     BinaryTemporalExpression returns HasEventExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns HasEventExpr
 	 *     UnaryExpression returns HasEventExpr
 	 *     PrimaryExpr returns HasEventExpr
 	 *     BaseExpr returns HasEventExpr
@@ -903,6 +919,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns InStateExpr
 	 *     MultiplicativeExpression returns InStateExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns InStateExpr
+	 *     BinaryTemporalExpression returns InStateExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns InStateExpr
 	 *     UnaryExpression returns InStateExpr
 	 *     PrimaryExpr returns InStateExpr
 	 *     BaseExpr returns InStateExpr
@@ -943,6 +961,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns MaySendExpr
 	 *     MultiplicativeExpression returns MaySendExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns MaySendExpr
+	 *     BinaryTemporalExpression returns MaySendExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns MaySendExpr
 	 *     UnaryExpression returns MaySendExpr
 	 *     PrimaryExpr returns MaySendExpr
 	 *     BaseExpr returns MaySendExpr
@@ -977,6 +997,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns MustSendExpr
 	 *     MultiplicativeExpression returns MustSendExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns MustSendExpr
+	 *     BinaryTemporalExpression returns MustSendExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns MustSendExpr
 	 *     UnaryExpression returns MustSendExpr
 	 *     PrimaryExpr returns MustSendExpr
 	 *     BaseExpr returns MustSendExpr
@@ -1011,6 +1033,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns NoSendExpr
 	 *     MultiplicativeExpression returns NoSendExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns NoSendExpr
+	 *     BinaryTemporalExpression returns NoSendExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns NoSendExpr
 	 *     UnaryExpression returns NoSendExpr
 	 *     PrimaryExpr returns NoSendExpr
 	 *     BaseExpr returns NoSendExpr
@@ -1051,6 +1075,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns ParenExpr
 	 *     MultiplicativeExpression returns ParenExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns ParenExpr
+	 *     BinaryTemporalExpression returns ParenExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns ParenExpr
 	 *     UnaryExpression returns ParenExpr
 	 *     PrimaryExpr returns ParenExpr
 	 *     BaseExpr returns ParenExpr
@@ -1091,6 +1117,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns SlangBlockTerm
 	 *     MultiplicativeExpression returns SlangBlockTerm
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns SlangBlockTerm
+	 *     BinaryTemporalExpression returns SlangBlockTerm
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns SlangBlockTerm
 	 *     UnaryExpression returns SlangBlockTerm
 	 *     PrimaryExpr returns SlangBlockTerm
 	 *     BaseExpr returns SlangBlockTerm
@@ -1125,6 +1153,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns SlangForTerm
 	 *     MultiplicativeExpression returns SlangForTerm
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns SlangForTerm
+	 *     BinaryTemporalExpression returns SlangForTerm
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns SlangForTerm
 	 *     UnaryExpression returns SlangForTerm
 	 *     PrimaryExpr returns SlangForTerm
 	 *     BaseExpr returns SlangForTerm
@@ -1159,6 +1189,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns SlangInterpTerm
 	 *     MultiplicativeExpression returns SlangInterpTerm
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns SlangInterpTerm
+	 *     BinaryTemporalExpression returns SlangInterpTerm
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns SlangInterpTerm
 	 *     UnaryExpression returns SlangInterpTerm
 	 *     PrimaryExpr returns SlangInterpTerm
 	 *     BaseExpr returns SlangInterpTerm
@@ -1199,6 +1231,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns SlangLitTerm
 	 *     MultiplicativeExpression returns SlangLitTerm
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns SlangLitTerm
+	 *     BinaryTemporalExpression returns SlangLitTerm
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns SlangLitTerm
 	 *     UnaryExpression returns SlangLitTerm
 	 *     PrimaryExpr returns SlangLitTerm
 	 *     BaseExpr returns SlangLitTerm
@@ -1215,6 +1249,39 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBaseExprAccess().getLitSlangLitParserRuleCall_0_1_0(), semanticObject.getLit());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     OwnedExpression returns BinaryTemporalExpr
+	 *     SlangExpression returns BinaryTemporalExpr
+	 *     ImpliesExpression returns BinaryTemporalExpr
+	 *     ImpliesExpression.ImpliesExpr_1_0 returns BinaryTemporalExpr
+	 *     OrExpression returns BinaryTemporalExpr
+	 *     OrExpression.OrExpr_1_0 returns BinaryTemporalExpr
+	 *     AndExpression returns BinaryTemporalExpr
+	 *     AndExpression.AndExpr_1_0 returns BinaryTemporalExpr
+	 *     EqualNotExpression returns BinaryTemporalExpr
+	 *     EqualNotExpression.EqualNotExpr_1_0 returns BinaryTemporalExpr
+	 *     LtGtExpression returns BinaryTemporalExpr
+	 *     LtGtExpression.LtGtExpr_1_0 returns BinaryTemporalExpr
+	 *     ColonExpression returns BinaryTemporalExpr
+	 *     ColonExpression.ColonExpr_1_0 returns BinaryTemporalExpr
+	 *     PlusMinusExpression returns BinaryTemporalExpr
+	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns BinaryTemporalExpr
+	 *     MultiplicativeExpression returns BinaryTemporalExpr
+	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns BinaryTemporalExpr
+	 *     BinaryTemporalExpression returns BinaryTemporalExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns BinaryTemporalExpr
+	 *
+	 * Constraint:
+	 *     (left=BinaryTemporalExpression_BinaryTemporalExpr_1_0 op=TEMPORAL_BINARY_OPS intvl=INTERVAL? right=UnaryExpression)
+	 * </pre>
+	 */
+	protected void sequence_BinaryTemporalExpression(ISerializationContext context, BinaryTemporalExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1424,6 +1491,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns F32Obj
 	 *     MultiplicativeExpression returns F32Obj
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns F32Obj
+	 *     BinaryTemporalExpression returns F32Obj
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns F32Obj
 	 *     UnaryExpression returns F32Obj
 	 *     PrimaryExpr returns F32Obj
 	 *     BaseExpr returns F32Obj
@@ -1465,6 +1534,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns F64Obj
 	 *     MultiplicativeExpression returns F64Obj
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns F64Obj
+	 *     BinaryTemporalExpression returns F64Obj
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns F64Obj
 	 *     UnaryExpression returns F64Obj
 	 *     PrimaryExpr returns F64Obj
 	 *     BaseExpr returns F64Obj
@@ -1749,6 +1820,20 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Monitor returns Monitor
+	 *
+	 * Constraint:
+	 *     guarantees+=GuaranteeStatement*
+	 * </pre>
+	 */
+	protected void sequence_Monitor(ISerializationContext context, Monitor semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     OwnedExpression returns MultiplicativeExpr
 	 *     SlangExpression returns MultiplicativeExpr
 	 *     ImpliesExpression returns MultiplicativeExpr
@@ -1769,7 +1854,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns MultiplicativeExpr
 	 *
 	 * Constraint:
-	 *     (left=MultiplicativeExpression_MultiplicativeExpr_1_0 op=MultiplicativeOp right=UnaryExpression)
+	 *     (left=MultiplicativeExpression_MultiplicativeExpr_1_0 op=MultiplicativeOp right=BinaryTemporalExpression)
 	 * </pre>
 	 */
 	protected void sequence_MultiplicativeExpression(ISerializationContext context, MultiplicativeExpr semanticObject) {
@@ -1784,7 +1869,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getMultiplicativeExprLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getOpMultiplicativeOpParserRuleCall_1_1_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getRightUnaryExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getMultiplicativeExpressionAccess().getRightBinaryTemporalExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -1884,6 +1969,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns PostFixExpr
 	 *     MultiplicativeExpression returns PostFixExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns PostFixExpr
+	 *     BinaryTemporalExpression returns PostFixExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns PostFixExpr
 	 *     UnaryExpression returns PostFixExpr
 	 *     PrimaryExpr returns PostFixExpr
 	 *
@@ -2426,9 +2513,9 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangExpressionAccess().getIfCondImpliesExpressionParserRuleCall_1_3_0(), semanticObject.getIfCond());
-		feeder.accept(grammarAccess.getSlangExpressionAccess().getThenExprOwnedExpressionParserRuleCall_1_5_0(), semanticObject.getThenExpr());
-		feeder.accept(grammarAccess.getSlangExpressionAccess().getElseExprOwnedExpressionParserRuleCall_1_7_0(), semanticObject.getElseExpr());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getIfCondImpliesExpressionParserRuleCall_2_3_0(), semanticObject.getIfCond());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getThenExprOwnedExpressionParserRuleCall_2_5_0(), semanticObject.getThenExpr());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getElseExprOwnedExpressionParserRuleCall_2_7_0(), semanticObject.getElseExpr());
 		feeder.finish();
 	}
 	
@@ -2450,6 +2537,33 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 */
 	protected void sequence_SlangExpression(ISerializationContext context, QuantifiedExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     OwnedExpression returns UnaryTemporalExp
+	 *     SlangExpression returns UnaryTemporalExp
+	 *
+	 * Constraint:
+	 *     (op=TEMPORAL_UNARY_OPS intvl=INTERVAL exp=OwnedExpression)
+	 * </pre>
+	 */
+	protected void sequence_SlangExpression(ISerializationContext context, UnaryTemporalExp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.UNARY_TEMPORAL_EXP__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.UNARY_TEMPORAL_EXP__OP));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.UNARY_TEMPORAL_EXP__INTVL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.UNARY_TEMPORAL_EXP__INTVL));
+			if (transientValues.isValueTransient(semanticObject, GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getOpTEMPORAL_UNARY_OPSTerminalRuleCall_1_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getIntvlINTERVALTerminalRuleCall_1_2_0(), semanticObject.getIntvl());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getExpOwnedExpressionParserRuleCall_1_3_0(), semanticObject.getExp());
+		feeder.finish();
 	}
 	
 	
@@ -3078,6 +3192,8 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     PlusMinusExpression.PlusMinusExpr_1_0 returns UnaryExpr
 	 *     MultiplicativeExpression returns UnaryExpr
 	 *     MultiplicativeExpression.MultiplicativeExpr_1_0 returns UnaryExpr
+	 *     BinaryTemporalExpression returns UnaryExpr
+	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns UnaryExpr
 	 *     UnaryExpression returns UnaryExpr
 	 *
 	 * Constraint:

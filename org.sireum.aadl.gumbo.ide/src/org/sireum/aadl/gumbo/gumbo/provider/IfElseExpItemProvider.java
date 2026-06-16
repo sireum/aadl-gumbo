@@ -168,6 +168,11 @@ public class IfElseExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -214,6 +219,11 @@ public class IfElseExpItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__IF_COND,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -323,6 +333,11 @@ public class IfElseExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -369,6 +384,11 @@ public class IfElseExpItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__THEN_EXPR,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -478,6 +498,11 @@ public class IfElseExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -524,6 +549,11 @@ public class IfElseExpItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.IF_ELSE_EXP__ELSE_EXPR,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter

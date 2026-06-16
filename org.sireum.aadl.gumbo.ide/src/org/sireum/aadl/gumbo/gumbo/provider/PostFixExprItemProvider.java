@@ -166,6 +166,11 @@ public class PostFixExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.POST_FIX_EXPR__BASE_EXP,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.POST_FIX_EXPR__BASE_EXP,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -212,6 +217,11 @@ public class PostFixExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.POST_FIX_EXPR__BASE_EXP,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.POST_FIX_EXPR__BASE_EXP,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter

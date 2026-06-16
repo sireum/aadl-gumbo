@@ -54,7 +54,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangTPatternAccess().getAlternatives_0_2(), "rule__SlangTPattern__Alternatives_0_2");
 			builder.put(grammarAccess.getSlangVarModAccess().getAlternatives(), "rule__SlangVarMod__Alternatives");
 			builder.put(grammarAccess.getSlangExpressionAccess().getAlternatives(), "rule__SlangExpression__Alternatives");
-			builder.put(grammarAccess.getSlangExpressionAccess().getQuantifierAlternatives_2_1_0(), "rule__SlangExpression__QuantifierAlternatives_2_1_0");
+			builder.put(grammarAccess.getSlangExpressionAccess().getQuantifierAlternatives_3_1_0(), "rule__SlangExpression__QuantifierAlternatives_3_1_0");
 			builder.put(grammarAccess.getQuantRangeAccess().getExtentAlternatives_1_0(), "rule__QuantRange__ExtentAlternatives_1_0");
 			builder.put(grammarAccess.getQuantParamAccess().getAlternatives(), "rule__QuantParam__Alternatives");
 			builder.put(grammarAccess.getOrExpressionAccess().getOpAlternatives_1_1_0(), "rule__OrExpression__OpAlternatives_1_1_0");
@@ -98,6 +98,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getComputeAccess().getGroup(), "rule__Compute__Group__0");
 			builder.put(grammarAccess.getComputeAccess().getGroup_2(), "rule__Compute__Group_2__0");
 			builder.put(grammarAccess.getComputeAccess().getGroup_5(), "rule__Compute__Group_5__0");
+			builder.put(grammarAccess.getMonitorAccess().getGroup(), "rule__Monitor__Group__0");
 			builder.put(grammarAccess.getCompositionAccess().getGroup(), "rule__Composition__Group__0");
 			builder.put(grammarAccess.getScheduleComponentAliasesAccess().getGroup(), "rule__ScheduleComponentAliases__Group__0");
 			builder.put(grammarAccess.getScheduleComponentAliasAccess().getGroup(), "rule__ScheduleComponentAlias__Group__0");
@@ -197,6 +198,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangBlockAccess().getGroup(), "rule__SlangBlock__Group__0");
 			builder.put(grammarAccess.getSlangExpressionAccess().getGroup_1(), "rule__SlangExpression__Group_1__0");
 			builder.put(grammarAccess.getSlangExpressionAccess().getGroup_2(), "rule__SlangExpression__Group_2__0");
+			builder.put(grammarAccess.getSlangExpressionAccess().getGroup_3(), "rule__SlangExpression__Group_3__0");
 			builder.put(grammarAccess.getQuantRangeAccess().getGroup(), "rule__QuantRange__Group__0");
 			builder.put(grammarAccess.getQuantParamAccess().getGroup_1(), "rule__QuantParam__Group_1__0");
 			builder.put(grammarAccess.getImpliesExpressionAccess().getGroup(), "rule__ImpliesExpression__Group__0");
@@ -215,6 +217,8 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPlusMinusExpressionAccess().getGroup_1(), "rule__PlusMinusExpression__Group_1__0");
 			builder.put(grammarAccess.getMultiplicativeExpressionAccess().getGroup(), "rule__MultiplicativeExpression__Group__0");
 			builder.put(grammarAccess.getMultiplicativeExpressionAccess().getGroup_1(), "rule__MultiplicativeExpression__Group_1__0");
+			builder.put(grammarAccess.getBinaryTemporalExpressionAccess().getGroup(), "rule__BinaryTemporalExpression__Group__0");
+			builder.put(grammarAccess.getBinaryTemporalExpressionAccess().getGroup_1(), "rule__BinaryTemporalExpression__Group_1__0");
 			builder.put(grammarAccess.getUnaryExpressionAccess().getGroup_0(), "rule__UnaryExpression__Group_0__0");
 			builder.put(grammarAccess.getPrimaryExprAccess().getGroup_1(), "rule__PrimaryExpr__Group_1__0");
 			builder.put(grammarAccess.getBaseExprAccess().getGroup_0(), "rule__BaseExpr__Group_0__0");
@@ -354,6 +358,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getComputeAccess().getCasesAssignment_5_1(), "rule__Compute__CasesAssignment_5_1");
 			builder.put(grammarAccess.getComputeAccess().getHandlersAssignment_6(), "rule__Compute__HandlersAssignment_6");
 			builder.put(grammarAccess.getComputeAccess().getFlowsAssignment_7(), "rule__Compute__FlowsAssignment_7");
+			builder.put(grammarAccess.getMonitorAccess().getGuaranteesAssignment_2(), "rule__Monitor__GuaranteesAssignment_2");
 			builder.put(grammarAccess.getCompositionAccess().getIdAssignment_1(), "rule__Composition__IdAssignment_1");
 			builder.put(grammarAccess.getCompositionAccess().getComponentAliasesAssignment_3(), "rule__Composition__ComponentAliasesAssignment_3");
 			builder.put(grammarAccess.getCompositionAccess().getPortAliasesAssignment_4(), "rule__Composition__PortAliasesAssignment_4");
@@ -486,13 +491,16 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSlangVarDefAccess().getInitAssignment_4(), "rule__SlangVarDef__InitAssignment_4");
 			builder.put(grammarAccess.getSlangBlockAccess().getStmtsAssignment_2(), "rule__SlangBlock__StmtsAssignment_2");
 			builder.put(grammarAccess.getSlangBlockAccess().getRAssignment_3(), "rule__SlangBlock__RAssignment_3");
-			builder.put(grammarAccess.getSlangExpressionAccess().getIfCondAssignment_1_3(), "rule__SlangExpression__IfCondAssignment_1_3");
-			builder.put(grammarAccess.getSlangExpressionAccess().getThenExprAssignment_1_5(), "rule__SlangExpression__ThenExprAssignment_1_5");
-			builder.put(grammarAccess.getSlangExpressionAccess().getElseExprAssignment_1_7(), "rule__SlangExpression__ElseExprAssignment_1_7");
-			builder.put(grammarAccess.getSlangExpressionAccess().getQuantifierAssignment_2_1(), "rule__SlangExpression__QuantifierAssignment_2_1");
-			builder.put(grammarAccess.getSlangExpressionAccess().getQuantRangeAssignment_2_3(), "rule__SlangExpression__QuantRangeAssignment_2_3");
-			builder.put(grammarAccess.getSlangExpressionAccess().getQuantParamAssignment_2_6(), "rule__SlangExpression__QuantParamAssignment_2_6");
-			builder.put(grammarAccess.getSlangExpressionAccess().getQuantifiedExprAssignment_2_8(), "rule__SlangExpression__QuantifiedExprAssignment_2_8");
+			builder.put(grammarAccess.getSlangExpressionAccess().getOpAssignment_1_1(), "rule__SlangExpression__OpAssignment_1_1");
+			builder.put(grammarAccess.getSlangExpressionAccess().getIntvlAssignment_1_2(), "rule__SlangExpression__IntvlAssignment_1_2");
+			builder.put(grammarAccess.getSlangExpressionAccess().getExpAssignment_1_3(), "rule__SlangExpression__ExpAssignment_1_3");
+			builder.put(grammarAccess.getSlangExpressionAccess().getIfCondAssignment_2_3(), "rule__SlangExpression__IfCondAssignment_2_3");
+			builder.put(grammarAccess.getSlangExpressionAccess().getThenExprAssignment_2_5(), "rule__SlangExpression__ThenExprAssignment_2_5");
+			builder.put(grammarAccess.getSlangExpressionAccess().getElseExprAssignment_2_7(), "rule__SlangExpression__ElseExprAssignment_2_7");
+			builder.put(grammarAccess.getSlangExpressionAccess().getQuantifierAssignment_3_1(), "rule__SlangExpression__QuantifierAssignment_3_1");
+			builder.put(grammarAccess.getSlangExpressionAccess().getQuantRangeAssignment_3_3(), "rule__SlangExpression__QuantRangeAssignment_3_3");
+			builder.put(grammarAccess.getSlangExpressionAccess().getQuantParamAssignment_3_6(), "rule__SlangExpression__QuantParamAssignment_3_6");
+			builder.put(grammarAccess.getSlangExpressionAccess().getQuantifiedExprAssignment_3_8(), "rule__SlangExpression__QuantifiedExprAssignment_3_8");
 			builder.put(grammarAccess.getQuantRangeAccess().getLoAssignment_0(), "rule__QuantRange__LoAssignment_0");
 			builder.put(grammarAccess.getQuantRangeAccess().getExtentAssignment_1(), "rule__QuantRange__ExtentAssignment_1");
 			builder.put(grammarAccess.getQuantRangeAccess().getHighAssignment_2(), "rule__QuantRange__HighAssignment_2");
@@ -515,6 +523,9 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPlusMinusExpressionAccess().getRightAssignment_1_2(), "rule__PlusMinusExpression__RightAssignment_1_2");
 			builder.put(grammarAccess.getMultiplicativeExpressionAccess().getOpAssignment_1_1(), "rule__MultiplicativeExpression__OpAssignment_1_1");
 			builder.put(grammarAccess.getMultiplicativeExpressionAccess().getRightAssignment_1_2(), "rule__MultiplicativeExpression__RightAssignment_1_2");
+			builder.put(grammarAccess.getBinaryTemporalExpressionAccess().getOpAssignment_1_1(), "rule__BinaryTemporalExpression__OpAssignment_1_1");
+			builder.put(grammarAccess.getBinaryTemporalExpressionAccess().getIntvlAssignment_1_2(), "rule__BinaryTemporalExpression__IntvlAssignment_1_2");
+			builder.put(grammarAccess.getBinaryTemporalExpressionAccess().getRightAssignment_1_3(), "rule__BinaryTemporalExpression__RightAssignment_1_3");
 			builder.put(grammarAccess.getUnaryExpressionAccess().getOpAssignment_0_1(), "rule__UnaryExpression__OpAssignment_0_1");
 			builder.put(grammarAccess.getUnaryExpressionAccess().getExpAssignment_0_2(), "rule__UnaryExpression__ExpAssignment_0_2");
 			builder.put(grammarAccess.getPrimaryExprAccess().getBaseExpAssignment_1_1(), "rule__PrimaryExpr__BaseExpAssignment_1_1");

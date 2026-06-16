@@ -194,6 +194,11 @@ public class MustSendExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -240,6 +245,11 @@ public class MustSendExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter

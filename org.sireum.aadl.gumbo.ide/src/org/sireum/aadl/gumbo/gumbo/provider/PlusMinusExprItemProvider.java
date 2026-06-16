@@ -198,6 +198,11 @@ public class PlusMinusExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PLUS_MINUS_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PLUS_MINUS_EXPR__LEFT,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -244,6 +249,11 @@ public class PlusMinusExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.PLUS_MINUS_EXPR__LEFT,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PLUS_MINUS_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -348,6 +358,11 @@ public class PlusMinusExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PLUS_MINUS_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PLUS_MINUS_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -394,6 +409,11 @@ public class PlusMinusExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.PLUS_MINUS_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PLUS_MINUS_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -69,6 +69,8 @@ Compute : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e');
 
 Implies : ('I'|'i')('M'|'m')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
+Monitor : ('M'|'m')('O'|'o')('N'|'n')('I'|'i')('T'|'t')('O'|'o')('R'|'r');
+
 Exists : ('E'|'e')('X'|'x')('I'|'i')('S'|'s')('T'|'t')('S'|'s');
 
 NoSend : ('N'|'n')('O'|'o')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
@@ -274,6 +276,12 @@ RULE_OR_OPS : ('|^'|'||'|'|');
 RULE_IMPLIES : ('__'|'-'|'~') '>' ':';
 
 RULE_SIMPLIES : ('___'|'~~') '>' ':';
+
+RULE_TEMPORAL_UNARY_OPS : ('future'|'Future'|'eventually'|'Eventually'|'globally'|'Globally'|'always'|'Always'|'once'|'Once'|'historically'|'Historically');
+
+RULE_TEMPORAL_BINARY_OPS : ('until'|'Until'|'release'|'Release'|'since'|'Since'|'trigger'|'Trigger');
+
+RULE_INTERVAL : '[' RULE_INTEGER_LIT ',' RULE_INTEGER_LIT ']';
 
 RULE_HEX : '0x' RULE_EXTENDED_DIGIT+ ('.' RULE_IDF)?;
 

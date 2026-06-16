@@ -86,6 +86,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.INITIALIZE: return createInitialize();
       case GumboPackage.INITIALIZE_SPEC_STATEMENT: return createInitializeSpecStatement();
       case GumboPackage.COMPUTE: return createCompute();
+      case GumboPackage.MONITOR: return createMonitor();
       case GumboPackage.COMPOSITION: return createComposition();
       case GumboPackage.SCHEDULE_COMPONENT_ALIASES: return createScheduleComponentAliases();
       case GumboPackage.SCHEDULE_COMPONENT_ALIAS: return createScheduleComponentAlias();
@@ -165,6 +166,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_ASSERT_STMT: return createSlangAssertStmt();
       case GumboPackage.SLANG_HALT_STMT: return createSlangHaltStmt();
       case GumboPackage.SLANG_DO_STMT: return createSlangDoStmt();
+      case GumboPackage.UNARY_TEMPORAL_EXP: return createUnaryTemporalExp();
       case GumboPackage.IF_ELSE_EXP: return createIfElseExp();
       case GumboPackage.QUANTIFIED_EXP: return createQuantifiedExp();
       case GumboPackage.IMPLIES_EXPR: return createImpliesExpr();
@@ -175,6 +177,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.COLON_EXPR: return createColonExpr();
       case GumboPackage.PLUS_MINUS_EXPR: return createPlusMinusExpr();
       case GumboPackage.MULTIPLICATIVE_EXPR: return createMultiplicativeExpr();
+      case GumboPackage.BINARY_TEMPORAL_EXPR: return createBinaryTemporalExpr();
       case GumboPackage.UNARY_EXPR: return createUnaryExpr();
       case GumboPackage.POST_FIX_EXPR: return createPostFixExpr();
       case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
@@ -337,6 +340,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     ComputeImpl compute = new ComputeImpl();
     return compute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Monitor createMonitor()
+  {
+    MonitorImpl monitor = new MonitorImpl();
+    return monitor;
   }
 
   /**
@@ -1293,6 +1308,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public UnaryTemporalExp createUnaryTemporalExp()
+  {
+    UnaryTemporalExpImpl unaryTemporalExp = new UnaryTemporalExpImpl();
+    return unaryTemporalExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public IfElseExp createIfElseExp()
   {
     IfElseExpImpl ifElseExp = new IfElseExpImpl();
@@ -1405,6 +1432,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     MultiplicativeExprImpl multiplicativeExpr = new MultiplicativeExprImpl();
     return multiplicativeExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BinaryTemporalExpr createBinaryTemporalExpr()
+  {
+    BinaryTemporalExprImpl binaryTemporalExpr = new BinaryTemporalExprImpl();
+    return binaryTemporalExpr;
   }
 
   /**

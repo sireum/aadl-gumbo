@@ -82,6 +82,11 @@ Compute:
 	  (flows+=InfoFlowClause)*
 ;
 
+Monitor:
+	{Monitor} 'monitor'
+	  (guarantees+=GuaranteeStatement)*
+;
+
 // ===========================================================================
 // Composition -- system-level contract for system implementations (design D8
 // of VCGenerationDesign.md in the hamr-system-reasoning-prototype repo).
@@ -451,6 +456,7 @@ OwnedExpression :
 
 SlangExpression returns GExpr
   : ImpliesExpression
+  | {UnaryTemporalExp} op=(TEMPORAL_UNARY_OPS) intvl=INTERVAL exp=OwnedExpression
   | {IfElseExp} 'if' '(' ifCond=ImpliesExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
   | {QuantifiedExp} quantifier=( 'All' | '∀' | 'Exists' | '∃' ) '(' quantRange=QuantRange ')'
   		// TODO: the following is a function expression
@@ -488,8 +494,11 @@ PlusMinusExpression returns GExpr
 	: MultiplicativeExpression ( {PlusMinusExpr.left=current} op=PlusMinusOps right=MultiplicativeExpression)*;
 
 MultiplicativeExpression returns GExpr
-	: UnaryExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=UnaryExpression)*;
-	
+	: BinaryTemporalExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=BinaryTemporalExpression)*;
+
+BinaryTemporalExpression returns GExpr
+	: UnaryExpression ( {BinaryTemporalExpr.left=current} op=TEMPORAL_BINARY_OPS (intvl=INTERVAL)? right=UnaryExpression)*;
+
 UnaryExpression returns GExpr
 	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
 	| PrimaryExpr
@@ -688,9 +697,17 @@ terminal IMPLIES: ('__' | '-' | '~') '>' ':';
 // can't use -->: as -- is a comment in AADL
 terminal SIMPLIES: ('___' | '~~')  '>' ':'; // short circuit implies
 
+terminal TEMPORAL_UNARY_OPS:
+     'future' | 'Future' | 'eventually' | 'Eventually' |
+     'globally' | 'Globally' | 'always' | 'Always' |
+     'once' | 'Once' |
+     'historically' | 'Historically';
 
+terminal TEMPORAL_BINARY_OPS:
+     'until' | 'Until' | 'release' | 'Release' |
+     'since' | 'Since' | 'trigger' | 'Trigger';
 
-
+terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
 
 //Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
 

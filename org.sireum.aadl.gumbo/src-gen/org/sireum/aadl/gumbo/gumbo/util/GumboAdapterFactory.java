@@ -147,6 +147,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createComputeAdapter();
       }
       @Override
+      public Adapter caseMonitor(Monitor object)
+      {
+        return createMonitorAdapter();
+      }
+      @Override
       public Adapter caseComposition(Composition object)
       {
         return createCompositionAdapter();
@@ -542,6 +547,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createSlangDoStmtAdapter();
       }
       @Override
+      public Adapter caseUnaryTemporalExp(UnaryTemporalExp object)
+      {
+        return createUnaryTemporalExpAdapter();
+      }
+      @Override
       public Adapter caseIfElseExp(IfElseExp object)
       {
         return createIfElseExpAdapter();
@@ -590,6 +600,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMultiplicativeExpr(MultiplicativeExpr object)
       {
         return createMultiplicativeExprAdapter();
+      }
+      @Override
+      public Adapter caseBinaryTemporalExpr(BinaryTemporalExpr object)
+      {
+        return createBinaryTemporalExprAdapter();
       }
       @Override
       public Adapter caseUnaryExpr(UnaryExpr object)
@@ -934,6 +949,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComputeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.Monitor <em>Monitor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.Monitor
+   * @generated
+   */
+  public Adapter createMonitorAdapter()
   {
     return null;
   }
@@ -2124,6 +2154,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp <em>Unary Temporal Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp
+   * @generated
+   */
+  public Adapter createUnaryTemporalExpAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.IfElseExp <em>If Else Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -2269,6 +2314,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMultiplicativeExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr <em>Binary Temporal Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr
+   * @generated
+   */
+  public Adapter createBinaryTemporalExprAdapter()
   {
     return null;
   }
