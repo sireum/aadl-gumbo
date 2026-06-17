@@ -33,6 +33,7 @@ SpecSection: {SpecSection}
 	(integration = Integration)?
 	(initialize = Initialize)?
 	(compute = Compute)?
+	(monitor = Monitor)?
 	(compositions += Composition)*
 ;
 

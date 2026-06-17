@@ -1267,9 +1267,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSpecSection_Compositions()
+  public EReference getSpecSection_Monitor()
   {
     return (EReference)specSectionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSpecSection_Compositions()
+  {
+    return (EReference)specSectionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -5133,6 +5144,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(specSectionEClass, SPEC_SECTION__INTEGRATION);
     createEReference(specSectionEClass, SPEC_SECTION__INITIALIZE);
     createEReference(specSectionEClass, SPEC_SECTION__COMPUTE);
+    createEReference(specSectionEClass, SPEC_SECTION__MONITOR);
     createEReference(specSectionEClass, SPEC_SECTION__COMPOSITIONS);
 
     stateEClass = createEClass(STATE);
@@ -5723,6 +5735,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getSpecSection_Integration(), this.getIntegration(), null, "integration", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Initialize(), this.getInitialize(), null, "initialize", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Compute(), this.getCompute(), null, "compute", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecSection_Monitor(), this.getMonitor(), null, "monitor", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Compositions(), this.getComposition(), null, "compositions", null, 0, -1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -22,6 +22,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compute" eType="#//Compute"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitor" eType="#//Monitor"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compositions" upperBound="-1"
         eType="#//Composition" containment="true"/>
   </eClassifiers>

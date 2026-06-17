@@ -3105,6 +3105,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *         integration=Integration? 
 	 *         initialize=Initialize? 
 	 *         compute=Compute? 
+	 *         monitor=Monitor? 
 	 *         compositions+=Composition*
 	 *     )
 	 * </pre>

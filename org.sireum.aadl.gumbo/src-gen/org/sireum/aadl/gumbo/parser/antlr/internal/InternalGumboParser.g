@@ -336,9 +336,28 @@ ruleSpecSection returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecSectionAccess().getCompositionsCompositionParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getMonitorMonitorParserRuleCall_7_0());
 				}
-				lv_compositions_7_0=ruleComposition
+				lv_monitor_7_0=ruleMonitor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
+					}
+					set(
+						$current,
+						"monitor",
+						lv_monitor_7_0,
+						"org.sireum.aadl.gumbo.Gumbo.Monitor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSpecSectionAccess().getCompositionsCompositionParserRuleCall_8_0());
+				}
+				lv_compositions_8_0=ruleComposition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecSectionRule());
@@ -346,7 +365,7 @@ ruleSpecSection returns [EObject current=null]
 					add(
 						$current,
 						"compositions",
-						lv_compositions_7_0,
+						lv_compositions_8_0,
 						"org.sireum.aadl.gumbo.Gumbo.Composition");
 					afterParserOrEnumRuleCall();
 				}
@@ -924,6 +943,58 @@ ruleCompute returns [EObject current=null]
 						"flows",
 						lv_flows_10_0,
 						"org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleMonitor
+entryRuleMonitor returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMonitorRule()); }
+	iv_ruleMonitor=ruleMonitor
+	{ $current=$iv_ruleMonitor.current; }
+	EOF;
+
+// Rule Monitor
+ruleMonitor returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				/* */
+			}
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getMonitorAccess().getMonitorAction_0(),
+					$current);
+			}
+		)
+		otherlv_1=Monitor
+		{
+			newLeafNode(otherlv_1, grammarAccess.getMonitorAccess().getMonitorKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMonitorAccess().getGuaranteesGuaranteeStatementParserRuleCall_2_0());
+				}
+				lv_guarantees_2_0=ruleGuaranteeStatement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMonitorRule());
+					}
+					add(
+						$current,
+						"guarantees",
+						lv_guarantees_2_0,
+						"org.sireum.aadl.gumbo.Gumbo.GuaranteeStatement");
 					afterParserOrEnumRuleCall();
 				}
 			)

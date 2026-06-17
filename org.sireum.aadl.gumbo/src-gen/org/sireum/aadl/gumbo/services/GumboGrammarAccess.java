@@ -129,8 +129,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cInitializeInitializeParserRuleCall_5_0 = (RuleCall)cInitializeAssignment_5.eContents().get(0);
 		private final Assignment cComputeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cComputeComputeParserRuleCall_6_0 = (RuleCall)cComputeAssignment_6.eContents().get(0);
-		private final Assignment cCompositionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cCompositionsCompositionParserRuleCall_7_0 = (RuleCall)cCompositionsAssignment_7.eContents().get(0);
+		private final Assignment cMonitorAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMonitorMonitorParserRuleCall_7_0 = (RuleCall)cMonitorAssignment_7.eContents().get(0);
+		private final Assignment cCompositionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cCompositionsCompositionParserRuleCall_8_0 = (RuleCall)cCompositionsAssignment_8.eContents().get(0);
 		
 		//SpecSection: {SpecSection}
 		//    (state = State)?
@@ -139,6 +141,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    (integration = Integration)?
 		//    (initialize = Initialize)?
 		//    (compute = Compute)?
+		//    (monitor = Monitor)?
 		//    (compositions += Composition)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -150,6 +153,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//   (integration = Integration)?
 		//   (initialize = Initialize)?
 		//   (compute = Compute)?
+		//   (monitor = Monitor)?
 		//   (compositions += Composition)*
 		public Group getGroup() { return cGroup; }
 		
@@ -192,11 +196,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Compute
 		public RuleCall getComputeComputeParserRuleCall_6_0() { return cComputeComputeParserRuleCall_6_0; }
 		
+		//(monitor = Monitor)?
+		public Assignment getMonitorAssignment_7() { return cMonitorAssignment_7; }
+		
+		//Monitor
+		public RuleCall getMonitorMonitorParserRuleCall_7_0() { return cMonitorMonitorParserRuleCall_7_0; }
+		
 		//(compositions += Composition)*
-		public Assignment getCompositionsAssignment_7() { return cCompositionsAssignment_7; }
+		public Assignment getCompositionsAssignment_8() { return cCompositionsAssignment_8; }
 		
 		//Composition
-		public RuleCall getCompositionsCompositionParserRuleCall_7_0() { return cCompositionsCompositionParserRuleCall_7_0; }
+		public RuleCall getCompositionsCompositionParserRuleCall_8_0() { return cCompositionsCompositionParserRuleCall_8_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.State");
@@ -6113,6 +6123,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    (integration = Integration)?
 	//    (initialize = Initialize)?
 	//    (compute = Compute)?
+	//    (monitor = Monitor)?
 	//    (compositions += Composition)*
 	//;
 	public SpecSectionElements getSpecSectionAccess() {

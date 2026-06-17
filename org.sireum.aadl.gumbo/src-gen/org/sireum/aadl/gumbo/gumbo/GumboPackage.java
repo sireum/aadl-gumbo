@@ -289,13 +289,22 @@ public interface GumboPackage extends EPackage
   int SPEC_SECTION__COMPUTE = 5;
 
   /**
+   * The feature id for the '<em><b>Monitor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPEC_SECTION__MONITOR = 6;
+
+  /**
    * The feature id for the '<em><b>Compositions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPEC_SECTION__COMPOSITIONS = 6;
+  int SPEC_SECTION__COMPOSITIONS = 7;
 
   /**
    * The number of structural features of the '<em>Spec Section</em>' class.
@@ -304,7 +313,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPEC_SECTION_FEATURE_COUNT = 7;
+  int SPEC_SECTION_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.StateImpl <em>State</em>}' class.
@@ -4972,6 +4981,17 @@ public interface GumboPackage extends EPackage
   EReference getSpecSection_Compute();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getMonitor <em>Monitor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Monitor</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.SpecSection#getMonitor()
+   * @see #getSpecSection()
+   * @generated
+   */
+  EReference getSpecSection_Monitor();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompositions <em>Compositions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8788,6 +8808,14 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference SPEC_SECTION__COMPUTE = eINSTANCE.getSpecSection_Compute();
+
+    /**
+     * The meta object literal for the '<em><b>Monitor</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPEC_SECTION__MONITOR = eINSTANCE.getSpecSection_Monitor();
 
     /**
      * The meta object literal for the '<em><b>Compositions</b></em>' containment reference list feature.
