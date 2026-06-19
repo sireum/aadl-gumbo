@@ -656,13 +656,24 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 		if (classifier != null) {
 			EList<EObject> localDecls = new BasicEList<>();
 
-			// All members from classifier
-			localDecls.addAll(PropertiesScopeProvider.allMembers(classifier));
+			// GUMBO subclause functions (SlangDefDefs in a SpecSection's functions
+			// section) are pure: they may only reference their own parameters, other
+			// functions, library defs, and quantified-expression parameters. They must
+			// NOT see the enclosing component's ports/subcomponents or state variables,
+			// so those members are suppressed when resolving names inside a function.
+			SlangDefDef defDef = EcoreUtil2.getContainerOfType(context, SlangDefDef.class);
+			boolean inSubclauseFunction = defDef != null;
 
-			// State variable declarations
 			SpecSection specSection = EcoreUtil2.getContainerOfType(context, SpecSection.class);
-			if (specSection != null && specSection.getState() != null) {
-				localDecls.addAll(specSection.getState().getDecls());
+
+			if (!inSubclauseFunction) {
+				// All members from classifier (ports, subcomponents, etc.)
+				localDecls.addAll(PropertiesScopeProvider.allMembers(classifier));
+
+				// State variable declarations
+				if (specSection != null && specSection.getState() != null) {
+					localDecls.addAll(specSection.getState().getDecls());
+				}
 			}
 
 			// Function specs from SpecSection
@@ -679,19 +690,20 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 			// Library defs from current package
 			localDecls.addAll(getGumboLibraryFunctionDefs(context, false));
 
-			// Port aliases from the composition (if inside a composition block)
-			Composition composition = EcoreUtil2.getContainerOfType(context, Composition.class);
-			if (composition != null && composition.getPortAliases() != null) {
-				localDecls.addAll(composition.getPortAliases().getAliases());
-			}
+			if (!inSubclauseFunction) {
+				// Port aliases from the composition (if inside a composition block)
+				Composition composition = EcoreUtil2.getContainerOfType(context, Composition.class);
+				if (composition != null && composition.getPortAliases() != null) {
+					localDecls.addAll(composition.getPortAliases().getAliases());
+				}
 
-			// State var aliases from the composition (if inside a composition block)
-			if (composition != null && composition.getStateVarAliases() != null) {
-				localDecls.addAll(composition.getStateVarAliases().getAliases());
+				// State var aliases from the composition (if inside a composition block)
+				if (composition != null && composition.getStateVarAliases() != null) {
+					localDecls.addAll(composition.getStateVarAliases().getAliases());
+				}
 			}
 
 			// Parameters of the enclosing function, if any
-			SlangDefDef defDef = EcoreUtil2.getContainerOfType(context, SlangDefDef.class);
 			if (defDef != null && defDef.getParams() != null) {
 				localDecls.addAll(defDef.getParams().getParams());
 			}
