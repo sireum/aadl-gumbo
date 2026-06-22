@@ -229,38 +229,21 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 
 	 * </pre>
 	 */
-	protected void emit_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compute_Compute_casesKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     'cases' | 'compute_cases'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     assumes+=AssumeStatement (ambiguity) cases+=CaseStatementClause
-	 *     guarantees+=GuaranteeStatement (ambiguity) cases+=CaseStatementClause
-	 *     id=[Port|ID] ':' (ambiguity) cases+=CaseStatementClause
-	 *     modifies=SlangModifies ';' (ambiguity) cases+=CaseStatementClause
-	 
-	 * </pre>
-	 */
-	protected void emit_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     ('cases' | 'compute_cases')?
+	 *     'compute_cases'?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     cases+=CaseStatementClause (ambiguity) cases+=CaseStatementClause
 	 
 	 * </pre>
 	 */
-	protected void emit_HandlerClause___CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_HandlerClause_Compute_casesKeyword_6_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

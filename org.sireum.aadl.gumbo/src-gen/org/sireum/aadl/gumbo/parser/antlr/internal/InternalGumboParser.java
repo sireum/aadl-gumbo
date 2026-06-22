@@ -202,7 +202,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         
 
     public String[] getTokenNames() { return InternalGumboParser.tokenNames; }
-    public String getGrammarFileName() { return "InternalGumboParser.g"; }
+    public String getGrammarFileName() { return "InternalGumbo.g"; }
 
 
 
@@ -233,7 +233,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAnnexLibrary"
-    // InternalGumboParser.g:73:1: entryRuleAnnexLibrary returns [EObject current=null] : iv_ruleAnnexLibrary= ruleAnnexLibrary EOF ;
+    // InternalGumbo.g:80:1: entryRuleAnnexLibrary returns [EObject current=null] : iv_ruleAnnexLibrary= ruleAnnexLibrary EOF ;
     public final EObject entryRuleAnnexLibrary() throws RecognitionException {
         EObject current = null;
 
@@ -241,8 +241,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:73:53: (iv_ruleAnnexLibrary= ruleAnnexLibrary EOF )
-            // InternalGumboParser.g:74:2: iv_ruleAnnexLibrary= ruleAnnexLibrary EOF
+            // InternalGumbo.g:80:53: (iv_ruleAnnexLibrary= ruleAnnexLibrary EOF )
+            // InternalGumbo.g:81:2: iv_ruleAnnexLibrary= ruleAnnexLibrary EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAnnexLibraryRule()); 
@@ -273,7 +273,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnnexLibrary"
-    // InternalGumboParser.g:80:1: ruleAnnexLibrary returns [EObject current=null] : this_GumboLibrary_0= ruleGumboLibrary ;
+    // InternalGumbo.g:87:1: ruleAnnexLibrary returns [EObject current=null] : this_GumboLibrary_0= ruleGumboLibrary ;
     public final EObject ruleAnnexLibrary() throws RecognitionException {
         EObject current = null;
 
@@ -284,8 +284,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:86:2: (this_GumboLibrary_0= ruleGumboLibrary )
-            // InternalGumboParser.g:87:2: this_GumboLibrary_0= ruleGumboLibrary
+            // InternalGumbo.g:93:2: (this_GumboLibrary_0= ruleGumboLibrary )
+            // InternalGumbo.g:94:2: this_GumboLibrary_0= ruleGumboLibrary
             {
             if ( state.backtracking==0 ) {
 
@@ -330,7 +330,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGumboLibrary"
-    // InternalGumboParser.g:101:1: entryRuleGumboLibrary returns [EObject current=null] : iv_ruleGumboLibrary= ruleGumboLibrary EOF ;
+    // InternalGumbo.g:108:1: entryRuleGumboLibrary returns [EObject current=null] : iv_ruleGumboLibrary= ruleGumboLibrary EOF ;
     public final EObject entryRuleGumboLibrary() throws RecognitionException {
         EObject current = null;
 
@@ -338,8 +338,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:101:53: (iv_ruleGumboLibrary= ruleGumboLibrary EOF )
-            // InternalGumboParser.g:102:2: iv_ruleGumboLibrary= ruleGumboLibrary EOF
+            // InternalGumbo.g:108:53: (iv_ruleGumboLibrary= ruleGumboLibrary EOF )
+            // InternalGumbo.g:109:2: iv_ruleGumboLibrary= ruleGumboLibrary EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGumboLibraryRule()); 
@@ -370,7 +370,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGumboLibrary"
-    // InternalGumboParser.g:108:1: ruleGumboLibrary returns [EObject current=null] : ( () ( (lv_functions_1_0= ruleFunctions ) )? ) ;
+    // InternalGumbo.g:115:1: ruleGumboLibrary returns [EObject current=null] : ( () ( (lv_functions_1_0= ruleFunctions ) )? ) ;
     public final EObject ruleGumboLibrary() throws RecognitionException {
         EObject current = null;
 
@@ -381,14 +381,14 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:114:2: ( ( () ( (lv_functions_1_0= ruleFunctions ) )? ) )
-            // InternalGumboParser.g:115:2: ( () ( (lv_functions_1_0= ruleFunctions ) )? )
+            // InternalGumbo.g:121:2: ( ( () ( (lv_functions_1_0= ruleFunctions ) )? ) )
+            // InternalGumbo.g:122:2: ( () ( (lv_functions_1_0= ruleFunctions ) )? )
             {
-            // InternalGumboParser.g:115:2: ( () ( (lv_functions_1_0= ruleFunctions ) )? )
-            // InternalGumboParser.g:116:3: () ( (lv_functions_1_0= ruleFunctions ) )?
+            // InternalGumbo.g:122:2: ( () ( (lv_functions_1_0= ruleFunctions ) )? )
+            // InternalGumbo.g:123:3: () ( (lv_functions_1_0= ruleFunctions ) )?
             {
-            // InternalGumboParser.g:116:3: ()
-            // InternalGumboParser.g:117:4: 
+            // InternalGumbo.g:123:3: ()
+            // InternalGumbo.g:124:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -405,19 +405,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:126:3: ( (lv_functions_1_0= ruleFunctions ) )?
+            // InternalGumbo.g:133:3: ( (lv_functions_1_0= ruleFunctions ) )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==Functions) ) {
+            if ( (LA1_0==72) ) {
                 alt1=1;
             }
             switch (alt1) {
                 case 1 :
-                    // InternalGumboParser.g:127:4: (lv_functions_1_0= ruleFunctions )
+                    // InternalGumbo.g:134:4: (lv_functions_1_0= ruleFunctions )
                     {
-                    // InternalGumboParser.g:127:4: (lv_functions_1_0= ruleFunctions )
-                    // InternalGumboParser.g:128:5: lv_functions_1_0= ruleFunctions
+                    // InternalGumbo.g:134:4: (lv_functions_1_0= ruleFunctions )
+                    // InternalGumbo.g:135:5: lv_functions_1_0= ruleFunctions
                     {
                     if ( state.backtracking==0 ) {
 
@@ -476,7 +476,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGumboSubclause"
-    // InternalGumboParser.g:149:1: entryRuleGumboSubclause returns [EObject current=null] : iv_ruleGumboSubclause= ruleGumboSubclause EOF ;
+    // InternalGumbo.g:156:1: entryRuleGumboSubclause returns [EObject current=null] : iv_ruleGumboSubclause= ruleGumboSubclause EOF ;
     public final EObject entryRuleGumboSubclause() throws RecognitionException {
         EObject current = null;
 
@@ -484,8 +484,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:149:55: (iv_ruleGumboSubclause= ruleGumboSubclause EOF )
-            // InternalGumboParser.g:150:2: iv_ruleGumboSubclause= ruleGumboSubclause EOF
+            // InternalGumbo.g:156:55: (iv_ruleGumboSubclause= ruleGumboSubclause EOF )
+            // InternalGumbo.g:157:2: iv_ruleGumboSubclause= ruleGumboSubclause EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGumboSubclauseRule()); 
@@ -516,7 +516,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGumboSubclause"
-    // InternalGumboParser.g:156:1: ruleGumboSubclause returns [EObject current=null] : ( () ( (lv_specs_1_0= ruleSpecSection ) ) ) ;
+    // InternalGumbo.g:163:1: ruleGumboSubclause returns [EObject current=null] : ( () ( (lv_specs_1_0= ruleSpecSection ) ) ) ;
     public final EObject ruleGumboSubclause() throws RecognitionException {
         EObject current = null;
 
@@ -527,14 +527,14 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:162:2: ( ( () ( (lv_specs_1_0= ruleSpecSection ) ) ) )
-            // InternalGumboParser.g:163:2: ( () ( (lv_specs_1_0= ruleSpecSection ) ) )
+            // InternalGumbo.g:169:2: ( ( () ( (lv_specs_1_0= ruleSpecSection ) ) ) )
+            // InternalGumbo.g:170:2: ( () ( (lv_specs_1_0= ruleSpecSection ) ) )
             {
-            // InternalGumboParser.g:163:2: ( () ( (lv_specs_1_0= ruleSpecSection ) ) )
-            // InternalGumboParser.g:164:3: () ( (lv_specs_1_0= ruleSpecSection ) )
+            // InternalGumbo.g:170:2: ( () ( (lv_specs_1_0= ruleSpecSection ) ) )
+            // InternalGumbo.g:171:3: () ( (lv_specs_1_0= ruleSpecSection ) )
             {
-            // InternalGumboParser.g:164:3: ()
-            // InternalGumboParser.g:165:4: 
+            // InternalGumbo.g:171:3: ()
+            // InternalGumbo.g:172:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -551,11 +551,11 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:174:3: ( (lv_specs_1_0= ruleSpecSection ) )
-            // InternalGumboParser.g:175:4: (lv_specs_1_0= ruleSpecSection )
+            // InternalGumbo.g:181:3: ( (lv_specs_1_0= ruleSpecSection ) )
+            // InternalGumbo.g:182:4: (lv_specs_1_0= ruleSpecSection )
             {
-            // InternalGumboParser.g:175:4: (lv_specs_1_0= ruleSpecSection )
-            // InternalGumboParser.g:176:5: lv_specs_1_0= ruleSpecSection
+            // InternalGumbo.g:182:4: (lv_specs_1_0= ruleSpecSection )
+            // InternalGumbo.g:183:5: lv_specs_1_0= ruleSpecSection
             {
             if ( state.backtracking==0 ) {
 
@@ -611,7 +611,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSpecSection"
-    // InternalGumboParser.g:197:1: entryRuleSpecSection returns [EObject current=null] : iv_ruleSpecSection= ruleSpecSection EOF ;
+    // InternalGumbo.g:204:1: entryRuleSpecSection returns [EObject current=null] : iv_ruleSpecSection= ruleSpecSection EOF ;
     public final EObject entryRuleSpecSection() throws RecognitionException {
         EObject current = null;
 
@@ -619,8 +619,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:197:52: (iv_ruleSpecSection= ruleSpecSection EOF )
-            // InternalGumboParser.g:198:2: iv_ruleSpecSection= ruleSpecSection EOF
+            // InternalGumbo.g:204:52: (iv_ruleSpecSection= ruleSpecSection EOF )
+            // InternalGumbo.g:205:2: iv_ruleSpecSection= ruleSpecSection EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSpecSectionRule()); 
@@ -651,7 +651,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSpecSection"
-    // InternalGumboParser.g:204:1: ruleSpecSection returns [EObject current=null] : ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* ) ;
+    // InternalGumbo.g:211:1: ruleSpecSection returns [EObject current=null] : ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* ) ;
     public final EObject ruleSpecSection() throws RecognitionException {
         EObject current = null;
 
@@ -674,14 +674,14 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:210:2: ( ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* ) )
-            // InternalGumboParser.g:211:2: ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* )
+            // InternalGumbo.g:217:2: ( ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* ) )
+            // InternalGumbo.g:218:2: ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* )
             {
-            // InternalGumboParser.g:211:2: ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* )
-            // InternalGumboParser.g:212:3: () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )*
+            // InternalGumbo.g:218:2: ( () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )* )
+            // InternalGumbo.g:219:3: () ( (lv_state_1_0= ruleState ) )? ( (lv_functions_2_0= ruleFunctions ) )? ( (lv_invariants_3_0= ruleInvariants ) )? ( (lv_integration_4_0= ruleIntegration ) )? ( (lv_initialize_5_0= ruleInitialize ) )? ( (lv_compute_6_0= ruleCompute ) )? ( (lv_compositions_7_0= ruleComposition ) )*
             {
-            // InternalGumboParser.g:212:3: ()
-            // InternalGumboParser.g:213:4: 
+            // InternalGumbo.g:219:3: ()
+            // InternalGumbo.g:220:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -698,19 +698,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:222:3: ( (lv_state_1_0= ruleState ) )?
+            // InternalGumbo.g:229:3: ( (lv_state_1_0= ruleState ) )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==State) ) {
+            if ( (LA2_0==37) ) {
                 alt2=1;
             }
             switch (alt2) {
                 case 1 :
-                    // InternalGumboParser.g:223:4: (lv_state_1_0= ruleState )
+                    // InternalGumbo.g:230:4: (lv_state_1_0= ruleState )
                     {
-                    // InternalGumboParser.g:223:4: (lv_state_1_0= ruleState )
-                    // InternalGumboParser.g:224:5: lv_state_1_0= ruleState
+                    // InternalGumbo.g:230:4: (lv_state_1_0= ruleState )
+                    // InternalGumbo.g:231:5: lv_state_1_0= ruleState
                     {
                     if ( state.backtracking==0 ) {
 
@@ -744,19 +744,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:241:3: ( (lv_functions_2_0= ruleFunctions ) )?
+            // InternalGumbo.g:248:3: ( (lv_functions_2_0= ruleFunctions ) )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==Functions) ) {
+            if ( (LA3_0==72) ) {
                 alt3=1;
             }
             switch (alt3) {
                 case 1 :
-                    // InternalGumboParser.g:242:4: (lv_functions_2_0= ruleFunctions )
+                    // InternalGumbo.g:249:4: (lv_functions_2_0= ruleFunctions )
                     {
-                    // InternalGumboParser.g:242:4: (lv_functions_2_0= ruleFunctions )
-                    // InternalGumboParser.g:243:5: lv_functions_2_0= ruleFunctions
+                    // InternalGumbo.g:249:4: (lv_functions_2_0= ruleFunctions )
+                    // InternalGumbo.g:250:5: lv_functions_2_0= ruleFunctions
                     {
                     if ( state.backtracking==0 ) {
 
@@ -790,19 +790,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:260:3: ( (lv_invariants_3_0= ruleInvariants ) )?
+            // InternalGumbo.g:267:3: ( (lv_invariants_3_0= ruleInvariants ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==Invariants) ) {
+            if ( (LA4_0==40) ) {
                 alt4=1;
             }
             switch (alt4) {
                 case 1 :
-                    // InternalGumboParser.g:261:4: (lv_invariants_3_0= ruleInvariants )
+                    // InternalGumbo.g:268:4: (lv_invariants_3_0= ruleInvariants )
                     {
-                    // InternalGumboParser.g:261:4: (lv_invariants_3_0= ruleInvariants )
-                    // InternalGumboParser.g:262:5: lv_invariants_3_0= ruleInvariants
+                    // InternalGumbo.g:268:4: (lv_invariants_3_0= ruleInvariants )
+                    // InternalGumbo.g:269:5: lv_invariants_3_0= ruleInvariants
                     {
                     if ( state.backtracking==0 ) {
 
@@ -836,19 +836,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:279:3: ( (lv_integration_4_0= ruleIntegration ) )?
+            // InternalGumbo.g:286:3: ( (lv_integration_4_0= ruleIntegration ) )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==Integration) ) {
+            if ( (LA5_0==42) ) {
                 alt5=1;
             }
             switch (alt5) {
                 case 1 :
-                    // InternalGumboParser.g:280:4: (lv_integration_4_0= ruleIntegration )
+                    // InternalGumbo.g:287:4: (lv_integration_4_0= ruleIntegration )
                     {
-                    // InternalGumboParser.g:280:4: (lv_integration_4_0= ruleIntegration )
-                    // InternalGumboParser.g:281:5: lv_integration_4_0= ruleIntegration
+                    // InternalGumbo.g:287:4: (lv_integration_4_0= ruleIntegration )
+                    // InternalGumbo.g:288:5: lv_integration_4_0= ruleIntegration
                     {
                     if ( state.backtracking==0 ) {
 
@@ -882,19 +882,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:298:3: ( (lv_initialize_5_0= ruleInitialize ) )?
+            // InternalGumbo.g:305:3: ( (lv_initialize_5_0= ruleInitialize ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==Initialize) ) {
+            if ( (LA6_0==43) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // InternalGumboParser.g:299:4: (lv_initialize_5_0= ruleInitialize )
+                    // InternalGumbo.g:306:4: (lv_initialize_5_0= ruleInitialize )
                     {
-                    // InternalGumboParser.g:299:4: (lv_initialize_5_0= ruleInitialize )
-                    // InternalGumboParser.g:300:5: lv_initialize_5_0= ruleInitialize
+                    // InternalGumbo.g:306:4: (lv_initialize_5_0= ruleInitialize )
+                    // InternalGumbo.g:307:5: lv_initialize_5_0= ruleInitialize
                     {
                     if ( state.backtracking==0 ) {
 
@@ -928,19 +928,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:317:3: ( (lv_compute_6_0= ruleCompute ) )?
+            // InternalGumbo.g:324:3: ( (lv_compute_6_0= ruleCompute ) )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==Compute) ) {
+            if ( (LA7_0==44) ) {
                 alt7=1;
             }
             switch (alt7) {
                 case 1 :
-                    // InternalGumboParser.g:318:4: (lv_compute_6_0= ruleCompute )
+                    // InternalGumbo.g:325:4: (lv_compute_6_0= ruleCompute )
                     {
-                    // InternalGumboParser.g:318:4: (lv_compute_6_0= ruleCompute )
-                    // InternalGumboParser.g:319:5: lv_compute_6_0= ruleCompute
+                    // InternalGumbo.g:325:4: (lv_compute_6_0= ruleCompute )
+                    // InternalGumbo.g:326:5: lv_compute_6_0= ruleCompute
                     {
                     if ( state.backtracking==0 ) {
 
@@ -974,23 +974,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:336:3: ( (lv_compositions_7_0= ruleComposition ) )*
+            // InternalGumbo.g:343:3: ( (lv_compositions_7_0= ruleComposition ) )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==Composition) ) {
+                if ( (LA8_0==46) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalGumboParser.g:337:4: (lv_compositions_7_0= ruleComposition )
+            	    // InternalGumbo.g:344:4: (lv_compositions_7_0= ruleComposition )
             	    {
-            	    // InternalGumboParser.g:337:4: (lv_compositions_7_0= ruleComposition )
-            	    // InternalGumboParser.g:338:5: lv_compositions_7_0= ruleComposition
+            	    // InternalGumbo.g:344:4: (lv_compositions_7_0= ruleComposition )
+            	    // InternalGumbo.g:345:5: lv_compositions_7_0= ruleComposition
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -1052,7 +1052,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // InternalGumboParser.g:359:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalGumbo.g:366:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -1060,8 +1060,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:359:46: (iv_ruleState= ruleState EOF )
-            // InternalGumboParser.g:360:2: iv_ruleState= ruleState EOF
+            // InternalGumbo.g:366:46: (iv_ruleState= ruleState EOF )
+            // InternalGumbo.g:367:2: iv_ruleState= ruleState EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStateRule()); 
@@ -1092,7 +1092,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // InternalGumboParser.g:366:1: ruleState returns [EObject current=null] : (otherlv_0= State ( (lv_decls_1_0= ruleStateVarDecl ) )+ ) ;
+    // InternalGumbo.g:373:1: ruleState returns [EObject current=null] : (otherlv_0= 'state' ( (lv_decls_1_0= ruleStateVarDecl ) )+ ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -1104,19 +1104,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:372:2: ( (otherlv_0= State ( (lv_decls_1_0= ruleStateVarDecl ) )+ ) )
-            // InternalGumboParser.g:373:2: (otherlv_0= State ( (lv_decls_1_0= ruleStateVarDecl ) )+ )
+            // InternalGumbo.g:379:2: ( (otherlv_0= 'state' ( (lv_decls_1_0= ruleStateVarDecl ) )+ ) )
+            // InternalGumbo.g:380:2: (otherlv_0= 'state' ( (lv_decls_1_0= ruleStateVarDecl ) )+ )
             {
-            // InternalGumboParser.g:373:2: (otherlv_0= State ( (lv_decls_1_0= ruleStateVarDecl ) )+ )
-            // InternalGumboParser.g:374:3: otherlv_0= State ( (lv_decls_1_0= ruleStateVarDecl ) )+
+            // InternalGumbo.g:380:2: (otherlv_0= 'state' ( (lv_decls_1_0= ruleStateVarDecl ) )+ )
+            // InternalGumbo.g:381:3: otherlv_0= 'state' ( (lv_decls_1_0= ruleStateVarDecl ) )+
             {
-            otherlv_0=(Token)match(input,State,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,37,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
               		
             }
-            // InternalGumboParser.g:378:3: ( (lv_decls_1_0= ruleStateVarDecl ) )+
+            // InternalGumbo.g:385:3: ( (lv_decls_1_0= ruleStateVarDecl ) )+
             int cnt9=0;
             loop9:
             do {
@@ -1130,10 +1130,10 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalGumboParser.g:379:4: (lv_decls_1_0= ruleStateVarDecl )
+            	    // InternalGumbo.g:386:4: (lv_decls_1_0= ruleStateVarDecl )
             	    {
-            	    // InternalGumboParser.g:379:4: (lv_decls_1_0= ruleStateVarDecl )
-            	    // InternalGumboParser.g:380:5: lv_decls_1_0= ruleStateVarDecl
+            	    // InternalGumbo.g:386:4: (lv_decls_1_0= ruleStateVarDecl )
+            	    // InternalGumbo.g:387:5: lv_decls_1_0= ruleStateVarDecl
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -1200,7 +1200,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStateVarDecl"
-    // InternalGumboParser.g:401:1: entryRuleStateVarDecl returns [EObject current=null] : iv_ruleStateVarDecl= ruleStateVarDecl EOF ;
+    // InternalGumbo.g:408:1: entryRuleStateVarDecl returns [EObject current=null] : iv_ruleStateVarDecl= ruleStateVarDecl EOF ;
     public final EObject entryRuleStateVarDecl() throws RecognitionException {
         EObject current = null;
 
@@ -1208,8 +1208,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:401:53: (iv_ruleStateVarDecl= ruleStateVarDecl EOF )
-            // InternalGumboParser.g:402:2: iv_ruleStateVarDecl= ruleStateVarDecl EOF
+            // InternalGumbo.g:408:53: (iv_ruleStateVarDecl= ruleStateVarDecl EOF )
+            // InternalGumbo.g:409:2: iv_ruleStateVarDecl= ruleStateVarDecl EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStateVarDeclRule()); 
@@ -1240,7 +1240,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStateVarDecl"
-    // InternalGumboParser.g:408:1: ruleStateVarDecl returns [EObject current=null] : ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= Colon ) ( ( ruleQualifiedName ) ) otherlv_3= Semicolon ) ;
+    // InternalGumbo.g:415:1: ruleStateVarDecl returns [EObject current=null] : ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ) ( ( ruleQualifiedName ) ) otherlv_3= ';' ) ;
     public final EObject ruleStateVarDecl() throws RecognitionException {
         EObject current = null;
 
@@ -1252,20 +1252,20 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:414:2: ( ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= Colon ) ( ( ruleQualifiedName ) ) otherlv_3= Semicolon ) )
-            // InternalGumboParser.g:415:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= Colon ) ( ( ruleQualifiedName ) ) otherlv_3= Semicolon )
+            // InternalGumbo.g:421:2: ( ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ) ( ( ruleQualifiedName ) ) otherlv_3= ';' ) )
+            // InternalGumbo.g:422:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ) ( ( ruleQualifiedName ) ) otherlv_3= ';' )
             {
-            // InternalGumboParser.g:415:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= Colon ) ( ( ruleQualifiedName ) ) otherlv_3= Semicolon )
-            // InternalGumboParser.g:416:3: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= Colon ) ( ( ruleQualifiedName ) ) otherlv_3= Semicolon
+            // InternalGumbo.g:422:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ) ( ( ruleQualifiedName ) ) otherlv_3= ';' )
+            // InternalGumbo.g:423:3: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ) ( ( ruleQualifiedName ) ) otherlv_3= ';'
             {
-            // InternalGumboParser.g:416:3: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= Colon )
-            // InternalGumboParser.g:417:4: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= Colon
+            // InternalGumbo.g:423:3: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' )
+            // InternalGumbo.g:424:4: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':'
             {
-            // InternalGumboParser.g:417:4: ( (lv_name_0_0= RULE_ID ) )
-            // InternalGumboParser.g:418:5: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:424:4: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGumbo.g:425:5: (lv_name_0_0= RULE_ID )
             {
-            // InternalGumboParser.g:418:5: (lv_name_0_0= RULE_ID )
-            // InternalGumboParser.g:419:6: lv_name_0_0= RULE_ID
+            // InternalGumbo.g:425:5: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:426:6: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_11); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1291,7 +1291,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,Colon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,38,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               				newLeafNode(otherlv_1, grammarAccess.getStateVarDeclAccess().getColonKeyword_0_1());
@@ -1300,11 +1300,11 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:440:3: ( ( ruleQualifiedName ) )
-            // InternalGumboParser.g:441:4: ( ruleQualifiedName )
+            // InternalGumbo.g:447:3: ( ( ruleQualifiedName ) )
+            // InternalGumbo.g:448:4: ( ruleQualifiedName )
             {
-            // InternalGumboParser.g:441:4: ( ruleQualifiedName )
-            // InternalGumboParser.g:442:5: ruleQualifiedName
+            // InternalGumbo.g:448:4: ( ruleQualifiedName )
+            // InternalGumbo.g:449:5: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -1339,7 +1339,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getStateVarDeclAccess().getSemicolonKeyword_2());
@@ -1370,7 +1370,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInvariants"
-    // InternalGumboParser.g:467:1: entryRuleInvariants returns [EObject current=null] : iv_ruleInvariants= ruleInvariants EOF ;
+    // InternalGumbo.g:474:1: entryRuleInvariants returns [EObject current=null] : iv_ruleInvariants= ruleInvariants EOF ;
     public final EObject entryRuleInvariants() throws RecognitionException {
         EObject current = null;
 
@@ -1378,8 +1378,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:467:51: (iv_ruleInvariants= ruleInvariants EOF )
-            // InternalGumboParser.g:468:2: iv_ruleInvariants= ruleInvariants EOF
+            // InternalGumbo.g:474:51: (iv_ruleInvariants= ruleInvariants EOF )
+            // InternalGumbo.g:475:2: iv_ruleInvariants= ruleInvariants EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInvariantsRule()); 
@@ -1410,7 +1410,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInvariants"
-    // InternalGumboParser.g:474:1: ruleInvariants returns [EObject current=null] : (otherlv_0= Invariants ( (lv_specs_1_0= ruleInvSpec ) )+ ) ;
+    // InternalGumbo.g:481:1: ruleInvariants returns [EObject current=null] : (otherlv_0= 'invariants' ( (lv_specs_1_0= ruleInvSpec ) )+ ) ;
     public final EObject ruleInvariants() throws RecognitionException {
         EObject current = null;
 
@@ -1422,36 +1422,36 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:480:2: ( (otherlv_0= Invariants ( (lv_specs_1_0= ruleInvSpec ) )+ ) )
-            // InternalGumboParser.g:481:2: (otherlv_0= Invariants ( (lv_specs_1_0= ruleInvSpec ) )+ )
+            // InternalGumbo.g:487:2: ( (otherlv_0= 'invariants' ( (lv_specs_1_0= ruleInvSpec ) )+ ) )
+            // InternalGumbo.g:488:2: (otherlv_0= 'invariants' ( (lv_specs_1_0= ruleInvSpec ) )+ )
             {
-            // InternalGumboParser.g:481:2: (otherlv_0= Invariants ( (lv_specs_1_0= ruleInvSpec ) )+ )
-            // InternalGumboParser.g:482:3: otherlv_0= Invariants ( (lv_specs_1_0= ruleInvSpec ) )+
+            // InternalGumbo.g:488:2: (otherlv_0= 'invariants' ( (lv_specs_1_0= ruleInvSpec ) )+ )
+            // InternalGumbo.g:489:3: otherlv_0= 'invariants' ( (lv_specs_1_0= ruleInvSpec ) )+
             {
-            otherlv_0=(Token)match(input,Invariants,FollowSets000.FOLLOW_13); if (state.failed) return current;
+            otherlv_0=(Token)match(input,40,FollowSets000.FOLLOW_13); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getInvariantsAccess().getInvariantsKeyword_0());
               		
             }
-            // InternalGumboParser.g:486:3: ( (lv_specs_1_0= ruleInvSpec ) )+
+            // InternalGumbo.g:493:3: ( (lv_specs_1_0= ruleInvSpec ) )+
             int cnt10=0;
             loop10:
             do {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==Inv) ) {
+                if ( (LA10_0==41) ) {
                     alt10=1;
                 }
 
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalGumboParser.g:487:4: (lv_specs_1_0= ruleInvSpec )
+            	    // InternalGumbo.g:494:4: (lv_specs_1_0= ruleInvSpec )
             	    {
-            	    // InternalGumboParser.g:487:4: (lv_specs_1_0= ruleInvSpec )
-            	    // InternalGumboParser.g:488:5: lv_specs_1_0= ruleInvSpec
+            	    // InternalGumbo.g:494:4: (lv_specs_1_0= ruleInvSpec )
+            	    // InternalGumbo.g:495:5: lv_specs_1_0= ruleInvSpec
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -1518,7 +1518,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInvSpec"
-    // InternalGumboParser.g:509:1: entryRuleInvSpec returns [EObject current=null] : iv_ruleInvSpec= ruleInvSpec EOF ;
+    // InternalGumbo.g:516:1: entryRuleInvSpec returns [EObject current=null] : iv_ruleInvSpec= ruleInvSpec EOF ;
     public final EObject entryRuleInvSpec() throws RecognitionException {
         EObject current = null;
 
@@ -1526,8 +1526,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:509:48: (iv_ruleInvSpec= ruleInvSpec EOF )
-            // InternalGumboParser.g:510:2: iv_ruleInvSpec= ruleInvSpec EOF
+            // InternalGumbo.g:516:48: (iv_ruleInvSpec= ruleInvSpec EOF )
+            // InternalGumbo.g:517:2: iv_ruleInvSpec= ruleInvSpec EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInvSpecRule()); 
@@ -1558,7 +1558,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInvSpec"
-    // InternalGumboParser.g:516:1: ruleInvSpec returns [EObject current=null] : (otherlv_0= Inv ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon ) ;
+    // InternalGumbo.g:523:1: ruleInvSpec returns [EObject current=null] : (otherlv_0= 'inv' ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= ':' ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= ';' ) ;
     public final EObject ruleInvSpec() throws RecognitionException {
         EObject current = null;
 
@@ -1574,23 +1574,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:522:2: ( (otherlv_0= Inv ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon ) )
-            // InternalGumboParser.g:523:2: (otherlv_0= Inv ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon )
+            // InternalGumbo.g:529:2: ( (otherlv_0= 'inv' ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= ':' ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= ';' ) )
+            // InternalGumbo.g:530:2: (otherlv_0= 'inv' ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= ':' ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= ';' )
             {
-            // InternalGumboParser.g:523:2: (otherlv_0= Inv ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon )
-            // InternalGumboParser.g:524:3: otherlv_0= Inv ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon
+            // InternalGumbo.g:530:2: (otherlv_0= 'inv' ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= ':' ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= ';' )
+            // InternalGumbo.g:531:3: otherlv_0= 'inv' ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= ':' ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= ';'
             {
-            otherlv_0=(Token)match(input,Inv,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,41,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getInvSpecAccess().getInvKeyword_0());
               		
             }
-            // InternalGumboParser.g:528:3: ( (lv_id_1_0= RULE_ID ) )
-            // InternalGumboParser.g:529:4: (lv_id_1_0= RULE_ID )
+            // InternalGumbo.g:535:3: ( (lv_id_1_0= RULE_ID ) )
+            // InternalGumbo.g:536:4: (lv_id_1_0= RULE_ID )
             {
-            // InternalGumboParser.g:529:4: (lv_id_1_0= RULE_ID )
-            // InternalGumboParser.g:530:5: lv_id_1_0= RULE_ID
+            // InternalGumbo.g:536:4: (lv_id_1_0= RULE_ID )
+            // InternalGumbo.g:537:5: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_15); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1616,7 +1616,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:546:3: ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )?
+            // InternalGumbo.g:553:3: ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1625,10 +1625,10 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalGumboParser.g:547:4: (lv_descriptor_2_0= RULE_STRING_VALUE )
+                    // InternalGumbo.g:554:4: (lv_descriptor_2_0= RULE_STRING_VALUE )
                     {
-                    // InternalGumboParser.g:547:4: (lv_descriptor_2_0= RULE_STRING_VALUE )
-                    // InternalGumboParser.g:548:5: lv_descriptor_2_0= RULE_STRING_VALUE
+                    // InternalGumbo.g:554:4: (lv_descriptor_2_0= RULE_STRING_VALUE )
+                    // InternalGumbo.g:555:5: lv_descriptor_2_0= RULE_STRING_VALUE
                     {
                     lv_descriptor_2_0=(Token)match(input,RULE_STRING_VALUE,FollowSets000.FOLLOW_11); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -1657,17 +1657,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Colon,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_3=(Token)match(input,38,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getInvSpecAccess().getColonKeyword_3());
               		
             }
-            // InternalGumboParser.g:568:3: ( (lv_expr_4_0= ruleOwnedExpression ) )
-            // InternalGumboParser.g:569:4: (lv_expr_4_0= ruleOwnedExpression )
+            // InternalGumbo.g:575:3: ( (lv_expr_4_0= ruleOwnedExpression ) )
+            // InternalGumbo.g:576:4: (lv_expr_4_0= ruleOwnedExpression )
             {
-            // InternalGumboParser.g:569:4: (lv_expr_4_0= ruleOwnedExpression )
-            // InternalGumboParser.g:570:5: lv_expr_4_0= ruleOwnedExpression
+            // InternalGumbo.g:576:4: (lv_expr_4_0= ruleOwnedExpression )
+            // InternalGumbo.g:577:5: lv_expr_4_0= ruleOwnedExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -1698,7 +1698,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getInvSpecAccess().getSemicolonKeyword_5());
@@ -1729,7 +1729,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntegration"
-    // InternalGumboParser.g:595:1: entryRuleIntegration returns [EObject current=null] : iv_ruleIntegration= ruleIntegration EOF ;
+    // InternalGumbo.g:602:1: entryRuleIntegration returns [EObject current=null] : iv_ruleIntegration= ruleIntegration EOF ;
     public final EObject entryRuleIntegration() throws RecognitionException {
         EObject current = null;
 
@@ -1737,8 +1737,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:595:52: (iv_ruleIntegration= ruleIntegration EOF )
-            // InternalGumboParser.g:596:2: iv_ruleIntegration= ruleIntegration EOF
+            // InternalGumbo.g:602:52: (iv_ruleIntegration= ruleIntegration EOF )
+            // InternalGumbo.g:603:2: iv_ruleIntegration= ruleIntegration EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIntegrationRule()); 
@@ -1769,7 +1769,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntegration"
-    // InternalGumboParser.g:602:1: ruleIntegration returns [EObject current=null] : (otherlv_0= Integration ( (lv_specs_1_0= ruleSpecStatement ) )+ ) ;
+    // InternalGumbo.g:609:1: ruleIntegration returns [EObject current=null] : (otherlv_0= 'integration' ( (lv_specs_1_0= ruleSpecStatement ) )+ ) ;
     public final EObject ruleIntegration() throws RecognitionException {
         EObject current = null;
 
@@ -1781,36 +1781,36 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:608:2: ( (otherlv_0= Integration ( (lv_specs_1_0= ruleSpecStatement ) )+ ) )
-            // InternalGumboParser.g:609:2: (otherlv_0= Integration ( (lv_specs_1_0= ruleSpecStatement ) )+ )
+            // InternalGumbo.g:615:2: ( (otherlv_0= 'integration' ( (lv_specs_1_0= ruleSpecStatement ) )+ ) )
+            // InternalGumbo.g:616:2: (otherlv_0= 'integration' ( (lv_specs_1_0= ruleSpecStatement ) )+ )
             {
-            // InternalGumboParser.g:609:2: (otherlv_0= Integration ( (lv_specs_1_0= ruleSpecStatement ) )+ )
-            // InternalGumboParser.g:610:3: otherlv_0= Integration ( (lv_specs_1_0= ruleSpecStatement ) )+
+            // InternalGumbo.g:616:2: (otherlv_0= 'integration' ( (lv_specs_1_0= ruleSpecStatement ) )+ )
+            // InternalGumbo.g:617:3: otherlv_0= 'integration' ( (lv_specs_1_0= ruleSpecStatement ) )+
             {
-            otherlv_0=(Token)match(input,Integration,FollowSets000.FOLLOW_17); if (state.failed) return current;
+            otherlv_0=(Token)match(input,42,FollowSets000.FOLLOW_17); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getIntegrationAccess().getIntegrationKeyword_0());
               		
             }
-            // InternalGumboParser.g:614:3: ( (lv_specs_1_0= ruleSpecStatement ) )+
+            // InternalGumbo.g:621:3: ( (lv_specs_1_0= ruleSpecStatement ) )+
             int cnt12=0;
             loop12:
             do {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==Guarantee||LA12_0==Assume) ) {
+                if ( ((LA12_0>=70 && LA12_0<=71)) ) {
                     alt12=1;
                 }
 
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalGumboParser.g:615:4: (lv_specs_1_0= ruleSpecStatement )
+            	    // InternalGumbo.g:622:4: (lv_specs_1_0= ruleSpecStatement )
             	    {
-            	    // InternalGumboParser.g:615:4: (lv_specs_1_0= ruleSpecStatement )
-            	    // InternalGumboParser.g:616:5: lv_specs_1_0= ruleSpecStatement
+            	    // InternalGumbo.g:622:4: (lv_specs_1_0= ruleSpecStatement )
+            	    // InternalGumbo.g:623:5: lv_specs_1_0= ruleSpecStatement
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -1877,7 +1877,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInitialize"
-    // InternalGumboParser.g:637:1: entryRuleInitialize returns [EObject current=null] : iv_ruleInitialize= ruleInitialize EOF ;
+    // InternalGumbo.g:644:1: entryRuleInitialize returns [EObject current=null] : iv_ruleInitialize= ruleInitialize EOF ;
     public final EObject entryRuleInitialize() throws RecognitionException {
         EObject current = null;
 
@@ -1885,8 +1885,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:637:51: (iv_ruleInitialize= ruleInitialize EOF )
-            // InternalGumboParser.g:638:2: iv_ruleInitialize= ruleInitialize EOF
+            // InternalGumbo.g:644:51: (iv_ruleInitialize= ruleInitialize EOF )
+            // InternalGumbo.g:645:2: iv_ruleInitialize= ruleInitialize EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInitializeRule()); 
@@ -1917,7 +1917,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInitialize"
-    // InternalGumboParser.g:644:1: ruleInitialize returns [EObject current=null] : ( () otherlv_1= Initialize ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* ) ;
+    // InternalGumbo.g:651:1: ruleInitialize returns [EObject current=null] : ( () otherlv_1= 'initialize' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* ) ;
     public final EObject ruleInitialize() throws RecognitionException {
         EObject current = null;
 
@@ -1934,14 +1934,14 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:650:2: ( ( () otherlv_1= Initialize ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* ) )
-            // InternalGumboParser.g:651:2: ( () otherlv_1= Initialize ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* )
+            // InternalGumbo.g:657:2: ( ( () otherlv_1= 'initialize' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* ) )
+            // InternalGumbo.g:658:2: ( () otherlv_1= 'initialize' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* )
             {
-            // InternalGumboParser.g:651:2: ( () otherlv_1= Initialize ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* )
-            // InternalGumboParser.g:652:3: () otherlv_1= Initialize ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )*
+            // InternalGumbo.g:658:2: ( () otherlv_1= 'initialize' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )* )
+            // InternalGumbo.g:659:3: () otherlv_1= 'initialize' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_specs_4_0= ruleInitializeSpecStatement ) )* ( (lv_flows_5_0= ruleInfoFlowClause ) )*
             {
-            // InternalGumboParser.g:652:3: ()
-            // InternalGumboParser.g:653:4: 
+            // InternalGumbo.g:659:3: ()
+            // InternalGumbo.g:660:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -1958,28 +1958,28 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,Initialize,FollowSets000.FOLLOW_19); if (state.failed) return current;
+            otherlv_1=(Token)match(input,43,FollowSets000.FOLLOW_19); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getInitializeAccess().getInitializeKeyword_1());
               		
             }
-            // InternalGumboParser.g:666:3: ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )?
+            // InternalGumbo.g:673:3: ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==Modifies) ) {
+            if ( (LA13_0==85) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // InternalGumboParser.g:667:4: ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon
+                    // InternalGumbo.g:674:4: ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';'
                     {
-                    // InternalGumboParser.g:667:4: ( (lv_modifies_2_0= ruleSlangModifies ) )
-                    // InternalGumboParser.g:668:5: (lv_modifies_2_0= ruleSlangModifies )
+                    // InternalGumbo.g:674:4: ( (lv_modifies_2_0= ruleSlangModifies ) )
+                    // InternalGumbo.g:675:5: (lv_modifies_2_0= ruleSlangModifies )
                     {
-                    // InternalGumboParser.g:668:5: (lv_modifies_2_0= ruleSlangModifies )
-                    // InternalGumboParser.g:669:6: lv_modifies_2_0= ruleSlangModifies
+                    // InternalGumbo.g:675:5: (lv_modifies_2_0= ruleSlangModifies )
+                    // InternalGumbo.g:676:6: lv_modifies_2_0= ruleSlangModifies
                     {
                     if ( state.backtracking==0 ) {
 
@@ -2010,7 +2010,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_20); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_20); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getInitializeAccess().getSemicolonKeyword_2_1());
@@ -2022,23 +2022,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:691:3: ( (lv_specs_4_0= ruleInitializeSpecStatement ) )*
+            // InternalGumbo.g:698:3: ( (lv_specs_4_0= ruleInitializeSpecStatement ) )*
             loop14:
             do {
                 int alt14=2;
                 int LA14_0 = input.LA(1);
 
-                if ( (LA14_0==Guarantee) ) {
+                if ( (LA14_0==71) ) {
                     alt14=1;
                 }
 
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalGumboParser.g:692:4: (lv_specs_4_0= ruleInitializeSpecStatement )
+            	    // InternalGumbo.g:699:4: (lv_specs_4_0= ruleInitializeSpecStatement )
             	    {
-            	    // InternalGumboParser.g:692:4: (lv_specs_4_0= ruleInitializeSpecStatement )
-            	    // InternalGumboParser.g:693:5: lv_specs_4_0= ruleInitializeSpecStatement
+            	    // InternalGumbo.g:699:4: (lv_specs_4_0= ruleInitializeSpecStatement )
+            	    // InternalGumbo.g:700:5: lv_specs_4_0= ruleInitializeSpecStatement
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -2075,23 +2075,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalGumboParser.g:710:3: ( (lv_flows_5_0= ruleInfoFlowClause ) )*
+            // InternalGumbo.g:717:3: ( (lv_flows_5_0= ruleInfoFlowClause ) )*
             loop15:
             do {
                 int alt15=2;
                 int LA15_0 = input.LA(1);
 
-                if ( (LA15_0==Infoflow) ) {
+                if ( (LA15_0==63) ) {
                     alt15=1;
                 }
 
 
                 switch (alt15) {
             	case 1 :
-            	    // InternalGumboParser.g:711:4: (lv_flows_5_0= ruleInfoFlowClause )
+            	    // InternalGumbo.g:718:4: (lv_flows_5_0= ruleInfoFlowClause )
             	    {
-            	    // InternalGumboParser.g:711:4: (lv_flows_5_0= ruleInfoFlowClause )
-            	    // InternalGumboParser.g:712:5: lv_flows_5_0= ruleInfoFlowClause
+            	    // InternalGumbo.g:718:4: (lv_flows_5_0= ruleInfoFlowClause )
+            	    // InternalGumbo.g:719:5: lv_flows_5_0= ruleInfoFlowClause
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -2153,7 +2153,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInitializeSpecStatement"
-    // InternalGumboParser.g:733:1: entryRuleInitializeSpecStatement returns [EObject current=null] : iv_ruleInitializeSpecStatement= ruleInitializeSpecStatement EOF ;
+    // InternalGumbo.g:740:1: entryRuleInitializeSpecStatement returns [EObject current=null] : iv_ruleInitializeSpecStatement= ruleInitializeSpecStatement EOF ;
     public final EObject entryRuleInitializeSpecStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2161,8 +2161,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:733:64: (iv_ruleInitializeSpecStatement= ruleInitializeSpecStatement EOF )
-            // InternalGumboParser.g:734:2: iv_ruleInitializeSpecStatement= ruleInitializeSpecStatement EOF
+            // InternalGumbo.g:740:64: (iv_ruleInitializeSpecStatement= ruleInitializeSpecStatement EOF )
+            // InternalGumbo.g:741:2: iv_ruleInitializeSpecStatement= ruleInitializeSpecStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInitializeSpecStatementRule()); 
@@ -2193,7 +2193,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInitializeSpecStatement"
-    // InternalGumboParser.g:740:1: ruleInitializeSpecStatement returns [EObject current=null] : ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) ) ;
+    // InternalGumbo.g:747:1: ruleInitializeSpecStatement returns [EObject current=null] : ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) ) ;
     public final EObject ruleInitializeSpecStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2204,14 +2204,14 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:746:2: ( ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) ) )
-            // InternalGumboParser.g:747:2: ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) )
+            // InternalGumbo.g:753:2: ( ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) ) )
+            // InternalGumbo.g:754:2: ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) )
             {
-            // InternalGumboParser.g:747:2: ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) )
-            // InternalGumboParser.g:748:3: (lv_guaranteeStatement_0_0= ruleGuaranteeStatement )
+            // InternalGumbo.g:754:2: ( (lv_guaranteeStatement_0_0= ruleGuaranteeStatement ) )
+            // InternalGumbo.g:755:3: (lv_guaranteeStatement_0_0= ruleGuaranteeStatement )
             {
-            // InternalGumboParser.g:748:3: (lv_guaranteeStatement_0_0= ruleGuaranteeStatement )
-            // InternalGumboParser.g:749:4: lv_guaranteeStatement_0_0= ruleGuaranteeStatement
+            // InternalGumbo.g:755:3: (lv_guaranteeStatement_0_0= ruleGuaranteeStatement )
+            // InternalGumbo.g:756:4: lv_guaranteeStatement_0_0= ruleGuaranteeStatement
             {
             if ( state.backtracking==0 ) {
 
@@ -2264,7 +2264,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCompute"
-    // InternalGumboParser.g:769:1: entryRuleCompute returns [EObject current=null] : iv_ruleCompute= ruleCompute EOF ;
+    // InternalGumbo.g:776:1: entryRuleCompute returns [EObject current=null] : iv_ruleCompute= ruleCompute EOF ;
     public final EObject entryRuleCompute() throws RecognitionException {
         EObject current = null;
 
@@ -2272,8 +2272,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:769:48: (iv_ruleCompute= ruleCompute EOF )
-            // InternalGumboParser.g:770:2: iv_ruleCompute= ruleCompute EOF
+            // InternalGumbo.g:776:48: (iv_ruleCompute= ruleCompute EOF )
+            // InternalGumbo.g:777:2: iv_ruleCompute= ruleCompute EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getComputeRule()); 
@@ -2304,39 +2304,38 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompute"
-    // InternalGumboParser.g:776:1: ruleCompute returns [EObject current=null] : ( () otherlv_1= Compute ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* ( (otherlv_6= Cases | otherlv_7= Compute_cases ) ( (lv_cases_8_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_9_0= ruleHandlerClause ) )* ( (lv_flows_10_0= ruleInfoFlowClause ) )* ) ;
+    // InternalGumbo.g:783:1: ruleCompute returns [EObject current=null] : ( () otherlv_1= 'compute' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* (otherlv_6= 'compute_cases' ( (lv_cases_7_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_8_0= ruleHandlerClause ) )* ( (lv_flows_9_0= ruleInfoFlowClause ) )* ) ;
     public final EObject ruleCompute() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_3=null;
         Token otherlv_6=null;
-        Token otherlv_7=null;
         EObject lv_modifies_2_0 = null;
 
         EObject lv_assumes_4_0 = null;
 
         EObject lv_guarantees_5_0 = null;
 
-        EObject lv_cases_8_0 = null;
+        EObject lv_cases_7_0 = null;
 
-        EObject lv_handlers_9_0 = null;
+        EObject lv_handlers_8_0 = null;
 
-        EObject lv_flows_10_0 = null;
+        EObject lv_flows_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGumboParser.g:782:2: ( ( () otherlv_1= Compute ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* ( (otherlv_6= Cases | otherlv_7= Compute_cases ) ( (lv_cases_8_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_9_0= ruleHandlerClause ) )* ( (lv_flows_10_0= ruleInfoFlowClause ) )* ) )
-            // InternalGumboParser.g:783:2: ( () otherlv_1= Compute ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* ( (otherlv_6= Cases | otherlv_7= Compute_cases ) ( (lv_cases_8_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_9_0= ruleHandlerClause ) )* ( (lv_flows_10_0= ruleInfoFlowClause ) )* )
+            // InternalGumbo.g:789:2: ( ( () otherlv_1= 'compute' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* (otherlv_6= 'compute_cases' ( (lv_cases_7_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_8_0= ruleHandlerClause ) )* ( (lv_flows_9_0= ruleInfoFlowClause ) )* ) )
+            // InternalGumbo.g:790:2: ( () otherlv_1= 'compute' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* (otherlv_6= 'compute_cases' ( (lv_cases_7_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_8_0= ruleHandlerClause ) )* ( (lv_flows_9_0= ruleInfoFlowClause ) )* )
             {
-            // InternalGumboParser.g:783:2: ( () otherlv_1= Compute ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* ( (otherlv_6= Cases | otherlv_7= Compute_cases ) ( (lv_cases_8_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_9_0= ruleHandlerClause ) )* ( (lv_flows_10_0= ruleInfoFlowClause ) )* )
-            // InternalGumboParser.g:784:3: () otherlv_1= Compute ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* ( (otherlv_6= Cases | otherlv_7= Compute_cases ) ( (lv_cases_8_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_9_0= ruleHandlerClause ) )* ( (lv_flows_10_0= ruleInfoFlowClause ) )*
+            // InternalGumbo.g:790:2: ( () otherlv_1= 'compute' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* (otherlv_6= 'compute_cases' ( (lv_cases_7_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_8_0= ruleHandlerClause ) )* ( (lv_flows_9_0= ruleInfoFlowClause ) )* )
+            // InternalGumbo.g:791:3: () otherlv_1= 'compute' ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )? ( (lv_assumes_4_0= ruleAssumeStatement ) )* ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )* (otherlv_6= 'compute_cases' ( (lv_cases_7_0= ruleCaseStatementClause ) )+ )* ( (lv_handlers_8_0= ruleHandlerClause ) )* ( (lv_flows_9_0= ruleInfoFlowClause ) )*
             {
-            // InternalGumboParser.g:784:3: ()
-            // InternalGumboParser.g:785:4: 
+            // InternalGumbo.g:791:3: ()
+            // InternalGumbo.g:792:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -2353,28 +2352,28 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,Compute,FollowSets000.FOLLOW_22); if (state.failed) return current;
+            otherlv_1=(Token)match(input,44,FollowSets000.FOLLOW_22); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getComputeAccess().getComputeKeyword_1());
               		
             }
-            // InternalGumboParser.g:798:3: ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon )?
+            // InternalGumbo.g:805:3: ( ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';' )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==Modifies) ) {
+            if ( (LA16_0==85) ) {
                 alt16=1;
             }
             switch (alt16) {
                 case 1 :
-                    // InternalGumboParser.g:799:4: ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= Semicolon
+                    // InternalGumbo.g:806:4: ( (lv_modifies_2_0= ruleSlangModifies ) ) otherlv_3= ';'
                     {
-                    // InternalGumboParser.g:799:4: ( (lv_modifies_2_0= ruleSlangModifies ) )
-                    // InternalGumboParser.g:800:5: (lv_modifies_2_0= ruleSlangModifies )
+                    // InternalGumbo.g:806:4: ( (lv_modifies_2_0= ruleSlangModifies ) )
+                    // InternalGumbo.g:807:5: (lv_modifies_2_0= ruleSlangModifies )
                     {
-                    // InternalGumboParser.g:800:5: (lv_modifies_2_0= ruleSlangModifies )
-                    // InternalGumboParser.g:801:6: lv_modifies_2_0= ruleSlangModifies
+                    // InternalGumbo.g:807:5: (lv_modifies_2_0= ruleSlangModifies )
+                    // InternalGumbo.g:808:6: lv_modifies_2_0= ruleSlangModifies
                     {
                     if ( state.backtracking==0 ) {
 
@@ -2405,7 +2404,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_23); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_23); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getComputeAccess().getSemicolonKeyword_2_1());
@@ -2417,23 +2416,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:823:3: ( (lv_assumes_4_0= ruleAssumeStatement ) )*
+            // InternalGumbo.g:830:3: ( (lv_assumes_4_0= ruleAssumeStatement ) )*
             loop17:
             do {
                 int alt17=2;
                 int LA17_0 = input.LA(1);
 
-                if ( (LA17_0==Assume) ) {
+                if ( (LA17_0==70) ) {
                     alt17=1;
                 }
 
 
                 switch (alt17) {
             	case 1 :
-            	    // InternalGumboParser.g:824:4: (lv_assumes_4_0= ruleAssumeStatement )
+            	    // InternalGumbo.g:831:4: (lv_assumes_4_0= ruleAssumeStatement )
             	    {
-            	    // InternalGumboParser.g:824:4: (lv_assumes_4_0= ruleAssumeStatement )
-            	    // InternalGumboParser.g:825:5: lv_assumes_4_0= ruleAssumeStatement
+            	    // InternalGumbo.g:831:4: (lv_assumes_4_0= ruleAssumeStatement )
+            	    // InternalGumbo.g:832:5: lv_assumes_4_0= ruleAssumeStatement
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -2470,23 +2469,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalGumboParser.g:842:3: ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )*
+            // InternalGumbo.g:849:3: ( (lv_guarantees_5_0= ruleGuaranteeStatement ) )*
             loop18:
             do {
                 int alt18=2;
                 int LA18_0 = input.LA(1);
 
-                if ( (LA18_0==Guarantee) ) {
+                if ( (LA18_0==71) ) {
                     alt18=1;
                 }
 
 
                 switch (alt18) {
             	case 1 :
-            	    // InternalGumboParser.g:843:4: (lv_guarantees_5_0= ruleGuaranteeStatement )
+            	    // InternalGumbo.g:850:4: (lv_guarantees_5_0= ruleGuaranteeStatement )
             	    {
-            	    // InternalGumboParser.g:843:4: (lv_guarantees_5_0= ruleGuaranteeStatement )
-            	    // InternalGumboParser.g:844:5: lv_guarantees_5_0= ruleGuaranteeStatement
+            	    // InternalGumbo.g:850:4: (lv_guarantees_5_0= ruleGuaranteeStatement )
+            	    // InternalGumbo.g:851:5: lv_guarantees_5_0= ruleGuaranteeStatement
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -2523,84 +2522,45 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalGumboParser.g:861:3: ( (otherlv_6= Cases | otherlv_7= Compute_cases ) ( (lv_cases_8_0= ruleCaseStatementClause ) )+ )*
-            loop21:
+            // InternalGumbo.g:868:3: (otherlv_6= 'compute_cases' ( (lv_cases_7_0= ruleCaseStatementClause ) )+ )*
+            loop20:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA21_0==Compute_cases||LA21_0==Cases) ) {
-                    alt21=1;
+                if ( (LA20_0==45) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt20) {
             	case 1 :
-            	    // InternalGumboParser.g:862:4: (otherlv_6= Cases | otherlv_7= Compute_cases ) ( (lv_cases_8_0= ruleCaseStatementClause ) )+
+            	    // InternalGumbo.g:869:4: otherlv_6= 'compute_cases' ( (lv_cases_7_0= ruleCaseStatementClause ) )+
             	    {
-            	    // InternalGumboParser.g:862:4: (otherlv_6= Cases | otherlv_7= Compute_cases )
-            	    int alt19=2;
-            	    int LA19_0 = input.LA(1);
+            	    otherlv_6=(Token)match(input,45,FollowSets000.FOLLOW_24); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
 
-            	    if ( (LA19_0==Cases) ) {
-            	        alt19=1;
+            	      				newLeafNode(otherlv_6, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0());
+            	      			
             	    }
-            	    else if ( (LA19_0==Compute_cases) ) {
-            	        alt19=2;
-            	    }
-            	    else {
-            	        if (state.backtracking>0) {state.failed=true; return current;}
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 19, 0, input);
-
-            	        throw nvae;
-            	    }
-            	    switch (alt19) {
-            	        case 1 :
-            	            // InternalGumboParser.g:863:5: otherlv_6= Cases
-            	            {
-            	            otherlv_6=(Token)match(input,Cases,FollowSets000.FOLLOW_24); if (state.failed) return current;
-            	            if ( state.backtracking==0 ) {
-
-            	              					newLeafNode(otherlv_6, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0());
-            	              				
-            	            }
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // InternalGumboParser.g:868:5: otherlv_7= Compute_cases
-            	            {
-            	            otherlv_7=(Token)match(input,Compute_cases,FollowSets000.FOLLOW_24); if (state.failed) return current;
-            	            if ( state.backtracking==0 ) {
-
-            	              					newLeafNode(otherlv_7, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1());
-            	              				
-            	            }
-
-            	            }
-            	            break;
-
-            	    }
-
-            	    // InternalGumboParser.g:873:4: ( (lv_cases_8_0= ruleCaseStatementClause ) )+
-            	    int cnt20=0;
-            	    loop20:
+            	    // InternalGumbo.g:873:4: ( (lv_cases_7_0= ruleCaseStatementClause ) )+
+            	    int cnt19=0;
+            	    loop19:
             	    do {
-            	        int alt20=2;
-            	        int LA20_0 = input.LA(1);
+            	        int alt19=2;
+            	        int LA19_0 = input.LA(1);
 
-            	        if ( (LA20_0==Case) ) {
-            	            alt20=1;
+            	        if ( (LA19_0==69) ) {
+            	            alt19=1;
             	        }
 
 
-            	        switch (alt20) {
+            	        switch (alt19) {
             	    	case 1 :
-            	    	    // InternalGumboParser.g:874:5: (lv_cases_8_0= ruleCaseStatementClause )
+            	    	    // InternalGumbo.g:874:5: (lv_cases_7_0= ruleCaseStatementClause )
             	    	    {
-            	    	    // InternalGumboParser.g:874:5: (lv_cases_8_0= ruleCaseStatementClause )
-            	    	    // InternalGumboParser.g:875:6: lv_cases_8_0= ruleCaseStatementClause
+            	    	    // InternalGumbo.g:874:5: (lv_cases_7_0= ruleCaseStatementClause )
+            	    	    // InternalGumbo.g:875:6: lv_cases_7_0= ruleCaseStatementClause
             	    	    {
             	    	    if ( state.backtracking==0 ) {
 
@@ -2608,7 +2568,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    	      					
             	    	    }
             	    	    pushFollow(FollowSets000.FOLLOW_25);
-            	    	    lv_cases_8_0=ruleCaseStatementClause();
+            	    	    lv_cases_7_0=ruleCaseStatementClause();
 
             	    	    state._fsp--;
             	    	    if (state.failed) return current;
@@ -2620,7 +2580,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    	      						add(
             	    	      							current,
             	    	      							"cases",
-            	    	      							lv_cases_8_0,
+            	    	      							lv_cases_7_0,
             	    	      							"org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
             	    	      						afterParserOrEnumRuleCall();
             	    	      					
@@ -2633,13 +2593,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    	    break;
 
             	    	default :
-            	    	    if ( cnt20 >= 1 ) break loop20;
+            	    	    if ( cnt19 >= 1 ) break loop19;
             	    	    if (state.backtracking>0) {state.failed=true; return current;}
             	                EarlyExitException eee =
-            	                    new EarlyExitException(20, input);
+            	                    new EarlyExitException(19, input);
             	                throw eee;
             	        }
-            	        cnt20++;
+            	        cnt19++;
             	    } while (true);
 
 
@@ -2647,27 +2607,27 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop20;
                 }
             } while (true);
 
-            // InternalGumboParser.g:893:3: ( (lv_handlers_9_0= ruleHandlerClause ) )*
-            loop22:
+            // InternalGumbo.g:893:3: ( (lv_handlers_8_0= ruleHandlerClause ) )*
+            loop21:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA22_0==Handle) ) {
-                    alt22=1;
+                if ( (LA21_0==68) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalGumboParser.g:894:4: (lv_handlers_9_0= ruleHandlerClause )
+            	    // InternalGumbo.g:894:4: (lv_handlers_8_0= ruleHandlerClause )
             	    {
-            	    // InternalGumboParser.g:894:4: (lv_handlers_9_0= ruleHandlerClause )
-            	    // InternalGumboParser.g:895:5: lv_handlers_9_0= ruleHandlerClause
+            	    // InternalGumbo.g:894:4: (lv_handlers_8_0= ruleHandlerClause )
+            	    // InternalGumbo.g:895:5: lv_handlers_8_0= ruleHandlerClause
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -2675,7 +2635,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	      				
             	    }
             	    pushFollow(FollowSets000.FOLLOW_26);
-            	    lv_handlers_9_0=ruleHandlerClause();
+            	    lv_handlers_8_0=ruleHandlerClause();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -2687,7 +2647,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	      					add(
             	      						current,
             	      						"handlers",
-            	      						lv_handlers_9_0,
+            	      						lv_handlers_8_0,
             	      						"org.sireum.aadl.gumbo.Gumbo.HandlerClause");
             	      					afterParserOrEnumRuleCall();
             	      				
@@ -2700,27 +2660,27 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop22;
+            	    break loop21;
                 }
             } while (true);
 
-            // InternalGumboParser.g:912:3: ( (lv_flows_10_0= ruleInfoFlowClause ) )*
-            loop23:
+            // InternalGumbo.g:912:3: ( (lv_flows_9_0= ruleInfoFlowClause ) )*
+            loop22:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( (LA23_0==Infoflow) ) {
-                    alt23=1;
+                if ( (LA22_0==63) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt22) {
             	case 1 :
-            	    // InternalGumboParser.g:913:4: (lv_flows_10_0= ruleInfoFlowClause )
+            	    // InternalGumbo.g:913:4: (lv_flows_9_0= ruleInfoFlowClause )
             	    {
-            	    // InternalGumboParser.g:913:4: (lv_flows_10_0= ruleInfoFlowClause )
-            	    // InternalGumboParser.g:914:5: lv_flows_10_0= ruleInfoFlowClause
+            	    // InternalGumbo.g:913:4: (lv_flows_9_0= ruleInfoFlowClause )
+            	    // InternalGumbo.g:914:5: lv_flows_9_0= ruleInfoFlowClause
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -2728,7 +2688,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	      				
             	    }
             	    pushFollow(FollowSets000.FOLLOW_21);
-            	    lv_flows_10_0=ruleInfoFlowClause();
+            	    lv_flows_9_0=ruleInfoFlowClause();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -2740,7 +2700,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	      					add(
             	      						current,
             	      						"flows",
-            	      						lv_flows_10_0,
+            	      						lv_flows_9_0,
             	      						"org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
             	      					afterParserOrEnumRuleCall();
             	      				
@@ -2753,7 +2713,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop22;
                 }
             } while (true);
 
@@ -2782,7 +2742,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComposition"
-    // InternalGumboParser.g:935:1: entryRuleComposition returns [EObject current=null] : iv_ruleComposition= ruleComposition EOF ;
+    // InternalGumbo.g:935:1: entryRuleComposition returns [EObject current=null] : iv_ruleComposition= ruleComposition EOF ;
     public final EObject entryRuleComposition() throws RecognitionException {
         EObject current = null;
 
@@ -2790,8 +2750,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:935:52: (iv_ruleComposition= ruleComposition EOF )
-            // InternalGumboParser.g:936:2: iv_ruleComposition= ruleComposition EOF
+            // InternalGumbo.g:935:52: (iv_ruleComposition= ruleComposition EOF )
+            // InternalGumbo.g:936:2: iv_ruleComposition= ruleComposition EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCompositionRule()); 
@@ -2822,7 +2782,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComposition"
-    // InternalGumboParser.g:942:1: ruleComposition returns [EObject current=null] : (otherlv_0= Composition ( (lv_id_1_0= RULE_ID ) ) otherlv_2= LeftCurlyBracket ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= RightCurlyBracket ) ;
+    // InternalGumbo.g:942:1: ruleComposition returns [EObject current=null] : (otherlv_0= 'composition' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= '}' ) ;
     public final EObject ruleComposition() throws RecognitionException {
         EObject current = null;
 
@@ -2845,23 +2805,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:948:2: ( (otherlv_0= Composition ( (lv_id_1_0= RULE_ID ) ) otherlv_2= LeftCurlyBracket ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= RightCurlyBracket ) )
-            // InternalGumboParser.g:949:2: (otherlv_0= Composition ( (lv_id_1_0= RULE_ID ) ) otherlv_2= LeftCurlyBracket ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= RightCurlyBracket )
+            // InternalGumbo.g:948:2: ( (otherlv_0= 'composition' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= '}' ) )
+            // InternalGumbo.g:949:2: (otherlv_0= 'composition' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= '}' )
             {
-            // InternalGumboParser.g:949:2: (otherlv_0= Composition ( (lv_id_1_0= RULE_ID ) ) otherlv_2= LeftCurlyBracket ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= RightCurlyBracket )
-            // InternalGumboParser.g:950:3: otherlv_0= Composition ( (lv_id_1_0= RULE_ID ) ) otherlv_2= LeftCurlyBracket ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= RightCurlyBracket
+            // InternalGumbo.g:949:2: (otherlv_0= 'composition' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= '}' )
+            // InternalGumbo.g:950:3: otherlv_0= 'composition' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )? ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )? ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )? ( (lv_schema_6_0= ruleSchema ) ) ( (lv_properties_7_0= ruleCompositionProperty ) )* otherlv_8= '}'
             {
-            otherlv_0=(Token)match(input,Composition,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,46,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getCompositionAccess().getCompositionKeyword_0());
               		
             }
-            // InternalGumboParser.g:954:3: ( (lv_id_1_0= RULE_ID ) )
-            // InternalGumboParser.g:955:4: (lv_id_1_0= RULE_ID )
+            // InternalGumbo.g:954:3: ( (lv_id_1_0= RULE_ID ) )
+            // InternalGumbo.g:955:4: (lv_id_1_0= RULE_ID )
             {
-            // InternalGumboParser.g:955:4: (lv_id_1_0= RULE_ID )
-            // InternalGumboParser.g:956:5: lv_id_1_0= RULE_ID
+            // InternalGumbo.g:955:4: (lv_id_1_0= RULE_ID )
+            // InternalGumbo.g:956:5: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_27); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2887,25 +2847,25 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,LeftCurlyBracket,FollowSets000.FOLLOW_28); if (state.failed) return current;
+            otherlv_2=(Token)match(input,47,FollowSets000.FOLLOW_28); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getCompositionAccess().getLeftCurlyBracketKeyword_2());
               		
             }
-            // InternalGumboParser.g:976:3: ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // InternalGumbo.g:976:3: ( (lv_componentAliases_3_0= ruleScheduleComponentAliases ) )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA24_0==Components) ) {
-                alt24=1;
+            if ( (LA23_0==49) ) {
+                alt23=1;
             }
-            switch (alt24) {
+            switch (alt23) {
                 case 1 :
-                    // InternalGumboParser.g:977:4: (lv_componentAliases_3_0= ruleScheduleComponentAliases )
+                    // InternalGumbo.g:977:4: (lv_componentAliases_3_0= ruleScheduleComponentAliases )
                     {
-                    // InternalGumboParser.g:977:4: (lv_componentAliases_3_0= ruleScheduleComponentAliases )
-                    // InternalGumboParser.g:978:5: lv_componentAliases_3_0= ruleScheduleComponentAliases
+                    // InternalGumbo.g:977:4: (lv_componentAliases_3_0= ruleScheduleComponentAliases )
+                    // InternalGumbo.g:978:5: lv_componentAliases_3_0= ruleScheduleComponentAliases
                     {
                     if ( state.backtracking==0 ) {
 
@@ -2939,19 +2899,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:995:3: ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalGumbo.g:995:3: ( (lv_portAliases_4_0= ruleSchedulePortAliases ) )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA25_0==Ports) ) {
-                alt25=1;
+            if ( (LA24_0==52) ) {
+                alt24=1;
             }
-            switch (alt25) {
+            switch (alt24) {
                 case 1 :
-                    // InternalGumboParser.g:996:4: (lv_portAliases_4_0= ruleSchedulePortAliases )
+                    // InternalGumbo.g:996:4: (lv_portAliases_4_0= ruleSchedulePortAliases )
                     {
-                    // InternalGumboParser.g:996:4: (lv_portAliases_4_0= ruleSchedulePortAliases )
-                    // InternalGumboParser.g:997:5: lv_portAliases_4_0= ruleSchedulePortAliases
+                    // InternalGumbo.g:996:4: (lv_portAliases_4_0= ruleSchedulePortAliases )
+                    // InternalGumbo.g:997:5: lv_portAliases_4_0= ruleSchedulePortAliases
                     {
                     if ( state.backtracking==0 ) {
 
@@ -2985,19 +2945,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1014:3: ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // InternalGumbo.g:1014:3: ( (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA26_0==State) ) {
-                alt26=1;
+            if ( (LA25_0==37) ) {
+                alt25=1;
             }
-            switch (alt26) {
+            switch (alt25) {
                 case 1 :
-                    // InternalGumboParser.g:1015:4: (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases )
+                    // InternalGumbo.g:1015:4: (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases )
                     {
-                    // InternalGumboParser.g:1015:4: (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases )
-                    // InternalGumboParser.g:1016:5: lv_stateVarAliases_5_0= ruleScheduleStateVarAliases
+                    // InternalGumbo.g:1015:4: (lv_stateVarAliases_5_0= ruleScheduleStateVarAliases )
+                    // InternalGumbo.g:1016:5: lv_stateVarAliases_5_0= ruleScheduleStateVarAliases
                     {
                     if ( state.backtracking==0 ) {
 
@@ -3031,11 +2991,11 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1033:3: ( (lv_schema_6_0= ruleSchema ) )
-            // InternalGumboParser.g:1034:4: (lv_schema_6_0= ruleSchema )
+            // InternalGumbo.g:1033:3: ( (lv_schema_6_0= ruleSchema ) )
+            // InternalGumbo.g:1034:4: (lv_schema_6_0= ruleSchema )
             {
-            // InternalGumboParser.g:1034:4: (lv_schema_6_0= ruleSchema )
-            // InternalGumboParser.g:1035:5: lv_schema_6_0= ruleSchema
+            // InternalGumbo.g:1034:4: (lv_schema_6_0= ruleSchema )
+            // InternalGumbo.g:1035:5: lv_schema_6_0= ruleSchema
             {
             if ( state.backtracking==0 ) {
 
@@ -3066,23 +3026,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1052:3: ( (lv_properties_7_0= ruleCompositionProperty ) )*
-            loop27:
+            // InternalGumbo.g:1052:3: ( (lv_properties_7_0= ruleCompositionProperty ) )*
+            loop26:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
                 if ( (LA27_0==Abstract||LA27_0==Property) ) {
                     alt27=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt26) {
             	case 1 :
-            	    // InternalGumboParser.g:1053:4: (lv_properties_7_0= ruleCompositionProperty )
+            	    // InternalGumbo.g:1053:4: (lv_properties_7_0= ruleCompositionProperty )
             	    {
-            	    // InternalGumboParser.g:1053:4: (lv_properties_7_0= ruleCompositionProperty )
-            	    // InternalGumboParser.g:1054:5: lv_properties_7_0= ruleCompositionProperty
+            	    // InternalGumbo.g:1053:4: (lv_properties_7_0= ruleCompositionProperty )
+            	    // InternalGumbo.g:1054:5: lv_properties_7_0= ruleCompositionProperty
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3115,11 +3075,11 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop26;
                 }
             } while (true);
 
-            otherlv_8=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_8=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_8, grammarAccess.getCompositionAccess().getRightCurlyBracketKeyword_8());
@@ -3150,7 +3110,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScheduleComponentAliases"
-    // InternalGumboParser.g:1079:1: entryRuleScheduleComponentAliases returns [EObject current=null] : iv_ruleScheduleComponentAliases= ruleScheduleComponentAliases EOF ;
+    // InternalGumbo.g:1079:1: entryRuleScheduleComponentAliases returns [EObject current=null] : iv_ruleScheduleComponentAliases= ruleScheduleComponentAliases EOF ;
     public final EObject entryRuleScheduleComponentAliases() throws RecognitionException {
         EObject current = null;
 
@@ -3158,8 +3118,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1079:65: (iv_ruleScheduleComponentAliases= ruleScheduleComponentAliases EOF )
-            // InternalGumboParser.g:1080:2: iv_ruleScheduleComponentAliases= ruleScheduleComponentAliases EOF
+            // InternalGumbo.g:1079:65: (iv_ruleScheduleComponentAliases= ruleScheduleComponentAliases EOF )
+            // InternalGumbo.g:1080:2: iv_ruleScheduleComponentAliases= ruleScheduleComponentAliases EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getScheduleComponentAliasesRule()); 
@@ -3190,7 +3150,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScheduleComponentAliases"
-    // InternalGumboParser.g:1086:1: ruleScheduleComponentAliases returns [EObject current=null] : (otherlv_0= Components ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ ) ;
+    // InternalGumbo.g:1086:1: ruleScheduleComponentAliases returns [EObject current=null] : (otherlv_0= 'components' ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ ) ;
     public final EObject ruleScheduleComponentAliases() throws RecognitionException {
         EObject current = null;
 
@@ -3202,36 +3162,36 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1092:2: ( (otherlv_0= Components ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ ) )
-            // InternalGumboParser.g:1093:2: (otherlv_0= Components ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ )
+            // InternalGumbo.g:1092:2: ( (otherlv_0= 'components' ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ ) )
+            // InternalGumbo.g:1093:2: (otherlv_0= 'components' ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ )
             {
-            // InternalGumboParser.g:1093:2: (otherlv_0= Components ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ )
-            // InternalGumboParser.g:1094:3: otherlv_0= Components ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+
+            // InternalGumbo.g:1093:2: (otherlv_0= 'components' ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+ )
+            // InternalGumbo.g:1094:3: otherlv_0= 'components' ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+
             {
-            otherlv_0=(Token)match(input,Components,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,49,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getScheduleComponentAliasesAccess().getComponentsKeyword_0());
               		
             }
-            // InternalGumboParser.g:1098:3: ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+
-            int cnt28=0;
-            loop28:
+            // InternalGumbo.g:1098:3: ( (lv_aliases_1_0= ruleScheduleComponentAlias ) )+
+            int cnt27=0;
+            loop27:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA28_0==RULE_ID) ) {
-                    alt28=1;
+                if ( (LA27_0==RULE_ID) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt27) {
             	case 1 :
-            	    // InternalGumboParser.g:1099:4: (lv_aliases_1_0= ruleScheduleComponentAlias )
+            	    // InternalGumbo.g:1099:4: (lv_aliases_1_0= ruleScheduleComponentAlias )
             	    {
-            	    // InternalGumboParser.g:1099:4: (lv_aliases_1_0= ruleScheduleComponentAlias )
-            	    // InternalGumboParser.g:1100:5: lv_aliases_1_0= ruleScheduleComponentAlias
+            	    // InternalGumbo.g:1099:4: (lv_aliases_1_0= ruleScheduleComponentAlias )
+            	    // InternalGumbo.g:1100:5: lv_aliases_1_0= ruleScheduleComponentAlias
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3264,13 +3224,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt28 >= 1 ) break loop28;
+            	    if ( cnt27 >= 1 ) break loop27;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(28, input);
+                            new EarlyExitException(27, input);
                         throw eee;
                 }
-                cnt28++;
+                cnt27++;
             } while (true);
 
 
@@ -3298,7 +3258,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScheduleComponentAlias"
-    // InternalGumboParser.g:1121:1: entryRuleScheduleComponentAlias returns [EObject current=null] : iv_ruleScheduleComponentAlias= ruleScheduleComponentAlias EOF ;
+    // InternalGumbo.g:1121:1: entryRuleScheduleComponentAlias returns [EObject current=null] : iv_ruleScheduleComponentAlias= ruleScheduleComponentAlias EOF ;
     public final EObject entryRuleScheduleComponentAlias() throws RecognitionException {
         EObject current = null;
 
@@ -3306,8 +3266,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1121:63: (iv_ruleScheduleComponentAlias= ruleScheduleComponentAlias EOF )
-            // InternalGumboParser.g:1122:2: iv_ruleScheduleComponentAlias= ruleScheduleComponentAlias EOF
+            // InternalGumbo.g:1121:63: (iv_ruleScheduleComponentAlias= ruleScheduleComponentAlias EOF )
+            // InternalGumbo.g:1122:2: iv_ruleScheduleComponentAlias= ruleScheduleComponentAlias EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getScheduleComponentAliasRule()); 
@@ -3338,7 +3298,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScheduleComponentAlias"
-    // InternalGumboParser.g:1128:1: ruleScheduleComponentAlias returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= Semicolon ) ;
+    // InternalGumbo.g:1128:1: ruleScheduleComponentAlias returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= ';' ) ;
     public final EObject ruleScheduleComponentAlias() throws RecognitionException {
         EObject current = null;
 
@@ -3352,17 +3312,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1134:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= Semicolon ) )
-            // InternalGumboParser.g:1135:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= Semicolon )
+            // InternalGumbo.g:1134:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= ';' ) )
+            // InternalGumbo.g:1135:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= ';' )
             {
-            // InternalGumboParser.g:1135:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= Semicolon )
-            // InternalGumboParser.g:1136:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= Semicolon
+            // InternalGumbo.g:1135:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= ';' )
+            // InternalGumbo.g:1136:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) ) otherlv_3= ';'
             {
-            // InternalGumboParser.g:1136:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalGumboParser.g:1137:4: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:1136:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGumbo.g:1137:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalGumboParser.g:1137:4: (lv_name_0_0= RULE_ID )
-            // InternalGumboParser.g:1138:5: lv_name_0_0= RULE_ID
+            // InternalGumbo.g:1137:4: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:1138:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_30); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -3388,17 +3348,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,EqualsSign,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,50,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getScheduleComponentAliasAccess().getEqualsSignKeyword_1());
               		
             }
-            // InternalGumboParser.g:1158:3: ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) )
-            // InternalGumboParser.g:1159:4: (lv_componentPath_2_0= ruleScheduleSubcomponentPath )
+            // InternalGumbo.g:1158:3: ( (lv_componentPath_2_0= ruleScheduleSubcomponentPath ) )
+            // InternalGumbo.g:1159:4: (lv_componentPath_2_0= ruleScheduleSubcomponentPath )
             {
-            // InternalGumboParser.g:1159:4: (lv_componentPath_2_0= ruleScheduleSubcomponentPath )
-            // InternalGumboParser.g:1160:5: lv_componentPath_2_0= ruleScheduleSubcomponentPath
+            // InternalGumbo.g:1159:4: (lv_componentPath_2_0= ruleScheduleSubcomponentPath )
+            // InternalGumbo.g:1160:5: lv_componentPath_2_0= ruleScheduleSubcomponentPath
             {
             if ( state.backtracking==0 ) {
 
@@ -3429,7 +3389,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getScheduleComponentAliasAccess().getSemicolonKeyword_3());
@@ -3460,7 +3420,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScheduleSubcomponentPath"
-    // InternalGumboParser.g:1185:1: entryRuleScheduleSubcomponentPath returns [EObject current=null] : iv_ruleScheduleSubcomponentPath= ruleScheduleSubcomponentPath EOF ;
+    // InternalGumbo.g:1185:1: entryRuleScheduleSubcomponentPath returns [EObject current=null] : iv_ruleScheduleSubcomponentPath= ruleScheduleSubcomponentPath EOF ;
     public final EObject entryRuleScheduleSubcomponentPath() throws RecognitionException {
         EObject current = null;
 
@@ -3468,8 +3428,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1185:65: (iv_ruleScheduleSubcomponentPath= ruleScheduleSubcomponentPath EOF )
-            // InternalGumboParser.g:1186:2: iv_ruleScheduleSubcomponentPath= ruleScheduleSubcomponentPath EOF
+            // InternalGumbo.g:1185:65: (iv_ruleScheduleSubcomponentPath= ruleScheduleSubcomponentPath EOF )
+            // InternalGumbo.g:1186:2: iv_ruleScheduleSubcomponentPath= ruleScheduleSubcomponentPath EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getScheduleSubcomponentPathRule()); 
@@ -3500,7 +3460,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScheduleSubcomponentPath"
-    // InternalGumboParser.g:1192:1: ruleScheduleSubcomponentPath returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? ) ;
+    // InternalGumbo.g:1192:1: ruleScheduleSubcomponentPath returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? ) ;
     public final EObject ruleScheduleSubcomponentPath() throws RecognitionException {
         EObject current = null;
 
@@ -3513,17 +3473,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1198:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? ) )
-            // InternalGumboParser.g:1199:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? )
+            // InternalGumbo.g:1198:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? ) )
+            // InternalGumbo.g:1199:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? )
             {
-            // InternalGumboParser.g:1199:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? )
-            // InternalGumboParser.g:1200:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )?
+            // InternalGumbo.g:1199:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )? )
+            // InternalGumbo.g:1200:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )?
             {
-            // InternalGumboParser.g:1200:3: ( (otherlv_0= RULE_ID ) )
-            // InternalGumboParser.g:1201:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1200:3: ( (otherlv_0= RULE_ID ) )
+            // InternalGumbo.g:1201:4: (otherlv_0= RULE_ID )
             {
-            // InternalGumboParser.g:1201:4: (otherlv_0= RULE_ID )
-            // InternalGumboParser.g:1202:5: otherlv_0= RULE_ID
+            // InternalGumbo.g:1201:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1202:5: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -3549,28 +3509,28 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1216:3: (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // InternalGumbo.g:1216:3: (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) ) )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA29_0==FullStop) ) {
-                alt29=1;
+            if ( (LA28_0==51) ) {
+                alt28=1;
             }
-            switch (alt29) {
+            switch (alt28) {
                 case 1 :
-                    // InternalGumboParser.g:1217:4: otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) )
+                    // InternalGumbo.g:1217:4: otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) )
                     {
-                    otherlv_1=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getScheduleSubcomponentPathAccess().getFullStopKeyword_1_0());
                       			
                     }
-                    // InternalGumboParser.g:1221:4: ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) )
-                    // InternalGumboParser.g:1222:5: (lv_subPath_2_0= ruleScheduleSubcomponentPath )
+                    // InternalGumbo.g:1221:4: ( (lv_subPath_2_0= ruleScheduleSubcomponentPath ) )
+                    // InternalGumbo.g:1222:5: (lv_subPath_2_0= ruleScheduleSubcomponentPath )
                     {
-                    // InternalGumboParser.g:1222:5: (lv_subPath_2_0= ruleScheduleSubcomponentPath )
-                    // InternalGumboParser.g:1223:6: lv_subPath_2_0= ruleScheduleSubcomponentPath
+                    // InternalGumbo.g:1222:5: (lv_subPath_2_0= ruleScheduleSubcomponentPath )
+                    // InternalGumbo.g:1223:6: lv_subPath_2_0= ruleScheduleSubcomponentPath
                     {
                     if ( state.backtracking==0 ) {
 
@@ -3632,7 +3592,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchedulePortAliases"
-    // InternalGumboParser.g:1245:1: entryRuleSchedulePortAliases returns [EObject current=null] : iv_ruleSchedulePortAliases= ruleSchedulePortAliases EOF ;
+    // InternalGumbo.g:1245:1: entryRuleSchedulePortAliases returns [EObject current=null] : iv_ruleSchedulePortAliases= ruleSchedulePortAliases EOF ;
     public final EObject entryRuleSchedulePortAliases() throws RecognitionException {
         EObject current = null;
 
@@ -3640,8 +3600,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1245:60: (iv_ruleSchedulePortAliases= ruleSchedulePortAliases EOF )
-            // InternalGumboParser.g:1246:2: iv_ruleSchedulePortAliases= ruleSchedulePortAliases EOF
+            // InternalGumbo.g:1245:60: (iv_ruleSchedulePortAliases= ruleSchedulePortAliases EOF )
+            // InternalGumbo.g:1246:2: iv_ruleSchedulePortAliases= ruleSchedulePortAliases EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchedulePortAliasesRule()); 
@@ -3672,7 +3632,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchedulePortAliases"
-    // InternalGumboParser.g:1252:1: ruleSchedulePortAliases returns [EObject current=null] : (otherlv_0= Ports ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ ) ;
+    // InternalGumbo.g:1252:1: ruleSchedulePortAliases returns [EObject current=null] : (otherlv_0= 'ports' ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ ) ;
     public final EObject ruleSchedulePortAliases() throws RecognitionException {
         EObject current = null;
 
@@ -3684,36 +3644,36 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1258:2: ( (otherlv_0= Ports ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ ) )
-            // InternalGumboParser.g:1259:2: (otherlv_0= Ports ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ )
+            // InternalGumbo.g:1258:2: ( (otherlv_0= 'ports' ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ ) )
+            // InternalGumbo.g:1259:2: (otherlv_0= 'ports' ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ )
             {
-            // InternalGumboParser.g:1259:2: (otherlv_0= Ports ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ )
-            // InternalGumboParser.g:1260:3: otherlv_0= Ports ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+
+            // InternalGumbo.g:1259:2: (otherlv_0= 'ports' ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+ )
+            // InternalGumbo.g:1260:3: otherlv_0= 'ports' ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+
             {
-            otherlv_0=(Token)match(input,Ports,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,52,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getSchedulePortAliasesAccess().getPortsKeyword_0());
               		
             }
-            // InternalGumboParser.g:1264:3: ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+
-            int cnt30=0;
-            loop30:
+            // InternalGumbo.g:1264:3: ( (lv_aliases_1_0= ruleSchedulePortAlias ) )+
+            int cnt29=0;
+            loop29:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA30_0==RULE_ID) ) {
-                    alt30=1;
+                if ( (LA29_0==RULE_ID) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt29) {
             	case 1 :
-            	    // InternalGumboParser.g:1265:4: (lv_aliases_1_0= ruleSchedulePortAlias )
+            	    // InternalGumbo.g:1265:4: (lv_aliases_1_0= ruleSchedulePortAlias )
             	    {
-            	    // InternalGumboParser.g:1265:4: (lv_aliases_1_0= ruleSchedulePortAlias )
-            	    // InternalGumboParser.g:1266:5: lv_aliases_1_0= ruleSchedulePortAlias
+            	    // InternalGumbo.g:1265:4: (lv_aliases_1_0= ruleSchedulePortAlias )
+            	    // InternalGumbo.g:1266:5: lv_aliases_1_0= ruleSchedulePortAlias
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3746,13 +3706,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt30 >= 1 ) break loop30;
+            	    if ( cnt29 >= 1 ) break loop29;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(30, input);
+                            new EarlyExitException(29, input);
                         throw eee;
                 }
-                cnt30++;
+                cnt29++;
             } while (true);
 
 
@@ -3780,7 +3740,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchedulePortAlias"
-    // InternalGumboParser.g:1287:1: entryRuleSchedulePortAlias returns [EObject current=null] : iv_ruleSchedulePortAlias= ruleSchedulePortAlias EOF ;
+    // InternalGumbo.g:1287:1: entryRuleSchedulePortAlias returns [EObject current=null] : iv_ruleSchedulePortAlias= ruleSchedulePortAlias EOF ;
     public final EObject entryRuleSchedulePortAlias() throws RecognitionException {
         EObject current = null;
 
@@ -3788,8 +3748,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1287:58: (iv_ruleSchedulePortAlias= ruleSchedulePortAlias EOF )
-            // InternalGumboParser.g:1288:2: iv_ruleSchedulePortAlias= ruleSchedulePortAlias EOF
+            // InternalGumbo.g:1287:58: (iv_ruleSchedulePortAlias= ruleSchedulePortAlias EOF )
+            // InternalGumbo.g:1288:2: iv_ruleSchedulePortAlias= ruleSchedulePortAlias EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchedulePortAliasRule()); 
@@ -3820,7 +3780,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchedulePortAlias"
-    // InternalGumboParser.g:1294:1: ruleSchedulePortAlias returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= Semicolon ) ;
+    // InternalGumbo.g:1294:1: ruleSchedulePortAlias returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= ';' ) ;
     public final EObject ruleSchedulePortAlias() throws RecognitionException {
         EObject current = null;
 
@@ -3834,17 +3794,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1300:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= Semicolon ) )
-            // InternalGumboParser.g:1301:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= Semicolon )
+            // InternalGumbo.g:1300:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= ';' ) )
+            // InternalGumbo.g:1301:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= ';' )
             {
-            // InternalGumboParser.g:1301:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= Semicolon )
-            // InternalGumboParser.g:1302:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= Semicolon
+            // InternalGumbo.g:1301:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= ';' )
+            // InternalGumbo.g:1302:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_portPath_2_0= ruleSchedulePortPath ) ) otherlv_3= ';'
             {
-            // InternalGumboParser.g:1302:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalGumboParser.g:1303:4: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:1302:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGumbo.g:1303:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalGumboParser.g:1303:4: (lv_name_0_0= RULE_ID )
-            // InternalGumboParser.g:1304:5: lv_name_0_0= RULE_ID
+            // InternalGumbo.g:1303:4: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:1304:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_30); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -3870,17 +3830,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,EqualsSign,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,50,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getSchedulePortAliasAccess().getEqualsSignKeyword_1());
               		
             }
-            // InternalGumboParser.g:1324:3: ( (lv_portPath_2_0= ruleSchedulePortPath ) )
-            // InternalGumboParser.g:1325:4: (lv_portPath_2_0= ruleSchedulePortPath )
+            // InternalGumbo.g:1324:3: ( (lv_portPath_2_0= ruleSchedulePortPath ) )
+            // InternalGumbo.g:1325:4: (lv_portPath_2_0= ruleSchedulePortPath )
             {
-            // InternalGumboParser.g:1325:4: (lv_portPath_2_0= ruleSchedulePortPath )
-            // InternalGumboParser.g:1326:5: lv_portPath_2_0= ruleSchedulePortPath
+            // InternalGumbo.g:1325:4: (lv_portPath_2_0= ruleSchedulePortPath )
+            // InternalGumbo.g:1326:5: lv_portPath_2_0= ruleSchedulePortPath
             {
             if ( state.backtracking==0 ) {
 
@@ -3911,7 +3871,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getSchedulePortAliasAccess().getSemicolonKeyword_3());
@@ -3942,7 +3902,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchedulePortPath"
-    // InternalGumboParser.g:1351:1: entryRuleSchedulePortPath returns [EObject current=null] : iv_ruleSchedulePortPath= ruleSchedulePortPath EOF ;
+    // InternalGumbo.g:1351:1: entryRuleSchedulePortPath returns [EObject current=null] : iv_ruleSchedulePortPath= ruleSchedulePortPath EOF ;
     public final EObject entryRuleSchedulePortPath() throws RecognitionException {
         EObject current = null;
 
@@ -3950,8 +3910,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1351:57: (iv_ruleSchedulePortPath= ruleSchedulePortPath EOF )
-            // InternalGumboParser.g:1352:2: iv_ruleSchedulePortPath= ruleSchedulePortPath EOF
+            // InternalGumbo.g:1351:57: (iv_ruleSchedulePortPath= ruleSchedulePortPath EOF )
+            // InternalGumbo.g:1352:2: iv_ruleSchedulePortPath= ruleSchedulePortPath EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchedulePortPathRule()); 
@@ -3982,7 +3942,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchedulePortPath"
-    // InternalGumboParser.g:1358:1: ruleSchedulePortPath returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? ) ;
+    // InternalGumbo.g:1358:1: ruleSchedulePortPath returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? ) ;
     public final EObject ruleSchedulePortPath() throws RecognitionException {
         EObject current = null;
 
@@ -3995,17 +3955,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1364:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? ) )
-            // InternalGumboParser.g:1365:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? )
+            // InternalGumbo.g:1364:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? ) )
+            // InternalGumbo.g:1365:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? )
             {
-            // InternalGumboParser.g:1365:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? )
-            // InternalGumboParser.g:1366:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )?
+            // InternalGumbo.g:1365:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )? )
+            // InternalGumbo.g:1366:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )?
             {
-            // InternalGumboParser.g:1366:3: ( (otherlv_0= RULE_ID ) )
-            // InternalGumboParser.g:1367:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1366:3: ( (otherlv_0= RULE_ID ) )
+            // InternalGumbo.g:1367:4: (otherlv_0= RULE_ID )
             {
-            // InternalGumboParser.g:1367:4: (otherlv_0= RULE_ID )
-            // InternalGumboParser.g:1368:5: otherlv_0= RULE_ID
+            // InternalGumbo.g:1367:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1368:5: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -4031,28 +3991,28 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1382:3: (otherlv_1= FullStop ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // InternalGumbo.g:1382:3: (otherlv_1= '.' ( (lv_subPath_2_0= ruleSchedulePortPath ) ) )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA31_0==FullStop) ) {
-                alt31=1;
+            if ( (LA30_0==51) ) {
+                alt30=1;
             }
-            switch (alt31) {
+            switch (alt30) {
                 case 1 :
-                    // InternalGumboParser.g:1383:4: otherlv_1= FullStop ( (lv_subPath_2_0= ruleSchedulePortPath ) )
+                    // InternalGumbo.g:1383:4: otherlv_1= '.' ( (lv_subPath_2_0= ruleSchedulePortPath ) )
                     {
-                    otherlv_1=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSchedulePortPathAccess().getFullStopKeyword_1_0());
                       			
                     }
-                    // InternalGumboParser.g:1387:4: ( (lv_subPath_2_0= ruleSchedulePortPath ) )
-                    // InternalGumboParser.g:1388:5: (lv_subPath_2_0= ruleSchedulePortPath )
+                    // InternalGumbo.g:1387:4: ( (lv_subPath_2_0= ruleSchedulePortPath ) )
+                    // InternalGumbo.g:1388:5: (lv_subPath_2_0= ruleSchedulePortPath )
                     {
-                    // InternalGumboParser.g:1388:5: (lv_subPath_2_0= ruleSchedulePortPath )
-                    // InternalGumboParser.g:1389:6: lv_subPath_2_0= ruleSchedulePortPath
+                    // InternalGumbo.g:1388:5: (lv_subPath_2_0= ruleSchedulePortPath )
+                    // InternalGumbo.g:1389:6: lv_subPath_2_0= ruleSchedulePortPath
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4114,7 +4074,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScheduleStateVarAliases"
-    // InternalGumboParser.g:1411:1: entryRuleScheduleStateVarAliases returns [EObject current=null] : iv_ruleScheduleStateVarAliases= ruleScheduleStateVarAliases EOF ;
+    // InternalGumbo.g:1411:1: entryRuleScheduleStateVarAliases returns [EObject current=null] : iv_ruleScheduleStateVarAliases= ruleScheduleStateVarAliases EOF ;
     public final EObject entryRuleScheduleStateVarAliases() throws RecognitionException {
         EObject current = null;
 
@@ -4122,8 +4082,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1411:64: (iv_ruleScheduleStateVarAliases= ruleScheduleStateVarAliases EOF )
-            // InternalGumboParser.g:1412:2: iv_ruleScheduleStateVarAliases= ruleScheduleStateVarAliases EOF
+            // InternalGumbo.g:1411:64: (iv_ruleScheduleStateVarAliases= ruleScheduleStateVarAliases EOF )
+            // InternalGumbo.g:1412:2: iv_ruleScheduleStateVarAliases= ruleScheduleStateVarAliases EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getScheduleStateVarAliasesRule()); 
@@ -4154,7 +4114,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScheduleStateVarAliases"
-    // InternalGumboParser.g:1418:1: ruleScheduleStateVarAliases returns [EObject current=null] : (otherlv_0= State ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ ) ;
+    // InternalGumbo.g:1418:1: ruleScheduleStateVarAliases returns [EObject current=null] : (otherlv_0= 'state' ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ ) ;
     public final EObject ruleScheduleStateVarAliases() throws RecognitionException {
         EObject current = null;
 
@@ -4166,36 +4126,36 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1424:2: ( (otherlv_0= State ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ ) )
-            // InternalGumboParser.g:1425:2: (otherlv_0= State ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ )
+            // InternalGumbo.g:1424:2: ( (otherlv_0= 'state' ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ ) )
+            // InternalGumbo.g:1425:2: (otherlv_0= 'state' ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ )
             {
-            // InternalGumboParser.g:1425:2: (otherlv_0= State ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ )
-            // InternalGumboParser.g:1426:3: otherlv_0= State ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+
+            // InternalGumbo.g:1425:2: (otherlv_0= 'state' ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+ )
+            // InternalGumbo.g:1426:3: otherlv_0= 'state' ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+
             {
-            otherlv_0=(Token)match(input,State,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,37,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getScheduleStateVarAliasesAccess().getStateKeyword_0());
               		
             }
-            // InternalGumboParser.g:1430:3: ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+
-            int cnt32=0;
-            loop32:
+            // InternalGumbo.g:1430:3: ( (lv_aliases_1_0= ruleScheduleStateVarAlias ) )+
+            int cnt31=0;
+            loop31:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( (LA32_0==RULE_ID) ) {
-                    alt32=1;
+                if ( (LA31_0==RULE_ID) ) {
+                    alt31=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt31) {
             	case 1 :
-            	    // InternalGumboParser.g:1431:4: (lv_aliases_1_0= ruleScheduleStateVarAlias )
+            	    // InternalGumbo.g:1431:4: (lv_aliases_1_0= ruleScheduleStateVarAlias )
             	    {
-            	    // InternalGumboParser.g:1431:4: (lv_aliases_1_0= ruleScheduleStateVarAlias )
-            	    // InternalGumboParser.g:1432:5: lv_aliases_1_0= ruleScheduleStateVarAlias
+            	    // InternalGumbo.g:1431:4: (lv_aliases_1_0= ruleScheduleStateVarAlias )
+            	    // InternalGumbo.g:1432:5: lv_aliases_1_0= ruleScheduleStateVarAlias
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -4228,13 +4188,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt32 >= 1 ) break loop32;
+            	    if ( cnt31 >= 1 ) break loop31;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(32, input);
+                            new EarlyExitException(31, input);
                         throw eee;
                 }
-                cnt32++;
+                cnt31++;
             } while (true);
 
 
@@ -4262,7 +4222,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScheduleStateVarAlias"
-    // InternalGumboParser.g:1453:1: entryRuleScheduleStateVarAlias returns [EObject current=null] : iv_ruleScheduleStateVarAlias= ruleScheduleStateVarAlias EOF ;
+    // InternalGumbo.g:1453:1: entryRuleScheduleStateVarAlias returns [EObject current=null] : iv_ruleScheduleStateVarAlias= ruleScheduleStateVarAlias EOF ;
     public final EObject entryRuleScheduleStateVarAlias() throws RecognitionException {
         EObject current = null;
 
@@ -4270,8 +4230,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1453:62: (iv_ruleScheduleStateVarAlias= ruleScheduleStateVarAlias EOF )
-            // InternalGumboParser.g:1454:2: iv_ruleScheduleStateVarAlias= ruleScheduleStateVarAlias EOF
+            // InternalGumbo.g:1453:62: (iv_ruleScheduleStateVarAlias= ruleScheduleStateVarAlias EOF )
+            // InternalGumbo.g:1454:2: iv_ruleScheduleStateVarAlias= ruleScheduleStateVarAlias EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getScheduleStateVarAliasRule()); 
@@ -4302,7 +4262,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScheduleStateVarAlias"
-    // InternalGumboParser.g:1460:1: ruleScheduleStateVarAlias returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= Semicolon ) ;
+    // InternalGumbo.g:1460:1: ruleScheduleStateVarAlias returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= ';' ) ;
     public final EObject ruleScheduleStateVarAlias() throws RecognitionException {
         EObject current = null;
 
@@ -4316,17 +4276,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1466:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= Semicolon ) )
-            // InternalGumboParser.g:1467:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= Semicolon )
+            // InternalGumbo.g:1466:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= ';' ) )
+            // InternalGumbo.g:1467:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= ';' )
             {
-            // InternalGumboParser.g:1467:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= Semicolon )
-            // InternalGumboParser.g:1468:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= EqualsSign ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= Semicolon
+            // InternalGumbo.g:1467:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= ';' )
+            // InternalGumbo.g:1468:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) ) otherlv_3= ';'
             {
-            // InternalGumboParser.g:1468:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalGumboParser.g:1469:4: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:1468:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalGumbo.g:1469:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalGumboParser.g:1469:4: (lv_name_0_0= RULE_ID )
-            // InternalGumboParser.g:1470:5: lv_name_0_0= RULE_ID
+            // InternalGumbo.g:1469:4: (lv_name_0_0= RULE_ID )
+            // InternalGumbo.g:1470:5: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_30); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -4352,17 +4312,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,EqualsSign,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,50,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getScheduleStateVarAliasAccess().getEqualsSignKeyword_1());
               		
             }
-            // InternalGumboParser.g:1490:3: ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) )
-            // InternalGumboParser.g:1491:4: (lv_stateVarPath_2_0= ruleScheduleStateVarPath )
+            // InternalGumbo.g:1490:3: ( (lv_stateVarPath_2_0= ruleScheduleStateVarPath ) )
+            // InternalGumbo.g:1491:4: (lv_stateVarPath_2_0= ruleScheduleStateVarPath )
             {
-            // InternalGumboParser.g:1491:4: (lv_stateVarPath_2_0= ruleScheduleStateVarPath )
-            // InternalGumboParser.g:1492:5: lv_stateVarPath_2_0= ruleScheduleStateVarPath
+            // InternalGumbo.g:1491:4: (lv_stateVarPath_2_0= ruleScheduleStateVarPath )
+            // InternalGumbo.g:1492:5: lv_stateVarPath_2_0= ruleScheduleStateVarPath
             {
             if ( state.backtracking==0 ) {
 
@@ -4393,7 +4353,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getScheduleStateVarAliasAccess().getSemicolonKeyword_3());
@@ -4424,7 +4384,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScheduleStateVarPath"
-    // InternalGumboParser.g:1517:1: entryRuleScheduleStateVarPath returns [EObject current=null] : iv_ruleScheduleStateVarPath= ruleScheduleStateVarPath EOF ;
+    // InternalGumbo.g:1517:1: entryRuleScheduleStateVarPath returns [EObject current=null] : iv_ruleScheduleStateVarPath= ruleScheduleStateVarPath EOF ;
     public final EObject entryRuleScheduleStateVarPath() throws RecognitionException {
         EObject current = null;
 
@@ -4432,8 +4392,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1517:61: (iv_ruleScheduleStateVarPath= ruleScheduleStateVarPath EOF )
-            // InternalGumboParser.g:1518:2: iv_ruleScheduleStateVarPath= ruleScheduleStateVarPath EOF
+            // InternalGumbo.g:1517:61: (iv_ruleScheduleStateVarPath= ruleScheduleStateVarPath EOF )
+            // InternalGumbo.g:1518:2: iv_ruleScheduleStateVarPath= ruleScheduleStateVarPath EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getScheduleStateVarPathRule()); 
@@ -4464,7 +4424,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScheduleStateVarPath"
-    // InternalGumboParser.g:1524:1: ruleScheduleStateVarPath returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? ) ;
+    // InternalGumbo.g:1524:1: ruleScheduleStateVarPath returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? ) ;
     public final EObject ruleScheduleStateVarPath() throws RecognitionException {
         EObject current = null;
 
@@ -4477,17 +4437,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1530:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? ) )
-            // InternalGumboParser.g:1531:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? )
+            // InternalGumbo.g:1530:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? ) )
+            // InternalGumbo.g:1531:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? )
             {
-            // InternalGumboParser.g:1531:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? )
-            // InternalGumboParser.g:1532:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )?
+            // InternalGumbo.g:1531:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )? )
+            // InternalGumbo.g:1532:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )?
             {
-            // InternalGumboParser.g:1532:3: ( (otherlv_0= RULE_ID ) )
-            // InternalGumboParser.g:1533:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1532:3: ( (otherlv_0= RULE_ID ) )
+            // InternalGumbo.g:1533:4: (otherlv_0= RULE_ID )
             {
-            // InternalGumboParser.g:1533:4: (otherlv_0= RULE_ID )
-            // InternalGumboParser.g:1534:5: otherlv_0= RULE_ID
+            // InternalGumbo.g:1533:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1534:5: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -4513,28 +4473,28 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1548:3: (otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // InternalGumbo.g:1548:3: (otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleStateVarPath ) ) )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA33_0==FullStop) ) {
-                alt33=1;
+            if ( (LA32_0==51) ) {
+                alt32=1;
             }
-            switch (alt33) {
+            switch (alt32) {
                 case 1 :
-                    // InternalGumboParser.g:1549:4: otherlv_1= FullStop ( (lv_subPath_2_0= ruleScheduleStateVarPath ) )
+                    // InternalGumbo.g:1549:4: otherlv_1= '.' ( (lv_subPath_2_0= ruleScheduleStateVarPath ) )
                     {
-                    otherlv_1=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getScheduleStateVarPathAccess().getFullStopKeyword_1_0());
                       			
                     }
-                    // InternalGumboParser.g:1553:4: ( (lv_subPath_2_0= ruleScheduleStateVarPath ) )
-                    // InternalGumboParser.g:1554:5: (lv_subPath_2_0= ruleScheduleStateVarPath )
+                    // InternalGumbo.g:1553:4: ( (lv_subPath_2_0= ruleScheduleStateVarPath ) )
+                    // InternalGumbo.g:1554:5: (lv_subPath_2_0= ruleScheduleStateVarPath )
                     {
-                    // InternalGumboParser.g:1554:5: (lv_subPath_2_0= ruleScheduleStateVarPath )
-                    // InternalGumboParser.g:1555:6: lv_subPath_2_0= ruleScheduleStateVarPath
+                    // InternalGumbo.g:1554:5: (lv_subPath_2_0= ruleScheduleStateVarPath )
+                    // InternalGumbo.g:1555:6: lv_subPath_2_0= ruleScheduleStateVarPath
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4596,7 +4556,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchema"
-    // InternalGumboParser.g:1577:1: entryRuleSchema returns [EObject current=null] : iv_ruleSchema= ruleSchema EOF ;
+    // InternalGumbo.g:1577:1: entryRuleSchema returns [EObject current=null] : iv_ruleSchema= ruleSchema EOF ;
     public final EObject entryRuleSchema() throws RecognitionException {
         EObject current = null;
 
@@ -4604,8 +4564,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1577:47: (iv_ruleSchema= ruleSchema EOF )
-            // InternalGumboParser.g:1578:2: iv_ruleSchema= ruleSchema EOF
+            // InternalGumbo.g:1577:47: (iv_ruleSchema= ruleSchema EOF )
+            // InternalGumbo.g:1578:2: iv_ruleSchema= ruleSchema EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchemaRule()); 
@@ -4636,7 +4596,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchema"
-    // InternalGumboParser.g:1584:1: ruleSchema returns [EObject current=null] : (otherlv_0= Schema otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket ) ;
+    // InternalGumbo.g:1584:1: ruleSchema returns [EObject current=null] : (otherlv_0= 'schema' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' ) ;
     public final EObject ruleSchema() throws RecognitionException {
         EObject current = null;
 
@@ -4654,29 +4614,29 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1590:2: ( (otherlv_0= Schema otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket ) )
-            // InternalGumboParser.g:1591:2: (otherlv_0= Schema otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket )
+            // InternalGumbo.g:1590:2: ( (otherlv_0= 'schema' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' ) )
+            // InternalGumbo.g:1591:2: (otherlv_0= 'schema' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' )
             {
-            // InternalGumboParser.g:1591:2: (otherlv_0= Schema otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket )
-            // InternalGumboParser.g:1592:3: otherlv_0= Schema otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket
+            // InternalGumbo.g:1591:2: (otherlv_0= 'schema' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' )
+            // InternalGumbo.g:1592:3: otherlv_0= 'schema' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,Schema,FollowSets000.FOLLOW_27); if (state.failed) return current;
+            otherlv_0=(Token)match(input,53,FollowSets000.FOLLOW_27); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getSchemaAccess().getSchemaKeyword_0());
               		
             }
-            otherlv_1=(Token)match(input,LeftCurlyBracket,FollowSets000.FOLLOW_32); if (state.failed) return current;
+            otherlv_1=(Token)match(input,47,FollowSets000.FOLLOW_32); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getSchemaAccess().getLeftCurlyBracketKeyword_1());
               		
             }
-            // InternalGumboParser.g:1600:3: ( (lv_elements_2_0= ruleSchemaElement ) )
-            // InternalGumboParser.g:1601:4: (lv_elements_2_0= ruleSchemaElement )
+            // InternalGumbo.g:1600:3: ( (lv_elements_2_0= ruleSchemaElement ) )
+            // InternalGumbo.g:1601:4: (lv_elements_2_0= ruleSchemaElement )
             {
-            // InternalGumboParser.g:1601:4: (lv_elements_2_0= ruleSchemaElement )
-            // InternalGumboParser.g:1602:5: lv_elements_2_0= ruleSchemaElement
+            // InternalGumbo.g:1601:4: (lv_elements_2_0= ruleSchemaElement )
+            // InternalGumbo.g:1602:5: lv_elements_2_0= ruleSchemaElement
             {
             if ( state.backtracking==0 ) {
 
@@ -4707,38 +4667,38 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1619:3: (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )*
-            loop34:
+            // InternalGumbo.g:1619:3: (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )*
+            loop33:
             do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA34_0==Semicolon) ) {
-                    int LA34_1 = input.LA(2);
+                if ( (LA33_0==39) ) {
+                    int LA33_1 = input.LA(2);
 
-                    if ( (LA34_1==Label||LA34_1==Split||LA34_1==RULE_ID) ) {
-                        alt34=1;
+                    if ( (LA33_1==RULE_ID||LA33_1==54||LA33_1==56) ) {
+                        alt33=1;
                     }
 
 
                 }
 
 
-                switch (alt34) {
+                switch (alt33) {
             	case 1 :
-            	    // InternalGumboParser.g:1620:4: otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) )
+            	    // InternalGumbo.g:1620:4: otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) )
             	    {
-            	    otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_32); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_32); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_3, grammarAccess.getSchemaAccess().getSemicolonKeyword_3_0());
             	      			
             	    }
-            	    // InternalGumboParser.g:1624:4: ( (lv_elements_4_0= ruleSchemaElement ) )
-            	    // InternalGumboParser.g:1625:5: (lv_elements_4_0= ruleSchemaElement )
+            	    // InternalGumbo.g:1624:4: ( (lv_elements_4_0= ruleSchemaElement ) )
+            	    // InternalGumbo.g:1625:5: (lv_elements_4_0= ruleSchemaElement )
             	    {
-            	    // InternalGumboParser.g:1625:5: (lv_elements_4_0= ruleSchemaElement )
-            	    // InternalGumboParser.g:1626:6: lv_elements_4_0= ruleSchemaElement
+            	    // InternalGumbo.g:1625:5: (lv_elements_4_0= ruleSchemaElement )
+            	    // InternalGumbo.g:1626:6: lv_elements_4_0= ruleSchemaElement
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -4774,22 +4734,22 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop34;
+            	    break loop33;
                 }
             } while (true);
 
-            // InternalGumboParser.g:1644:3: (otherlv_5= Semicolon )?
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+            // InternalGumbo.g:1644:3: (otherlv_5= ';' )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA35_0==Semicolon) ) {
-                alt35=1;
+            if ( (LA34_0==39) ) {
+                alt34=1;
             }
-            switch (alt35) {
+            switch (alt34) {
                 case 1 :
-                    // InternalGumboParser.g:1645:4: otherlv_5= Semicolon
+                    // InternalGumbo.g:1645:4: otherlv_5= ';'
                     {
-                    otherlv_5=(Token)match(input,Semicolon,FollowSets000.FOLLOW_34); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,39,FollowSets000.FOLLOW_34); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_5, grammarAccess.getSchemaAccess().getSemicolonKeyword_4());
@@ -4801,7 +4761,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_6=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_6, grammarAccess.getSchemaAccess().getRightCurlyBracketKeyword_5());
@@ -4832,7 +4792,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchemaElement"
-    // InternalGumboParser.g:1658:1: entryRuleSchemaElement returns [EObject current=null] : iv_ruleSchemaElement= ruleSchemaElement EOF ;
+    // InternalGumbo.g:1658:1: entryRuleSchemaElement returns [EObject current=null] : iv_ruleSchemaElement= ruleSchemaElement EOF ;
     public final EObject entryRuleSchemaElement() throws RecognitionException {
         EObject current = null;
 
@@ -4840,8 +4800,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1658:54: (iv_ruleSchemaElement= ruleSchemaElement EOF )
-            // InternalGumboParser.g:1659:2: iv_ruleSchemaElement= ruleSchemaElement EOF
+            // InternalGumbo.g:1658:54: (iv_ruleSchemaElement= ruleSchemaElement EOF )
+            // InternalGumbo.g:1659:2: iv_ruleSchemaElement= ruleSchemaElement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchemaElementRule()); 
@@ -4872,7 +4832,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemaElement"
-    // InternalGumboParser.g:1665:1: ruleSchemaElement returns [EObject current=null] : (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef ) ;
+    // InternalGumbo.g:1665:1: ruleSchemaElement returns [EObject current=null] : (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef ) ;
     public final EObject ruleSchemaElement() throws RecognitionException {
         EObject current = null;
 
@@ -4887,38 +4847,38 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1671:2: ( (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef ) )
-            // InternalGumboParser.g:1672:2: (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef )
+            // InternalGumbo.g:1671:2: ( (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef ) )
+            // InternalGumbo.g:1672:2: (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef )
             {
-            // InternalGumboParser.g:1672:2: (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef )
-            int alt36=3;
+            // InternalGumbo.g:1672:2: (this_SchemaLabel_0= ruleSchemaLabel | this_SchemaSplitJoin_1= ruleSchemaSplitJoin | this_SchemaComponentRef_2= ruleSchemaComponentRef )
+            int alt35=3;
             switch ( input.LA(1) ) {
-            case Label:
+            case 54:
                 {
-                alt36=1;
+                alt35=1;
                 }
                 break;
-            case Split:
+            case 56:
                 {
-                alt36=2;
+                alt35=2;
                 }
                 break;
             case RULE_ID:
                 {
-                alt36=3;
+                alt35=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 36, 0, input);
+                    new NoViableAltException("", 35, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt36) {
+            switch (alt35) {
                 case 1 :
-                    // InternalGumboParser.g:1673:3: this_SchemaLabel_0= ruleSchemaLabel
+                    // InternalGumbo.g:1673:3: this_SchemaLabel_0= ruleSchemaLabel
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4945,7 +4905,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalGumboParser.g:1685:3: this_SchemaSplitJoin_1= ruleSchemaSplitJoin
+                    // InternalGumbo.g:1685:3: this_SchemaSplitJoin_1= ruleSchemaSplitJoin
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4972,7 +4932,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalGumboParser.g:1697:3: this_SchemaComponentRef_2= ruleSchemaComponentRef
+                    // InternalGumbo.g:1697:3: this_SchemaComponentRef_2= ruleSchemaComponentRef
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5023,7 +4983,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchemaLabel"
-    // InternalGumboParser.g:1712:1: entryRuleSchemaLabel returns [EObject current=null] : iv_ruleSchemaLabel= ruleSchemaLabel EOF ;
+    // InternalGumbo.g:1712:1: entryRuleSchemaLabel returns [EObject current=null] : iv_ruleSchemaLabel= ruleSchemaLabel EOF ;
     public final EObject entryRuleSchemaLabel() throws RecognitionException {
         EObject current = null;
 
@@ -5031,8 +4991,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1712:52: (iv_ruleSchemaLabel= ruleSchemaLabel EOF )
-            // InternalGumboParser.g:1713:2: iv_ruleSchemaLabel= ruleSchemaLabel EOF
+            // InternalGumbo.g:1712:52: (iv_ruleSchemaLabel= ruleSchemaLabel EOF )
+            // InternalGumbo.g:1713:2: iv_ruleSchemaLabel= ruleSchemaLabel EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchemaLabelRule()); 
@@ -5063,7 +5023,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemaLabel"
-    // InternalGumboParser.g:1719:1: ruleSchemaLabel returns [EObject current=null] : (otherlv_0= Label ( (lv_id_1_0= RULE_ID ) ) ) ;
+    // InternalGumbo.g:1719:1: ruleSchemaLabel returns [EObject current=null] : (otherlv_0= 'label' ( (lv_id_1_0= RULE_ID ) ) ) ;
     public final EObject ruleSchemaLabel() throws RecognitionException {
         EObject current = null;
 
@@ -5074,23 +5034,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1725:2: ( (otherlv_0= Label ( (lv_id_1_0= RULE_ID ) ) ) )
-            // InternalGumboParser.g:1726:2: (otherlv_0= Label ( (lv_id_1_0= RULE_ID ) ) )
+            // InternalGumbo.g:1725:2: ( (otherlv_0= 'label' ( (lv_id_1_0= RULE_ID ) ) ) )
+            // InternalGumbo.g:1726:2: (otherlv_0= 'label' ( (lv_id_1_0= RULE_ID ) ) )
             {
-            // InternalGumboParser.g:1726:2: (otherlv_0= Label ( (lv_id_1_0= RULE_ID ) ) )
-            // InternalGumboParser.g:1727:3: otherlv_0= Label ( (lv_id_1_0= RULE_ID ) )
+            // InternalGumbo.g:1726:2: (otherlv_0= 'label' ( (lv_id_1_0= RULE_ID ) ) )
+            // InternalGumbo.g:1727:3: otherlv_0= 'label' ( (lv_id_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,Label,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,54,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getSchemaLabelAccess().getLabelKeyword_0());
               		
             }
-            // InternalGumboParser.g:1731:3: ( (lv_id_1_0= RULE_ID ) )
-            // InternalGumboParser.g:1732:4: (lv_id_1_0= RULE_ID )
+            // InternalGumbo.g:1731:3: ( (lv_id_1_0= RULE_ID ) )
+            // InternalGumbo.g:1732:4: (lv_id_1_0= RULE_ID )
             {
-            // InternalGumboParser.g:1732:4: (lv_id_1_0= RULE_ID )
-            // InternalGumboParser.g:1733:5: lv_id_1_0= RULE_ID
+            // InternalGumbo.g:1732:4: (lv_id_1_0= RULE_ID )
+            // InternalGumbo.g:1733:5: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -5141,7 +5101,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchemaComponentRef"
-    // InternalGumboParser.g:1753:1: entryRuleSchemaComponentRef returns [EObject current=null] : iv_ruleSchemaComponentRef= ruleSchemaComponentRef EOF ;
+    // InternalGumbo.g:1753:1: entryRuleSchemaComponentRef returns [EObject current=null] : iv_ruleSchemaComponentRef= ruleSchemaComponentRef EOF ;
     public final EObject entryRuleSchemaComponentRef() throws RecognitionException {
         EObject current = null;
 
@@ -5149,8 +5109,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1753:59: (iv_ruleSchemaComponentRef= ruleSchemaComponentRef EOF )
-            // InternalGumboParser.g:1754:2: iv_ruleSchemaComponentRef= ruleSchemaComponentRef EOF
+            // InternalGumbo.g:1753:59: (iv_ruleSchemaComponentRef= ruleSchemaComponentRef EOF )
+            // InternalGumbo.g:1754:2: iv_ruleSchemaComponentRef= ruleSchemaComponentRef EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchemaComponentRefRule()); 
@@ -5181,7 +5141,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemaComponentRef"
-    // InternalGumboParser.g:1760:1: ruleSchemaComponentRef returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= CommercialAt ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? ) ;
+    // InternalGumbo.g:1760:1: ruleSchemaComponentRef returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '@' ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? ) ;
     public final EObject ruleSchemaComponentRef() throws RecognitionException {
         EObject current = null;
 
@@ -5193,17 +5153,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1766:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= CommercialAt ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? ) )
-            // InternalGumboParser.g:1767:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= CommercialAt ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? )
+            // InternalGumbo.g:1766:2: ( ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '@' ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? ) )
+            // InternalGumbo.g:1767:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '@' ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? )
             {
-            // InternalGumboParser.g:1767:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= CommercialAt ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? )
-            // InternalGumboParser.g:1768:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= CommercialAt ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )?
+            // InternalGumbo.g:1767:2: ( ( (otherlv_0= RULE_ID ) ) (otherlv_1= '@' ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )? )
+            // InternalGumbo.g:1768:3: ( (otherlv_0= RULE_ID ) ) (otherlv_1= '@' ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )?
             {
-            // InternalGumboParser.g:1768:3: ( (otherlv_0= RULE_ID ) )
-            // InternalGumboParser.g:1769:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1768:3: ( (otherlv_0= RULE_ID ) )
+            // InternalGumbo.g:1769:4: (otherlv_0= RULE_ID )
             {
-            // InternalGumboParser.g:1769:4: (otherlv_0= RULE_ID )
-            // InternalGumboParser.g:1770:5: otherlv_0= RULE_ID
+            // InternalGumbo.g:1769:4: (otherlv_0= RULE_ID )
+            // InternalGumbo.g:1770:5: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -5229,28 +5189,28 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1784:3: (otherlv_1= CommercialAt ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // InternalGumbo.g:1784:3: (otherlv_1= '@' ( (lv_occurrenceLabel_2_0= RULE_ID ) ) )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA37_0==CommercialAt) ) {
-                alt37=1;
+            if ( (LA36_0==55) ) {
+                alt36=1;
             }
-            switch (alt37) {
+            switch (alt36) {
                 case 1 :
-                    // InternalGumboParser.g:1785:4: otherlv_1= CommercialAt ( (lv_occurrenceLabel_2_0= RULE_ID ) )
+                    // InternalGumbo.g:1785:4: otherlv_1= '@' ( (lv_occurrenceLabel_2_0= RULE_ID ) )
                     {
-                    otherlv_1=(Token)match(input,CommercialAt,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,55,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSchemaComponentRefAccess().getCommercialAtKeyword_1_0());
                       			
                     }
-                    // InternalGumboParser.g:1789:4: ( (lv_occurrenceLabel_2_0= RULE_ID ) )
-                    // InternalGumboParser.g:1790:5: (lv_occurrenceLabel_2_0= RULE_ID )
+                    // InternalGumbo.g:1789:4: ( (lv_occurrenceLabel_2_0= RULE_ID ) )
+                    // InternalGumbo.g:1790:5: (lv_occurrenceLabel_2_0= RULE_ID )
                     {
-                    // InternalGumboParser.g:1790:5: (lv_occurrenceLabel_2_0= RULE_ID )
-                    // InternalGumboParser.g:1791:6: lv_occurrenceLabel_2_0= RULE_ID
+                    // InternalGumbo.g:1790:5: (lv_occurrenceLabel_2_0= RULE_ID )
+                    // InternalGumbo.g:1791:6: lv_occurrenceLabel_2_0= RULE_ID
                     {
                     lv_occurrenceLabel_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -5307,7 +5267,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchemaSplitJoin"
-    // InternalGumboParser.g:1812:1: entryRuleSchemaSplitJoin returns [EObject current=null] : iv_ruleSchemaSplitJoin= ruleSchemaSplitJoin EOF ;
+    // InternalGumbo.g:1812:1: entryRuleSchemaSplitJoin returns [EObject current=null] : iv_ruleSchemaSplitJoin= ruleSchemaSplitJoin EOF ;
     public final EObject entryRuleSchemaSplitJoin() throws RecognitionException {
         EObject current = null;
 
@@ -5315,8 +5275,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1812:56: (iv_ruleSchemaSplitJoin= ruleSchemaSplitJoin EOF )
-            // InternalGumboParser.g:1813:2: iv_ruleSchemaSplitJoin= ruleSchemaSplitJoin EOF
+            // InternalGumbo.g:1812:56: (iv_ruleSchemaSplitJoin= ruleSchemaSplitJoin EOF )
+            // InternalGumbo.g:1813:2: iv_ruleSchemaSplitJoin= ruleSchemaSplitJoin EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchemaSplitJoinRule()); 
@@ -5347,7 +5307,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemaSplitJoin"
-    // InternalGumboParser.g:1819:1: ruleSchemaSplitJoin returns [EObject current=null] : (otherlv_0= Split otherlv_1= LeftCurlyBracket ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= Comma ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= RightCurlyBracket ) ;
+    // InternalGumbo.g:1819:1: ruleSchemaSplitJoin returns [EObject current=null] : (otherlv_0= 'split' otherlv_1= '{' ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= ',' ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= '}' ) ;
     public final EObject ruleSchemaSplitJoin() throws RecognitionException {
         EObject current = null;
 
@@ -5364,29 +5324,29 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1825:2: ( (otherlv_0= Split otherlv_1= LeftCurlyBracket ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= Comma ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= RightCurlyBracket ) )
-            // InternalGumboParser.g:1826:2: (otherlv_0= Split otherlv_1= LeftCurlyBracket ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= Comma ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= RightCurlyBracket )
+            // InternalGumbo.g:1825:2: ( (otherlv_0= 'split' otherlv_1= '{' ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= ',' ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= '}' ) )
+            // InternalGumbo.g:1826:2: (otherlv_0= 'split' otherlv_1= '{' ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= ',' ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= '}' )
             {
-            // InternalGumboParser.g:1826:2: (otherlv_0= Split otherlv_1= LeftCurlyBracket ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= Comma ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= RightCurlyBracket )
-            // InternalGumboParser.g:1827:3: otherlv_0= Split otherlv_1= LeftCurlyBracket ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= Comma ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= RightCurlyBracket
+            // InternalGumbo.g:1826:2: (otherlv_0= 'split' otherlv_1= '{' ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= ',' ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= '}' )
+            // InternalGumbo.g:1827:3: otherlv_0= 'split' otherlv_1= '{' ( (lv_branches_2_0= ruleSchemaSequence ) ) (otherlv_3= ',' ( (lv_branches_4_0= ruleSchemaSequence ) ) )+ otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,Split,FollowSets000.FOLLOW_27); if (state.failed) return current;
+            otherlv_0=(Token)match(input,56,FollowSets000.FOLLOW_27); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getSchemaSplitJoinAccess().getSplitKeyword_0());
               		
             }
-            otherlv_1=(Token)match(input,LeftCurlyBracket,FollowSets000.FOLLOW_36); if (state.failed) return current;
+            otherlv_1=(Token)match(input,47,FollowSets000.FOLLOW_36); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getSchemaSplitJoinAccess().getLeftCurlyBracketKeyword_1());
               		
             }
-            // InternalGumboParser.g:1835:3: ( (lv_branches_2_0= ruleSchemaSequence ) )
-            // InternalGumboParser.g:1836:4: (lv_branches_2_0= ruleSchemaSequence )
+            // InternalGumbo.g:1835:3: ( (lv_branches_2_0= ruleSchemaSequence ) )
+            // InternalGumbo.g:1836:4: (lv_branches_2_0= ruleSchemaSequence )
             {
-            // InternalGumboParser.g:1836:4: (lv_branches_2_0= ruleSchemaSequence )
-            // InternalGumboParser.g:1837:5: lv_branches_2_0= ruleSchemaSequence
+            // InternalGumbo.g:1836:4: (lv_branches_2_0= ruleSchemaSequence )
+            // InternalGumbo.g:1837:5: lv_branches_2_0= ruleSchemaSequence
             {
             if ( state.backtracking==0 ) {
 
@@ -5417,33 +5377,33 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1854:3: (otherlv_3= Comma ( (lv_branches_4_0= ruleSchemaSequence ) ) )+
-            int cnt38=0;
-            loop38:
+            // InternalGumbo.g:1854:3: (otherlv_3= ',' ( (lv_branches_4_0= ruleSchemaSequence ) ) )+
+            int cnt37=0;
+            loop37:
             do {
-                int alt38=2;
-                int LA38_0 = input.LA(1);
+                int alt37=2;
+                int LA37_0 = input.LA(1);
 
-                if ( (LA38_0==Comma) ) {
-                    alt38=1;
+                if ( (LA37_0==57) ) {
+                    alt37=1;
                 }
 
 
-                switch (alt38) {
+                switch (alt37) {
             	case 1 :
-            	    // InternalGumboParser.g:1855:4: otherlv_3= Comma ( (lv_branches_4_0= ruleSchemaSequence ) )
+            	    // InternalGumbo.g:1855:4: otherlv_3= ',' ( (lv_branches_4_0= ruleSchemaSequence ) )
             	    {
-            	    otherlv_3=(Token)match(input,Comma,FollowSets000.FOLLOW_36); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,57,FollowSets000.FOLLOW_36); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_3, grammarAccess.getSchemaSplitJoinAccess().getCommaKeyword_3_0());
             	      			
             	    }
-            	    // InternalGumboParser.g:1859:4: ( (lv_branches_4_0= ruleSchemaSequence ) )
-            	    // InternalGumboParser.g:1860:5: (lv_branches_4_0= ruleSchemaSequence )
+            	    // InternalGumbo.g:1859:4: ( (lv_branches_4_0= ruleSchemaSequence ) )
+            	    // InternalGumbo.g:1860:5: (lv_branches_4_0= ruleSchemaSequence )
             	    {
-            	    // InternalGumboParser.g:1860:5: (lv_branches_4_0= ruleSchemaSequence )
-            	    // InternalGumboParser.g:1861:6: lv_branches_4_0= ruleSchemaSequence
+            	    // InternalGumbo.g:1860:5: (lv_branches_4_0= ruleSchemaSequence )
+            	    // InternalGumbo.g:1861:6: lv_branches_4_0= ruleSchemaSequence
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5479,16 +5439,16 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt38 >= 1 ) break loop38;
+            	    if ( cnt37 >= 1 ) break loop37;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(38, input);
+                            new EarlyExitException(37, input);
                         throw eee;
                 }
-                cnt38++;
+                cnt37++;
             } while (true);
 
-            otherlv_5=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getSchemaSplitJoinAccess().getRightCurlyBracketKeyword_4());
@@ -5519,7 +5479,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchemaSequence"
-    // InternalGumboParser.g:1887:1: entryRuleSchemaSequence returns [EObject current=null] : iv_ruleSchemaSequence= ruleSchemaSequence EOF ;
+    // InternalGumbo.g:1887:1: entryRuleSchemaSequence returns [EObject current=null] : iv_ruleSchemaSequence= ruleSchemaSequence EOF ;
     public final EObject entryRuleSchemaSequence() throws RecognitionException {
         EObject current = null;
 
@@ -5527,8 +5487,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1887:55: (iv_ruleSchemaSequence= ruleSchemaSequence EOF )
-            // InternalGumboParser.g:1888:2: iv_ruleSchemaSequence= ruleSchemaSequence EOF
+            // InternalGumbo.g:1887:55: (iv_ruleSchemaSequence= ruleSchemaSequence EOF )
+            // InternalGumbo.g:1888:2: iv_ruleSchemaSequence= ruleSchemaSequence EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSchemaSequenceRule()); 
@@ -5559,7 +5519,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemaSequence"
-    // InternalGumboParser.g:1894:1: ruleSchemaSequence returns [EObject current=null] : (otherlv_0= Sequence otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket ) ;
+    // InternalGumbo.g:1894:1: ruleSchemaSequence returns [EObject current=null] : (otherlv_0= 'sequence' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' ) ;
     public final EObject ruleSchemaSequence() throws RecognitionException {
         EObject current = null;
 
@@ -5577,29 +5537,29 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGumboParser.g:1900:2: ( (otherlv_0= Sequence otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket ) )
-            // InternalGumboParser.g:1901:2: (otherlv_0= Sequence otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket )
+            // InternalGumbo.g:1900:2: ( (otherlv_0= 'sequence' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' ) )
+            // InternalGumbo.g:1901:2: (otherlv_0= 'sequence' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' )
             {
-            // InternalGumboParser.g:1901:2: (otherlv_0= Sequence otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket )
-            // InternalGumboParser.g:1902:3: otherlv_0= Sequence otherlv_1= LeftCurlyBracket ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= Semicolon )? otherlv_6= RightCurlyBracket
+            // InternalGumbo.g:1901:2: (otherlv_0= 'sequence' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}' )
+            // InternalGumbo.g:1902:3: otherlv_0= 'sequence' otherlv_1= '{' ( (lv_elements_2_0= ruleSchemaElement ) ) (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )* (otherlv_5= ';' )? otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,Sequence,FollowSets000.FOLLOW_27); if (state.failed) return current;
+            otherlv_0=(Token)match(input,58,FollowSets000.FOLLOW_27); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getSchemaSequenceAccess().getSequenceKeyword_0());
               		
             }
-            otherlv_1=(Token)match(input,LeftCurlyBracket,FollowSets000.FOLLOW_32); if (state.failed) return current;
+            otherlv_1=(Token)match(input,47,FollowSets000.FOLLOW_32); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getSchemaSequenceAccess().getLeftCurlyBracketKeyword_1());
               		
             }
-            // InternalGumboParser.g:1910:3: ( (lv_elements_2_0= ruleSchemaElement ) )
-            // InternalGumboParser.g:1911:4: (lv_elements_2_0= ruleSchemaElement )
+            // InternalGumbo.g:1910:3: ( (lv_elements_2_0= ruleSchemaElement ) )
+            // InternalGumbo.g:1911:4: (lv_elements_2_0= ruleSchemaElement )
             {
-            // InternalGumboParser.g:1911:4: (lv_elements_2_0= ruleSchemaElement )
-            // InternalGumboParser.g:1912:5: lv_elements_2_0= ruleSchemaElement
+            // InternalGumbo.g:1911:4: (lv_elements_2_0= ruleSchemaElement )
+            // InternalGumbo.g:1912:5: lv_elements_2_0= ruleSchemaElement
             {
             if ( state.backtracking==0 ) {
 
@@ -5630,38 +5590,38 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGumboParser.g:1929:3: (otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) ) )*
-            loop39:
+            // InternalGumbo.g:1929:3: (otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) ) )*
+            loop38:
             do {
-                int alt39=2;
-                int LA39_0 = input.LA(1);
+                int alt38=2;
+                int LA38_0 = input.LA(1);
 
-                if ( (LA39_0==Semicolon) ) {
-                    int LA39_1 = input.LA(2);
+                if ( (LA38_0==39) ) {
+                    int LA38_1 = input.LA(2);
 
-                    if ( (LA39_1==Label||LA39_1==Split||LA39_1==RULE_ID) ) {
-                        alt39=1;
+                    if ( (LA38_1==RULE_ID||LA38_1==54||LA38_1==56) ) {
+                        alt38=1;
                     }
 
 
                 }
 
 
-                switch (alt39) {
+                switch (alt38) {
             	case 1 :
-            	    // InternalGumboParser.g:1930:4: otherlv_3= Semicolon ( (lv_elements_4_0= ruleSchemaElement ) )
+            	    // InternalGumbo.g:1930:4: otherlv_3= ';' ( (lv_elements_4_0= ruleSchemaElement ) )
             	    {
-            	    otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_32); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_32); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_3, grammarAccess.getSchemaSequenceAccess().getSemicolonKeyword_3_0());
             	      			
             	    }
-            	    // InternalGumboParser.g:1934:4: ( (lv_elements_4_0= ruleSchemaElement ) )
-            	    // InternalGumboParser.g:1935:5: (lv_elements_4_0= ruleSchemaElement )
+            	    // InternalGumbo.g:1934:4: ( (lv_elements_4_0= ruleSchemaElement ) )
+            	    // InternalGumbo.g:1935:5: (lv_elements_4_0= ruleSchemaElement )
             	    {
-            	    // InternalGumboParser.g:1935:5: (lv_elements_4_0= ruleSchemaElement )
-            	    // InternalGumboParser.g:1936:6: lv_elements_4_0= ruleSchemaElement
+            	    // InternalGumbo.g:1935:5: (lv_elements_4_0= ruleSchemaElement )
+            	    // InternalGumbo.g:1936:6: lv_elements_4_0= ruleSchemaElement
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5697,22 +5657,22 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop39;
+            	    break loop38;
                 }
             } while (true);
 
-            // InternalGumboParser.g:1954:3: (otherlv_5= Semicolon )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // InternalGumbo.g:1954:3: (otherlv_5= ';' )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA40_0==Semicolon) ) {
-                alt40=1;
+            if ( (LA39_0==39) ) {
+                alt39=1;
             }
-            switch (alt40) {
+            switch (alt39) {
                 case 1 :
-                    // InternalGumboParser.g:1955:4: otherlv_5= Semicolon
+                    // InternalGumbo.g:1955:4: otherlv_5= ';'
                     {
-                    otherlv_5=(Token)match(input,Semicolon,FollowSets000.FOLLOW_34); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,39,FollowSets000.FOLLOW_34); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_5, grammarAccess.getSchemaSequenceAccess().getSemicolonKeyword_4());
@@ -5724,7 +5684,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_6=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_6, grammarAccess.getSchemaSequenceAccess().getRightCurlyBracketKeyword_5());
@@ -5755,7 +5715,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCompositionProperty"
-    // InternalGumboParser.g:1968:1: entryRuleCompositionProperty returns [EObject current=null] : iv_ruleCompositionProperty= ruleCompositionProperty EOF ;
+    // InternalGumbo.g:1968:1: entryRuleCompositionProperty returns [EObject current=null] : iv_ruleCompositionProperty= ruleCompositionProperty EOF ;
     public final EObject entryRuleCompositionProperty() throws RecognitionException {
         EObject current = null;
 
@@ -5763,8 +5723,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGumboParser.g:1968:60: (iv_ruleCompositionProperty= ruleCompositionProperty EOF )
-            // InternalGumboParser.g:1969:2: iv_ruleCompositionProperty= ruleCompositionProperty EOF
+            // InternalGumbo.g:1968:60: (iv_ruleCompositionProperty= ruleCompositionProperty EOF )
+            // InternalGumbo.g:1969:2: iv_ruleCompositionProperty= ruleCompositionProperty EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCompositionPropertyRule()); 
@@ -6317,7 +6277,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,Colon,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_2=(Token)match(input,38,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getPropertyBindingAccess().getColonKeyword_2());
@@ -6358,7 +6318,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_4=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getPropertyBindingAccess().getSemicolonKeyword_4());
@@ -6450,17 +6410,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:2216:2: ( ( () otherlv_1= At ( (lv_label_2_0= RULE_ID ) ) ) | ( () otherlv_4= Before ( (lv_occurrence_5_0= RULE_ID ) ) ) | ( () otherlv_7= After ( (lv_occurrence_8_0= RULE_ID ) ) ) )
             int alt48=3;
             switch ( input.LA(1) ) {
-            case At:
+            case 60:
                 {
                 alt48=1;
                 }
                 break;
-            case Before:
+            case 61:
                 {
                 alt48=2;
                 }
                 break;
-            case After:
+            case 62:
                 {
                 alt48=3;
                 }
@@ -6498,7 +6458,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_1=(Token)match(input,At,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,60,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSchemaPointAccess().getAtKeyword_0_1());
@@ -6564,7 +6524,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,Before,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,61,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_4, grammarAccess.getSchemaPointAccess().getBeforeKeyword_1_1());
@@ -6630,7 +6590,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,After,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,62,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_7, grammarAccess.getSchemaPointAccess().getAfterKeyword_2_1());
@@ -6770,7 +6730,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:2339:2: (otherlv_0= Infoflow ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon otherlv_4= From otherlv_5= LeftParenthesis ( ( (otherlv_6= RULE_ID ) ) (otherlv_7= Comma ( (otherlv_8= RULE_ID ) ) )* )? otherlv_9= RightParenthesis otherlv_10= Comma otherlv_11= To otherlv_12= LeftParenthesis ( ( (otherlv_13= RULE_ID ) ) (otherlv_14= Comma ( (otherlv_15= RULE_ID ) ) )* )? otherlv_16= RightParenthesis otherlv_17= Semicolon )
             // InternalGumboParser.g:2340:3: otherlv_0= Infoflow ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon otherlv_4= From otherlv_5= LeftParenthesis ( ( (otherlv_6= RULE_ID ) ) (otherlv_7= Comma ( (otherlv_8= RULE_ID ) ) )* )? otherlv_9= RightParenthesis otherlv_10= Comma otherlv_11= To otherlv_12= LeftParenthesis ( ( (otherlv_13= RULE_ID ) ) (otherlv_14= Comma ( (otherlv_15= RULE_ID ) ) )* )? otherlv_16= RightParenthesis otherlv_17= Semicolon
             {
-            otherlv_0=(Token)match(input,Infoflow,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,63,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getInfoFlowClauseAccess().getInfoflowKeyword_0());
@@ -6921,7 +6881,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:2410:5: otherlv_7= Comma ( (otherlv_8= RULE_ID ) )
                     	    {
-                    	    otherlv_7=(Token)match(input,Comma,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    	    otherlv_7=(Token)match(input,57,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_7, grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_6_1_0());
@@ -6972,7 +6932,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_37); if (state.failed) return current;
+            otherlv_9=(Token)match(input,66,FollowSets000.FOLLOW_37); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_9, grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_7());
@@ -7052,7 +7012,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:2466:5: otherlv_14= Comma ( (otherlv_15= RULE_ID ) )
                     	    {
-                    	    otherlv_14=(Token)match(input,Comma,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    	    otherlv_14=(Token)match(input,57,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_14, grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_11_1_0());
@@ -7103,13 +7063,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_16=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_12); if (state.failed) return current;
+            otherlv_16=(Token)match(input,66,FollowSets000.FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_16, grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_12());
               		
             }
-            otherlv_17=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_17=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_17, grammarAccess.getInfoFlowClauseAccess().getSemicolonKeyword_13());
@@ -7189,14 +7149,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         Token otherlv_2=null;
         Token otherlv_4=null;
         Token otherlv_7=null;
-        Token otherlv_8=null;
         EObject lv_modifies_3_0 = null;
 
         EObject lv_assumes_5_0 = null;
 
         EObject lv_guarantees_6_0 = null;
 
-        EObject lv_cases_9_0 = null;
+        EObject lv_cases_8_0 = null;
 
 
 
@@ -7209,7 +7168,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:2514:2: (otherlv_0= Handle ( (otherlv_1= RULE_ID ) ) otherlv_2= Colon ( ( (lv_modifies_3_0= ruleSlangModifies ) ) otherlv_4= Semicolon )? ( (lv_assumes_5_0= ruleAssumeStatement ) )* ( (lv_guarantees_6_0= ruleGuaranteeStatement ) )* ( (otherlv_7= Cases | otherlv_8= Compute_cases ) ( (lv_cases_9_0= ruleCaseStatementClause ) )+ )* )
             // InternalGumboParser.g:2515:3: otherlv_0= Handle ( (otherlv_1= RULE_ID ) ) otherlv_2= Colon ( ( (lv_modifies_3_0= ruleSlangModifies ) ) otherlv_4= Semicolon )? ( (lv_assumes_5_0= ruleAssumeStatement ) )* ( (lv_guarantees_6_0= ruleGuaranteeStatement ) )* ( (otherlv_7= Cases | otherlv_8= Compute_cases ) ( (lv_cases_9_0= ruleCaseStatementClause ) )+ )*
             {
-            otherlv_0=(Token)match(input,Handle,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,68,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getHandlerClauseAccess().getHandleKeyword_0());
@@ -7512,7 +7471,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    	      						add(
             	    	      							current,
             	    	      							"cases",
-            	    	      							lv_cases_9_0,
+            	    	      							lv_cases_8_0,
             	    	      							"org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
             	    	      						afterParserOrEnumRuleCall();
             	    	      					
@@ -7631,7 +7590,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:2652:2: (otherlv_0= Case ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_assumeStatement_4_0= ruleAnonAssumeStatement ) )? ( (lv_guaranteeStatement_5_0= ruleAnonGuaranteeStatement ) ) )
             // InternalGumboParser.g:2653:3: otherlv_0= Case ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_assumeStatement_4_0= ruleAnonAssumeStatement ) )? ( (lv_guaranteeStatement_5_0= ruleAnonGuaranteeStatement ) )
             {
-            otherlv_0=(Token)match(input,Case,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,69,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getCaseStatementClauseAccess().getCaseKeyword_0());
@@ -7708,7 +7667,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Colon,FollowSets000.FOLLOW_17); if (state.failed) return current;
+            otherlv_3=(Token)match(input,38,FollowSets000.FOLLOW_17); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getCaseStatementClauseAccess().getColonKeyword_3());
@@ -8035,7 +7994,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:2795:2: (otherlv_0= Assume ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon )
             // InternalGumboParser.g:2796:3: otherlv_0= Assume ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon
             {
-            otherlv_0=(Token)match(input,Assume,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,70,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getAssumeStatementAccess().getAssumeKeyword_0());
@@ -8112,7 +8071,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Colon,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_3=(Token)match(input,38,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getAssumeStatementAccess().getColonKeyword_3());
@@ -8153,7 +8112,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getAssumeStatementAccess().getSemicolonKeyword_5());
@@ -8243,7 +8202,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:2881:2: (otherlv_0= Assume ( (lv_expr_1_0= ruleOwnedExpression ) ) otherlv_2= Semicolon )
             // InternalGumboParser.g:2882:3: otherlv_0= Assume ( (lv_expr_1_0= ruleOwnedExpression ) ) otherlv_2= Semicolon
             {
-            otherlv_0=(Token)match(input,Assume,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_0=(Token)match(input,70,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getAnonAssumeStatementAccess().getAssumeKeyword_0());
@@ -8284,7 +8243,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_2=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getAnonAssumeStatementAccess().getSemicolonKeyword_2());
@@ -8377,7 +8336,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:2927:2: (otherlv_0= Guarantee ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon )
             // InternalGumboParser.g:2928:3: otherlv_0= Guarantee ( (lv_id_1_0= RULE_ID ) ) ( (lv_descriptor_2_0= RULE_STRING_VALUE ) )? otherlv_3= Colon ( (lv_expr_4_0= ruleOwnedExpression ) ) otherlv_5= Semicolon
             {
-            otherlv_0=(Token)match(input,Guarantee,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,71,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getGuaranteeStatementAccess().getGuaranteeKeyword_0());
@@ -8454,7 +8413,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Colon,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_3=(Token)match(input,38,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getGuaranteeStatementAccess().getColonKeyword_3());
@@ -8495,7 +8454,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getGuaranteeStatementAccess().getSemicolonKeyword_5());
@@ -8585,7 +8544,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:3013:2: (otherlv_0= Guarantee ( (lv_expr_1_0= ruleOwnedExpression ) ) otherlv_2= Semicolon )
             // InternalGumboParser.g:3014:3: otherlv_0= Guarantee ( (lv_expr_1_0= ruleOwnedExpression ) ) otherlv_2= Semicolon
             {
-            otherlv_0=(Token)match(input,Guarantee,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_0=(Token)match(input,71,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getAnonGuaranteeStatementAccess().getGuaranteeKeyword_0());
@@ -8626,7 +8585,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_2=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getAnonGuaranteeStatementAccess().getSemicolonKeyword_2());
@@ -8996,7 +8955,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            otherlv_1=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_1=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getFuncSpecAccess().getSemicolonKeyword_1());
@@ -9145,7 +9104,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,Def,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,73,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getSlangDefDefAccess().getDefKeyword_1());
@@ -9267,7 +9226,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,Colon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_5=(Token)match(input,38,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getSlangDefDefAccess().getColonKeyword_5());
@@ -9482,17 +9441,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:3337:2: (kw= Strictpure | kw= Pure | kw= Spec_1 )
             int alt69=3;
             switch ( input.LA(1) ) {
-            case Strictpure:
+            case 75:
                 {
                 alt69=1;
                 }
                 break;
-            case Pure:
+            case 76:
                 {
                 alt69=2;
                 }
                 break;
-            case Spec_1:
+            case 77:
                 {
                 alt69=3;
                 }
@@ -9509,7 +9468,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:3338:3: kw= Strictpure
                     {
-                    kw=(Token)match(input,Strictpure,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,75,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -9522,7 +9481,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalGumboParser.g:3344:3: kw= Pure
                     {
-                    kw=(Token)match(input,Pure,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,76,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -9535,7 +9494,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalGumboParser.g:3350:3: kw= Spec_1
                     {
-                    kw=(Token)match(input,Spec_1,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,77,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -9785,7 +9744,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:3423:5: otherlv_2= Comma ( (lv_params_3_0= ruleSlangDefParam ) )
                     	    {
-                    	    otherlv_2=(Token)match(input,Comma,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    	    otherlv_2=(Token)match(input,57,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_2, grammarAccess.getSlangDefParamsAccess().getCommaKeyword_1_1_0());
@@ -9841,7 +9800,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_4=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getSlangDefParamsAccess().getRightParenthesisKeyword_2());
@@ -9983,7 +9942,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:3494:4: (lv_isMethodDef_2_0= EqualsSignGreaterThanSign )
                     // InternalGumboParser.g:3495:5: lv_isMethodDef_2_0= EqualsSignGreaterThanSign
                     {
-                    lv_isMethodDef_2_0=(Token)match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    lv_isMethodDef_2_0=(Token)match(input,78,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_isMethodDef_2_0, grammarAccess.getSlangDefParamAccess().getIsMethodDefEqualsSignGreaterThanSignKeyword_2_0());
@@ -10055,7 +10014,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:3527:4: (lv_isVarArg_4_0= Asterisk )
                     // InternalGumboParser.g:3528:5: lv_isVarArg_4_0= Asterisk
                     {
-                    lv_isVarArg_4_0=(Token)match(input,Asterisk,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    lv_isVarArg_4_0=(Token)match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_isVarArg_4_0, grammarAccess.getSlangDefParamAccess().getIsVarArgAsteriskKeyword_4_0());
@@ -10271,7 +10230,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,RightSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_4=(Token)match(input,81,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getSlangTypeParamsAccess().getRightSquareBracketKeyword_3());
@@ -10373,7 +10332,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:3631:4: (lv_isMut_0_0= Mut )
                     // InternalGumboParser.g:3632:5: lv_isMut_0_0= Mut
                     {
-                    lv_isMut_0_0=(Token)match(input,Mut,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    lv_isMut_0_0=(Token)match(input,82,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_isMut_0_0, grammarAccess.getSlangTypeParamAccess().getIsMutMutKeyword_0_0());
@@ -10759,7 +10718,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_8, grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_3_1());
@@ -10860,7 +10819,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:3811:2: (otherlv_0= Invariant ( (lv_exprs_1_0= ruleOwnedExpression ) ) (otherlv_2= Comma ( (lv_exprs_3_0= ruleOwnedExpression ) ) )* )
             // InternalGumboParser.g:3812:3: otherlv_0= Invariant ( (lv_exprs_1_0= ruleOwnedExpression ) ) (otherlv_2= Comma ( (lv_exprs_3_0= ruleOwnedExpression ) ) )*
             {
-            otherlv_0=(Token)match(input,Invariant,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_0=(Token)match(input,83,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getSlangInvariantAccess().getInvariantKeyword_0());
@@ -12062,48 +12021,48 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:4210:2: ( ( () ( (lv_d_1_0= ruleSlangVarDef ) ) ) | ( () otherlv_3= If ( (lv_cond_4_0= ruleOwnedExpression ) ) ( (lv_b_5_0= ruleSlangBlock ) ) ( (lv_e_6_0= ruleSlangElse ) )? ) | ( () otherlv_8= While ( (lv_cond_9_0= ruleOwnedExpression ) ) ( (lv_l_10_0= ruleSlangLoopContract ) ) ( (lv_b_11_0= ruleSlangBlock ) ) ) | ( () otherlv_13= Match ( (lv_testExpr_14_0= ruleOwnedExpression ) ) otherlv_15= LeftCurlyBracket ( (lv_c_16_0= ruleSlangCase ) )* otherlv_17= RightCurlyBracket ) | ( () otherlv_19= Spec ( (lv_b_20_0= ruleSlangBlock ) ) ) | ( () otherlv_22= Assume ( (lv_e_23_0= ruleOwnedExpression ) ) (this_STRING_VALUE_24= RULE_STRING_VALUE )? ) | ( () otherlv_26= Assert ( (lv_e_27_0= ruleOwnedExpression ) ) (this_STRING_VALUE_28= RULE_STRING_VALUE )? ) | ( () otherlv_30= Halt (this_STRING_VALUE_31= RULE_STRING_VALUE )? ) | ( () otherlv_33= Do ( (lv_e_34_0= ruleOwnedExpression ) ) ) )
             int alt90=9;
             switch ( input.LA(1) ) {
-            case Val:
-            case Var:
+            case 95:
+            case 96:
                 {
                 alt90=1;
                 }
                 break;
-            case If:
+            case 86:
                 {
                 alt90=2;
                 }
                 break;
-            case While:
+            case 87:
                 {
                 alt90=3;
                 }
                 break;
-            case Match:
+            case 88:
                 {
                 alt90=4;
                 }
                 break;
-            case Spec:
+            case 89:
                 {
                 alt90=5;
                 }
                 break;
-            case Assume:
+            case 70:
                 {
                 alt90=6;
                 }
                 break;
-            case Assert:
+            case 90:
                 {
                 alt90=7;
                 }
                 break;
-            case Halt:
+            case 91:
                 {
                 alt90=8;
                 }
                 break;
-            case Do:
+            case 92:
                 {
                 alt90=9;
                 }
@@ -12206,7 +12165,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,If,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,86,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getSlangStmtAccess().getIfKeyword_1_1());
@@ -12358,7 +12317,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,While,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,87,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_8, grammarAccess.getSlangStmtAccess().getWhileKeyword_2_1());
@@ -12499,7 +12458,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_13=(Token)match(input,Match,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_13=(Token)match(input,88,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_13, grammarAccess.getSlangStmtAccess().getMatchKeyword_3_1());
@@ -12599,7 +12558,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_17=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_17=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_17, grammarAccess.getSlangStmtAccess().getRightCurlyBracketKeyword_3_5());
@@ -12635,7 +12594,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_19=(Token)match(input,Spec,FollowSets000.FOLLOW_27); if (state.failed) return current;
+                    otherlv_19=(Token)match(input,89,FollowSets000.FOLLOW_27); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_19, grammarAccess.getSlangStmtAccess().getSpecKeyword_4_1());
@@ -12706,7 +12665,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_22=(Token)match(input,Assume,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_22=(Token)match(input,70,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_22, grammarAccess.getSlangStmtAccess().getAssumeKeyword_5_1());
@@ -12800,7 +12759,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_26=(Token)match(input,Assert,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_26=(Token)match(input,90,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_26, grammarAccess.getSlangStmtAccess().getAssertKeyword_6_1());
@@ -12953,7 +12912,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_33=(Token)match(input,Do,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_33=(Token)match(input,92,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_33, grammarAccess.getSlangStmtAccess().getDoKeyword_8_1());
@@ -13120,7 +13079,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:4656:4: (otherlv_1= If ( (lv_cond_2_0= ruleOwnedExpression ) ) ( (lv_b_3_0= ruleSlangBlock ) ) ( (lv_e_4_0= ruleSlangElse ) )? )
                     // InternalGumboParser.g:4657:5: otherlv_1= If ( (lv_cond_2_0= ruleOwnedExpression ) ) ( (lv_b_3_0= ruleSlangBlock ) ) ( (lv_e_4_0= ruleSlangElse ) )?
                     {
-                    otherlv_1=(Token)match(input,If,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,86,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_1, grammarAccess.getSlangElseAccess().getIfKeyword_1_0_0());
@@ -13613,7 +13572,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:4842:4: otherlv_2= If ( (lv_e_3_0= ruleOwnedExpression ) )
                     {
-                    otherlv_2=(Token)match(input,If,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,86,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getSlangCaseAccess().getIfKeyword_2_0());
@@ -13976,7 +13935,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                                 }
                             } while (true);
 
-                            otherlv_6=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            otherlv_6=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					newLeafNode(otherlv_6, grammarAccess.getSlangPatternAccess().getRightParenthesisKeyword_0_2_3());
@@ -14106,7 +14065,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_11=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_11, grammarAccess.getSlangPatternAccess().getRightParenthesisKeyword_1_3());
@@ -14225,12 +14184,12 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 alt105=1;
                 }
                 break;
-            case LeftParenthesis:
+            case 65:
                 {
                 alt105=2;
                 }
                 break;
-            case KW__:
+            case 94:
                 {
                 alt105=3;
                 }
@@ -14397,7 +14356,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                                 }
                             } while (true);
 
-                            otherlv_6=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            otherlv_6=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_6, grammarAccess.getSlangTPatternAccess().getRightParenthesisKeyword_0_2_0_3());
@@ -14415,7 +14374,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                             // InternalGumboParser.g:5123:5: (otherlv_7= Colon ( (lv_type_8_0= ruleSlangType ) ) )
                             // InternalGumboParser.g:5124:6: otherlv_7= Colon ( (lv_type_8_0= ruleSlangType ) )
                             {
-                            otherlv_7=(Token)match(input,Colon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                            otherlv_7=(Token)match(input,38,FollowSets000.FOLLOW_9); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_7, grammarAccess.getSlangTPatternAccess().getColonKeyword_0_2_1_0());
@@ -14583,7 +14542,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_13=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_13=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_13, grammarAccess.getSlangTPatternAccess().getRightParenthesisKeyword_1_3());
@@ -14636,7 +14595,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalGumboParser.g:5222:5: otherlv_16= Colon ( (lv_type_17_0= ruleSlangType ) )
                             {
-                            otherlv_16=(Token)match(input,Colon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                            otherlv_16=(Token)match(input,38,FollowSets000.FOLLOW_9); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					newLeafNode(otherlv_16, grammarAccess.getSlangTPatternAccess().getColonKeyword_2_2_0());
@@ -14829,7 +14788,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:5288:4: otherlv_2= Colon ( (lv_typeName_3_0= ruleSlangType ) )
                     {
-                    otherlv_2=(Token)match(input,Colon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,38,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getSlangVarDefAccess().getColonKeyword_2_0());
@@ -14876,7 +14835,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,ColonEqualsSign,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_4=(Token)match(input,74,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getSlangVarDefAccess().getColonEqualsSignKeyword_3());
@@ -15016,7 +14975,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:5354:3: kw= Val
                     {
-                    kw=(Token)match(input,Val,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,95,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -15029,7 +14988,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalGumboParser.g:5360:3: kw= Var
                     {
-                    kw=(Token)match(input,Var,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,96,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -15248,7 +15207,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_4=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getSlangBlockAccess().getRightCurlyBracketKeyword_4());
@@ -15458,47 +15417,47 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:5486:2: (this_ImpliesExpression_0= ruleImpliesExpression | ( () otherlv_2= If otherlv_3= LeftParenthesis ( (lv_ifCond_4_0= ruleImpliesExpression ) ) otherlv_5= RightParenthesis ( (lv_thenExpr_6_0= ruleOwnedExpression ) ) otherlv_7= Else ( (lv_elseExpr_8_0= ruleOwnedExpression ) ) ) | ( () ( ( (lv_quantifier_10_1= All | lv_quantifier_10_2= ForAll | lv_quantifier_10_3= Exists | lv_quantifier_10_4= ThereExists ) ) ) otherlv_11= LeftParenthesis ( (lv_quantRange_12_0= ruleQuantRange ) ) otherlv_13= RightParenthesis otherlv_14= LeftParenthesis ( (lv_quantParam_15_0= ruleQuantParam ) ) otherlv_16= EqualsSignGreaterThanSign ( (lv_quantifiedExpr_17_0= ruleOwnedExpression ) ) otherlv_18= RightParenthesis ) )
             int alt111=3;
             switch ( input.LA(1) ) {
-            case HasEvent:
-            case MustSend:
-            case MaySend:
-            case NoSend:
-            case False:
-            case True:
-            case F32:
-            case F64:
-            case For:
-            case Not:
-            case Res:
-            case In_1:
-            case LeftParenthesis:
-            case PlusSign:
-            case HyphenMinus:
-            case F:
-            case T:
-            case LeftCurlyBracket:
+            case RULE_ID:
             case RULE_STRING_VALUE:
-            case RULE_SLI:
-            case RULE_NOT:
+            case RULE_INTEGER_LIT:
             case RULE_HEX:
             case RULE_BIN:
-            case RULE_REAL_LIT:
             case RULE_F32_LIT:
             case RULE_F64_LIT:
-            case RULE_INTEGER_LIT:
-            case RULE_ID:
+            case RULE_REAL_LIT:
+            case RULE_SLI:
+            case RULE_NOT:
+            case 47:
+            case 65:
+            case 104:
+            case 105:
+            case 106:
+            case 107:
+            case 108:
+            case 109:
+            case 111:
+            case 112:
+            case 113:
+            case 134:
+            case 135:
+            case 136:
+            case 137:
+            case 138:
+            case 144:
+            case 145:
                 {
                 alt111=1;
                 }
                 break;
-            case If:
+            case 86:
                 {
                 alt111=2;
                 }
                 break;
-            case Exists:
-            case All:
-            case ForAll:
-            case ThereExists:
+            case 97:
+            case 98:
+            case 99:
+            case 100:
                 {
                 alt111=3;
                 }
@@ -15610,7 +15569,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,66,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_5, grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_1_4());
@@ -15651,7 +15610,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,Else,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,93,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_7, grammarAccess.getSlangExpressionAccess().getElseKeyword_1_6());
@@ -15731,22 +15690,22 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:5598:6: (lv_quantifier_10_1= All | lv_quantifier_10_2= ForAll | lv_quantifier_10_3= Exists | lv_quantifier_10_4= ThereExists )
                     int alt110=4;
                     switch ( input.LA(1) ) {
-                    case All:
+                    case 97:
                         {
                         alt110=1;
                         }
                         break;
-                    case ForAll:
+                    case 98:
                         {
                         alt110=2;
                         }
                         break;
-                    case Exists:
+                    case 99:
                         {
                         alt110=3;
                         }
                         break;
-                    case ThereExists:
+                    case 100:
                         {
                         alt110=4;
                         }
@@ -15849,7 +15808,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_11=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,65,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_11, grammarAccess.getSlangExpressionAccess().getLeftParenthesisKeyword_2_2());
@@ -15937,7 +15896,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_16=(Token)match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_16=(Token)match(input,78,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_16, grammarAccess.getSlangExpressionAccess().getEqualsSignGreaterThanSignKeyword_2_7());
@@ -15978,7 +15937,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_18=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_18=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_18, grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_2_9());
@@ -16138,7 +16097,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:5764:6: lv_extent_1_1= To
                     {
-                    lv_extent_1_1=(Token)match(input,To,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    lv_extent_1_1=(Token)match(input,67,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						newLeafNode(lv_extent_1_1, grammarAccess.getQuantRangeAccess().getExtentToKeyword_1_0_0());
@@ -16158,7 +16117,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalGumboParser.g:5775:6: lv_extent_1_2= Until
                     {
-                    lv_extent_1_2=(Token)match(input,Until,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    lv_extent_1_2=(Token)match(input,101,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						newLeafNode(lv_extent_1_2, grammarAccess.getQuantRangeAccess().getExtentUntilKeyword_1_0_1());
@@ -16363,7 +16322,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:5845:3: (otherlv_1= LeftParenthesis ( (lv_name_2_0= RULE_ID ) ) otherlv_3= Colon ( (lv_typeName_4_0= ruleSlangType ) ) otherlv_5= RightParenthesis )
                     // InternalGumboParser.g:5846:4: otherlv_1= LeftParenthesis ( (lv_name_2_0= RULE_ID ) ) otherlv_3= Colon ( (lv_typeName_4_0= ruleSlangType ) ) otherlv_5= RightParenthesis
                     {
-                    otherlv_1=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getQuantParamAccess().getLeftParenthesisKeyword_1_0());
@@ -16399,7 +16358,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,Colon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,38,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getQuantParamAccess().getColonKeyword_1_2());
@@ -16440,7 +16399,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_5, grammarAccess.getQuantParamAccess().getRightParenthesisKeyword_1_4());
@@ -16692,7 +16651,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleImpliesExpression"
+    // $ANTLR end "ruleOrExpression"
 
 
     // $ANTLR start "entryRuleOrExpression"
@@ -16700,7 +16659,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
     public final EObject entryRuleOrExpression() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleOrExpression = null;
+        EObject iv_ruleAndExpression = null;
 
 
         try {
@@ -16708,15 +16667,15 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:5981:2: iv_ruleOrExpression= ruleOrExpression EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getOrExpressionRule()); 
+               newCompositeNode(grammarAccess.getAndExpressionRule()); 
             }
             pushFollow(FollowSets000.FOLLOW_1);
-            iv_ruleOrExpression=ruleOrExpression();
+            iv_ruleAndExpression=ruleAndExpression();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleOrExpression; 
+               current =iv_ruleAndExpression; 
             }
             match(input,EOF,FollowSets000.FOLLOW_2); if (state.failed) return current;
 
@@ -16732,7 +16691,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleOrExpression"
+    // $ANTLR end "entryRuleAndExpression"
 
 
     // $ANTLR start "ruleOrExpression"
@@ -16742,7 +16701,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
         Token lv_op_2_1=null;
         Token lv_op_2_2=null;
-        EObject this_AndExpression_0 = null;
+        EObject this_EqualNotExpression_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -16764,7 +16723,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             }
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getOrExpressionAccess().getAndExpressionParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getAndExpressionAccess().getEqualNotExpressionParserRuleCall_0());
               		
             }
             pushFollow(FollowSets000.FOLLOW_87);
@@ -16774,7 +16733,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_AndExpression_0;
+              			current = this_EqualNotExpression_0;
               			afterParserOrEnumRuleCall();
               		
             }
@@ -16804,7 +16763,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getOrExpressionAccess().getOrExprLeftAction_1_0(),
+            	      						grammarAccess.getAndExpressionAccess().getAndExprLeftAction_1_0(),
             	      						current);
             	      				
             	    }
@@ -16841,19 +16800,19 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	            lv_op_2_1=(Token)match(input,RULE_OR_OPS,FollowSets000.FOLLOW_82); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
-            	              							newLeafNode(lv_op_2_1, grammarAccess.getOrExpressionAccess().getOpOR_OPSTerminalRuleCall_1_1_0_0());
+            	              							newLeafNode(lv_op_2_1, grammarAccess.getAndExpressionAccess().getOpAND_OPSTerminalRuleCall_1_1_0_0());
             	              						
             	            }
             	            if ( state.backtracking==0 ) {
 
             	              							if (current==null) {
-            	              								current = createModelElement(grammarAccess.getOrExpressionRule());
+            	              								current = createModelElement(grammarAccess.getAndExpressionRule());
             	              							}
             	              							setWithLastConsumed(
             	              								current,
             	              								"op",
             	              								lv_op_2_1,
-            	              								"org.sireum.aadl.gumbo.Gumbo.OR_OPS");
+            	              								"org.sireum.aadl.gumbo.Gumbo.AND_OPS");
             	              						
             	            }
 
@@ -16865,13 +16824,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	            lv_op_2_2=(Token)match(input,Or,FollowSets000.FOLLOW_82); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
-            	              							newLeafNode(lv_op_2_2, grammarAccess.getOrExpressionAccess().getOpOrKeyword_1_1_0_1());
+            	              							newLeafNode(lv_op_2_2, grammarAccess.getAndExpressionAccess().getOpAndKeyword_1_1_0_1());
             	              						
             	            }
             	            if ( state.backtracking==0 ) {
 
             	              							if (current==null) {
-            	              								current = createModelElement(grammarAccess.getOrExpressionRule());
+            	              								current = createModelElement(grammarAccess.getAndExpressionRule());
             	              							}
             	              							setWithLastConsumed(current, "op", lv_op_2_2, null);
             	              						
@@ -16896,7 +16855,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getOrExpressionAccess().getRightAndExpressionParserRuleCall_1_2_0());
+            	      						newCompositeNode(grammarAccess.getAndExpressionAccess().getRightEqualNotExpressionParserRuleCall_1_2_0());
             	      					
             	    }
             	    pushFollow(FollowSets000.FOLLOW_87);
@@ -16907,13 +16866,13 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getOrExpressionRule());
+            	      							current = createModelElementForParent(grammarAccess.getAndExpressionRule());
             	      						}
             	      						set(
             	      							current,
             	      							"right",
             	      							lv_right_3_0,
-            	      							"org.sireum.aadl.gumbo.Gumbo.AndExpression");
+            	      							"org.sireum.aadl.gumbo.Gumbo.EqualNotExpression");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -18584,28 +18543,28 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:6656:2: (this_BaseExpr_0= ruleBaseExpr | ( () ( (lv_baseExp_2_0= ruleAccessibleBaseExpr ) ) ( (lv_posts_3_0= rulePostfix ) )* ) )
             int alt126=2;
             switch ( input.LA(1) ) {
-            case HasEvent:
-            case MustSend:
-            case MaySend:
-            case NoSend:
-            case False:
-            case True:
-            case F32:
-            case F64:
-            case For:
-            case In_1:
-            case LeftParenthesis:
-            case F:
-            case T:
-            case LeftCurlyBracket:
             case RULE_STRING_VALUE:
-            case RULE_SLI:
+            case RULE_INTEGER_LIT:
             case RULE_HEX:
             case RULE_BIN:
-            case RULE_REAL_LIT:
             case RULE_F32_LIT:
             case RULE_F64_LIT:
-            case RULE_INTEGER_LIT:
+            case RULE_REAL_LIT:
+            case RULE_SLI:
+            case 47:
+            case 65:
+            case 104:
+            case 105:
+            case 106:
+            case 107:
+            case 108:
+            case 109:
+            case 111:
+            case 112:
+            case 134:
+            case 135:
+            case 136:
+            case 137:
                 {
                 alt126=1;
                 }
@@ -18628,7 +18587,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                             if ( (LA126_6==RULE_ID) ) {
                                 switch ( input.LA(6) ) {
-                                case LeftParenthesis:
+                                case 47:
                                     {
                                     alt126=2;
                                     }
@@ -18699,6 +18658,58 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                                     alt126=1;
                                     }
                                     break;
+                                case EOF:
+                                case RULE_STRING_VALUE:
+                                case RULE_OR_OPS:
+                                case RULE_AND_OPS:
+                                case RULE_EQUAL_NOT_OPS:
+                                case RULE_LT_GT_OPS:
+                                case RULE_COLON_OP:
+                                case RULE_MULTIPLICATIVE_OP:
+                                case RULE_SLANG_OP:
+                                case RULE_IMPLIES:
+                                case RULE_SIMPLIES:
+                                case 39:
+                                case 48:
+                                case 57:
+                                case 66:
+                                case 67:
+                                case 69:
+                                case 70:
+                                case 78:
+                                case 79:
+                                case 83:
+                                case 85:
+                                case 86:
+                                case 87:
+                                case 88:
+                                case 89:
+                                case 90:
+                                case 91:
+                                case 92:
+                                case 93:
+                                case 95:
+                                case 96:
+                                case 101:
+                                case 102:
+                                case 103:
+                                case 110:
+                                case 130:
+                                case 131:
+                                case 132:
+                                case 133:
+                                case 139:
+                                case 144:
+                                case 145:
+                                    {
+                                    alt120=1;
+                                    }
+                                    break;
+                                case 65:
+                                    {
+                                    alt120=2;
+                                    }
+                                    break;
                                 default:
                                     if (state.backtracking>0) {state.failed=true; return current;}
                                     NoViableAltException nvae =
@@ -18744,7 +18755,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 }
                 }
                 break;
-            case Res:
+            case 113:
                 {
                 alt126=2;
                 }
@@ -19046,17 +19057,17 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:6737:2: ( ( () ( (lv_lit_1_0= ruleSlangLit ) ) ) | ( () ( (lv_i_3_0= ruleSlangInterp ) ) ) | ( ( () otherlv_5= In_1 otherlv_6= LeftParenthesis ) ( (otherlv_7= RULE_ID ) ) otherlv_8= RightParenthesis ) | ( ( () otherlv_10= MaySend otherlv_11= LeftParenthesis ) ( (otherlv_12= RULE_ID ) ) (otherlv_13= Comma ( (lv_value_14_0= ruleOwnedExpression ) ) )? otherlv_15= RightParenthesis ) | ( ( () otherlv_17= MustSend otherlv_18= LeftParenthesis ) ( (otherlv_19= RULE_ID ) ) (otherlv_20= Comma ( (lv_value_21_0= ruleOwnedExpression ) ) )? otherlv_22= RightParenthesis ) | ( ( () otherlv_24= NoSend otherlv_25= LeftParenthesis ) ( (otherlv_26= RULE_ID ) ) otherlv_27= RightParenthesis ) | ( ( () otherlv_29= HasEvent otherlv_30= LeftParenthesis ) ( (otherlv_31= RULE_ID ) ) otherlv_32= RightParenthesis ) | ( ( () ( ( ruleQCLREF ) ) otherlv_35= FullStop ) ( (otherlv_36= RULE_ID ) ) ) | this_FloatObjectExpr_37= ruleFloatObjectExpr | ( () otherlv_39= LeftParenthesis ( (lv_exp_40_0= ruleOwnedExpression ) ) otherlv_41= RightParenthesis ) | ( () otherlv_43= For ( (lv_r_44_0= ruleSlangForRange ) ) (otherlv_45= Comma ( (lv_r_46_0= ruleSlangForRange ) ) )* otherlv_47= Yield ( ( (lv_b_48_0= ruleSlangBlock ) ) | (otherlv_49= LeftParenthesis ( (lv_e_50_0= ruleOwnedExpression ) ) otherlv_51= RightParenthesis ) ) ) | ( () otherlv_53= LeftCurlyBracket ( ( ( ( (lv_p_54_0= ruleSlangParams ) ) otherlv_55= EqualsSignGreaterThanSign )? ( (lv_e_56_0= ruleOwnedExpression ) ) otherlv_57= RightCurlyBracket ) | ( ( (lv_stmt_58_0= ruleSlangStmt ) )* ( (lv_r_59_0= ruleSlangRet ) )? otherlv_60= RightCurlyBracket ) ) ) )
             int alt135=12;
             switch ( input.LA(1) ) {
-            case False:
-            case True:
-            case F:
-            case T:
             case RULE_STRING_VALUE:
+            case RULE_INTEGER_LIT:
             case RULE_HEX:
             case RULE_BIN:
-            case RULE_REAL_LIT:
             case RULE_F32_LIT:
             case RULE_F64_LIT:
-            case RULE_INTEGER_LIT:
+            case RULE_REAL_LIT:
+            case 134:
+            case 135:
+            case 136:
+            case 137:
                 {
                 alt135=1;
                 }
@@ -19066,27 +19077,27 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 alt135=2;
                 }
                 break;
-            case In_1:
+            case 104:
                 {
                 alt135=3;
                 }
                 break;
-            case MaySend:
+            case 105:
                 {
                 alt135=4;
                 }
                 break;
-            case MustSend:
+            case 106:
                 {
                 alt135=5;
                 }
                 break;
-            case NoSend:
+            case 107:
                 {
                 alt135=6;
                 }
                 break;
-            case HasEvent:
+            case 108:
                 {
                 alt135=7;
                 }
@@ -19096,23 +19107,23 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 alt135=8;
                 }
                 break;
-            case F32:
-            case F64:
+            case 111:
+            case 112:
                 {
                 alt135=9;
                 }
                 break;
-            case LeftParenthesis:
+            case 65:
                 {
                 alt135=10;
                 }
                 break;
-            case For:
+            case 109:
                 {
                 alt135=11;
                 }
                 break;
-            case LeftCurlyBracket:
+            case 47:
                 {
                 alt135=12;
                 }
@@ -19289,7 +19300,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_5, grammarAccess.getBaseExprAccess().getInKeyword_2_0_1());
                       				
                     }
-                    otherlv_6=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_6, grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_2_0_2());
@@ -19328,7 +19339,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_8, grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_2_2());
@@ -19373,7 +19384,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_10, grammarAccess.getBaseExprAccess().getMaySendKeyword_3_0_1());
                       				
                     }
-                    otherlv_11=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_11, grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_3_0_2());
@@ -19423,7 +19434,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalGumboParser.g:6883:5: otherlv_13= Comma ( (lv_value_14_0= ruleOwnedExpression ) )
                             {
-                            otherlv_13=(Token)match(input,Comma,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                            otherlv_13=(Token)match(input,57,FollowSets000.FOLLOW_16); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					newLeafNode(otherlv_13, grammarAccess.getBaseExprAccess().getCommaKeyword_3_2_0());
@@ -19470,7 +19481,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_15=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_15=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_15, grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_3_3());
@@ -19515,7 +19526,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_17, grammarAccess.getBaseExprAccess().getMustSendKeyword_4_0_1());
                       				
                     }
-                    otherlv_18=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_18=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_18, grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_4_0_2());
@@ -19565,7 +19576,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalGumboParser.g:6951:5: otherlv_20= Comma ( (lv_value_21_0= ruleOwnedExpression ) )
                             {
-                            otherlv_20=(Token)match(input,Comma,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                            otherlv_20=(Token)match(input,57,FollowSets000.FOLLOW_16); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					newLeafNode(otherlv_20, grammarAccess.getBaseExprAccess().getCommaKeyword_4_2_0());
@@ -19612,7 +19623,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_22=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_22=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_22, grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_4_3());
@@ -19657,7 +19668,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_24, grammarAccess.getBaseExprAccess().getNoSendKeyword_5_0_1());
                       				
                     }
-                    otherlv_25=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_25=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_25, grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_5_0_2());
@@ -19696,7 +19707,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_27=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_27=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_27, grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_5_2());
@@ -19741,7 +19752,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_29, grammarAccess.getBaseExprAccess().getHasEventKeyword_6_0_1());
                       				
                     }
-                    otherlv_30=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_30=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_30, grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_6_0_2());
@@ -19780,7 +19791,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_32=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_32=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_32, grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_6_2());
@@ -19858,7 +19869,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_35=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_35=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_35, grammarAccess.getBaseExprAccess().getFullStopKeyword_7_0_2());
@@ -19954,7 +19965,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_39=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_39=(Token)match(input,65,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_39, grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_9_1());
@@ -19995,7 +20006,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_41=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_41=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_41, grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_9_3());
@@ -20031,7 +20042,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_43=(Token)match(input,For,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_43=(Token)match(input,109,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_43, grammarAccess.getBaseExprAccess().getForKeyword_10_1());
@@ -20087,7 +20098,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:7208:5: otherlv_45= Comma ( (lv_r_46_0= ruleSlangForRange ) )
                     	    {
-                    	    otherlv_45=(Token)match(input,Comma,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    	    otherlv_45=(Token)match(input,57,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_45, grammarAccess.getBaseExprAccess().getCommaKeyword_10_3_0());
@@ -20208,7 +20219,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                             // InternalGumboParser.g:7257:5: (otherlv_49= LeftParenthesis ( (lv_e_50_0= ruleOwnedExpression ) ) otherlv_51= RightParenthesis )
                             // InternalGumboParser.g:7258:6: otherlv_49= LeftParenthesis ( (lv_e_50_0= ruleOwnedExpression ) ) otherlv_51= RightParenthesis
                             {
-                            otherlv_49=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                            otherlv_49=(Token)match(input,65,FollowSets000.FOLLOW_16); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_49, grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_10_5_1_0());
@@ -20249,7 +20260,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_51=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            otherlv_51=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_51, grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_10_5_1_2());
@@ -20367,7 +20378,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                                     }
 
-                                    otherlv_55=(Token)match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                                    otherlv_55=(Token)match(input,78,FollowSets000.FOLLOW_16); if (state.failed) return current;
                                     if ( state.backtracking==0 ) {
 
                                       							newLeafNode(otherlv_55, grammarAccess.getBaseExprAccess().getEqualsSignGreaterThanSignKeyword_11_2_0_0_1());
@@ -20414,7 +20425,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_57=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            otherlv_57=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_57, grammarAccess.getBaseExprAccess().getRightCurlyBracketKeyword_11_2_0_2());
@@ -20531,7 +20542,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_60=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            otherlv_60=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_60, grammarAccess.getBaseExprAccess().getRightCurlyBracketKeyword_11_2_1_2());
@@ -20683,7 +20694,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_1, grammarAccess.getFloatObjectExprAccess().getF32Keyword_0_1());
                       			
                     }
-                    otherlv_2=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getFloatObjectExprAccess().getFullStopKeyword_0_2());
@@ -20755,7 +20766,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_5, grammarAccess.getFloatObjectExprAccess().getF64Keyword_1_1());
                       			
                     }
-                    otherlv_6=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_6, grammarAccess.getFloatObjectExprAccess().getFullStopKeyword_1_2());
@@ -21061,7 +21072,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,LeftCurlyBracket,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,47,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_5, grammarAccess.getAccessibleBaseExprAccess().getLeftCurlyBracketKeyword_1_0_2());
@@ -21097,7 +21108,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,EqualsSign,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,50,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_7, grammarAccess.getAccessibleBaseExprAccess().getEqualsSignKeyword_1_0_4());
@@ -21156,7 +21167,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:7644:5: otherlv_9= Semicolon ( (otherlv_10= RULE_ID ) ) otherlv_11= EqualsSign ( (lv_argExpr_12_0= ruleOwnedExpression ) )
                     	    {
-                    	    otherlv_9=(Token)match(input,Semicolon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    	    otherlv_9=(Token)match(input,39,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_9, grammarAccess.getAccessibleBaseExprAccess().getSemicolonKeyword_1_2_0());
@@ -21192,7 +21203,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    otherlv_11=(Token)match(input,EqualsSign,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    	    otherlv_11=(Token)match(input,50,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_11, grammarAccess.getAccessibleBaseExprAccess().getEqualsSignKeyword_1_2_2());
@@ -21242,7 +21253,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_13=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_13=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_13, grammarAccess.getAccessibleBaseExprAccess().getRightCurlyBracketKeyword_1_3());
@@ -21338,7 +21349,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_17=(Token)match(input,Res,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_17=(Token)match(input,113,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_17, grammarAccess.getAccessibleBaseExprAccess().getResKeyword_3_1());
@@ -21461,7 +21472,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalGumboParser.g:7766:4: kw= ColonColon this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,ColonColon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            	    kw=(Token)match(input,114,FollowSets000.FOLLOW_9); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				current.merge(kw);
@@ -21504,7 +21515,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:7780:4: kw= FullStop this_ID_4= RULE_ID
                     {
-                    kw=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    kw=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
@@ -21806,7 +21817,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:7865:2: (otherlv_0= FullStop ( (otherlv_1= RULE_ID ) ) )
             // InternalGumboParser.g:7866:3: otherlv_0= FullStop ( (otherlv_1= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getMemberAccessAccess().getFullStopKeyword_0());
@@ -22065,77 +22076,77 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:7956:2: (kw= Size | kw= ToB | kw= ToZ | kw= ToC | kw= ToR | kw= ToS8 | kw= ToS16 | kw= ToS32 | kw= ToS64 | kw= ToU8 | kw= ToU16 | kw= ToU32 | kw= ToU64 | kw= ToF32 | kw= ToF64 )
             int alt142=15;
             switch ( input.LA(1) ) {
-            case Size:
+            case 115:
                 {
                 alt142=1;
                 }
                 break;
-            case ToB:
+            case 116:
                 {
                 alt142=2;
                 }
                 break;
-            case ToZ:
+            case 117:
                 {
                 alt142=3;
                 }
                 break;
-            case ToC:
+            case 118:
                 {
                 alt142=4;
                 }
                 break;
-            case ToR:
+            case 119:
                 {
                 alt142=5;
                 }
                 break;
-            case ToS8:
+            case 120:
                 {
                 alt142=6;
                 }
                 break;
-            case ToS16:
+            case 121:
                 {
                 alt142=7;
                 }
                 break;
-            case ToS32:
+            case 122:
                 {
                 alt142=8;
                 }
                 break;
-            case ToS64:
+            case 123:
                 {
                 alt142=9;
                 }
                 break;
-            case ToU8:
+            case 124:
                 {
                 alt142=10;
                 }
                 break;
-            case ToU16:
+            case 125:
                 {
                 alt142=11;
                 }
                 break;
-            case ToU32:
+            case 126:
                 {
                 alt142=12;
                 }
                 break;
-            case ToU64:
+            case 127:
                 {
                 alt142=13;
                 }
                 break;
-            case ToF32:
+            case 128:
                 {
                 alt142=14;
                 }
                 break;
-            case ToF64:
+            case 129:
                 {
                 alt142=15;
                 }
@@ -22152,7 +22163,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:7957:3: kw= Size
                     {
-                    kw=(Token)match(input,Size,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,115,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22165,7 +22176,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalGumboParser.g:7963:3: kw= ToB
                     {
-                    kw=(Token)match(input,ToB,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,116,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22178,7 +22189,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalGumboParser.g:7969:3: kw= ToZ
                     {
-                    kw=(Token)match(input,ToZ,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,117,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22191,7 +22202,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // InternalGumboParser.g:7975:3: kw= ToC
                     {
-                    kw=(Token)match(input,ToC,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,118,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22204,7 +22215,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // InternalGumboParser.g:7981:3: kw= ToR
                     {
-                    kw=(Token)match(input,ToR,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,119,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22217,7 +22228,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 6 :
                     // InternalGumboParser.g:7987:3: kw= ToS8
                     {
-                    kw=(Token)match(input,ToS8,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,120,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22230,7 +22241,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 7 :
                     // InternalGumboParser.g:7993:3: kw= ToS16
                     {
-                    kw=(Token)match(input,ToS16,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,121,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22243,7 +22254,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 8 :
                     // InternalGumboParser.g:7999:3: kw= ToS32
                     {
-                    kw=(Token)match(input,ToS32,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,122,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22256,7 +22267,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 9 :
                     // InternalGumboParser.g:8005:3: kw= ToS64
                     {
-                    kw=(Token)match(input,ToS64,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,123,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22269,7 +22280,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 10 :
                     // InternalGumboParser.g:8011:3: kw= ToU8
                     {
-                    kw=(Token)match(input,ToU8,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,124,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22282,7 +22293,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 11 :
                     // InternalGumboParser.g:8017:3: kw= ToU16
                     {
-                    kw=(Token)match(input,ToU16,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,125,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22295,7 +22306,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 12 :
                     // InternalGumboParser.g:8023:3: kw= ToU32
                     {
-                    kw=(Token)match(input,ToU32,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,126,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22308,7 +22319,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 13 :
                     // InternalGumboParser.g:8029:3: kw= ToU64
                     {
-                    kw=(Token)match(input,ToU64,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,127,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22321,7 +22332,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 14 :
                     // InternalGumboParser.g:8035:3: kw= ToF32
                     {
-                    kw=(Token)match(input,ToF32,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,128,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22334,7 +22345,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 15 :
                     // InternalGumboParser.g:8041:3: kw= ToF64
                     {
-                    kw=(Token)match(input,ToF64,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,129,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -22516,7 +22527,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:8100:5: otherlv_3= Comma ( (lv_index_4_0= ruleOwnedExpression ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,Comma,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    	    otherlv_3=(Token)match(input,57,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_3, grammarAccess.getArrayAccessAccess().getCommaKeyword_2_1_0());
@@ -22572,7 +22583,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getArrayAccessAccess().getRightParenthesisKeyword_3());
@@ -22764,7 +22775,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:8186:4: otherlv_2= FullStop ( (lv_path_3_0= ruleOtherDataRef ) )
                     {
-                    otherlv_2=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getOtherDataRefAccess().getFullStopKeyword_1_0());
@@ -22997,7 +23008,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_4=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getSlangParamsAccess().getRightParenthesisKeyword_3());
@@ -23101,7 +23112,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:8301:4: otherlv_0= Var
                     {
-                    otherlv_0=(Token)match(input,Var,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,96,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_0, grammarAccess.getSlangParamAccess().getVarKeyword_0());
@@ -23160,7 +23171,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:8329:4: otherlv_3= EqualsSignGreaterThanSign
                     {
-                    otherlv_3=(Token)match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,78,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getSlangParamAccess().getEqualsSignGreaterThanSignKeyword_3());
@@ -23218,7 +23229,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:8354:4: otherlv_5= Asterisk
                     {
-                    otherlv_5=(Token)match(input,Asterisk,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_5, grammarAccess.getSlangParamAccess().getAsteriskKeyword_5());
@@ -23327,7 +23338,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_ID_0, grammarAccess.getSlangForRangeAccess().getIDTerminalRuleCall_0());
               		
             }
-            otherlv_1=(Token)match(input,Colon,FollowSets000.FOLLOW_16); if (state.failed) return current;
+            otherlv_1=(Token)match(input,38,FollowSets000.FOLLOW_16); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getSlangForRangeAccess().getColonKeyword_1());
@@ -23400,7 +23411,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalGumboParser.g:8407:5: otherlv_3= FullStopFullStop
                             {
-                            otherlv_3=(Token)match(input,FullStopFullStop,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                            otherlv_3=(Token)match(input,130,FollowSets000.FOLLOW_16); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					newLeafNode(otherlv_3, grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0());
@@ -23412,7 +23423,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // InternalGumboParser.g:8412:5: otherlv_4= FullStopFullStopLessThanSign
                             {
-                            otherlv_4=(Token)match(input,FullStopFullStopLessThanSign,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                            otherlv_4=(Token)match(input,131,FollowSets000.FOLLOW_16); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					newLeafNode(otherlv_4, grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1());
@@ -23470,7 +23481,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalGumboParser.g:8437:5: otherlv_6= By ( (lv_step_7_0= ruleOwnedExpression ) )
                             {
-                            otherlv_6=(Token)match(input,By,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                            otherlv_6=(Token)match(input,132,FollowSets000.FOLLOW_16); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               					newLeafNode(otherlv_6, grammarAccess.getSlangForRangeAccess().getByKeyword_3_2_0());
@@ -23983,7 +23994,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:8616:5: otherlv_3= Comma ( (lv_arg_4_0= ruleOwnedExpression ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,Comma,FollowSets000.FOLLOW_16); if (state.failed) return current;
+                    	    otherlv_3=(Token)match(input,57,FollowSets000.FOLLOW_16); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_3, grammarAccess.getSlangCallArgsAccess().getCommaKeyword_2_1_0());
@@ -24039,7 +24050,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getSlangCallArgsAccess().getRightParenthesisKeyword_3());
@@ -24136,10 +24147,10 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:8663:2: ( ( () ( ( (lv_value_1_1= T | lv_value_1_2= F | lv_value_1_3= True | lv_value_1_4= False ) ) ) ) | ( () ( (lv_value_3_0= RULE_INTEGER_LIT ) ) ) | ( () ( (lv_value_5_0= RULE_HEX ) ) ) | ( () ( (lv_value_7_0= RULE_BIN ) ) ) | ( () ( (lv_value_9_0= RULE_F32_LIT ) ) ) | ( () ( ( (lv_value_11_1= RULE_F64_LIT | lv_value_11_2= RULE_REAL_LIT ) ) ) ) | ( () ( (lv_value_13_0= RULE_STRING_VALUE ) ) ) )
             int alt159=7;
             switch ( input.LA(1) ) {
-            case False:
-            case True:
-            case F:
-            case T:
+            case 134:
+            case 135:
+            case 136:
+            case 137:
                 {
                 alt159=1;
                 }
@@ -24164,8 +24175,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 alt159=5;
                 }
                 break;
-            case RULE_REAL_LIT:
             case RULE_F64_LIT:
+            case RULE_REAL_LIT:
                 {
                 alt159=6;
                 }
@@ -24217,22 +24228,22 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:8677:6: (lv_value_1_1= T | lv_value_1_2= F | lv_value_1_3= True | lv_value_1_4= False )
                     int alt157=4;
                     switch ( input.LA(1) ) {
-                    case T:
+                    case 134:
                         {
                         alt157=1;
                         }
                         break;
-                    case F:
+                    case 135:
                         {
                         alt157=2;
                         }
                         break;
-                    case True:
+                    case 136:
                         {
                         alt157=3;
                         }
                         break;
-                    case False:
+                    case 137:
                         {
                         alt157=4;
                         }
@@ -24249,7 +24260,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalGumboParser.g:8678:7: lv_value_1_1= T
                             {
-                            lv_value_1_1=(Token)match(input,T,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            lv_value_1_1=(Token)match(input,134,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							newLeafNode(lv_value_1_1, grammarAccess.getSlangLitAccess().getValueTKeyword_0_1_0_0());
@@ -24269,7 +24280,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // InternalGumboParser.g:8689:7: lv_value_1_2= F
                             {
-                            lv_value_1_2=(Token)match(input,F,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            lv_value_1_2=(Token)match(input,135,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							newLeafNode(lv_value_1_2, grammarAccess.getSlangLitAccess().getValueFKeyword_0_1_0_1());
@@ -24289,7 +24300,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 3 :
                             // InternalGumboParser.g:8700:7: lv_value_1_3= True
                             {
-                            lv_value_1_3=(Token)match(input,True,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            lv_value_1_3=(Token)match(input,136,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							newLeafNode(lv_value_1_3, grammarAccess.getSlangLitAccess().getValueTrueKeyword_0_1_0_2());
@@ -24309,7 +24320,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         case 4 :
                             // InternalGumboParser.g:8711:7: lv_value_1_4= False
                             {
-                            lv_value_1_4=(Token)match(input,False,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                            lv_value_1_4=(Token)match(input,137,FollowSets000.FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							newLeafNode(lv_value_1_4, grammarAccess.getSlangLitAccess().getValueFalseKeyword_0_1_0_3());
@@ -25061,8 +25072,8 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:9020:2: (this_PlusMinus_0= rulePlusMinus | this_NOT_1= RULE_NOT | kw= Not )
             int alt160=3;
             switch ( input.LA(1) ) {
-            case PlusSign:
-            case HyphenMinus:
+            case 144:
+            case 145:
                 {
                 alt160=1;
                 }
@@ -25072,7 +25083,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 alt160=2;
                 }
                 break;
-            case Not:
+            case 138:
                 {
                 alt160=3;
                 }
@@ -25132,7 +25143,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalGumboParser.g:9040:3: kw= Not
                     {
-                    kw=(Token)match(input,Not,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,138,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -25517,7 +25528,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 alt163=2;
                 }
                 break;
-            case Implies:
+            case 139:
                 {
                 alt163=3;
                 }
@@ -25568,7 +25579,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalGumboParser.g:9154:3: kw= Implies
                     {
-                    kw=(Token)match(input,Implies,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,139,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -26002,7 +26013,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:9309:5: otherlv_9= Comma ( (lv_appliesTo_10_0= ruleContainmentPath ) )
                     	    {
-                    	    otherlv_9=(Token)match(input,Comma,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    	    otherlv_9=(Token)match(input,57,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_9, grammarAccess.getContainedPropertyAssociationAccess().getCommaKeyword_4_2_0());
@@ -26089,7 +26100,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       				afterParserOrEnumRuleCall();
                       			
                     }
-                    otherlv_12=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_12=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_12, grammarAccess.getContainedPropertyAssociationAccess().getLeftParenthesisKeyword_5_1());
@@ -26134,7 +26145,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_14=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_12); if (state.failed) return current;
+                    otherlv_14=(Token)match(input,66,FollowSets000.FOLLOW_12); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_14, grammarAccess.getContainedPropertyAssociationAccess().getRightParenthesisKeyword_5_3());
@@ -26146,7 +26157,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_15=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_15=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_15, grammarAccess.getContainedPropertyAssociationAccess().getSemicolonKeyword_6());
@@ -26420,7 +26431,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                       				afterParserOrEnumRuleCall();
                       			
                     }
-                    otherlv_2=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getOptionalModalPropertyValueAccess().getLeftParenthesisKeyword_1_1());
@@ -26471,7 +26482,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalGumboParser.g:9483:5: otherlv_4= Comma ( (otherlv_5= RULE_ID ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,Comma,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    	    otherlv_4=(Token)match(input,57,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_4, grammarAccess.getOptionalModalPropertyValueAccess().getCommaKeyword_1_3_0());
@@ -26516,7 +26527,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_6, grammarAccess.getOptionalModalPropertyValueAccess().getRightParenthesisKeyword_1_4());
@@ -27278,7 +27289,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                     // InternalGumboParser.g:9762:5: (lv_value_1_0= True )
                     // InternalGumboParser.g:9763:6: lv_value_1_0= True
                     {
-                    lv_value_1_0=(Token)match(input,True,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    lv_value_1_0=(Token)match(input,136,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						newLeafNode(lv_value_1_0, grammarAccess.getBooleanLiteralAccess().getValueTrueKeyword_1_0_0());
@@ -27304,7 +27315,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalGumboParser.g:9776:4: otherlv_2= False
                     {
-                    otherlv_2=(Token)match(input,False,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,137,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1_1());
@@ -27519,7 +27530,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getReferenceTermAccess().getReferenceKeyword_0());
               		
             }
-            otherlv_1=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getReferenceTermAccess().getLeftParenthesisKeyword_1());
@@ -27560,7 +27571,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getReferenceTermAccess().getRightParenthesisKeyword_3());
@@ -27650,7 +27661,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:9885:2: (otherlv_0= LeftSquareBracket ( (lv_ownedFieldValue_1_0= ruleFieldPropertyAssociation ) )+ otherlv_2= RightSquareBracket )
             // InternalGumboParser.g:9886:3: otherlv_0= LeftSquareBracket ( (lv_ownedFieldValue_1_0= ruleFieldPropertyAssociation ) )+ otherlv_2= RightSquareBracket
             {
-            otherlv_0=(Token)match(input,LeftSquareBracket,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_0=(Token)match(input,80,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0());
@@ -27715,7 +27726,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 cnt174++;
             } while (true);
 
-            otherlv_2=(Token)match(input,RightSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_2=(Token)match(input,81,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_2());
@@ -27811,7 +27822,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getComputedTermAccess().getComputeKeyword_0());
               		
             }
-            otherlv_1=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getComputedTermAccess().getLeftParenthesisKeyword_1());
@@ -27847,7 +27858,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getComputedTermAccess().getRightParenthesisKeyword_3());
@@ -27942,7 +27953,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getComponentClassifierTermAccess().getClassifierKeyword_0());
               		
             }
-            otherlv_1=(Token)match(input,LeftParenthesis,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            otherlv_1=(Token)match(input,65,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getComponentClassifierTermAccess().getLeftParenthesisKeyword_1());
@@ -27987,7 +27998,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getComponentClassifierTermAccess().getRightParenthesisKeyword_3());
@@ -28221,7 +28232,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getListTermAccess().getRightParenthesisKeyword_3());
@@ -28383,7 +28394,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getFieldPropertyAssociationAccess().getSemicolonKeyword_3());
@@ -28575,7 +28586,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:10214:4: otherlv_2= FullStop ( (lv_path_3_0= ruleContainmentPathElement ) )
                     {
-                    otherlv_2=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_2, grammarAccess.getContainmentPathElementAccess().getFullStopKeyword_1_0());
@@ -28721,7 +28732,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:10257:3: kw= PlusSign
                     {
-                    kw=(Token)match(input,PlusSign,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,144,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -28734,7 +28745,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalGumboParser.g:10263:3: kw= HyphenMinus
                     {
-                    kw=(Token)match(input,HyphenMinus,FollowSets000.FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,145,FollowSets000.FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -29145,7 +29156,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,RightSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            otherlv_5=(Token)match(input,81,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getArrayRangeAccess().getRightSquareBracketKeyword_4());
@@ -30199,7 +30210,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:10756:2: (this_RealTerm_0= ruleRealTerm | this_IntegerTerm_1= ruleIntegerTerm | this_SignedConstant_2= ruleSignedConstant | this_ConstantValue_3= ruleConstantValue )
             int alt186=4;
             switch ( input.LA(1) ) {
-            case PlusSign:
+            case 144:
                 {
                 switch ( input.LA(2) ) {
                 case RULE_REAL_LIT:
@@ -30227,7 +30238,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                 }
                 break;
-            case HyphenMinus:
+            case 145:
                 {
                 switch ( input.LA(2) ) {
                 case RULE_REAL_LIT:
@@ -30475,7 +30486,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(kw, grammarAccess.getAppliesToKeywordsAccess().getAppliesKeyword_0());
               		
             }
-            kw=(Token)match(input,To,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,67,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current.merge(kw);
@@ -30570,7 +30581,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(kw, grammarAccess.getInBindingKeywordsAccess().getInKeyword_0());
               		
             }
-            kw=(Token)match(input,Binding,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,149,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current.merge(kw);
@@ -30665,7 +30676,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(kw, grammarAccess.getInModesKeywordsAccess().getInKeyword_0());
               		
             }
-            kw=(Token)match(input,Modes,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,150,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current.merge(kw);
@@ -30852,7 +30863,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_ID_0, grammarAccess.getQCLREFAccess().getIDTerminalRuleCall_0());
               		
             }
-            kw=(Token)match(input,ColonColon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            kw=(Token)match(input,114,FollowSets000.FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current.merge(kw);
@@ -30975,7 +30986,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:10980:4: kw= ColonColon this_ID_2= RULE_ID
                     {
-                    kw=(Token)match(input,ColonColon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    kw=(Token)match(input,114,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
@@ -31115,7 +31126,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             	      				newLeafNode(this_ID_0, grammarAccess.getQCREFAccess().getIDTerminalRuleCall_0_0());
             	      			
             	    }
-            	    kw=(Token)match(input,ColonColon,FollowSets000.FOLLOW_9); if (state.failed) return current;
+            	    kw=(Token)match(input,114,FollowSets000.FOLLOW_9); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				current.merge(kw);
@@ -31153,7 +31164,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalGumboParser.g:11034:4: kw= FullStop this_ID_4= RULE_ID
                     {
-                    kw=(Token)match(input,FullStop,FollowSets000.FOLLOW_9); if (state.failed) return current;
+                    kw=(Token)match(input,51,FollowSets000.FOLLOW_9); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current.merge(kw);
@@ -31255,7 +31266,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             // InternalGumboParser.g:11064:2: (kw= Asterisk )
             // InternalGumboParser.g:11065:2: kw= Asterisk
             {
-            kw=(Token)match(input,Asterisk,FollowSets000.FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(kw);
@@ -31341,7 +31352,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
                 }
 
-                otherlv_55=(Token)match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_16); if (state.failed) return ;
+                otherlv_55=(Token)match(input,78,FollowSets000.FOLLOW_16); if (state.failed) return ;
 
                 }
                 break;
@@ -31370,7 +31381,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
 
         }
 
-        otherlv_57=(Token)match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+        otherlv_57=(Token)match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
         }
 
@@ -31522,7 +31533,7 @@ public class InternalGumboParser extends AbstractInternalAntlrParser {
             "\1\6\12\uffff\1\13\5\uffff\1\12\11\uffff\1\10",
             "\1\14",
             "",
-            "\1\13\17\uffff\1\10"
+            "\1\11\21\uffff\1\13"
     };
 
     static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);

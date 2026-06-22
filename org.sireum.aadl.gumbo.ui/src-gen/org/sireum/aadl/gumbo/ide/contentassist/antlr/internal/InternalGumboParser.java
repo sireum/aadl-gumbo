@@ -1,6 +1,4 @@
 package org.sireum.aadl.gumbo.ide.contentassist.antlr.internal;
-import java.util.Map;
-import java.util.HashMap;
 
 import java.io.InputStream;
 import org.eclipse.xtext.*;
@@ -205,7 +203,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
         
 
     public String[] getTokenNames() { return InternalGumboParser.tokenNames; }
-    public String getGrammarFileName() { return "InternalGumboParser.g"; }
+    public String getGrammarFileName() { return "InternalGumbo.g"; }
 
 
     	private GumboGrammarAccess grammarAccess;
@@ -343,10 +341,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
     	@Override
     	protected String getValueForTokenName(String tokenName) {
-    		String result = tokenNameToValue.get(tokenName);
-    		if (result == null)
-    			result = tokenName;
-    		return result;
+    		return tokenName;
     	}
 
 
@@ -11907,7 +11902,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSTARAccess().getAsteriskKeyword()); 
             }
-            match(input,Asterisk,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,37,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSTARAccess().getAsteriskKeyword()); 
             }
@@ -11945,17 +11940,26 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
             if ( (LA1_0==Cases) ) {
                 alt1=1;
-            }
-            else if ( (LA1_0==Compute_cases) ) {
+                }
+                break;
+            case 96:
+                {
                 alt1=2;
-            }
-            else {
+                }
+                break;
+            case RULE_ID:
+                {
+                alt1=3;
+                }
+                break;
+            default:
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
                     new NoViableAltException("", 1, 0, input);
 
                 throw nvae;
             }
+
             switch (alt1) {
                 case 1 :
                     // InternalGumboParser.g:3613:2: ( Cases )
@@ -12152,7 +12156,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             else {
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
+                    new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
             }
@@ -12528,17 +12532,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:3750:1: ( ( Strictpure ) | ( Pure ) | ( Spec_1 ) )
             int alt7=3;
             switch ( input.LA(1) ) {
-            case Strictpure:
+            case 38:
                 {
                 alt7=1;
                 }
                 break;
-            case Pure:
+            case 39:
                 {
                 alt7=2;
                 }
                 break;
-            case Spec_1:
+            case 40:
                 {
                 alt7=3;
                 }
@@ -12561,7 +12565,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangDefModsAccess().getStrictpureKeyword_0()); 
                     }
-                    match(input,Strictpure,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,38,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangDefModsAccess().getStrictpureKeyword_0()); 
                     }
@@ -12580,7 +12584,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangDefModsAccess().getPureKeyword_1()); 
                     }
-                    match(input,Pure,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,39,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangDefModsAccess().getPureKeyword_1()); 
                     }
@@ -12599,7 +12603,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangDefModsAccess().getSpecKeyword_2()); 
                     }
-                    match(input,Spec_1,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,40,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangDefModsAccess().getSpecKeyword_2()); 
                     }
@@ -12636,48 +12640,48 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:3777:1: ( ( ( rule__SlangStmt__Group_0__0 ) ) | ( ( rule__SlangStmt__Group_1__0 ) ) | ( ( rule__SlangStmt__Group_2__0 ) ) | ( ( rule__SlangStmt__Group_3__0 ) ) | ( ( rule__SlangStmt__Group_4__0 ) ) | ( ( rule__SlangStmt__Group_5__0 ) ) | ( ( rule__SlangStmt__Group_6__0 ) ) | ( ( rule__SlangStmt__Group_7__0 ) ) | ( ( rule__SlangStmt__Group_8__0 ) ) )
             int alt8=9;
             switch ( input.LA(1) ) {
-            case Val:
-            case Var:
+            case 41:
+            case 42:
                 {
                 alt8=1;
                 }
                 break;
-            case If:
+            case 119:
                 {
                 alt8=2;
                 }
                 break;
-            case While:
+            case 120:
                 {
                 alt8=3;
                 }
                 break;
-            case Match:
+            case 121:
                 {
                 alt8=4;
                 }
                 break;
-            case Spec:
+            case 122:
                 {
                 alt8=5;
                 }
                 break;
-            case Assume:
+            case 109:
                 {
                 alt8=6;
                 }
                 break;
-            case Assert:
+            case 123:
                 {
                 alt8=7;
                 }
                 break;
-            case Halt:
+            case 124:
                 {
                 alt8=8;
                 }
                 break;
-            case Do:
+            case 125:
                 {
                 alt8=9;
                 }
@@ -13178,12 +13182,12 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 alt11=1;
                 }
                 break;
-            case LeftParenthesis:
+            case 105:
                 {
                 alt11=2;
                 }
                 break;
-            case KW__:
+            case 127:
                 {
                 alt11=3;
                 }
@@ -13435,7 +13439,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangVarModAccess().getValKeyword_0()); 
                     }
-                    match(input,Val,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,41,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangVarModAccess().getValKeyword_0()); 
                     }
@@ -13454,7 +13458,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangVarModAccess().getVarKeyword_1()); 
                     }
-                    match(input,Var,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,42,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangVarModAccess().getVarKeyword_1()); 
                     }
@@ -13491,47 +13495,47 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:3951:1: ( ( ruleImpliesExpression ) | ( ( rule__SlangExpression__Group_1__0 ) ) | ( ( rule__SlangExpression__Group_2__0 ) ) )
             int alt14=3;
             switch ( input.LA(1) ) {
-            case HasEvent:
-            case MustSend:
-            case MaySend:
-            case NoSend:
-            case False:
-            case True:
-            case F32:
-            case F64:
-            case For:
-            case Not:
-            case Res:
-            case In_1:
-            case LeftParenthesis:
-            case PlusSign:
-            case HyphenMinus:
-            case F:
-            case T:
-            case LeftCurlyBracket:
-            case RULE_STRING_VALUE:
-            case RULE_SLI:
+            case RULE_ID:
+            case RULE_INTEGER_LIT:
+            case RULE_F64_LIT:
+            case RULE_REAL_LIT:
             case RULE_NOT:
+            case RULE_STRING_VALUE:
             case RULE_HEX:
             case RULE_BIN:
-            case RULE_REAL_LIT:
             case RULE_F32_LIT:
-            case RULE_F64_LIT:
-            case RULE_INTEGER_LIT:
-            case RULE_ID:
+            case RULE_SLI:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+            case 72:
+            case 75:
+            case 76:
+            case 87:
+            case 105:
+            case 128:
+            case 129:
+            case 130:
+            case 131:
+            case 132:
+            case 133:
+            case 135:
+            case 136:
+            case 137:
                 {
                 alt14=1;
                 }
                 break;
-            case If:
+            case 119:
                 {
                 alt14=2;
                 }
                 break;
-            case Exists:
-            case All:
-            case ForAll:
-            case ThereExists:
+            case 43:
+            case 44:
+            case 45:
+            case 46:
                 {
                 alt14=3;
                 }
@@ -13653,22 +13657,22 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:3978:1: ( ( All ) | ( ForAll ) | ( Exists ) | ( ThereExists ) )
             int alt15=4;
             switch ( input.LA(1) ) {
-            case All:
+            case 43:
                 {
                 alt15=1;
                 }
                 break;
-            case ForAll:
+            case 44:
                 {
                 alt15=2;
                 }
                 break;
-            case Exists:
+            case 45:
                 {
                 alt15=3;
                 }
                 break;
-            case ThereExists:
+            case 46:
                 {
                 alt15=4;
                 }
@@ -13691,7 +13695,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangExpressionAccess().getQuantifierAllKeyword_2_1_0_0()); 
                     }
-                    match(input,All,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,43,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangExpressionAccess().getQuantifierAllKeyword_2_1_0_0()); 
                     }
@@ -13710,7 +13714,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangExpressionAccess().getQuantifierForAllKeyword_2_1_0_1()); 
                     }
-                    match(input,ForAll,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,44,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangExpressionAccess().getQuantifierForAllKeyword_2_1_0_1()); 
                     }
@@ -13729,7 +13733,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangExpressionAccess().getQuantifierExistsKeyword_2_1_0_2()); 
                     }
-                    match(input,Exists,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,45,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangExpressionAccess().getQuantifierExistsKeyword_2_1_0_2()); 
                     }
@@ -13748,7 +13752,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangExpressionAccess().getQuantifierThereExistsKeyword_2_1_0_3()); 
                     }
-                    match(input,ThereExists,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,46,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangExpressionAccess().getQuantifierThereExistsKeyword_2_1_0_3()); 
                     }
@@ -13809,7 +13813,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getQuantRangeAccess().getExtentToKeyword_1_0_0()); 
                     }
-                    match(input,To,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,47,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getQuantRangeAccess().getExtentToKeyword_1_0_0()); 
                     }
@@ -13828,7 +13832,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getQuantRangeAccess().getExtentUntilKeyword_1_0_1()); 
                     }
-                    match(input,Until,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,48,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getQuantRangeAccess().getExtentUntilKeyword_1_0_1()); 
                     }
@@ -14008,7 +14012,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getOrExpressionAccess().getOpOrKeyword_1_1_0_1()); 
                     }
-                    match(input,Or,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,49,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getOrExpressionAccess().getOpOrKeyword_1_1_0_1()); 
                     }
@@ -14088,7 +14092,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAndExpressionAccess().getOpAndKeyword_1_1_0_1()); 
                     }
-                    match(input,And,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,50,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getAndExpressionAccess().getOpAndKeyword_1_1_0_1()); 
                     }
@@ -14219,28 +14223,28 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:4116:1: ( ( ruleBaseExpr ) | ( ( rule__PrimaryExpr__Group_1__0 ) ) )
             int alt21=2;
             switch ( input.LA(1) ) {
-            case HasEvent:
-            case MustSend:
-            case MaySend:
-            case NoSend:
-            case False:
-            case True:
-            case F32:
-            case F64:
-            case For:
-            case In_1:
-            case LeftParenthesis:
-            case F:
-            case T:
-            case LeftCurlyBracket:
+            case RULE_INTEGER_LIT:
+            case RULE_F64_LIT:
+            case RULE_REAL_LIT:
             case RULE_STRING_VALUE:
-            case RULE_SLI:
             case RULE_HEX:
             case RULE_BIN:
-            case RULE_REAL_LIT:
             case RULE_F32_LIT:
-            case RULE_F64_LIT:
-            case RULE_INTEGER_LIT:
+            case RULE_SLI:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+            case 87:
+            case 105:
+            case 128:
+            case 129:
+            case 130:
+            case 131:
+            case 132:
+            case 133:
+            case 135:
+            case 136:
                 {
                 alt21=1;
                 }
@@ -14263,54 +14267,54 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
                             if ( (LA21_6==RULE_ID) ) {
                                 switch ( input.LA(6) ) {
-                                case EOF:
-                                case Invariant:
-                                case Modifies:
-                                case Implies:
-                                case Assert:
-                                case Assume:
-                                case Return:
-                                case Match:
-                                case Until:
-                                case While:
-                                case Yield:
-                                case Case:
-                                case Else:
-                                case Halt:
-                                case Spec:
-                                case FullStopFullStopLessThanSign:
-                                case And:
-                                case Val:
-                                case Var:
-                                case FullStopFullStop:
-                                case EqualsSignGreaterThanSign:
-                                case By:
-                                case Do:
-                                case If:
-                                case Or:
-                                case To:
-                                case RightParenthesis:
-                                case Asterisk:
-                                case PlusSign:
-                                case Comma:
-                                case HyphenMinus:
-                                case Semicolon:
-                                case RightCurlyBracket:
-                                case RULE_STRING_VALUE:
-                                case RULE_MULTIPLICATIVE_OP:
-                                case RULE_SLANG_OP:
-                                case RULE_COLON_OP:
-                                case RULE_LT_GT_OPS:
-                                case RULE_EQUAL_NOT_OPS:
-                                case RULE_AND_OPS:
-                                case RULE_OR_OPS:
-                                case RULE_IMPLIES:
-                                case RULE_SIMPLIES:
+                                case 105:
                                     {
                                     alt21=1;
                                     }
                                     break;
-                                case LeftCurlyBracket:
+                                case EOF:
+                                case RULE_OR_OPS:
+                                case RULE_AND_OPS:
+                                case RULE_MULTIPLICATIVE_OP:
+                                case RULE_SLANG_OP:
+                                case RULE_IMPLIES:
+                                case RULE_SIMPLIES:
+                                case RULE_STRING_VALUE:
+                                case RULE_EQUAL_NOT_OPS:
+                                case RULE_LT_GT_OPS:
+                                case RULE_COLON_OP:
+                                case 37:
+                                case 41:
+                                case 42:
+                                case 47:
+                                case 48:
+                                case 49:
+                                case 50:
+                                case 66:
+                                case 67:
+                                case 73:
+                                case 74:
+                                case 75:
+                                case 76:
+                                case 78:
+                                case 88:
+                                case 97:
+                                case 106:
+                                case 108:
+                                case 109:
+                                case 116:
+                                case 118:
+                                case 119:
+                                case 120:
+                                case 121:
+                                case 122:
+                                case 123:
+                                case 124:
+                                case 125:
+                                case 126:
+                                case 134:
+                                case 139:
+                                case 140:
                                     {
                                     int LA21_8 = input.LA(7);
 
@@ -14379,7 +14383,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case Res:
+            case 137:
                 {
                 alt21=2;
                 }
@@ -14472,17 +14476,17 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:4137:1: ( ( ( rule__BaseExpr__Group_0__0 ) ) | ( ( rule__BaseExpr__Group_1__0 ) ) | ( ( rule__BaseExpr__Group_2__0 ) ) | ( ( rule__BaseExpr__Group_3__0 ) ) | ( ( rule__BaseExpr__Group_4__0 ) ) | ( ( rule__BaseExpr__Group_5__0 ) ) | ( ( rule__BaseExpr__Group_6__0 ) ) | ( ( rule__BaseExpr__Group_7__0 ) ) | ( ruleFloatObjectExpr ) | ( ( rule__BaseExpr__Group_9__0 ) ) | ( ( rule__BaseExpr__Group_10__0 ) ) | ( ( rule__BaseExpr__Group_11__0 ) ) )
             int alt22=12;
             switch ( input.LA(1) ) {
-            case False:
-            case True:
-            case F:
-            case T:
+            case RULE_INTEGER_LIT:
+            case RULE_F64_LIT:
+            case RULE_REAL_LIT:
             case RULE_STRING_VALUE:
             case RULE_HEX:
             case RULE_BIN:
-            case RULE_REAL_LIT:
             case RULE_F32_LIT:
-            case RULE_F64_LIT:
-            case RULE_INTEGER_LIT:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
                 {
                 alt22=1;
                 }
@@ -14492,27 +14496,27 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 alt22=2;
                 }
                 break;
-            case In_1:
+            case 128:
                 {
                 alt22=3;
                 }
                 break;
-            case MaySend:
+            case 129:
                 {
                 alt22=4;
                 }
                 break;
-            case MustSend:
+            case 130:
                 {
                 alt22=5;
                 }
                 break;
-            case NoSend:
+            case 131:
                 {
                 alt22=6;
                 }
                 break;
-            case HasEvent:
+            case 132:
                 {
                 alt22=7;
                 }
@@ -14522,23 +14526,23 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 alt22=8;
                 }
                 break;
-            case F32:
-            case F64:
+            case 135:
+            case 136:
                 {
                 alt22=9;
                 }
                 break;
-            case LeftParenthesis:
+            case 105:
                 {
                 alt22=10;
                 }
                 break;
-            case For:
+            case 133:
                 {
                 alt22=11;
                 }
                 break;
-            case LeftCurlyBracket:
+            case 87:
                 {
                 alt22=12;
                 }
@@ -15476,77 +15480,77 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:4341:1: ( ( Size ) | ( ToB ) | ( ToZ ) | ( ToC ) | ( ToR ) | ( ToS8 ) | ( ToS16 ) | ( ToS32 ) | ( ToS64 ) | ( ToU8 ) | ( ToU16 ) | ( ToU32 ) | ( ToU64 ) | ( ToF32 ) | ( ToF64 ) )
             int alt28=15;
             switch ( input.LA(1) ) {
-            case Size:
+            case 51:
                 {
                 alt28=1;
                 }
                 break;
-            case ToB:
+            case 52:
                 {
                 alt28=2;
                 }
                 break;
-            case ToZ:
+            case 53:
                 {
                 alt28=3;
                 }
                 break;
-            case ToC:
+            case 54:
                 {
                 alt28=4;
                 }
                 break;
-            case ToR:
+            case 55:
                 {
                 alt28=5;
                 }
                 break;
-            case ToS8:
+            case 56:
                 {
                 alt28=6;
                 }
                 break;
-            case ToS16:
+            case 57:
                 {
                 alt28=7;
                 }
                 break;
-            case ToS32:
+            case 58:
                 {
                 alt28=8;
                 }
                 break;
-            case ToS64:
+            case 59:
                 {
                 alt28=9;
                 }
                 break;
-            case ToU8:
+            case 60:
                 {
                 alt28=10;
                 }
                 break;
-            case ToU16:
+            case 61:
                 {
                 alt28=11;
                 }
                 break;
-            case ToU32:
+            case 62:
                 {
                 alt28=12;
                 }
                 break;
-            case ToU64:
+            case 63:
                 {
                 alt28=13;
                 }
                 break;
-            case ToF32:
+            case 64:
                 {
                 alt28=14;
                 }
                 break;
-            case ToF64:
+            case 65:
                 {
                 alt28=15;
                 }
@@ -15569,7 +15573,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getSizeKeyword_0()); 
                     }
-                    match(input,Size,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,51,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getSizeKeyword_0()); 
                     }
@@ -15588,7 +15592,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToBKeyword_1()); 
                     }
-                    match(input,ToB,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,52,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToBKeyword_1()); 
                     }
@@ -15607,7 +15611,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToZKeyword_2()); 
                     }
-                    match(input,ToZ,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,53,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToZKeyword_2()); 
                     }
@@ -15626,7 +15630,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToCKeyword_3()); 
                     }
-                    match(input,ToC,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,54,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToCKeyword_3()); 
                     }
@@ -15645,7 +15649,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToRKeyword_4()); 
                     }
-                    match(input,ToR,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,55,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToRKeyword_4()); 
                     }
@@ -15664,7 +15668,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToS8Keyword_5()); 
                     }
-                    match(input,ToS8,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,56,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToS8Keyword_5()); 
                     }
@@ -15683,7 +15687,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToS16Keyword_6()); 
                     }
-                    match(input,ToS16,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,57,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToS16Keyword_6()); 
                     }
@@ -15702,7 +15706,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToS32Keyword_7()); 
                     }
-                    match(input,ToS32,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,58,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToS32Keyword_7()); 
                     }
@@ -15721,7 +15725,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToS64Keyword_8()); 
                     }
-                    match(input,ToS64,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,59,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToS64Keyword_8()); 
                     }
@@ -15740,7 +15744,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToU8Keyword_9()); 
                     }
-                    match(input,ToU8,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,60,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToU8Keyword_9()); 
                     }
@@ -15759,7 +15763,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToU16Keyword_10()); 
                     }
-                    match(input,ToU16,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,61,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToU16Keyword_10()); 
                     }
@@ -15778,7 +15782,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToU32Keyword_11()); 
                     }
-                    match(input,ToU32,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,62,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToU32Keyword_11()); 
                     }
@@ -15797,7 +15801,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToU64Keyword_12()); 
                     }
-                    match(input,ToU64,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,63,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToU64Keyword_12()); 
                     }
@@ -15816,7 +15820,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToF32Keyword_13()); 
                     }
-                    match(input,ToF32,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,64,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToF32Keyword_13()); 
                     }
@@ -15835,7 +15839,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBuiltinMethodNameAccess().getToF64Keyword_14()); 
                     }
-                    match(input,ToF64,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,65,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBuiltinMethodNameAccess().getToF64Keyword_14()); 
                     }
@@ -15896,7 +15900,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0()); 
                     }
-                    match(input,FullStopFullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangForRangeAccess().getFullStopFullStopKeyword_3_0_0()); 
                     }
@@ -15915,7 +15919,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()); 
                     }
-                    match(input,FullStopFullStopLessThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,67,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangForRangeAccess().getFullStopFullStopLessThanSignKeyword_3_0_1()); 
                     }
@@ -15952,10 +15956,10 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:4461:1: ( ( ( rule__SlangLit__Group_0__0 ) ) | ( ( rule__SlangLit__Group_1__0 ) ) | ( ( rule__SlangLit__Group_2__0 ) ) | ( ( rule__SlangLit__Group_3__0 ) ) | ( ( rule__SlangLit__Group_4__0 ) ) | ( ( rule__SlangLit__Group_5__0 ) ) | ( ( rule__SlangLit__Group_6__0 ) ) )
             int alt30=7;
             switch ( input.LA(1) ) {
-            case False:
-            case True:
-            case F:
-            case T:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
                 {
                 alt30=1;
                 }
@@ -15980,8 +15984,8 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 alt30=5;
                 }
                 break;
-            case RULE_REAL_LIT:
             case RULE_F64_LIT:
+            case RULE_REAL_LIT:
                 {
                 alt30=6;
                 }
@@ -16230,22 +16234,22 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:4512:1: ( ( T ) | ( F ) | ( True ) | ( False ) )
             int alt31=4;
             switch ( input.LA(1) ) {
-            case T:
+            case 68:
                 {
                 alt31=1;
                 }
                 break;
-            case F:
+            case 69:
                 {
                 alt31=2;
                 }
                 break;
-            case True:
+            case 70:
                 {
                 alt31=3;
                 }
                 break;
-            case False:
+            case 71:
                 {
                 alt31=4;
                 }
@@ -16268,7 +16272,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangLitAccess().getValueTKeyword_0_1_0_0()); 
                     }
-                    match(input,T,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,68,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangLitAccess().getValueTKeyword_0_1_0_0()); 
                     }
@@ -16287,7 +16291,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangLitAccess().getValueFKeyword_0_1_0_1()); 
                     }
-                    match(input,F,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,69,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangLitAccess().getValueFKeyword_0_1_0_1()); 
                     }
@@ -16306,7 +16310,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangLitAccess().getValueTrueKeyword_0_1_0_2()); 
                     }
-                    match(input,True,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,70,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangLitAccess().getValueTrueKeyword_0_1_0_2()); 
                     }
@@ -16325,7 +16329,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSlangLitAccess().getValueFalseKeyword_0_1_0_3()); 
                     }
-                    match(input,False,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,71,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSlangLitAccess().getValueFalseKeyword_0_1_0_3()); 
                     }
@@ -16442,8 +16446,8 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:4566:1: ( ( rulePlusMinus ) | ( RULE_NOT ) | ( Not ) )
             int alt33=3;
             switch ( input.LA(1) ) {
-            case PlusSign:
-            case HyphenMinus:
+            case 75:
+            case 76:
                 {
                 alt33=1;
                 }
@@ -16453,7 +16457,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 alt33=2;
                 }
                 break;
-            case Not:
+            case 72:
                 {
                 alt33=3;
                 }
@@ -16518,7 +16522,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getUnaryOpAccess().getNotKeyword_2()); 
                     }
-                    match(input,Not,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,72,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getUnaryOpAccess().getNotKeyword_2()); 
                     }
@@ -16733,7 +16737,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 alt36=2;
                 }
                 break;
-            case Implies:
+            case 73:
                 {
                 alt36=3;
                 }
@@ -16794,7 +16798,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getImpliesOpsAccess().getImpliesKeyword_2()); 
                     }
-                    match(input,Implies,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,73,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getImpliesOpsAccess().getImpliesKeyword_2()); 
                     }
@@ -16855,7 +16859,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getContainedPropertyAssociationAccess().getEqualsSignGreaterThanSignKeyword_1_0()); 
                     }
-                    match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,74,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getContainedPropertyAssociationAccess().getEqualsSignGreaterThanSignKeyword_1_0()); 
                     }
@@ -17255,7 +17259,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1_1()); 
                     }
-                    match(input,False,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,71,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBooleanLiteralAccess().getFalseKeyword_1_1()); 
                     }
@@ -17316,7 +17320,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getPlusMinusAccess().getPlusSignKeyword_0()); 
                     }
-                    match(input,PlusSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,75,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getPlusMinusAccess().getPlusSignKeyword_0()); 
                     }
@@ -17335,7 +17339,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getPlusMinusAccess().getHyphenMinusKeyword_1()); 
                     }
-                    match(input,HyphenMinus,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,76,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getPlusMinusAccess().getHyphenMinusKeyword_1()); 
                     }
@@ -17396,7 +17400,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSignedIntAccess().getPlusSignKeyword_0_0()); 
                     }
-                    match(input,PlusSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,75,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSignedIntAccess().getPlusSignKeyword_0_0()); 
                     }
@@ -17415,7 +17419,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSignedIntAccess().getHyphenMinusKeyword_0_1()); 
                     }
-                    match(input,HyphenMinus,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,76,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSignedIntAccess().getHyphenMinusKeyword_0_1()); 
                     }
@@ -17476,7 +17480,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSignedRealAccess().getPlusSignKeyword_0_0()); 
                     }
-                    match(input,PlusSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,75,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSignedRealAccess().getPlusSignKeyword_0_0()); 
                     }
@@ -17495,7 +17499,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getSignedRealAccess().getHyphenMinusKeyword_0_1()); 
                     }
-                    match(input,HyphenMinus,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,76,FollowSets000.FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getSignedRealAccess().getHyphenMinusKeyword_0_1()); 
                     }
@@ -17532,7 +17536,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:4842:1: ( ( ruleRealTerm ) | ( ruleIntegerTerm ) | ( ruleSignedConstant ) | ( ruleConstantValue ) )
             int alt43=4;
             switch ( input.LA(1) ) {
-            case PlusSign:
+            case 75:
                 {
                 switch ( input.LA(2) ) {
                 case RULE_INTEGER_LIT:
@@ -17560,7 +17564,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
                 }
                 break;
-            case HyphenMinus:
+            case 76:
                 {
                 switch ( input.LA(2) ) {
                 case RULE_ID:
@@ -18893,7 +18897,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStateAccess().getStateKeyword_0()); 
             }
-            match(input,State,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,77,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getStateAccess().getStateKeyword_0()); 
             }
@@ -19276,7 +19280,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStateVarDeclAccess().getSemicolonKeyword_2()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getStateVarDeclAccess().getSemicolonKeyword_2()); 
             }
@@ -19439,7 +19443,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStateVarDeclAccess().getColonKeyword_0_1()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getStateVarDeclAccess().getColonKeyword_0_1()); 
             }
@@ -19518,7 +19522,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvariantsAccess().getInvariantsKeyword_0()); 
             }
-            match(input,Invariants,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,80,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvariantsAccess().getInvariantsKeyword_0()); 
             }
@@ -19728,7 +19732,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvSpecAccess().getInvKeyword_0()); 
             }
-            match(input,Inv,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,81,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvSpecAccess().getInvKeyword_0()); 
             }
@@ -19996,7 +20000,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvSpecAccess().getColonKeyword_3()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvSpecAccess().getColonKeyword_3()); 
             }
@@ -20159,7 +20163,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvSpecAccess().getSemicolonKeyword_5()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvSpecAccess().getSemicolonKeyword_5()); 
             }
@@ -20238,7 +20242,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIntegrationAccess().getIntegrationKeyword_0()); 
             }
-            match(input,Integration,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,82,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIntegrationAccess().getIntegrationKeyword_0()); 
             }
@@ -20527,7 +20531,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInitializeAccess().getInitializeKeyword_1()); 
             }
-            match(input,Initialize,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,83,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInitializeAccess().getInitializeKeyword_1()); 
             }
@@ -20999,7 +21003,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInitializeAccess().getSemicolonKeyword_2_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInitializeAccess().getSemicolonKeyword_2_1()); 
             }
@@ -21157,7 +21161,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComputeAccess().getComputeKeyword_1()); 
             }
-            match(input,Compute,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,84,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComputeAccess().getComputeKeyword_1()); 
             }
@@ -21950,7 +21954,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComputeAccess().getSemicolonKeyword_2_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComputeAccess().getSemicolonKeyword_2_1()); 
             }
@@ -22027,7 +22031,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:6152:2: ( rule__Compute__Alternatives_5_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getComputeAccess().getAlternatives_5_0()); 
+               before(grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0()); 
             }
             // InternalGumboParser.g:6153:2: ( rule__Compute__Alternatives_5_0 )
             // InternalGumboParser.g:6153:3: rule__Compute__Alternatives_5_0
@@ -22041,7 +22045,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getComputeAccess().getAlternatives_5_0()); 
+               after(grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0()); 
             }
 
             }
@@ -22249,7 +22253,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompositionAccess().getCompositionKeyword_0()); 
             }
-            match(input,Composition,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,86,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompositionAccess().getCompositionKeyword_0()); 
             }
@@ -22417,7 +22421,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompositionAccess().getLeftCurlyBracketKeyword_2()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompositionAccess().getLeftCurlyBracketKeyword_2()); 
             }
@@ -22987,7 +22991,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompositionAccess().getRightCurlyBracketKeyword_8()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompositionAccess().getRightCurlyBracketKeyword_8()); 
             }
@@ -23066,7 +23070,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleComponentAliasesAccess().getComponentsKeyword_0()); 
             }
-            match(input,Components,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,89,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleComponentAliasesAccess().getComponentsKeyword_0()); 
             }
@@ -23365,7 +23369,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleComponentAliasAccess().getEqualsSignKeyword_1()); 
             }
-            match(input,EqualsSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,90,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleComponentAliasAccess().getEqualsSignKeyword_1()); 
             }
@@ -23528,7 +23532,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleComponentAliasAccess().getSemicolonKeyword_3()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleComponentAliasAccess().getSemicolonKeyword_3()); 
             }
@@ -23791,7 +23795,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleSubcomponentPathAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleSubcomponentPathAccess().getFullStopKeyword_1_0()); 
             }
@@ -23954,7 +23958,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchedulePortAliasesAccess().getPortsKeyword_0()); 
             }
-            match(input,Ports,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,92,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchedulePortAliasesAccess().getPortsKeyword_0()); 
             }
@@ -24253,7 +24257,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchedulePortAliasAccess().getEqualsSignKeyword_1()); 
             }
-            match(input,EqualsSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,90,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchedulePortAliasAccess().getEqualsSignKeyword_1()); 
             }
@@ -24416,7 +24420,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchedulePortAliasAccess().getSemicolonKeyword_3()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchedulePortAliasAccess().getSemicolonKeyword_3()); 
             }
@@ -24679,7 +24683,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchedulePortPathAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchedulePortPathAccess().getFullStopKeyword_1_0()); 
             }
@@ -24842,7 +24846,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleStateVarAliasesAccess().getStateKeyword_0()); 
             }
-            match(input,State,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,77,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleStateVarAliasesAccess().getStateKeyword_0()); 
             }
@@ -25141,7 +25145,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleStateVarAliasAccess().getEqualsSignKeyword_1()); 
             }
-            match(input,EqualsSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,90,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleStateVarAliasAccess().getEqualsSignKeyword_1()); 
             }
@@ -25304,7 +25308,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleStateVarAliasAccess().getSemicolonKeyword_3()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleStateVarAliasAccess().getSemicolonKeyword_3()); 
             }
@@ -25567,7 +25571,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScheduleStateVarPathAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getScheduleStateVarPathAccess().getFullStopKeyword_1_0()); 
             }
@@ -25730,7 +25734,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaAccess().getSchemaKeyword_0()); 
             }
-            match(input,Schema,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,93,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaAccess().getSchemaKeyword_0()); 
             }
@@ -25809,7 +25813,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -26101,7 +26105,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 case 1 :
                     // InternalGumboParser.g:7396:3: Semicolon
                     {
-                    match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -26181,7 +26185,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaAccess().getRightCurlyBracketKeyword_5()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaAccess().getRightCurlyBracketKeyword_5()); 
             }
@@ -26260,7 +26264,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaAccess().getSemicolonKeyword_3_0()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaAccess().getSemicolonKeyword_3_0()); 
             }
@@ -26423,7 +26427,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaLabelAccess().getLabelKeyword_0()); 
             }
-            match(input,Label,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,94,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaLabelAccess().getLabelKeyword_0()); 
             }
@@ -26770,7 +26774,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaComponentRefAccess().getCommercialAtKeyword_1_0()); 
             }
-            match(input,CommercialAt,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,95,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaComponentRefAccess().getCommercialAtKeyword_1_0()); 
             }
@@ -26933,7 +26937,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSplitJoinAccess().getSplitKeyword_0()); 
             }
-            match(input,Split,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,96,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSplitJoinAccess().getSplitKeyword_0()); 
             }
@@ -27012,7 +27016,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSplitJoinAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSplitJoinAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -27311,7 +27315,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSplitJoinAccess().getRightCurlyBracketKeyword_4()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSplitJoinAccess().getRightCurlyBracketKeyword_4()); 
             }
@@ -27390,7 +27394,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSplitJoinAccess().getCommaKeyword_3_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSplitJoinAccess().getCommaKeyword_3_0()); 
             }
@@ -27553,7 +27557,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSequenceAccess().getSequenceKeyword_0()); 
             }
-            match(input,Sequence,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,98,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSequenceAccess().getSequenceKeyword_0()); 
             }
@@ -27632,7 +27636,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSequenceAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSequenceAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -27924,7 +27928,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 case 1 :
                     // InternalGumboParser.g:7970:3: Semicolon
                     {
-                    match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -28004,7 +28008,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSequenceAccess().getRightCurlyBracketKeyword_5()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSequenceAccess().getRightCurlyBracketKeyword_5()); 
             }
@@ -28083,7 +28087,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaSequenceAccess().getSemicolonKeyword_3_0()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaSequenceAccess().getSemicolonKeyword_3_0()); 
             }
@@ -29606,7 +29610,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyBindingAccess().getColonKeyword_2()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPropertyBindingAccess().getColonKeyword_2()); 
             }
@@ -29769,7 +29773,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyBindingAccess().getSemicolonKeyword_4()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPropertyBindingAccess().getSemicolonKeyword_4()); 
             }
@@ -29927,7 +29931,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaPointAccess().getAtKeyword_0_1()); 
             }
-            match(input,At,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,100,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaPointAccess().getAtKeyword_0_1()); 
             }
@@ -30169,7 +30173,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaPointAccess().getBeforeKeyword_1_1()); 
             }
-            match(input,Before,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,101,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaPointAccess().getBeforeKeyword_1_1()); 
             }
@@ -30411,7 +30415,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSchemaPointAccess().getAfterKeyword_2_1()); 
             }
-            match(input,After,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,102,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSchemaPointAccess().getAfterKeyword_2_1()); 
             }
@@ -30574,7 +30578,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getInfoflowKeyword_0()); 
             }
-            match(input,Infoflow,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,103,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getInfoflowKeyword_0()); 
             }
@@ -30842,7 +30846,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getColonKeyword_3()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getColonKeyword_3()); 
             }
@@ -30921,7 +30925,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getFromKeyword_4()); 
             }
-            match(input,From,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,104,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getFromKeyword_4()); 
             }
@@ -31000,7 +31004,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getLeftParenthesisKeyword_5()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getLeftParenthesisKeyword_5()); 
             }
@@ -31179,7 +31183,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_7()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_7()); 
             }
@@ -31258,7 +31262,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_8()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_8()); 
             }
@@ -31337,7 +31341,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getToKeyword_9()); 
             }
-            match(input,To,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,47,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getToKeyword_9()); 
             }
@@ -31416,7 +31420,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getLeftParenthesisKeyword_10()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getLeftParenthesisKeyword_10()); 
             }
@@ -31595,7 +31599,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_12()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getRightParenthesisKeyword_12()); 
             }
@@ -31669,7 +31673,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getSemicolonKeyword_13()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getSemicolonKeyword_13()); 
             }
@@ -31939,7 +31943,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_6_1_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_6_1_0()); 
             }
@@ -32293,7 +32297,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_11_1_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInfoFlowClauseAccess().getCommaKeyword_11_1_0()); 
             }
@@ -32456,7 +32460,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getHandlerClauseAccess().getHandleKeyword_0()); 
             }
-            match(input,Handle,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,107,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getHandlerClauseAccess().getHandleKeyword_0()); 
             }
@@ -32624,7 +32628,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getHandlerClauseAccess().getColonKeyword_2()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getHandlerClauseAccess().getColonKeyword_2()); 
             }
@@ -33203,7 +33207,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getHandlerClauseAccess().getSemicolonKeyword_3_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getHandlerClauseAccess().getSemicolonKeyword_3_1()); 
             }
@@ -33280,7 +33284,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             // InternalGumboParser.g:9643:2: ( rule__HandlerClause__Alternatives_6_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getHandlerClauseAccess().getAlternatives_6_0()); 
+               before(grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0()); 
             }
             // InternalGumboParser.g:9644:2: ( rule__HandlerClause__Alternatives_6_0 )
             // InternalGumboParser.g:9644:3: rule__HandlerClause__Alternatives_6_0
@@ -33294,7 +33298,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getHandlerClauseAccess().getAlternatives_6_0()); 
+               after(grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0()); 
             }
 
             }
@@ -33502,7 +33506,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseStatementClauseAccess().getCaseKeyword_0()); 
             }
-            match(input,Case,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,108,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCaseStatementClauseAccess().getCaseKeyword_0()); 
             }
@@ -33770,7 +33774,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseStatementClauseAccess().getColonKeyword_3()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCaseStatementClauseAccess().getColonKeyword_3()); 
             }
@@ -34033,7 +34037,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssumeStatementAccess().getAssumeKeyword_0()); 
             }
-            match(input,Assume,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,109,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssumeStatementAccess().getAssumeKeyword_0()); 
             }
@@ -34301,7 +34305,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssumeStatementAccess().getColonKeyword_3()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssumeStatementAccess().getColonKeyword_3()); 
             }
@@ -34464,7 +34468,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssumeStatementAccess().getSemicolonKeyword_5()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssumeStatementAccess().getSemicolonKeyword_5()); 
             }
@@ -34543,7 +34547,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnonAssumeStatementAccess().getAssumeKeyword_0()); 
             }
-            match(input,Assume,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,109,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAnonAssumeStatementAccess().getAssumeKeyword_0()); 
             }
@@ -34706,7 +34710,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnonAssumeStatementAccess().getSemicolonKeyword_2()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAnonAssumeStatementAccess().getSemicolonKeyword_2()); 
             }
@@ -34785,7 +34789,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGuaranteeStatementAccess().getGuaranteeKeyword_0()); 
             }
-            match(input,Guarantee,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,110,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getGuaranteeStatementAccess().getGuaranteeKeyword_0()); 
             }
@@ -35053,7 +35057,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGuaranteeStatementAccess().getColonKeyword_3()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getGuaranteeStatementAccess().getColonKeyword_3()); 
             }
@@ -35216,7 +35220,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGuaranteeStatementAccess().getSemicolonKeyword_5()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getGuaranteeStatementAccess().getSemicolonKeyword_5()); 
             }
@@ -35295,7 +35299,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnonGuaranteeStatementAccess().getGuaranteeKeyword_0()); 
             }
-            match(input,Guarantee,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,110,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAnonGuaranteeStatementAccess().getGuaranteeKeyword_0()); 
             }
@@ -35458,7 +35462,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnonGuaranteeStatementAccess().getSemicolonKeyword_2()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAnonGuaranteeStatementAccess().getSemicolonKeyword_2()); 
             }
@@ -35537,7 +35541,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionsAccess().getFunctionsKeyword_0()); 
             }
-            match(input,Functions,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,111,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFunctionsAccess().getFunctionsKeyword_0()); 
             }
@@ -35825,7 +35829,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFuncSpecAccess().getSemicolonKeyword_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFuncSpecAccess().getSemicolonKeyword_1()); 
             }
@@ -36004,7 +36008,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefDefAccess().getDefKeyword_1()); 
             }
-            match(input,Def,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,112,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefDefAccess().getDefKeyword_1()); 
             }
@@ -36361,7 +36365,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefDefAccess().getColonKeyword_5()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefDefAccess().getColonKeyword_5()); 
             }
@@ -36624,7 +36628,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefDefAccess().getColonEqualsSignKeyword_7_0()); 
             }
-            match(input,ColonEqualsSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,113,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefDefAccess().getColonEqualsSignKeyword_7_0()); 
             }
@@ -36876,7 +36880,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefParamsAccess().getLeftParenthesisKeyword_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefParamsAccess().getLeftParenthesisKeyword_0()); 
             }
@@ -37050,7 +37054,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefParamsAccess().getRightParenthesisKeyword_2()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefParamsAccess().getRightParenthesisKeyword_2()); 
             }
@@ -37320,7 +37324,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefParamsAccess().getCommaKeyword_1_1_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefParamsAccess().getCommaKeyword_1_1_0()); 
             }
@@ -37572,7 +37576,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefParamAccess().getColonKeyword_1()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefParamAccess().getColonKeyword_1()); 
             }
@@ -37935,7 +37939,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTypeParamsAccess().getLeftSquareBracketKeyword_0()); 
             }
-            match(input,LeftSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,114,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTypeParamsAccess().getLeftSquareBracketKeyword_0()); 
             }
@@ -38205,7 +38209,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTypeParamsAccess().getRightSquareBracketKeyword_3()); 
             }
-            match(input,RightSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,115,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTypeParamsAccess().getRightSquareBracketKeyword_3()); 
             }
@@ -38284,7 +38288,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTypeParamsAccess().getCommaKeyword_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTypeParamsAccess().getCommaKeyword_2_0()); 
             }
@@ -39273,7 +39277,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_0_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_0_1()); 
             }
@@ -39436,7 +39440,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_1_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_1_1()); 
             }
@@ -39599,7 +39603,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_2_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_2_1()); 
             }
@@ -39762,7 +39766,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_3_1()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefContractAccess().getSemicolonKeyword_1_3_1()); 
             }
@@ -39841,7 +39845,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangInvariantAccess().getInvariantKeyword_0()); 
             }
-            match(input,Invariant,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,116,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangInvariantAccess().getInvariantKeyword_0()); 
             }
@@ -40111,7 +40115,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangInvariantAccess().getCommaKeyword_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangInvariantAccess().getCommaKeyword_2_0()); 
             }
@@ -40274,7 +40278,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangRequiresAccess().getAssumeKeyword_0()); 
             }
-            match(input,Assume,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,109,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangRequiresAccess().getAssumeKeyword_0()); 
             }
@@ -40544,7 +40548,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangRequiresAccess().getCommaKeyword_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangRequiresAccess().getCommaKeyword_2_0()); 
             }
@@ -40707,7 +40711,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangReadsAccess().getReadsKeyword_0()); 
             }
-            match(input,Reads,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,117,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangReadsAccess().getReadsKeyword_0()); 
             }
@@ -40977,7 +40981,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangReadsAccess().getCommaKeyword_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangReadsAccess().getCommaKeyword_2_0()); 
             }
@@ -41140,7 +41144,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangModifiesAccess().getModifiesKeyword_0()); 
             }
-            match(input,Modifies,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,118,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangModifiesAccess().getModifiesKeyword_0()); 
             }
@@ -41410,7 +41414,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangModifiesAccess().getCommaKeyword_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangModifiesAccess().getCommaKeyword_2_0()); 
             }
@@ -41573,7 +41577,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangEnsuresAccess().getGuaranteeKeyword_0()); 
             }
-            match(input,Guarantee,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,110,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangEnsuresAccess().getGuaranteeKeyword_0()); 
             }
@@ -41843,7 +41847,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangEnsuresAccess().getCommaKeyword_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangEnsuresAccess().getCommaKeyword_2_0()); 
             }
@@ -42248,7 +42252,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getIfKeyword_1_1()); 
             }
-            match(input,If,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,119,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getIfKeyword_1_1()); 
             }
@@ -42679,7 +42683,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getWhileKeyword_2_1()); 
             }
-            match(input,While,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,120,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getWhileKeyword_2_1()); 
             }
@@ -43099,7 +43103,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getMatchKeyword_3_1()); 
             }
-            match(input,Match,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,121,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getMatchKeyword_3_1()); 
             }
@@ -43267,7 +43271,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getLeftCurlyBracketKeyword_3_3()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getLeftCurlyBracketKeyword_3_3()); 
             }
@@ -43448,7 +43452,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getRightCurlyBracketKeyword_3_5()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getRightCurlyBracketKeyword_3_5()); 
             }
@@ -43606,7 +43610,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getSpecKeyword_4_1()); 
             }
-            match(input,Spec,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,122,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getSpecKeyword_4_1()); 
             }
@@ -43848,7 +43852,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getAssumeKeyword_5_1()); 
             }
-            match(input,Assume,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,109,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getAssumeKeyword_5_1()); 
             }
@@ -44186,7 +44190,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getAssertKeyword_6_1()); 
             }
-            match(input,Assert,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,123,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getAssertKeyword_6_1()); 
             }
@@ -44524,7 +44528,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getHaltKeyword_7_1()); 
             }
-            match(input,Halt,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,124,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getHaltKeyword_7_1()); 
             }
@@ -44773,7 +44777,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangStmtAccess().getDoKeyword_8_1()); 
             }
-            match(input,Do,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,125,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangStmtAccess().getDoKeyword_8_1()); 
             }
@@ -44936,7 +44940,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangElseAccess().getElseKeyword_0()); 
             }
-            match(input,Else,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,126,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangElseAccess().getElseKeyword_0()); 
             }
@@ -45099,7 +45103,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangElseAccess().getIfKeyword_1_0_0()); 
             }
-            match(input,If,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,119,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangElseAccess().getIfKeyword_1_0_0()); 
             }
@@ -45725,7 +45729,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangCaseAccess().getCaseKeyword_0()); 
             }
-            match(input,Case,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,108,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangCaseAccess().getCaseKeyword_0()); 
             }
@@ -45993,7 +45997,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangCaseAccess().getEqualsSignGreaterThanSignKeyword_3()); 
             }
-            match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,74,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangCaseAccess().getEqualsSignGreaterThanSignKeyword_3()); 
             }
@@ -46174,7 +46178,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangCaseAccess().getIfKeyword_2_0()); 
             }
-            match(input,If,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,119,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangCaseAccess().getIfKeyword_2_0()); 
             }
@@ -46590,7 +46594,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangPatternAccess().getLeftParenthesisKeyword_0_2_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangPatternAccess().getLeftParenthesisKeyword_0_2_0()); 
             }
@@ -46860,7 +46864,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangPatternAccess().getRightParenthesisKeyword_0_2_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangPatternAccess().getRightParenthesisKeyword_0_2_3()); 
             }
@@ -46939,7 +46943,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangPatternAccess().getCommaKeyword_0_2_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangPatternAccess().getCommaKeyword_0_2_2_0()); 
             }
@@ -47102,7 +47106,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangPatternAccess().getLeftParenthesisKeyword_1_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangPatternAccess().getLeftParenthesisKeyword_1_0()); 
             }
@@ -47372,7 +47376,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangPatternAccess().getRightParenthesisKeyword_1_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangPatternAccess().getRightParenthesisKeyword_1_3()); 
             }
@@ -47451,7 +47455,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangPatternAccess().getCommaKeyword_1_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangPatternAccess().getCommaKeyword_1_2_0()); 
             }
@@ -47867,7 +47871,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getLeftParenthesisKeyword_0_2_0_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getLeftParenthesisKeyword_0_2_0_0()); 
             }
@@ -48137,7 +48141,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getRightParenthesisKeyword_0_2_0_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getRightParenthesisKeyword_0_2_0_3()); 
             }
@@ -48216,7 +48220,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getCommaKeyword_0_2_0_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getCommaKeyword_0_2_0_2_0()); 
             }
@@ -48379,7 +48383,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getColonKeyword_0_2_1_0()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getColonKeyword_0_2_1_0()); 
             }
@@ -48542,7 +48546,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getLeftParenthesisKeyword_1_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getLeftParenthesisKeyword_1_0()); 
             }
@@ -48812,7 +48816,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getRightParenthesisKeyword_1_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getRightParenthesisKeyword_1_3()); 
             }
@@ -48891,7 +48895,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getCommaKeyword_1_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getCommaKeyword_1_2_0()); 
             }
@@ -49133,7 +49137,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().get_Keyword_2_1()); 
             }
-            match(input,KW__,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,127,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().get_Keyword_2_1()); 
             }
@@ -49307,7 +49311,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTPatternAccess().getColonKeyword_2_2_0()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTPatternAccess().getColonKeyword_2_2_0()); 
             }
@@ -49736,7 +49740,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangVarDefAccess().getColonEqualsSignKeyword_3()); 
             }
-            match(input,ColonEqualsSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,113,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangVarDefAccess().getColonEqualsSignKeyword_3()); 
             }
@@ -49899,7 +49903,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangVarDefAccess().getColonKeyword_2_0()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangVarDefAccess().getColonKeyword_2_0()); 
             }
@@ -50141,7 +50145,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangBlockAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangBlockAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -50422,7 +50426,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangBlockAccess().getRightCurlyBracketKeyword_4()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangBlockAccess().getRightCurlyBracketKeyword_4()); 
             }
@@ -50580,7 +50584,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getIfKeyword_1_1()); 
             }
-            match(input,If,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,119,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getIfKeyword_1_1()); 
             }
@@ -50659,7 +50663,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getLeftParenthesisKeyword_1_2()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getLeftParenthesisKeyword_1_2()); 
             }
@@ -50827,7 +50831,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_1_4()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_1_4()); 
             }
@@ -50995,7 +50999,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getElseKeyword_1_6()); 
             }
-            match(input,Else,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,126,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getElseKeyword_1_6()); 
             }
@@ -51326,7 +51330,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getLeftParenthesisKeyword_2_2()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getLeftParenthesisKeyword_2_2()); 
             }
@@ -51494,7 +51498,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_2_4()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_2_4()); 
             }
@@ -51573,7 +51577,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getLeftParenthesisKeyword_2_5()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getLeftParenthesisKeyword_2_5()); 
             }
@@ -51741,7 +51745,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getEqualsSignGreaterThanSignKeyword_2_7()); 
             }
-            match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,74,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getEqualsSignGreaterThanSignKeyword_2_7()); 
             }
@@ -51904,7 +51908,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_2_9()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangExpressionAccess().getRightParenthesisKeyword_2_9()); 
             }
@@ -52245,7 +52249,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQuantParamAccess().getLeftParenthesisKeyword_1_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQuantParamAccess().getLeftParenthesisKeyword_1_0()); 
             }
@@ -52413,7 +52417,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQuantParamAccess().getColonKeyword_1_2()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQuantParamAccess().getColonKeyword_1_2()); 
             }
@@ -52576,7 +52580,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQuantParamAccess().getRightParenthesisKeyword_1_4()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQuantParamAccess().getRightParenthesisKeyword_1_4()); 
             }
@@ -57172,7 +57176,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_2_2()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_2_2()); 
             }
@@ -57330,7 +57334,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getInKeyword_2_0_1()); 
             }
-            match(input,In_1,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,128,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getInKeyword_2_0_1()); 
             }
@@ -57404,7 +57408,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_2_0_2()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_2_0_2()); 
             }
@@ -57756,7 +57760,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_3_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_3_3()); 
             }
@@ -57914,7 +57918,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getMaySendKeyword_3_0_1()); 
             }
-            match(input,MaySend,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,129,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getMaySendKeyword_3_0_1()); 
             }
@@ -57988,7 +57992,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_3_0_2()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_3_0_2()); 
             }
@@ -58067,7 +58071,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getCommaKeyword_3_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getCommaKeyword_3_2_0()); 
             }
@@ -58503,7 +58507,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_4_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_4_3()); 
             }
@@ -58661,7 +58665,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getMustSendKeyword_4_0_1()); 
             }
-            match(input,MustSend,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,130,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getMustSendKeyword_4_0_1()); 
             }
@@ -58735,7 +58739,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_4_0_2()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_4_0_2()); 
             }
@@ -58814,7 +58818,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getCommaKeyword_4_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getCommaKeyword_4_2_0()); 
             }
@@ -59150,7 +59154,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_5_2()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_5_2()); 
             }
@@ -59308,7 +59312,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getNoSendKeyword_5_0_1()); 
             }
-            match(input,NoSend,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,131,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getNoSendKeyword_5_0_1()); 
             }
@@ -59382,7 +59386,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_5_0_2()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_5_0_2()); 
             }
@@ -59634,7 +59638,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_6_2()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_6_2()); 
             }
@@ -59792,7 +59796,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getHasEventKeyword_6_0_1()); 
             }
-            match(input,HasEvent,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,132,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getHasEventKeyword_6_0_1()); 
             }
@@ -59866,7 +59870,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_6_0_2()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_6_0_2()); 
             }
@@ -60281,7 +60285,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getFullStopKeyword_7_0_2()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getFullStopKeyword_7_0_2()); 
             }
@@ -60439,7 +60443,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_9_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_9_1()); 
             }
@@ -60602,7 +60606,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_9_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_9_3()); 
             }
@@ -60760,7 +60764,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getForKeyword_10_1()); 
             }
-            match(input,For,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,133,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getForKeyword_10_1()); 
             }
@@ -61035,7 +61039,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getYieldKeyword_10_4()); 
             }
-            match(input,Yield,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,134,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getYieldKeyword_10_4()); 
             }
@@ -61198,7 +61202,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getCommaKeyword_10_3_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getCommaKeyword_10_3_0()); 
             }
@@ -61361,7 +61365,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_10_5_1_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftParenthesisKeyword_10_5_1_0()); 
             }
@@ -61524,7 +61528,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_10_5_1_2()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightParenthesisKeyword_10_5_1_2()); 
             }
@@ -61682,7 +61686,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getLeftCurlyBracketKeyword_11_1()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getLeftCurlyBracketKeyword_11_1()); 
             }
@@ -62040,7 +62044,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightCurlyBracketKeyword_11_2_0_2()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightCurlyBracketKeyword_11_2_0_2()); 
             }
@@ -62203,7 +62207,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getEqualsSignGreaterThanSignKeyword_11_2_0_0_1()); 
             }
-            match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,74,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getEqualsSignGreaterThanSignKeyword_11_2_0_0_1()); 
             }
@@ -62484,7 +62488,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseExprAccess().getRightCurlyBracketKeyword_11_2_1_2()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBaseExprAccess().getRightCurlyBracketKeyword_11_2_1_2()); 
             }
@@ -62642,7 +62646,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFloatObjectExprAccess().getF32Keyword_0_1()); 
             }
-            match(input,F32,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,135,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFloatObjectExprAccess().getF32Keyword_0_1()); 
             }
@@ -62721,7 +62725,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFloatObjectExprAccess().getFullStopKeyword_0_2()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFloatObjectExprAccess().getFullStopKeyword_0_2()); 
             }
@@ -62963,7 +62967,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFloatObjectExprAccess().getF64Keyword_1_1()); 
             }
-            match(input,F64,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,136,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFloatObjectExprAccess().getF64Keyword_1_1()); 
             }
@@ -63042,7 +63046,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFloatObjectExprAccess().getFullStopKeyword_1_2()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFloatObjectExprAccess().getFullStopKeyword_1_2()); 
             }
@@ -63737,7 +63741,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAccessibleBaseExprAccess().getRightCurlyBracketKeyword_1_3()); 
             }
-            match(input,RightCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,88,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAccessibleBaseExprAccess().getRightCurlyBracketKeyword_1_3()); 
             }
@@ -63984,7 +63988,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAccessibleBaseExprAccess().getLeftCurlyBracketKeyword_1_0_2()); 
             }
-            match(input,LeftCurlyBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,87,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAccessibleBaseExprAccess().getLeftCurlyBracketKeyword_1_0_2()); 
             }
@@ -64147,7 +64151,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAccessibleBaseExprAccess().getEqualsSignKeyword_1_0_4()); 
             }
-            match(input,EqualsSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,90,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAccessibleBaseExprAccess().getEqualsSignKeyword_1_0_4()); 
             }
@@ -64226,7 +64230,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAccessibleBaseExprAccess().getSemicolonKeyword_1_2_0()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAccessibleBaseExprAccess().getSemicolonKeyword_1_2_0()); 
             }
@@ -64394,7 +64398,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAccessibleBaseExprAccess().getEqualsSignKeyword_1_2_2()); 
             }
-            match(input,EqualsSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,90,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAccessibleBaseExprAccess().getEqualsSignKeyword_1_2_2()); 
             }
@@ -64794,7 +64798,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAccessibleBaseExprAccess().getResKeyword_3_1()); 
             }
-            match(input,Res,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,137,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAccessibleBaseExprAccess().getResKeyword_3_1()); 
             }
@@ -65183,7 +65187,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedAADLNameAccess().getColonColonKeyword_1_0()); 
             }
-            match(input,ColonColon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,138,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedAADLNameAccess().getColonColonKeyword_1_0()); 
             }
@@ -65336,7 +65340,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedAADLNameAccess().getFullStopKeyword_2_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedAADLNameAccess().getFullStopKeyword_2_0()); 
             }
@@ -65489,7 +65493,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMemberAccessAccess().getFullStopKeyword_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMemberAccessAccess().getFullStopKeyword_0()); 
             }
@@ -65731,7 +65735,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBuiltinAccessAccess().getFullStopKeyword_1()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBuiltinAccessAccess().getFullStopKeyword_1()); 
             }
@@ -65973,7 +65977,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayAccessAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getArrayAccessAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -66147,7 +66151,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayAccessAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getArrayAccessAccess().getRightParenthesisKeyword_3()); 
             }
@@ -66417,7 +66421,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayAccessAccess().getCommaKeyword_2_1_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getArrayAccessAccess().getCommaKeyword_2_1_0()); 
             }
@@ -66955,7 +66959,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOtherDataRefAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOtherDataRefAccess().getFullStopKeyword_1_0()); 
             }
@@ -67118,7 +67122,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangParamsAccess().getLeftParenthesisKeyword_0()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangParamsAccess().getLeftParenthesisKeyword_0()); 
             }
@@ -67381,7 +67385,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangParamsAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangParamsAccess().getRightParenthesisKeyword_3()); 
             }
@@ -67460,7 +67464,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangParamsAccess().getCommaKeyword_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangParamsAccess().getCommaKeyword_2_0()); 
             }
@@ -67634,7 +67638,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 case 1 :
                     // InternalGumboParser.g:20546:3: Var
                     {
-                    match(input,Var,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,42,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -67808,7 +67812,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangParamAccess().getColonKeyword_2()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangParamAccess().getColonKeyword_2()); 
             }
@@ -67898,7 +67902,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 case 1 :
                     // InternalGumboParser.g:20627:3: EqualsSignGreaterThanSign
                     {
-                    match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,74,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -68078,7 +68082,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 case 1 :
                     // InternalGumboParser.g:20680:3: Asterisk
                     {
-                    match(input,Asterisk,FollowSets000.FOLLOW_2); if (state.failed) return ;
+                    match(input,37,FollowSets000.FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -68242,7 +68246,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangForRangeAccess().getColonKeyword_1()); 
             }
-            match(input,Colon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,79,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangForRangeAccess().getColonKeyword_1()); 
             }
@@ -68778,7 +68782,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangForRangeAccess().getByKeyword_3_2_0()); 
             }
-            match(input,By,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,139,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangForRangeAccess().getByKeyword_3_2_0()); 
             }
@@ -69020,7 +69024,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangRetAccess().getReturnKeyword_1()); 
             }
-            match(input,Return,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,140,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangRetAccess().getReturnKeyword_1()); 
             }
@@ -69436,7 +69440,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangCallArgsAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangCallArgsAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -69610,7 +69614,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangCallArgsAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangCallArgsAccess().getRightParenthesisKeyword_3()); 
             }
@@ -69880,7 +69884,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangCallArgsAccess().getCommaKeyword_2_1_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangCallArgsAccess().getCommaKeyword_2_1_0()); 
             }
@@ -71909,7 +71913,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getSemicolonKeyword_6()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainedPropertyAssociationAccess().getSemicolonKeyword_6()); 
             }
@@ -72179,7 +72183,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getCommaKeyword_3_1_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainedPropertyAssociationAccess().getCommaKeyword_3_1_0()); 
             }
@@ -72616,7 +72620,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getCommaKeyword_4_2_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainedPropertyAssociationAccess().getCommaKeyword_4_2_0()); 
             }
@@ -72862,7 +72866,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getLeftParenthesisKeyword_5_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainedPropertyAssociationAccess().getLeftParenthesisKeyword_5_1()); 
             }
@@ -73025,7 +73029,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getRightParenthesisKeyword_5_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainedPropertyAssociationAccess().getRightParenthesisKeyword_5_3()); 
             }
@@ -73375,7 +73379,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getLeftParenthesisKeyword_1_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOptionalModalPropertyValueAccess().getLeftParenthesisKeyword_1_1()); 
             }
@@ -73645,7 +73649,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getRightParenthesisKeyword_1_4()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOptionalModalPropertyValueAccess().getRightParenthesisKeyword_1_4()); 
             }
@@ -73724,7 +73728,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOptionalModalPropertyValueAccess().getCommaKeyword_1_3_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOptionalModalPropertyValueAccess().getCommaKeyword_1_3_0()); 
             }
@@ -74050,7 +74054,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getReferenceTermAccess().getReferenceKeyword_0()); 
             }
-            match(input,Reference,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,141,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getReferenceTermAccess().getReferenceKeyword_0()); 
             }
@@ -74129,7 +74133,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getReferenceTermAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getReferenceTermAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -74292,7 +74296,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getReferenceTermAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getReferenceTermAccess().getRightParenthesisKeyword_3()); 
             }
@@ -74371,7 +74375,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0()); 
             }
-            match(input,LeftSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,114,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0()); 
             }
@@ -74581,7 +74585,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_2()); 
             }
-            match(input,RightSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,115,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_2()); 
             }
@@ -74660,7 +74664,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComputedTermAccess().getComputeKeyword_0()); 
             }
-            match(input,Compute,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,84,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComputedTermAccess().getComputeKeyword_0()); 
             }
@@ -74739,7 +74743,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComputedTermAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComputedTermAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -74902,7 +74906,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComputedTermAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComputedTermAccess().getRightParenthesisKeyword_3()); 
             }
@@ -74981,7 +74985,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComponentClassifierTermAccess().getClassifierKeyword_0()); 
             }
-            match(input,Classifier,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,142,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComponentClassifierTermAccess().getClassifierKeyword_0()); 
             }
@@ -75060,7 +75064,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComponentClassifierTermAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComponentClassifierTermAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -75223,7 +75227,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getComponentClassifierTermAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getComponentClassifierTermAccess().getRightParenthesisKeyword_3()); 
             }
@@ -75381,7 +75385,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getListTermAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,LeftParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,105,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getListTermAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -75555,7 +75559,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getListTermAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,RightParenthesis,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,106,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getListTermAccess().getRightParenthesisKeyword_3()); 
             }
@@ -75825,7 +75829,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getListTermAccess().getCommaKeyword_2_1_0()); 
             }
-            match(input,Comma,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,97,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getListTermAccess().getCommaKeyword_2_1_0()); 
             }
@@ -76077,7 +76081,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldPropertyAssociationAccess().getEqualsSignGreaterThanSignKeyword_1()); 
             }
-            match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,74,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFieldPropertyAssociationAccess().getEqualsSignGreaterThanSignKeyword_1()); 
             }
@@ -76240,7 +76244,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldPropertyAssociationAccess().getSemicolonKeyword_3()); 
             }
-            match(input,Semicolon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,78,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFieldPropertyAssociationAccess().getSemicolonKeyword_3()); 
             }
@@ -76694,7 +76698,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainmentPathElementAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainmentPathElementAccess().getFullStopKeyword_1_0()); 
             }
@@ -76936,7 +76940,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayRangeAccess().getLeftSquareBracketKeyword_1()); 
             }
-            match(input,LeftSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,114,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getArrayRangeAccess().getLeftSquareBracketKeyword_1()); 
             }
@@ -77199,7 +77203,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayRangeAccess().getRightSquareBracketKeyword_4()); 
             }
-            match(input,RightSquareBracket,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,115,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getArrayRangeAccess().getRightSquareBracketKeyword_4()); 
             }
@@ -77278,7 +77282,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayRangeAccess().getFullStopFullStopKeyword_3_0()); 
             }
-            match(input,FullStopFullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getArrayRangeAccess().getFullStopFullStopKeyword_3_0()); 
             }
@@ -78419,7 +78423,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumericRangeTermAccess().getFullStopFullStopKeyword_1()); 
             }
-            match(input,FullStopFullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,66,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getNumericRangeTermAccess().getFullStopFullStopKeyword_1()); 
             }
@@ -78682,7 +78686,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumericRangeTermAccess().getDeltaKeyword_3_0()); 
             }
-            match(input,Delta,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,143,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getNumericRangeTermAccess().getDeltaKeyword_3_0()); 
             }
@@ -78845,7 +78849,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAppliesToKeywordsAccess().getAppliesKeyword_0()); 
             }
-            match(input,Applies,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,144,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAppliesToKeywordsAccess().getAppliesKeyword_0()); 
             }
@@ -78919,7 +78923,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAppliesToKeywordsAccess().getToKeyword_1()); 
             }
-            match(input,To,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,47,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAppliesToKeywordsAccess().getToKeyword_1()); 
             }
@@ -78998,7 +79002,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInBindingKeywordsAccess().getInKeyword_0()); 
             }
-            match(input,In_1,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,145,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInBindingKeywordsAccess().getInKeyword_0()); 
             }
@@ -79072,7 +79076,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInBindingKeywordsAccess().getBindingKeyword_1()); 
             }
-            match(input,Binding,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,146,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInBindingKeywordsAccess().getBindingKeyword_1()); 
             }
@@ -79151,7 +79155,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInModesKeywordsAccess().getInKeyword_0()); 
             }
-            match(input,In_1,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,145,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInModesKeywordsAccess().getInKeyword_0()); 
             }
@@ -79225,7 +79229,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInModesKeywordsAccess().getModesKeyword_1()); 
             }
-            match(input,Modes,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,147,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInModesKeywordsAccess().getModesKeyword_1()); 
             }
@@ -79383,7 +79387,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQCLREFAccess().getColonColonKeyword_1()); 
             }
-            match(input,ColonColon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,138,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQCLREFAccess().getColonColonKeyword_1()); 
             }
@@ -79710,7 +79714,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQPREFAccess().getColonColonKeyword_1_0()); 
             }
-            match(input,ColonColon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,138,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQPREFAccess().getColonColonKeyword_1_0()); 
             }
@@ -80224,7 +80228,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQCREFAccess().getColonColonKeyword_0_1()); 
             }
-            match(input,ColonColon,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,138,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQCREFAccess().getColonColonKeyword_0_1()); 
             }
@@ -80303,7 +80307,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQCREFAccess().getFullStopKeyword_2_0()); 
             }
-            match(input,FullStop,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,91,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQCREFAccess().getFullStopKeyword_2_0()); 
             }
@@ -85128,7 +85132,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefParamAccess().getIsMethodDefEqualsSignGreaterThanSignKeyword_2_0()); 
             }
-            match(input,EqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,74,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefParamAccess().getIsMethodDefEqualsSignGreaterThanSignKeyword_2_0()); 
             }
@@ -85226,7 +85230,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangDefParamAccess().getIsVarArgAsteriskKeyword_4_0()); 
             }
-            match(input,Asterisk,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,37,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangDefParamAccess().getIsVarArgAsteriskKeyword_4_0()); 
             }
@@ -85369,7 +85373,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSlangTypeParamAccess().getIsMutMutKeyword_0_0()); 
             }
-            match(input,Mut,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,148,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSlangTypeParamAccess().getIsMutMutKeyword_0_0()); 
             }
@@ -91879,7 +91883,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getAppendPlusSignEqualsSignGreaterThanSignKeyword_1_1_0()); 
             }
-            match(input,PlusSignEqualsSignGreaterThanSign,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,149,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainedPropertyAssociationAccess().getAppendPlusSignEqualsSignGreaterThanSignKeyword_1_1_0()); 
             }
@@ -91932,7 +91936,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getContainedPropertyAssociationAccess().getConstantConstantKeyword_2_0()); 
             }
-            match(input,Constant,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,150,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getContainedPropertyAssociationAccess().getConstantConstantKeyword_2_0()); 
             }
@@ -92520,7 +92524,7 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralAccess().getValueTrueKeyword_1_0_0()); 
             }
-            match(input,True,FollowSets000.FOLLOW_2); if (state.failed) return ;
+            match(input,70,FollowSets000.FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBooleanLiteralAccess().getValueTrueKeyword_1_0_0()); 
             }
