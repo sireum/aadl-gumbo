@@ -14,9 +14,7 @@
 1. Commit and push the relevant changes to the sysmlv2 branch
 
 	```
-	git add --force org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/Gumbo.xtext \\
-	org.sireum.aadl.gumbo/src/org/sireum/aadl/gumbo/GenerateGumbo.mwe2  \\
-	org.sireum.aadl.gumbo/src-gen/org/sireum/aadl/gumbo/parser/antlr/internal/InternalGumbo.g
+	git add --force .
 	git commit -m "updated gumbo"
 	git push --force
 	```
