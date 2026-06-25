@@ -1226,53 +1226,103 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class CompositionPropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.CompositionProperty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPropertyKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Assignment cDescriptorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDescriptorSTRING_VALUETerminalRuleCall_2_0 = (RuleCall)cDescriptorAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cBindingsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cBindingsPropertyBindingParserRuleCall_4_0 = (RuleCall)cBindingsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cIsAbstractAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cIsAbstractAbstractKeyword_0_0 = (Keyword)cIsAbstractAssignment_0.eContents().get(0);
+		private final Keyword cPropertyKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
+		private final Keyword cColonGreaterThanSignKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
+		private final Keyword cSpecializesKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
+		private final Assignment cParentAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cParentCompositionPropertyCrossReference_3_1_0 = (CrossReference)cParentAssignment_3_1.eContents().get(0);
+		private final RuleCall cParentCompositionPropertyIDTerminalRuleCall_3_1_0_1 = (RuleCall)cParentCompositionPropertyCrossReference_3_1_0.eContents().get(1);
+		private final Assignment cDescriptorAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptorSTRING_VALUETerminalRuleCall_4_0 = (RuleCall)cDescriptorAssignment_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cBindingsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cBindingsPropertyBindingParserRuleCall_6_0 = (RuleCall)cBindingsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//// A named assertion decoration of the schema. Each property generates its own
 		//// VC set over the shared net; a property's VCs see only its own bindings, and
 		//// unbound points lower to 'true'.
+		////
+		//// An 'abstract' property is a base only -- never instantiated, so no VC set or
+		//// monitor checks are generated for it. A property may specialize a single parent
+		//// in the SAME composition via ':>' | 'specializes' (SysMLv2 specialization
+		//// synonyms): the child's effective bindings are the parent's (transitively) plus
+		//// its own, conjoined per schema point (strengthen-only -- there is no
+		//// override/':>>' form). 'parent' is a cross-reference scoped (GumboScopeProvider)
+		//// to the sibling properties of the enclosing composition; the kekinian resolver
+		//// re-resolves it and checks acyclicity / non-empty-abstract. See
+		//// VCGenerationDesign.md D9.
 		//CompositionProperty:
-		//    'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
+		//    isAbstract ?= 'abstract'? 'property' id=ID
+		//        ((':>' | 'specializes') parent=[CompositionProperty|ID])?
+		//        descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)* '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
+		//isAbstract ?= 'abstract'? 'property' id=ID
+		//    ((':>' | 'specializes') parent=[CompositionProperty|ID])?
+		//    descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//isAbstract ?= 'abstract'?
+		public Assignment getIsAbstractAssignment_0() { return cIsAbstractAssignment_0; }
+		
+		//'abstract'
+		public Keyword getIsAbstractAbstractKeyword_0_0() { return cIsAbstractAbstractKeyword_0_0; }
+		
 		//'property'
-		public Keyword getPropertyKeyword_0() { return cPropertyKeyword_0; }
+		public Keyword getPropertyKeyword_1() { return cPropertyKeyword_1; }
 		
 		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
+		
+		//((':>' | 'specializes') parent=[CompositionProperty|ID])?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//(':>' | 'specializes')
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+		
+		//':>'
+		public Keyword getColonGreaterThanSignKeyword_3_0_0() { return cColonGreaterThanSignKeyword_3_0_0; }
+		
+		//'specializes'
+		public Keyword getSpecializesKeyword_3_0_1() { return cSpecializesKeyword_3_0_1; }
+		
+		//parent=[CompositionProperty|ID]
+		public Assignment getParentAssignment_3_1() { return cParentAssignment_3_1; }
+		
+		//[CompositionProperty|ID]
+		public CrossReference getParentCompositionPropertyCrossReference_3_1_0() { return cParentCompositionPropertyCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getParentCompositionPropertyIDTerminalRuleCall_3_1_0_1() { return cParentCompositionPropertyIDTerminalRuleCall_3_1_0_1; }
 		
 		//descriptor=STRING_VALUE?
-		public Assignment getDescriptorAssignment_2() { return cDescriptorAssignment_2; }
+		public Assignment getDescriptorAssignment_4() { return cDescriptorAssignment_4; }
 		
 		//STRING_VALUE
-		public RuleCall getDescriptorSTRING_VALUETerminalRuleCall_2_0() { return cDescriptorSTRING_VALUETerminalRuleCall_2_0; }
+		public RuleCall getDescriptorSTRING_VALUETerminalRuleCall_4_0() { return cDescriptorSTRING_VALUETerminalRuleCall_4_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
-		//(bindings += PropertyBinding)+
-		public Assignment getBindingsAssignment_4() { return cBindingsAssignment_4; }
+		//(bindings += PropertyBinding)*
+		public Assignment getBindingsAssignment_6() { return cBindingsAssignment_6; }
 		
 		//PropertyBinding
-		public RuleCall getBindingsPropertyBindingParserRuleCall_4_0() { return cBindingsPropertyBindingParserRuleCall_4_0; }
+		public RuleCall getBindingsPropertyBindingParserRuleCall_6_0() { return cBindingsPropertyBindingParserRuleCall_6_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class PropertyBindingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.PropertyBinding");
@@ -6334,8 +6384,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//// A named assertion decoration of the schema. Each property generates its own
 	//// VC set over the shared net; a property's VCs see only its own bindings, and
 	//// unbound points lower to 'true'.
+	////
+	//// An 'abstract' property is a base only -- never instantiated, so no VC set or
+	//// monitor checks are generated for it. A property may specialize a single parent
+	//// in the SAME composition via ':>' | 'specializes' (SysMLv2 specialization
+	//// synonyms): the child's effective bindings are the parent's (transitively) plus
+	//// its own, conjoined per schema point (strengthen-only -- there is no
+	//// override/':>>' form). 'parent' is a cross-reference scoped (GumboScopeProvider)
+	//// to the sibling properties of the enclosing composition; the kekinian resolver
+	//// re-resolves it and checks acyclicity / non-empty-abstract. See
+	//// VCGenerationDesign.md D9.
 	//CompositionProperty:
-	//    'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
+	//    isAbstract ?= 'abstract'? 'property' id=ID
+	//        ((':>' | 'specializes') parent=[CompositionProperty|ID])?
+	//        descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)* '}'
 	//;
 	public CompositionPropertyElements getCompositionPropertyAccess() {
 		return pCompositionProperty;

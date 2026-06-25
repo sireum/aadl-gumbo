@@ -29,6 +29,8 @@ Composition : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('O'|'o')('S'|'s')('I'|'i')('T
 
 Integration : ('I'|'i')('N'|'n')('T'|'t')('E'|'e')('G'|'g')('R'|'r')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
+Specializes : ('S'|'s')('P'|'p')('E'|'e')('C'|'c')('I'|'i')('A'|'a')('L'|'l')('I'|'i')('Z'|'z')('E'|'e')('S'|'s');
+
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
 
 Components : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('O'|'o')('N'|'n')('E'|'e')('N'|'n')('T'|'t')('S'|'s');
@@ -48,6 +50,8 @@ Reference : ('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('E'|'e')('N'|'n')('C'|
 HasEvent : ('H'|'h')('A'|'a')('S'|'s')('E'|'e')('V'|'v')('E'|'e')('N'|'n')('T'|'t');
 
 MustSend : ('M'|'m')('U'|'u')('S'|'s')('T'|'t')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
+
+Abstract : ('A'|'a')('B'|'b')('S'|'s')('T'|'t')('R'|'r')('A'|'a')('C'|'c')('T'|'t');
 
 Constant : ('C'|'c')('O'|'o')('N'|'n')('S'|'s')('T'|'t')('A'|'a')('N'|'n')('T'|'t');
 
@@ -192,6 +196,8 @@ FullStopFullStop : '.''.';
 ColonColon : ':'':';
 
 ColonEqualsSign : ':''=';
+
+ColonGreaterThanSign : ':''>';
 
 EqualsSignGreaterThanSign : '=''>';
 

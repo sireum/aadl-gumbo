@@ -78,10 +78,35 @@ public class CompositionPropertyItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addIsAbstractPropertyDescriptor(object);
       addIdPropertyDescriptor(object);
+      addParentPropertyDescriptor(object);
       addDescriptorPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Is Abstract feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIsAbstractPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_CompositionProperty_isAbstract_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_CompositionProperty_isAbstract_feature", "_UI_CompositionProperty_type"),
+         GumboPackage.Literals.COMPOSITION_PROPERTY__IS_ABSTRACT,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -103,6 +128,29 @@ public class CompositionPropertyItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Parent feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addParentPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_CompositionProperty_parent_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_CompositionProperty_parent_feature", "_UI_CompositionProperty_type"),
+         GumboPackage.Literals.COMPOSITION_PROPERTY__PARENT,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }
@@ -205,6 +253,7 @@ public class CompositionPropertyItemProvider
 
     switch (notification.getFeatureID(CompositionProperty.class))
     {
+      case GumboPackage.COMPOSITION_PROPERTY__IS_ABSTRACT:
       case GumboPackage.COMPOSITION_PROPERTY__ID:
       case GumboPackage.COMPOSITION_PROPERTY__DESCRIPTOR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

@@ -43,6 +43,7 @@ public class GumboParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GumboGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getComputeAccess().getAlternatives_5_0(), "rule__Compute__Alternatives_5_0");
 			builder.put(grammarAccess.getSchemaElementAccess().getAlternatives(), "rule__SchemaElement__Alternatives");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getAlternatives_3_0(), "rule__CompositionProperty__Alternatives_3_0");
 			builder.put(grammarAccess.getSchemaPointAccess().getAlternatives(), "rule__SchemaPoint__Alternatives");
 			builder.put(grammarAccess.getHandlerClauseAccess().getAlternatives_6_0(), "rule__HandlerClause__Alternatives_6_0");
 			builder.put(grammarAccess.getSpecStatementAccess().getAlternatives(), "rule__SpecStatement__Alternatives");
@@ -121,6 +122,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSchemaSequenceAccess().getGroup(), "rule__SchemaSequence__Group__0");
 			builder.put(grammarAccess.getSchemaSequenceAccess().getGroup_3(), "rule__SchemaSequence__Group_3__0");
 			builder.put(grammarAccess.getCompositionPropertyAccess().getGroup(), "rule__CompositionProperty__Group__0");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getGroup_3(), "rule__CompositionProperty__Group_3__0");
 			builder.put(grammarAccess.getPropertyBindingAccess().getGroup(), "rule__PropertyBinding__Group__0");
 			builder.put(grammarAccess.getSchemaPointAccess().getGroup_0(), "rule__SchemaPoint__Group_0__0");
 			builder.put(grammarAccess.getSchemaPointAccess().getGroup_1(), "rule__SchemaPoint__Group_1__0");
@@ -384,9 +386,11 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSchemaSplitJoinAccess().getBranchesAssignment_3_1(), "rule__SchemaSplitJoin__BranchesAssignment_3_1");
 			builder.put(grammarAccess.getSchemaSequenceAccess().getElementsAssignment_2(), "rule__SchemaSequence__ElementsAssignment_2");
 			builder.put(grammarAccess.getSchemaSequenceAccess().getElementsAssignment_3_1(), "rule__SchemaSequence__ElementsAssignment_3_1");
-			builder.put(grammarAccess.getCompositionPropertyAccess().getIdAssignment_1(), "rule__CompositionProperty__IdAssignment_1");
-			builder.put(grammarAccess.getCompositionPropertyAccess().getDescriptorAssignment_2(), "rule__CompositionProperty__DescriptorAssignment_2");
-			builder.put(grammarAccess.getCompositionPropertyAccess().getBindingsAssignment_4(), "rule__CompositionProperty__BindingsAssignment_4");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getIsAbstractAssignment_0(), "rule__CompositionProperty__IsAbstractAssignment_0");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getIdAssignment_2(), "rule__CompositionProperty__IdAssignment_2");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getParentAssignment_3_1(), "rule__CompositionProperty__ParentAssignment_3_1");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getDescriptorAssignment_4(), "rule__CompositionProperty__DescriptorAssignment_4");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getBindingsAssignment_6(), "rule__CompositionProperty__BindingsAssignment_6");
 			builder.put(grammarAccess.getPropertyBindingAccess().getPointAssignment_0(), "rule__PropertyBinding__PointAssignment_0");
 			builder.put(grammarAccess.getPropertyBindingAccess().getDescriptorAssignment_1(), "rule__PropertyBinding__DescriptorAssignment_1");
 			builder.put(grammarAccess.getPropertyBindingAccess().getExprAssignment_3(), "rule__PropertyBinding__ExprAssignment_3");

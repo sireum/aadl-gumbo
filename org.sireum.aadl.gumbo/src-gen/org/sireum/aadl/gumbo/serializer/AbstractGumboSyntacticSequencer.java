@@ -31,6 +31,7 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GumboGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_CompositionProperty_ColonGreaterThanSignKeyword_3_0_0_or_SpecializesKeyword_3_0_1;
 	protected AbstractElementAlias match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1;
 	protected AbstractElementAlias match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q;
 	protected AbstractElementAlias match_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1;
@@ -49,6 +50,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GumboGrammarAccess) access;
+		match_CompositionProperty_ColonGreaterThanSignKeyword_3_0_0_or_SpecializesKeyword_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCompositionPropertyAccess().getColonGreaterThanSignKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getCompositionPropertyAccess().getSpecializesKeyword_3_0_1()));
 		match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()));
 		match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1()));
 		match_HandlerClause_CasesKeyword_6_0_0_or_Compute_casesKeyword_6_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0()), new TokenAlias(false, false, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1()));
@@ -152,7 +154,9 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1.equals(syntax))
+			if (match_CompositionProperty_ColonGreaterThanSignKeyword_3_0_0_or_SpecializesKeyword_3_0_1.equals(syntax))
+				emit_CompositionProperty_ColonGreaterThanSignKeyword_3_0_0_or_SpecializesKeyword_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1.equals(syntax))
 				emit_Compute_CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q.equals(syntax))
 				emit_Compute___CasesKeyword_5_0_0_or_Compute_casesKeyword_5_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -184,6 +188,20 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ':&gt;' | 'specializes'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id=ID (ambiguity) parent=[CompositionProperty|ID]
+	 
+	 * </pre>
+	 */
+	protected void emit_CompositionProperty_ColonGreaterThanSignKeyword_3_0_0_or_SpecializesKeyword_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:

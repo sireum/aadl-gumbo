@@ -1178,13 +1178,31 @@ public interface GumboPackage extends EPackage
   int COMPOSITION_PROPERTY = 27;
 
   /**
+   * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITION_PROPERTY__IS_ABSTRACT = 0;
+
+  /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPOSITION_PROPERTY__ID = 0;
+  int COMPOSITION_PROPERTY__ID = 1;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITION_PROPERTY__PARENT = 2;
 
   /**
    * The feature id for the '<em><b>Descriptor</b></em>' attribute.
@@ -1193,7 +1211,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPOSITION_PROPERTY__DESCRIPTOR = 1;
+  int COMPOSITION_PROPERTY__DESCRIPTOR = 3;
 
   /**
    * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -1202,7 +1220,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPOSITION_PROPERTY__BINDINGS = 2;
+  int COMPOSITION_PROPERTY__BINDINGS = 4;
 
   /**
    * The number of structural features of the '<em>Composition Property</em>' class.
@@ -1211,7 +1229,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPOSITION_PROPERTY_FEATURE_COUNT = 3;
+  int COMPOSITION_PROPERTY_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.PropertyBindingImpl <em>Property Binding</em>}' class.
@@ -5599,6 +5617,17 @@ public interface GumboPackage extends EPackage
   EClass getCompositionProperty();
 
   /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty#isIsAbstract <em>Is Abstract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Abstract</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.CompositionProperty#isIsAbstract()
+   * @see #getCompositionProperty()
+   * @generated
+   */
+  EAttribute getCompositionProperty_IsAbstract();
+
+  /**
    * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5608,6 +5637,17 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EAttribute getCompositionProperty_Id();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty#getParent <em>Parent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.CompositionProperty#getParent()
+   * @see #getCompositionProperty()
+   * @generated
+   */
+  EReference getCompositionProperty_Parent();
 
   /**
    * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty#getDescriptor <em>Descriptor</em>}'.
@@ -9161,12 +9201,28 @@ public interface GumboPackage extends EPackage
     EClass COMPOSITION_PROPERTY = eINSTANCE.getCompositionProperty();
 
     /**
+     * The meta object literal for the '<em><b>Is Abstract</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPOSITION_PROPERTY__IS_ABSTRACT = eINSTANCE.getCompositionProperty_IsAbstract();
+
+    /**
      * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute COMPOSITION_PROPERTY__ID = eINSTANCE.getCompositionProperty_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPOSITION_PROPERTY__PARENT = eINSTANCE.getCompositionProperty_Parent();
 
     /**
      * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
