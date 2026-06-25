@@ -3,6 +3,16 @@
 
 1. Rebase master onto the sysmlv2 branch and always select 'ours' (ie. master) when resolving conflict
 
+	```git rebase -X ours master
+
+	# ...each time it stops with conflicts, run these three, then it continues:
+	git checkout --ours -- .                       # master's content for both-modified files
+	git ls-files -z --deleted | xargs -0 -r git rm # master deleted it -> remove it too
+	git add -A
+	git rebase --continue                          # repeat until "Successfully rebased"	
+	```
+
+	
 1. In the Compute and Handler_Clause xtext rules, make sure (or modify if needed) that 'cases' is changed to 'compute_cases'
 
 1. in GenerateGumbo.mwe2, make sure the parser.antlr.XtextAntlrGeneratorFragment2 options has ``ignoreCase=false`` (otherwise a tokens file will be generated).
