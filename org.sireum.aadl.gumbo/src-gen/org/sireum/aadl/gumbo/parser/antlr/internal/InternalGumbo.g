@@ -1980,15 +1980,29 @@ ruleCompositionProperty returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='property'
+		(
+			(
+				lv_isAbstract_0_0='abstract'
+				{
+					newLeafNode(lv_isAbstract_0_0, grammarAccess.getCompositionPropertyAccess().getIsAbstractAbstractKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCompositionPropertyRule());
+					}
+					setWithLastConsumed($current, "isAbstract", lv_isAbstract_0_0 != null, "abstract");
+				}
+			)
+		)?
+		otherlv_1='property'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getCompositionPropertyAccess().getPropertyKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getCompositionPropertyAccess().getPropertyKeyword_1());
 		}
 		(
 			(
-				lv_id_1_0=RULE_ID
+				lv_id_2_0=RULE_ID
 				{
-					newLeafNode(lv_id_1_0, grammarAccess.getCompositionPropertyAccess().getIdIDTerminalRuleCall_1_0());
+					newLeafNode(lv_id_2_0, grammarAccess.getCompositionPropertyAccess().getIdIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -1997,16 +2011,45 @@ ruleCompositionProperty returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"id",
-						lv_id_1_0,
+						lv_id_2_0,
 						"org.osate.xtext.aadl2.properties.Properties.ID");
 				}
 			)
 		)
 		(
 			(
-				lv_descriptor_2_0=RULE_STRING_VALUE
+				otherlv_3=':>'
 				{
-					newLeafNode(lv_descriptor_2_0, grammarAccess.getCompositionPropertyAccess().getDescriptorSTRING_VALUETerminalRuleCall_2_0());
+					newLeafNode(otherlv_3, grammarAccess.getCompositionPropertyAccess().getColonGreaterThanSignKeyword_3_0_0());
+				}
+				    |
+				otherlv_4='specializes'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getCompositionPropertyAccess().getSpecializesKeyword_3_0_1());
+				}
+			)
+			(
+				(
+					{
+						/* */
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getCompositionPropertyRule());
+						}
+					}
+					otherlv_5=RULE_ID
+					{
+						newLeafNode(otherlv_5, grammarAccess.getCompositionPropertyAccess().getParentCompositionPropertyCrossReference_3_1_0());
+					}
+				)
+			)
+		)?
+		(
+			(
+				lv_descriptor_6_0=RULE_STRING_VALUE
+				{
+					newLeafNode(lv_descriptor_6_0, grammarAccess.getCompositionPropertyAccess().getDescriptorSTRING_VALUETerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -2015,21 +2058,21 @@ ruleCompositionProperty returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"descriptor",
-						lv_descriptor_2_0,
+						lv_descriptor_6_0,
 						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 				}
 			)
 		)?
-		otherlv_3='{'
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getCompositionPropertyAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_7, grammarAccess.getCompositionPropertyAccess().getLeftCurlyBracketKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCompositionPropertyAccess().getBindingsPropertyBindingParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getCompositionPropertyAccess().getBindingsPropertyBindingParserRuleCall_6_0());
 				}
-				lv_bindings_4_0=rulePropertyBinding
+				lv_bindings_8_0=rulePropertyBinding
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCompositionPropertyRule());
@@ -2037,15 +2080,15 @@ ruleCompositionProperty returns [EObject current=null]
 					add(
 						$current,
 						"bindings",
-						lv_bindings_4_0,
+						lv_bindings_8_0,
 						"org.sireum.aadl.gumbo.Gumbo.PropertyBinding");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
-		otherlv_5='}'
+		)*
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getCompositionPropertyAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_9, grammarAccess.getCompositionPropertyAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
