@@ -123,6 +123,7 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSchemaSequenceAccess().getGroup_3(), "rule__SchemaSequence__Group_3__0");
 			builder.put(grammarAccess.getCompositionPropertyAccess().getGroup(), "rule__CompositionProperty__Group__0");
 			builder.put(grammarAccess.getCompositionPropertyAccess().getGroup_3(), "rule__CompositionProperty__Group_3__0");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getGroup_3_2(), "rule__CompositionProperty__Group_3_2__0");
 			builder.put(grammarAccess.getPropertyBindingAccess().getGroup(), "rule__PropertyBinding__Group__0");
 			builder.put(grammarAccess.getSchemaPointAccess().getGroup_0(), "rule__SchemaPoint__Group_0__0");
 			builder.put(grammarAccess.getSchemaPointAccess().getGroup_1(), "rule__SchemaPoint__Group_1__0");
@@ -388,7 +389,8 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSchemaSequenceAccess().getElementsAssignment_3_1(), "rule__SchemaSequence__ElementsAssignment_3_1");
 			builder.put(grammarAccess.getCompositionPropertyAccess().getIsAbstractAssignment_0(), "rule__CompositionProperty__IsAbstractAssignment_0");
 			builder.put(grammarAccess.getCompositionPropertyAccess().getIdAssignment_2(), "rule__CompositionProperty__IdAssignment_2");
-			builder.put(grammarAccess.getCompositionPropertyAccess().getParentAssignment_3_1(), "rule__CompositionProperty__ParentAssignment_3_1");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getParentsAssignment_3_1(), "rule__CompositionProperty__ParentsAssignment_3_1");
+			builder.put(grammarAccess.getCompositionPropertyAccess().getParentsAssignment_3_2_1(), "rule__CompositionProperty__ParentsAssignment_3_2_1");
 			builder.put(grammarAccess.getCompositionPropertyAccess().getDescriptorAssignment_4(), "rule__CompositionProperty__DescriptorAssignment_4");
 			builder.put(grammarAccess.getCompositionPropertyAccess().getBindingsAssignment_6(), "rule__CompositionProperty__BindingsAssignment_6");
 			builder.put(grammarAccess.getPropertyBindingAccess().getPointAssignment_0(), "rule__PropertyBinding__PointAssignment_0");

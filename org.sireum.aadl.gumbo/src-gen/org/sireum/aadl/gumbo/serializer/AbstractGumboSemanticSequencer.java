@@ -1298,7 +1298,13 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     CompositionProperty returns CompositionProperty
 	 *
 	 * Constraint:
-	 *     (isAbstract?='abstract'? id=ID parent=[CompositionProperty|ID]? descriptor=STRING_VALUE? bindings+=PropertyBinding*)
+	 *     (
+	 *         isAbstract?='abstract'? 
+	 *         id=ID 
+	 *         (parents+=[CompositionProperty|ID] parents+=[CompositionProperty|ID]*)? 
+	 *         descriptor=STRING_VALUE? 
+	 *         bindings+=PropertyBinding*
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_CompositionProperty(ISerializationContext context, CompositionProperty semanticObject) {

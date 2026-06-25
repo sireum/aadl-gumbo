@@ -80,7 +80,7 @@ public class CompositionPropertyItemProvider
 
       addIsAbstractPropertyDescriptor(object);
       addIdPropertyDescriptor(object);
-      addParentPropertyDescriptor(object);
+      addParentsPropertyDescriptor(object);
       addDescriptorPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -133,20 +133,20 @@ public class CompositionPropertyItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Parent feature.
+   * This adds a property descriptor for the Parents feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addParentPropertyDescriptor(Object object)
+  protected void addParentsPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_CompositionProperty_parent_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_CompositionProperty_parent_feature", "_UI_CompositionProperty_type"),
-         GumboPackage.Literals.COMPOSITION_PROPERTY__PARENT,
+         getString("_UI_CompositionProperty_parents_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_CompositionProperty_parents_feature", "_UI_CompositionProperty_type"),
+         GumboPackage.Literals.COMPOSITION_PROPERTY__PARENTS,
          true,
          false,
          true,

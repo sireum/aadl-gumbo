@@ -118,7 +118,7 @@
     <genClasses ecoreClass="Gumbo.ecore#//CompositionProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CompositionProperty/isAbstract"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CompositionProperty/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CompositionProperty/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CompositionProperty/parents"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//CompositionProperty/descriptor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//CompositionProperty/bindings"/>
     </genClasses>

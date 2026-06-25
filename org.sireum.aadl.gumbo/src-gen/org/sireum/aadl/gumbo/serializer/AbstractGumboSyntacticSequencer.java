@@ -194,7 +194,7 @@ public abstract class AbstractGumboSyntacticSequencer extends AbstractSyntacticS
 	 *     ':&gt;' | 'specializes'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID (ambiguity) parent=[CompositionProperty|ID]
+	 *     id=ID (ambiguity) parents+=[CompositionProperty|ID]
 	 
 	 * </pre>
 	 */

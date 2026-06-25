@@ -2046,7 +2046,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getCompositionProperty_Parent()
+  public EReference getCompositionProperty_Parents()
   {
     return (EReference)compositionPropertyEClass.getEStructuralFeatures().get(2);
   }
@@ -5108,7 +5108,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     compositionPropertyEClass = createEClass(COMPOSITION_PROPERTY);
     createEAttribute(compositionPropertyEClass, COMPOSITION_PROPERTY__IS_ABSTRACT);
     createEAttribute(compositionPropertyEClass, COMPOSITION_PROPERTY__ID);
-    createEReference(compositionPropertyEClass, COMPOSITION_PROPERTY__PARENT);
+    createEReference(compositionPropertyEClass, COMPOSITION_PROPERTY__PARENTS);
     createEAttribute(compositionPropertyEClass, COMPOSITION_PROPERTY__DESCRIPTOR);
     createEReference(compositionPropertyEClass, COMPOSITION_PROPERTY__BINDINGS);
 
@@ -5684,7 +5684,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(compositionPropertyEClass, CompositionProperty.class, "CompositionProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCompositionProperty_IsAbstract(), theEcorePackage.getEBoolean(), "isAbstract", null, 0, 1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCompositionProperty_Id(), theEcorePackage.getEString(), "id", null, 0, 1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCompositionProperty_Parent(), this.getCompositionProperty(), null, "parent", null, 0, 1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompositionProperty_Parents(), this.getCompositionProperty(), null, "parents", null, 0, -1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCompositionProperty_Descriptor(), theEcorePackage.getEString(), "descriptor", null, 0, 1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompositionProperty_Bindings(), this.getPropertyBinding(), null, "bindings", null, 0, -1, CompositionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

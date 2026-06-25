@@ -1196,13 +1196,13 @@ public interface GumboPackage extends EPackage
   int COMPOSITION_PROPERTY__ID = 1;
 
   /**
-   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * The feature id for the '<em><b>Parents</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPOSITION_PROPERTY__PARENT = 2;
+  int COMPOSITION_PROPERTY__PARENTS = 2;
 
   /**
    * The feature id for the '<em><b>Descriptor</b></em>' attribute.
@@ -5639,15 +5639,15 @@ public interface GumboPackage extends EPackage
   EAttribute getCompositionProperty_Id();
 
   /**
-   * Returns the meta object for the reference '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty#getParent <em>Parent</em>}'.
+   * Returns the meta object for the reference list '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty#getParents <em>Parents</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parent</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.CompositionProperty#getParent()
+   * @return the meta object for the reference list '<em>Parents</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.CompositionProperty#getParents()
    * @see #getCompositionProperty()
    * @generated
    */
-  EReference getCompositionProperty_Parent();
+  EReference getCompositionProperty_Parents();
 
   /**
    * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.CompositionProperty#getDescriptor <em>Descriptor</em>}'.
@@ -9217,12 +9217,12 @@ public interface GumboPackage extends EPackage
     EAttribute COMPOSITION_PROPERTY__ID = eINSTANCE.getCompositionProperty_Id();
 
     /**
-     * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Parents</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPOSITION_PROPERTY__PARENT = eINSTANCE.getCompositionProperty_Parent();
+    EReference COMPOSITION_PROPERTY__PARENTS = eINSTANCE.getCompositionProperty_Parents();
 
     /**
      * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
