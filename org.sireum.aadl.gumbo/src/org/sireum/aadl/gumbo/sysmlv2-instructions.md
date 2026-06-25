@@ -3,7 +3,8 @@
 
 1. Rebase master onto the sysmlv2 branch and always select 'ours' (ie. master) when resolving conflict
 
-	```git rebase -X ours master
+	```
+	git rebase -X ours master
 
 	# ...each time it stops with conflicts, run these three, then it continues:
 	git checkout --ours -- .                       # master's content for both-modified files
