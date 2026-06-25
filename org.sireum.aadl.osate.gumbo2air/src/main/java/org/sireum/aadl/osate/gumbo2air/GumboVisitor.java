@@ -902,6 +902,12 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 	private GclCompositionProperty visitCompositionProperty(CompositionProperty p) {
 		Option<org.sireum.String> descriptor = GumboUtil.getOptionalSlangString(p.getDescriptor());
+		// D9 property inheritance: 'abstract' bases are not instantiated; 'parent' (when
+		// present) is the cross-referenced property this one specializes -- carry its id
+		// name into the AST (the kekinian resolver re-resolves and checks the chain).
+		Option<org.sireum.String> extendsOpt = p.getParent() == null
+				? SlangUtil.toNone()
+				: SlangUtil.toSome(new org.sireum.String(p.getParent().getId()));
 		List<GclPropertyBinding> bindings = new ArrayList<>();
 		for (PropertyBinding b : p.getBindings()) {
 			Option<org.sireum.String> bindingDescriptor = GumboUtil.getOptionalSlangString(b.getDescriptor());
@@ -910,7 +916,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 					visitSchemaPoint(b.getPoint()), bindingDescriptor, expr, GumboUtil.toAttr(b)));
 		}
 		return GclCompositionProperty$.MODULE$.apply(
-				p.getId(), descriptor, VisitorUtil.toISZ(bindings), GumboUtil.toAttr(p));
+				p.getId(), p.isIsAbstract(), extendsOpt, descriptor, VisitorUtil.toISZ(bindings), GumboUtil.toAttr(p));
 	}
 
 	private GclSchemaPoint visitSchemaPoint(SchemaPoint point) {

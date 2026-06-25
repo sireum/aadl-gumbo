@@ -76,6 +76,7 @@ import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
 import org.sireum.aadl.gumbo.gumbo.RecordLitExpr;
 import org.sireum.aadl.gumbo.gumbo.ResultExpr;
 import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.CompositionProperty;
 import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
@@ -89,6 +90,7 @@ import org.sireum.aadl.gumbo.gumbo.SlangType;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 
+import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 
 public class GumboScopeProvider extends AbstractGumboScopeProvider {
@@ -268,6 +270,34 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 			scope.addAll(ci.getAllSubcomponents());
 		}
 		return Scopes.scopeFor(scope);
+	}
+
+	// D9 property inheritance: a property may specialize (':>' / 'specializes') a
+	// sibling property of the enclosing composition. The candidates are the other
+	// properties of the same Composition (a property cannot specialize itself); the
+	// kekinian resolver additionally rejects cycles and empty abstract bases.
+	IScope scope_CompositionProperty_parent(CompositionProperty context, EReference reference) {
+		Composition comp = EcoreUtil2.getContainerOfType(context, Composition.class);
+		if (comp == null) {
+			return IScope.NULLSCOPE;
+		}
+		List<CompositionProperty> scope = new ArrayList<>();
+		for (CompositionProperty p : comp.getProperties()) {
+			if (p != context) {
+				scope.add(p);
+			}
+		}
+		// CompositionProperty names its identifier feature 'id' (not 'name'), so the
+		// default scopeFor (which keys off 'name') would leave the elements unnamed and
+		// nothing would resolve. Supply an explicit name function over 'id'.
+		return Scopes.scopeFor(scope,
+				new Function<EObject, QualifiedName>() {
+					@Override
+					public QualifiedName apply(EObject o) {
+						return QualifiedName.create(((CompositionProperty) o).getId());
+					}
+				},
+				IScope.NULLSCOPE);
 	}
 
 	// Resolves each segment of a state variable alias path (e.g. mrm.regulator_mode).
