@@ -272,11 +272,13 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 		return Scopes.scopeFor(scope);
 	}
 
-	// D9 property inheritance: a property may specialize (':>' / 'specializes') a
-	// sibling property of the enclosing composition. The candidates are the other
-	// properties of the same Composition (a property cannot specialize itself); the
-	// kekinian resolver additionally rejects cycles and empty abstract bases.
-	IScope scope_CompositionProperty_parent(CompositionProperty context, EReference reference) {
+	// D9 property inheritance: a property may specialize (':>' / 'specializes') one or
+	// more sibling properties of the enclosing composition (SysMLv2 allows a comma-
+	// separated parent list). The candidates are the other properties of the same
+	// Composition (a property cannot specialize itself); Xtext invokes this scope hook
+	// for each list element. The kekinian resolver additionally rejects cycles and
+	// empty abstract bases.
+	IScope scope_CompositionProperty_parents(CompositionProperty context, EReference reference) {
 		Composition comp = EcoreUtil2.getContainerOfType(context, Composition.class);
 		if (comp == null) {
 			return IScope.NULLSCOPE;

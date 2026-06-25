@@ -203,17 +203,18 @@ SchemaSequence:
 // unbound points lower to 'true'.
 //
 // An 'abstract' property is a base only -- never instantiated, so no VC set or
-// monitor checks are generated for it. A property may specialize a single parent
-// in the SAME composition via ':>' | 'specializes' (SysMLv2 specialization
-// synonyms): the child's effective bindings are the parent's (transitively) plus
-// its own, conjoined per schema point (strengthen-only -- there is no
-// override/':>>' form). 'parent' is a cross-reference scoped (GumboScopeProvider)
-// to the sibling properties of the enclosing composition; the kekinian resolver
-// re-resolves it and checks acyclicity / non-empty-abstract. See
-// VCGenerationDesign.md D9.
+// monitor checks are generated for it. A property may specialize one or more
+// parents in the SAME composition via ':>' | 'specializes' (SysMLv2 specialization
+// synonyms), comma-separated like SysMLv2 multi-specialization (e.g. ':> A, B'):
+// the child's effective bindings are all parents' (transitively) plus its own,
+// conjoined per schema point (strengthen-only -- there is no override/':>>' form).
+// 'parents' are cross-references scoped (GumboScopeProvider) to the sibling
+// properties of the enclosing composition; the kekinian resolver re-resolves them
+// and walks the specialization DAG (a shared ancestor is folded in once), checking
+// acyclicity / non-empty-abstract. See VCGenerationDesign.md D9.
 CompositionProperty:
 	isAbstract ?= 'abstract'? 'property' id=ID
-		((':>' | 'specializes') parent=[CompositionProperty|ID])?
+		((':>' | 'specializes') parents+=[CompositionProperty|ID] (',' parents+=[CompositionProperty|ID])*)?
 		descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)* '}'
 ;
 
