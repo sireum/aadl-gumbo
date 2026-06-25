@@ -2040,16 +2040,38 @@ ruleCompositionProperty returns [EObject current=null]
 					}
 					otherlv_5=RULE_ID
 					{
-						newLeafNode(otherlv_5, grammarAccess.getCompositionPropertyAccess().getParentCompositionPropertyCrossReference_3_1_0());
+						newLeafNode(otherlv_5, grammarAccess.getCompositionPropertyAccess().getParentsCompositionPropertyCrossReference_3_1_0());
 					}
 				)
 			)
+			(
+				otherlv_6=','
+				{
+					newLeafNode(otherlv_6, grammarAccess.getCompositionPropertyAccess().getCommaKeyword_3_2_0());
+				}
+				(
+					(
+						{
+							/* */
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getCompositionPropertyRule());
+							}
+						}
+						otherlv_7=RULE_ID
+						{
+							newLeafNode(otherlv_7, grammarAccess.getCompositionPropertyAccess().getParentsCompositionPropertyCrossReference_3_2_1_0());
+						}
+					)
+				)
+			)*
 		)?
 		(
 			(
-				lv_descriptor_6_0=RULE_STRING_VALUE
+				lv_descriptor_8_0=RULE_STRING_VALUE
 				{
-					newLeafNode(lv_descriptor_6_0, grammarAccess.getCompositionPropertyAccess().getDescriptorSTRING_VALUETerminalRuleCall_4_0());
+					newLeafNode(lv_descriptor_8_0, grammarAccess.getCompositionPropertyAccess().getDescriptorSTRING_VALUETerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -2058,21 +2080,21 @@ ruleCompositionProperty returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"descriptor",
-						lv_descriptor_6_0,
+						lv_descriptor_8_0,
 						"org.sireum.aadl.gumbo.Gumbo.STRING_VALUE");
 				}
 			)
 		)?
-		otherlv_7='{'
+		otherlv_9='{'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getCompositionPropertyAccess().getLeftCurlyBracketKeyword_5());
+			newLeafNode(otherlv_9, grammarAccess.getCompositionPropertyAccess().getLeftCurlyBracketKeyword_5());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getCompositionPropertyAccess().getBindingsPropertyBindingParserRuleCall_6_0());
 				}
-				lv_bindings_8_0=rulePropertyBinding
+				lv_bindings_10_0=rulePropertyBinding
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCompositionPropertyRule());
@@ -2080,15 +2102,15 @@ ruleCompositionProperty returns [EObject current=null]
 					add(
 						$current,
 						"bindings",
-						lv_bindings_8_0,
+						lv_bindings_10_0,
 						"org.sireum.aadl.gumbo.Gumbo.PropertyBinding");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_9='}'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getCompositionPropertyAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_11, grammarAccess.getCompositionPropertyAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

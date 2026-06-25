@@ -13976,25 +13976,6 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
 
                             if ( (LA19_6==RULE_ID) ) {
                                 switch ( input.LA(6) ) {
-                                case 89:
-                                    {
-                                    int LA19_8 = input.LA(7);
-
-                                    if ( (LA19_8==RULE_ID) ) {
-                                        alt19=2;
-                                    }
-                                    else if ( ((LA19_8>=43 && LA19_8<=44)||LA19_8==90||(LA19_8>=110 && LA19_8<=111)||(LA19_8>=121 && LA19_8<=127)||LA19_8==142) ) {
-                                        alt19=1;
-                                    }
-                                    else {
-                                        if (state.backtracking>0) {state.failed=true; return ;}
-                                        NoViableAltException nvae =
-                                            new NoViableAltException("", 19, 8, input);
-
-                                        throw nvae;
-                                    }
-                                    }
-                                    break;
                                 case 107:
                                     {
                                     alt19=2;
@@ -14045,6 +14026,25 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                                 case 142:
                                     {
                                     alt19=1;
+                                    }
+                                    break;
+                                case 89:
+                                    {
+                                    int LA19_8 = input.LA(7);
+
+                                    if ( ((LA19_8>=43 && LA19_8<=44)||LA19_8==90||(LA19_8>=110 && LA19_8<=111)||(LA19_8>=121 && LA19_8<=127)||LA19_8==142) ) {
+                                        alt19=1;
+                                    }
+                                    else if ( (LA19_8==RULE_ID) ) {
+                                        alt19=2;
+                                    }
+                                    else {
+                                        if (state.backtracking>0) {state.failed=true; return ;}
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("", 19, 8, input);
+
+                                        throw nvae;
+                                    }
                                     }
                                     break;
                                 default:
@@ -15073,6 +15073,9 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                 }
                 else if ( (LA27_1==RULE_ID) ) {
                     alt27=1;
+                }
+                else if ( ((LA25_1>=53 && LA25_1<=67)) ) {
+                    alt25=3;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -61569,6 +61572,9 @@ public class InternalGumboParser extends AbstractInternalContentAssistParser {
                     if ( (LA153_4==Colon) ) {
                         alt153=1;
                     }
+                }
+                else if ( (LA151_1==44) ) {
+                    alt151=1;
                 }
             }
             switch (alt153) {
