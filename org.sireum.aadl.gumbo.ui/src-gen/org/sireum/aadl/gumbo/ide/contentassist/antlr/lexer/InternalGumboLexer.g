@@ -23,15 +23,13 @@ import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 
 Compute_cases : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e')'_'('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s');
 
-Historically : ('H'|'h')('I'|'i')('S'|'s')('T'|'t')('O'|'o')('R'|'r')('I'|'i')('C'|'c')('A'|'a')('L'|'l')('L'|'l')('Y'|'y');
-
 Strictpure : '@'('S'|'s')('T'|'t')('R'|'r')('I'|'i')('C'|'c')('T'|'t')('P'|'p')('U'|'u')('R'|'r')('E'|'e');
 
 Composition : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('O'|'o')('S'|'s')('I'|'i')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
 Integration : ('I'|'i')('N'|'n')('T'|'t')('E'|'e')('G'|'g')('R'|'r')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
-Eventually : ('E'|'e')('V'|'v')('E'|'e')('N'|'n')('T'|'t')('U'|'u')('A'|'a')('L'|'l')('L'|'l')('Y'|'y');
+Specializes : ('S'|'s')('P'|'p')('E'|'e')('C'|'c')('I'|'i')('A'|'a')('L'|'l')('I'|'i')('Z'|'z')('E'|'e')('S'|'s');
 
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
 
@@ -41,8 +39,6 @@ Initialize : ('I'|'i')('N'|'n')('I'|'i')('T'|'t')('I'|'i')('A'|'a')('L'|'l')('I'
 
 Invariants : ('I'|'i')('N'|'n')('V'|'v')('A'|'a')('R'|'r')('I'|'i')('A'|'a')('N'|'n')('T'|'t')('S'|'s');
 
-UntilTODO : ('U'|'u')('N'|'n')('T'|'t')('I'|'i')('L'|'l')('T'|'t')('O'|'o')('D'|'d')('O'|'o');
-
 Functions : ('F'|'f')('U'|'u')('N'|'n')('C'|'c')('T'|'t')('I'|'i')('O'|'o')('N'|'n')('S'|'s');
 
 Guarantee : ('G'|'g')('U'|'u')('A'|'a')('R'|'r')('A'|'a')('N'|'n')('T'|'t')('E'|'e')('E'|'e');
@@ -51,11 +47,11 @@ Invariant : ('I'|'i')('N'|'n')('V'|'v')('A'|'a')('R'|'r')('I'|'i')('A'|'a')('N'|
 
 Reference : ('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('E'|'e')('N'|'n')('C'|'c')('E'|'e');
 
-Globally : ('G'|'g')('L'|'l')('O'|'o')('B'|'b')('A'|'a')('L'|'l')('L'|'l')('Y'|'y');
-
 HasEvent : ('H'|'h')('A'|'a')('S'|'s')('E'|'e')('V'|'v')('E'|'e')('N'|'n')('T'|'t');
 
 MustSend : ('M'|'m')('U'|'u')('S'|'s')('T'|'t')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
+
+Abstract : ('A'|'a')('B'|'b')('S'|'s')('T'|'t')('R'|'r')('A'|'a')('C'|'c')('T'|'t');
 
 Constant : ('C'|'c')('O'|'o')('N'|'n')('S'|'s')('T'|'t')('A'|'a')('N'|'n')('T'|'t');
 
@@ -69,10 +65,6 @@ Sequence : ('S'|'s')('E'|'e')('Q'|'q')('U'|'u')('E'|'e')('N'|'n')('C'|'c')('E'|'
 
 MaySend : ('M'|'m')('A'|'a')('Y'|'y')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
 
-Release : ('R'|'r')('E'|'e')('L'|'l')('E'|'e')('A'|'a')('S'|'s')('E'|'e');
-
-Trigger : ('T'|'t')('R'|'r')('I'|'i')('G'|'g')('G'|'g')('E'|'e')('R'|'r');
-
 Applies : ('A'|'a')('P'|'p')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
 Binding : ('B'|'b')('I'|'i')('N'|'n')('D'|'d')('I'|'i')('N'|'n')('G'|'g');
@@ -81,13 +73,7 @@ Compute : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e');
 
 Implies : ('I'|'i')('M'|'m')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
-Monitor : ('M'|'m')('O'|'o')('N'|'n')('I'|'i')('T'|'t')('O'|'o')('R'|'r');
-
-Always : ('A'|'a')('L'|'l')('W'|'w')('A'|'a')('Y'|'y')('S'|'s');
-
 Exists : ('E'|'e')('X'|'x')('I'|'i')('S'|'s')('T'|'t')('S'|'s');
-
-Future : ('F'|'f')('U'|'u')('T'|'t')('U'|'u')('R'|'r')('E'|'e');
 
 NoSend : ('N'|'n')('O'|'o')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
 
@@ -106,8 +92,6 @@ Schema : ('S'|'s')('C'|'c')('H'|'h')('E'|'e')('M'|'m')('A'|'a');
 Pure : '@'('P'|'p')('U'|'u')('R'|'r')('E'|'e');
 
 Spec_1 : '@'('S'|'s')('P'|'p')('E'|'e')('C'|'c');
-
-Since : ('S'|'s')('I'|'i')('N'|'n')('C'|'c')('E'|'e');
 
 After : ('A'|'a')('F'|'f')('T'|'t')('E'|'e')('R'|'r');
 
@@ -152,8 +136,6 @@ Until : ('U'|'u')('N'|'n')('T'|'t')('I'|'i')('L'|'l');
 While : ('W'|'w')('H'|'h')('I'|'i')('L'|'l')('E'|'e');
 
 Yield : ('Y'|'y')('I'|'i')('E'|'e')('L'|'l')('D'|'d');
-
-Once : ('O'|'o')('N'|'n')('C'|'c')('E'|'e');
 
 Case : ('C'|'c')('A'|'a')('S'|'s')('E'|'e');
 
@@ -214,6 +196,8 @@ FullStopFullStop : '.''.';
 ColonColon : ':'':';
 
 ColonEqualsSign : ':''=';
+
+ColonGreaterThanSign : ':''>';
 
 EqualsSignGreaterThanSign : '=''>';
 
@@ -296,8 +280,6 @@ RULE_OR_OPS : ('|^'|'||'|'|');
 RULE_IMPLIES : ('__'|'-'|'~') '>' ':';
 
 RULE_SIMPLIES : ('___'|'~~') '>' ':';
-
-RULE_INTERVAL : '[' RULE_INTEGER_LIT ',' RULE_INTEGER_LIT ']';
 
 RULE_HEX : '0x' RULE_EXTENDED_DIGIT+ ('.' RULE_IDF)?;
 

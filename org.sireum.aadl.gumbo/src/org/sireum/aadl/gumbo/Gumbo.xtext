@@ -207,8 +207,21 @@ SchemaSequence:
 // A named assertion decoration of the schema. Each property generates its own
 // VC set over the shared net; a property's VCs see only its own bindings, and
 // unbound points lower to 'true'.
+//
+// An 'abstract' property is a base only -- never instantiated, so no VC set or
+// monitor checks are generated for it. A property may specialize one or more
+// parents in the SAME composition via ':>' | 'specializes' (SysMLv2 specialization
+// synonyms), comma-separated like SysMLv2 multi-specialization (e.g. ':> A, B'):
+// the child's effective bindings are all parents' (transitively) plus its own,
+// conjoined per schema point (strengthen-only -- there is no override/':>>' form).
+// 'parents' are cross-references scoped (GumboScopeProvider) to the sibling
+// properties of the enclosing composition; the kekinian resolver re-resolves them
+// and walks the specialization DAG (a shared ancestor is folded in once), checking
+// acyclicity / non-empty-abstract. See VCGenerationDesign.md D9.
 CompositionProperty:
-	'property' id=ID descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)+ '}'
+	isAbstract ?= 'abstract'? 'property' id=ID
+		((':>' | 'specializes') parents+=[CompositionProperty|ID] (',' parents+=[CompositionProperty|ID])*)?
+		descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)* '}'
 ;
 
 PropertyBinding:
