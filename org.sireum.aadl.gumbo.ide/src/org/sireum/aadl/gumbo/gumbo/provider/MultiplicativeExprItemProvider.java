@@ -253,7 +253,7 @@ public class MultiplicativeExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MULTIPLICATIVE_EXPR__LEFT,
-         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -413,7 +413,7 @@ public class MultiplicativeExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MULTIPLICATIVE_EXPR__RIGHT,
-         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

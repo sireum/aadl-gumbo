@@ -249,7 +249,7 @@ public class MustSendExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MUST_SEND_EXPR__VALUE,
-         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

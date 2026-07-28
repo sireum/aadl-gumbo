@@ -224,7 +224,7 @@ public class SlangDoStmtItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_DO_STMT__E,
-         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -239,7 +239,7 @@ public class AnonAssumeStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ANON_ASSUME_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -177,7 +177,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.COLON_EXPR: return createColonExpr();
       case GumboPackage.PLUS_MINUS_EXPR: return createPlusMinusExpr();
       case GumboPackage.MULTIPLICATIVE_EXPR: return createMultiplicativeExpr();
-      case GumboPackage.BINARY_TEMPORAL_EXPR: return createBinaryTemporalExpr();
+      case GumboPackage.BINARY_TEMPORAL_EXP: return createBinaryTemporalExp();
       case GumboPackage.UNARY_EXPR: return createUnaryExpr();
       case GumboPackage.POST_FIX_EXPR: return createPostFixExpr();
       case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
@@ -1440,10 +1440,10 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public BinaryTemporalExpr createBinaryTemporalExpr()
+  public BinaryTemporalExp createBinaryTemporalExp()
   {
-    BinaryTemporalExprImpl binaryTemporalExpr = new BinaryTemporalExprImpl();
-    return binaryTemporalExpr;
+    BinaryTemporalExpImpl binaryTemporalExp = new BinaryTemporalExpImpl();
+    return binaryTemporalExp;
   }
 
   /**

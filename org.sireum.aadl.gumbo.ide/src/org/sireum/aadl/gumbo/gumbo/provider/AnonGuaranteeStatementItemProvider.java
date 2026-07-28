@@ -239,7 +239,7 @@ public class AnonGuaranteeStatementItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ANON_GUARANTEE_STATEMENT__EXPR,
-         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

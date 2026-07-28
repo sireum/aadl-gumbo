@@ -2635,28 +2635,28 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr} instances.
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BinaryTemporalExprItemProvider binaryTemporalExprItemProvider;
+  protected BinaryTemporalExpItemProvider binaryTemporalExpItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr}.
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createBinaryTemporalExprAdapter()
+  public Adapter createBinaryTemporalExpAdapter()
   {
-    if (binaryTemporalExprItemProvider == null)
+    if (binaryTemporalExpItemProvider == null)
     {
-      binaryTemporalExprItemProvider = new BinaryTemporalExprItemProvider(this);
+      binaryTemporalExpItemProvider = new BinaryTemporalExpItemProvider(this);
     }
 
-    return binaryTemporalExprItemProvider;
+    return binaryTemporalExpItemProvider;
   }
 
   /**
@@ -3553,7 +3553,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (colonExprItemProvider != null) colonExprItemProvider.dispose();
     if (plusMinusExprItemProvider != null) plusMinusExprItemProvider.dispose();
     if (multiplicativeExprItemProvider != null) multiplicativeExprItemProvider.dispose();
-    if (binaryTemporalExprItemProvider != null) binaryTemporalExprItemProvider.dispose();
+    if (binaryTemporalExpItemProvider != null) binaryTemporalExpItemProvider.dispose();
     if (unaryExprItemProvider != null) unaryExprItemProvider.dispose();
     if (postFixExprItemProvider != null) postFixExprItemProvider.dispose();
     if (slangLitTermItemProvider != null) slangLitTermItemProvider.dispose();

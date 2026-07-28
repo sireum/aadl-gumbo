@@ -3943,14 +3943,14 @@ public interface GumboPackage extends EPackage
   int MULTIPLICATIVE_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExprImpl <em>Binary Temporal Expr</em>}' class.
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl <em>Binary Temporal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExprImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryTemporalExpr()
+   * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryTemporalExp()
    * @generated
    */
-  int BINARY_TEMPORAL_EXPR = 102;
+  int BINARY_TEMPORAL_EXP = 102;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3959,7 +3959,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINARY_TEMPORAL_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
+  int BINARY_TEMPORAL_EXP__LEFT = GEXPR_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -3968,7 +3968,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINARY_TEMPORAL_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
+  int BINARY_TEMPORAL_EXP__OP = GEXPR_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Intvl</b></em>' attribute.
@@ -3977,7 +3977,7 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINARY_TEMPORAL_EXPR__INTVL = GEXPR_FEATURE_COUNT + 2;
+  int BINARY_TEMPORAL_EXP__INTVL = GEXPR_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -3986,16 +3986,16 @@ public interface GumboPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINARY_TEMPORAL_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 3;
+  int BINARY_TEMPORAL_EXP__RIGHT = GEXPR_FEATURE_COUNT + 3;
 
   /**
-   * The number of structural features of the '<em>Binary Temporal Expr</em>' class.
+   * The number of structural features of the '<em>Binary Temporal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINARY_TEMPORAL_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 4;
+  int BINARY_TEMPORAL_EXP_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
@@ -8017,58 +8017,58 @@ public interface GumboPackage extends EPackage
   EReference getMultiplicativeExpr_Right();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr <em>Binary Temporal Expr</em>}'.
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp <em>Binary Temporal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Binary Temporal Expr</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr
+   * @return the meta object for class '<em>Binary Temporal Exp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp
    * @generated
    */
-  EClass getBinaryTemporalExpr();
+  EClass getBinaryTemporalExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getLeft()
-   * @see #getBinaryTemporalExpr()
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getLeft()
+   * @see #getBinaryTemporalExp()
    * @generated
    */
-  EReference getBinaryTemporalExpr_Left();
+  EReference getBinaryTemporalExp_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getOp <em>Op</em>}'.
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getOp()
-   * @see #getBinaryTemporalExpr()
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getOp()
+   * @see #getBinaryTemporalExp()
    * @generated
    */
-  EAttribute getBinaryTemporalExpr_Op();
+  EAttribute getBinaryTemporalExp_Op();
 
   /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getIntvl <em>Intvl</em>}'.
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getIntvl <em>Intvl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Intvl</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getIntvl()
-   * @see #getBinaryTemporalExpr()
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getIntvl()
+   * @see #getBinaryTemporalExp()
    * @generated
    */
-  EAttribute getBinaryTemporalExpr_Intvl();
+  EAttribute getBinaryTemporalExp_Intvl();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr#getRight()
-   * @see #getBinaryTemporalExpr()
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getRight()
+   * @see #getBinaryTemporalExp()
    * @generated
    */
-  EReference getBinaryTemporalExpr_Right();
+  EReference getBinaryTemporalExp_Right();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.UnaryExpr <em>Unary Expr</em>}'.
@@ -11288,14 +11288,14 @@ public interface GumboPackage extends EPackage
     EReference MULTIPLICATIVE_EXPR__RIGHT = eINSTANCE.getMultiplicativeExpr_Right();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExprImpl <em>Binary Temporal Expr</em>}' class.
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl <em>Binary Temporal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExprImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryTemporalExpr()
+     * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryTemporalExp()
      * @generated
      */
-    EClass BINARY_TEMPORAL_EXPR = eINSTANCE.getBinaryTemporalExpr();
+    EClass BINARY_TEMPORAL_EXP = eINSTANCE.getBinaryTemporalExp();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -11303,7 +11303,7 @@ public interface GumboPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINARY_TEMPORAL_EXPR__LEFT = eINSTANCE.getBinaryTemporalExpr_Left();
+    EReference BINARY_TEMPORAL_EXP__LEFT = eINSTANCE.getBinaryTemporalExp_Left();
 
     /**
      * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
@@ -11311,7 +11311,7 @@ public interface GumboPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BINARY_TEMPORAL_EXPR__OP = eINSTANCE.getBinaryTemporalExpr_Op();
+    EAttribute BINARY_TEMPORAL_EXP__OP = eINSTANCE.getBinaryTemporalExp_Op();
 
     /**
      * The meta object literal for the '<em><b>Intvl</b></em>' attribute feature.
@@ -11319,7 +11319,7 @@ public interface GumboPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BINARY_TEMPORAL_EXPR__INTVL = eINSTANCE.getBinaryTemporalExpr_Intvl();
+    EAttribute BINARY_TEMPORAL_EXP__INTVL = eINSTANCE.getBinaryTemporalExp_Intvl();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -11327,7 +11327,7 @@ public interface GumboPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINARY_TEMPORAL_EXPR__RIGHT = eINSTANCE.getBinaryTemporalExpr_Right();
+    EReference BINARY_TEMPORAL_EXP__RIGHT = eINSTANCE.getBinaryTemporalExp_Right();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl <em>Unary Expr</em>}' class.

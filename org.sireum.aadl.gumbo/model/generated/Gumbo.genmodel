@@ -395,11 +395,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//MultiplicativeExpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//MultiplicativeExpr/right"/>
     </genClasses>
-    <genClasses ecoreClass="Gumbo.ecore#//BinaryTemporalExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryTemporalExpr/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinaryTemporalExpr/op"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinaryTemporalExpr/intvl"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryTemporalExpr/right"/>
+    <genClasses ecoreClass="Gumbo.ecore#//BinaryTemporalExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryTemporalExp/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinaryTemporalExp/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinaryTemporalExp/intvl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryTemporalExp/right"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//UnaryExpr">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//UnaryExpr/op"/>

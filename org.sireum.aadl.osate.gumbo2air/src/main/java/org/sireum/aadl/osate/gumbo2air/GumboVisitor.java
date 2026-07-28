@@ -38,7 +38,7 @@ import org.sireum.Z;
 import org.sireum.aadl.gumbo.gumbo.AndExpr;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
-import org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr;
+import org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
@@ -1351,7 +1351,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
 
      @Override
-	public Boolean caseBinaryTemporalExpr(BinaryTemporalExpr object) {
+		public Boolean caseBinaryTemporalExp(BinaryTemporalExp object) {
 		// until Until release Release since Since trigger Trigger
 		EObject parent = object;
 		while (parent != null) { // Search for parent SpecSection

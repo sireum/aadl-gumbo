@@ -498,7 +498,7 @@ MultiplicativeExpression returns GExpr
 	: BinaryTemporalExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=BinaryTemporalExpression)*;
 
 BinaryTemporalExpression returns GExpr
-	: UnaryExpression ( {BinaryTemporalExpr.left=current} op=TemporalBinaryOps (intvl=INTERVAL)? right=UnaryExpression)*;
+	: UnaryExpression ( {BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL right=UnaryExpression)*;
 
 UnaryExpression returns GExpr
 	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
@@ -702,7 +702,7 @@ TemporalUnaryOps:
      'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
 
 TemporalBinaryOps:
-     'Until' | 'Release' | 'Since' | 'Trigger';
+     'UntilTODO' | 'Release' | 'Since' | 'Trigger';
 
 terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
 

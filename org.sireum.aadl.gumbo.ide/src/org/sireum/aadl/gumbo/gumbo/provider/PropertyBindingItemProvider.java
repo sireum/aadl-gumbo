@@ -293,7 +293,7 @@ public class PropertyBindingItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
-         GumboFactory.eINSTANCE.createBinaryTemporalExpr()));
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

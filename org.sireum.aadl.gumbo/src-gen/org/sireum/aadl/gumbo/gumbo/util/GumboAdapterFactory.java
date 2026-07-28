@@ -602,9 +602,9 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createMultiplicativeExprAdapter();
       }
       @Override
-      public Adapter caseBinaryTemporalExpr(BinaryTemporalExpr object)
+      public Adapter caseBinaryTemporalExp(BinaryTemporalExp object)
       {
-        return createBinaryTemporalExprAdapter();
+        return createBinaryTemporalExpAdapter();
       }
       @Override
       public Adapter caseUnaryExpr(UnaryExpr object)
@@ -2319,16 +2319,16 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr <em>Binary Temporal Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp <em>Binary Temporal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp
    * @generated
    */
-  public Adapter createBinaryTemporalExprAdapter()
+  public Adapter createBinaryTemporalExpAdapter()
   {
     return null;
   }

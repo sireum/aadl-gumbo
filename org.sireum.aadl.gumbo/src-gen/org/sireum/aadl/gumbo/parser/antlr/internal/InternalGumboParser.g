@@ -5847,7 +5847,7 @@ ruleQuantRange returns [EObject current=null]
 						setWithLastConsumed($current, "extent", lv_extent_1_1, null);
 					}
 					    |
-					lv_extent_1_2=Until_1
+					lv_extent_1_2=Until
 					{
 						newLeafNode(lv_extent_1_2, grammarAccess.getQuantRangeAccess().getExtentUntilKeyword_1_0_1());
 					}
@@ -6666,7 +6666,7 @@ ruleBinaryTemporalExpression returns [EObject current=null]
 				}
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getBinaryTemporalExpressionAccess().getBinaryTemporalExprLeftAction_1_0(),
+						grammarAccess.getBinaryTemporalExpressionAccess().getBinaryTemporalExpLeftAction_1_0(),
 						$current);
 				}
 			)
@@ -6706,7 +6706,7 @@ ruleBinaryTemporalExpression returns [EObject current=null]
 							"org.sireum.aadl.gumbo.Gumbo.INTERVAL");
 					}
 				)
-			)?
+			)
 			(
 				(
 					{
@@ -9402,10 +9402,10 @@ ruleTemporalBinaryOps returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 	leaveRule();
 }:
 	(
-		kw=Until_1
+		kw=UntilTODO
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getTemporalBinaryOpsAccess().getUntilKeyword_0());
+			newLeafNode(kw, grammarAccess.getTemporalBinaryOpsAccess().getUntilTODOKeyword_0());
 		}
 		    |
 		kw=Release

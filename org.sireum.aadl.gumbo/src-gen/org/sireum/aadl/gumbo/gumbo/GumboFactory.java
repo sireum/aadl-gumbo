@@ -952,13 +952,13 @@ public interface GumboFactory extends EFactory
   MultiplicativeExpr createMultiplicativeExpr();
 
   /**
-   * Returns a new object of class '<em>Binary Temporal Expr</em>'.
+   * Returns a new object of class '<em>Binary Temporal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binary Temporal Expr</em>'.
+   * @return a new object of class '<em>Binary Temporal Exp</em>'.
    * @generated
    */
-  BinaryTemporalExpr createBinaryTemporalExpr();
+  BinaryTemporalExp createBinaryTemporalExp();
 
   /**
    * Returns a new object of class '<em>Unary Expr</em>'.

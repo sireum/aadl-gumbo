@@ -4044,7 +4044,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cUnaryExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cBinaryTemporalExprLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Action cBinaryTemporalExpLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOpTemporalBinaryOpsParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
 		private final Assignment cIntvlAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
@@ -4053,20 +4053,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cRightUnaryExpressionParserRuleCall_1_3_0 = (RuleCall)cRightAssignment_1_3.eContents().get(0);
 		
 		//BinaryTemporalExpression returns GExpr
-		//    : UnaryExpression ( {BinaryTemporalExpr.left=current} op=TemporalBinaryOps (intvl=INTERVAL)? right=UnaryExpression)*;
+		//    : UnaryExpression ( {BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL right=UnaryExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//UnaryExpression ( {BinaryTemporalExpr.left=current} op=TemporalBinaryOps (intvl=INTERVAL)? right=UnaryExpression)*
+		//UnaryExpression ( {BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL right=UnaryExpression)*
 		public Group getGroup() { return cGroup; }
 		
 		//UnaryExpression
 		public RuleCall getUnaryExpressionParserRuleCall_0() { return cUnaryExpressionParserRuleCall_0; }
 		
-		//( {BinaryTemporalExpr.left=current} op=TemporalBinaryOps (intvl=INTERVAL)? right=UnaryExpression)*
+		//( {BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL right=UnaryExpression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{BinaryTemporalExpr.left=current}
-		public Action getBinaryTemporalExprLeftAction_1_0() { return cBinaryTemporalExprLeftAction_1_0; }
+		//{BinaryTemporalExp.left=current}
+		public Action getBinaryTemporalExpLeftAction_1_0() { return cBinaryTemporalExpLeftAction_1_0; }
 		
 		//op=TemporalBinaryOps
 		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
@@ -4074,7 +4074,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//TemporalBinaryOps
 		public RuleCall getOpTemporalBinaryOpsParserRuleCall_1_1_0() { return cOpTemporalBinaryOpsParserRuleCall_1_1_0; }
 		
-		//(intvl=INTERVAL)?
+		//intvl=INTERVAL
 		public Assignment getIntvlAssignment_1_2() { return cIntvlAssignment_1_2; }
 		
 		//INTERVAL
@@ -5803,20 +5803,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class TemporalBinaryOpsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.TemporalBinaryOps");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cUntilKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cUntilTODOKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cReleaseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cSinceKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cTriggerKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		
 		//TemporalBinaryOps:
-		//     'Until' | 'Release' | 'Since' | 'Trigger';
+		//     'UntilTODO' | 'Release' | 'Since' | 'Trigger';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Until' | 'Release' | 'Since' | 'Trigger'
+		//'UntilTODO' | 'Release' | 'Since' | 'Trigger'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'Until'
-		public Keyword getUntilKeyword_0() { return cUntilKeyword_0; }
+		//'UntilTODO'
+		public Keyword getUntilTODOKeyword_0() { return cUntilTODOKeyword_0; }
 		
 		//'Release'
 		public Keyword getReleaseKeyword_1() { return cReleaseKeyword_1; }
@@ -7161,7 +7161,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//BinaryTemporalExpression returns GExpr
-	//    : UnaryExpression ( {BinaryTemporalExpr.left=current} op=TemporalBinaryOps (intvl=INTERVAL)? right=UnaryExpression)*;
+	//    : UnaryExpression ( {BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL right=UnaryExpression)*;
 	public BinaryTemporalExpressionElements getBinaryTemporalExpressionAccess() {
 		return pBinaryTemporalExpression;
 	}
@@ -7570,7 +7570,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//TemporalBinaryOps:
-	//     'Until' | 'Release' | 'Since' | 'Trigger';
+	//     'UntilTODO' | 'Release' | 'Since' | 'Trigger';
 	public TemporalBinaryOpsElements getTemporalBinaryOpsAccess() {
 		return pTemporalBinaryOps;
 	}
