@@ -5515,19 +5515,20 @@ ruleSlangExpression returns [EObject current=null]
 			)
 			(
 				(
-					lv_op_2_0=RULE_TEMPORAL_UNARY_OPS
 					{
-						newLeafNode(lv_op_2_0, grammarAccess.getSlangExpressionAccess().getOpTEMPORAL_UNARY_OPSTerminalRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getSlangExpressionAccess().getOpTemporalUnaryOpsParserRuleCall_1_1_0());
 					}
+					lv_op_2_0=ruleTemporalUnaryOps
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSlangExpressionRule());
+							$current = createModelElementForParent(grammarAccess.getSlangExpressionRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"op",
 							lv_op_2_0,
-							"org.sireum.aadl.gumbo.Gumbo.TEMPORAL_UNARY_OPS");
+							"org.sireum.aadl.gumbo.Gumbo.TemporalUnaryOps");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -5846,7 +5847,7 @@ ruleQuantRange returns [EObject current=null]
 						setWithLastConsumed($current, "extent", lv_extent_1_1, null);
 					}
 					    |
-					lv_extent_1_2=Until
+					lv_extent_1_2=Until_1
 					{
 						newLeafNode(lv_extent_1_2, grammarAccess.getQuantRangeAccess().getExtentUntilKeyword_1_0_1());
 					}
@@ -6671,19 +6672,20 @@ ruleBinaryTemporalExpression returns [EObject current=null]
 			)
 			(
 				(
-					lv_op_2_0=RULE_TEMPORAL_BINARY_OPS
 					{
-						newLeafNode(lv_op_2_0, grammarAccess.getBinaryTemporalExpressionAccess().getOpTEMPORAL_BINARY_OPSTerminalRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getBinaryTemporalExpressionAccess().getOpTemporalBinaryOpsParserRuleCall_1_1_0());
 					}
+					lv_op_2_0=ruleTemporalBinaryOps
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getBinaryTemporalExpressionRule());
+							$current = createModelElementForParent(grammarAccess.getBinaryTemporalExpressionRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"op",
 							lv_op_2_0,
-							"org.sireum.aadl.gumbo.Gumbo.TEMPORAL_BINARY_OPS");
+							"org.sireum.aadl.gumbo.Gumbo.TemporalBinaryOps");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -9326,6 +9328,102 @@ ruleImpliesOps returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getImpliesOpsAccess().getImpliesKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleTemporalUnaryOps
+entryRuleTemporalUnaryOps returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getTemporalUnaryOpsRule()); }
+	iv_ruleTemporalUnaryOps=ruleTemporalUnaryOps
+	{ $current=$iv_ruleTemporalUnaryOps.current.getText(); }
+	EOF;
+
+// Rule TemporalUnaryOps
+ruleTemporalUnaryOps returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw=Future
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalUnaryOpsAccess().getFutureKeyword_0());
+		}
+		    |
+		kw=Eventually
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalUnaryOpsAccess().getEventuallyKeyword_1());
+		}
+		    |
+		kw=Globally
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalUnaryOpsAccess().getGloballyKeyword_2());
+		}
+		    |
+		kw=Always
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalUnaryOpsAccess().getAlwaysKeyword_3());
+		}
+		    |
+		kw=Once
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalUnaryOpsAccess().getOnceKeyword_4());
+		}
+		    |
+		kw=Historically
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalUnaryOpsAccess().getHistoricallyKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleTemporalBinaryOps
+entryRuleTemporalBinaryOps returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getTemporalBinaryOpsRule()); }
+	iv_ruleTemporalBinaryOps=ruleTemporalBinaryOps
+	{ $current=$iv_ruleTemporalBinaryOps.current.getText(); }
+	EOF;
+
+// Rule TemporalBinaryOps
+ruleTemporalBinaryOps returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw=Until_1
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalBinaryOpsAccess().getUntilKeyword_0());
+		}
+		    |
+		kw=Release
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalBinaryOpsAccess().getReleaseKeyword_1());
+		}
+		    |
+		kw=Since
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalBinaryOpsAccess().getSinceKeyword_2());
+		}
+		    |
+		kw=Trigger
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTemporalBinaryOpsAccess().getTriggerKeyword_3());
 		}
 	)
 ;

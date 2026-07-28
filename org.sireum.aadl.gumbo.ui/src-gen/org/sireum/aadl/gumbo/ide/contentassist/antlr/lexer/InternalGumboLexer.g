@@ -23,11 +23,15 @@ import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 
 Compute_cases : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e')'_'('C'|'c')('A'|'a')('S'|'s')('E'|'e')('S'|'s');
 
+Historically : ('H'|'h')('I'|'i')('S'|'s')('T'|'t')('O'|'o')('R'|'r')('I'|'i')('C'|'c')('A'|'a')('L'|'l')('L'|'l')('Y'|'y');
+
 Strictpure : '@'('S'|'s')('T'|'t')('R'|'r')('I'|'i')('C'|'c')('T'|'t')('P'|'p')('U'|'u')('R'|'r')('E'|'e');
 
 Composition : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('O'|'o')('S'|'s')('I'|'i')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
 
 Integration : ('I'|'i')('N'|'n')('T'|'t')('E'|'e')('G'|'g')('R'|'r')('A'|'a')('T'|'t')('I'|'i')('O'|'o')('N'|'n');
+
+Eventually : ('E'|'e')('V'|'v')('E'|'e')('N'|'n')('T'|'t')('U'|'u')('A'|'a')('L'|'l')('L'|'l')('Y'|'y');
 
 Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'|'i')('E'|'e')('R'|'r');
 
@@ -45,6 +49,8 @@ Invariant : ('I'|'i')('N'|'n')('V'|'v')('A'|'a')('R'|'r')('I'|'i')('A'|'a')('N'|
 
 Reference : ('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('E'|'e')('N'|'n')('C'|'c')('E'|'e');
 
+Globally : ('G'|'g')('L'|'l')('O'|'o')('B'|'b')('A'|'a')('L'|'l')('L'|'l')('Y'|'y');
+
 HasEvent : ('H'|'h')('A'|'a')('S'|'s')('E'|'e')('V'|'v')('E'|'e')('N'|'n')('T'|'t');
 
 MustSend : ('M'|'m')('U'|'u')('S'|'s')('T'|'t')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
@@ -61,6 +67,10 @@ Sequence : ('S'|'s')('E'|'e')('Q'|'q')('U'|'u')('E'|'e')('N'|'n')('C'|'c')('E'|'
 
 MaySend : ('M'|'m')('A'|'a')('Y'|'y')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
 
+Release : ('R'|'r')('E'|'e')('L'|'l')('E'|'e')('A'|'a')('S'|'s')('E'|'e');
+
+Trigger : ('T'|'t')('R'|'r')('I'|'i')('G'|'g')('G'|'g')('E'|'e')('R'|'r');
+
 Applies : ('A'|'a')('P'|'p')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
 Binding : ('B'|'b')('I'|'i')('N'|'n')('D'|'d')('I'|'i')('N'|'n')('G'|'g');
@@ -71,7 +81,11 @@ Implies : ('I'|'i')('M'|'m')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
 Monitor : ('M'|'m')('O'|'o')('N'|'n')('I'|'i')('T'|'t')('O'|'o')('R'|'r');
 
+Always : ('A'|'a')('L'|'l')('W'|'w')('A'|'a')('Y'|'y')('S'|'s');
+
 Exists : ('E'|'e')('X'|'x')('I'|'i')('S'|'s')('T'|'t')('S'|'s');
+
+Future : ('F'|'f')('U'|'u')('T'|'t')('U'|'u')('R'|'r')('E'|'e');
 
 NoSend : ('N'|'n')('O'|'o')('S'|'s')('E'|'e')('N'|'n')('D'|'d');
 
@@ -90,6 +104,8 @@ Schema : ('S'|'s')('C'|'c')('H'|'h')('E'|'e')('M'|'m')('A'|'a');
 Pure : '@'('P'|'p')('U'|'u')('R'|'r')('E'|'e');
 
 Spec_1 : '@'('S'|'s')('P'|'p')('E'|'e')('C'|'c');
+
+Since : ('S'|'s')('I'|'i')('N'|'n')('C'|'c')('E'|'e');
 
 After : ('A'|'a')('F'|'f')('T'|'t')('E'|'e')('R'|'r');
 
@@ -129,11 +145,13 @@ ToU32 : ('T'|'t')('O'|'o')('U'|'u')'3''2';
 
 ToU64 : ('T'|'t')('O'|'o')('U'|'u')'6''4';
 
-Until : ('U'|'u')('N'|'n')('T'|'t')('I'|'i')('L'|'l');
+Until_1 : ('U'|'u')('N'|'n')('T'|'t')('I'|'i')('L'|'l');
 
 While : ('W'|'w')('H'|'h')('I'|'i')('L'|'l')('E'|'e');
 
 Yield : ('Y'|'y')('I'|'i')('E'|'e')('L'|'l')('D'|'d');
+
+Once : ('O'|'o')('N'|'n')('C'|'c')('E'|'e');
 
 Case : ('C'|'c')('A'|'a')('S'|'s')('E'|'e');
 
@@ -276,10 +294,6 @@ RULE_OR_OPS : ('|^'|'||'|'|');
 RULE_IMPLIES : ('__'|'-'|'~') '>' ':';
 
 RULE_SIMPLIES : ('___'|'~~') '>' ':';
-
-RULE_TEMPORAL_UNARY_OPS : ('future'|'Future'|'eventually'|'Eventually'|'globally'|'Globally'|'always'|'Always'|'once'|'Once'|'historically'|'Historically');
-
-RULE_TEMPORAL_BINARY_OPS : ('until'|'Until'|'release'|'Release'|'since'|'Since'|'trigger'|'Trigger');
 
 RULE_INTERVAL : '[' RULE_INTEGER_LIT ',' RULE_INTEGER_LIT ']';
 

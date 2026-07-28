@@ -92,6 +92,7 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("ToZ", "'toZ'");
 		tokenNameToValue.put("Val", "'val'");
 		tokenNameToValue.put("Var", "'var'");
+		tokenNameToValue.put("Once", "'Once'");
 		tokenNameToValue.put("Case", "'case'");
 		tokenNameToValue.put("Else", "'else'");
 		tokenNameToValue.put("From", "'from'");
@@ -103,6 +104,8 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("True", "'true'");
 		tokenNameToValue.put("Pure", "'@pure'");
 		tokenNameToValue.put("Spec_1", "'@spec'");
+		tokenNameToValue.put("Since", "'Since'");
+		tokenNameToValue.put("Until_1", "'Until'");
 		tokenNameToValue.put("After", "'after'");
 		tokenNameToValue.put("Cases", "'cases'");
 		tokenNameToValue.put("Delta", "'delta'");
@@ -122,10 +125,12 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("ToU16", "'toU16'");
 		tokenNameToValue.put("ToU32", "'toU32'");
 		tokenNameToValue.put("ToU64", "'toU64'");
-		tokenNameToValue.put("Until", "'until'");
+		tokenNameToValue.put("Until_1", "'until'");
 		tokenNameToValue.put("While", "'while'");
 		tokenNameToValue.put("Yield", "'yield'");
+		tokenNameToValue.put("Always", "'Always'");
 		tokenNameToValue.put("Exists", "'Exists'");
+		tokenNameToValue.put("Future", "'Future'");
 		tokenNameToValue.put("NoSend", "'NoSend'");
 		tokenNameToValue.put("Assert", "'assert'");
 		tokenNameToValue.put("Assume", "'assume'");
@@ -134,11 +139,14 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("Return", "'return'");
 		tokenNameToValue.put("Schema", "'schema'");
 		tokenNameToValue.put("MaySend", "'MaySend'");
+		tokenNameToValue.put("Release", "'Release'");
+		tokenNameToValue.put("Trigger", "'Trigger'");
 		tokenNameToValue.put("Applies", "'applies'");
 		tokenNameToValue.put("Binding", "'binding'");
 		tokenNameToValue.put("Compute", "'compute'");
 		tokenNameToValue.put("Implies", "'implies'");
 		tokenNameToValue.put("Monitor", "'monitor'");
+		tokenNameToValue.put("Globally", "'Globally'");
 		tokenNameToValue.put("HasEvent", "'HasEvent'");
 		tokenNameToValue.put("MustSend", "'MustSend'");
 		tokenNameToValue.put("Constant", "'constant'");
@@ -150,6 +158,7 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("Guarantee", "'guarantee'");
 		tokenNameToValue.put("Invariant", "'invariant'");
 		tokenNameToValue.put("Reference", "'reference'");
+		tokenNameToValue.put("Eventually", "'Eventually'");
 		tokenNameToValue.put("Classifier", "'classifier'");
 		tokenNameToValue.put("Components", "'components'");
 		tokenNameToValue.put("Initialize", "'initialize'");
@@ -157,6 +166,7 @@ import org.sireum.aadl.gumbo.services.GumboGrammarAccess;
 		tokenNameToValue.put("Strictpure", "'@strictpure'");
 		tokenNameToValue.put("Composition", "'composition'");
 		tokenNameToValue.put("Integration", "'integration'");
+		tokenNameToValue.put("Historically", "'Historically'");
 		tokenNameToValue.put("Compute_cases", "'compute_cases'");
 	}
 
@@ -2803,6 +2813,56 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleTemporalUnaryOps
+entryRuleTemporalUnaryOps
+:
+{ before(grammarAccess.getTemporalUnaryOpsRule()); }
+	 ruleTemporalUnaryOps
+{ after(grammarAccess.getTemporalUnaryOpsRule()); } 
+	 EOF 
+;
+
+// Rule TemporalUnaryOps
+ruleTemporalUnaryOps 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getTemporalUnaryOpsAccess().getAlternatives()); }
+		(rule__TemporalUnaryOps__Alternatives)
+		{ after(grammarAccess.getTemporalUnaryOpsAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleTemporalBinaryOps
+entryRuleTemporalBinaryOps
+:
+{ before(grammarAccess.getTemporalBinaryOpsRule()); }
+	 ruleTemporalBinaryOps
+{ after(grammarAccess.getTemporalBinaryOpsRule()); } 
+	 EOF 
+;
+
+// Rule TemporalBinaryOps
+ruleTemporalBinaryOps 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getTemporalBinaryOpsAccess().getAlternatives()); }
+		(rule__TemporalBinaryOps__Alternatives)
+		{ after(grammarAccess.getTemporalBinaryOpsAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleContainedPropertyAssociation
 entryRuleContainedPropertyAssociation
 :
@@ -4050,7 +4110,7 @@ rule__QuantRange__ExtentAlternatives_1_0
 	|
 	(
 		{ before(grammarAccess.getQuantRangeAccess().getExtentUntilKeyword_1_0_1()); }
-		Until
+		Until_1
 		{ after(grammarAccess.getQuantRangeAccess().getExtentUntilKeyword_1_0_1()); }
 	)
 ;
@@ -4682,6 +4742,84 @@ rule__ImpliesOps__Alternatives
 		{ before(grammarAccess.getImpliesOpsAccess().getImpliesKeyword_2()); }
 		Implies
 		{ after(grammarAccess.getImpliesOpsAccess().getImpliesKeyword_2()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TemporalUnaryOps__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTemporalUnaryOpsAccess().getFutureKeyword_0()); }
+		Future
+		{ after(grammarAccess.getTemporalUnaryOpsAccess().getFutureKeyword_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalUnaryOpsAccess().getEventuallyKeyword_1()); }
+		Eventually
+		{ after(grammarAccess.getTemporalUnaryOpsAccess().getEventuallyKeyword_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalUnaryOpsAccess().getGloballyKeyword_2()); }
+		Globally
+		{ after(grammarAccess.getTemporalUnaryOpsAccess().getGloballyKeyword_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalUnaryOpsAccess().getAlwaysKeyword_3()); }
+		Always
+		{ after(grammarAccess.getTemporalUnaryOpsAccess().getAlwaysKeyword_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalUnaryOpsAccess().getOnceKeyword_4()); }
+		Once
+		{ after(grammarAccess.getTemporalUnaryOpsAccess().getOnceKeyword_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalUnaryOpsAccess().getHistoricallyKeyword_5()); }
+		Historically
+		{ after(grammarAccess.getTemporalUnaryOpsAccess().getHistoricallyKeyword_5()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TemporalBinaryOps__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTemporalBinaryOpsAccess().getUntilKeyword_0()); }
+		Until_1
+		{ after(grammarAccess.getTemporalBinaryOpsAccess().getUntilKeyword_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalBinaryOpsAccess().getReleaseKeyword_1()); }
+		Release
+		{ after(grammarAccess.getTemporalBinaryOpsAccess().getReleaseKeyword_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalBinaryOpsAccess().getSinceKeyword_2()); }
+		Since
+		{ after(grammarAccess.getTemporalBinaryOpsAccess().getSinceKeyword_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getTemporalBinaryOpsAccess().getTriggerKeyword_3()); }
+		Trigger
+		{ after(grammarAccess.getTemporalBinaryOpsAccess().getTriggerKeyword_3()); }
 	)
 ;
 finally {
@@ -27303,9 +27441,9 @@ rule__SlangExpression__OpAssignment_1_1
 	}
 :
 	(
-		{ before(grammarAccess.getSlangExpressionAccess().getOpTEMPORAL_UNARY_OPSTerminalRuleCall_1_1_0()); }
-		RULE_TEMPORAL_UNARY_OPS
-		{ after(grammarAccess.getSlangExpressionAccess().getOpTEMPORAL_UNARY_OPSTerminalRuleCall_1_1_0()); }
+		{ before(grammarAccess.getSlangExpressionAccess().getOpTemporalUnaryOpsParserRuleCall_1_1_0()); }
+		ruleTemporalUnaryOps
+		{ after(grammarAccess.getSlangExpressionAccess().getOpTemporalUnaryOpsParserRuleCall_1_1_0()); }
 	)
 ;
 finally {
@@ -27783,9 +27921,9 @@ rule__BinaryTemporalExpression__OpAssignment_1_1
 	}
 :
 	(
-		{ before(grammarAccess.getBinaryTemporalExpressionAccess().getOpTEMPORAL_BINARY_OPSTerminalRuleCall_1_1_0()); }
-		RULE_TEMPORAL_BINARY_OPS
-		{ after(grammarAccess.getBinaryTemporalExpressionAccess().getOpTEMPORAL_BINARY_OPSTerminalRuleCall_1_1_0()); }
+		{ before(grammarAccess.getBinaryTemporalExpressionAccess().getOpTemporalBinaryOpsParserRuleCall_1_1_0()); }
+		ruleTemporalBinaryOps
+		{ after(grammarAccess.getBinaryTemporalExpressionAccess().getOpTemporalBinaryOpsParserRuleCall_1_1_0()); }
 	)
 ;
 finally {

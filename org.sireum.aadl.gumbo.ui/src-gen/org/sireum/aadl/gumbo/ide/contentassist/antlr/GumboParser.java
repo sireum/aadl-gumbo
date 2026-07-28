@@ -76,6 +76,8 @@ public class GumboParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicativeOpAccess().getAlternatives(), "rule__MultiplicativeOp__Alternatives");
 			builder.put(grammarAccess.getPlusMinusOpsAccess().getAlternatives(), "rule__PlusMinusOps__Alternatives");
 			builder.put(grammarAccess.getImpliesOpsAccess().getAlternatives(), "rule__ImpliesOps__Alternatives");
+			builder.put(grammarAccess.getTemporalUnaryOpsAccess().getAlternatives(), "rule__TemporalUnaryOps__Alternatives");
+			builder.put(grammarAccess.getTemporalBinaryOpsAccess().getAlternatives(), "rule__TemporalBinaryOps__Alternatives");
 			builder.put(grammarAccess.getContainedPropertyAssociationAccess().getAlternatives_1(), "rule__ContainedPropertyAssociation__Alternatives_1");
 			builder.put(grammarAccess.getPropertyAssociationAccess().getAlternatives_1(), "rule__PropertyAssociation__Alternatives_1");
 			builder.put(grammarAccess.getPropertyExpressionAccess().getAlternatives(), "rule__PropertyExpression__Alternatives");

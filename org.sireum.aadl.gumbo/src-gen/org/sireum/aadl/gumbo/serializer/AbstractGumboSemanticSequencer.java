@@ -1277,7 +1277,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     BinaryTemporalExpression.BinaryTemporalExpr_1_0 returns BinaryTemporalExpr
 	 *
 	 * Constraint:
-	 *     (left=BinaryTemporalExpression_BinaryTemporalExpr_1_0 op=TEMPORAL_BINARY_OPS intvl=INTERVAL? right=UnaryExpression)
+	 *     (left=BinaryTemporalExpression_BinaryTemporalExpr_1_0 op=TemporalBinaryOps intvl=INTERVAL? right=UnaryExpression)
 	 * </pre>
 	 */
 	protected void sequence_BinaryTemporalExpression(ISerializationContext context, BinaryTemporalExpr semanticObject) {
@@ -2547,7 +2547,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 	 *     SlangExpression returns UnaryTemporalExp
 	 *
 	 * Constraint:
-	 *     (op=TEMPORAL_UNARY_OPS intvl=INTERVAL exp=OwnedExpression)
+	 *     (op=TemporalUnaryOps intvl=INTERVAL exp=OwnedExpression)
 	 * </pre>
 	 */
 	protected void sequence_SlangExpression(ISerializationContext context, UnaryTemporalExp semanticObject) {
@@ -2560,7 +2560,7 @@ public abstract class AbstractGumboSemanticSequencer extends PropertiesSemanticS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSlangExpressionAccess().getOpTEMPORAL_UNARY_OPSTerminalRuleCall_1_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getSlangExpressionAccess().getOpTemporalUnaryOpsParserRuleCall_1_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getSlangExpressionAccess().getIntvlINTERVALTerminalRuleCall_1_2_0(), semanticObject.getIntvl());
 		feeder.accept(grammarAccess.getSlangExpressionAccess().getExpOwnedExpressionParserRuleCall_1_3_0(), semanticObject.getExp());
 		feeder.finish();

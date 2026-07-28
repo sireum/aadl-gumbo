@@ -457,7 +457,7 @@ OwnedExpression :
 
 SlangExpression returns GExpr
   : ImpliesExpression
-  | {UnaryTemporalExp} op=(TEMPORAL_UNARY_OPS) intvl=INTERVAL exp=OwnedExpression
+  | {UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=OwnedExpression
   | {IfElseExp} 'if' '(' ifCond=ImpliesExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
   | {QuantifiedExp} quantifier=( 'All' | '∀' | 'Exists' | '∃' ) '(' quantRange=QuantRange ')'
   		// TODO: the following is a function expression
@@ -498,7 +498,7 @@ MultiplicativeExpression returns GExpr
 	: BinaryTemporalExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=BinaryTemporalExpression)*;
 
 BinaryTemporalExpression returns GExpr
-	: UnaryExpression ( {BinaryTemporalExpr.left=current} op=TEMPORAL_BINARY_OPS (intvl=INTERVAL)? right=UnaryExpression)*;
+	: UnaryExpression ( {BinaryTemporalExpr.left=current} op=TemporalBinaryOps (intvl=INTERVAL)? right=UnaryExpression)*;
 
 UnaryExpression returns GExpr
 	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
@@ -698,15 +698,11 @@ terminal IMPLIES: ('__' | '-' | '~') '>' ':';
 // can't use -->: as -- is a comment in AADL
 terminal SIMPLIES: ('___' | '~~')  '>' ':'; // short circuit implies
 
-terminal TEMPORAL_UNARY_OPS:
-     'future' | 'Future' | 'eventually' | 'Eventually' |
-     'globally' | 'Globally' | 'always' | 'Always' |
-     'once' | 'Once' |
-     'historically' | 'Historically';
+TemporalUnaryOps:
+     'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
 
-terminal TEMPORAL_BINARY_OPS:
-     'until' | 'Until' | 'release' | 'Release' |
-     'since' | 'Since' | 'trigger' | 'Trigger';
+TemporalBinaryOps:
+     'Until' | 'Release' | 'Since' | 'Trigger';
 
 terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
 
