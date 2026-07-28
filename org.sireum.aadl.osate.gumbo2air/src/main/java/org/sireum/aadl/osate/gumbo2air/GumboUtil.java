@@ -138,7 +138,7 @@ public class GumboUtil {
 	// still works, so using Java enums with identical names so
 	// the slang enum value can be retrieved via byName
 	public enum UnaryOp {
-		Not, Plus, Minus, Complement
+		Not, Plus, Minus, Complement, Future, Globally, Once, Historically
 	}
 
 	public static UnaryOp toSlangUnaryOp(String op) {
@@ -150,6 +150,14 @@ public class GumboUtil {
 			return UnaryOp.Plus;
 		} else if (op.equalsIgnoreCase("~")) {
 			return UnaryOp.Complement;
+		} else if (op.equalsIgnoreCase("future") || op.equalsIgnoreCase("eventually")) {
+			return UnaryOp.Future;
+		} else if (op.equalsIgnoreCase("globally") || op.equalsIgnoreCase("always")) {
+			return UnaryOp.Globally;
+		} else if (op.equalsIgnoreCase("once")) {
+			return UnaryOp.Once;
+		} else if (op.equalsIgnoreCase("historically")) {
+			return UnaryOp.Historically;
 		}
 
 		throw new RuntimeException("Unary operator '" + op + "' not supported");

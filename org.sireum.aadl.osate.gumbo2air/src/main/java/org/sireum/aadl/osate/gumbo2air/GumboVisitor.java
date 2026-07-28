@@ -40,9 +40,12 @@ import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinaryTemporalExpr;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
+import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.CaseStatementClause;
 import org.sireum.aadl.gumbo.gumbo.ColonExpr;
+import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.CompositionProperty;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataRefExpr;
 import org.sireum.aadl.gumbo.gumbo.EnumLitExpr;
@@ -72,48 +75,44 @@ import org.sireum.aadl.gumbo.gumbo.InvSpec;
 import org.sireum.aadl.gumbo.gumbo.LtGtExpr;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
-import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.Monitor;
+import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
 import org.sireum.aadl.gumbo.gumbo.OrExpr;
 import org.sireum.aadl.gumbo.gumbo.OwnedExpression;
 import org.sireum.aadl.gumbo.gumbo.ParenExpr;
 import org.sireum.aadl.gumbo.gumbo.PlusMinusExpr;
-import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
-import org.sireum.aadl.gumbo.gumbo.Postfix;
-import org.sireum.aadl.gumbo.gumbo.QuantParam;
-import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
-import org.sireum.aadl.gumbo.gumbo.ResultExpr;
-import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
-import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
-import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
-import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
-import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
-import org.sireum.aadl.gumbo.gumbo.SlangStringLit;
-import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
-import org.sireum.aadl.gumbo.gumbo.SpecStatement;
-import org.sireum.aadl.gumbo.gumbo.State;
-import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
-import org.sireum.aadl.gumbo.gumbo.Composition;
-import org.sireum.aadl.gumbo.gumbo.CompositionProperty;
 import org.sireum.aadl.gumbo.gumbo.PointAfter;
 import org.sireum.aadl.gumbo.gumbo.PointAt;
 import org.sireum.aadl.gumbo.gumbo.PointBefore;
+import org.sireum.aadl.gumbo.gumbo.PostFixExpr;
+import org.sireum.aadl.gumbo.gumbo.Postfix;
 import org.sireum.aadl.gumbo.gumbo.PropertyBinding;
-import org.sireum.aadl.gumbo.gumbo.Schema;
-import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
-import org.sireum.aadl.gumbo.gumbo.SchemaElement;
-import org.sireum.aadl.gumbo.gumbo.SchemaLabel;
-import org.sireum.aadl.gumbo.gumbo.SchemaPoint;
-import org.sireum.aadl.gumbo.gumbo.SchemaSequence;
-import org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin;
+import org.sireum.aadl.gumbo.gumbo.QuantParam;
+import org.sireum.aadl.gumbo.gumbo.QuantifiedExp;
+import org.sireum.aadl.gumbo.gumbo.ResultExpr;
 import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
 import org.sireum.aadl.gumbo.gumbo.SchedulePortPath;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
 import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarPath;
 import org.sireum.aadl.gumbo.gumbo.ScheduleSubcomponentPath;
+import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
+import org.sireum.aadl.gumbo.gumbo.SchemaElement;
+import org.sireum.aadl.gumbo.gumbo.SchemaLabel;
+import org.sireum.aadl.gumbo.gumbo.SchemaPoint;
+import org.sireum.aadl.gumbo.gumbo.SchemaSequence;
+import org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin;
+import org.sireum.aadl.gumbo.gumbo.SlangCallArgs;
+import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
+import org.sireum.aadl.gumbo.gumbo.SlangDefParam;
+import org.sireum.aadl.gumbo.gumbo.SlangLiteralInterp;
+import org.sireum.aadl.gumbo.gumbo.SlangStringLit;
+import org.sireum.aadl.gumbo.gumbo.SlangTypeParam;
+import org.sireum.aadl.gumbo.gumbo.SpecStatement;
+import org.sireum.aadl.gumbo.gumbo.State;
+import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
 import org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp;
 import org.sireum.aadl.gumbo.gumbo.util.GumboSwitch;
@@ -132,6 +131,13 @@ import org.sireum.hamr.ir.GclAssume$;
 import org.sireum.hamr.ir.GclBodyMethod$;
 import org.sireum.hamr.ir.GclCaseStatement;
 import org.sireum.hamr.ir.GclCaseStatement$;
+import org.sireum.hamr.ir.GclComposition;
+import org.sireum.hamr.ir.GclComposition$;
+import org.sireum.hamr.ir.GclCompositionComponentAlias$;
+import org.sireum.hamr.ir.GclCompositionPortAlias$;
+import org.sireum.hamr.ir.GclCompositionProperty;
+import org.sireum.hamr.ir.GclCompositionProperty$;
+import org.sireum.hamr.ir.GclCompositionStateVarAlias$;
 import org.sireum.hamr.ir.GclCompute;
 import org.sireum.hamr.ir.GclCompute$;
 import org.sireum.hamr.ir.GclGuarantee;
@@ -148,13 +154,6 @@ import org.sireum.hamr.ir.GclLib$;
 import org.sireum.hamr.ir.GclMethod;
 import org.sireum.hamr.ir.GclMonitor;
 import org.sireum.hamr.ir.GclMonitor$;
-import org.sireum.hamr.ir.GclComposition;
-import org.sireum.hamr.ir.GclComposition$;
-import org.sireum.hamr.ir.GclCompositionComponentAlias$;
-import org.sireum.hamr.ir.GclCompositionPortAlias$;
-import org.sireum.hamr.ir.GclCompositionProperty;
-import org.sireum.hamr.ir.GclCompositionProperty$;
-import org.sireum.hamr.ir.GclCompositionStateVarAlias$;
 import org.sireum.hamr.ir.GclPointAfter$;
 import org.sireum.hamr.ir.GclPointAt$;
 import org.sireum.hamr.ir.GclPointBefore$;
@@ -195,6 +194,7 @@ import org.sireum.lang.ast.Exp.Select;
 import org.sireum.lang.ast.Exp.Select$;
 import org.sireum.lang.ast.Exp.StringInterpolate$;
 import org.sireum.lang.ast.Exp.Unary$;
+import org.sireum.lang.ast.Exp.UnaryTemporal$;
 import org.sireum.lang.ast.Id;
 import org.sireum.lang.ast.Id$;
 import org.sireum.lang.ast.MethodContract;
@@ -1216,7 +1216,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 
      @Override
 	public Boolean caseUnaryTemporalExp(UnaryTemporalExp object) {
-
+		// future eventually globally always once historically
           UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
 
 		INode opNode = NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.UNARY_TEMPORAL_EXP__OP).get(0);
@@ -1224,10 +1224,11 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		assert opPos != null;
 
           Exp exp = visitPop(object.getExp());
-		
 
-		// push(UnaryTemporal$.MODULE$.apply(Exp.UnaryOp$.MODULE$.byName(slangOp.name()).get(), exp,
-		// 		GumboUtil.buildResolvedAttr(object), SlangUtil.toSome(opPos)));
+
+			push(UnaryTemporal$.MODULE$.apply(Exp.UnaryTemporalOp$.MODULE$.byName(slangOp.name()).get(), exp,
+					object.getIntvl(),
+					GumboUtil.buildResolvedAttr(object), SlangUtil.toSome(opPos)));
 		return false;
 	}
 
