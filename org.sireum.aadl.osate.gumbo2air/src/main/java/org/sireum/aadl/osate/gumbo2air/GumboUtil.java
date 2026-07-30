@@ -133,6 +133,27 @@ public class GumboUtil {
 
 	}
 
+	// BinaryTemporalOp is nested inside an object. Its '.Type' is not
+	// accessible in Java contexts (e.g. Eclipse), so use a Java enum with
+	// matching names and resolve the Slang enum with byName(..).
+	public enum BinaryTemporalOp {
+		Until, Release, Since, Trigger
+	}
+
+	public static BinaryTemporalOp toSlangBinaryTemporalOp(String op) {
+		if (op.equalsIgnoreCase("until")) {
+			return BinaryTemporalOp.Until;
+		} else if (op.equalsIgnoreCase("release")) {
+			return BinaryTemporalOp.Release;
+		} else if (op.equalsIgnoreCase("since")) {
+			return BinaryTemporalOp.Since;
+		} else if (op.equalsIgnoreCase("trigger")) {
+			return BinaryTemporalOp.Trigger;
+		}
+
+		throw new RuntimeException("Binary temporal operator '" + op + "' not supported");
+	}
+
 	// UnaryOp is nested inside an object. Its '.Type' is not
 	// accessible in Java contexts (e.g. Eclipse), but its byName(..)
 	// still works, so using Java enums with identical names so

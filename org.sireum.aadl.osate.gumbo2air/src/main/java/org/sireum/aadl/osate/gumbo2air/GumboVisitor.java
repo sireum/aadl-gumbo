@@ -179,6 +179,7 @@ import org.sireum.lang.ast.Body;
 import org.sireum.lang.ast.Body$;
 import org.sireum.lang.ast.Exp;
 import org.sireum.lang.ast.Exp.Binary$;
+import org.sireum.lang.ast.Exp.BinaryTemporal$;
 import org.sireum.lang.ast.Exp.Ident;
 import org.sireum.lang.ast.Exp.Ident$;
 import org.sireum.lang.ast.Exp.If$;
@@ -1222,24 +1223,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		return false;
 	}
 
-     @Override
-	public Boolean caseUnaryTemporalExp(UnaryTemporalExp object) {
-		// future eventually globally always once historically
-          UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
-
-		INode opNode = NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.UNARY_TEMPORAL_EXP__OP).get(0);
-		Position opPos = VisitorUtil.buildPositionFromINode(opNode, VisitorUtil.getResourcePath(object));
-		assert opPos != null;
-
-          Exp exp = visitPop(object.getExp());
-
-
-			push(UnaryTemporal$.MODULE$.apply(Exp.UnaryTemporalOp$.MODULE$.byName(slangOp.name()).get(), exp,
-					object.getIntvl(),
-					GumboUtil.buildResolvedAttr(object), SlangUtil.toSome(opPos)));
-		return false;
-	}
-
 	@Override
 	public Boolean caseIfElseExp(IfElseExp object) {
 
@@ -1320,6 +1303,57 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	}
 
 	@Override
+	public Boolean caseBinaryTemporalExp(BinaryTemporalExp object) {
+		// until release since trigger
+		EObject parent = object;
+		while (parent != null) { // Search for parent SpecSection
+			parent = parent.eContainer();
+			if (parent instanceof GuaranteeStatement) {
+				parent = parent.eContainer(); // Get SpecSection
+				break;
+			}
+		}
+
+		if (parent instanceof Compute) {
+			reportError(object, "Compute clauses cannot contain temporal operators");
+		} else if (parent instanceof Initialize) {
+			reportError(object, "Initialize clauses cannot contain temporal operators");
+		} else if (!(parent instanceof Monitor)) {
+			reportError(object, "Only monitor clauses can contain temporal operators");
+		}
+
+		INode opNode = NodeModelUtils.findNodesForFeature(object,
+				GumboPackage.Literals.BINARY_TEMPORAL_EXP__OP).get(0);
+		Position opPos = VisitorUtil.buildPositionFromINode(opNode, VisitorUtil.getResourcePath(object));
+		assert opPos != null;
+
+		Exp left = visitPop(object.getLeft());
+		Exp right = visitPop(object.getRight());
+		Option<Position> mergedPos = GumboUtil.mergePositions(left.posOpt(), right.posOpt());
+		GumboUtil.BinaryTemporalOp slangOp = GumboUtil.toSlangBinaryTemporalOp(object.getOp());
+
+		push(BinaryTemporal$.MODULE$.apply(left, Exp.BinaryTemporalOp$.MODULE$.byName(slangOp.name()).get(),
+				object.getIntvl(), right, GumboUtil.buildResolvedAttr(mergedPos), SlangUtil.toSome(opPos)));
+		return false;
+	}
+
+	@Override
+	public Boolean caseUnaryTemporalExp(UnaryTemporalExp object) {
+		// future eventually globally always once historically
+		UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
+
+		INode opNode = NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.UNARY_TEMPORAL_EXP__OP).get(0);
+		Position opPos = VisitorUtil.buildPositionFromINode(opNode, VisitorUtil.getResourcePath(object));
+		assert opPos != null;
+
+		Exp exp = visitPop(object.getExp());
+
+		push(UnaryTemporal$.MODULE$.apply(Exp.UnaryTemporalOp$.MODULE$.byName(slangOp.name()).get(), exp,
+				object.getIntvl(), GumboUtil.buildResolvedAttr(object), SlangUtil.toSome(opPos)));
+		return false;
+	}
+
+	@Override
 	public Boolean caseEqualNotExpr(EqualNotExpr object) {
 		// =!= === == != !~
 		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
@@ -1355,31 +1389,6 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		// * / %
 		return constructBinary(object.getLeft(), object.getOp(), object.getRight(), 
 				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.MULTIPLICATIVE_EXPR__OP).get(0));
-	}
-
-
-     @Override
-		public Boolean caseBinaryTemporalExp(BinaryTemporalExp object) {
-		// until Until release Release since Since trigger Trigger
-		EObject parent = object;
-		while (parent != null) { // Search for parent SpecSection
-			parent = parent.eContainer();
-			if (parent instanceof GuaranteeStatement) {
-				parent = parent.eContainer(); // Get SpecSection
-                    break;
-			}
-		}
-
-		if (parent instanceof Compute) {
-                    reportError(object, "Compute clauses cannot contain temporal operators");
-		} else if (parent instanceof Initialize) {
-                    reportError(object, "Initialize clauses cannot contain temporal operators");
-		} else if (! (parent instanceof Monitor)){
-                    reportError(object, "Only monitor clauses can contain temporal operators");
-          }
-
-		return constructBinary(object.getLeft(), object.getOp(), object.getRight(),
-				NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.BINARY_TEMPORAL_EXPR__OP).get(0));
 	}
 
 	@Override
