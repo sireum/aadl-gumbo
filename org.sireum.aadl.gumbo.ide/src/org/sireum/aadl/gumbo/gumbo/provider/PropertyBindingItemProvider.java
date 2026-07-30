@@ -238,11 +238,6 @@ public class PropertyBindingItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
-         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -268,6 +263,16 @@ public class PropertyBindingItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -289,11 +294,6 @@ public class PropertyBindingItemProvider
       (createChildParameter
         (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.PROPERTY_BINDING__EXPR,
-         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

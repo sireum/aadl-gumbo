@@ -853,15 +853,6 @@ public interface GumboFactory extends EFactory
   SlangDoStmt createSlangDoStmt();
 
   /**
-   * Returns a new object of class '<em>Unary Temporal Exp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unary Temporal Exp</em>'.
-   * @generated
-   */
-  UnaryTemporalExp createUnaryTemporalExp();
-
-  /**
    * Returns a new object of class '<em>If Else Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -907,6 +898,24 @@ public interface GumboFactory extends EFactory
   AndExpr createAndExpr();
 
   /**
+   * Returns a new object of class '<em>Binary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Temporal Exp</em>'.
+   * @generated
+   */
+  BinaryTemporalExp createBinaryTemporalExp();
+
+  /**
+   * Returns a new object of class '<em>Unary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Temporal Exp</em>'.
+   * @generated
+   */
+  UnaryTemporalExp createUnaryTemporalExp();
+
+  /**
    * Returns a new object of class '<em>Equal Not Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -950,15 +959,6 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   MultiplicativeExpr createMultiplicativeExpr();
-
-  /**
-   * Returns a new object of class '<em>Binary Temporal Exp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binary Temporal Exp</em>'.
-   * @generated
-   */
-  BinaryTemporalExp createBinaryTemporalExp();
 
   /**
    * Returns a new object of class '<em>Unary Expr</em>'.

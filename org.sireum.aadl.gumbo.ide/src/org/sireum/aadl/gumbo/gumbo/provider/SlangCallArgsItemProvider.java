@@ -184,11 +184,6 @@ public class SlangCallArgsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
-         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -214,6 +209,16 @@ public class SlangCallArgsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -235,11 +240,6 @@ public class SlangCallArgsItemProvider
       (createChildParameter
         (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.SLANG_CALL_ARGS__ARG,
-         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

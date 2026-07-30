@@ -451,18 +451,7 @@ SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
 
 
 // OwnedExpression is the entry rule for SysMLv2's expression language
-OwnedExpression : 
-	//: {BasicExp} terms+=SlangAccess ( ops+=Operator terms+=SlangAccess )*
-	//| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
-	//| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	//| {UnaryExp} op=Operator accessExp=SlangAccess
-	//;
-	//{IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
-	//| 
-	//{QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	//ImpliesExpression
-	SlangExpression
-		;
+OwnedExpression : SlangExpression;
 
 
 // NOTE: will need to wrap nested IfElseExp or QuantifiedExp in parens (which matches what Slang/Scala requires)
@@ -470,7 +459,6 @@ OwnedExpression :
 
 SlangExpression returns GExpr
   : ImpliesExpression
-  | {UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=OwnedExpression
   | {IfElseExp} 'if' '(' ifCond=ImpliesExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
   | {QuantifiedExp} quantifier=( 'All' | '∀' | 'Exists' | '∃' ) '(' quantRange=QuantRange ')'
   		// TODO: the following is a function expression
@@ -493,7 +481,15 @@ OrExpression returns GExpr
 // no hat ^ in Slang
 
 AndExpression returns GExpr
-	: EqualNotExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=EqualNotExpression)*;
+	: BinaryTemporalExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=BinaryTemporalExpression)*;
+
+BinaryTemporalExpression returns GExpr
+	: UnaryTemporalExpression (=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL) right=UnaryTemporalExpression)*;
+	
+UnaryTemporalExpression returns GExpr
+	: {UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=UnaryTemporalExpression
+  	| EqualNotExpression
+	;
 
 EqualNotExpression returns GExpr
 	: LtGtExpression ( {EqualNotExpr.left=current} op=EQUAL_NOT_OPS right=LtGtExpression)*;
@@ -508,10 +504,7 @@ PlusMinusExpression returns GExpr
 	: MultiplicativeExpression ( {PlusMinusExpr.left=current} op=PlusMinusOps right=MultiplicativeExpression)*;
 
 MultiplicativeExpression returns GExpr
-	: BinaryTemporalExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=BinaryTemporalExpression)*;
-
-BinaryTemporalExpression returns GExpr
-	: UnaryExpression ( {BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL right=UnaryExpression)*;
+	: UnaryExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=UnaryExpression)*;
 
 UnaryExpression returns GExpr
 	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
@@ -715,7 +708,7 @@ TemporalUnaryOps:
      'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
 
 TemporalBinaryOps:
-     'UntilTODO' | 'Release' | 'Since' | 'Trigger';
+     'Until' | 'Release' | 'Since' | 'Trigger';
 
 terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
 

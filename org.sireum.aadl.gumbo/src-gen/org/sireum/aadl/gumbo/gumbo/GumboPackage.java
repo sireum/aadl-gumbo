@@ -3446,52 +3446,6 @@ public interface GumboPackage extends EPackage
   int SLANG_DO_STMT_FEATURE_COUNT = SLANG_STMT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl <em>Unary Temporal Exp</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryTemporalExp()
-   * @generated
-   */
-  int UNARY_TEMPORAL_EXP = 91;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_TEMPORAL_EXP__OP = GEXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Intvl</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_TEMPORAL_EXP__INTVL = GEXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_TEMPORAL_EXP__EXP = GEXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Unary Temporal Exp</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_TEMPORAL_EXP_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
-
-  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.IfElseExpImpl <em>If Else Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3499,7 +3453,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getIfElseExp()
    * @generated
    */
-  int IF_ELSE_EXP = 92;
+  int IF_ELSE_EXP = 91;
 
   /**
    * The feature id for the '<em><b>If Cond</b></em>' containment reference.
@@ -3545,7 +3499,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getQuantifiedExp()
    * @generated
    */
-  int QUANTIFIED_EXP = 93;
+  int QUANTIFIED_EXP = 92;
 
   /**
    * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -3600,7 +3554,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getImpliesExpr()
    * @generated
    */
-  int IMPLIES_EXPR = 94;
+  int IMPLIES_EXPR = 93;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3646,7 +3600,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getOrExpr()
    * @generated
    */
-  int OR_EXPR = 95;
+  int OR_EXPR = 94;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3692,7 +3646,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getAndExpr()
    * @generated
    */
-  int AND_EXPR = 96;
+  int AND_EXPR = 95;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3731,236 +3685,6 @@ public interface GumboPackage extends EPackage
   int AND_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EqualNotExprImpl <em>Equal Not Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.EqualNotExprImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEqualNotExpr()
-   * @generated
-   */
-  int EQUAL_NOT_EXPR = 97;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUAL_NOT_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUAL_NOT_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUAL_NOT_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Equal Not Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUAL_NOT_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.LtGtExprImpl <em>Lt Gt Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.LtGtExprImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getLtGtExpr()
-   * @generated
-   */
-  int LT_GT_EXPR = 98;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LT_GT_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LT_GT_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LT_GT_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Lt Gt Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LT_GT_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ColonExprImpl <em>Colon Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.ColonExprImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getColonExpr()
-   * @generated
-   */
-  int COLON_EXPR = 99;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COLON_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COLON_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COLON_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Colon Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COLON_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.PlusMinusExprImpl <em>Plus Minus Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.PlusMinusExprImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPlusMinusExpr()
-   * @generated
-   */
-  int PLUS_MINUS_EXPR = 100;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_MINUS_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_MINUS_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_MINUS_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Plus Minus Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_MINUS_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.MultiplicativeExprImpl <em>Multiplicative Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.sireum.aadl.gumbo.gumbo.impl.MultiplicativeExprImpl
-   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMultiplicativeExpr()
-   * @generated
-   */
-  int MULTIPLICATIVE_EXPR = 101;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLICATIVE_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLICATIVE_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLICATIVE_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Multiplicative Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLICATIVE_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
-
-  /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl <em>Binary Temporal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3968,7 +3692,7 @@ public interface GumboPackage extends EPackage
    * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryTemporalExp()
    * @generated
    */
-  int BINARY_TEMPORAL_EXP = 102;
+  int BINARY_TEMPORAL_EXP = 96;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -4014,6 +3738,282 @@ public interface GumboPackage extends EPackage
    * @ordered
    */
   int BINARY_TEMPORAL_EXP_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl <em>Unary Temporal Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryTemporalExp()
+   * @generated
+   */
+  int UNARY_TEMPORAL_EXP = 97;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_TEMPORAL_EXP__OP = GEXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Intvl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_TEMPORAL_EXP__INTVL = GEXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_TEMPORAL_EXP__EXP = GEXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Unary Temporal Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_TEMPORAL_EXP_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EqualNotExprImpl <em>Equal Not Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.EqualNotExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getEqualNotExpr()
+   * @generated
+   */
+  int EQUAL_NOT_EXPR = 98;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_NOT_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_NOT_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_NOT_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Equal Not Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_NOT_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.LtGtExprImpl <em>Lt Gt Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.LtGtExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getLtGtExpr()
+   * @generated
+   */
+  int LT_GT_EXPR = 99;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LT_GT_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LT_GT_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LT_GT_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Lt Gt Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LT_GT_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.ColonExprImpl <em>Colon Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.ColonExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getColonExpr()
+   * @generated
+   */
+  int COLON_EXPR = 100;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLON_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLON_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLON_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Colon Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLON_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.PlusMinusExprImpl <em>Plus Minus Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.PlusMinusExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getPlusMinusExpr()
+   * @generated
+   */
+  int PLUS_MINUS_EXPR = 101;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_MINUS_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_MINUS_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_MINUS_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Plus Minus Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_MINUS_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.MultiplicativeExprImpl <em>Multiplicative Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.gumbo.gumbo.impl.MultiplicativeExprImpl
+   * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getMultiplicativeExpr()
+   * @generated
+   */
+  int MULTIPLICATIVE_EXPR = 102;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATIVE_EXPR__LEFT = GEXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATIVE_EXPR__OP = GEXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATIVE_EXPR__RIGHT = GEXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Multiplicative Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATIVE_EXPR_FEATURE_COUNT = GEXPR_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
@@ -7573,49 +7573,6 @@ public interface GumboPackage extends EPackage
   EReference getSlangDoStmt_E();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp <em>Unary Temporal Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Unary Temporal Exp</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp
-   * @generated
-   */
-  EClass getUnaryTemporalExp();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getOp()
-   * @see #getUnaryTemporalExp()
-   * @generated
-   */
-  EAttribute getUnaryTemporalExp_Op();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getIntvl <em>Intvl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Intvl</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getIntvl()
-   * @see #getUnaryTemporalExp()
-   * @generated
-   */
-  EAttribute getUnaryTemporalExp_Intvl();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getExp <em>Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getExp()
-   * @see #getUnaryTemporalExp()
-   * @generated
-   */
-  EReference getUnaryTemporalExp_Exp();
-
-  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.IfElseExp <em>If Else Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7842,6 +7799,103 @@ public interface GumboPackage extends EPackage
   EReference getAndExpr_Right();
 
   /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp <em>Binary Temporal Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Binary Temporal Exp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp
+   * @generated
+   */
+  EClass getBinaryTemporalExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getLeft()
+   * @see #getBinaryTemporalExp()
+   * @generated
+   */
+  EReference getBinaryTemporalExp_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getOp()
+   * @see #getBinaryTemporalExp()
+   * @generated
+   */
+  EAttribute getBinaryTemporalExp_Op();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getIntvl <em>Intvl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Intvl</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getIntvl()
+   * @see #getBinaryTemporalExp()
+   * @generated
+   */
+  EAttribute getBinaryTemporalExp_Intvl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getRight()
+   * @see #getBinaryTemporalExp()
+   * @generated
+   */
+  EReference getBinaryTemporalExp_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp <em>Unary Temporal Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unary Temporal Exp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp
+   * @generated
+   */
+  EClass getUnaryTemporalExp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getOp()
+   * @see #getUnaryTemporalExp()
+   * @generated
+   */
+  EAttribute getUnaryTemporalExp_Op();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getIntvl <em>Intvl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Intvl</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getIntvl()
+   * @see #getUnaryTemporalExp()
+   * @generated
+   */
+  EAttribute getUnaryTemporalExp_Intvl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp#getExp()
+   * @see #getUnaryTemporalExp()
+   * @generated
+   */
+  EReference getUnaryTemporalExp_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.EqualNotExpr <em>Equal Not Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8055,60 +8109,6 @@ public interface GumboPackage extends EPackage
    * @generated
    */
   EReference getMultiplicativeExpr_Right();
-
-  /**
-   * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp <em>Binary Temporal Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Binary Temporal Exp</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp
-   * @generated
-   */
-  EClass getBinaryTemporalExp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getLeft()
-   * @see #getBinaryTemporalExp()
-   * @generated
-   */
-  EReference getBinaryTemporalExp_Left();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getOp()
-   * @see #getBinaryTemporalExp()
-   * @generated
-   */
-  EAttribute getBinaryTemporalExp_Op();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getIntvl <em>Intvl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Intvl</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getIntvl()
-   * @see #getBinaryTemporalExp()
-   * @generated
-   */
-  EAttribute getBinaryTemporalExp_Intvl();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp#getRight()
-   * @see #getBinaryTemporalExp()
-   * @generated
-   */
-  EReference getBinaryTemporalExp_Right();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.gumbo.gumbo.UnaryExpr <em>Unary Expr</em>}'.
@@ -10962,40 +10962,6 @@ public interface GumboPackage extends EPackage
     EReference SLANG_DO_STMT__E = eINSTANCE.getSlangDoStmt_E();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl <em>Unary Temporal Exp</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryTemporalExp()
-     * @generated
-     */
-    EClass UNARY_TEMPORAL_EXP = eINSTANCE.getUnaryTemporalExp();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UNARY_TEMPORAL_EXP__OP = eINSTANCE.getUnaryTemporalExp_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Intvl</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UNARY_TEMPORAL_EXP__INTVL = eINSTANCE.getUnaryTemporalExp_Intvl();
-
-    /**
-     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference UNARY_TEMPORAL_EXP__EXP = eINSTANCE.getUnaryTemporalExp_Exp();
-
-    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.IfElseExpImpl <em>If Else Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11174,6 +11140,82 @@ public interface GumboPackage extends EPackage
     EReference AND_EXPR__RIGHT = eINSTANCE.getAndExpr_Right();
 
     /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl <em>Binary Temporal Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryTemporalExp()
+     * @generated
+     */
+    EClass BINARY_TEMPORAL_EXP = eINSTANCE.getBinaryTemporalExp();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_TEMPORAL_EXP__LEFT = eINSTANCE.getBinaryTemporalExp_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_TEMPORAL_EXP__OP = eINSTANCE.getBinaryTemporalExp_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Intvl</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_TEMPORAL_EXP__INTVL = eINSTANCE.getBinaryTemporalExp_Intvl();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_TEMPORAL_EXP__RIGHT = eINSTANCE.getBinaryTemporalExp_Right();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl <em>Unary Temporal Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.gumbo.gumbo.impl.UnaryTemporalExpImpl
+     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getUnaryTemporalExp()
+     * @generated
+     */
+    EClass UNARY_TEMPORAL_EXP = eINSTANCE.getUnaryTemporalExp();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_TEMPORAL_EXP__OP = eINSTANCE.getUnaryTemporalExp_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Intvl</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_TEMPORAL_EXP__INTVL = eINSTANCE.getUnaryTemporalExp_Intvl();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_TEMPORAL_EXP__EXP = eINSTANCE.getUnaryTemporalExp_Exp();
+
+    /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.EqualNotExprImpl <em>Equal Not Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11342,48 +11384,6 @@ public interface GumboPackage extends EPackage
      * @generated
      */
     EReference MULTIPLICATIVE_EXPR__RIGHT = eINSTANCE.getMultiplicativeExpr_Right();
-
-    /**
-     * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl <em>Binary Temporal Exp</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.sireum.aadl.gumbo.gumbo.impl.BinaryTemporalExpImpl
-     * @see org.sireum.aadl.gumbo.gumbo.impl.GumboPackageImpl#getBinaryTemporalExp()
-     * @generated
-     */
-    EClass BINARY_TEMPORAL_EXP = eINSTANCE.getBinaryTemporalExp();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BINARY_TEMPORAL_EXP__LEFT = eINSTANCE.getBinaryTemporalExp_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BINARY_TEMPORAL_EXP__OP = eINSTANCE.getBinaryTemporalExp_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Intvl</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BINARY_TEMPORAL_EXP__INTVL = eINSTANCE.getBinaryTemporalExp_Intvl();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BINARY_TEMPORAL_EXP__RIGHT = eINSTANCE.getBinaryTemporalExp_Right();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.gumbo.gumbo.impl.UnaryExprImpl <em>Unary Expr</em>}' class.

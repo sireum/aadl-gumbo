@@ -758,15 +758,6 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GumboPackage.UNARY_TEMPORAL_EXP:
-      {
-        UnaryTemporalExp unaryTemporalExp = (UnaryTemporalExp)theEObject;
-        T result = caseUnaryTemporalExp(unaryTemporalExp);
-        if (result == null) result = caseGExpr(unaryTemporalExp);
-        if (result == null) result = caseOwnedExpression(unaryTemporalExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GumboPackage.IF_ELSE_EXP:
       {
         IfElseExp ifElseExp = (IfElseExp)theEObject;
@@ -812,6 +803,24 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.BINARY_TEMPORAL_EXP:
+      {
+        BinaryTemporalExp binaryTemporalExp = (BinaryTemporalExp)theEObject;
+        T result = caseBinaryTemporalExp(binaryTemporalExp);
+        if (result == null) result = caseGExpr(binaryTemporalExp);
+        if (result == null) result = caseOwnedExpression(binaryTemporalExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.UNARY_TEMPORAL_EXP:
+      {
+        UnaryTemporalExp unaryTemporalExp = (UnaryTemporalExp)theEObject;
+        T result = caseUnaryTemporalExp(unaryTemporalExp);
+        if (result == null) result = caseGExpr(unaryTemporalExp);
+        if (result == null) result = caseOwnedExpression(unaryTemporalExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.EQUAL_NOT_EXPR:
       {
         EqualNotExpr equalNotExpr = (EqualNotExpr)theEObject;
@@ -854,15 +863,6 @@ public class GumboSwitch<T> extends Switch<T>
         T result = caseMultiplicativeExpr(multiplicativeExpr);
         if (result == null) result = caseGExpr(multiplicativeExpr);
         if (result == null) result = caseOwnedExpression(multiplicativeExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GumboPackage.BINARY_TEMPORAL_EXP:
-      {
-        BinaryTemporalExp binaryTemporalExp = (BinaryTemporalExp)theEObject;
-        T result = caseBinaryTemporalExp(binaryTemporalExp);
-        if (result == null) result = caseGExpr(binaryTemporalExp);
-        if (result == null) result = caseOwnedExpression(binaryTemporalExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2562,22 +2562,6 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary Temporal Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary Temporal Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnaryTemporalExp(UnaryTemporalExp object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>If Else Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2658,6 +2642,38 @@ public class GumboSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Binary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Binary Temporal Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBinaryTemporalExp(BinaryTemporalExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unary Temporal Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnaryTemporalExp(UnaryTemporalExp object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Equal Not Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2733,22 +2749,6 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMultiplicativeExpr(MultiplicativeExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Binary Temporal Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Binary Temporal Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBinaryTemporalExp(BinaryTemporalExp object)
   {
     return null;
   }

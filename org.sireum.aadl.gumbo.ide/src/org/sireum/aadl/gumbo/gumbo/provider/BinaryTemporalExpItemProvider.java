@@ -223,11 +223,6 @@ public class BinaryTemporalExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BINARY_TEMPORAL_EXP__LEFT,
-         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__LEFT,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -253,6 +248,16 @@ public class BinaryTemporalExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BINARY_TEMPORAL_EXP__LEFT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__LEFT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__LEFT,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -274,11 +279,6 @@ public class BinaryTemporalExpItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.BINARY_TEMPORAL_EXP__LEFT,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__LEFT,
-         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -383,11 +383,6 @@ public class BinaryTemporalExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BINARY_TEMPORAL_EXP__RIGHT,
-         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__RIGHT,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -413,6 +408,16 @@ public class BinaryTemporalExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.BINARY_TEMPORAL_EXP__RIGHT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__RIGHT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__RIGHT,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -434,11 +439,6 @@ public class BinaryTemporalExpItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.BINARY_TEMPORAL_EXP__RIGHT,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.BINARY_TEMPORAL_EXP__RIGHT,
-         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -198,11 +198,6 @@ public class LtGtExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.LT_GT_EXPR__LEFT,
-         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.LT_GT_EXPR__LEFT,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -228,6 +223,16 @@ public class LtGtExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.LT_GT_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.LT_GT_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.LT_GT_EXPR__LEFT,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -249,11 +254,6 @@ public class LtGtExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.LT_GT_EXPR__LEFT,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.LT_GT_EXPR__LEFT,
-         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -358,11 +358,6 @@ public class LtGtExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.LT_GT_EXPR__RIGHT,
-         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.LT_GT_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createIfElseExp()));
 
     newChildDescriptors.add
@@ -388,6 +383,16 @@ public class LtGtExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.LT_GT_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.LT_GT_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.LT_GT_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -409,11 +414,6 @@ public class LtGtExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.LT_GT_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.LT_GT_EXPR__RIGHT,
-         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -166,18 +166,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.SLANG_ASSERT_STMT: return createSlangAssertStmt();
       case GumboPackage.SLANG_HALT_STMT: return createSlangHaltStmt();
       case GumboPackage.SLANG_DO_STMT: return createSlangDoStmt();
-      case GumboPackage.UNARY_TEMPORAL_EXP: return createUnaryTemporalExp();
       case GumboPackage.IF_ELSE_EXP: return createIfElseExp();
       case GumboPackage.QUANTIFIED_EXP: return createQuantifiedExp();
       case GumboPackage.IMPLIES_EXPR: return createImpliesExpr();
       case GumboPackage.OR_EXPR: return createOrExpr();
       case GumboPackage.AND_EXPR: return createAndExpr();
+      case GumboPackage.BINARY_TEMPORAL_EXP: return createBinaryTemporalExp();
+      case GumboPackage.UNARY_TEMPORAL_EXP: return createUnaryTemporalExp();
       case GumboPackage.EQUAL_NOT_EXPR: return createEqualNotExpr();
       case GumboPackage.LT_GT_EXPR: return createLtGtExpr();
       case GumboPackage.COLON_EXPR: return createColonExpr();
       case GumboPackage.PLUS_MINUS_EXPR: return createPlusMinusExpr();
       case GumboPackage.MULTIPLICATIVE_EXPR: return createMultiplicativeExpr();
-      case GumboPackage.BINARY_TEMPORAL_EXP: return createBinaryTemporalExp();
       case GumboPackage.UNARY_EXPR: return createUnaryExpr();
       case GumboPackage.POST_FIX_EXPR: return createPostFixExpr();
       case GumboPackage.SLANG_LIT_TERM: return createSlangLitTerm();
@@ -1308,18 +1308,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
-  public UnaryTemporalExp createUnaryTemporalExp()
-  {
-    UnaryTemporalExpImpl unaryTemporalExp = new UnaryTemporalExpImpl();
-    return unaryTemporalExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public IfElseExp createIfElseExp()
   {
     IfElseExpImpl ifElseExp = new IfElseExpImpl();
@@ -1380,6 +1368,30 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
    * @generated
    */
   @Override
+  public BinaryTemporalExp createBinaryTemporalExp()
+  {
+    BinaryTemporalExpImpl binaryTemporalExp = new BinaryTemporalExpImpl();
+    return binaryTemporalExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UnaryTemporalExp createUnaryTemporalExp()
+  {
+    UnaryTemporalExpImpl unaryTemporalExp = new UnaryTemporalExpImpl();
+    return unaryTemporalExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EqualNotExpr createEqualNotExpr()
   {
     EqualNotExprImpl equalNotExpr = new EqualNotExprImpl();
@@ -1432,18 +1444,6 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     MultiplicativeExprImpl multiplicativeExpr = new MultiplicativeExprImpl();
     return multiplicativeExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public BinaryTemporalExp createBinaryTemporalExp()
-  {
-    BinaryTemporalExpImpl binaryTemporalExp = new BinaryTemporalExpImpl();
-    return binaryTemporalExp;
   }
 
   /**

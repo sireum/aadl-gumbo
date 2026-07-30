@@ -216,17 +216,7 @@ public class UnaryTemporalExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
-         GumboFactory.eINSTANCE.createOwnedExpression()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
          GumboFactory.eINSTANCE.createGExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
-         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -256,6 +246,16 @@ public class UnaryTemporalExpItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -277,11 +277,6 @@ public class UnaryTemporalExpItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
          GumboFactory.eINSTANCE.createMultiplicativeExpr()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (GumboPackage.Literals.UNARY_TEMPORAL_EXP__EXP,
-         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

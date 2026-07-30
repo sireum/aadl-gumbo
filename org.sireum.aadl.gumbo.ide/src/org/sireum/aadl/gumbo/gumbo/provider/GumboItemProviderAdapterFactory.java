@@ -2360,31 +2360,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected UnaryTemporalExpItemProvider unaryTemporalExpItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createUnaryTemporalExpAdapter()
-  {
-    if (unaryTemporalExpItemProvider == null)
-    {
-      unaryTemporalExpItemProvider = new UnaryTemporalExpItemProvider(this);
-    }
-
-    return unaryTemporalExpItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.IfElseExp} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2510,6 +2485,56 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BinaryTemporalExpItemProvider binaryTemporalExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBinaryTemporalExpAdapter()
+  {
+    if (binaryTemporalExpItemProvider == null)
+    {
+      binaryTemporalExpItemProvider = new BinaryTemporalExpItemProvider(this);
+    }
+
+    return binaryTemporalExpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UnaryTemporalExpItemProvider unaryTemporalExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUnaryTemporalExpAdapter()
+  {
+    if (unaryTemporalExpItemProvider == null)
+    {
+      unaryTemporalExpItemProvider = new UnaryTemporalExpItemProvider(this);
+    }
+
+    return unaryTemporalExpItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.EqualNotExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2632,31 +2657,6 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     }
 
     return multiplicativeExprItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected BinaryTemporalExpItemProvider binaryTemporalExpItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createBinaryTemporalExpAdapter()
-  {
-    if (binaryTemporalExpItemProvider == null)
-    {
-      binaryTemporalExpItemProvider = new BinaryTemporalExpItemProvider(this);
-    }
-
-    return binaryTemporalExpItemProvider;
   }
 
   /**
@@ -3542,18 +3542,18 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (slangAssertStmtItemProvider != null) slangAssertStmtItemProvider.dispose();
     if (slangHaltStmtItemProvider != null) slangHaltStmtItemProvider.dispose();
     if (slangDoStmtItemProvider != null) slangDoStmtItemProvider.dispose();
-    if (unaryTemporalExpItemProvider != null) unaryTemporalExpItemProvider.dispose();
     if (ifElseExpItemProvider != null) ifElseExpItemProvider.dispose();
     if (quantifiedExpItemProvider != null) quantifiedExpItemProvider.dispose();
     if (impliesExprItemProvider != null) impliesExprItemProvider.dispose();
     if (orExprItemProvider != null) orExprItemProvider.dispose();
     if (andExprItemProvider != null) andExprItemProvider.dispose();
+    if (binaryTemporalExpItemProvider != null) binaryTemporalExpItemProvider.dispose();
+    if (unaryTemporalExpItemProvider != null) unaryTemporalExpItemProvider.dispose();
     if (equalNotExprItemProvider != null) equalNotExprItemProvider.dispose();
     if (ltGtExprItemProvider != null) ltGtExprItemProvider.dispose();
     if (colonExprItemProvider != null) colonExprItemProvider.dispose();
     if (plusMinusExprItemProvider != null) plusMinusExprItemProvider.dispose();
     if (multiplicativeExprItemProvider != null) multiplicativeExprItemProvider.dispose();
-    if (binaryTemporalExpItemProvider != null) binaryTemporalExpItemProvider.dispose();
     if (unaryExprItemProvider != null) unaryExprItemProvider.dispose();
     if (postFixExprItemProvider != null) postFixExprItemProvider.dispose();
     if (slangLitTermItemProvider != null) slangLitTermItemProvider.dispose();

@@ -806,13 +806,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass unaryTemporalExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass ifElseExpEClass = null;
 
   /**
@@ -848,6 +841,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass binaryTemporalExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryTemporalExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass equalNotExprEClass = null;
 
   /**
@@ -877,13 +884,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass multiplicativeExprEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass binaryTemporalExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3929,50 +3929,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EClass getUnaryTemporalExp()
-  {
-    return unaryTemporalExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getUnaryTemporalExp_Op()
-  {
-    return (EAttribute)unaryTemporalExpEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getUnaryTemporalExp_Intvl()
-  {
-    return (EAttribute)unaryTemporalExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getUnaryTemporalExp_Exp()
-  {
-    return (EReference)unaryTemporalExpEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getIfElseExp()
   {
     return ifElseExpEClass;
@@ -4204,6 +4160,105 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getBinaryTemporalExp()
+  {
+    return binaryTemporalExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryTemporalExp_Left()
+  {
+    return (EReference)binaryTemporalExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryTemporalExp_Op()
+  {
+    return (EAttribute)binaryTemporalExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryTemporalExp_Intvl()
+  {
+    return (EAttribute)binaryTemporalExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryTemporalExp_Right()
+  {
+    return (EReference)binaryTemporalExpEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUnaryTemporalExp()
+  {
+    return unaryTemporalExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUnaryTemporalExp_Op()
+  {
+    return (EAttribute)unaryTemporalExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUnaryTemporalExp_Intvl()
+  {
+    return (EAttribute)unaryTemporalExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUnaryTemporalExp_Exp()
+  {
+    return (EReference)unaryTemporalExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEqualNotExpr()
   {
     return equalNotExprEClass;
@@ -4416,61 +4471,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getMultiplicativeExpr_Right()
   {
     return (EReference)multiplicativeExprEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getBinaryTemporalExp()
-  {
-    return binaryTemporalExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBinaryTemporalExp_Left()
-  {
-    return (EReference)binaryTemporalExpEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getBinaryTemporalExp_Op()
-  {
-    return (EAttribute)binaryTemporalExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getBinaryTemporalExp_Intvl()
-  {
-    return (EAttribute)binaryTemporalExpEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getBinaryTemporalExp_Right()
-  {
-    return (EReference)binaryTemporalExpEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -5497,11 +5497,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangDoStmtEClass = createEClass(SLANG_DO_STMT);
     createEReference(slangDoStmtEClass, SLANG_DO_STMT__E);
 
-    unaryTemporalExpEClass = createEClass(UNARY_TEMPORAL_EXP);
-    createEAttribute(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__OP);
-    createEAttribute(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__INTVL);
-    createEReference(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__EXP);
-
     ifElseExpEClass = createEClass(IF_ELSE_EXP);
     createEReference(ifElseExpEClass, IF_ELSE_EXP__IF_COND);
     createEReference(ifElseExpEClass, IF_ELSE_EXP__THEN_EXPR);
@@ -5528,6 +5523,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEAttribute(andExprEClass, AND_EXPR__OP);
     createEReference(andExprEClass, AND_EXPR__RIGHT);
 
+    binaryTemporalExpEClass = createEClass(BINARY_TEMPORAL_EXP);
+    createEReference(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__LEFT);
+    createEAttribute(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__OP);
+    createEAttribute(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__INTVL);
+    createEReference(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__RIGHT);
+
+    unaryTemporalExpEClass = createEClass(UNARY_TEMPORAL_EXP);
+    createEAttribute(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__OP);
+    createEAttribute(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__INTVL);
+    createEReference(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__EXP);
+
     equalNotExprEClass = createEClass(EQUAL_NOT_EXPR);
     createEReference(equalNotExprEClass, EQUAL_NOT_EXPR__LEFT);
     createEAttribute(equalNotExprEClass, EQUAL_NOT_EXPR__OP);
@@ -5552,12 +5558,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(multiplicativeExprEClass, MULTIPLICATIVE_EXPR__LEFT);
     createEAttribute(multiplicativeExprEClass, MULTIPLICATIVE_EXPR__OP);
     createEReference(multiplicativeExprEClass, MULTIPLICATIVE_EXPR__RIGHT);
-
-    binaryTemporalExpEClass = createEClass(BINARY_TEMPORAL_EXP);
-    createEReference(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__LEFT);
-    createEAttribute(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__OP);
-    createEAttribute(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__INTVL);
-    createEReference(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__RIGHT);
 
     unaryExprEClass = createEClass(UNARY_EXPR);
     createEAttribute(unaryExprEClass, UNARY_EXPR__OP);
@@ -5705,18 +5705,18 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     slangAssertStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangHaltStmtEClass.getESuperTypes().add(this.getSlangStmt());
     slangDoStmtEClass.getESuperTypes().add(this.getSlangStmt());
-    unaryTemporalExpEClass.getESuperTypes().add(this.getGExpr());
     ifElseExpEClass.getESuperTypes().add(this.getGExpr());
     quantifiedExpEClass.getESuperTypes().add(this.getGExpr());
     impliesExprEClass.getESuperTypes().add(this.getGExpr());
     orExprEClass.getESuperTypes().add(this.getGExpr());
     andExprEClass.getESuperTypes().add(this.getGExpr());
+    binaryTemporalExpEClass.getESuperTypes().add(this.getGExpr());
+    unaryTemporalExpEClass.getESuperTypes().add(this.getGExpr());
     equalNotExprEClass.getESuperTypes().add(this.getGExpr());
     ltGtExprEClass.getESuperTypes().add(this.getGExpr());
     colonExprEClass.getESuperTypes().add(this.getGExpr());
     plusMinusExprEClass.getESuperTypes().add(this.getGExpr());
     multiplicativeExprEClass.getESuperTypes().add(this.getGExpr());
-    binaryTemporalExpEClass.getESuperTypes().add(this.getGExpr());
     unaryExprEClass.getESuperTypes().add(this.getGExpr());
     postFixExprEClass.getESuperTypes().add(this.getGExpr());
     slangLitTermEClass.getESuperTypes().add(this.getGExpr());
@@ -6090,11 +6090,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEClass(slangDoStmtEClass, SlangDoStmt.class, "SlangDoStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSlangDoStmt_E(), this.getOwnedExpression(), null, "e", null, 0, 1, SlangDoStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(unaryTemporalExpEClass, UnaryTemporalExp.class, "UnaryTemporalExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUnaryTemporalExp_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUnaryTemporalExp_Intvl(), theEcorePackage.getEString(), "intvl", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUnaryTemporalExp_Exp(), this.getOwnedExpression(), null, "exp", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(ifElseExpEClass, IfElseExp.class, "IfElseExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIfElseExp_IfCond(), this.getGExpr(), null, "ifCond", null, 0, 1, IfElseExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIfElseExp_ThenExpr(), this.getOwnedExpression(), null, "thenExpr", null, 0, 1, IfElseExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6121,6 +6116,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEAttribute(getAndExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAndExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(binaryTemporalExpEClass, BinaryTemporalExp.class, "BinaryTemporalExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBinaryTemporalExp_Left(), this.getGExpr(), null, "left", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryTemporalExp_Op(), theEcorePackage.getEString(), "op", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryTemporalExp_Intvl(), theEcorePackage.getEString(), "intvl", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryTemporalExp_Right(), this.getGExpr(), null, "right", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryTemporalExpEClass, UnaryTemporalExp.class, "UnaryTemporalExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnaryTemporalExp_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryTemporalExp_Intvl(), theEcorePackage.getEString(), "intvl", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryTemporalExp_Exp(), this.getGExpr(), null, "exp", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(equalNotExprEClass, EqualNotExpr.class, "EqualNotExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEqualNotExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEqualNotExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6145,12 +6151,6 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getMultiplicativeExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMultiplicativeExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMultiplicativeExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(binaryTemporalExpEClass, BinaryTemporalExp.class, "BinaryTemporalExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBinaryTemporalExp_Left(), this.getGExpr(), null, "left", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBinaryTemporalExp_Op(), theEcorePackage.getEString(), "op", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBinaryTemporalExp_Intvl(), theEcorePackage.getEString(), "intvl", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinaryTemporalExp_Right(), this.getGExpr(), null, "right", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unaryExprEClass, UnaryExpr.class, "UnaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnaryExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
