@@ -13,6 +13,7 @@
  */
 package org.sireum.aadl.gumbo.validation;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -24,30 +25,34 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.osate.aadl2.Classifier;
-import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.DataClassifier;
+import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.SystemImplementation;
 import org.osate.aadl2.ThreadClassifier;
+import org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp;
+import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
-import org.sireum.aadl.gumbo.gumbo.Composition;
+import org.sireum.aadl.gumbo.gumbo.Monitor;
 import org.sireum.aadl.gumbo.gumbo.PointAfter;
 import org.sireum.aadl.gumbo.gumbo.PointAt;
 import org.sireum.aadl.gumbo.gumbo.PointBefore;
 import org.sireum.aadl.gumbo.gumbo.PropertyBinding;
+import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
+import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
+import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
 import org.sireum.aadl.gumbo.gumbo.SchemaComponentRef;
 import org.sireum.aadl.gumbo.gumbo.SchemaElement;
 import org.sireum.aadl.gumbo.gumbo.SchemaLabel;
 import org.sireum.aadl.gumbo.gumbo.SchemaPoint;
 import org.sireum.aadl.gumbo.gumbo.SchemaSequence;
 import org.sireum.aadl.gumbo.gumbo.SchemaSplitJoin;
-import org.sireum.aadl.gumbo.gumbo.ScheduleComponentAlias;
-import org.sireum.aadl.gumbo.gumbo.SchedulePortAlias;
-import org.sireum.aadl.gumbo.gumbo.ScheduleStateVarAlias;
 import org.sireum.aadl.gumbo.gumbo.SlangDefContract;
 import org.sireum.aadl.gumbo.gumbo.SlangDefDef;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
+import org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp;
 
 /**
  * This class contains custom validation rules.
@@ -55,6 +60,42 @@ import org.sireum.aadl.gumbo.gumbo.SpecSection;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class GumboValidator extends AbstractGumboValidator {
+	@Check
+	public void checkMonitorTemporalDirection(GuaranteeStatement guarantee) {
+		if (EcoreUtil2.getContainerOfType(guarantee, Monitor.class) == null) {
+			return;
+		}
+
+		List<EObject> temporalExpressions = new ArrayList<>(EcoreUtil2.eAllOfType(guarantee, UnaryTemporalExp.class));
+		temporalExpressions.addAll(EcoreUtil2.eAllOfType(guarantee, BinaryTemporalExp.class));
+
+		Set<String> futureOperators = Set.of("Future", "Eventually", "Globally", "Always", "Until", "Release");
+		Set<String> pastOperators = Set.of("Once", "Historically", "Since", "Trigger");
+
+		boolean hasFuture = false;
+		boolean hasPast = false;
+		for (EObject expression : temporalExpressions) {
+			String operator = expression instanceof UnaryTemporalExp
+					? ((UnaryTemporalExp) expression).getOp()
+					: ((BinaryTemporalExp) expression).getOp();
+
+			if (futureOperators.contains(operator)) {
+				if (hasPast) {
+					error("A monitor guarantee cannot combine future-time and past-time temporal operators",
+							guarantee, null);
+					return;
+				}
+				hasFuture = true;
+			} else if (pastOperators.contains(operator)) {
+				if (hasFuture) {
+					error("A monitor guarantee cannot combine future-time and past-time temporal operators",
+							guarantee, null);
+					return;
+				}
+				hasPast = true;
+			}
+		}
+	}
 
 	@Override
 	protected boolean isResponsible(Map<Object, Object> context, EObject eObject) {
