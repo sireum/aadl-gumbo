@@ -1340,6 +1340,23 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 	@Override
 	public Boolean caseUnaryTemporalExp(UnaryTemporalExp object) {
 		// future eventually globally always once historically
+		EObject parent = object;
+		while (parent != null) { // Search for parent SpecSection
+			parent = parent.eContainer();
+			if (parent instanceof GuaranteeStatement) {
+				parent = parent.eContainer(); // Get SpecSection
+				break;
+			}
+		}
+
+		if (parent instanceof Compute) {
+			reportError(object, "Compute clauses cannot contain temporal operators");
+		} else if (parent instanceof Initialize) {
+			reportError(object, "Initialize clauses cannot contain temporal operators");
+		} else if (!(parent instanceof Monitor)) {
+			reportError(object, "Only monitor clauses can contain temporal operators");
+		}
+
 		UnaryOp slangOp = GumboUtil.toSlangUnaryOp(object.getOp());
 
 		INode opNode = NodeModelUtils.findNodesForFeature(object, GumboPackage.Literals.UNARY_TEMPORAL_EXP__OP).get(0);
