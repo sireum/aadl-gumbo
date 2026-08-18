@@ -146,9 +146,8 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 	IScope scope_InStateExpr_stateVar(InStateExpr context, EReference reference) {
 		EList<EObject> decls = new BasicEList<>();
 
-		// travers to the SpecSection via Compute
-		SpecSection specSection = EcoreUtil2.getContainerOfType(EcoreUtil2.getContainerOfType(context, Compute.class),
-				SpecSection.class);
+		// Get state variables from the enclosing GUMBO specification.
+		SpecSection specSection = EcoreUtil2.getContainerOfType(context, SpecSection.class);
 
 		if (specSection != null && specSection.getState() != null && specSection.getState().getDecls() != null) {
 			decls.addAll(specSection.getState().getDecls());
