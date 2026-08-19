@@ -142,6 +142,15 @@ public interface GumboFactory extends EFactory
   Monitor createMonitor();
 
   /**
+   * Returns a new object of class '<em>Alert Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Alert Statement</em>'.
+   * @generated
+   */
+  AlertStatement createAlertStatement();
+
+  /**
    * Returns a new object of class '<em>Composition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

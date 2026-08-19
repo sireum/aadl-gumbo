@@ -87,6 +87,7 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
       case GumboPackage.INITIALIZE_SPEC_STATEMENT: return createInitializeSpecStatement();
       case GumboPackage.COMPUTE: return createCompute();
       case GumboPackage.MONITOR: return createMonitor();
+      case GumboPackage.ALERT_STATEMENT: return createAlertStatement();
       case GumboPackage.COMPOSITION: return createComposition();
       case GumboPackage.SCHEDULE_COMPONENT_ALIASES: return createScheduleComponentAliases();
       case GumboPackage.SCHEDULE_COMPONENT_ALIAS: return createScheduleComponentAlias();
@@ -352,6 +353,18 @@ public class GumboFactoryImpl extends EFactoryImpl implements GumboFactory
   {
     MonitorImpl monitor = new MonitorImpl();
     return monitor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AlertStatement createAlertStatement()
+  {
+    AlertStatementImpl alertStatement = new AlertStatementImpl();
+    return alertStatement;
   }
 
   /**

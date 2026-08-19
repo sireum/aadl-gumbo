@@ -53,6 +53,7 @@ import org.osate.aadl2.Type;
 import org.osate.aadl2.modelsupport.ResolvePrototypeUtil;
 import org.osate.xtext.aadl2.properties.scoping.PropertiesScopeProvider;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
+import org.sireum.aadl.gumbo.gumbo.AlertStatement;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
 import org.sireum.aadl.gumbo.gumbo.Compute;
 import org.sireum.aadl.gumbo.gumbo.DataElement;
@@ -63,9 +64,11 @@ import org.sireum.aadl.gumbo.gumbo.GumboLibrary;
 import org.sireum.aadl.gumbo.gumbo.GumboSubclause;
 import org.sireum.aadl.gumbo.gumbo.HandlerClause;
 import org.sireum.aadl.gumbo.gumbo.HasEventExpr;
+import org.sireum.aadl.gumbo.gumbo.GuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.InStateExpr;
 import org.sireum.aadl.gumbo.gumbo.InfoFlowClause;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
+import org.sireum.aadl.gumbo.gumbo.Monitor;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
@@ -186,6 +189,25 @@ public class GumboScopeProvider extends AbstractGumboScopeProvider {
 
 	IScope scope_HandlerClause_id(HandlerClause context, EReference reference) {
 		return getEventPortScope(context, reference, Arrays.asList(DirectionType.IN, DirectionType.IN_OUT));
+	}
+
+	IScope scope_AlertStatement_guarantee(AlertStatement context, EReference reference) {
+		Monitor monitor = EcoreUtil2.getContainerOfType(context, Monitor.class);
+		if (monitor == null) {
+			return IScope.NULLSCOPE;
+		}
+		return Scopes.scopeFor(monitor.getGuarantees(),
+				new Function<EObject, QualifiedName>() {
+					@Override
+					public QualifiedName apply(EObject o) {
+						return QualifiedName.create(((GuaranteeStatement) o).getId());
+					}
+				},
+				IScope.NULLSCOPE);
+	}
+
+	IScope scope_AlertStatement_port(AlertStatement context, EReference reference) {
+		return getEventPortScope(context, reference, Arrays.asList(DirectionType.OUT));
 	}
 
 	IScope scope_DataRefExpr_portOrSubcomponentOrStateVar(DataRefExpr context, EReference reference) {

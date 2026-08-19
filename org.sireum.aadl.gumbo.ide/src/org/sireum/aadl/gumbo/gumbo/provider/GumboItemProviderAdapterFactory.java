@@ -385,6 +385,31 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.AlertStatement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected AlertStatementItemProvider alertStatementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.AlertStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createAlertStatementAdapter()
+  {
+    if (alertStatementItemProvider == null)
+    {
+      alertStatementItemProvider = new AlertStatementItemProvider(this);
+    }
+
+    return alertStatementItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Composition} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3463,6 +3488,7 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (initializeSpecStatementItemProvider != null) initializeSpecStatementItemProvider.dispose();
     if (computeItemProvider != null) computeItemProvider.dispose();
     if (monitorItemProvider != null) monitorItemProvider.dispose();
+    if (alertStatementItemProvider != null) alertStatementItemProvider.dispose();
     if (compositionItemProvider != null) compositionItemProvider.dispose();
     if (scheduleComponentAliasesItemProvider != null) scheduleComponentAliasesItemProvider.dispose();
     if (scheduleComponentAliasItemProvider != null) scheduleComponentAliasItemProvider.dispose();

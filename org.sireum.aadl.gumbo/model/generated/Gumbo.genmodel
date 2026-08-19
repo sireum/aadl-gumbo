@@ -60,6 +60,11 @@
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Monitor">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Monitor/guarantees"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Monitor/alerts"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//AlertStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AlertStatement/guarantee"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AlertStatement/port"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Composition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//Composition/id"/>

@@ -36,6 +36,7 @@ import org.sireum.IS;
 import org.sireum.Option;
 import org.sireum.Z;
 import org.sireum.aadl.gumbo.gumbo.AndExpr;
+import org.sireum.aadl.gumbo.gumbo.AlertStatement;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp;
@@ -128,6 +129,8 @@ import org.sireum.hamr.ir.Annex$;
 import org.sireum.hamr.ir.AnnexLib;
 import org.sireum.hamr.ir.GclAssume;
 import org.sireum.hamr.ir.GclAssume$;
+import org.sireum.hamr.ir.GclAlert;
+import org.sireum.hamr.ir.GclAlert$;
 import org.sireum.hamr.ir.GclBodyMethod$;
 import org.sireum.hamr.ir.GclCaseStatement;
 import org.sireum.hamr.ir.GclCaseStatement$;
@@ -727,8 +730,17 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 			}
 		}
 
+		List<GclAlert> genAlerts = new ArrayList<>();
+		if (object.getAlerts() != null) {
+			for (AlertStatement alert : object.getAlerts()) {
+				genAlerts.add(GclAlert$.MODULE$.apply(alert.getGuarantee().getId(), alert.getPort().getName(),
+						GumboUtil.toAttr(alert)));
+			}
+		}
+
 		push(GclMonitor$.MODULE$.apply(
 				VisitorUtil.toISZ(genGuarantees), //
+				VisitorUtil.toISZ(genAlerts), //
 				GumboUtil.toAttr(object)));
 
 		return false;

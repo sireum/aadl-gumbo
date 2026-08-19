@@ -568,15 +568,19 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cMonitorKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cGuaranteesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cGuaranteesGuaranteeStatementParserRuleCall_2_0 = (RuleCall)cGuaranteesAssignment_2.eContents().get(0);
+		private final Assignment cAlertsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cAlertsAlertStatementParserRuleCall_3_0 = (RuleCall)cAlertsAssignment_3.eContents().get(0);
 		
 		//Monitor:
 		//    {Monitor} 'monitor'
 		//      (guarantees+=GuaranteeStatement)*
+		//      (alerts+=AlertStatement)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Monitor} 'monitor'
 		//  (guarantees+=GuaranteeStatement)*
+		//  (alerts+=AlertStatement)*
 		public Group getGroup() { return cGroup; }
 		
 		//{Monitor}
@@ -590,6 +594,60 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//GuaranteeStatement
 		public RuleCall getGuaranteesGuaranteeStatementParserRuleCall_2_0() { return cGuaranteesGuaranteeStatementParserRuleCall_2_0; }
+		
+		//(alerts+=AlertStatement)*
+		public Assignment getAlertsAssignment_3() { return cAlertsAssignment_3; }
+		
+		//AlertStatement
+		public RuleCall getAlertsAlertStatementParserRuleCall_3_0() { return cAlertsAlertStatementParserRuleCall_3_0; }
+	}
+	public class AlertStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AlertStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAlertKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cGuaranteeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cGuaranteeGuaranteeStatementCrossReference_1_0 = (CrossReference)cGuaranteeAssignment_1.eContents().get(0);
+		private final RuleCall cGuaranteeGuaranteeStatementIDTerminalRuleCall_1_0_1 = (RuleCall)cGuaranteeGuaranteeStatementCrossReference_1_0.eContents().get(1);
+		private final Keyword cOnKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPortAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cPortPortCrossReference_3_0 = (CrossReference)cPortAssignment_3.eContents().get(0);
+		private final RuleCall cPortPortIDTerminalRuleCall_3_0_1 = (RuleCall)cPortPortCrossReference_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//AlertStatement:
+		//    'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'alert'
+		public Keyword getAlertKeyword_0() { return cAlertKeyword_0; }
+		
+		//guarantee=[GuaranteeStatement|ID]
+		public Assignment getGuaranteeAssignment_1() { return cGuaranteeAssignment_1; }
+		
+		//[GuaranteeStatement|ID]
+		public CrossReference getGuaranteeGuaranteeStatementCrossReference_1_0() { return cGuaranteeGuaranteeStatementCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getGuaranteeGuaranteeStatementIDTerminalRuleCall_1_0_1() { return cGuaranteeGuaranteeStatementIDTerminalRuleCall_1_0_1; }
+		
+		//'on'
+		public Keyword getOnKeyword_2() { return cOnKeyword_2; }
+		
+		//port=[aadl2::Port|ID]
+		public Assignment getPortAssignment_3() { return cPortAssignment_3; }
+		
+		//[aadl2::Port|ID]
+		public CrossReference getPortPortCrossReference_3_0() { return cPortPortCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getPortPortIDTerminalRuleCall_3_0_1() { return cPortPortIDTerminalRuleCall_3_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 	public class CompositionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Composition");
@@ -5918,6 +5976,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final InitializeSpecStatementElements pInitializeSpecStatement;
 	private final ComputeElements pCompute;
 	private final MonitorElements pMonitor;
+	private final AlertStatementElements pAlertStatement;
 	private final CompositionElements pComposition;
 	private final ScheduleComponentAliasesElements pScheduleComponentAliases;
 	private final ScheduleComponentAliasElements pScheduleComponentAlias;
@@ -6061,6 +6120,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pInitializeSpecStatement = new InitializeSpecStatementElements();
 		this.pCompute = new ComputeElements();
 		this.pMonitor = new MonitorElements();
+		this.pAlertStatement = new AlertStatementElements();
 		this.pComposition = new CompositionElements();
 		this.pScheduleComponentAliases = new ScheduleComponentAliasesElements();
 		this.pScheduleComponentAlias = new ScheduleComponentAliasElements();
@@ -6379,6 +6439,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Monitor:
 	//    {Monitor} 'monitor'
 	//      (guarantees+=GuaranteeStatement)*
+	//      (alerts+=AlertStatement)*
 	//;
 	public MonitorElements getMonitorAccess() {
 		return pMonitor;
@@ -6386,6 +6447,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getMonitorRule() {
 		return getMonitorAccess().getRule();
+	}
+	
+	//AlertStatement:
+	//    'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
+	//;
+	public AlertStatementElements getAlertStatementAccess() {
+		return pAlertStatement;
+	}
+	
+	public ParserRule getAlertStatementRule() {
+		return getAlertStatementAccess().getRule();
 	}
 	
 	//// ===========================================================================

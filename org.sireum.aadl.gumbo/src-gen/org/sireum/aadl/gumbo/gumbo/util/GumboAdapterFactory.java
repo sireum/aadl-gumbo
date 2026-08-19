@@ -152,6 +152,11 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
         return createMonitorAdapter();
       }
       @Override
+      public Adapter caseAlertStatement(AlertStatement object)
+      {
+        return createAlertStatementAdapter();
+      }
+      @Override
       public Adapter caseComposition(Composition object)
       {
         return createCompositionAdapter();
@@ -964,6 +969,21 @@ public class GumboAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMonitorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.gumbo.gumbo.AlertStatement <em>Alert Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.gumbo.gumbo.AlertStatement
+   * @generated
+   */
+  public Adapter createAlertStatementAdapter()
   {
     return null;
   }

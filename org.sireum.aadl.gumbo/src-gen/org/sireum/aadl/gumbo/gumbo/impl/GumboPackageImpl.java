@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.osate.aadl2.Aadl2Package;
 
+import org.sireum.aadl.gumbo.gumbo.AlertStatement;
 import org.sireum.aadl.gumbo.gumbo.AndExpr;
 import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
@@ -247,6 +248,13 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass monitorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass alertStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1589,6 +1597,50 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getMonitor_Guarantees()
   {
     return (EReference)monitorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMonitor_Alerts()
+  {
+    return (EReference)monitorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAlertStatement()
+  {
+    return alertStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAlertStatement_Guarantee()
+  {
+    return (EReference)alertStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAlertStatement_Port()
+  {
+    return (EReference)alertStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -5205,6 +5257,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     monitorEClass = createEClass(MONITOR);
     createEReference(monitorEClass, MONITOR__GUARANTEES);
+    createEReference(monitorEClass, MONITOR__ALERTS);
+
+    alertStatementEClass = createEClass(ALERT_STATEMENT);
+    createEReference(alertStatementEClass, ALERT_STATEMENT__GUARANTEE);
+    createEReference(alertStatementEClass, ALERT_STATEMENT__PORT);
 
     compositionEClass = createEClass(COMPOSITION);
     createEAttribute(compositionEClass, COMPOSITION__ID);
@@ -5798,6 +5855,11 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
 
     initEClass(monitorEClass, Monitor.class, "Monitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMonitor_Guarantees(), this.getGuaranteeStatement(), null, "guarantees", null, 0, -1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMonitor_Alerts(), this.getAlertStatement(), null, "alerts", null, 0, -1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(alertStatementEClass, AlertStatement.class, "AlertStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAlertStatement_Guarantee(), this.getGuaranteeStatement(), null, "guarantee", null, 0, 1, AlertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAlertStatement_Port(), theAadl2Package.getPort(), null, "port", null, 0, 1, AlertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compositionEClass, Composition.class, "Composition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComposition_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

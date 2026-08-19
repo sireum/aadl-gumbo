@@ -86,6 +86,11 @@ Compute:
 Monitor:
 	{Monitor} 'monitor'
 	  (guarantees+=GuaranteeStatement)*
+	  (alerts+=AlertStatement)*
+;
+
+AlertStatement:
+	'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
 ;
 
 // ===========================================================================
