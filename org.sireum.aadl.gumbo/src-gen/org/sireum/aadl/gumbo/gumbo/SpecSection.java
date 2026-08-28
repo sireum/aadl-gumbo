@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getIntegration <em>Integration</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getInitialize <em>Initialize</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompute <em>Compute</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getMonitor <em>Monitor</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getCompositions <em>Compositions</em>}</li>
  * </ul>
  *
@@ -172,6 +173,28 @@ public interface SpecSection extends EObject
    * @generated
    */
   void setCompute(Compute value);
+
+  /**
+   * Returns the value of the '<em><b>Monitor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Monitor</em>' containment reference.
+   * @see #setMonitor(Monitor)
+   * @see org.sireum.aadl.gumbo.gumbo.GumboPackage#getSpecSection_Monitor()
+   * @model containment="true"
+   * @generated
+   */
+  Monitor getMonitor();
+
+  /**
+   * Sets the value of the '{@link org.sireum.aadl.gumbo.gumbo.SpecSection#getMonitor <em>Monitor</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Monitor</em>' containment reference.
+   * @see #getMonitor()
+   * @generated
+   */
+  void setMonitor(Monitor value);
 
   /**
    * Returns the value of the '<em><b>Compositions</b></em>' containment reference list.

@@ -36,6 +36,7 @@ import org.sireum.aadl.gumbo.gumbo.GumboPackage;
 import org.sireum.aadl.gumbo.gumbo.Initialize;
 import org.sireum.aadl.gumbo.gumbo.Integration;
 import org.sireum.aadl.gumbo.gumbo.Invariants;
+import org.sireum.aadl.gumbo.gumbo.Monitor;
 import org.sireum.aadl.gumbo.gumbo.SpecSection;
 import org.sireum.aadl.gumbo.gumbo.State;
 
@@ -53,6 +54,7 @@ import org.sireum.aadl.gumbo.gumbo.State;
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getIntegration <em>Integration</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getInitialize <em>Initialize</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getCompute <em>Compute</em>}</li>
+ *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getMonitor <em>Monitor</em>}</li>
  *   <li>{@link org.sireum.aadl.gumbo.gumbo.impl.SpecSectionImpl#getCompositions <em>Compositions</em>}</li>
  * </ul>
  *
@@ -119,6 +121,16 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
    * @ordered
    */
   protected Compute compute;
+
+  /**
+   * The cached value of the '{@link #getMonitor() <em>Monitor</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMonitor()
+   * @generated
+   * @ordered
+   */
+  protected Monitor monitor;
 
   /**
    * The cached value of the '{@link #getCompositions() <em>Compositions</em>}' containment reference list.
@@ -457,6 +469,56 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
    * @generated
    */
   @Override
+  public Monitor getMonitor()
+  {
+    return monitor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMonitor(Monitor newMonitor, NotificationChain msgs)
+  {
+    Monitor oldMonitor = monitor;
+    monitor = newMonitor;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_SECTION__MONITOR, oldMonitor, newMonitor);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMonitor(Monitor newMonitor)
+  {
+    if (newMonitor != monitor)
+    {
+      NotificationChain msgs = null;
+      if (monitor != null)
+        msgs = ((InternalEObject)monitor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GumboPackage.SPEC_SECTION__MONITOR, null, msgs);
+      if (newMonitor != null)
+        msgs = ((InternalEObject)newMonitor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GumboPackage.SPEC_SECTION__MONITOR, null, msgs);
+      msgs = basicSetMonitor(newMonitor, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GumboPackage.SPEC_SECTION__MONITOR, newMonitor, newMonitor));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Composition> getCompositions()
   {
     if (compositions == null)
@@ -488,6 +550,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return basicSetInitialize(null, msgs);
       case GumboPackage.SPEC_SECTION__COMPUTE:
         return basicSetCompute(null, msgs);
+      case GumboPackage.SPEC_SECTION__MONITOR:
+        return basicSetMonitor(null, msgs);
       case GumboPackage.SPEC_SECTION__COMPOSITIONS:
         return ((InternalEList<?>)getCompositions()).basicRemove(otherEnd, msgs);
     }
@@ -516,6 +580,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return getInitialize();
       case GumboPackage.SPEC_SECTION__COMPUTE:
         return getCompute();
+      case GumboPackage.SPEC_SECTION__MONITOR:
+        return getMonitor();
       case GumboPackage.SPEC_SECTION__COMPOSITIONS:
         return getCompositions();
     }
@@ -550,6 +616,9 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return;
       case GumboPackage.SPEC_SECTION__COMPUTE:
         setCompute((Compute)newValue);
+        return;
+      case GumboPackage.SPEC_SECTION__MONITOR:
+        setMonitor((Monitor)newValue);
         return;
       case GumboPackage.SPEC_SECTION__COMPOSITIONS:
         getCompositions().clear();
@@ -587,6 +656,9 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
       case GumboPackage.SPEC_SECTION__COMPUTE:
         setCompute((Compute)null);
         return;
+      case GumboPackage.SPEC_SECTION__MONITOR:
+        setMonitor((Monitor)null);
+        return;
       case GumboPackage.SPEC_SECTION__COMPOSITIONS:
         getCompositions().clear();
         return;
@@ -616,6 +688,8 @@ public class SpecSectionImpl extends MinimalEObjectImpl.Container implements Spe
         return initialize != null;
       case GumboPackage.SPEC_SECTION__COMPUTE:
         return compute != null;
+      case GumboPackage.SPEC_SECTION__MONITOR:
+        return monitor != null;
       case GumboPackage.SPEC_SECTION__COMPOSITIONS:
         return compositions != null && !compositions.isEmpty();
     }

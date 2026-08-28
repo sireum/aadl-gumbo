@@ -243,6 +243,16 @@ public class QuantRangeItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.QUANT_RANGE__LO,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANT_RANGE__LO,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANT_RANGE__LO,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -394,6 +404,16 @@ public class QuantRangeItemProvider
       (createChildParameter
         (GumboPackage.Literals.QUANT_RANGE__HIGH,
          GumboFactory.eINSTANCE.createAndExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANT_RANGE__HIGH,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.QUANT_RANGE__HIGH,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

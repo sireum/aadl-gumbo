@@ -4,8 +4,8 @@
     modelDirectory="/org.sireum.aadl.gumbo/src-gen" editDirectory="/org.sireum.aadl.gumbo.ide/src"
     modelPluginID="org.sireum.aadl.gumbo" forceOverwrite="true" modelName="Gumbo"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    complianceLevel="11.0" copyrightFields="false" editPluginID="org.sireum.aadl.gumbo.ide"
-    runtimeVersion="2.29" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/org.osate.aadl2/model/aadl2.genmodel#//aadl2">
+    complianceLevel="17.0" copyrightFields="false" editPluginID="org.sireum.aadl.gumbo.ide"
+    runtimeVersion="2.36" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/org.osate.aadl2/model/aadl2.genmodel#//aadl2">
   <genPackages prefix="Gumbo" basePackage="org.sireum.aadl.gumbo" disposableProviderFactory="true"
       fileExtensions="gumbo" ecorePackage="Gumbo.ecore#/">
     <genClasses ecoreClass="Gumbo.ecore#//GumboLibrary">
@@ -21,6 +21,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/integration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/initialize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/compute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/monitor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//SpecSection/compositions"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//State">
@@ -56,6 +57,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/cases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/handlers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Compute/flows"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//Monitor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Monitor/guarantees"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//Monitor/alerts"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//AlertStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AlertStatement/guarantee"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AlertStatement/port"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//Composition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//Composition/id"/>
@@ -362,6 +371,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AndExpr/left"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//AndExpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//AndExpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//BinaryTemporalExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryTemporalExp/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinaryTemporalExp/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//BinaryTemporalExp/intvl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//BinaryTemporalExp/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Gumbo.ecore#//UnaryTemporalExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//UnaryTemporalExp/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gumbo.ecore#//UnaryTemporalExp/intvl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//UnaryTemporalExp/exp"/>
     </genClasses>
     <genClasses ecoreClass="Gumbo.ecore#//EqualNotExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Gumbo.ecore#//EqualNotExpr/left"/>

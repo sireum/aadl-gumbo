@@ -25,8 +25,18 @@ public class GumboAnnexLinkingService implements AnnexLinkingService {
 	private GumboQualifiedNameProvider nameProvider;
 
 	public GumboAnnexLinkingService() {
+		URI dummyUri = URI.createFileURI("dummy.gumbo");
+
+		// Check if the provider registry is missing for your new URI schema
+		if (org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE
+				.getResourceServiceProvider(dummyUri) == null) {
+			// Force the generated Xtext standalone setup to register your new namespace URI
+			org.sireum.aadl.gumbo.GumboStandaloneSetup.doSetup();
+		}
+
 		Injector injector = IResourceServiceProvider.Registry.INSTANCE
-				.getResourceServiceProvider(URI.createFileURI("dummy.gumbo")).get(Injector.class);
+				.getResourceServiceProvider(dummyUri)
+				.get(Injector.class);
 		injector.injectMembers(this);
 	}
 

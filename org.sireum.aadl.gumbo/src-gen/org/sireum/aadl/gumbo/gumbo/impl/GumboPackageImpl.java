@@ -23,12 +23,14 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.osate.aadl2.Aadl2Package;
 
+import org.sireum.aadl.gumbo.gumbo.AlertStatement;
 import org.sireum.aadl.gumbo.gumbo.AndExpr;
 import org.sireum.aadl.gumbo.gumbo.AnonAssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.AnonGuaranteeStatement;
 import org.sireum.aadl.gumbo.gumbo.ArrayAccess;
 import org.sireum.aadl.gumbo.gumbo.AssumeStatement;
 import org.sireum.aadl.gumbo.gumbo.BinLit;
+import org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp;
 import org.sireum.aadl.gumbo.gumbo.BooleanLit;
 import org.sireum.aadl.gumbo.gumbo.BuiltinAccess;
 import org.sireum.aadl.gumbo.gumbo.CallExpr;
@@ -69,6 +71,7 @@ import org.sireum.aadl.gumbo.gumbo.Invariants;
 import org.sireum.aadl.gumbo.gumbo.LtGtExpr;
 import org.sireum.aadl.gumbo.gumbo.MaySendExpr;
 import org.sireum.aadl.gumbo.gumbo.MemberAccess;
+import org.sireum.aadl.gumbo.gumbo.Monitor;
 import org.sireum.aadl.gumbo.gumbo.MultiplicativeExpr;
 import org.sireum.aadl.gumbo.gumbo.MustSendExpr;
 import org.sireum.aadl.gumbo.gumbo.NoSendExpr;
@@ -152,6 +155,7 @@ import org.sireum.aadl.gumbo.gumbo.State;
 import org.sireum.aadl.gumbo.gumbo.StateVarDecl;
 import org.sireum.aadl.gumbo.gumbo.SubcomponentElement;
 import org.sireum.aadl.gumbo.gumbo.UnaryExpr;
+import org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp;
 
 /**
  * <!-- begin-user-doc -->
@@ -237,6 +241,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   private EClass computeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass monitorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass alertStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -831,6 +849,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass binaryTemporalExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryTemporalExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass equalNotExprEClass = null;
 
   /**
@@ -1243,9 +1275,20 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
-  public EReference getSpecSection_Compositions()
+  public EReference getSpecSection_Monitor()
   {
     return (EReference)specSectionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSpecSection_Compositions()
+  {
+    return (EReference)specSectionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1532,6 +1575,72 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
   public EReference getCompute_Flows()
   {
     return (EReference)computeEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMonitor()
+  {
+    return monitorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMonitor_Guarantees()
+  {
+    return (EReference)monitorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMonitor_Alerts()
+  {
+    return (EReference)monitorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAlertStatement()
+  {
+    return alertStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAlertStatement_Guarantee()
+  {
+    return (EReference)alertStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAlertStatement_Port()
+  {
+    return (EReference)alertStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4103,6 +4212,105 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
    * @generated
    */
   @Override
+  public EClass getBinaryTemporalExp()
+  {
+    return binaryTemporalExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryTemporalExp_Left()
+  {
+    return (EReference)binaryTemporalExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryTemporalExp_Op()
+  {
+    return (EAttribute)binaryTemporalExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryTemporalExp_Intvl()
+  {
+    return (EAttribute)binaryTemporalExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryTemporalExp_Right()
+  {
+    return (EReference)binaryTemporalExpEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUnaryTemporalExp()
+  {
+    return unaryTemporalExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUnaryTemporalExp_Op()
+  {
+    return (EAttribute)unaryTemporalExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUnaryTemporalExp_Intvl()
+  {
+    return (EAttribute)unaryTemporalExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUnaryTemporalExp_Exp()
+  {
+    return (EReference)unaryTemporalExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEqualNotExpr()
   {
     return equalNotExprEClass;
@@ -5010,6 +5218,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(specSectionEClass, SPEC_SECTION__INTEGRATION);
     createEReference(specSectionEClass, SPEC_SECTION__INITIALIZE);
     createEReference(specSectionEClass, SPEC_SECTION__COMPUTE);
+    createEReference(specSectionEClass, SPEC_SECTION__MONITOR);
     createEReference(specSectionEClass, SPEC_SECTION__COMPOSITIONS);
 
     stateEClass = createEClass(STATE);
@@ -5045,6 +5254,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEReference(computeEClass, COMPUTE__CASES);
     createEReference(computeEClass, COMPUTE__HANDLERS);
     createEReference(computeEClass, COMPUTE__FLOWS);
+
+    monitorEClass = createEClass(MONITOR);
+    createEReference(monitorEClass, MONITOR__GUARANTEES);
+    createEReference(monitorEClass, MONITOR__ALERTS);
+
+    alertStatementEClass = createEClass(ALERT_STATEMENT);
+    createEReference(alertStatementEClass, ALERT_STATEMENT__GUARANTEE);
+    createEReference(alertStatementEClass, ALERT_STATEMENT__PORT);
 
     compositionEClass = createEClass(COMPOSITION);
     createEAttribute(compositionEClass, COMPOSITION__ID);
@@ -5363,6 +5580,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     createEAttribute(andExprEClass, AND_EXPR__OP);
     createEReference(andExprEClass, AND_EXPR__RIGHT);
 
+    binaryTemporalExpEClass = createEClass(BINARY_TEMPORAL_EXP);
+    createEReference(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__LEFT);
+    createEAttribute(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__OP);
+    createEAttribute(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__INTVL);
+    createEReference(binaryTemporalExpEClass, BINARY_TEMPORAL_EXP__RIGHT);
+
+    unaryTemporalExpEClass = createEClass(UNARY_TEMPORAL_EXP);
+    createEAttribute(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__OP);
+    createEAttribute(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__INTVL);
+    createEReference(unaryTemporalExpEClass, UNARY_TEMPORAL_EXP__EXP);
+
     equalNotExprEClass = createEClass(EQUAL_NOT_EXPR);
     createEReference(equalNotExprEClass, EQUAL_NOT_EXPR__LEFT);
     createEAttribute(equalNotExprEClass, EQUAL_NOT_EXPR__OP);
@@ -5539,6 +5767,8 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     impliesExprEClass.getESuperTypes().add(this.getGExpr());
     orExprEClass.getESuperTypes().add(this.getGExpr());
     andExprEClass.getESuperTypes().add(this.getGExpr());
+    binaryTemporalExpEClass.getESuperTypes().add(this.getGExpr());
+    unaryTemporalExpEClass.getESuperTypes().add(this.getGExpr());
     equalNotExprEClass.getESuperTypes().add(this.getGExpr());
     ltGtExprEClass.getESuperTypes().add(this.getGExpr());
     colonExprEClass.getESuperTypes().add(this.getGExpr());
@@ -5586,6 +5816,7 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getSpecSection_Integration(), this.getIntegration(), null, "integration", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Initialize(), this.getInitialize(), null, "initialize", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Compute(), this.getCompute(), null, "compute", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecSection_Monitor(), this.getMonitor(), null, "monitor", null, 0, 1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecSection_Compositions(), this.getComposition(), null, "compositions", null, 0, -1, SpecSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5621,6 +5852,14 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getCompute_Cases(), this.getCaseStatementClause(), null, "cases", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Handlers(), this.getHandlerClause(), null, "handlers", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCompute_Flows(), this.getInfoFlowClause(), null, "flows", null, 0, -1, Compute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(monitorEClass, Monitor.class, "Monitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMonitor_Guarantees(), this.getGuaranteeStatement(), null, "guarantees", null, 0, -1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMonitor_Alerts(), this.getAlertStatement(), null, "alerts", null, 0, -1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(alertStatementEClass, AlertStatement.class, "AlertStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAlertStatement_Guarantee(), this.getGuaranteeStatement(), null, "guarantee", null, 0, 1, AlertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAlertStatement_Port(), theAadl2Package.getPort(), null, "port", null, 0, 1, AlertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compositionEClass, Composition.class, "Composition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComposition_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Composition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5938,6 +6177,17 @@ public class GumboPackageImpl extends EPackageImpl implements GumboPackage
     initEReference(getAndExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAndExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAndExpr_Right(), this.getGExpr(), null, "right", null, 0, 1, AndExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(binaryTemporalExpEClass, BinaryTemporalExp.class, "BinaryTemporalExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBinaryTemporalExp_Left(), this.getGExpr(), null, "left", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryTemporalExp_Op(), theEcorePackage.getEString(), "op", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryTemporalExp_Intvl(), theEcorePackage.getEString(), "intvl", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryTemporalExp_Right(), this.getGExpr(), null, "right", null, 0, 1, BinaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryTemporalExpEClass, UnaryTemporalExp.class, "UnaryTemporalExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnaryTemporalExp_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryTemporalExp_Intvl(), theEcorePackage.getEString(), "intvl", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryTemporalExp_Exp(), this.getGExpr(), null, "exp", null, 0, 1, UnaryTemporalExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(equalNotExprEClass, EqualNotExpr.class, "EqualNotExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEqualNotExpr_Left(), this.getGExpr(), null, "left", null, 0, 1, EqualNotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

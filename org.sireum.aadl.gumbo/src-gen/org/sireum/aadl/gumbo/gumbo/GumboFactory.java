@@ -133,6 +133,24 @@ public interface GumboFactory extends EFactory
   Compute createCompute();
 
   /**
+   * Returns a new object of class '<em>Monitor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Monitor</em>'.
+   * @generated
+   */
+  Monitor createMonitor();
+
+  /**
+   * Returns a new object of class '<em>Alert Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Alert Statement</em>'.
+   * @generated
+   */
+  AlertStatement createAlertStatement();
+
+  /**
    * Returns a new object of class '<em>Composition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -887,6 +905,24 @@ public interface GumboFactory extends EFactory
    * @generated
    */
   AndExpr createAndExpr();
+
+  /**
+   * Returns a new object of class '<em>Binary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Temporal Exp</em>'.
+   * @generated
+   */
+  BinaryTemporalExp createBinaryTemporalExp();
+
+  /**
+   * Returns a new object of class '<em>Unary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Temporal Exp</em>'.
+   * @generated
+   */
+  UnaryTemporalExp createUnaryTemporalExp();
 
   /**
    * Returns a new object of class '<em>Equal Not Expr</em>'.

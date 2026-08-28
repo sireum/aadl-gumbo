@@ -194,6 +194,16 @@ public class ParenExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.PAREN_EXPR__EXP,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.PAREN_EXPR__EXP,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add

@@ -129,8 +129,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cInitializeInitializeParserRuleCall_5_0 = (RuleCall)cInitializeAssignment_5.eContents().get(0);
 		private final Assignment cComputeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cComputeComputeParserRuleCall_6_0 = (RuleCall)cComputeAssignment_6.eContents().get(0);
-		private final Assignment cCompositionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cCompositionsCompositionParserRuleCall_7_0 = (RuleCall)cCompositionsAssignment_7.eContents().get(0);
+		private final Assignment cMonitorAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMonitorMonitorParserRuleCall_7_0 = (RuleCall)cMonitorAssignment_7.eContents().get(0);
+		private final Assignment cCompositionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cCompositionsCompositionParserRuleCall_8_0 = (RuleCall)cCompositionsAssignment_8.eContents().get(0);
 		
 		//SpecSection: {SpecSection}
 		//    (state = State)?
@@ -139,6 +141,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    (integration = Integration)?
 		//    (initialize = Initialize)?
 		//    (compute = Compute)?
+		//    (monitor = Monitor)?
 		//    (compositions += Composition)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -150,6 +153,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//   (integration = Integration)?
 		//   (initialize = Initialize)?
 		//   (compute = Compute)?
+		//   (monitor = Monitor)?
 		//   (compositions += Composition)*
 		public Group getGroup() { return cGroup; }
 		
@@ -192,11 +196,17 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Compute
 		public RuleCall getComputeComputeParserRuleCall_6_0() { return cComputeComputeParserRuleCall_6_0; }
 		
+		//(monitor = Monitor)?
+		public Assignment getMonitorAssignment_7() { return cMonitorAssignment_7; }
+		
+		//Monitor
+		public RuleCall getMonitorMonitorParserRuleCall_7_0() { return cMonitorMonitorParserRuleCall_7_0; }
+		
 		//(compositions += Composition)*
-		public Assignment getCompositionsAssignment_7() { return cCompositionsAssignment_7; }
+		public Assignment getCompositionsAssignment_8() { return cCompositionsAssignment_8; }
 		
 		//Composition
-		public RuleCall getCompositionsCompositionParserRuleCall_7_0() { return cCompositionsCompositionParserRuleCall_7_0; }
+		public RuleCall getCompositionsCompositionParserRuleCall_8_0() { return cCompositionsCompositionParserRuleCall_8_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.State");
@@ -550,6 +560,94 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//InfoFlowClause
 		public RuleCall getFlowsInfoFlowClauseParserRuleCall_7_0() { return cFlowsInfoFlowClauseParserRuleCall_7_0; }
+	}
+	public class MonitorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Monitor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMonitorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMonitorKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cGuaranteesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cGuaranteesGuaranteeStatementParserRuleCall_2_0 = (RuleCall)cGuaranteesAssignment_2.eContents().get(0);
+		private final Assignment cAlertsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cAlertsAlertStatementParserRuleCall_3_0 = (RuleCall)cAlertsAssignment_3.eContents().get(0);
+		
+		//Monitor:
+		//    {Monitor} 'monitor'
+		//      (guarantees+=GuaranteeStatement)*
+		//      (alerts+=AlertStatement)*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Monitor} 'monitor'
+		//  (guarantees+=GuaranteeStatement)*
+		//  (alerts+=AlertStatement)*
+		public Group getGroup() { return cGroup; }
+		
+		//{Monitor}
+		public Action getMonitorAction_0() { return cMonitorAction_0; }
+		
+		//'monitor'
+		public Keyword getMonitorKeyword_1() { return cMonitorKeyword_1; }
+		
+		//(guarantees+=GuaranteeStatement)*
+		public Assignment getGuaranteesAssignment_2() { return cGuaranteesAssignment_2; }
+		
+		//GuaranteeStatement
+		public RuleCall getGuaranteesGuaranteeStatementParserRuleCall_2_0() { return cGuaranteesGuaranteeStatementParserRuleCall_2_0; }
+		
+		//(alerts+=AlertStatement)*
+		public Assignment getAlertsAssignment_3() { return cAlertsAssignment_3; }
+		
+		//AlertStatement
+		public RuleCall getAlertsAlertStatementParserRuleCall_3_0() { return cAlertsAlertStatementParserRuleCall_3_0; }
+	}
+	public class AlertStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AlertStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAlertKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cGuaranteeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cGuaranteeGuaranteeStatementCrossReference_1_0 = (CrossReference)cGuaranteeAssignment_1.eContents().get(0);
+		private final RuleCall cGuaranteeGuaranteeStatementIDTerminalRuleCall_1_0_1 = (RuleCall)cGuaranteeGuaranteeStatementCrossReference_1_0.eContents().get(1);
+		private final Keyword cOnKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPortAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cPortPortCrossReference_3_0 = (CrossReference)cPortAssignment_3.eContents().get(0);
+		private final RuleCall cPortPortIDTerminalRuleCall_3_0_1 = (RuleCall)cPortPortCrossReference_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//AlertStatement:
+		//    'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'alert'
+		public Keyword getAlertKeyword_0() { return cAlertKeyword_0; }
+		
+		//guarantee=[GuaranteeStatement|ID]
+		public Assignment getGuaranteeAssignment_1() { return cGuaranteeAssignment_1; }
+		
+		//[GuaranteeStatement|ID]
+		public CrossReference getGuaranteeGuaranteeStatementCrossReference_1_0() { return cGuaranteeGuaranteeStatementCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getGuaranteeGuaranteeStatementIDTerminalRuleCall_1_0_1() { return cGuaranteeGuaranteeStatementIDTerminalRuleCall_1_0_1; }
+		
+		//'on'
+		public Keyword getOnKeyword_2() { return cOnKeyword_2; }
+		
+		//port=[aadl2::Port|ID]
+		public Assignment getPortAssignment_3() { return cPortAssignment_3; }
+		
+		//[aadl2::Port|ID]
+		public CrossReference getPortPortCrossReference_3_0() { return cPortPortCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getPortPortIDTerminalRuleCall_3_0_1() { return cPortPortIDTerminalRuleCall_3_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 	public class CompositionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.Composition");
@@ -3433,29 +3531,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cSlangExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//// OwnedExpression is the entry rule for SysMLv2's expression language
-		//OwnedExpression :
-		//    //: {BasicExp} terms+=SlangAccess ( ops+=Operator terms+=SlangAccess )*
-		//    //| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
-		//    //| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-		//    //| {UnaryExp} op=Operator accessExp=SlangAccess
-		//    //;
-		//    //{IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
-		//    //|
-		//    //{QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-		//    //ImpliesExpression
-		//    SlangExpression
-		//        ;
+		//OwnedExpression : SlangExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////: {BasicExp} terms+=SlangAccess ( ops+=Operator terms+=SlangAccess )*
-		////| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
-		////| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-		////| {UnaryExp} op=Operator accessExp=SlangAccess
-		////;
-		////{IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
-		////|
-		////{QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-		////ImpliesExpression
 		//SlangExpression
 		public RuleCall getSlangExpressionParserRuleCall() { return cSlangExpressionParserRuleCall; }
 	}
@@ -3796,7 +3874,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class AndExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.AndExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cEqualNotExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cBinaryTemporalExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cAndExprLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -3804,20 +3882,20 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cOpAND_OPSTerminalRuleCall_1_1_0_0 = (RuleCall)cOpAlternatives_1_1_0.eContents().get(0);
 		private final Keyword cOpAndKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightEqualNotExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightBinaryTemporalExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//// no hat ^ in Slang
 		//AndExpression returns GExpr
-		//    : EqualNotExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=EqualNotExpression)*;
+		//    : BinaryTemporalExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=BinaryTemporalExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//EqualNotExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=EqualNotExpression)*
+		//BinaryTemporalExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=BinaryTemporalExpression)*
 		public Group getGroup() { return cGroup; }
 		
-		//EqualNotExpression
-		public RuleCall getEqualNotExpressionParserRuleCall_0() { return cEqualNotExpressionParserRuleCall_0; }
+		//BinaryTemporalExpression
+		public RuleCall getBinaryTemporalExpressionParserRuleCall_0() { return cBinaryTemporalExpressionParserRuleCall_0; }
 		
-		//( {AndExpr.left=current} op=(AND_OPS | 'and') right=EqualNotExpression)*
+		//( {AndExpr.left=current} op=(AND_OPS | 'and') right=BinaryTemporalExpression)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{AndExpr.left=current}
@@ -3835,11 +3913,116 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'and'
 		public Keyword getOpAndKeyword_1_1_0_1() { return cOpAndKeyword_1_1_0_1; }
 		
-		//right=EqualNotExpression
+		//right=BinaryTemporalExpression
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 		
+		//BinaryTemporalExpression
+		public RuleCall getRightBinaryTemporalExpressionParserRuleCall_1_2_0() { return cRightBinaryTemporalExpressionParserRuleCall_1_2_0; }
+	}
+	public class BinaryTemporalExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BinaryTemporalExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cUnaryTemporalExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Action cBinaryTemporalExpLeftAction_1_0_0_0 = (Action)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cOpAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final RuleCall cOpTemporalBinaryOpsParserRuleCall_1_0_0_1_0 = (RuleCall)cOpAssignment_1_0_0_1.eContents().get(0);
+		private final Assignment cIntvlAssignment_1_0_0_2 = (Assignment)cGroup_1_0_0.eContents().get(2);
+		private final RuleCall cIntvlINTERVALTerminalRuleCall_1_0_0_2_0 = (RuleCall)cIntvlAssignment_1_0_0_2.eContents().get(0);
+		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRightUnaryTemporalExpressionParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
+		
+		//BinaryTemporalExpression returns GExpr
+		//    : UnaryTemporalExpression (=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL) right=UnaryTemporalExpression)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//UnaryTemporalExpression (=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL) right=UnaryTemporalExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//UnaryTemporalExpression
+		public RuleCall getUnaryTemporalExpressionParserRuleCall_0() { return cUnaryTemporalExpressionParserRuleCall_0; }
+		
+		//(=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL) right=UnaryTemporalExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//{BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+		
+		//{BinaryTemporalExp.left=current}
+		public Action getBinaryTemporalExpLeftAction_1_0_0_0() { return cBinaryTemporalExpLeftAction_1_0_0_0; }
+		
+		//op=TemporalBinaryOps
+		public Assignment getOpAssignment_1_0_0_1() { return cOpAssignment_1_0_0_1; }
+		
+		//TemporalBinaryOps
+		public RuleCall getOpTemporalBinaryOpsParserRuleCall_1_0_0_1_0() { return cOpTemporalBinaryOpsParserRuleCall_1_0_0_1_0; }
+		
+		//intvl=INTERVAL
+		public Assignment getIntvlAssignment_1_0_0_2() { return cIntvlAssignment_1_0_0_2; }
+		
+		//INTERVAL
+		public RuleCall getIntvlINTERVALTerminalRuleCall_1_0_0_2_0() { return cIntvlINTERVALTerminalRuleCall_1_0_0_2_0; }
+		
+		//right=UnaryTemporalExpression
+		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
+		
+		//UnaryTemporalExpression
+		public RuleCall getRightUnaryTemporalExpressionParserRuleCall_1_1_0() { return cRightUnaryTemporalExpressionParserRuleCall_1_1_0; }
+	}
+	public class UnaryTemporalExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.UnaryTemporalExpression");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cUnaryTemporalExpAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cOpTemporalUnaryOpsParserRuleCall_0_1_0 = (RuleCall)cOpAssignment_0_1.eContents().get(0);
+		private final Assignment cIntvlAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cIntvlINTERVALTerminalRuleCall_0_2_0 = (RuleCall)cIntvlAssignment_0_2.eContents().get(0);
+		private final Assignment cExpAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cExpUnaryTemporalExpressionParserRuleCall_0_3_0 = (RuleCall)cExpAssignment_0_3.eContents().get(0);
+		private final RuleCall cEqualNotExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//UnaryTemporalExpression returns GExpr
+		//    : {UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=UnaryTemporalExpression
+		//      | EqualNotExpression
+		//    ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=UnaryTemporalExpression
+		//     | EqualNotExpression
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=UnaryTemporalExpression
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{UnaryTemporalExp}
+		public Action getUnaryTemporalExpAction_0_0() { return cUnaryTemporalExpAction_0_0; }
+		
+		//op=TemporalUnaryOps
+		public Assignment getOpAssignment_0_1() { return cOpAssignment_0_1; }
+		
+		//TemporalUnaryOps
+		public RuleCall getOpTemporalUnaryOpsParserRuleCall_0_1_0() { return cOpTemporalUnaryOpsParserRuleCall_0_1_0; }
+		
+		//intvl=INTERVAL
+		public Assignment getIntvlAssignment_0_2() { return cIntvlAssignment_0_2; }
+		
+		//INTERVAL
+		public RuleCall getIntvlINTERVALTerminalRuleCall_0_2_0() { return cIntvlINTERVALTerminalRuleCall_0_2_0; }
+		
+		//exp=UnaryTemporalExpression
+		public Assignment getExpAssignment_0_3() { return cExpAssignment_0_3; }
+		
+		//UnaryTemporalExpression
+		public RuleCall getExpUnaryTemporalExpressionParserRuleCall_0_3_0() { return cExpUnaryTemporalExpressionParserRuleCall_0_3_0; }
+		
 		//EqualNotExpression
-		public RuleCall getRightEqualNotExpressionParserRuleCall_1_2_0() { return cRightEqualNotExpressionParserRuleCall_1_2_0; }
+		public RuleCall getEqualNotExpressionParserRuleCall_1() { return cEqualNotExpressionParserRuleCall_1; }
 	}
 	public class EqualNotExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.EqualNotExpression");
@@ -5714,6 +5897,69 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'implies'
 		public Keyword getImpliesKeyword_2() { return cImpliesKeyword_2; }
 	}
+	public class TemporalUnaryOpsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.TemporalUnaryOps");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cFutureKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cEventuallyKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cGloballyKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cAlwaysKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cOnceKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cHistoricallyKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		// // short circuit implies
+		//TemporalUnaryOps:
+		//     'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Future'
+		public Keyword getFutureKeyword_0() { return cFutureKeyword_0; }
+		
+		//'Eventually'
+		public Keyword getEventuallyKeyword_1() { return cEventuallyKeyword_1; }
+		
+		//'Globally'
+		public Keyword getGloballyKeyword_2() { return cGloballyKeyword_2; }
+		
+		//'Always'
+		public Keyword getAlwaysKeyword_3() { return cAlwaysKeyword_3; }
+		
+		//'Once'
+		public Keyword getOnceKeyword_4() { return cOnceKeyword_4; }
+		
+		//'Historically'
+		public Keyword getHistoricallyKeyword_5() { return cHistoricallyKeyword_5; }
+	}
+	public class TemporalBinaryOpsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.TemporalBinaryOps");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cUntilKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cReleaseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cSinceKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cTriggerKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		
+		//TemporalBinaryOps:
+		//     'Until' | 'Release' | 'Since' | 'Trigger';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Until' | 'Release' | 'Since' | 'Trigger'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Until'
+		public Keyword getUntilKeyword_0() { return cUntilKeyword_0; }
+		
+		//'Release'
+		public Keyword getReleaseKeyword_1() { return cReleaseKeyword_1; }
+		
+		//'Since'
+		public Keyword getSinceKeyword_2() { return cSinceKeyword_2; }
+		
+		//'Trigger'
+		public Keyword getTriggerKeyword_3() { return cTriggerKeyword_3; }
+	}
 	
 	
 	private final AnnexLibraryElements pAnnexLibrary;
@@ -5729,6 +5975,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final InitializeElements pInitialize;
 	private final InitializeSpecStatementElements pInitializeSpecStatement;
 	private final ComputeElements pCompute;
+	private final MonitorElements pMonitor;
+	private final AlertStatementElements pAlertStatement;
 	private final CompositionElements pComposition;
 	private final ScheduleComponentAliasesElements pScheduleComponentAliases;
 	private final ScheduleComponentAliasElements pScheduleComponentAlias;
@@ -5791,6 +6039,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ImpliesExpressionElements pImpliesExpression;
 	private final OrExpressionElements pOrExpression;
 	private final AndExpressionElements pAndExpression;
+	private final BinaryTemporalExpressionElements pBinaryTemporalExpression;
+	private final UnaryTemporalExpressionElements pUnaryTemporalExpression;
 	private final EqualNotExpressionElements pEqualNotExpression;
 	private final LtGtExpressionElements pLtGtExpression;
 	private final ColonExpressionElements pColonExpression;
@@ -5834,6 +6084,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ImpliesOpsElements pImpliesOps;
 	private final TerminalRule tIMPLIES;
 	private final TerminalRule tSIMPLIES;
+	private final TemporalUnaryOpsElements pTemporalUnaryOps;
+	private final TemporalBinaryOpsElements pTemporalBinaryOps;
+	private final TerminalRule tINTERVAL;
 	private final TerminalRule tHEX;
 	private final TerminalRule tBIN;
 	private final TerminalRule tF32_LIT;
@@ -5866,6 +6119,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pInitialize = new InitializeElements();
 		this.pInitializeSpecStatement = new InitializeSpecStatementElements();
 		this.pCompute = new ComputeElements();
+		this.pMonitor = new MonitorElements();
+		this.pAlertStatement = new AlertStatementElements();
 		this.pComposition = new CompositionElements();
 		this.pScheduleComponentAliases = new ScheduleComponentAliasesElements();
 		this.pScheduleComponentAlias = new ScheduleComponentAliasElements();
@@ -5928,6 +6183,8 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pImpliesExpression = new ImpliesExpressionElements();
 		this.pOrExpression = new OrExpressionElements();
 		this.pAndExpression = new AndExpressionElements();
+		this.pBinaryTemporalExpression = new BinaryTemporalExpressionElements();
+		this.pUnaryTemporalExpression = new UnaryTemporalExpressionElements();
 		this.pEqualNotExpression = new EqualNotExpressionElements();
 		this.pLtGtExpression = new LtGtExpressionElements();
 		this.pColonExpression = new ColonExpressionElements();
@@ -5971,6 +6228,9 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pImpliesOps = new ImpliesOpsElements();
 		this.tIMPLIES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.IMPLIES");
 		this.tSIMPLIES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SIMPLIES");
+		this.pTemporalUnaryOps = new TemporalUnaryOpsElements();
+		this.pTemporalBinaryOps = new TemporalBinaryOpsElements();
+		this.tINTERVAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.INTERVAL");
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.HEX");
 		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BIN");
 		this.tF32_LIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.F32_LIT");
@@ -6063,6 +6323,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    (integration = Integration)?
 	//    (initialize = Initialize)?
 	//    (compute = Compute)?
+	//    (monitor = Monitor)?
 	//    (compositions += Composition)*
 	//;
 	public SpecSectionElements getSpecSectionAccess() {
@@ -6173,6 +6434,30 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getComputeRule() {
 		return getComputeAccess().getRule();
+	}
+	
+	//Monitor:
+	//    {Monitor} 'monitor'
+	//      (guarantees+=GuaranteeStatement)*
+	//      (alerts+=AlertStatement)*
+	//;
+	public MonitorElements getMonitorAccess() {
+		return pMonitor;
+	}
+	
+	public ParserRule getMonitorRule() {
+		return getMonitorAccess().getRule();
+	}
+	
+	//AlertStatement:
+	//    'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
+	//;
+	public AlertStatementElements getAlertStatementAccess() {
+		return pAlertStatement;
+	}
+	
+	public ParserRule getAlertStatementRule() {
+		return getAlertStatementAccess().getRule();
 	}
 	
 	//// ===========================================================================
@@ -6898,18 +7183,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//// OwnedExpression is the entry rule for SysMLv2's expression language
-	//OwnedExpression :
-	//    //: {BasicExp} terms+=SlangAccess ( ops+=Operator terms+=SlangAccess )*
-	//    //| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
-	//    //| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	//    //| {UnaryExp} op=Operator accessExp=SlangAccess
-	//    //;
-	//    //{IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
-	//    //|
-	//    //{QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	//    //ImpliesExpression
-	//    SlangExpression
-	//        ;
+	//OwnedExpression : SlangExpression;
 	public OwnedExpressionElements getOwnedExpressionAccess() {
 		return pOwnedExpression;
 	}
@@ -6977,13 +7251,35 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//// no hat ^ in Slang
 	//AndExpression returns GExpr
-	//    : EqualNotExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=EqualNotExpression)*;
+	//    : BinaryTemporalExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=BinaryTemporalExpression)*;
 	public AndExpressionElements getAndExpressionAccess() {
 		return pAndExpression;
 	}
 	
 	public ParserRule getAndExpressionRule() {
 		return getAndExpressionAccess().getRule();
+	}
+	
+	//BinaryTemporalExpression returns GExpr
+	//    : UnaryTemporalExpression (=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL) right=UnaryTemporalExpression)*;
+	public BinaryTemporalExpressionElements getBinaryTemporalExpressionAccess() {
+		return pBinaryTemporalExpression;
+	}
+	
+	public ParserRule getBinaryTemporalExpressionRule() {
+		return getBinaryTemporalExpressionAccess().getRule();
+	}
+	
+	//UnaryTemporalExpression returns GExpr
+	//    : {UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=UnaryTemporalExpression
+	//      | EqualNotExpression
+	//    ;
+	public UnaryTemporalExpressionElements getUnaryTemporalExpressionAccess() {
+		return pUnaryTemporalExpression;
+	}
+	
+	public ParserRule getUnaryTemporalExpressionRule() {
+		return getUnaryTemporalExpressionAccess().getRule();
 	}
 	
 	//EqualNotExpression returns GExpr
@@ -7425,6 +7721,31 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	// // short circuit implies
+	//TemporalUnaryOps:
+	//     'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
+	public TemporalUnaryOpsElements getTemporalUnaryOpsAccess() {
+		return pTemporalUnaryOps;
+	}
+	
+	public ParserRule getTemporalUnaryOpsRule() {
+		return getTemporalUnaryOpsAccess().getRule();
+	}
+	
+	//TemporalBinaryOps:
+	//     'Until' | 'Release' | 'Since' | 'Trigger';
+	public TemporalBinaryOpsElements getTemporalBinaryOpsAccess() {
+		return pTemporalBinaryOps;
+	}
+	
+	public ParserRule getTemporalBinaryOpsRule() {
+		return getTemporalBinaryOpsAccess().getRule();
+	}
+	
+	//terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
+	public TerminalRule getINTERVALRule() {
+		return tINTERVAL;
+	}
+	
 	////Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
 	////terminal OP: ( OPSYM+ | '\\' IDF ) ;
 	////
