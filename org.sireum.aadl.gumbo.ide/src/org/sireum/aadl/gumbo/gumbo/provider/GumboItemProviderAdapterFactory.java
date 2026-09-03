@@ -360,6 +360,56 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Monitor} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected MonitorItemProvider monitorItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.Monitor}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createMonitorAdapter()
+  {
+    if (monitorItemProvider == null)
+    {
+      monitorItemProvider = new MonitorItemProvider(this);
+    }
+
+    return monitorItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.AlertStatement} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected AlertStatementItemProvider alertStatementItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.AlertStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createAlertStatementAdapter()
+  {
+    if (alertStatementItemProvider == null)
+    {
+      alertStatementItemProvider = new AlertStatementItemProvider(this);
+    }
+
+    return alertStatementItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.Composition} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2460,6 +2510,56 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BinaryTemporalExpItemProvider binaryTemporalExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.BinaryTemporalExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBinaryTemporalExpAdapter()
+  {
+    if (binaryTemporalExpItemProvider == null)
+    {
+      binaryTemporalExpItemProvider = new BinaryTemporalExpItemProvider(this);
+    }
+
+    return binaryTemporalExpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected UnaryTemporalExpItemProvider unaryTemporalExpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.sireum.aadl.gumbo.gumbo.UnaryTemporalExp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createUnaryTemporalExpAdapter()
+  {
+    if (unaryTemporalExpItemProvider == null)
+    {
+      unaryTemporalExpItemProvider = new UnaryTemporalExpItemProvider(this);
+    }
+
+    return unaryTemporalExpItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.sireum.aadl.gumbo.gumbo.EqualNotExpr} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3387,6 +3487,8 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (initializeItemProvider != null) initializeItemProvider.dispose();
     if (initializeSpecStatementItemProvider != null) initializeSpecStatementItemProvider.dispose();
     if (computeItemProvider != null) computeItemProvider.dispose();
+    if (monitorItemProvider != null) monitorItemProvider.dispose();
+    if (alertStatementItemProvider != null) alertStatementItemProvider.dispose();
     if (compositionItemProvider != null) compositionItemProvider.dispose();
     if (scheduleComponentAliasesItemProvider != null) scheduleComponentAliasesItemProvider.dispose();
     if (scheduleComponentAliasItemProvider != null) scheduleComponentAliasItemProvider.dispose();
@@ -3471,6 +3573,8 @@ public class GumboItemProviderAdapterFactory extends GumboAdapterFactory impleme
     if (impliesExprItemProvider != null) impliesExprItemProvider.dispose();
     if (orExprItemProvider != null) orExprItemProvider.dispose();
     if (andExprItemProvider != null) andExprItemProvider.dispose();
+    if (binaryTemporalExpItemProvider != null) binaryTemporalExpItemProvider.dispose();
+    if (unaryTemporalExpItemProvider != null) unaryTemporalExpItemProvider.dispose();
     if (equalNotExprItemProvider != null) equalNotExprItemProvider.dispose();
     if (ltGtExprItemProvider != null) ltGtExprItemProvider.dispose();
     if (colonExprItemProvider != null) colonExprItemProvider.dispose();

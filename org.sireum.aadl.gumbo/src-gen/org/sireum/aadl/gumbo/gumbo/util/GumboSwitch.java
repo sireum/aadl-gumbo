@@ -173,6 +173,20 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.MONITOR:
+      {
+        Monitor monitor = (Monitor)theEObject;
+        T result = caseMonitor(monitor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.ALERT_STATEMENT:
+      {
+        AlertStatement alertStatement = (AlertStatement)theEObject;
+        T result = caseAlertStatement(alertStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.COMPOSITION:
       {
         Composition composition = (Composition)theEObject;
@@ -796,6 +810,24 @@ public class GumboSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GumboPackage.BINARY_TEMPORAL_EXP:
+      {
+        BinaryTemporalExp binaryTemporalExp = (BinaryTemporalExp)theEObject;
+        T result = caseBinaryTemporalExp(binaryTemporalExp);
+        if (result == null) result = caseGExpr(binaryTemporalExp);
+        if (result == null) result = caseOwnedExpression(binaryTemporalExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GumboPackage.UNARY_TEMPORAL_EXP:
+      {
+        UnaryTemporalExp unaryTemporalExp = (UnaryTemporalExp)theEObject;
+        T result = caseUnaryTemporalExp(unaryTemporalExp);
+        if (result == null) result = caseGExpr(unaryTemporalExp);
+        if (result == null) result = caseOwnedExpression(unaryTemporalExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GumboPackage.EQUAL_NOT_EXPR:
       {
         EqualNotExpr equalNotExpr = (EqualNotExpr)theEObject;
@@ -1252,6 +1284,38 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCompute(Compute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Monitor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Monitor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMonitor(Monitor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Alert Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Alert Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAlertStatement(AlertStatement object)
   {
     return null;
   }
@@ -2596,6 +2660,38 @@ public class GumboSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAndExpr(AndExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Binary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Binary Temporal Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBinaryTemporalExp(BinaryTemporalExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unary Temporal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unary Temporal Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnaryTemporalExp(UnaryTemporalExp object)
   {
     return null;
   }

@@ -194,6 +194,16 @@ public class SlangAssertStmtItemProvider extends SlangStmtItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_ASSERT_STMT__E,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ASSERT_STMT__E,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_ASSERT_STMT__E,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add

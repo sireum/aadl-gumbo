@@ -266,6 +266,16 @@ public class InvSpecItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.INV_SPEC__EXPR,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.INV_SPEC__EXPR,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.INV_SPEC__EXPR,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add

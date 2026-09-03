@@ -194,6 +194,16 @@ public class ArrayAccessItemProvider extends PostfixItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.ARRAY_ACCESS__INDEX,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ARRAY_ACCESS__INDEX,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.ARRAY_ACCESS__INDEX,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add

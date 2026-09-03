@@ -22,6 +22,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compute" eType="#//Compute"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitor" eType="#//Monitor"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compositions" upperBound="-1"
         eType="#//Composition" containment="true"/>
   </eClassifiers>
@@ -72,6 +74,16 @@
         eType="#//HandlerClause" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
         eType="#//InfoFlowClause" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Monitor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guarantees" upperBound="-1"
+        eType="#//GuaranteeStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alerts" upperBound="-1"
+        eType="#//AlertStatement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlertStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guarantee" eType="#//GuaranteeStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Port"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Composition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -483,6 +495,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//GExpr"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryTemporalExp" eSuperTypes="#//GExpr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//GExpr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intvl" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//GExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryTemporalExp" eSuperTypes="#//GExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intvl" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//GExpr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EqualNotExpr" eSuperTypes="#//GExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//GExpr"

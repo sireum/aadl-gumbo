@@ -209,6 +209,16 @@ public class SlangReadsItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_READS__EXPRS,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_READS__EXPRS,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_READS__EXPRS,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add

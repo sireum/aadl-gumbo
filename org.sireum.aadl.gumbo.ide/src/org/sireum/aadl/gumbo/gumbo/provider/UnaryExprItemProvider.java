@@ -221,6 +221,16 @@ public class UnaryExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.UNARY_EXPR__EXP,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXPR__EXP,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.UNARY_EXPR__EXP,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add

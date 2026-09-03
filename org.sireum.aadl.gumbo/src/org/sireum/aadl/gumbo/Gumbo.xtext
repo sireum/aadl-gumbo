@@ -33,6 +33,7 @@ SpecSection: {SpecSection}
 	(integration = Integration)?
 	(initialize = Initialize)?
 	(compute = Compute)?
+	(monitor = Monitor)?
 	(compositions += Composition)*
 ;
 
@@ -80,6 +81,16 @@ Compute:
 	  (('cases' | 'compute_cases') (cases+=CaseStatementClause)+)*
 	  (handlers+=HandlerClause)*
 	  (flows+=InfoFlowClause)*
+;
+
+Monitor:
+	{Monitor} 'monitor'
+	  (guarantees+=GuaranteeStatement)*
+	  (alerts+=AlertStatement)*
+;
+
+AlertStatement:
+	'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
 ;
 
 // ===========================================================================
@@ -445,18 +456,7 @@ SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
 
 
 // OwnedExpression is the entry rule for SysMLv2's expression language
-OwnedExpression : 
-	//: {BasicExp} terms+=SlangAccess ( ops+=Operator terms+=SlangAccess )*
-	//| {IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
-	//| {QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	//| {UnaryExp} op=Operator accessExp=SlangAccess
-	//;
-	//{IfElseExp} 'if' '(' ifCond=OwnedExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression 
-	//| 
-	//{QuantifiedExp} ( '\\all' | '\\some' | '∀' | '∃' ) qVar+=SlangQuantVar ( ',' qVar+=SlangQuantVar )* '=>' quantifiedExpr=OwnedExpression
-	//ImpliesExpression
-	SlangExpression
-		;
+OwnedExpression : SlangExpression;
 
 
 // NOTE: will need to wrap nested IfElseExp or QuantifiedExp in parens (which matches what Slang/Scala requires)
@@ -486,7 +486,15 @@ OrExpression returns GExpr
 // no hat ^ in Slang
 
 AndExpression returns GExpr
-	: EqualNotExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=EqualNotExpression)*;
+	: BinaryTemporalExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=BinaryTemporalExpression)*;
+
+BinaryTemporalExpression returns GExpr
+	: UnaryTemporalExpression (=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL) right=UnaryTemporalExpression)*;
+	
+UnaryTemporalExpression returns GExpr
+	: {UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=UnaryTemporalExpression
+  	| EqualNotExpression
+	;
 
 EqualNotExpression returns GExpr
 	: LtGtExpression ( {EqualNotExpr.left=current} op=EQUAL_NOT_OPS right=LtGtExpression)*;
@@ -502,7 +510,7 @@ PlusMinusExpression returns GExpr
 
 MultiplicativeExpression returns GExpr
 	: UnaryExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=UnaryExpression)*;
-	
+
 UnaryExpression returns GExpr
 	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
 	| PrimaryExpr
@@ -701,9 +709,13 @@ terminal IMPLIES: ('__' | '-' | '~') '>' ':';
 // can't use -->: as -- is a comment in AADL
 terminal SIMPLIES: ('___' | '~~')  '>' ':'; // short circuit implies
 
+TemporalUnaryOps:
+     'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
 
+TemporalBinaryOps:
+     'Until' | 'Release' | 'Since' | 'Trigger';
 
-
+terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
 
 //Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
 

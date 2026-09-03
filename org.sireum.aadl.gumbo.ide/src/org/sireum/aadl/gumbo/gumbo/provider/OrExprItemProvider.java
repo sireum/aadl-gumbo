@@ -223,6 +223,16 @@ public class OrExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.OR_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.OR_EXPR__LEFT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.OR_EXPR__LEFT,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
@@ -369,6 +379,16 @@ public class OrExprItemProvider extends GExprItemProvider
       (createChildParameter
         (GumboPackage.Literals.OR_EXPR__RIGHT,
          GumboFactory.eINSTANCE.createAndExpr()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.OR_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.OR_EXPR__RIGHT,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
 
     newChildDescriptors.add
       (createChildParameter

@@ -219,6 +219,16 @@ public class MaySendExprItemProvider extends GExprItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.MAY_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MAY_SEND_EXPR__VALUE,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.MAY_SEND_EXPR__VALUE,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add

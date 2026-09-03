@@ -218,6 +218,16 @@ public class SlangCaseItemProvider
     newChildDescriptors.add
       (createChildParameter
         (GumboPackage.Literals.SLANG_CASE__E,
+         GumboFactory.eINSTANCE.createBinaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__E,
+         GumboFactory.eINSTANCE.createUnaryTemporalExp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (GumboPackage.Literals.SLANG_CASE__E,
          GumboFactory.eINSTANCE.createEqualNotExpr()));
 
     newChildDescriptors.add
