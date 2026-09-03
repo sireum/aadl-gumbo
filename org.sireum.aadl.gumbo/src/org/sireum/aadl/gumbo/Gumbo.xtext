@@ -535,7 +535,7 @@ BaseExpr returns GExpr
 	| ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
 	| ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
 
-	| ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
+	| ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ValidID]
 
 	| FloatObjectExpr
 	
@@ -569,7 +569,7 @@ Postfix:
 	MemberAccess | ArrayAccess | BuiltinAccess;
 
 MemberAccess:
-	'.' field=[aadl2::NamedElement|ID];
+	'.' field=[aadl2::NamedElement|ValidID];
 
 BuiltinAccess:
 	{BuiltinAccess} '.' method=BuiltinMethodName;
@@ -709,13 +709,25 @@ terminal IMPLIES: ('__' | '-' | '~') '>' ':';
 // can't use -->: as -- is a comment in AADL
 terminal SIMPLIES: ('___' | '~~')  '>' ':'; // short circuit implies
 
+// Keywords introduced for the monitor subclause are ordinary words that already occur
+// as identifiers in AADL models (e.g. an enum literal named On). The AADL parser is
+// generated with ignoreCase = true, so 'On'/'ON' lex as the 'on' keyword. Allow them
+// back in identifier position.
+ValidID returns ecore::EString:
+	ID | 'monitor' | 'alert' | 'on'
+	| 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
+	| 'Until' | 'Release' | 'Since' | 'Trigger';
+
 TemporalUnaryOps:
      'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
 
 TemporalBinaryOps:
      'Until' | 'Release' | 'Since' | 'Trigger';
 
-terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
+// Parser (datatype) rule rather than a terminal so that whitespace is tolerated,
+// matching regen.cmd's ruleTemporalInterval on the SysMLv2 path. GumboVisitor strips
+// whitespace before the value reaches AIR, so both paths yield the same string.
+INTERVAL returns ecore::EString: '[' INTEGER_LIT ',' INTEGER_LIT ']';
 
 //Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
 

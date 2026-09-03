@@ -374,6 +374,16 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		}
 	}
 
+	/**
+	 * The AADL grammar admits whitespace inside a temporal interval (INTERVAL is a
+	 * datatype rule, matching regen.cmd's ruleTemporalInterval on the SysMLv2 path).
+	 * ANTLR's getText() strips hidden tokens on that path, so normalize here to keep
+	 * the AIR value identical for both front ends.
+	 */
+	private static String normalizeIntvl(String intvl) {
+		return intvl == null ? null : intvl.replaceAll("\\s+", "");
+	}
+
 	@Override
 	public Boolean caseGumboLibrary(GumboLibrary object) {
 		List<GclMethod> ret = new ArrayList<>();
@@ -1345,7 +1355,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		GumboUtil.BinaryTemporalOp slangOp = GumboUtil.toSlangBinaryTemporalOp(object.getOp());
 
 		push(BinaryTemporal$.MODULE$.apply(left, Exp.BinaryTemporalOp$.MODULE$.byName(slangOp.name()).get(),
-				object.getIntvl(), right, GumboUtil.buildResolvedAttr(mergedPos), SlangUtil.toSome(opPos)));
+				normalizeIntvl(object.getIntvl()), right, GumboUtil.buildResolvedAttr(mergedPos), SlangUtil.toSome(opPos)));
 		return false;
 	}
 
@@ -1378,7 +1388,7 @@ public class GumboVisitor extends GumboSwitch<Boolean> implements AnnexVisitor {
 		Exp exp = visitPop(object.getExp());
 
 		push(UnaryTemporal$.MODULE$.apply(Exp.UnaryTemporalOp$.MODULE$.byName(slangOp.name()).get(), exp,
-				object.getIntvl(), GumboUtil.buildResolvedAttr(object), SlangUtil.toSome(opPos)));
+				normalizeIntvl(object.getIntvl()), GumboUtil.buildResolvedAttr(object), SlangUtil.toSome(opPos)));
 		return false;
 	}
 

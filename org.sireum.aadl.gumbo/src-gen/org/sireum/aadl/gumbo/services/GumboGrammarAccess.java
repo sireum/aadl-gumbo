@@ -3930,7 +3930,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cOpAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
 		private final RuleCall cOpTemporalBinaryOpsParserRuleCall_1_0_0_1_0 = (RuleCall)cOpAssignment_1_0_0_1.eContents().get(0);
 		private final Assignment cIntvlAssignment_1_0_0_2 = (Assignment)cGroup_1_0_0.eContents().get(2);
-		private final RuleCall cIntvlINTERVALTerminalRuleCall_1_0_0_2_0 = (RuleCall)cIntvlAssignment_1_0_0_2.eContents().get(0);
+		private final RuleCall cIntvlINTERVALParserRuleCall_1_0_0_2_0 = (RuleCall)cIntvlAssignment_1_0_0_2.eContents().get(0);
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightUnaryTemporalExpressionParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
@@ -3966,7 +3966,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		public Assignment getIntvlAssignment_1_0_0_2() { return cIntvlAssignment_1_0_0_2; }
 		
 		//INTERVAL
-		public RuleCall getIntvlINTERVALTerminalRuleCall_1_0_0_2_0() { return cIntvlINTERVALTerminalRuleCall_1_0_0_2_0; }
+		public RuleCall getIntvlINTERVALParserRuleCall_1_0_0_2_0() { return cIntvlINTERVALParserRuleCall_1_0_0_2_0; }
 		
 		//right=UnaryTemporalExpression
 		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
@@ -3982,7 +3982,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cOpTemporalUnaryOpsParserRuleCall_0_1_0 = (RuleCall)cOpAssignment_0_1.eContents().get(0);
 		private final Assignment cIntvlAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cIntvlINTERVALTerminalRuleCall_0_2_0 = (RuleCall)cIntvlAssignment_0_2.eContents().get(0);
+		private final RuleCall cIntvlINTERVALParserRuleCall_0_2_0 = (RuleCall)cIntvlAssignment_0_2.eContents().get(0);
 		private final Assignment cExpAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
 		private final RuleCall cExpUnaryTemporalExpressionParserRuleCall_0_3_0 = (RuleCall)cExpAssignment_0_3.eContents().get(0);
 		private final RuleCall cEqualNotExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -4013,7 +4013,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		public Assignment getIntvlAssignment_0_2() { return cIntvlAssignment_0_2; }
 		
 		//INTERVAL
-		public RuleCall getIntvlINTERVALTerminalRuleCall_0_2_0() { return cIntvlINTERVALTerminalRuleCall_0_2_0; }
+		public RuleCall getIntvlINTERVALParserRuleCall_0_2_0() { return cIntvlINTERVALParserRuleCall_0_2_0; }
 		
 		//exp=UnaryTemporalExpression
 		public Assignment getExpAssignment_0_3() { return cExpAssignment_0_3; }
@@ -4378,7 +4378,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cFullStopKeyword_7_0_2 = (Keyword)cGroup_7_0.eContents().get(2);
 		private final Assignment cValueAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final CrossReference cValueStringLiteralCrossReference_7_1_0 = (CrossReference)cValueAssignment_7_1.eContents().get(0);
-		private final RuleCall cValueStringLiteralIDTerminalRuleCall_7_1_0_1 = (RuleCall)cValueStringLiteralCrossReference_7_1_0.eContents().get(1);
+		private final RuleCall cValueStringLiteralValidIDParserRuleCall_7_1_0_1 = (RuleCall)cValueStringLiteralCrossReference_7_1_0.eContents().get(1);
 		private final RuleCall cFloatObjectExprParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
 		private final Action cParenExprAction_9_0 = (Action)cGroup_9.eContents().get(0);
@@ -4431,7 +4431,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    | ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')'
 		//    | ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
 		//    | ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
-		//    | ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
+		//    | ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ValidID]
 		//    | FloatObjectExpr
 		//    | {ParenExpr} '(' exp=OwnedExpression ')'
 		//    //| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
@@ -4450,7 +4450,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//   | ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')'
 		//   | ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
 		//   | ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
-		//   | ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
+		//   | ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ValidID]
 		//   | FloatObjectExpr
 		//   | {ParenExpr} '(' exp=OwnedExpression ')'
 		//   //| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
@@ -4644,7 +4644,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//')'
 		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
 		
-		//({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
+		//({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ValidID]
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.')
@@ -4665,14 +4665,14 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'.'
 		public Keyword getFullStopKeyword_7_0_2() { return cFullStopKeyword_7_0_2; }
 		
-		//value=[aadl2::StringLiteral|ID]
+		//value=[aadl2::StringLiteral|ValidID]
 		public Assignment getValueAssignment_7_1() { return cValueAssignment_7_1; }
 		
-		//[aadl2::StringLiteral|ID]
+		//[aadl2::StringLiteral|ValidID]
 		public CrossReference getValueStringLiteralCrossReference_7_1_0() { return cValueStringLiteralCrossReference_7_1_0; }
 		
-		//ID
-		public RuleCall getValueStringLiteralIDTerminalRuleCall_7_1_0_1() { return cValueStringLiteralIDTerminalRuleCall_7_1_0_1; }
+		//ValidID
+		public RuleCall getValueStringLiteralValidIDParserRuleCall_7_1_0_1() { return cValueStringLiteralValidIDParserRuleCall_7_1_0_1; }
 		
 		//FloatObjectExpr
 		public RuleCall getFloatObjectExprParserRuleCall_8() { return cFloatObjectExprParserRuleCall_8; }
@@ -5103,26 +5103,26 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cFullStopKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cFieldAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cFieldNamedElementCrossReference_1_0 = (CrossReference)cFieldAssignment_1.eContents().get(0);
-		private final RuleCall cFieldNamedElementIDTerminalRuleCall_1_0_1 = (RuleCall)cFieldNamedElementCrossReference_1_0.eContents().get(1);
+		private final RuleCall cFieldNamedElementValidIDParserRuleCall_1_0_1 = (RuleCall)cFieldNamedElementCrossReference_1_0.eContents().get(1);
 		
 		//MemberAccess:
-		//    '.' field=[aadl2::NamedElement|ID];
+		//    '.' field=[aadl2::NamedElement|ValidID];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'.' field=[aadl2::NamedElement|ID]
+		//'.' field=[aadl2::NamedElement|ValidID]
 		public Group getGroup() { return cGroup; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0() { return cFullStopKeyword_0; }
 		
-		//field=[aadl2::NamedElement|ID]
+		//field=[aadl2::NamedElement|ValidID]
 		public Assignment getFieldAssignment_1() { return cFieldAssignment_1; }
 		
-		//[aadl2::NamedElement|ID]
+		//[aadl2::NamedElement|ValidID]
 		public CrossReference getFieldNamedElementCrossReference_1_0() { return cFieldNamedElementCrossReference_1_0; }
 		
-		//ID
-		public RuleCall getFieldNamedElementIDTerminalRuleCall_1_0_1() { return cFieldNamedElementIDTerminalRuleCall_1_0_1; }
+		//ValidID
+		public RuleCall getFieldNamedElementValidIDParserRuleCall_1_0_1() { return cFieldNamedElementValidIDParserRuleCall_1_0_1; }
 	}
 	public class BuiltinAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BuiltinAccess");
@@ -5897,6 +5897,82 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'implies'
 		public Keyword getImpliesKeyword_2() { return cImpliesKeyword_2; }
 	}
+	public class ValidIDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.ValidID");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Keyword cMonitorKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cAlertKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cOnKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cFutureKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cEventuallyKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cGloballyKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cAlwaysKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cOnceKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cHistoricallyKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cUntilKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cReleaseKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cSinceKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cTriggerKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		
+		// // short circuit implies
+		//// Keywords introduced for the monitor subclause are ordinary words that already occur
+		//// as identifiers in AADL models (e.g. an enum literal named On). The AADL parser is
+		//// generated with ignoreCase = true, so 'On'/'ON' lex as the 'on' keyword. Allow them
+		//// back in identifier position.
+		//ValidID returns ecore::EString:
+		//    ID | 'monitor' | 'alert' | 'on'
+		//    | 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
+		//    | 'Until' | 'Release' | 'Since' | 'Trigger';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID | 'monitor' | 'alert' | 'on'
+		//| 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
+		//| 'Until' | 'Release' | 'Since' | 'Trigger'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//'monitor'
+		public Keyword getMonitorKeyword_1() { return cMonitorKeyword_1; }
+		
+		//'alert'
+		public Keyword getAlertKeyword_2() { return cAlertKeyword_2; }
+		
+		//'on'
+		public Keyword getOnKeyword_3() { return cOnKeyword_3; }
+		
+		//'Future'
+		public Keyword getFutureKeyword_4() { return cFutureKeyword_4; }
+		
+		//'Eventually'
+		public Keyword getEventuallyKeyword_5() { return cEventuallyKeyword_5; }
+		
+		//'Globally'
+		public Keyword getGloballyKeyword_6() { return cGloballyKeyword_6; }
+		
+		//'Always'
+		public Keyword getAlwaysKeyword_7() { return cAlwaysKeyword_7; }
+		
+		//'Once'
+		public Keyword getOnceKeyword_8() { return cOnceKeyword_8; }
+		
+		//'Historically'
+		public Keyword getHistoricallyKeyword_9() { return cHistoricallyKeyword_9; }
+		
+		//'Until'
+		public Keyword getUntilKeyword_10() { return cUntilKeyword_10; }
+		
+		//'Release'
+		public Keyword getReleaseKeyword_11() { return cReleaseKeyword_11; }
+		
+		//'Since'
+		public Keyword getSinceKeyword_12() { return cSinceKeyword_12; }
+		
+		//'Trigger'
+		public Keyword getTriggerKeyword_13() { return cTriggerKeyword_13; }
+	}
 	public class TemporalUnaryOpsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.TemporalUnaryOps");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -5907,7 +5983,6 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cOnceKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		private final Keyword cHistoricallyKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		
-		// // short circuit implies
 		//TemporalUnaryOps:
 		//     'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
 		@Override public ParserRule getRule() { return rule; }
@@ -5959,6 +6034,39 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Trigger'
 		public Keyword getTriggerKeyword_3() { return cTriggerKeyword_3; }
+	}
+	public class INTERVALElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.INTERVAL");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTEGER_LITTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cINTEGER_LITTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//// Parser (datatype) rule rather than a terminal so that whitespace is tolerated,
+		//// matching regen.cmd's ruleTemporalInterval on the SysMLv2 path. GumboVisitor strips
+		//// whitespace before the value reaches AIR, so both paths yield the same string.
+		//INTERVAL returns ecore::EString: '[' INTEGER_LIT ',' INTEGER_LIT ']';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'[' INTEGER_LIT ',' INTEGER_LIT ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
+		
+		//INTEGER_LIT
+		public RuleCall getINTEGER_LITTerminalRuleCall_1() { return cINTEGER_LITTerminalRuleCall_1; }
+		
+		//','
+		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
+		
+		//INTEGER_LIT
+		public RuleCall getINTEGER_LITTerminalRuleCall_3() { return cINTEGER_LITTerminalRuleCall_3; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 	}
 	
 	
@@ -6084,9 +6192,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ImpliesOpsElements pImpliesOps;
 	private final TerminalRule tIMPLIES;
 	private final TerminalRule tSIMPLIES;
+	private final ValidIDElements pValidID;
 	private final TemporalUnaryOpsElements pTemporalUnaryOps;
 	private final TemporalBinaryOpsElements pTemporalBinaryOps;
-	private final TerminalRule tINTERVAL;
+	private final INTERVALElements pINTERVAL;
 	private final TerminalRule tHEX;
 	private final TerminalRule tBIN;
 	private final TerminalRule tF32_LIT;
@@ -6228,9 +6337,10 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pImpliesOps = new ImpliesOpsElements();
 		this.tIMPLIES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.IMPLIES");
 		this.tSIMPLIES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.SIMPLIES");
+		this.pValidID = new ValidIDElements();
 		this.pTemporalUnaryOps = new TemporalUnaryOpsElements();
 		this.pTemporalBinaryOps = new TemporalBinaryOpsElements();
-		this.tINTERVAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.INTERVAL");
+		this.pINTERVAL = new INTERVALElements();
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.HEX");
 		this.tBIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.BIN");
 		this.tF32_LIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.F32_LIT");
@@ -7366,7 +7476,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    | ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')'
 	//    | ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
 	//    | ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
-	//    | ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ID]
+	//    | ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ValidID]
 	//    | FloatObjectExpr
 	//    | {ParenExpr} '(' exp=OwnedExpression ')'
 	//    //| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
@@ -7432,7 +7542,7 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//MemberAccess:
-	//    '.' field=[aadl2::NamedElement|ID];
+	//    '.' field=[aadl2::NamedElement|ValidID];
 	public MemberAccessElements getMemberAccessAccess() {
 		return pMemberAccess;
 	}
@@ -7721,6 +7831,22 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	// // short circuit implies
+	//// Keywords introduced for the monitor subclause are ordinary words that already occur
+	//// as identifiers in AADL models (e.g. an enum literal named On). The AADL parser is
+	//// generated with ignoreCase = true, so 'On'/'ON' lex as the 'on' keyword. Allow them
+	//// back in identifier position.
+	//ValidID returns ecore::EString:
+	//    ID | 'monitor' | 'alert' | 'on'
+	//    | 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
+	//    | 'Until' | 'Release' | 'Since' | 'Trigger';
+	public ValidIDElements getValidIDAccess() {
+		return pValidID;
+	}
+	
+	public ParserRule getValidIDRule() {
+		return getValidIDAccess().getRule();
+	}
+	
 	//TemporalUnaryOps:
 	//     'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
 	public TemporalUnaryOpsElements getTemporalUnaryOpsAccess() {
@@ -7741,9 +7867,16 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getTemporalBinaryOpsAccess().getRule();
 	}
 	
-	//terminal INTERVAL: ('[') INTEGER_LIT ',' INTEGER_LIT (']') ;
-	public TerminalRule getINTERVALRule() {
-		return tINTERVAL;
+	//// Parser (datatype) rule rather than a terminal so that whitespace is tolerated,
+	//// matching regen.cmd's ruleTemporalInterval on the SysMLv2 path. GumboVisitor strips
+	//// whitespace before the value reaches AIR, so both paths yield the same string.
+	//INTERVAL returns ecore::EString: '[' INTEGER_LIT ',' INTEGER_LIT ']';
+	public INTERVALElements getINTERVALAccess() {
+		return pINTERVAL;
+	}
+	
+	public ParserRule getINTERVALRule() {
+		return getINTERVALAccess().getRule();
 	}
 	
 	////Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
