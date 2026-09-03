@@ -885,16 +885,23 @@ ruleCompute returns [EObject current=null]
 			)
 		)*
 		(
-			otherlv_6='compute_cases'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0());
-			}
+			(
+				otherlv_6='cases'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getComputeAccess().getCasesKeyword_5_0_0());
+				}
+				    |
+				otherlv_7='compute_cases'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getComputeAccess().getCompute_casesKeyword_5_0_1());
+				}
+			)
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getComputeAccess().getCasesCaseStatementClauseParserRuleCall_5_1_0());
 					}
-					lv_cases_7_0=ruleCaseStatementClause
+					lv_cases_8_0=ruleCaseStatementClause
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getComputeRule());
@@ -902,7 +909,7 @@ ruleCompute returns [EObject current=null]
 						add(
 							$current,
 							"cases",
-							lv_cases_7_0,
+							lv_cases_8_0,
 							"org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
 						afterParserOrEnumRuleCall();
 					}
@@ -914,7 +921,7 @@ ruleCompute returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getComputeAccess().getHandlersHandlerClauseParserRuleCall_6_0());
 				}
-				lv_handlers_8_0=ruleHandlerClause
+				lv_handlers_9_0=ruleHandlerClause
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getComputeRule());
@@ -922,7 +929,7 @@ ruleCompute returns [EObject current=null]
 					add(
 						$current,
 						"handlers",
-						lv_handlers_8_0,
+						lv_handlers_9_0,
 						"org.sireum.aadl.gumbo.Gumbo.HandlerClause");
 					afterParserOrEnumRuleCall();
 				}
@@ -933,7 +940,7 @@ ruleCompute returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getComputeAccess().getFlowsInfoFlowClauseParserRuleCall_7_0());
 				}
-				lv_flows_9_0=ruleInfoFlowClause
+				lv_flows_10_0=ruleInfoFlowClause
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getComputeRule());
@@ -941,7 +948,7 @@ ruleCompute returns [EObject current=null]
 					add(
 						$current,
 						"flows",
-						lv_flows_9_0,
+						lv_flows_10_0,
 						"org.sireum.aadl.gumbo.Gumbo.InfoFlowClause");
 					afterParserOrEnumRuleCall();
 				}
@@ -2753,16 +2760,23 @@ ruleHandlerClause returns [EObject current=null]
 			)
 		)*
 		(
-			otherlv_7='compute_cases'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0());
-			}
+			(
+				otherlv_7='cases'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getHandlerClauseAccess().getCasesKeyword_6_0_0());
+				}
+				    |
+				otherlv_8='compute_cases'
+				{
+					newLeafNode(otherlv_8, grammarAccess.getHandlerClauseAccess().getCompute_casesKeyword_6_0_1());
+				}
+			)
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getHandlerClauseAccess().getCasesCaseStatementClauseParserRuleCall_6_1_0());
 					}
-					lv_cases_8_0=ruleCaseStatementClause
+					lv_cases_9_0=ruleCaseStatementClause
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getHandlerClauseRule());
@@ -2770,7 +2784,7 @@ ruleHandlerClause returns [EObject current=null]
 						add(
 							$current,
 							"cases",
-							lv_cases_8_0,
+							lv_cases_9_0,
 							"org.sireum.aadl.gumbo.Gumbo.CaseStatementClause");
 						afterParserOrEnumRuleCall();
 					}
@@ -9629,6 +9643,156 @@ ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getValidIDAccess().getTriggerKeyword_13());
+		}
+		    |
+		kw='assume'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getAssumeKeyword_14());
+		}
+		    |
+		kw='before'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getBeforeKeyword_15());
+		}
+		    |
+		kw='cases'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getCasesKeyword_16());
+		}
+		    |
+		kw='components'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getComponentsKeyword_17());
+		}
+		    |
+		kw='composition'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getCompositionKeyword_18());
+		}
+		    |
+		kw='compute'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getComputeKeyword_19());
+		}
+		    |
+		kw='compute_cases'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getCompute_casesKeyword_20());
+		}
+		    |
+		kw='functions'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getFunctionsKeyword_21());
+		}
+		    |
+		kw='guarantee'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getGuaranteeKeyword_22());
+		}
+		    |
+		kw='handle'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getHandleKeyword_23());
+		}
+		    |
+		kw='infoflow'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getInfoflowKeyword_24());
+		}
+		    |
+		kw='initialize'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getInitializeKeyword_25());
+		}
+		    |
+		kw='integration'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getIntegrationKeyword_26());
+		}
+		    |
+		kw='inv'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getInvKeyword_27());
+		}
+		    |
+		kw='invariant'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getInvariantKeyword_28());
+		}
+		    |
+		kw='invariants'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getInvariantsKeyword_29());
+		}
+		    |
+		kw='label'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getLabelKeyword_30());
+		}
+		    |
+		kw='modifies'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getModifiesKeyword_31());
+		}
+		    |
+		kw='mut'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getMutKeyword_32());
+		}
+		    |
+		kw='ports'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getPortsKeyword_33());
+		}
+		    |
+		kw='property'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getPropertyKeyword_34());
+		}
+		    |
+		kw='reads'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getReadsKeyword_35());
+		}
+		    |
+		kw='schema'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getSchemaKeyword_36());
+		}
+		    |
+		kw='sequence'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getSequenceKeyword_37());
+		}
+		    |
+		kw='split'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getValidIDAccess().getSplitKeyword_38());
 		}
 	)
 ;
