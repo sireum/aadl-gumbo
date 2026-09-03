@@ -1,0 +1,783 @@
+grammar org.sireum.aadl.gumbo.Gumbo with org.osate.xtext.aadl2.properties.Properties
+
+generate gumbo "http://www.sireum.org/aadl/gumbo/Gumbo"
+
+import "http://aadl.info/AADL/2.0" as aadl2
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+
+AnnexLibrary returns aadl2::AnnexLibrary:
+	GumboLibrary
+;
+
+AnnexSubclause returns aadl2::AnnexSubclause:
+	GumboSubclause
+;
+
+GumboLibrary returns GumboLibrary:
+	{GumboLibrary}
+		(functions = Functions)?
+;
+
+GumboSubclause returns GumboSubclause:
+	{GumboSubclause}
+//	specs+=SpecSection*
+    specs=SpecSection
+;
+
+SpecSection: {SpecSection}
+	(state = State)?
+	(functions = Functions)?
+	(invariants = Invariants)?
+	(integration = Integration)?
+	(initialize = Initialize)?
+	(compute = Compute)?
+	(monitor = Monitor)?
+	(compositions += Composition)*
+;
+
+State:
+	'state' (decls += StateVarDecl)+
+;
+
+StateVarDecl:
+ // ...plain declaration without cross referencing is given below	
+ // id1 = ID ':' typeName = ID
+ // ...single id per type
+ (name = ID ':') typeName=[aadl2::DataSubcomponentType|QualifiedName] ';' // TODO: ( ':=' expr=OwnedExpression)? ';'
+ // ...multiple ids per type -- leave this out for now until I figure out how to get cross-referencing right for an id list
+ // ids+=ID (',' ids+=ID)* ':' typeName=[aadl2::DataSubcomponentType|QCREF] ';'
+;
+
+Invariants:
+	'invariants' (specs+=InvSpec)+
+;
+
+InvSpec:
+	'inv' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+;
+
+Integration:
+	'integration' (specs+=SpecStatement)+
+;
+
+Initialize:
+	{Initialize} 'initialize'
+	  (modifies=SlangModifies ';')? 
+	  (specs+=InitializeSpecStatement)*
+	  (flows+=InfoFlowClause)*
+;
+
+InitializeSpecStatement:
+  guaranteeStatement = GuaranteeStatement   	
+;
+
+Compute:
+	{Compute} 'compute'
+	  (modifies=SlangModifies ';')?
+	  (assumes+=AssumeStatement)*
+	  (guarantees+=GuaranteeStatement)*
+	  ('compute_cases' (cases+=CaseStatementClause)+)*
+	  (handlers+=HandlerClause)*
+	  (flows+=InfoFlowClause)*
+;
+
+Monitor:
+	{Monitor} 'monitor'
+	  (guarantees+=GuaranteeStatement)*
+	  (alerts+=AlertStatement)*
+;
+
+AlertStatement:
+	'alert' guarantee=[GuaranteeStatement|ID] 'on' port=[aadl2::Port|ID] ';'
+;
+
+// ===========================================================================
+// Composition -- system-level contract for system implementations (design D8
+// of VCGenerationDesign.md in the hamr-system-reasoning-prototype repo).
+//
+// A composition separates the schedule *schema* (component ordering, splits/
+// joins -- no assertions) from named *properties* (assertion decorations of
+// schema points). The required id names the per-composition artifacts
+// (sys_proof_<id> proof crate, runtime monitor, meta program); a system may
+// declare several compositions.
+//
+// Validation (not grammar) enforces:
+//   - composition only allowed on system implementations
+//   - state/initialize/compute rejected on system implementations
+//   - component aliases resolve to thread subcomponent instances
+//   - port aliases resolve to ports on referenced components
+//   - state var aliases resolve to StateVarDecls in referenced components' GUMBO subclauses
+// (the kekinian GclResolver additionally lints: composition id uniqueness,
+//  schema label uniqueness/collisions, occurrence labels required for
+//  multi-firing components, property point resolution)
+// ===========================================================================
+
+Composition:
+	'composition' id=ID '{'
+		(componentAliases = ScheduleComponentAliases)?
+		(portAliases = SchedulePortAliases)?
+		(stateVarAliases = ScheduleStateVarAliases)?
+		schema = Schema
+		(properties += CompositionProperty)*
+	'}'
+;
+
+ScheduleComponentAliases:
+	'components' (aliases += ScheduleComponentAlias)+
+;
+
+ScheduleComponentAlias:
+	name=ID '=' componentPath=ScheduleSubcomponentPath ';'
+;
+
+// Recursive chain through subcomponents, e.g. regulate.mri_thread.
+// Scope provider resolves each segment relative to the previous:
+//   - first segment: system implementation's direct subcomponents
+//   - subsequent segments: subcomponents of the previously resolved element
+ScheduleSubcomponentPath:
+	subcomponent=[aadl2::NamedElement|ID]
+	('.' subPath=ScheduleSubcomponentPath)?
+;
+
+SchedulePortAliases:
+	'ports' (aliases += SchedulePortAlias)+
+;
+
+SchedulePortAlias:
+	name=ID '=' portPath=SchedulePortPath ';'
+;
+
+// Recursive chain for port references, e.g. mri.interface_failure.
+// Root can be a component alias or a subcomponent; tail navigates
+// through subcomponents/features. Scope provider resolves each segment.
+SchedulePortPath:
+	ref=[ecore::EObject|ID]
+	('.' subPath=SchedulePortPath)?
+;
+
+ScheduleStateVarAliases:
+	'state' (aliases += ScheduleStateVarAlias)+
+;
+
+ScheduleStateVarAlias:
+	name=ID '=' stateVarPath=ScheduleStateVarPath ';'
+;
+
+// Recursive chain for state variable references, e.g. mrm.regulator_mode.
+// Root can be a component alias or a subcomponent; tail navigates to
+// a StateVarDecl in the target thread's GUMBO subclause.
+ScheduleStateVarPath:
+	ref=[ecore::EObject|ID]
+	('.' subPath=ScheduleStateVarPath)?
+;
+
+// The schedule skeleton only -- no assertions. ';' separates elements within a
+// sequence (order is claimed); ',' separates the branches of a split (order is
+// deliberately not claimed).
+Schema:
+	'schema' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
+;
+
+SchemaElement:
+	SchemaLabel | SchemaSplitJoin | SchemaComponentRef
+;
+
+// Names the place at this position (purely naming, never structural: the place
+// exists regardless; add a label only when a property must bind a point with
+// no unambiguous derived name, e.g. between a join and the next split).
+SchemaLabel:
+	'label' id=ID
+;
+
+// References a component alias or a subcomponent directly (no 'component'
+// keyword: with assertions out of the schema, a bare ID is unambiguous).
+// Scope provider puts both ScheduleComponentAlias entries and
+// aadl2::Subcomponent instances in scope. The optional occurrence label
+// ('<alias> @ <id>') disambiguates a component that fires more than once per
+// hyperperiod; the kekinian resolver REQUIRES it on multi-firing occurrences.
+SchemaComponentRef:
+	component=[ecore::EObject|ID] ('@' occurrenceLabel=ID)?
+;
+
+SchemaSplitJoin:
+	'split' '{' branches += SchemaSequence (',' branches += SchemaSequence)+ '}'
+;
+
+SchemaSequence:
+	'sequence' '{' elements += SchemaElement (';' elements += SchemaElement)* (';')? '}'
+;
+
+// A named assertion decoration of the schema. Each property generates its own
+// VC set over the shared net; a property's VCs see only its own bindings, and
+// unbound points lower to 'true'.
+//
+// An 'abstract' property is a base only -- never instantiated, so no VC set or
+// monitor checks are generated for it. A property may specialize one or more
+// parents in the SAME composition via ':>' | 'specializes' (SysMLv2 specialization
+// synonyms), comma-separated like SysMLv2 multi-specialization (e.g. ':> A, B'):
+// the child's effective bindings are all parents' (transitively) plus its own,
+// conjoined per schema point (strengthen-only -- there is no override/':>>' form).
+// 'parents' are cross-references scoped (GumboScopeProvider) to the sibling
+// properties of the enclosing composition; the kekinian resolver re-resolves them
+// and walks the specialization DAG (a shared ancestor is folded in once), checking
+// acyclicity / non-empty-abstract. See VCGenerationDesign.md D9.
+CompositionProperty:
+	isAbstract ?= 'abstract'? 'property' id=ID
+		((':>' | 'specializes') parents+=[CompositionProperty|ID] (',' parents+=[CompositionProperty|ID])*)?
+		descriptor=STRING_VALUE? '{' (bindings += PropertyBinding)* '}'
+;
+
+PropertyBinding:
+	point=SchemaPoint descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+;
+
+// A schema point reference. 'at' takes a label (the reserved names START and
+// END are mapped to the schedule's start/end places by the AIR visitor);
+// 'before'/'after' take a component occurrence (its alias when it fires once,
+// or its occurrence label). Consecutive elements share a place, so a place may
+// have several names; the kekinian resolver enforces one binding per place.
+SchemaPoint:
+	  {PointAt} 'at' label=ID
+	| {PointBefore} 'before' occurrence=ID
+	| {PointAfter} 'after' occurrence=ID
+;
+
+InfoFlowClause:
+	'infoflow' id=ID descriptor=STRING_VALUE? ':'
+		  'from' '(' (fromPortOrStateVar+=[ecore::EObject|ID] ( ',' fromPortOrStateVar+=[ecore::EObject|ID])* )? ')'
+		  ','
+		  'to' '(' (toPortOrStateVar+=[ecore::EObject|ID] ( ',' toPortOrStateVar+=[ecore::EObject|ID])* )? ')' ';'
+;
+
+HandlerClause:
+	'handle' id=[aadl2::Port|ID] ':'
+	(modifies=SlangModifies ';')?
+	(assumes+=AssumeStatement)*
+	(guarantees+=GuaranteeStatement)*
+	('compute_cases' (cases+=CaseStatementClause)+)*	
+;
+
+CaseStatementClause:
+	'case' id=ID descriptor=STRING_VALUE? ':' 
+	       (assumeStatement=AnonAssumeStatement)?
+	       guaranteeStatement=AnonGuaranteeStatement
+;
+
+SpecStatement:
+    AssumeStatement
+  | GuaranteeStatement  	
+;
+
+
+AssumeStatement: 
+	'assume' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+;
+
+AnonAssumeStatement:  
+	'assume' expr=OwnedExpression ';'
+;
+
+GuaranteeStatement: 
+	'guarantee' id=ID descriptor=STRING_VALUE? ':' expr=OwnedExpression ';'
+;
+
+AnonGuaranteeStatement: 
+	'guarantee' expr=OwnedExpression ';'
+;
+
+//PREDICATE: // TODO 
+//	ID
+//;
+
+
+//DoubleDotRef:
+	//elm=[aadl2::NamedElement|QualifiedName]
+//;
+
+DataElement returns DataElement:
+	dataElement = [aadl2::DataSubcomponentType|QualifiedName]
+;
+
+SubcomponentElement returns SubcomponentElement:
+	subcomponent = [aadl2::Subcomponent|ID]
+;
+
+Functions:
+	'functions' (specs+=FuncSpec)+
+;
+
+FuncSpec: SlangDefDef ';';
+
+//SlangDefDeclDef: 'def' SlangDefMods? sde=SlangDefExt? name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract? ( ':=' e=OwnedExpression )? ;
+
+//SlangDefDecl: SlangDefMods? 'def' 
+//	//sde=SlangDefExt? 
+//	name=SlangDefID typeParams=SlangTypeParams? params=SlangDefParams? ':' type=SlangType c=SlangDefContract?
+//;
+	
+SlangDefDef: 
+	
+	 defMods=SlangDefMods?
+	 'def' 
+	 //sde=SlangDefExt? 
+	 name=SlangDefID 
+		typeParams=SlangTypeParams? params=SlangDefParams ':' type=SlangType // TODO: make parens optional if no params, requires codegen/sym-resolver modifications
+		(':=' methodContract=SlangDefContract body=OwnedExpression)?
+;
+
+//SlangDefMods: 'strict' | 'memoize' | 'mut' | 'spec' ;
+SlangDefMods: '@strictpure' | '@pure' | '@spec';
+
+//SlangDefExt: '(' name=ID ':' typeName=SlangType ')' ;
+	
+// NOTE: removing Operator as that's part of the Slang expr language and therefore will not be
+//       present in kerml's expression language. This is probably okay since, for e.g., "def + ()..." 
+//       isn't valid Slang anyway
+SlangDefID: ID; //| Operator ;
+
+SlangDefParams: '(' (params+=SlangDefParam ( ',' params+=SlangDefParam )* )? ')' ;
+	
+SlangDefParam: name=ID ':' (isMethodDef ?= '=>'?) typeName=SlangType (isVarArg ?= '*'?) ;
+
+
+SlangTypeParams: '[' typeParam+=SlangTypeParam (  ',' typeParam+=SlangTypeParam )* ']' ;
+
+SlangTypeParam: isMut ?= 'mut'? name=ID ;
+
+SlangDefContract
+	: {SlangDefContract}
+	  ( 
+	    ( reads=SlangReads ';' )? 
+	    ( requires=SlangRequires ';' )?
+	    ( modifies=SlangModifies ';' )? 
+	    ( ensures=SlangEnsures ';' )?
+	  )
+	;
+
+//SlangDefContractCase: {SlangDefContractCase} 'case' STRING_VALUE req=SlangRequires? ens=SlangEnsures? ;
+
+//SlangSuprs: '<:' superTypes+=SlangSupr ( ',' superTypes+=SlangSupr )* ;
+
+//SlangSupr: name=SlangName args=SlangTypeArgs? ;
+
+//SlangName: ID ( '.' ID )* ;
+
+//SlangExt: {SlangExt} 'extension' ID ( 'for' SlangName )?  '{' decl+=SlangDefDecl* '}' ;
+
+SlangInvariant: 'invariant' exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* ;
+
+SlangRequires: 'assume' exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )*  ;
+
+SlangReads: 'reads' exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* ;
+
+SlangModifies: 'modifies' exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )*  ;
+
+SlangEnsures: 'guarantee'  exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* ;
+
+
+		
+SlangType
+	: SlangBaseType// ( '=>' SlangBaseType )*
+	//| 'mut' SlangBaseType ( '=>' SlangBaseType )+
+	;
+	
+SlangBaseType returns SlangType
+	: typeName=[aadl2::DataSubcomponentType|QualifiedName]//ID SlangTypeArgs?
+	//| '(' ( SlangType ( ',' SlangType )* )? ')'
+	;
+
+//SlangTypeArgs: '[' types+=SlangType ( ',' types+=SlangType )* ']' ;
+
+
+
+// The following is replaced by KerML's expression language
+
+SlangStmt
+	: {SlangVarDef} d=SlangVarDef
+	| {SlangIfStmt} 'if' cond=OwnedExpression b=SlangBlock e=SlangElse?
+	| {SlangWhileStmt} 'while' cond=OwnedExpression l=SlangLoopContract b=SlangBlock
+//	| ({SlangForStmt} 'for' range+=SlangForRange ( ','  range+=SlangForRange )*) l=SlangLoopContract b=SlangBlock
+	| {SlangMatchStmt} 'match' testExpr=OwnedExpression '{' c+=SlangCase* '}'
+	| {SlangSpecStmt} 'spec' b=SlangBlock
+	| {SlangAssumeStmt} 'assume' e=OwnedExpression STRING_VALUE?
+	| {SlangAssertStmt} 'assert' e=OwnedExpression STRING_VALUE?
+	| {SlangHaltStmt} 'halt' STRING_VALUE?
+	| {SlangDoStmt} 'do' e=OwnedExpression
+	// FIXME: This causes a "multiple alternatives" warning.
+	//| {SlangIdStmt} portOrSubcomponentOrStateVar=[ecore::EObject|ID] 
+	//  ( ':'
+	//  | l+=SlangLHSSuffix* ( ( ':=' | DEFOP ) e=OwnedExpression )?
+	//  )
+	;
+	
+SlangElse
+	: 'else'
+		( 'if' cond=OwnedExpression b=SlangBlock e=SlangElse?
+		| SlangBlock
+		)
+	;
+	
+SlangLoopContract: {SlangLoopContract} inv=SlangInvariant? mod=SlangModifies? ;
+
+//SlangLHSSuffix
+//	: {SlangFieldLookup} '.' ID
+//	| {SlangMethodCall} '(' ( exprs+=OwnedExpression ( ',' exprs+=OwnedExpression )* )? ')'
+//	;
+
+SlangCase: 'case' pattern=SlangPattern ( 'if' e=OwnedExpression )? '=>' s+=SlangStmt* ;
+
+SlangPattern: {SlangPattern}
+	  ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' )?
+	| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
+	;
+
+SlangTPattern:
+	  {SlangTPattern} ID ( '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')' | ':' type=SlangType )?
+	| '(' patterns+=SlangTPattern ( ',' patterns+=SlangTPattern )* ')'
+	| {SlangTPattern} '_' ( ':' type=SlangType )?
+	;
+	
+//SlangTypedVarDef returns SlangVarDef:
+//	SlangVarMod SlangPattern ':' typeName=SlangType ':=' init=OwnedExpression
+//;
+
+SlangVarDef: SlangVarMod SlangPattern ( ':' typeName=SlangType )? ':=' init=OwnedExpression ;
+
+//SlangVarDeclDef returns SlangVarDef:
+//	SlangVarMod 'spec'? name=ID ':' typeName=SlangType ( ':=' init=OwnedExpression )?
+//;
+
+SlangVarMod: 'val' | 'var' ;
+
+
+SlangBlock: {SlangBlock} '{' stmts+=SlangStmt* r=SlangRet? '}' ;
+
+
+// OwnedExpression is the entry rule for SysMLv2's expression language
+OwnedExpression : SlangExpression;
+
+
+// NOTE: will need to wrap nested IfElseExp or QuantifiedExp in parens (which matches what Slang/Scala requires)
+//   e.g. true ->: (if (true) true else true)
+
+SlangExpression returns GExpr
+  : ImpliesExpression
+  | {IfElseExp} 'if' '(' ifCond=ImpliesExpression ')' thenExpr=OwnedExpression 'else' elseExpr=OwnedExpression
+  | {QuantifiedExp} quantifier=( 'All' | '∀' | 'Exists' | '∃' ) '(' quantRange=QuantRange ')'
+  		// TODO: the following is a function expression
+  		'(' quantParam=QuantParam '=>' quantifiedExpr=OwnedExpression ')';
+
+// TODO: maybe support 'arrayName.indices'
+QuantRange: lo=OwnedExpression extent=( 'to' | 'until' ) high=OwnedExpression;
+
+QuantParam 
+	: name=ID 
+	| '(' name=ID ':' typeName=SlangType ')';
+
+
+ImpliesExpression returns GExpr
+	: OrExpression ( {ImpliesExpr.left=current} op=ImpliesOps right=OrExpression )*;
+
+OrExpression returns GExpr
+	: AndExpression ({OrExpr.left=current} op=(OR_OPS | 'or') right=AndExpression)*;
+	
+// no hat ^ in Slang
+
+AndExpression returns GExpr
+	: BinaryTemporalExpression ( {AndExpr.left=current} op=(AND_OPS | 'and') right=BinaryTemporalExpression)*;
+
+BinaryTemporalExpression returns GExpr
+	: UnaryTemporalExpression (=>({BinaryTemporalExp.left=current} op=TemporalBinaryOps intvl=INTERVAL) right=UnaryTemporalExpression)*;
+	
+UnaryTemporalExpression returns GExpr
+	: {UnaryTemporalExp} op=TemporalUnaryOps intvl=INTERVAL exp=UnaryTemporalExpression
+  	| EqualNotExpression
+	;
+
+EqualNotExpression returns GExpr
+	: LtGtExpression ( {EqualNotExpr.left=current} op=EQUAL_NOT_OPS right=LtGtExpression)*;
+
+LtGtExpression returns GExpr
+	: ColonExpression ( {LtGtExpr.left=current} op=LT_GT_OPS right=ColonExpression)*;
+	
+ColonExpression returns GExpr
+	: PlusMinusExpression ( {ColonExpr.left=current} op=COLON_OP right=PlusMinusExpression)*;
+
+PlusMinusExpression returns GExpr
+	: MultiplicativeExpression ( {PlusMinusExpr.left=current} op=PlusMinusOps right=MultiplicativeExpression)*;
+
+MultiplicativeExpression returns GExpr
+	: UnaryExpression ( {MultiplicativeExpr.left=current} op=MultiplicativeOp right=UnaryExpression)*;
+
+UnaryExpression returns GExpr
+	: {UnaryExpr} op=UnaryOp exp=PrimaryExpr
+	| PrimaryExpr
+	;
+	
+//SlangAccess
+//	: {SlangAccess} t=PrimaryExpr ( suffixes+=SlangAccessSuffix )* ;
+
+//SlangAccessSuffix: {SlangAccessSuffix} '.' id=ID; // cs=SlangCallSuffix? ;
+
+PrimaryExpr  returns GExpr
+	: BaseExpr
+	| {PostFixExpr} baseExp=AccessibleBaseExpr ( posts+=Postfix)*;
+	
+BaseExpr returns GExpr
+	: {SlangLitTerm} lit=SlangLit
+	| {SlangInterpTerm} i=SlangInterp
+
+	| ({InStateExpr} 'In' '(') stateVar=[StateVarDecl|ID] ')'
+	| ({MaySendExpr} 'MaySend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')' 
+	| ({MustSendExpr} 'MustSend' '(') eventPort=[aadl2::Port|ID] (',' value=OwnedExpression)? ')'
+	| ({NoSendExpr} 'NoSend' '(') eventPort=[aadl2::Port|ID] ')'
+	| ({HasEventExpr} 'HasEvent' '(') eventPort=[aadl2::Port|ID] ')'
+
+	| ({EnumLitExpr} enumType=[aadl2::DataClassifier|QCLREF] '.') value=[aadl2::StringLiteral|ValidID]
+
+	| FloatObjectExpr
+	
+	| {ParenExpr} '(' exp=OwnedExpression ')'
+	
+	//| {SlangTupleTerm} '(' e+=Expr ( ',' e+=Expr )*  ')'
+	| {SlangForTerm} 'for' r+=SlangForRange ( ',' r+=SlangForRange )*  'yield' ( b=SlangBlock |  '(' e=OwnedExpression ')' )
+	| {SlangBlockTerm} '{'
+	   ( (p=SlangParams '=>')? e=OwnedExpression '}'
+	    | stmt+=SlangStmt* r=SlangRet? '}'
+	   )
+	;
+
+FloatObjectExpr returns GExpr
+	: {F32Obj} 'F32' '.' attr=ID // e.g. F32.NaN
+	| {F64Obj} 'F64' '.' attr=ID
+	;
+	
+AccessibleBaseExpr returns GExpr
+	: {CallExpr} id=[ecore::EObject|QualifiedAADLName] callSuffix=SlangCallSuffix
+	| ({RecordLitExpr} recordType=DataElement '{' args+=[aadl2::NamedElement|ID] '=') 
+		argExpr+=OwnedExpression (';' args+=[aadl2::NamedElement|ID] '=' argExpr+=OwnedExpression)* '}'
+	| {DataRefExpr} portOrSubcomponentOrStateVar=[ecore::EObject|ID]		
+	| {ResultExpr} 'res'
+;	
+ 
+QualifiedAADLName:
+	ID ('::' ID)+ ('.' ID)?;
+
+Postfix:
+	MemberAccess | ArrayAccess | BuiltinAccess;
+
+MemberAccess:
+	'.' field=[aadl2::NamedElement|ValidID];
+
+BuiltinAccess:
+	{BuiltinAccess} '.' method=BuiltinMethodName;
+
+BuiltinMethodName:
+	'size'
+	| 'toB' | 'toZ' | 'toC' | 'toR'
+	| 'toS8' | 'toS16' | 'toS32' | 'toS64'
+	| 'toU8' | 'toU16' | 'toU32' | 'toU64'
+	| 'toF32' | 'toF64';
+
+ArrayAccess: {ArrayAccess}
+	'(' ( index+=OwnedExpression (',' index+=OwnedExpression)* )? ')';
+
+
+OtherDataRef:
+		(
+			namedElement=[aadl2::NamedElement|ID]
+			(arrayRange+=ArrayRange)*
+		)
+		('.' path=OtherDataRef)?
+//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
+;
+
+//TupleExpr
+//    {TupleExpr} '(' elements+=OwnedExpression (',' elements+=OwnedExpression)+ ')';
+    
+//FunctionCall:
+//    func=PrimaryExpr '(' (args+=OwnedExpression (',' args+=OwnedExpression)*)? ')';
+
+
+SlangParams: '(' params+=SlangParam ( ',' params+=SlangParam )? ')' ;
+	
+SlangParam: 'var'? name=ID ':' ( '=>' )? typeName=SlangType '*'? ;
+
+SlangForRange: ID ':' e=OwnedExpression ( ( '..' |  '..<' ) upper=OwnedExpression ( 'by' step=OwnedExpression )? )? ;
+
+SlangRet: {SlangRet} 'return' e=OwnedExpression? ;
+
+SlangCallSuffix: {SlangCallSuffix}
+  ca=SlangCallArgs
+	//ta=SlangTypeArgs ca=SlangCallArgs // TODO: add back ? for call args when support for no param methods is added
+	//| ca=SlangCallArgs
+	;
+	
+//SlangCallArgs: {SlangCallArgs} '(' ( arg+=SlangIDExp ( ',' arg+=SlangIDExp )* )? ')' ;
+SlangCallArgs: {SlangCallArgs} '(' ( arg+=OwnedExpression ( ',' arg+=OwnedExpression )* )? ')' ;
+	
+//SlangIDExp: e+=Expr ( ':=' e+=Expr )? ;
+
+
+SlangLit 
+	: {BooleanLit} value=('T' | 'F' | 'true' | 'false')
+	//| {ResultLit} 'res'
+	| {IntegerLit} value=INTEGER_LIT
+	//| {IntIdfLit} value=INT_IDF
+	| {HexLit} value=HEX
+	| {BinLit} value=BIN
+	| {F32Lit} value=F32_LIT
+	| {F64Lit} value=(F64_LIT | REAL_LIT)
+	//| {F32Obj} value='F32'
+	//| {F64Obj} value='F64'
+	| {SlangStringLit} value=STRING_VALUE
+	//| {RealIdfLit} value=REAL_IDF
+	//| {MStringLit} value=MSTRING
+	;
+
+SlangInterp	
+	//: {SlangMspInterp} msp=MSP
+	//| {SlangLiteralInterp} sli=SLI
+	//| {SlangMspbInterp} mspb=MSPB minterp=SlangMInterp
+	: {SlangLiteralInterp} sli=SLI;
+
+//SlangMInterp
+	//: '{' e=OwnedExpression '}' ( MSPM m=SlangMInterp | MSPE )
+	//;
+	
+QualifiedName
+	: QCREF;
+	
+terminal STRING_VALUE: '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
+
+//terminal MSTRING: '"""' ( !'"'|  '"' !'"' | '""' !'"' )* ( '"""' | '""""' | '"""""' ) ;
+
+//terminal MSP: IDF '"""' MSPI* ( '"""' | '""""' | '"""""' ) ;
+
+terminal SLI: IDF '"' ( ESC_SEQ | !( '\\' | '"' ) )* '"' ;
+
+//terminal MSPB: IDF '"""' MSPI* '$' ;
+
+//terminal MSPM: '$' MSPI* '$' ;
+
+//terminal MSPE: '$' MSPI* ( '"""' | '""""' | '"""""' ) ;
+
+//terminal DEFOP: ':' OPSYM* '=' ;
+
+
+
+terminal QUANTIFIER_OP: '\\all' | '\\exists' | '∀' | '∃' ;
+
+UnaryOp: PlusMinus | NOT | 'not';
+
+terminal NOT: '!';
+
+
+MultiplicativeOp: STAR | MULTIPLICATIVE_OP;
+
+terminal MULTIPLICATIVE_OP: '/' | '%';
+
+PlusMinusOps:
+	SLANG_OP | PlusMinus
+;
+
+terminal SLANG_OP
+	: '+:' | '++' |
+	  // '--' is an aadl comment so use '-~' or '~-' for sequence removal  
+	  '-~' | '~-';
+
+terminal COLON_OP: ':+';
+
+terminal LT_GT_OPS: 
+	'<<<' | '<<' | '<=' | '<' |
+	'>>>' | '>>' | '>=' | '>';
+
+terminal EQUAL_NOT_OPS: '=!=' | '===' | '==' | '!=' | '!~';
+
+terminal AND_OPS: '&&' | '&';
+
+// terminal HAT_OPS: '^';
+
+terminal OR_OPS: '|^' | '||' | '|' ;
+
+ImpliesOps: IMPLIES | SIMPLIES | 'implies';
+
+terminal IMPLIES: ('__' | '-' | '~') '>' ':';
+
+// can't use -->: as -- is a comment in AADL
+terminal SIMPLIES: ('___' | '~~')  '>' ':'; // short circuit implies
+
+// Keywords introduced for the monitor subclause are ordinary words that already occur
+// as identifiers in AADL models (e.g. an enum literal named On). The AADL parser is
+// generated with ignoreCase = true, so 'On'/'ON' lex as the 'on' keyword. Allow them
+// back in identifier position.
+ValidID returns ecore::EString:
+	ID | 'monitor' | 'alert' | 'on'
+	| 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
+	| 'Until' | 'Release' | 'Since' | 'Trigger';
+
+TemporalUnaryOps:
+     'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
+
+TemporalBinaryOps:
+     'Until' | 'Release' | 'Since' | 'Trigger';
+
+// Parser (datatype) rule rather than a terminal so that whitespace is tolerated,
+// matching regen.cmd's ruleTemporalInterval on the SysMLv2 path. GumboVisitor strips
+// whitespace before the value reaches AIR, so both paths yield the same string.
+INTERVAL returns ecore::EString: '[' INTEGER_LIT ',' INTEGER_LIT ']';
+
+//Operator: OP | PlusMinus | STAR | IMPLIES | SIMPLIES;
+
+//terminal OP: ( OPSYM+ | '\\' IDF ) ;
+//
+//terminal INT
+//	: '0' IDF?
+//	| '1'..'9' DIGIT* IDF_NOU?
+//	;
+//	
+terminal HEX: '0x' EXTENDED_DIGIT+ ( '.' IDF )? ;
+
+terminal BIN: '0b' ( '0' | '1' | '_' )+ ( '.' IDF )? ;
+
+//terminal REAL
+//	: DIGIT+ '.' DIGIT+ EXPONENT? REALIDF?
+//	| '.' DIGIT+ EXPONENT? REALIDF?
+//	| DIGIT+ EXPONENT REALIDF?
+//	;
+
+//terminal CHAR: '\'' ( ESC_SEQ | !('\''|'\\') ) '\'' ;
+
+//terminal INT_IDF: INTEGER_LIT IDF;
+
+terminal F32_LIT: REAL_LIT 'f';
+
+terminal F64_LIT: REAL_LIT 'd';
+
+terminal fragment IDF: ( LETTER | '_' ) ( LETTER | DIGIT )* ;
+
+//terminal fragment IDF_NOU: LETTER ( LETTER | DIGIT )* ;
+//
+//terminal fragment REALIDF: LETTER_NOE ( LETTER | DIGIT )* ;
+//
+terminal fragment MSPI: !( '"' | '$' ) | '$$' | '"' !'"' | '""' !'"' ;
+
+terminal fragment LETTER: 'a'..'z' | 'A'..'Z';
+
+//terminal fragment LETTER_NOE: 'a'..'d' | 'f'..'z' | 'A'..'D' | 'F'..'Z' ;
+
+/* 
+terminal fragment OPSYM
+	: //'+' | '-' | '*' |
+	 '/' | '%' | '=' | '<' | '>' | '!' | '&' | '^' | '|' | '~'
+	| ( '\u2200' .. '\u22FF' ) // https://en.wikipedia.org/wiki/Mathematical_Operators
+	| ( '\u2A00' .. '\u2AFF' ) // https://en.wikipedia.org/wiki/Supplemental_Mathematical_Operators
+	| ( '\u27C0' .. '\u27EF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-A
+	| ( '\u2980' .. '\u29FF' ) // https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
+	;
+*/	
+terminal fragment ESC_SEQ: '\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\' ) | UNICODE_ESC ;
+	
+terminal fragment UNICODE_ESC: '\\' 'u' EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT EXTENDED_DIGIT ;
