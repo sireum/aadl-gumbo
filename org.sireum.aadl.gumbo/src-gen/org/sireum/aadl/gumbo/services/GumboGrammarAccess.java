@@ -5914,6 +5914,31 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cReleaseKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
 		private final Keyword cSinceKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
 		private final Keyword cTriggerKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cAssumeKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cBeforeKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cCasesKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cComponentsKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cCompositionKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cComputeKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cCompute_casesKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cFunctionsKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cGuaranteeKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cHandleKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cInfoflowKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cInitializeKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cIntegrationKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cInvKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cInvariantKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cInvariantsKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cLabelKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cModifiesKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cMutKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cPortsKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cPropertyKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cReadsKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cSchemaKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cSequenceKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cSplitKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
 		
 		// // short circuit implies
 		//// Keywords introduced for the monitor subclause are ordinary words that already occur
@@ -5921,14 +5946,32 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//// generated with ignoreCase = true, so 'On'/'ON' lex as the 'on' keyword. Allow them
 		//// back in identifier position.
 		//ValidID returns ecore::EString:
-		//    ID | 'monitor' | 'alert' | 'on'
+		//    ID
+		//    // monitor subclause
+		//    | 'monitor' | 'alert' | 'on'
+		//    // temporal operators
 		//    | 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
-		//    | 'Until' | 'Release' | 'Since' | 'Trigger';
+		//    | 'Until' | 'Release' | 'Since' | 'Trigger'
+		//    // pre-existing GUMBO keywords, unreserved for the same reason
+		//    | 'assume' | 'before' | 'cases' | 'components' | 'composition' | 'compute'
+		//    | 'compute_cases' | 'functions' | 'guarantee' | 'handle' | 'infoflow'
+		//    | 'initialize' | 'integration' | 'inv' | 'invariant' | 'invariants'
+		//    | 'label' | 'modifies' | 'mut' | 'ports' | 'property' | 'reads'
+		//    | 'schema' | 'sequence' | 'split';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | 'monitor' | 'alert' | 'on'
+		//ID
+		//// monitor subclause
+		//| 'monitor' | 'alert' | 'on'
+		//// temporal operators
 		//| 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
 		//| 'Until' | 'Release' | 'Since' | 'Trigger'
+		//// pre-existing GUMBO keywords, unreserved for the same reason
+		//| 'assume' | 'before' | 'cases' | 'components' | 'composition' | 'compute'
+		//| 'compute_cases' | 'functions' | 'guarantee' | 'handle' | 'infoflow'
+		//| 'initialize' | 'integration' | 'inv' | 'invariant' | 'invariants'
+		//| 'label' | 'modifies' | 'mut' | 'ports' | 'property' | 'reads'
+		//| 'schema' | 'sequence' | 'split'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -5972,6 +6015,81 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'Trigger'
 		public Keyword getTriggerKeyword_13() { return cTriggerKeyword_13; }
+		
+		//'assume'
+		public Keyword getAssumeKeyword_14() { return cAssumeKeyword_14; }
+		
+		//'before'
+		public Keyword getBeforeKeyword_15() { return cBeforeKeyword_15; }
+		
+		//'cases'
+		public Keyword getCasesKeyword_16() { return cCasesKeyword_16; }
+		
+		//'components'
+		public Keyword getComponentsKeyword_17() { return cComponentsKeyword_17; }
+		
+		//'composition'
+		public Keyword getCompositionKeyword_18() { return cCompositionKeyword_18; }
+		
+		//'compute'
+		public Keyword getComputeKeyword_19() { return cComputeKeyword_19; }
+		
+		//'compute_cases'
+		public Keyword getCompute_casesKeyword_20() { return cCompute_casesKeyword_20; }
+		
+		//'functions'
+		public Keyword getFunctionsKeyword_21() { return cFunctionsKeyword_21; }
+		
+		//'guarantee'
+		public Keyword getGuaranteeKeyword_22() { return cGuaranteeKeyword_22; }
+		
+		//'handle'
+		public Keyword getHandleKeyword_23() { return cHandleKeyword_23; }
+		
+		//'infoflow'
+		public Keyword getInfoflowKeyword_24() { return cInfoflowKeyword_24; }
+		
+		//'initialize'
+		public Keyword getInitializeKeyword_25() { return cInitializeKeyword_25; }
+		
+		//'integration'
+		public Keyword getIntegrationKeyword_26() { return cIntegrationKeyword_26; }
+		
+		//'inv'
+		public Keyword getInvKeyword_27() { return cInvKeyword_27; }
+		
+		//'invariant'
+		public Keyword getInvariantKeyword_28() { return cInvariantKeyword_28; }
+		
+		//'invariants'
+		public Keyword getInvariantsKeyword_29() { return cInvariantsKeyword_29; }
+		
+		//'label'
+		public Keyword getLabelKeyword_30() { return cLabelKeyword_30; }
+		
+		//'modifies'
+		public Keyword getModifiesKeyword_31() { return cModifiesKeyword_31; }
+		
+		//'mut'
+		public Keyword getMutKeyword_32() { return cMutKeyword_32; }
+		
+		//'ports'
+		public Keyword getPortsKeyword_33() { return cPortsKeyword_33; }
+		
+		//'property'
+		public Keyword getPropertyKeyword_34() { return cPropertyKeyword_34; }
+		
+		//'reads'
+		public Keyword getReadsKeyword_35() { return cReadsKeyword_35; }
+		
+		//'schema'
+		public Keyword getSchemaKeyword_36() { return cSchemaKeyword_36; }
+		
+		//'sequence'
+		public Keyword getSequenceKeyword_37() { return cSequenceKeyword_37; }
+		
+		//'split'
+		public Keyword getSplitKeyword_38() { return cSplitKeyword_38; }
 	}
 	public class TemporalUnaryOpsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.sireum.aadl.gumbo.Gumbo.TemporalUnaryOps");
@@ -7836,9 +7954,18 @@ public class GumboGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//// generated with ignoreCase = true, so 'On'/'ON' lex as the 'on' keyword. Allow them
 	//// back in identifier position.
 	//ValidID returns ecore::EString:
-	//    ID | 'monitor' | 'alert' | 'on'
+	//    ID
+	//    // monitor subclause
+	//    | 'monitor' | 'alert' | 'on'
+	//    // temporal operators
 	//    | 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
-	//    | 'Until' | 'Release' | 'Since' | 'Trigger';
+	//    | 'Until' | 'Release' | 'Since' | 'Trigger'
+	//    // pre-existing GUMBO keywords, unreserved for the same reason
+	//    | 'assume' | 'before' | 'cases' | 'components' | 'composition' | 'compute'
+	//    | 'compute_cases' | 'functions' | 'guarantee' | 'handle' | 'infoflow'
+	//    | 'initialize' | 'integration' | 'inv' | 'invariant' | 'invariants'
+	//    | 'label' | 'modifies' | 'mut' | 'ports' | 'property' | 'reads'
+	//    | 'schema' | 'sequence' | 'split';
 	public ValidIDElements getValidIDAccess() {
 		return pValidID;
 	}

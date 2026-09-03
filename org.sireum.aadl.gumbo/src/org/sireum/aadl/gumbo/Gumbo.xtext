@@ -714,9 +714,18 @@ terminal SIMPLIES: ('___' | '~~')  '>' ':'; // short circuit implies
 // generated with ignoreCase = true, so 'On'/'ON' lex as the 'on' keyword. Allow them
 // back in identifier position.
 ValidID returns ecore::EString:
-	ID | 'monitor' | 'alert' | 'on'
+	ID
+	// monitor subclause
+	| 'monitor' | 'alert' | 'on'
+	// temporal operators
 	| 'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically'
-	| 'Until' | 'Release' | 'Since' | 'Trigger';
+	| 'Until' | 'Release' | 'Since' | 'Trigger'
+	// pre-existing GUMBO keywords, unreserved for the same reason
+	| 'assume' | 'before' | 'cases' | 'components' | 'composition' | 'compute'
+	| 'compute_cases' | 'functions' | 'guarantee' | 'handle' | 'infoflow'
+	| 'initialize' | 'integration' | 'inv' | 'invariant' | 'invariants'
+	| 'label' | 'modifies' | 'mut' | 'ports' | 'property' | 'reads'
+	| 'schema' | 'sequence' | 'split';
 
 TemporalUnaryOps:
      'Future' | 'Eventually' | 'Globally' | 'Always' | 'Once' | 'Historically';
